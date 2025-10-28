@@ -1,0 +1,71 @@
+---
+# BSC Private Chain - Configuration Variables
+
+# Chain Configuration
+chain_id: 885824
+network_name: "BTCBR Private BSC"
+consensus: "parlia"
+block_time_seconds: 3
+epoch: 200
+
+# Network Endpoints
+rpc_domain: "rpc.bitcoinbr.tech"
+server_ip: "3.91.50.187"
+http_rpc_port: 8545
+ws_rpc_port: 8546
+
+# P2P Configuration
+p2p_ports:
+  validator1: 30303
+  validator2: 30304
+  validator3: 30305
+
+# Validator Wallets
+validators:
+  - address: "0xFAA5AA97651c2e2b6860219bb8f9902d416dB5DD"
+    port: 30303
+    rpc_port: 8545
+    ws_port: 8546
+  - address: "0xfd634d55ce9b99058dc06cdda1f866b39579a9f3"
+    port: 30304
+  - address: "0xb753b892551d1c374fda6fd7f6e9b787688c4ea5"
+    port: 30305
+
+# BTCBR Token Configuration
+btcbr_contract: "0x0cF8e180350253271f4b917CcFb0aCCc4862F262"
+btcbr_total_supply: "21000000000000000000000000000000000000000"  # 21 septillion
+btcbr_decimals: 18
+btcbr_symbol: "BTCBR"
+btcbr_name: "Bitcoin BR"
+
+# User Wallet
+user_wallet: "0xdD779a290C937144F80Eb75b75d814c834536B1b"
+native_bnb_amount: "1000000000000000000000"  # 1000 BNB
+btcbr_user_balance: "10500000000000000000000000000000000000000"  # 10.5 septillion
+
+# Docker Configuration
+docker_image: "dysnix/bsc"
+docker_network: "host"
+data_directory: "/home/ec2-user/bsc-production"
+
+# NGINX Configuration
+nginx_rate_limit_rpc: "100r/s"
+nginx_rate_limit_ws: "50r/s"
+nginx_burst_rpc: 200
+nginx_burst_ws: 100
+
+# SSL Configuration
+ssl_email: "admin@bitcoinbr.tech"
+ssl_auto_renew_hours: 12
+
+# Security
+ssh_key_name: "bsc-validator-key"
+ssh_key_path: "~/.ssh/{{ ssh_key_name }}.pem"
+security_group_id: "sg-05893730dea8a0a5f"
+instance_id: "i-0f7452bba70ca5542"
+
+# System Configuration
+ansible_user: "ec2-user"
+ansible_ssh_private_key_file: "{{ ssh_key_path }}"
+become: yes
+become_method: sudo

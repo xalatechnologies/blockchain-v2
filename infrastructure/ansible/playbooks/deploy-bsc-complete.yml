@@ -1,0 +1,484 @@
+---
+# Complete BSC Deployment with BTCBR, Native Balance, P2P, and Block Production
+# Fixes all issues: genesis balances, P2P networking, and Parlia consensus
+
+- name: Deploy Complete BSC Chain with BTCBR
+  hosts: bsc_validators
+  become: yes
+  vars:
+    chain_id: 885824
+    block_time: 3
+    epoch: 200
+    
+    # BTCBR Configuration
+    btcbr_contract: "0x0cF8e180350253271f4b917CcFb0aCCc4862F262"
+    btcbr_total_supply: "21000000000000000000000000000000000000000"
+    btcbr_user_balance: "10500000000000000000000000000000000000000"
+    
+    # Wallets
+    user_wallet: "0xdD779a290C937144F80Eb75b75d814c834536B1b"
+    validator1_address: "0xFAA5AA97651c2e2b6860219bb8f9902d416dB5DD"
+    validator2_address: "0xfd634d55ce9b99058dc06cdda1f866b39579a9f3"
+    validator3_address: "0xb753b892551d1c374fda6fd7f6e9b787688c4ea5"
+    
+    # Native BNB
+    native_bnb: "1000000000000000000000"  # 1000 BNB
+    
+    # Paths
+    data_dir: "/home/ec2-user/bsc-production"
+    docker_image: "dysnix/bsc"
+
+  tasks:
+    # ==========================================
+    # 1. PREPARE ENVIRONMENT
+    # ==========================================
+    - name: Install required packages
+      yum:
+        name:
+          - python3
+          - python3-pip
+          - docker
+        state: present
+
+    - name: Install Python dependencies
+      pip:
+        name:
+          - web3==5.31.4
+          - requests
+        executable: pip3
+
+    - name: Ensure Docker is running
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Create data directories
+      file:
+        path: "{{ data_dir }}/{{ item }}"
+        state: directory
+        owner: ec2-user
+        group: ec2-user
+        mode: '0755'
+      loop:
+        - config
+        - validator-1
+        - validator-2
+        - validator-3
+
+    # ==========================================
+    # 2. GENERATE GENESIS WITH ALL FIXES
+    # ==========================================
+    - name: Create genesis generation script
+      copy:
+        content: |
+          #!/usr/bin/env python3
+          import json
+          import requests
+          from web3 import Web3
+
+          # Configuration
+          BTCBR_ADDRESS = "{{ btcbr_contract }}"
+          YOUR_WALLET = "{{ user_wallet }}"
+          VALIDATOR_WALLET = "{{ validator1_address }}"
+          
+          TOTAL_SUPPLY = int("{{ btcbr_total_supply }}")
+          HALF_SUPPLY = int("{{ btcbr_user_balance }}")
+          NATIVE_BNB = int("{{ native_bnb }}")
+
+          # Fetch from mainnet
+          BSC_RPC = "https://bsc-dataseed1.binance.org/"
+          w3 = Web3(Web3.HTTPProvider(BSC_RPC))
+          
+          print("Fetching BTCBR bytecode from mainnet...")
+          response = requests.post(BSC_RPC, json={
+              "jsonrpc": "2.0",
+              "method": "eth_getCode",
+              "params": [BTCBR_ADDRESS, "latest"],
+              "id": 1
+          })
+          bytecode = response.json()["result"]
+
+          def get_balance_slot(address, slot=1):
+              addr_padded = address.lower().replace("0x", "").zfill(64)
+              slot_padded = hex(slot)[2:].zfill(64)
+              key = Web3.keccak(hexstr=addr_padded + slot_padded).hex()
+              return key
+
+          print("Fetching storage values from mainnet...")
+          slot5 = w3.eth.get_storage_at(BTCBR_ADDRESS, 5).hex()
+          slot6 = w3.eth.get_storage_at(BTCBR_ADDRESS, 6).hex()
+
+          # Create storage mapping
+          storage = {
+              "0x0000000000000000000000000000000000000000000000000000000000000003": 
+                  "0x" + hex(TOTAL_SUPPLY)[2:].zfill(64),
+              "0x0000000000000000000000000000000000000000000000000000000000000004": 
+                  "0x0000000000000000000000000000000000000000000000000000000000000012",
+              "0x0000000000000000000000000000000000000000000000000000000000000005": 
+                  slot5,
+              "0x0000000000000000000000000000000000000000000000000000000000000006": 
+                  slot6,
+              get_balance_slot(YOUR_WALLET, 1): "0x" + hex(HALF_SUPPLY)[2:].zfill(64),
+              get_balance_slot(VALIDATOR_WALLET, 1): "0x" + hex(HALF_SUPPLY)[2:].zfill(64),
+          }
+
+          # Genesis configuration
+          genesis = {
+              "config": {
+                  "chainId": {{ chain_id }},
+                  "homesteadBlock": 0,
+                  "eip150Block": 0,
+                  "eip155Block": 0,
+                  "eip158Block": 0,
+                  "byzantiumBlock": 0,
+                  "constantinopleBlock": 0,
+                  "petersburgBlock": 0,
+                  "istanbulBlock": 0,
+                  "muirGlacierBlock": 0,
+                  "ramanujanBlock": 0,
+                  "nielsBlock": 0,
+                  "mirrorSyncBlock": 0,
+                  "brunoBlock": 0,
+                  "eulerBlock": 0,
+                  "parlia": {
+                      "period": {{ block_time }},
+                      "epoch": {{ epoch }}
+                  }
+              },
+              "nonce": "0x0",
+              "timestamp": "0x0",
+              "extraData": "0x0000000000000000000000000000000000000000000000000000000000000000faa5aa97651c2e2b6860219bb8f9902d416db5ddfd634d55ce9b99058dc06cdda1f866b39579a9f3b753b892551d1c374fda6fd7f6e9b787688c4ea50000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+              "gasLimit": "0x2625a00",
+              "difficulty": "0x1",
+              "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "coinbase": "0x0000000000000000000000000000000000000000",
+              "alloc": {
+                  BTCBR_ADDRESS.lower(): {
+                      "balance": "0x0",
+                      "code": bytecode,
+                      "storage": storage
+                  },
+                  YOUR_WALLET.lower(): {
+                      "balance": "0x" + hex(NATIVE_BNB)[2:]
+                  },
+                  VALIDATOR_WALLET.lower(): {
+                      "balance": "0x" + hex(NATIVE_BNB)[2:]
+                  },
+                  "{{ validator2_address }}".lower(): {
+                      "balance": "0x" + hex(NATIVE_BNB)[2:]
+                  },
+                  "{{ validator3_address }}".lower(): {
+                      "balance": "0x" + hex(NATIVE_BNB)[2:]
+                  }
+              }
+          }
+
+          print("Writing genesis file...")
+          with open("/tmp/genesis.json", "w") as f:
+              json.dump(genesis, f, indent=2)
+
+          print("✅ Genesis file created successfully!")
+          print(f"   - BTCBR Contract: {BTCBR_ADDRESS}")
+          print(f"   - User Wallet: {YOUR_WALLET} (1000 BNB + 10.5 septillion BTCBR)")
+          print(f"   - Validator 1: {VALIDATOR_WALLET} (1000 BNB + 10.5 septillion BTCBR)")
+          print(f"   - Validator 2: {{ validator2_address }} (1000 BNB)")
+          print(f"   - Validator 3: {{ validator3_address }} (1000 BNB)")
+        dest: /tmp/generate_genesis.py
+        mode: '0755'
+
+    - name: Generate genesis file
+      command: python3 /tmp/generate_genesis.py
+      register: genesis_result
+
+    - name: Display genesis generation result
+      debug:
+        var: genesis_result.stdout_lines
+
+    - name: Copy genesis to config directory
+      copy:
+        src: /tmp/genesis.json
+        dest: "{{ data_dir }}/config/genesis.json"
+        owner: ec2-user
+        group: ec2-user
+        mode: '0644'
+        remote_src: yes
+
+    # ==========================================
+    # 3. STOP AND CLEAN EXISTING VALIDATORS
+    # ==========================================
+    - name: Stop existing validators
+      docker_container:
+        name: "{{ item }}"
+        state: absent
+      loop:
+        - bsc-validator-1
+        - bsc-validator-2
+        - bsc-validator-3
+      ignore_errors: yes
+
+    - name: Remove old blockchain data
+      file:
+        path: "{{ data_dir }}/{{ item }}/geth"
+        state: absent
+      loop:
+        - validator-1
+        - validator-2
+        - validator-3
+
+    # ==========================================
+    # 4. INITIALIZE VALIDATORS
+    # ==========================================
+    - name: Initialize validator 1
+      command: >
+        docker run --rm 
+        -v {{ data_dir }}/validator-1:/bsc
+        -v {{ data_dir }}/config/genesis.json:/genesis.json
+        {{ docker_image }}
+        init --datadir /bsc /genesis.json
+
+    - name: Initialize validator 2
+      command: >
+        docker run --rm 
+        -v {{ data_dir }}/validator-2:/bsc
+        -v {{ data_dir }}/config/genesis.json:/genesis.json
+        {{ docker_image }}
+        init --datadir /bsc /genesis.json
+
+    - name: Initialize validator 3
+      command: >
+        docker run --rm 
+        -v {{ data_dir }}/validator-3:/bsc
+        -v {{ data_dir }}/config/genesis.json:/genesis.json
+        {{ docker_image }}
+        init --datadir /bsc /genesis.json
+
+    # ==========================================
+    # 5. START VALIDATORS
+    # ==========================================
+    - name: Start validator 1 (main RPC)
+      docker_container:
+        name: bsc-validator-1
+        image: "{{ docker_image }}"
+        state: started
+        restart_policy: unless-stopped
+        network_mode: host
+        volumes:
+          - "{{ data_dir }}/validator-1:/bsc"
+          - "{{ data_dir }}/validator-1/password.txt:/password.txt:ro"
+        command: >
+          --datadir /bsc
+          --networkid {{ chain_id }}
+          --syncmode full
+          --gcmode archive
+          --http
+          --http.addr 0.0.0.0
+          --http.port 8545
+          --http.api eth,net,web3,txpool
+          --http.corsdomain "*"
+          --http.vhosts "*"
+          --ws
+          --ws.addr 0.0.0.0
+          --ws.port 8546
+          --ws.origins "*"
+          --port 30303
+          --password /password.txt
+          --unlock {{ validator1_address }}
+          --mine
+          --miner.etherbase {{ validator1_address }}
+          --allow-insecure-unlock
+          --maxpeers 25
+
+    - name: Start validator 2
+      docker_container:
+        name: bsc-validator-2
+        image: "{{ docker_image }}"
+        state: started
+        restart_policy: unless-stopped
+        network_mode: host
+        volumes:
+          - "{{ data_dir }}/validator-2:/bsc"
+          - "{{ data_dir }}/validator-2/password.txt:/password.txt:ro"
+        command: >
+          --datadir /bsc
+          --networkid {{ chain_id }}
+          --port 30304
+          --password /password.txt
+          --unlock {{ validator2_address }}
+          --mine
+          --miner.etherbase {{ validator2_address }}
+          --allow-insecure-unlock
+          --maxpeers 25
+
+    - name: Start validator 3
+      docker_container:
+        name: bsc-validator-3
+        image: "{{ docker_image }}"
+        state: started
+        restart_policy: unless-stopped
+        network_mode: host
+        volumes:
+          - "{{ data_dir }}/validator-3:/bsc"
+          - "{{ data_dir }}/validator-3/password.txt:/password.txt:ro"
+        command: >
+          --datadir /bsc
+          --networkid {{ chain_id }}
+          --port 30305
+          --password /password.txt
+          --unlock {{ validator3_address }}
+          --mine
+          --miner.etherbase {{ validator3_address }}
+          --allow-insecure-unlock
+          --maxpeers 25
+
+    - name: Wait for validators to initialize
+      pause:
+        seconds: 20
+
+    # ==========================================
+    # 6. CONFIGURE P2P STATIC NODES
+    # ==========================================
+    - name: Get validator 1 enode
+      shell: docker logs bsc-validator-1 2>&1 | grep "Started P2P" | tail -1 | grep -oP 'enode://[^@]+' | head -1
+      register: enode1_raw
+      retries: 5
+      delay: 5
+      until: enode1_raw.stdout != ""
+
+    - name: Get validator 2 enode
+      shell: docker logs bsc-validator-2 2>&1 | grep "Started P2P" | tail -1 | grep -oP 'enode://[^@]+' | head -1
+      register: enode2_raw
+      retries: 5
+      delay: 5
+      until: enode2_raw.stdout != ""
+
+    - name: Get validator 3 enode
+      shell: docker logs bsc-validator-3 2>&1 | grep "Started P2P" | tail -1 | grep -oP 'enode://[^@]+' | head -1
+      register: enode3_raw
+      retries: 5
+      delay: 5
+      until: enode3_raw.stdout != ""
+
+    - name: Set enode variables
+      set_fact:
+        enode1: "{{ enode1_raw.stdout }}@127.0.0.1:30303"
+        enode2: "{{ enode2_raw.stdout }}@127.0.0.1:30304"
+        enode3: "{{ enode3_raw.stdout }}@127.0.0.1:30305"
+
+    - name: Create static-nodes.json for validator 1
+      copy:
+        content: '["{{ enode2 }}", "{{ enode3 }}"]'
+        dest: "{{ data_dir }}/validator-1/static-nodes.json"
+        owner: ec2-user
+        group: ec2-user
+
+    - name: Create static-nodes.json for validator 2
+      copy:
+        content: '["{{ enode1 }}", "{{ enode3 }}"]'
+        dest: "{{ data_dir }}/validator-2/static-nodes.json"
+        owner: ec2-user
+        group: ec2-user
+
+    - name: Create static-nodes.json for validator 3
+      copy:
+        content: '["{{ enode1 }}", "{{ enode2 }}"]'
+        dest: "{{ data_dir }}/validator-3/static-nodes.json"
+        owner: ec2-user
+        group: ec2-user
+
+    - name: Restart validators to apply P2P configuration
+      docker_container:
+        name: "{{ item }}"
+        state: started
+        restart: yes
+      loop:
+        - bsc-validator-1
+        - bsc-validator-2
+        - bsc-validator-3
+
+    - name: Wait for chain to stabilize
+      pause:
+        seconds: 30
+
+    # ==========================================
+    # 7. VERIFY DEPLOYMENT
+    # ==========================================
+    - name: Check peer count
+      uri:
+        url: http://localhost:8545
+        method: POST
+        body_format: json
+        body:
+          jsonrpc: "2.0"
+          method: "net_peerCount"
+          params: []
+          id: 1
+      register: peer_count
+
+    - name: Check block number
+      uri:
+        url: http://localhost:8545
+        method: POST
+        body_format: json
+        body:
+          jsonrpc: "2.0"
+          method: "eth_blockNumber"
+          params: []
+          id: 1
+      register: block_number
+
+    - name: Check native BNB balance
+      uri:
+        url: http://localhost:8545
+        method: POST
+        body_format: json
+        body:
+          jsonrpc: "2.0"
+          method: "eth_getBalance"
+          params:
+            - "{{ user_wallet }}"
+            - "latest"
+          id: 1
+      register: bnb_balance
+
+    - name: Check BTCBR balance
+      uri:
+        url: http://localhost:8545
+        method: POST
+        body_format: json
+        body:
+          jsonrpc: "2.0"
+          method: "eth_call"
+          params:
+            - to: "{{ btcbr_contract }}"
+              data: "0x70a08231000000000000000000000000{{ user_wallet | replace('0x', '') }}"
+            - "latest"
+          id: 1
+      register: btcbr_balance
+
+    - name: Display deployment status
+      debug:
+        msg:
+          - "========================================="
+          - "✅ BSC Chain Deployment Complete!"
+          - "========================================="
+          - ""
+          - "Network Information:"
+          - "  Chain ID: {{ chain_id }}"
+          - "  RPC: http://{{ ansible_host }}:8545"
+          - "  WebSocket: ws://{{ ansible_host }}:8546"
+          - ""
+          - "P2P Status:"
+          - "  Peers: {{ (peer_count.json.result | int(base=16)) }}"
+          - "  Enode 1: {{ enode1 }}"
+          - "  Enode 2: {{ enode2 }}"
+          - "  Enode 3: {{ enode3 }}"
+          - ""
+          - "Block Production:"
+          - "  Current Block: {{ (block_number.json.result | int(base=16)) }}"
+          - ""
+          - "Balances:"
+          - "  Native BNB: {{ bnb_balance.json.result }}"
+          - "  BTCBR Tokens: {{ btcbr_balance.json.result }}"
+          - ""
+          - "========================================="
