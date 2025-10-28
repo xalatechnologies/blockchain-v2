@@ -107,15 +107,16 @@ ssh -i "${KEY_PAIR_NAME}.pem" -o StrictHostKeyChecking=no ec2-user@"$INSTANCE_IP
     sudo chmod +x setup.sh migrate-to-bsc.sh scripts/*.sh
     ./setup.sh
     
-    # Install required packages for Ansible
+    # Install required packages
     sudo yum install -y jq curl
     
-    # Test Ansible connectivity
-    cd ~/blockchain-v2/infrastructure/ansible
-    ansible all -m ping
+    # Run the migration script to set up the BSC node
+    sudo chmod +x migrate-to-bsc.sh
+    ./migrate-to-bsc.sh
 EOF
 
 echo "==> Deployment complete!"
 echo "Instance IP: $INSTANCE_IP"
 echo "Key file: ${KEY_PAIR_NAME}.pem"
 echo "To connect to the instance: ssh -i ${KEY_PAIR_NAME}.pem ec2-user@$INSTANCE_IP"
+echo "RPC endpoint will be available at: http://$INSTANCE_IP:8545"
