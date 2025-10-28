@@ -12,24 +12,15 @@ This directory contains the tools and scripts necessary to migrate from an AWS G
   - Generates Parlia genesis with validator in extraData
   - Initializes and starts a BSC node with mining enabled
 
-- `aws-deploy.sh` - AWS deployment script that:
-  - Creates EC2 instance with proper security groups
-  - Installs required dependencies
-  - Deploys the validator node
-
-- `check-rpc.sh` - RPC endpoint validation script that:
-  - Tests connectivity to existing RPC endpoint
-  - Validates chain ID and block height
-  - Checks BTCBR contract deployment
-
-- `connect-to-network.sh` - Network connection script that:
-  - Connects to existing BitcoinBR network
-  - Syncs with existing validators
+- `scripts/` - Contains additional utility scripts:
+  - `aws-deploy.sh` - AWS deployment script
+  - `check-rpc.sh` - RPC endpoint validation script
+  - `connect-to-network.sh` - Network connection script
 
 ## Features
 
 - Private BNB/Parlia chain with 3-second block times
-- Chain ID: 1001 (matching the Xaheen private chain configuration)
+- Chain ID: 885824 (BitcoinBR network)
 - BTCBR contract deployed at the same address as BSC mainnet (0x0cF8e180350253271f4b917CcFb0aCCc4862F262)
 - JSON-RPC (8545) and WS (8546) endpoints
 - Clean path to add more validators
@@ -37,8 +28,8 @@ This directory contains the tools and scripts necessary to migrate from an AWS G
 ## Usage
 
 1. Edit the variables at the top of `migrate-to-bsc.sh`:
-   - CHAIN_ID (set to 1001 to match Xaheen private chain)
-   - NETWORK_ID (set to 1001)
+   - CHAIN_ID (set to 885824 for BitcoinBR network)
+   - NETWORK_ID (set to 885824)
    - Validator key source (import existing or create new)
 
 2. Run the migration script:
@@ -75,7 +66,7 @@ To deploy to AWS:
 
 2. Run the AWS deployment script:
    ```bash
-   ./aws-deploy.sh
+   ./scripts/aws-deploy.sh
    ```
 
 ## Connecting to Existing Network
@@ -86,7 +77,7 @@ To connect to the existing BitcoinBR network:
 2. Update the `.env` file with your validator address
 3. Run the connection script:
    ```bash
-   ./connect-to-network.sh
+   ./scripts/connect-to-network.sh
    ```
 
 ## RPC Endpoint Validation
@@ -94,7 +85,7 @@ To connect to the existing BitcoinBR network:
 To check the existing RPC endpoint:
 
 ```bash
-./check-rpc.sh
+./scripts/check-rpc.sh
 ```
 
 ## Next Steps

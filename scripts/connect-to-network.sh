@@ -53,7 +53,6 @@ services:
       --lightkdf
       --verbosity 3
       --identity "xaheen-bsc-validator-1"
-      --bootnodes "enode://d74ae95f0e1241526263083570890d978e75fab793297988e46a75958523b25318c064e41bd8097258d9d597703eb2c1485a0922930d85a27959670b02082b85@rpc.bitcoinbr.tech:30303"
 EOF
 
 echo "Created docker-compose.override.yml to connect to existing network"
