@@ -3,9 +3,13 @@
 # AWS Deployment Script for BSC Validator Node
 set -euo pipefail
 
-# Load environment variables
+# Load environment variables (skip comments and empty lines)
 if [ -f .env ]; then
-    export $(cat .env | xargs)
+    while IFS= read -r line || [[ -n "$line" ]]; do
+        if [[ ! "$line" =~ ^#.* ]] && [[ -n "$line" ]]; then
+            export "$line"
+        fi
+    done < .env
 fi
 
 # Default values
