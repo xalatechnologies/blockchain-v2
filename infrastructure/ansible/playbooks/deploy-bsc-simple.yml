@@ -1,0 +1,136 @@
+---
+# Simple BSC Deployment using shell commands (Python 3.7 compatible)
+# Deploys genesis with BTCBR, native balance, P2P, and block production
+
+- name: Deploy BSC Chain with All Fixes
+  hosts: bsc_validators
+  gather_facts: no
+  vars:
+    data_dir: "/home/ec2-user/bsc-production"
+    
+  tasks:
+    - name: Upload genesis file
+      raw: |
+        cat > {{ data_dir }}/config/genesis-upload.json << 'EOF'
+        {{ lookup('file', '../../../data/genesis-btcbr-fixed.json') }}
+        EOF
+        mv {{ data_dir }}/config/genesis-upload.json {{ data_dir }}/config/genesis.json
+        
+    - name: Stop existing validators
+      raw: |
+        docker stop bsc-validator-1 bsc-validator-2 bsc-validator-3 2>/dev/null || true
+        docker rm bsc-validator-1 bsc-validator-2 bsc-validator-3 2>/dev/null || true
+      
+    - name: Remove old blockchain data
+      raw: |
+        cd {{ data_dir }}
+        sudo rm -rf validator-1/geth validator-2/geth validator-3/geth
+        
+    - name: Initialize validators
+      raw: |
+        cd {{ data_dir }}
+        docker run --rm -v $(pwd)/validator-1:/bsc -v $(pwd)/config/genesis.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
+        docker run --rm -v $(pwd)/validator-2:/bsc -v $(pwd)/config/genesis.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
+        docker run --rm -v $(pwd)/validator-3:/bsc -v $(pwd)/config/genesis.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
+        
+    - name: Start validator 1 (main RPC)
+      raw: |
+        cd {{ data_dir }}
+        docker run -d --name bsc-validator-1 --restart unless-stopped --network host \
+          -v $(pwd)/validator-1:/bsc -v $(pwd)/validator-1/password.txt:/password.txt:ro \
+          dysnix/bsc --datadir /bsc --networkid 885824 --syncmode full --gcmode archive \
+          --http --http.addr 0.0.0.0 --http.port 8545 --http.api eth,net,web3,txpool --http.corsdomain "*" --http.vhosts "*" \
+          --ws --ws.addr 0.0.0.0 --ws.port 8546 --ws.origins "*" --port 30303 \
+          --password /password.txt --unlock 0xFAA5AA97651c2e2b6860219bb8f9902d416dB5DD \
+          --mine --miner.etherbase 0xFAA5AA97651c2e2b6860219bb8f9902d416dB5DD --allow-insecure-unlock --maxpeers 25
+          
+    - name: Start validator 2
+      raw: |
+        cd {{ data_dir }}
+        docker run -d --name bsc-validator-2 --restart unless-stopped --network host \
+          -v $(pwd)/validator-2:/bsc -v $(pwd)/validator-2/password.txt:/password.txt:ro \
+          dysnix/bsc --datadir /bsc --networkid 885824 --port 30304 \
+          --password /password.txt --unlock 0xfd634d55ce9b99058dc06cdda1f866b39579a9f3 \
+          --mine --miner.etherbase 0xfd634d55ce9b99058dc06cdda1f866b39579a9f3 --allow-insecure-unlock --maxpeers 25
+          
+    - name: Start validator 3
+      raw: |
+        cd {{ data_dir }}
+        docker run -d --name bsc-validator-3 --restart unless-stopped --network host \
+          -v $(pwd)/validator-3:/bsc -v $(pwd)/validator-3/password.txt:/password.txt:ro \
+          dysnix/bsc --datadir /bsc --networkid 885824 --port 30305 \
+          --password /password.txt --unlock 0xb753b892551d1c374fda6fd7f6e9b787688c4ea5 \
+          --mine --miner.etherbase 0xb753b892551d1c374fda6fd7f6e9b787688c4ea5 --allow-insecure-unlock --maxpeers 25
+          
+    - name: Wait for validators to start
+      raw: sleep 20
+      
+    - name: Configure P2P static nodes
+      raw: |
+        cd {{ data_dir }}
+        
+        # Get enode addresses
+        ENODE1=$(docker logs bsc-validator-1 2>&1 | grep "Started P2P" | tail -1 | grep -oP 'enode://[^@]+' || echo "")
+        ENODE2=$(docker logs bsc-validator-2 2>&1 | grep "Started P2P" | tail -1 | grep -oP 'enode://[^@]+' || echo "")
+        ENODE3=$(docker logs bsc-validator-3 2>&1 | grep "Started P2P" | tail -1 | grep -oP 'enode://[^@]+' || echo "")
+        
+        if [ -z "$ENODE1" ] || [ -z "$ENODE2" ] || [ -z "$ENODE3" ]; then
+          echo "Waiting for enodes..."
+          sleep 10
+          ENODE1=$(docker logs bsc-validator-1 2>&1 | grep "Started P2P" | tail -1 | grep -oP 'enode://[^@]+')
+          ENODE2=$(docker logs bsc-validator-2 2>&1 | grep "Started P2P" | tail -1 | grep -oP 'enode://[^@]+')
+          ENODE3=$(docker logs bsc-validator-3 2>&1 | grep "Started P2P" | tail -1 | grep -oP 'enode://[^@]+')
+        fi
+        
+        # Create static nodes files
+        echo "[\"${ENODE2}@127.0.0.1:30304\", \"${ENODE3}@127.0.0.1:30305\"]" > validator-1/static-nodes.json
+        echo "[\"${ENODE1}@127.0.0.1:30303\", \"${ENODE3}@127.0.0.1:30305\"]" > validator-2/static-nodes.json
+        echo "[\"${ENODE1}@127.0.0.1:30303\", \"${ENODE2}@127.0.0.1:30304\"]" > validator-3/static-nodes.json
+        
+        echo "Enodes configured:"
+        echo "  1: ${ENODE1}@127.0.0.1:30303"
+        echo "  2: ${ENODE2}@127.0.0.1:30304"
+        echo "  3: ${ENODE3}@127.0.0.1:30305"
+        
+        # Restart validators
+        docker restart bsc-validator-1 bsc-validator-2 bsc-validator-3
+        
+    - name: Wait for chain to stabilize
+      raw: sleep 30
+      
+    - name: Check deployment status
+      raw: |
+        echo "========================================="
+        echo "Checking BSC Chain Status"
+        echo "========================================="
+        
+        echo ""
+        echo "Peers:"
+        curl -s http://localhost:8545 -X POST -H "Content-Type: application/json" \
+          --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}'
+        
+        echo ""
+        echo ""
+        echo "Block Number:"
+        curl -s http://localhost:8545 -X POST -H "Content-Type: application/json" \
+          --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
+        
+        echo ""
+        echo ""
+        echo "Native BNB Balance:"
+        curl -s http://localhost:8545 -X POST -H "Content-Type: application/json" \
+          --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xdD779a290C937144F80Eb75b75d814c834536B1b","latest"],"id":1}'
+        
+        echo ""
+        echo ""
+        echo "BTCBR Token Balance:"
+        curl -s http://localhost:8545 -X POST -H "Content-Type: application/json" \
+          --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0x0cF8e180350253271f4b917CcFb0aCCc4862F262","data":"0x70a08231000000000000000000000000dD779a290C937144F80Eb75b75d814c834536B1b"},"latest"],"id":1}'
+        
+        echo ""
+        echo ""
+        echo "========================================="
+      register: status_check
+      
+    - name: Display status
+      raw: echo "{{ status_check.stdout }}"
