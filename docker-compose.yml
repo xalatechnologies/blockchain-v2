@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  bsc-node:
+    image: bnbchain/bsc:latest
+    container_name: bsc-validator
+    restart: unless-stopped
+    ports:
+      - "8545:8545"   # RPC
+      - "8546:8546"   # WebSocket
+      - "30303:30303" # P2P
+      - "30303:30303/udp" # P2P UDP
+    volumes:
+      - ./data:/bsc
+    command: |
+      --datadir /bsc
+      --networkid 1001
+      --port 30303
+      --syncmode full
+      --http
+      --http.addr 0.0.0.0
+      --http.port 8545
+      --http.corsdomain="*"
+      --http.api "eth,net,web3,personal,txpool,parlia"
+      --ws
+      --ws.addr 0.0.0.0
+      --ws.port 8546
+      --ws.api "eth,net,web3,txpool,parlia"
+      --mine
+      --miner.etherbase ${VALIDATOR_ADDRESS}
+      --unlock ${VALIDATOR_ADDRESS}
+      --password /bsc/password.txt
+      --allow-insecure-unlock
+      --miner.gaslimit 30000000
+      --miner.gasprice 1000000000
+      --txpool.globalslots 4096
+      --lightkdf
+      --verbosity 3
+      --identity "xaheen-bsc-validator-1"
+    environment:
+      - VALIDATOR_ADDRESS=0x0000000000000000000000000000000000000000
