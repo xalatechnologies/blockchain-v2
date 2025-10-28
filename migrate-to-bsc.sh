@@ -30,7 +30,7 @@ FUND_EOA="0x0000000000000000000000000000000000000000"  # set to your EOA if desi
 FUND_BAL_HEX="0x3635c9adc5dea00000"  # 1000 BNB in wei
 
 # Docker image
-IMAGE="bnbchain/bsc:latest"
+IMAGE="dysnix/bsc:latest"
 
 # Validator key source
 #   If you already have a Geth keystore you'd like to reuse, set IMPORT_KEY=true and point to it.

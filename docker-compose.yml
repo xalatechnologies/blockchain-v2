@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   bsc-node:
-    image: bnbchain/bsc:latest
+    image: dysnix/bsc:latest
     container_name: bsc-validator
     restart: unless-stopped
     ports:
