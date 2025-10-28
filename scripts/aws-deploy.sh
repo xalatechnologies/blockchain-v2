@@ -46,10 +46,21 @@ else
     echo "Using existing security group $SECURITY_GROUP_NAME with ID: $SECURITY_GROUP_ID"
 fi
 
+# Get the latest Amazon Linux 2 AMI ID
+echo "==> Getting latest Amazon Linux 2 AMI ID"
+AMI_ID=$(aws ec2 describe-images \
+    --owners amazon \
+    --filters "Name=name,Values=amzn2-ami-hvm-*-x86_64-gp2" \
+    --query 'Images | sort_by(@, &CreationDate)[-1].ImageId' \
+    --output text \
+    --region "$AWS_REGION")
+
+echo "Using AMI ID: $AMI_ID"
+
 # Launch EC2 instance
 echo "==> Launching EC2 instance"
 INSTANCE_ID=$(aws ec2 run-instances \
-    --image-id ami-0abcdef1234567890 \  # Amazon Linux 2 AMI - you may need to update this
+    --image-id "$AMI_ID" \
     --count 1 \
     --instance-type "$AWS_INSTANCE_TYPE" \
     --key-name "$KEY_PAIR_NAME" \
@@ -82,12 +93,20 @@ echo "==> Running setup on instance"
 ssh -i "${KEY_PAIR_NAME}.pem" -o StrictHostKeyChecking=no ec2-user@"$INSTANCE_IP" << 'EOF'
     cd ~/blockchain-v2
     sudo yum update -y
-    sudo yum install -y docker git
+    sudo yum install -y docker git python3-pip
+    sudo pip3 install ansible
     sudo usermod -a -G docker ec2-user
     sudo systemctl enable docker
     sudo systemctl start docker
-    sudo chmod +x setup.sh migrate-to-bsc.sh
+    sudo chmod +x setup.sh migrate-to-bsc.sh scripts/*.sh
     ./setup.sh
+    
+    # Install required packages for Ansible
+    sudo yum install -y jq curl
+    
+    # Test Ansible connectivity
+    cd ~/blockchain-v2/infrastructure/ansible
+    ansible all -m ping
 EOF
 
 echo "==> Deployment complete!"
