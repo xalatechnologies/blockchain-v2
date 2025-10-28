@@ -32,7 +32,7 @@ services:
     # Connect to existing network instead of creating a new one
     command: |
       --datadir /bsc
-      --networkid 1001
+      --networkid 885824
       --port 30303
       --syncmode full
       --http
