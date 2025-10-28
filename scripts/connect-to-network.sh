@@ -9,7 +9,7 @@ VALIDATOR_ADDRESS="0x81bDAf1ac2094D5133937B3361A38a4976E55acc"
 echo "==> Connecting to existing BitcoinBR network"
 
 # Create data directory
-DATA_DIR="./data"
+DATA_DIR="../data"
 mkdir -p "$DATA_DIR/keystore"
 
 # Check if we have a validator key
@@ -22,7 +22,7 @@ if [ ! -f "$DATA_DIR/password.txt" ] || [ ! "$(ls -A $DATA_DIR/keystore)" ]; the
 fi
 
 # Update docker-compose to use the existing network settings
-cat > docker-compose.override.yml <<'EOF'
+cat > ../docker-compose.override.yml <<'EOF'
 version: '3.8'
 
 services:
@@ -59,6 +59,6 @@ echo "Created docker-compose.override.yml to connect to existing network"
 
 # Start the node
 echo "==> Starting node to connect to existing network"
-docker-compose up -d
+cd .. && docker-compose up -d
 
 echo "Node started. Check logs with: docker-compose logs -f"
