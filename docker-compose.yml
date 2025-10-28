@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   bsc-node:
@@ -6,8 +6,8 @@ services:
     container_name: bsc-validator
     restart: unless-stopped
     ports:
-      - "8545:8545"   # RPC
-      - "8546:8546"   # WebSocket
+      - "8545:8545" # RPC
+      - "8546:8546" # WebSocket
       - "30303:30303" # P2P
       - "30303:30303/udp" # P2P UDP
     volumes:

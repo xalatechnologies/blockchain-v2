@@ -1,0 +1,15 @@
+[Unit]
+Description=Bitcoin BR Chain Node
+After=network.target
+
+[Service]
+Type=simple
+User=bitcoinbr
+WorkingDirectory=/home/bitcoinbr
+ExecStart=/usr/local/bin/bitcoinbrd start --home /home/bitcoinbr/.bitcoinbr
+Restart=always
+RestartSec=3
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target

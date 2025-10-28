@@ -1,0 +1,95 @@
+---
+# Bitcoin BR Chain - Simplified Setup
+# This playbook configures the RPC node for connection to the existing network
+
+- name: Setup Common Configuration for All Servers
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update package cache
+      apt:
+        update_cache: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Install required packages
+      apt:
+        name:
+          - curl
+          - jq
+          - python3
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Create bitcoinbr user
+      user:
+        name: bitcoinbr
+        system: yes
+        shell: /bin/bash
+        home: /home/bitcoinbr
+        create_home: yes
+
+    - name: Create bitcoinbr directories
+      file:
+        path: "{{ item }}"
+        state: directory
+        owner: bitcoinbr
+        group: bitcoinbr
+        mode: '0755'
+      loop:
+        - /home/bitcoinbr/.bitcoinbr
+        - /home/bitcoinbr/.bitcoinbr/config
+        - /home/bitcoinbr/.bitcoinbr/data
+
+- name: Setup Validator Node
+  hosts: validators
+  become: yes
+  tasks:
+    - name: Check if blockchain binary exists
+      stat:
+        path: /usr/local/bin/bitcoinbrd
+      register: binary_check
+
+    - name: Install blockchain binary (placeholder)
+      debug:
+        msg: "In a full deployment, this would install the bitcoinbrd binary"
+      when: not binary_check.stat.exists
+
+- name: Setup RPC Node
+  hosts: rpc_nodes
+  become: yes
+  tasks:
+    - name: Configure RPC settings
+      lineinfile:
+        path: /home/bitcoinbr/.bitcoinbr/config/config.toml
+        line: "{{ item }}"
+        create: yes
+        owner: bitcoinbr
+        group: bitcoinbr
+        mode: '0644'
+      loop:
+        - "laddr = \"tcp://0.0.0.0:26656\""
+        - "external_address = \"{{ ansible_default_ipv4.address }}:26656\""
+        - "rpc_listen_addr = \"tcp://0.0.0.0:26657\""
+      ignore_errors: yes
+
+- name: Display Setup Information
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Show setup completion message
+      debug:
+        msg: |
+
+          ==========================================
+          🎉 Infrastructure Setup Complete! 🎉
+          ==========================================
+
+          Next Steps:
+
+          1. To connect to the existing network, you can now run:
+             ansible-playbook playbooks/connect-to-network.yml
+
+          2. To check the status of the network:
+             ansible blockchain -m shell -a "curl -s https://rpc.bitcoinbr.tech/status | jq"
+
+          ==========================================

@@ -1,0 +1,14 @@
+# Bitcoin BR Chain - Test Inventory
+
+[validators]
+rpc.bitcoinbr.tech ansible_host=rpc.bitcoinbr.tech ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/btcbr-key.pem
+
+[rpc_nodes]
+rpc.bitcoinbr.tech ansible_host=rpc.bitcoinbr.tech ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/btcbr-key.pem
+
+[blockchain:children]
+validators
+rpc_nodes
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3

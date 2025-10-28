@@ -1,0 +1,47 @@
+---
+# Bitcoin BR Chain - Global Variables for All Hosts
+
+# Blockchain Configuration
+chain_id: "bitcoinbr-testnet-1"
+denom: "btcbr"
+decimals: 26
+
+# Network Ports
+p2p_port: 26656
+rpc_port: 26657
+rest_api_port: 1317
+grpc_port: 9090
+
+# Consensus Parameters
+block_time: "5s"
+max_validators: 21
+
+# Token Economics (Testnet)
+initial_supply: "100000000000000000000000000000"  # 100M BTCBR (26 decimals)
+min_delegation: "1000000000000000000000000000"    # 1000 BTCBR
+
+# Gas Configuration
+minimum_gas_price: "0.001btcbr"
+
+# Pruning Configuration
+pruning_strategy: "custom"
+pruning_keep_recent: "100"
+pruning_interval: "10"
+
+# State Sync
+snapshot_interval: 1000
+snapshot_keep_recent: 2
+
+# Service URLs
+rpc_endpoint: "rpc.bitcoinbr.tech"
+api_endpoint: "api.bitcoinbr.tech"
+explorer_endpoint: "explorer.bitcoinbr.tech"
+
+# Binary Configuration
+binary_name: "bitcoinbrd"
+binary_path: "/usr/local/bin/{{ binary_name }}"
+home_directory: "/home/bitcoinbr/.bitcoinbr"
+
+# System Configuration
+blockchain_user: "bitcoinbr"
+blockchain_group: "bitcoinbr"

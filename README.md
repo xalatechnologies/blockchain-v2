@@ -17,6 +17,9 @@ This directory contains the tools and scripts necessary to migrate from an AWS G
   - `check-rpc.sh` - RPC endpoint validation script
   - `connect-to-network.sh` - Network connection script
 
+- `infrastructure/` - Contains Ansible automation for infrastructure management:
+  - `ansible/` - Ansible playbooks and configuration
+
 ## Features
 
 - Private BNB/Parlia chain with 3-second block times
@@ -43,6 +46,27 @@ Alternatively, you can use the docker-compose setup:
 
 1. Update the `.env` file with your validator address
 2. Run `docker-compose up -d`
+
+## Infrastructure Automation with Ansible
+
+This project includes Ansible playbooks for infrastructure automation:
+
+1. Navigate to the Ansible directory:
+   ```bash
+   cd infrastructure/ansible
+   ```
+
+2. Verify the inventory file at `inventory/hosts`
+
+3. Run the setup playbook:
+   ```bash
+   ansible-playbook playbooks/setup-all.yml
+   ```
+
+4. Connect to the existing network:
+   ```bash
+   ansible-playbook playbooks/connect-to-network.yml
+   ```
 
 ## AWS Infrastructure Considerations
 

@@ -1,0 +1,106 @@
+---
+# Bitcoin BR Chain - Connect to Existing Network
+# This playbook configures and starts a node to connect to the existing network
+
+- name: Pre-flight Checks
+  hosts: blockchain
+  become: yes
+  tasks:
+    - name: Verify we can connect to the RPC endpoint
+      uri:
+        url: https://rpc.bitcoinbr.tech/status
+        method: GET
+      register: rpc_check
+      ignore_errors: yes
+
+    - name: Fail if RPC endpoint is not accessible
+      fail:
+        msg: "Cannot connect to RPC endpoint at https://rpc.bitcoinbr.tech/status"
+      when: rpc_check is failed or rpc_check.status != 200
+
+- name: Configure Node for Network Connection
+  hosts: blockchain
+  become: yes
+  become_user: bitcoinbr
+  tasks:
+    - name: Create node directories
+      file:
+        path: "{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - /home/bitcoinbr/.bitcoinbr
+        - /home/bitcoinbr/.bitcoinbr/config
+        - /home/bitcoinbr/.bitcoinbr/data
+
+    - name: Initialize node (if needed)
+      shell: |
+        if [ ! -f /home/bitcoinbr/.bitcoinbr/config/config.toml ]; then
+          echo "Initializing node configuration"
+          mkdir -p /home/bitcoinbr/.bitcoinbr/config
+        fi
+      args:
+        creates: /home/bitcoinbr/.bitcoinbr/config/config.toml
+
+    - name: Configure config.toml for connecting to existing network
+      blockinfile:
+        path: /home/bitcoinbr/.bitcoinbr/config/config.toml
+        marker: "# {mark} ANSIBLE MANAGED BLOCK - Network Configuration"
+        block: |
+          # P2P Configuration
+          [p2p]
+          laddr = "tcp://0.0.0.0:26656"
+          external_address = "{{ ansible_default_ipv4.address }}:26656"
+          persistent_peers = "d74ae95f0e1241526263083570890d978e75fab793297988e46a75958523b25318c064e41bd8097258d9d597703eb2c1485a0922930d85a27959670b02082b85@rpc.bitcoinbr.tech:26656"
+          max_num_inbound_peers = 40
+          max_num_outbound_peers = 10
+          
+          # RPC Configuration
+          [rpc]
+          laddr = "tcp://0.0.0.0:26657"
+          
+          # Mempool Configuration
+          [mempool]
+          size = 5000
+          cache_size = 10000
+          
+          # Consensus Configuration
+          [consensus]
+          timeout_commit = "5s"
+
+- name: Create Systemd Service
+  hosts: blockchain
+  become: yes
+  tasks:
+    - name: Create systemd service file
+      template:
+        src: bitcoinbrd.service.j2
+        dest: /etc/systemd/system/bitcoinbrd.service
+        mode: '0644'
+      ignore_errors: yes
+
+- name: Display Connection Information
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Show connection instructions
+      debug:
+        msg: |
+
+          ==========================================
+          🎉 Node Configured to Connect to Network! 🎉
+          ==========================================
+
+          Your node is configured to connect to the existing Bitcoin BR network.
+          
+          To start the node, you would typically:
+          1. Copy the blockchain binary to /usr/local/bin/bitcoinbrd
+          2. Run: systemctl start bitcoinbrd
+          
+          For testing purposes, you can verify the configuration:
+          ansible blockchain -m shell -a "cat /home/bitcoinbr/.bitcoinbr/config/config.toml"
+          
+          To check if your node can reach the network:
+          ansible blockchain -m shell -a "curl -s https://rpc.bitcoinbr.tech/status | jq"
+
+          ==========================================
