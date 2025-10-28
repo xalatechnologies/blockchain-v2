@@ -5,8 +5,8 @@ set -euo pipefail
 #            EDIT THESE VALUES             #
 ############################################
 # Chain/network identity
-CHAIN_ID=1001
-NETWORK_ID=1001
+CHAIN_ID=885824
+NETWORK_ID=885824
 NODE_NAME="xaheen-bsc-validator-1"
 
 # Data & runtime
@@ -37,6 +37,11 @@ IMAGE="bnbchain/bsc:latest"
 IMPORT_KEY=false
 KEYSTORE_SRC="/var/lib/geth/keystore/UTC--2025-01-01T00-00-00Z--youraddress"  # path on this server
 EXISTING_KEY_PASSWORD="YOUR_EXISTING_KEY_PASSWORD"  # will be written to PASSWORD_FILE if importing
+
+# AWS Configuration
+AWS_REGION="us-east-1"
+AWS_INSTANCE_TYPE="t3.large"
+AWS_VOLUME_SIZE="100"
 
 ############################################
 #         DO NOT EDIT BELOW THIS POINT     #

@@ -12,6 +12,20 @@ This directory contains the tools and scripts necessary to migrate from an AWS G
   - Generates Parlia genesis with validator in extraData
   - Initializes and starts a BSC node with mining enabled
 
+- `aws-deploy.sh` - AWS deployment script that:
+  - Creates EC2 instance with proper security groups
+  - Installs required dependencies
+  - Deploys the validator node
+
+- `check-rpc.sh` - RPC endpoint validation script that:
+  - Tests connectivity to existing RPC endpoint
+  - Validates chain ID and block height
+  - Checks BTCBR contract deployment
+
+- `connect-to-network.sh` - Network connection script that:
+  - Connects to existing BitcoinBR network
+  - Syncs with existing validators
+
 ## Features
 
 - Private BNB/Parlia chain with 3-second block times
@@ -49,6 +63,39 @@ When deploying on AWS, ensure you have:
   - RPC endpoints (8545/tcp for JSON-RPC, 8546/tcp for WebSocket)
 - IAM roles for S3 access if using cloud storage for backups
 - Proper backup strategies using S3 or other cloud storage solutions
+
+## AWS Deployment
+
+To deploy to AWS:
+
+1. Configure your AWS credentials:
+   ```bash
+   aws configure
+   ```
+
+2. Run the AWS deployment script:
+   ```bash
+   ./aws-deploy.sh
+   ```
+
+## Connecting to Existing Network
+
+To connect to the existing BitcoinBR network:
+
+1. Ensure you have a validator key in the `data/keystore/` directory
+2. Update the `.env` file with your validator address
+3. Run the connection script:
+   ```bash
+   ./connect-to-network.sh
+   ```
+
+## RPC Endpoint Validation
+
+To check the existing RPC endpoint:
+
+```bash
+./check-rpc.sh
+```
 
 ## Next Steps
 

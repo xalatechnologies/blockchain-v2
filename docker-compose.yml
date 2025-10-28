@@ -14,7 +14,7 @@ services:
       - ./data:/bsc
     command: |
       --datadir /bsc
-      --networkid 1001
+      --networkid 885824
       --port 30303
       --syncmode full
       --http
