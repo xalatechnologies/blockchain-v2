@@ -3,10 +3,8 @@
 # Script to connect to the existing BitcoinBR network
 set -euo pipefail
 
-# Load environment variables (skip comments and empty lines)
-if [ -f .env ]; then
-    export $(grep -v '^#' .env | grep -v '^$' | xargs)
-fi
+# Load environment variables
+VALIDATOR_ADDRESS="0x81bDAf1ac2094D5133937B3361A38a4976E55acc"
 
 echo "==> Connecting to existing BitcoinBR network"
 
@@ -45,8 +43,8 @@ services:
       --ws.port 8546
       --ws.api "eth,net,web3,txpool,parlia"
       --mine
-      --miner.etherbase ${VALIDATOR_ADDRESS}
-      --unlock ${VALIDATOR_ADDRESS}
+      --miner.etherbase 0x81bDAf1ac2094D5133937B3361A38a4976E55acc
+      --unlock 0x81bDAf1ac2094D5133937B3361A38a4976E55acc
       --password /bsc/password.txt
       --allow-insecure-unlock
       --miner.gaslimit 30000000
