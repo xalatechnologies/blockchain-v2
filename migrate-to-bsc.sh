@@ -103,14 +103,14 @@ fi
 echo "   -> Validator address: $VALIDATOR_ADDR"
 
 echo "==> 7) Build Parlia extraData from validator(s)"
-python3 - "$VALIDATOR_ADDR" > "$DATA_DIR/make_extradata.py" <<'PY'
+python3 - "$VALIDATOR_ADDR" <<'PY' > "$DATA_DIR/extradata.txt"
 import sys, binascii
 addr = sys.argv[1]
 h = bytes.fromhex(addr[2:])
 extra = b'\x00'*32 + h + b'\x00'*65
 print("0x"+extra.hex())
 PY
-EXTRA_DATA=$(python3 "$DATA_DIR/make_extradata.py" "$VALIDATOR_ADDR")
+EXTRA_DATA=$(cat "$DATA_DIR/extradata.txt")
 echo "   -> extraData: $EXTRA_DATA"
 
 echo "==> 8) Fetch BTCBR runtime bytecode from BNB mainnet"
@@ -138,6 +138,15 @@ cat > "$DATA_DIR/genesis.template.json" <<'JSON'
     "muirGlacierBlock": 0,
     "berlinBlock": 0,
     "londonBlock": 0,
+    "arrowGlacierBlock": 0,
+    "grayGlacierBlock": 0,
+    "mergeNetsplitBlock": 0,
+    "shanghaiBlock": 0,
+    "cancunBlock": 0,
+    "eulerBlock": 0,
+    "gibbsBlock": 0,
+    "brunoBlock": 0,
+    "mirrorSyncBlock": 0,
     "parlia": { "period": 3, "epoch": 200 }
   },
   "nonce": "0x0",
@@ -172,11 +181,13 @@ sed -e "s/__CHAIN_ID__/$CHAIN_ID/g" \
 jq . "$DATA_DIR/genesis.json" >/dev/null || { echo "Invalid genesis.json"; exit 1; }
 
 echo "==> 10) Initialize the BSC datadir with genesis"
+rm -f "$DATA_DIR/static-nodes.json" 2>/dev/null || true
+rm -rf "$DATA_DIR/geth" 2>/dev/null || true
 docker run --rm -v "$DATA_DIR:/bsc" "$IMAGE" \
   --datadir /bsc init /bsc/genesis.json
 
 echo "==> 11) Static nodes (empty for now; add peers later)"
-echo "[]" > "$DATA_DIR/static-nodes.json"
+echo "[]" > "$DATA_DIR/geth/static-nodes.json"
 
 echo "==> 12) Start BSC validator node (mining enabled)"
 docker run -d --name bsc --restart unless-stopped \

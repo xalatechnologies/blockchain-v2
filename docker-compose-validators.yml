@@ -1,0 +1,181 @@
+version: "3.8"
+
+networks:
+  bsc-network:
+    driver: bridge
+
+services:
+  # Bootnode for peer discovery
+  bootnode:
+    image: dysnix/bsc:latest
+    container_name: bsc-bootnode
+    restart: unless-stopped
+    networks:
+      - bsc-network
+    ports:
+      - "30301:30301"
+      - "30301:30301/udp"
+    volumes:
+      - ./data/bootnode:/bsc
+    command: |
+      bootnode
+      --nodekey /bsc/boot.key
+      --addr :30301
+      --verbosity 9
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "30301"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Validator 1
+  validator-1:
+    image: dysnix/bsc:latest
+    container_name: bsc-validator-1
+    restart: unless-stopped
+    networks:
+      - bsc-network
+    ports:
+      - "8545:8545" # RPC
+      - "8546:8546" # WebSocket
+      - "30303:30303" # P2P
+      - "30303:30303/udp" # P2P UDP
+    volumes:
+      - ./data/validators/validator-1:/bsc
+    depends_on:
+      - bootnode
+    command: |
+      --datadir /bsc
+      --networkid 885824
+      --port 30303
+      --syncmode full
+      --http
+      --http.addr 0.0.0.0
+      --http.port 8545
+      --http.corsdomain="*"
+      --http.vhosts="*"
+      --http.api "eth,net,web3,personal,txpool,parlia,admin"
+      --ws
+      --ws.addr 0.0.0.0
+      --ws.port 8546
+      --ws.origins="*"
+      --ws.api "eth,net,web3,txpool,parlia"
+      --mine
+      --miner.etherbase ${VALIDATOR_1_ADDRESS}
+      --unlock ${VALIDATOR_1_ADDRESS}
+      --password /bsc/password.txt
+      --allow-insecure-unlock
+      --miner.gaslimit 30000000
+      --miner.gasprice 1000000000
+      --txpool.globalslots 8000
+      --txpool.globalqueue 4000
+      --bootnodes "enode://${BOOTNODE_KEY}@bootnode:30301"
+      --lightkdf
+      --verbosity 3
+      --identity "bitcoinbr-validator-1"
+      --metrics
+      --pprof
+      --pprof.addr 0.0.0.0
+    environment:
+      - VALIDATOR_1_ADDRESS=${VALIDATOR_1_ADDRESS:-0x0000000000000000000000000000000000000000}
+    healthcheck:
+      test: ["CMD", "geth", "attach", "--exec", "eth.blockNumber"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Validator 2
+  validator-2:
+    image: dysnix/bsc:latest
+    container_name: bsc-validator-2
+    restart: unless-stopped
+    networks:
+      - bsc-network
+    ports:
+      - "8547:8545" # RPC
+      - "8548:8546" # WebSocket
+      - "30304:30303" # P2P
+      - "30304:30303/udp" # P2P UDP
+    volumes:
+      - ./data/validators/validator-2:/bsc
+    depends_on:
+      - bootnode
+    command: |
+      --datadir /bsc
+      --networkid 885824
+      --port 30303
+      --syncmode full
+      --http
+      --http.addr 0.0.0.0
+      --http.port 8545
+      --http.corsdomain="*"
+      --http.vhosts="*"
+      --http.api "eth,net,web3,personal,txpool,parlia,admin"
+      --ws
+      --ws.addr 0.0.0.0
+      --ws.port 8546
+      --ws.origins="*"
+      --ws.api "eth,net,web3,txpool,parlia"
+      --mine
+      --miner.etherbase ${VALIDATOR_2_ADDRESS}
+      --unlock ${VALIDATOR_2_ADDRESS}
+      --password /bsc/password.txt
+      --allow-insecure-unlock
+      --miner.gaslimit 30000000
+      --miner.gasprice 1000000000
+      --txpool.globalslots 8000
+      --txpool.globalqueue 4000
+      --bootnodes "enode://${BOOTNODE_KEY}@bootnode:30301"
+      --lightkdf
+      --verbosity 3
+      --identity "bitcoinbr-validator-2"
+    environment:
+      - VALIDATOR_2_ADDRESS=${VALIDATOR_2_ADDRESS:-0x0000000000000000000000000000000000000000}
+
+  # Validator 3
+  validator-3:
+    image: dysnix/bsc:latest
+    container_name: bsc-validator-3
+    restart: unless-stopped
+    networks:
+      - bsc-network
+    ports:
+      - "8549:8545" # RPC
+      - "8550:8546" # WebSocket
+      - "30305:30303" # P2P
+      - "30305:30303/udp" # P2P UDP
+    volumes:
+      - ./data/validators/validator-3:/bsc
+    depends_on:
+      - bootnode
+    command: |
+      --datadir /bsc
+      --networkid 885824
+      --port 30303
+      --syncmode full
+      --http
+      --http.addr 0.0.0.0
+      --http.port 8545
+      --http.corsdomain="*"
+      --http.vhosts="*"
+      --http.api "eth,net,web3,personal,txpool,parlia,admin"
+      --ws
+      --ws.addr 0.0.0.0
+      --ws.port 8546
+      --ws.origins="*"
+      --ws.api "eth,net,web3,txpool,parlia"
+      --mine
+      --miner.etherbase ${VALIDATOR_3_ADDRESS}
+      --unlock ${VALIDATOR_3_ADDRESS}
+      --password /bsc/password.txt
+      --allow-insecure-unlock
+      --miner.gaslimit 30000000
+      --miner.gasprice 1000000000
+      --txpool.globalslots 8000
+      --txpool.globalqueue 4000
+      --bootnodes "enode://${BOOTNODE_KEY}@bootnode:30301"
+      --lightkdf
+      --verbosity 3
+      --identity "bitcoinbr-validator-3"
+    environment:
+      - VALIDATOR_3_ADDRESS=${VALIDATOR_3_ADDRESS:-0x0000000000000000000000000000000000000000}

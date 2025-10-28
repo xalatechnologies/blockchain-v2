@@ -1,0 +1,128 @@
+---
+# Setup NGINX with SSL for BSC RPC endpoint
+# This playbook configures NGINX as a reverse proxy with Let's Encrypt SSL
+
+- name: Setup NGINX with SSL for RPC endpoint
+  hosts: validators
+  become: yes
+  vars:
+    domain_name: "rpc.bitcoinbr.tech"
+    email_address: "admin@bitcoinbr.tech"
+    rpc_port: 8545
+    ws_port: 8546
+  
+  tasks:
+    - name: Update package cache
+      apt:
+        update_cache: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Install NGINX
+      apt:
+        name: nginx
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Install Certbot and NGINX plugin
+      apt:
+        name:
+          - certbot
+          - python3-certbot-nginx
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Stop NGINX temporarily for certificate generation
+      systemd:
+        name: nginx
+        state: stopped
+
+    - name: Obtain SSL certificate from Let's Encrypt
+      command: >
+        certbot certonly --standalone
+        --non-interactive
+        --agree-tos
+        --email {{ email_address }}
+        -d {{ domain_name }}
+      args:
+        creates: /etc/letsencrypt/live/{{ domain_name }}/fullchain.pem
+
+    - name: Create NGINX configuration for BSC RPC
+      template:
+        src: templates/nginx-rpc.conf.j2
+        dest: /etc/nginx/sites-available/{{ domain_name }}
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Enable NGINX site
+      file:
+        src: /etc/nginx/sites-available/{{ domain_name }}
+        dest: /etc/nginx/sites-enabled/{{ domain_name }}
+        state: link
+
+    - name: Remove default NGINX site
+      file:
+        path: /etc/nginx/sites-enabled/default
+        state: absent
+
+    - name: Test NGINX configuration
+      command: nginx -t
+      register: nginx_test
+      changed_when: false
+
+    - name: Start and enable NGINX
+      systemd:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Setup automatic certificate renewal
+      cron:
+        name: "Renew Let's Encrypt certificates"
+        minute: "0"
+        hour: "0,12"
+        job: "certbot renew --quiet --post-hook 'systemctl reload nginx'"
+
+    - name: Configure firewall for HTTPS
+      ufw:
+        rule: allow
+        port: '443'
+        proto: tcp
+      when: ansible_os_family == "Debian"
+
+    - name: Configure firewall for HTTP (for certificate renewal)
+      ufw:
+        rule: allow
+        port: '80'
+        proto: tcp
+      when: ansible_os_family == "Debian"
+
+    - name: Reload NGINX
+      systemd:
+        name: nginx
+        state: reloaded
+
+- name: Display completion message
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Show success message
+      debug:
+        msg: |
+          
+          ==========================================
+          🎉 NGINX SSL Setup Complete! 🎉
+          ==========================================
+          
+          Your BSC RPC endpoint is now available at:
+          - HTTPS RPC: https://rpc.bitcoinbr.tech
+          - WebSocket: wss://rpc.bitcoinbr.tech/ws
+          
+          SSL certificate will auto-renew every 12 hours
+          
+          Test your endpoint:
+          curl -X POST -H "Content-Type: application/json" \
+            --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' \
+            https://rpc.bitcoinbr.tech
+          
+          ==========================================
