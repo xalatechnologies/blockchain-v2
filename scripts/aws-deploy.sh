@@ -3,19 +3,21 @@
 # AWS Deployment Script for BSC Validator Node
 set -euo pipefail
 
-# Load environment variables (skip comments and empty lines)
-if [ -f .env ]; then
-    while IFS= read -r line || [[ -n "$line" ]]; do
-        if [[ ! "$line" =~ ^#.* ]] && [[ -n "$line" ]]; then
-            export "$line"
-        fi
-    done < .env
-fi
-
-# Default values
-AWS_REGION=${AWS_REGION:-"us-east-1"}
-AWS_INSTANCE_TYPE=${AWS_INSTANCE_TYPE:-"t3.large"}
-AWS_VOLUME_SIZE=${AWS_VOLUME_SIZE:-"100"}
+# Environment variables
+VALIDATOR_ADDRESS="0x81bDAf1ac2094D5133937B3361A38a4976E55acc"
+CHAIN_ID="885824"
+NETWORK_ID="885824"
+RPC_ADDR="0.0.0.0"
+RPC_PORT="8545"
+WS_PORT="8546"
+P2P_PORT="30303"
+BSC_MAINNET_RPC="https://bsc-dataseed.binance.org/"
+BTCBR_ADDR="0x0cF8e180350253271f4b917CcFb0aCCc4862F262"
+FUND_EOA="0x81bDAf1ac2094D5133937B3361A38a4976E55acc"
+FUND_BAL_HEX="0x3635c9adc5dea00000"
+AWS_REGION="us-east-1"
+AWS_INSTANCE_TYPE="t3.large"
+AWS_VOLUME_SIZE="100"
 KEY_PAIR_NAME="bsc-validator-key"
 SECURITY_GROUP_NAME="bsc-validator-sg"
 INSTANCE_NAME="bsc-validator-node"
