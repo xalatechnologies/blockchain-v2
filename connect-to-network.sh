@@ -3,9 +3,9 @@
 # Script to connect to the existing BitcoinBR network
 set -euo pipefail
 
-# Load environment variables
+# Load environment variables (skip comments and empty lines)
 if [ -f .env ]; then
-    export $(cat .env | xargs)
+    export $(grep -v '^#' .env | grep -v '^$' | xargs)
 fi
 
 echo "==> Connecting to existing BitcoinBR network"
