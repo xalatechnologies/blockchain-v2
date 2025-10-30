@@ -2,14 +2,14 @@
   "network": "Xaheen Chain",
   "chainId": 65001,
   "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
-  "timestamp": "2025-10-30T11:17:21.306Z",
+  "timestamp": "2025-10-30T11:42:45.090Z",
   "contracts": {
-    "staking": "0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c",
-    "burn": "0xe97D574A2e1B62f4d32C5cfeaFa8e6B99Da020fa",
-    "governance": "0x4A82C98A950125F17943F56273efae39dDe81763",
-    "revenue": "0xA37C1f80Bd02D9d70ce0188831A85c65fdFBeEDe",
-    "crowdfunding": "0x1495fCf5F09D53203EE1CD1fF974591dc101df0b",
-    "charity": "0x26c0eaF731885b14c031cc50dB79b36458E0b355"
+    "staking": "0xAe1C7ebcbE42C66a7C03A661505Cc39A5963e286",
+    "burn": "0xe447647577cc340B0D853F9A8F052E9BF5D673c1",
+    "governance": "0xCff12037d60452F18B2D347c8602F03e0C3089C0",
+    "revenue": "0xE4bC805e5ED3eB8715A27D4CBAdDF510764aAF53",
+    "crowdfunding": "0xbbb1ec421b156f0442D435A875E5267B8A2FDc39",
+    "charity": "0x0f8498072DB1611497e2068f9896aeFfcf173583"
   },
   "gasUsed": "0.033256539"
 }
