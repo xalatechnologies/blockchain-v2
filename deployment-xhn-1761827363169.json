@@ -1,0 +1,10 @@
+{
+  "network": "Xaheen Chain",
+  "chainId": 65001,
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "timestamp": "2025-10-30T12:29:15.838Z",
+  "contracts": {
+    "xhn": "0x24719ba3b4AD49cC7edcbDc536fd97C8526830A0"
+  },
+  "gasUsed": "0.008034546"
+}

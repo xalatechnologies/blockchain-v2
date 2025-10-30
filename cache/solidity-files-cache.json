@@ -1891,8 +1891,8 @@
       ]
     },
     "/Volumes/Development/sahalat/blockchain-v2/contracts/dex/XaheenDEXPair.sol": {
-      "lastModificationDate": 1761825355472,
-      "contentHash": "bea668bb233ab3d721dbf0bcd8a931a3",
+      "lastModificationDate": 1761826725193,
+      "contentHash": "12524acb4140c4bf53858f6177b439b5",
       "sourceName": "contracts/dex/XaheenDEXPair.sol",
       "solcConfig": {
         "version": "0.8.20",
@@ -2246,6 +2246,47 @@
       ],
       "artifacts": [
         "wBTCBR_Ethereum"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/tokens/XHN.sol": {
+      "lastModificationDate": 1761827219362,
+      "contentHash": "09c0740f3ba370a2693db09a9e6d8d21",
+      "sourceName": "contracts/tokens/XHN.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "@openzeppelin/contracts/security/Pausable.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "XHN"
       ]
     }
   }

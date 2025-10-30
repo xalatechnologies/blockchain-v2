@@ -119,8 +119,9 @@ contract XaheenDEXPair is ERC20, ReentrancyGuard {
         uint256 _totalSupply = totalSupply();
 
         if (_totalSupply == 0) {
+            // First liquidity provision - lock MINIMUM_LIQUIDITY forever by minting to this contract
             liquidity = _sqrt(amount0 * amount1) - MINIMUM_LIQUIDITY;
-            _mint(address(0), MINIMUM_LIQUIDITY);
+            _mint(address(this), MINIMUM_LIQUIDITY); // Mint to contract instead of address(0)
         } else {
             liquidity = min((amount0 * _totalSupply) / _reserve0, (amount1 * _totalSupply) / _reserve1);
         }
