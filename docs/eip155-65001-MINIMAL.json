@@ -1,0 +1,17 @@
+{
+  "name": "Xaheen Chain",
+  "chain": "Xaheen",
+  "rpc": [
+    "https://rpc.xaheen.org"
+  ],
+  "faucets": [],
+  "nativeCurrency": {
+    "name": "Xaheen Token",
+    "symbol": "XHT",
+    "decimals": 18
+  },
+  "shortName": "xaheen",
+  "chainId": 65001,
+  "networkId": 65001,
+  "slip44": 1
+}

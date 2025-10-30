@@ -165,6 +165,72 @@ Public launch preparation and checklists.
 
 ---
 
+### 💼 [Investor Materials](./investor/)
+Complete investment package for raising seed funding.
+
+- **[INVESTOR_MATERIALS_INDEX.md](./investor/INVESTOR_MATERIALS_INDEX.md)** - Master index ⭐
+  - Complete navigation guide
+  - Due diligence checklist
+  - Presentation tips
+
+- **[INVESTOR_PITCH_FINAL.md](./investor/INVESTOR_PITCH_FINAL.md)** - 22-slide pitch deck
+  - Problem/Solution/Market
+  - Business model & tokenomics
+  - Traction & proof ($20k deployed)
+  - **Slide 20: Investor safeguards** ⭐
+  - Financial projections ($500k → $10M)
+  - Exit strategy (4x-420x returns)
+
+- **[INVESTOR_SAFEGUARDS.md](./investor/INVESTOR_SAFEGUARDS.md)** - Legal/financial structure
+  - Delaware C-Corp + Cayman Foundation
+  - Multi-sig treasury (investor controls)
+  - Milestone-based fund release
+  - $1.5M insurance coverage
+  - 4-year founder lockup
+  - Downside protection scenarios
+
+- **[INVESTOR_GUARANTEES_SUMMARY.md](./investor/INVESTOR_GUARANTEES_SUMMARY.md)** - One-page summary
+  - Key protections overview
+  - Return potential (4x-420x)
+  - Risk assessment
+  - Next steps
+
+- **[ULTIMATE_STRATEGY.md](./investor/ULTIMATE_STRATEGY.md)** - 90-day public launch plan
+  - Phase-by-phase execution
+  - User acquisition strategy
+  - Revenue model breakdown
+
+- **[create-investor-pdf.sh](./investor/create-investor-pdf.sh)** - PDF conversion script
+  - Multiple conversion options
+  - Professional formatting
+
+---
+
+### 🔗 [Chainlist Submission](./)
+Submit Xaheen to Chainlist.org for easy MetaMask integration.
+
+- **[eip155-65001-MINIMAL.json](./eip155-65001-MINIMAL.json)** - Chain data (recommended) ⭐
+  - Honest version without fake URLs
+  - Ready to submit
+
+- **[eip155-65001.json](./eip155-65001.json)** - Full chain data
+  - With website/explorer URLs
+  - Use when sites are live
+
+- **[CHAINLIST_INSTRUCTIONS.md](./CHAINLIST_INSTRUCTIONS.md)** - Submission guide
+  - Step-by-step GitHub process
+  - Fork → Add file → Create PR
+
+- **[CHAINLIST_PR_DESCRIPTION.md](./CHAINLIST_PR_DESCRIPTION.md)** - PR templates
+  - Three template options
+  - RPC verification examples
+
+- **[submit-to-chainlist.sh](./submit-to-chainlist.sh)** - Interactive helper
+  - Guides through entire process
+  - Tracks progress
+
+---
+
 ### 📋 [Reference](./reference/)
 General reference materials.
 
@@ -180,9 +246,37 @@ General reference materials.
   - Quick setup guide
   - Configuration overview
 
+### 📊 [Current Status](./current/)
+Real-time status and deployment tracking.
+
+- **[CURRENT_STATUS_AND_WHAT_WORKS.md](./current/CURRENT_STATUS_AND_WHAT_WORKS.md)** - Current state
+  - What's live and operational
+  - Known issues
+  - Next priorities
+
+- **[BRIDGE_DEPLOYMENT_SUCCESS.md](./current/BRIDGE_DEPLOYMENT_SUCCESS.md)** - Bridge status
+  - Deployment log
+  - Contract addresses
+
+- **[TOKEN_ADDRESSES_AND_USD_DISPLAY.md](./current/TOKEN_ADDRESSES_AND_USD_DISPLAY.md)** - Token info
+  - Contract addresses
+  - USD display setup
+
 ---
 
 ## 🎯 Quick Start Paths
+
+### For Investors 💰
+1. **Start here**: [investor/INVESTOR_MATERIALS_INDEX.md](./investor/INVESTOR_MATERIALS_INDEX.md)
+2. Quick overview: [investor/INVESTOR_GUARANTEES_SUMMARY.md](./investor/INVESTOR_GUARANTEES_SUMMARY.md) (5 mins)
+3. Full pitch: [investor/INVESTOR_PITCH_FINAL.md](./investor/INVESTOR_PITCH_FINAL.md) (30 mins)
+4. Legal details: [investor/INVESTOR_SAFEGUARDS.md](./investor/INVESTOR_SAFEGUARDS.md) (1 hour)
+
+### For Public Launch 🚀
+1. Submit to Chainlist: `cd docs && ./submit-to-chainlist.sh`
+2. Launch checklist: [launch/PUBLIC_LAUNCH_CHECKLIST.md](./launch/PUBLIC_LAUNCH_CHECKLIST.md)
+3. Social media: [launch/SOCIAL_MEDIA_LAUNCH.md](./launch/SOCIAL_MEDIA_LAUNCH.md)
+4. User guide: [launch/METAMASK_GUIDE.md](./launch/METAMASK_GUIDE.md)
 
 ### For Developers
 1. Start with [CLAUDE.md](../CLAUDE.md) in root for technical overview
@@ -231,15 +325,30 @@ General reference materials.
 ### By Topic
 ```
 docs/
+├── investor/           # Investment materials ($500k seed round)
+├── eip155-*.json       # Chainlist submission files
+├── submit-*.sh         # Chainlist helper scripts
+├── CHAINLIST_*.md      # Chainlist instructions
 ├── branding/           # Visual identity, logos, brand guidelines
 ├── migration/          # Chain ID migration and upgrades
 ├── bridges/            # Bridge architecture and deployment
 ├── infrastructure/     # Validators, RPC, SSL, deployment
 ├── launch/             # Public launch preparation
+├── current/            # Current status and tracking
 └── reference/          # General reference materials
 ```
 
 ### By Audience
+
+**💰 Investors**
+- [investor/INVESTOR_MATERIALS_INDEX.md](./investor/INVESTOR_MATERIALS_INDEX.md)
+- [investor/INVESTOR_PITCH_FINAL.md](./investor/INVESTOR_PITCH_FINAL.md)
+- [investor/INVESTOR_SAFEGUARDS.md](./investor/INVESTOR_SAFEGUARDS.md)
+
+**🚀 Founders/CEO**
+- [investor/](./investor/) - Fundraising materials
+- [launch/PUBLIC_LAUNCH_CHECKLIST.md](./launch/PUBLIC_LAUNCH_CHECKLIST.md)
+- [current/CURRENT_STATUS_AND_WHAT_WORKS.md](./current/CURRENT_STATUS_AND_WHAT_WORKS.md)
 
 **🔧 Technical Developers**
 - [CLAUDE.md](../CLAUDE.md)
@@ -249,6 +358,7 @@ docs/
 **🎨 Brand/Marketing**
 - [branding/XAHEEN_BRAND_GUIDE.md](./branding/XAHEEN_BRAND_GUIDE.md)
 - [branding/REBRANDING_SUMMARY.md](./branding/REBRANDING_SUMMARY.md)
+- [launch/SOCIAL_MEDIA_LAUNCH.md](./launch/SOCIAL_MEDIA_LAUNCH.md)
 
 **⚙️ DevOps/Validators**
 - [infrastructure/](./infrastructure/)
@@ -257,6 +367,7 @@ docs/
 **🚀 Product/Launch Team**
 - [launch/](./launch/)
 - [branding/XAHEEN_REBRANDING.md](./branding/XAHEEN_REBRANDING.md)
+- [CHAINLIST_INSTRUCTIONS.md](./CHAINLIST_INSTRUCTIONS.md)
 
 ---
 
