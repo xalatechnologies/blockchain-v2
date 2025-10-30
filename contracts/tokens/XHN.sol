@@ -73,7 +73,7 @@ contract XHN is ERC20, AccessControl, Pausable, ReentrancyGuard {
     event GovernanceProposal(uint256 indexed proposalId, address proposer, string description);
     event GovernanceVote(uint256 indexed proposalId, address voter, uint256 votes, bool support);
 
-    constructor(address _treasury, address _dexRouter) ERC20("Xaheen Network Token", "XHN") {
+    constructor(address _treasury, address _dexRouter) ERC20("Xaheen", "XHN") {
         require(_treasury != address(0), "Invalid treasury");
         require(_dexRouter != address(0), "Invalid router");
 

@@ -911,8 +911,8 @@
       ]
     },
     "/Volumes/Development/sahalat/blockchain-v2/contracts/tokens/XHN.sol": {
-      "lastModificationDate": 1761827219362,
-      "contentHash": "09c0740f3ba370a2693db09a9e6d8d21",
+      "lastModificationDate": 1761837458731,
+      "contentHash": "69529e01761fcac9932ddb0c1f68fd63",
       "sourceName": "contracts/tokens/XHN.sol",
       "solcConfig": {
         "version": "0.8.20",
@@ -2323,6 +2323,127 @@
       ],
       "artifacts": [
         "CREATE2Factory"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/dex/WBNB.sol": {
+      "lastModificationDate": 1761836921321,
+      "contentHash": "a9eecafbea872f18a1ba30a78c36c173",
+      "sourceName": "contracts/dex/WBNB.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "WBNB"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/production/XHNBridgePrivate.sol": {
+      "lastModificationDate": 1761840623896,
+      "contentHash": "3661516082d4cb5a0e050e862d5ce6ca",
+      "sourceName": "contracts/bridges/production/XHNBridgePrivate.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/security/Pausable.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/utils/cryptography/ECDSA.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "IMintableXHN",
+        "XHNBridgePrivate"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/production/XHNBridgeMainnet.sol": {
+      "lastModificationDate": 1761840604833,
+      "contentHash": "5dc6b20ec2b2154a9885b4eca87ff631",
+      "sourceName": "contracts/bridges/production/XHNBridgeMainnet.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/security/Pausable.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/utils/cryptography/ECDSA.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "XHNBridgeMainnet"
       ]
     }
   }

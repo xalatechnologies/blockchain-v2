@@ -83,7 +83,7 @@ async function main() {
     // 2. Deploy Factory using CREATE2
     console.log("\n[2/8] Deploying XaheenDEXFactory with CREATE2...");
     const Factory = await ethers.getContractFactory("XaheenDEXFactory");
-    const factoryBytecode = Factory.bytecode + ethers.AbiCoder.defaultAbiCoder().encode(["address"], [deployer.address]).slice(2);
+    const factoryBytecode = Factory.bytecode + ethers.AbiCoder.defaultAbiCoder().encode(["address", "address"], [deployer.address, deployer.address]).slice(2);
     const factorySalt = ethers.id("XaheenDEXFactory-v1.0.0");
     deployment.create2.salts.Factory = factorySalt;
 
