@@ -1,7 +1,7 @@
 # Current Status: What's Working & What's Needed
 
-**Last Updated**: Right Now
-**Status**: Partially Operational - Bridge and Liquidity Setup
+**Last Updated**: 2025-10-30
+**Status**: 60% Complete - Xaheen Bridges Deployed, BSC Pending
 
 ---
 
@@ -13,13 +13,20 @@
 - **Chain ID**: 885824
 - **Balance**: 20,999,997,859 BNB (plenty of gas!)
 - **BTCBR Contract**: 0x0cF8e180350253271f4b917CcFb0aCCc4862F262
-- **Bridge Contract**: 0x549133B103805F69A266f7322C1D55A665a0D9fa
+- **XHN Contract**: 0x1777C32Da09d4FD65a74B6C9AFca17862423Fd1C
 
 **Validators**: 3 active validators with 2-of-3 multisig
-**Bridge Features**:
+
+**BTCBR Bridge** ✅: 0xe9Aa0276196928fb1dD42afda89F47CF821e987C
 - ✅ Validators configured
 - ✅ Transfer limits set (100 - 100,000 BTCBR)
 - ✅ Daily limits enabled (500,000 BTCBR)
+- ✅ Ready to mint/burn tokens
+
+**XHN Bridge** ✅: 0x5514EBfC66645B5Fe0BAf9FF00Eb52cc9A33Ec68
+- ✅ Validators configured
+- ✅ Transfer limits set (100 - 100,000 XHN)
+- ✅ Daily limits enabled (500,000 XHN)
 - ✅ Ready to mint/burn tokens
 
 ### 2. **BSC Mainnet Tokens** ✅

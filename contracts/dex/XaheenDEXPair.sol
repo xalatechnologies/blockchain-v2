@@ -100,12 +100,25 @@ contract XaheenDEXPair is ERC20, ReentrancyGuard {
                     uint256 numerator = totalSupply() * (rootK - rootKLast);
                     uint256 denominator = rootK * 5 + rootKLast;
                     uint256 liquidity = numerator / denominator;
-                    if (liquidity > 0) _mint(feeTo, liquidity);
+                    if (liquidity > 0) {
+                        // Safely mint to revenue contract, catch any failures
+                        try this._safeMintFee(feeTo, liquidity) {
+                            // Fee minted successfully
+                        } catch {
+                            // If minting fails, continue without fee
+                            feeOn = false;
+                        }
+                    }
                 }
             }
         } else if (_kLast != 0) {
             kLast = 0;
         }
+    }
+
+    function _safeMintFee(address to, uint256 amount) external {
+        require(msg.sender == address(this), "FORBIDDEN");
+        _mint(to, amount);
     }
 
     function mint(address to) external lock nonReentrant returns (uint256 liquidity) {
