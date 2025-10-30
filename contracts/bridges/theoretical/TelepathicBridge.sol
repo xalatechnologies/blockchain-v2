@@ -109,7 +109,7 @@ contract TelepathicBridge {
      * Clear your mind to boost telepathic power
      */
     function meditate() external view returns (string memory) {
-        return "Close your eyes. Breathe deeply. Visualize the transfer. Feel the tokens flowing... 🧘";
+        return "Close your eyes. Breathe deeply. Visualize the transfer. Feel the tokens flowing...";
     }
     
     /**

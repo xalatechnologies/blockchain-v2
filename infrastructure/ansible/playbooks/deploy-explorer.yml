@@ -1,0 +1,22 @@
+---
+- name: Deploy Blockscout Explorer
+  hosts: bsc-main
+  become: yes
+  gather_facts: yes
+
+  tasks:
+    - name: Upload explorer deployment script
+      copy:
+        src: ../../../scripts/deploy-explorer-remote.sh
+        dest: /home/ubuntu/deploy-explorer.sh
+        mode: '0755'
+
+    - name: Execute explorer deployment
+      shell: /home/ubuntu/deploy-explorer.sh
+      args:
+        executable: /bin/bash
+      register: deploy_output
+
+    - name: Display deployment output
+      debug:
+        var: deploy_output.stdout_lines

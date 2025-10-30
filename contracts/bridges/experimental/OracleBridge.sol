@@ -12,14 +12,14 @@ import "@openzeppelin/contracts/access/Ownable.sol";
  * Example: Lock $1000 worth of BTCBR, receive $1000 worth on destination
  * WARNING: Requires reliable price oracles
  */
+
+// Mock oracle interface
+interface IPriceOracle {
+    function getPrice() external view returns (uint256);
+}
+
 contract OracleBridge is Ownable {
-    
     IERC20 public immutable btcbr;
-    
-    // Mock oracle interface
-    interface IPriceOracle {
-        function getPrice() external view returns (uint256);
-    }
     
     IPriceOracle public mainnetOracle;
     IPriceOracle public privateOracle;

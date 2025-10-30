@@ -1,20 +1,55 @@
 {
-  "name": "blockchain-v2",
+  "name": "xaheen-chain",
   "version": "1.0.0",
-  "description": "This directory contains the tools and scripts necessary to migrate from an AWS Geth node to a private BNB (BSC/Parlia-PoSA) node.",
+  "description": "Xaheen Chain - An intelligent, high-performance private blockchain network based on BNB Smart Chain (BSC/Parlia-PoSA) technology with comprehensive bridge infrastructure. Chain ID: 65001, Native Token: XHT",
   "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "npx hardhat compile",
+    "deploy:mainnet": "npx hardhat run scripts/hardhat-deploy-mainnet.js --network bsc",
+    "deploy:xaheen": "npx hardhat run scripts/hardhat-deploy-private.js --network btcbr",
+    "deploy:testnet": "npx hardhat run scripts/hardhat-deploy-mainnet.js --network bscTestnet",
+    "deploy:bridges": "./scripts/deploy-bridge-complete.sh"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "xaheen",
+    "xaheen-chain",
+    "blockchain",
+    "bsc",
+    "parlia",
+    "bridge",
+    "xht",
+    "xaheen-token",
+    "smart-contracts",
+    "ethereum",
+    "evm",
+    "defi",
+    "web3"
+  ],
+  "author": "Xaheen Chain Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xaheen-chain/blockchain-v2"
+  },
+  "homepage": "https://xaheen.org",
+  "bugs": {
+    "url": "https://github.com/xaheen-chain/blockchain-v2/issues"
+  },
   "dependencies": {
-    "ethers": "^6.15.0",
+    "@openzeppelin/contracts": "^4.9.6",
+    "dotenv": "^17.2.3",
     "solc": "^0.8.20",
     "web3": "^4.16.0"
-  }
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^4.0.2",
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "ethers": "^6.15.0",
+    "hardhat": "^3.0.9"
+  },
+  "type": "module"
 }

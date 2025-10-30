@@ -1,0 +1,27 @@
+{
+  "_format": "hh3-artifact-1",
+  "contractName": "IPriceOracle",
+  "sourceName": "contracts/bridges/experimental/OracleBridge.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "immutableReferences": {},
+  "inputSourceName": "project/contracts/bridges/experimental/OracleBridge.sol",
+  "buildInfoId": "solc-0_8_20-1fb5923ae1c32eec8712c35d725c1749d4a8bbb4"
+}
