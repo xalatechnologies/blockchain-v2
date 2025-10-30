@@ -111,10 +111,10 @@
         "IERC20"
       ]
     },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/theoretical/TelepathicBridge.sol": {
-      "lastModificationDate": 1761780032428,
-      "contentHash": "946305e724cb0dfb3c1c1b314d10100f",
-      "sourceName": "contracts/bridges/theoretical/TelepathicBridge.sol",
+    "/Volumes/Development/sahalat/blockchain-v2/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1761779635483,
+      "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
@@ -140,128 +140,53 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "TelepathicBridge"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/theoretical/SocialBridge.sol": {
-      "lastModificationDate": 1761677903866,
-      "contentHash": "e726ac252152b2c07119367a9ba43edb",
-      "sourceName": "contracts/bridges/theoretical/SocialBridge.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "SocialBridge"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/theoretical/QuantumBridge.sol": {
-      "lastModificationDate": 1761677903866,
-      "contentHash": "ca904cdd90207f65e7fbc59e04ed3007",
-      "sourceName": "contracts/bridges/theoretical/QuantumBridge.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@openzeppelin/contracts/access/Ownable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "QuantumBridge"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1761779635488,
-      "contentHash": "5a20b2cad87ddb61c7a3a6af21289e28",
-      "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../utils/Context.sol"
+        "../IERC20.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "Ownable"
+        "IERC20Metadata"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1761779635476,
+      "contentHash": "3ae5166c6827a9cf1a7a462d1632b464",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol",
+        "./extensions/IERC20Metadata.sol",
+        "../../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC20"
       ]
     },
     "/Volumes/Development/sahalat/blockchain-v2/node_modules/@openzeppelin/contracts/utils/Context.sol": {
@@ -382,42 +307,6 @@
         "IERC721"
       ]
     },
-    "/Volumes/Development/sahalat/blockchain-v2/node_modules/@openzeppelin/contracts/utils/Address.sol": {
-      "lastModificationDate": 1761779635473,
-      "contentHash": "211ffd288c1588ba8c10eae668ca3c66",
-      "sourceName": "@openzeppelin/contracts/utils/Address.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.1"
-      ],
-      "artifacts": [
-        "Address"
-      ]
-    },
     "/Volumes/Development/sahalat/blockchain-v2/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
       "lastModificationDate": 1761779635489,
       "contentHash": "48686fc32a22a3754b8e63321857dd2a",
@@ -493,6 +382,42 @@
       ],
       "artifacts": [
         "ERC165"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/node_modules/@openzeppelin/contracts/utils/Address.sol": {
+      "lastModificationDate": 1761779635473,
+      "contentHash": "211ffd288c1588ba8c10eae668ca3c66",
+      "sourceName": "@openzeppelin/contracts/utils/Address.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.1"
+      ],
+      "artifacts": [
+        "Address"
       ]
     },
     "/Volumes/Development/sahalat/blockchain-v2/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
@@ -677,10 +602,10 @@
         "Math"
       ]
     },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/production/NFTBridge.sol": {
-      "lastModificationDate": 1761779759690,
-      "contentHash": "43ad91375bc8ea9b7dc632fe18561a56",
-      "sourceName": "contracts/bridges/production/NFTBridge.sol",
+    "/Volumes/Development/sahalat/blockchain-v2/node_modules/@openzeppelin/contracts/access/AccessControl.sol": {
+      "lastModificationDate": 1761779635472,
+      "contentHash": "a2b1ec38a8dad325a596f926890772b8",
+      "sourceName": "@openzeppelin/contracts/access/AccessControl.sol",
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
@@ -706,15 +631,52 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@openzeppelin/contracts/token/ERC721/IERC721.sol",
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol"
+        "./IAccessControl.sol",
+        "../utils/Context.sol",
+        "../utils/Strings.sol",
+        "../utils/introspection/ERC165.sol"
       ],
       "versionPragmas": [
-        "^0.8.20"
+        "^0.8.0"
       ],
       "artifacts": [
-        "NFTBridge"
+        "AccessControl"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/node_modules/@openzeppelin/contracts/access/IAccessControl.sol": {
+      "lastModificationDate": 1761779635479,
+      "contentHash": "57c84298234411cea19c7c284d86be8b",
+      "sourceName": "@openzeppelin/contracts/access/IAccessControl.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IAccessControl"
       ]
     },
     "/Volumes/Development/sahalat/blockchain-v2/node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol": {
@@ -832,6 +794,44 @@
         "ReentrancyGuard"
       ]
     },
+    "/Volumes/Development/sahalat/blockchain-v2/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+      "lastModificationDate": 1761779635488,
+      "contentHash": "5a20b2cad87ddb61c7a3a6af21289e28",
+      "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Ownable"
+      ]
+    },
     "/Volumes/Development/sahalat/blockchain-v2/contracts/tokenomics/XHTStaking.sol": {
       "lastModificationDate": 1761819406299,
       "contentHash": "f2b7c14cfe08d15c1f83d413195f0d68",
@@ -908,6 +908,128 @@
       ],
       "artifacts": [
         "Pausable"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/tokens/XHN.sol": {
+      "lastModificationDate": 1761827219362,
+      "contentHash": "09c0740f3ba370a2693db09a9e6d8d21",
+      "sourceName": "contracts/tokens/XHN.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "@openzeppelin/contracts/security/Pausable.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "XHN"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/tokenomics/XHTRevenue.sol": {
+      "lastModificationDate": 1761819663606,
+      "contentHash": "9291da0b81131d7bb5338a45284a1458",
+      "sourceName": "contracts/tokenomics/XHTRevenue.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "IXHTBurnMechanism",
+        "IXHTStaking",
+        "XHTRevenue"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/tokenomics/XHTGovernance.sol": {
+      "lastModificationDate": 1761819628227,
+      "contentHash": "32e8dc2225d7cd17ddd951af17664f80",
+      "sourceName": "contracts/tokenomics/XHTGovernance.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "IXHTStaking",
+        "XHTGovernance"
       ]
     },
     "/Volumes/Development/sahalat/blockchain-v2/contracts/tokenomics/XHTCrowdfunding.sol": {
@@ -988,6 +1110,200 @@
       ],
       "artifacts": [
         "XHTCharity"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/dex/XaheenDEXPair.sol": {
+      "lastModificationDate": 1761826725193,
+      "contentHash": "12524acb4140c4bf53858f6177b439b5",
+      "sourceName": "contracts/dex/XaheenDEXPair.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "IXHTRevenue",
+        "XaheenDEXPair"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/dex/XaheenDEXRouter.sol": {
+      "lastModificationDate": 1761825629090,
+      "contentHash": "9ea1e64c658dbc34ad2eefef36c7b8d6",
+      "sourceName": "contracts/dex/XaheenDEXRouter.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "./XaheenDEXFactory.sol",
+        "./XaheenDEXPair.sol",
+        "./WXHT.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "XaheenDEXRouter"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/dex/XaheenDEXFactory.sol": {
+      "lastModificationDate": 1761825365551,
+      "contentHash": "451edf1a45c18eebbe03fb45f18e6a98",
+      "sourceName": "contracts/dex/XaheenDEXFactory.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./XaheenDEXPair.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "XaheenDEXFactory"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/dex/WXHT.sol": {
+      "lastModificationDate": 1761825320386,
+      "contentHash": "dda4d8cf7928364da9bb848a3464f112",
+      "sourceName": "contracts/dex/WXHT.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "WXHT"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/theoretical/FlashBridge.sol": {
+      "lastModificationDate": 1761677903865,
+      "contentHash": "619ad4bece33c0b1d580921ee167eb62",
+      "sourceName": "contracts/bridges/theoretical/FlashBridge.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "FlashBridge"
       ]
     },
     "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/production/BTCBRBridgePrivate.sol": {
@@ -1075,126 +1391,6 @@
         "BTCBRBridgeMainnet"
       ]
     },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/tokenomics/XHTRevenue.sol": {
-      "lastModificationDate": 1761819663606,
-      "contentHash": "9291da0b81131d7bb5338a45284a1458",
-      "sourceName": "contracts/tokenomics/XHTRevenue.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/security/ReentrancyGuard.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "IXHTBurnMechanism",
-        "IXHTStaking",
-        "XHTRevenue"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/tokenomics/XHTGovernance.sol": {
-      "lastModificationDate": 1761819628227,
-      "contentHash": "32e8dc2225d7cd17ddd951af17664f80",
-      "sourceName": "contracts/tokenomics/XHTGovernance.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/security/ReentrancyGuard.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "IXHTStaking",
-        "XHTGovernance"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/theoretical/FlashBridge.sol": {
-      "lastModificationDate": 1761677903865,
-      "contentHash": "619ad4bece33c0b1d580921ee167eb62",
-      "sourceName": "contracts/bridges/theoretical/FlashBridge.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@openzeppelin/contracts/security/ReentrancyGuard.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "FlashBridge"
-      ]
-    },
     "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/production/AtomicSwap.sol": {
       "lastModificationDate": 1761779759690,
       "contentHash": "84e64ee89d21b58778e866ae367a17e6",
@@ -1232,6 +1428,209 @@
       ],
       "artifacts": [
         "AtomicSwap"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/multichain/USDTBridgeBSC.sol": {
+      "lastModificationDate": 1761825438604,
+      "contentHash": "c4b6827fa8720045dc3a728e1124a3e0",
+      "sourceName": "contracts/bridges/multichain/USDTBridgeBSC.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/security/Pausable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "USDTBridgeBSC"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/multichain/BTCBRBridgeTron.sol": {
+      "lastModificationDate": 1761825502955,
+      "contentHash": "7b6d8140459a86934bccd0bdb31148c2",
+      "sourceName": "contracts/bridges/multichain/BTCBRBridgeTron.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/security/Pausable.sol",
+        "./BTCBR_TRC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "BTCBRBridgeTron"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/multichain/BTCBR_TRC20.sol": {
+      "lastModificationDate": 1761825502852,
+      "contentHash": "900de55f1298119c9c1f8168d72ae459",
+      "sourceName": "contracts/bridges/multichain/BTCBR_TRC20.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "@openzeppelin/contracts/security/Pausable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "BTCBR_TRC20"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/multichain/BTCBRBridgeEthereum.sol": {
+      "lastModificationDate": 1761825468696,
+      "contentHash": "4411cac200adbba2047552e7f39b52ae",
+      "sourceName": "contracts/bridges/multichain/BTCBRBridgeEthereum.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/security/Pausable.sol",
+        "./wBTCBR_Ethereum.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "BTCBRBridgeEthereum"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/multichain/wBTCBR_Ethereum.sol": {
+      "lastModificationDate": 1761825468607,
+      "contentHash": "e7180782743db4012c3218ba88651f33",
+      "sourceName": "contracts/bridges/multichain/wBTCBR_Ethereum.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "@openzeppelin/contracts/security/Pausable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "wBTCBR_Ethereum"
       ]
     },
     "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/experimental/ZKBridge.sol": {
@@ -1352,6 +1751,45 @@
         "XHTBurnMechanism"
       ]
     },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/theoretical/QuantumBridge.sol": {
+      "lastModificationDate": 1761677903866,
+      "contentHash": "ca904cdd90207f65e7fbc59e04ed3007",
+      "sourceName": "contracts/bridges/theoretical/QuantumBridge.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "QuantumBridge"
+      ]
+    },
     "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/theoretical/AIBridge.sol": {
       "lastModificationDate": 1761677903866,
       "contentHash": "e361d1cb450e223026d4e312339b91b5",
@@ -1429,6 +1867,122 @@
       "artifacts": [
         "IPriceOracle",
         "OracleBridge"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/production/NFTBridge.sol": {
+      "lastModificationDate": 1761779759690,
+      "contentHash": "43ad91375bc8ea9b7dc632fe18561a56",
+      "sourceName": "contracts/bridges/production/NFTBridge.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+        "@openzeppelin/contracts/token/ERC721/ERC721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "NFTBridge"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/theoretical/TelepathicBridge.sol": {
+      "lastModificationDate": 1761780032428,
+      "contentHash": "946305e724cb0dfb3c1c1b314d10100f",
+      "sourceName": "contracts/bridges/theoretical/TelepathicBridge.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "TelepathicBridge"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/theoretical/SocialBridge.sol": {
+      "lastModificationDate": 1761677903866,
+      "contentHash": "e726ac252152b2c07119367a9ba43edb",
+      "sourceName": "contracts/bridges/theoretical/SocialBridge.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "SocialBridge"
       ]
     },
     "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/theoretical/MultiverseBridge.sol": {
@@ -1733,560 +2287,6 @@
       ],
       "artifacts": [
         "MEVBridge"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-      "lastModificationDate": 1761779635483,
-      "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
-      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../IERC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC20Metadata"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
-      "lastModificationDate": 1761779635476,
-      "contentHash": "3ae5166c6827a9cf1a7a462d1632b464",
-      "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC20.sol",
-        "./extensions/IERC20Metadata.sol",
-        "../../utils/Context.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC20"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/node_modules/@openzeppelin/contracts/access/AccessControl.sol": {
-      "lastModificationDate": 1761779635472,
-      "contentHash": "a2b1ec38a8dad325a596f926890772b8",
-      "sourceName": "@openzeppelin/contracts/access/AccessControl.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IAccessControl.sol",
-        "../utils/Context.sol",
-        "../utils/Strings.sol",
-        "../utils/introspection/ERC165.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "AccessControl"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/node_modules/@openzeppelin/contracts/access/IAccessControl.sol": {
-      "lastModificationDate": 1761779635479,
-      "contentHash": "57c84298234411cea19c7c284d86be8b",
-      "sourceName": "@openzeppelin/contracts/access/IAccessControl.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IAccessControl"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/dex/XaheenDEXPair.sol": {
-      "lastModificationDate": 1761826725193,
-      "contentHash": "12524acb4140c4bf53858f6177b439b5",
-      "sourceName": "contracts/dex/XaheenDEXPair.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        "@openzeppelin/contracts/security/ReentrancyGuard.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "IXHTRevenue",
-        "XaheenDEXPair"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/dex/XaheenDEXRouter.sol": {
-      "lastModificationDate": 1761825629090,
-      "contentHash": "9ea1e64c658dbc34ad2eefef36c7b8d6",
-      "sourceName": "contracts/dex/XaheenDEXRouter.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "./XaheenDEXFactory.sol",
-        "./XaheenDEXPair.sol",
-        "./WXHT.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "XaheenDEXRouter"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/dex/XaheenDEXFactory.sol": {
-      "lastModificationDate": 1761825365551,
-      "contentHash": "451edf1a45c18eebbe03fb45f18e6a98",
-      "sourceName": "contracts/dex/XaheenDEXFactory.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./XaheenDEXPair.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "XaheenDEXFactory"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/dex/WXHT.sol": {
-      "lastModificationDate": 1761825320386,
-      "contentHash": "dda4d8cf7928364da9bb848a3464f112",
-      "sourceName": "contracts/dex/WXHT.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "WXHT"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/multichain/USDTBridgeBSC.sol": {
-      "lastModificationDate": 1761825438604,
-      "contentHash": "c4b6827fa8720045dc3a728e1124a3e0",
-      "sourceName": "contracts/bridges/multichain/USDTBridgeBSC.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
-        "@openzeppelin/contracts/security/Pausable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "USDTBridgeBSC"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/multichain/BTCBRBridgeTron.sol": {
-      "lastModificationDate": 1761825502955,
-      "contentHash": "7b6d8140459a86934bccd0bdb31148c2",
-      "sourceName": "contracts/bridges/multichain/BTCBRBridgeTron.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
-        "@openzeppelin/contracts/security/Pausable.sol",
-        "./BTCBR_TRC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "BTCBRBridgeTron"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/multichain/BTCBR_TRC20.sol": {
-      "lastModificationDate": 1761825502852,
-      "contentHash": "900de55f1298119c9c1f8168d72ae459",
-      "sourceName": "contracts/bridges/multichain/BTCBR_TRC20.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        "@openzeppelin/contracts/access/AccessControl.sol",
-        "@openzeppelin/contracts/security/Pausable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "BTCBR_TRC20"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/multichain/BTCBRBridgeEthereum.sol": {
-      "lastModificationDate": 1761825468696,
-      "contentHash": "4411cac200adbba2047552e7f39b52ae",
-      "sourceName": "contracts/bridges/multichain/BTCBRBridgeEthereum.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
-        "@openzeppelin/contracts/security/Pausable.sol",
-        "./wBTCBR_Ethereum.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "BTCBRBridgeEthereum"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/multichain/wBTCBR_Ethereum.sol": {
-      "lastModificationDate": 1761825468607,
-      "contentHash": "e7180782743db4012c3218ba88651f33",
-      "sourceName": "contracts/bridges/multichain/wBTCBR_Ethereum.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        "@openzeppelin/contracts/access/AccessControl.sol",
-        "@openzeppelin/contracts/security/Pausable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "wBTCBR_Ethereum"
-      ]
-    },
-    "/Volumes/Development/sahalat/blockchain-v2/contracts/tokens/XHN.sol": {
-      "lastModificationDate": 1761827219362,
-      "contentHash": "09c0740f3ba370a2693db09a9e6d8d21",
-      "sourceName": "contracts/tokens/XHN.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        "@openzeppelin/contracts/access/AccessControl.sol",
-        "@openzeppelin/contracts/security/Pausable.sol",
-        "@openzeppelin/contracts/security/ReentrancyGuard.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "XHN"
       ]
     }
   }

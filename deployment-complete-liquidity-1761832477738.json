@@ -1,0 +1,23 @@
+{
+  "network": "Xaheen Chain",
+  "chainId": 65001,
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "timestamp": "2025-10-30T13:53:39.076Z",
+  "dex": {
+    "wxht": "0x2AfF9B4999f587090840f4fD8F85A7EE643947Ee",
+    "revenueContract": "0xE4bC805e5ED3eB8715A27D4CBAdDF510764aAF53",
+    "factory": "0x492DC3847fB2D36d64898274079C1DcD8cA5B99B",
+    "router": "0x25918D0630bC8a6683d9882a1e2e01B8d0eC45dd"
+  },
+  "bridges": {
+    "usdtBSC": "0x4cA45048F09b30dF359d63043A378c00a8315B21",
+    "wBTCBR_Ethereum": "0x471D919B23CacD3d983399cff42c4D1636e45c32",
+    "BTCBRBridgeEthereum": "0xBbFCfF0d7F805A4a1E381af4E17E1Ccb33ed45eF",
+    "BTCBR_TRC20": "0x3Ed652d7e67E5903ab0b98F71485D1675CD49ad7",
+    "BTCBRBridgeTron": "0x81D98BDA5650a2f0cd33F837c222480E1bAa3F70"
+  },
+  "pairs": {
+    "xhtBtcbr": "0x4b07AE99F1895b617421A89ba7Fe153A341d8744"
+  },
+  "gasUsed": "0.041853231"
+}
