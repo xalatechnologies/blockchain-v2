@@ -1,0 +1,333 @@
+---
+- name: Complete Xaheen Chain Deployment with Corrected Supply
+  hosts: all
+  become: yes
+  vars:
+    chain_id: 65001
+    network_id: 65001
+    xht_initial_supply: "0x033b2e3c9fd0803ce8000000"  # 1 billion XHT (1,000,000,000 * 10^18)
+    xht_main_wallet_allocation: "0x033b2e3c9fd0803ce8000000"  # 1 billion XHT to main wallet
+    gas_allocation: "0x3635c9adc5dea00000"  # 1,000 XHT for gas
+
+    # Validator addresses
+    validator1_address: "0xFAA5AA97651c2e2b6860219bb8f9902d416dB5DD"
+    validator2_address: "0xfd634d55ce9b99058dc06cdda1f866b39579a9f3"
+    validator3_address: "0xb753b892551d1c374fda6fd7f6e9b787688c4ea5"
+
+    # Main wallet
+    main_wallet_address: "0xdD779a290C937144F80Eb75b75d814c834536B1b"
+
+    # Password for keystores
+    keystore_password: "xaheen"
+
+  tasks:
+    - name: Install required packages
+      package:
+        name:
+          - docker
+          - python3-pip
+          - jq
+        state: present
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Stop existing validators
+      docker_container:
+        name: "{{ item }}"
+        state: absent
+      loop:
+        - bsc-validator-1
+        - bsc-validator-2
+        - bsc-validator-3
+      ignore_errors: yes
+
+    - name: Clean validator data directories
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - /home/ec2-user/validator-1/geth
+        - /home/ec2-user/validator-2/geth
+        - /home/ec2-user/validator-3/geth
+
+    - name: Create validator directories
+      file:
+        path: "{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - /home/ec2-user/validator-1
+        - /home/ec2-user/validator-2
+        - /home/ec2-user/validator-3
+        - /home/ec2-user/validator-1/keystore
+        - /home/ec2-user/validator-2/keystore
+        - /home/ec2-user/validator-3/keystore
+        - /home/ec2-user/data
+
+    - name: Create password file
+      copy:
+        content: "{{ keystore_password }}"
+        dest: /home/ec2-user/data/password.txt
+        mode: '0644'
+
+    - name: Create temporary password file for account creation
+      copy:
+        content: "{{ keystore_password }}"
+        dest: /tmp/password.txt
+        mode: '0644'
+
+    - name: Generate validator 1 account if not exists
+      shell: |
+        if [ ! -d "/home/ec2-user/validator-1/keystore" ] || [ -z "$(ls -A /home/ec2-user/validator-1/keystore 2>/dev/null)" ]; then
+          docker run --rm \
+            -v /home/ec2-user/validator-1:/bsc \
+            -v /tmp/password.txt:/password.txt \
+            dysnix/bsc account new --datadir /bsc --password /password.txt
+        fi
+      register: validator1_account
+
+    - name: Generate validator 2 account if not exists
+      shell: |
+        if [ ! -d "/home/ec2-user/validator-2/keystore" ] || [ -z "$(ls -A /home/ec2-user/validator-2/keystore 2>/dev/null)" ]; then
+          docker run --rm \
+            -v /home/ec2-user/validator-2:/bsc \
+            -v /tmp/password.txt:/password.txt \
+            dysnix/bsc account new --datadir /bsc --password /password.txt
+        fi
+      register: validator2_account
+
+    - name: Generate validator 3 account if not exists
+      shell: |
+        if [ ! -d "/home/ec2-user/validator-3/keystore" ] || [ -z "$(ls -A /home/ec2-user/validator-3/keystore 2>/dev/null)" ]; then
+          docker run --rm \
+            -v /home/ec2-user/validator-3:/bsc \
+            -v /tmp/password.txt:/password.txt \
+            dysnix/bsc account new --datadir /bsc --password /password.txt
+        fi
+      register: validator3_account
+
+    - name: Display generated account information
+      debug:
+        msg:
+          - "Validator 1 account: {{ validator1_account.stdout }}"
+          - "Validator 2 account: {{ validator2_account.stdout }}"
+          - "Validator 3 account: {{ validator3_account.stdout }}"
+          - "Note: If accounts already existed, output will be empty"
+
+    - name: Create genesis file with corrected XHT supply
+      copy:
+        content: |
+          {
+            "config": {
+              "chainId": {{ chain_id }},
+              "homesteadBlock": 0,
+              "eip150Block": 0,
+              "eip155Block": 0,
+              "eip158Block": 0,
+              "byzantiumBlock": 0,
+              "constantinopleBlock": 0,
+              "petersburgBlock": 0,
+              "istanbulBlock": 0,
+              "muirGlacierBlock": 0,
+              "berlinBlock": 0,
+              "londonBlock": 0,
+              "arrowGlacierBlock": 0,
+              "grayGlacierBlock": 0,
+              "mergeNetsplitBlock": 0,
+              "shanghaiBlock": 0,
+              "cancunBlock": 0,
+              "eulerBlock": 0,
+              "gibbsBlock": 0,
+              "brunoBlock": 0,
+              "mirrorSyncBlock": 0,
+              "parlia": {
+                "period": 3,
+                "epoch": 30000
+              }
+            },
+            "nonce": "0x0",
+            "timestamp": "0x0",
+            "extraData": "0x0000000000000000000000000000000000000000000000000000000000000000faa5aa97651c2e2b6860219bb8f9902d416db5ddfd634d55ce9b99058dc06cdda1f866b39579a9f3b753b892551d1c374fda6fd7f6e9b787688c4ea50000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "gasLimit": "0x1c9c380",
+            "difficulty": "0x1",
+            "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "coinbase": "0x0000000000000000000000000000000000000000",
+            "alloc": {
+              "{{ main_wallet_address | lower }}": {
+                "balance": "{{ xht_main_wallet_allocation }}",
+                "comment": "Main wallet - 1 billion XHT initial supply"
+              },
+              "{{ validator1_address | lower }}": {
+                "balance": "{{ gas_allocation }}",
+                "comment": "Validator 1 pre-funded (1000 XHT for gas)"
+              },
+              "{{ validator2_address | lower }}": {
+                "balance": "{{ gas_allocation }}",
+                "comment": "Validator 2 pre-funded (1000 XHT for gas)"
+              },
+              "{{ validator3_address | lower }}": {
+                "balance": "{{ gas_allocation }}",
+                "comment": "Validator 3 pre-funded (1000 XHT for gas)"
+              }
+            },
+            "number": "0x0",
+            "gasUsed": "0x0",
+            "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "_comment": "Xaheen Chain Genesis - Chain ID: 65001, Native Token: XHT, Initial Supply: 1 Billion XHT, 3-second blocks"
+          }
+        dest: /home/ec2-user/genesis-xaheen-65001.json
+        mode: '0644'
+
+    - name: Initialize validator 1 with genesis
+      command: >
+        docker run --rm
+        -v /home/ec2-user/validator-1:/bsc
+        -v /home/ec2-user/genesis-xaheen-65001.json:/genesis.json
+        dysnix/bsc init --datadir /bsc /genesis.json
+
+    - name: Initialize validator 2 with genesis
+      command: >
+        docker run --rm
+        -v /home/ec2-user/validator-2:/bsc
+        -v /home/ec2-user/genesis-xaheen-65001.json:/genesis.json
+        dysnix/bsc init --datadir /bsc /genesis.json
+
+    - name: Initialize validator 3 with genesis
+      command: >
+        docker run --rm
+        -v /home/ec2-user/validator-3:/bsc
+        -v /home/ec2-user/genesis-xaheen-65001.json:/genesis.json
+        dysnix/bsc init --datadir /bsc /genesis.json
+
+    - name: Start Validator 1 (RPC + WS + Mining)
+      docker_container:
+        name: bsc-validator-1
+        image: dysnix/bsc
+        state: started
+        restart_policy: unless-stopped
+        network_mode: host
+        volumes:
+          - /home/ec2-user/validator-1:/bsc
+          - /home/ec2-user/data/password.txt:/password.txt
+        command: >
+          --datadir /bsc
+          --networkid {{ network_id }}
+          --syncmode full
+          --gcmode archive
+          --port 30303
+          --http
+          --http.addr 0.0.0.0
+          --http.port 8545
+          --http.vhosts "*"
+          --http.corsdomain "*"
+          --http.api eth,net,web3,txpool,miner
+          --ws
+          --ws.addr 0.0.0.0
+          --ws.port 8548
+          --ws.origins "*"
+          --ws.api eth,net,web3
+          --mine
+          --miner.etherbase {{ validator1_address }}
+          --unlock {{ validator1_address }}
+          --password /password.txt
+          --allow-insecure-unlock
+          --verbosity 3
+
+    - name: Start Validator 2 (P2P + Mining)
+      docker_container:
+        name: bsc-validator-2
+        image: dysnix/bsc
+        state: started
+        restart_policy: unless-stopped
+        network_mode: host
+        volumes:
+          - /home/ec2-user/validator-2:/bsc
+          - /home/ec2-user/data/password.txt:/password.txt
+        command: >
+          --datadir /bsc
+          --networkid {{ network_id }}
+          --syncmode full
+          --gcmode archive
+          --port 30304
+          --mine
+          --miner.etherbase {{ validator2_address }}
+          --unlock {{ validator2_address }}
+          --password /password.txt
+          --allow-insecure-unlock
+          --verbosity 3
+
+    - name: Start Validator 3 (P2P + Mining)
+      docker_container:
+        name: bsc-validator-3
+        image: dysnix/bsc
+        state: started
+        restart_policy: unless-stopped
+        network_mode: host
+        volumes:
+          - /home/ec2-user/validator-3:/bsc
+          - /home/ec2-user/data/password.txt:/password.txt
+        command: >
+          --datadir /bsc
+          --networkid {{ network_id }}
+          --syncmode full
+          --gcmode archive
+          --port 30305
+          --mine
+          --miner.etherbase {{ validator3_address }}
+          --unlock {{ validator3_address }}
+          --password /password.txt
+          --allow-insecure-unlock
+          --verbosity 3
+
+    - name: Wait for validators to start
+      pause:
+        seconds: 15
+
+    - name: Check validator status
+      command: docker ps --filter name=bsc-validator
+      register: validator_status
+
+    - name: Display validator status
+      debug:
+        var: validator_status.stdout_lines
+
+    - name: Check blockchain is producing blocks
+      shell: |
+        curl -s http://localhost:8545 -X POST -H "Content-Type: application/json" \
+          --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' | jq -r '.result'
+      register: block_number
+      retries: 6
+      delay: 5
+      until: block_number.stdout != "0x0"
+
+    - name: Display block number
+      debug:
+        msg: "Current block number: {{ block_number.stdout }}"
+
+    - name: Deployment Summary
+      debug:
+        msg:
+          - "===================================================================="
+          - "✅ Xaheen Chain Deployment Complete!"
+          - "===================================================================="
+          - "Chain ID: {{ chain_id }}"
+          - "Network ID: {{ network_id }}"
+          - "Initial Supply: 1,000,000,000 XHT (1 billion)"
+          - "Main Wallet: {{ main_wallet_address }}"
+          - "Validator 1: {{ validator1_address }}"
+          - "Validator 2: {{ validator2_address }}"
+          - "Validator 3: {{ validator3_address }}"
+          - ""
+          - "RPC Endpoint: http://{{ ansible_host }}:8545"
+          - "WebSocket: ws://{{ ansible_host }}:8548"
+          - "Current Block: {{ block_number.stdout }}"
+          - ""
+          - "Next Steps:"
+          - "1. Deploy tokenomics contracts"
+          - "2. Configure SSL/HTTPS"
+          - "3. Deploy explorer"
+          - "===================================================================="

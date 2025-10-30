@@ -47,12 +47,13 @@ export default {
       accounts: process.env.PRIVATE_CHAIN_KEY
         ? [process.env.PRIVATE_CHAIN_KEY]
         : [],
-      gasPrice: 1000000000, // 1 gwei
+      gasPrice: 3000000000, // 3 gwei (increased for faster deployment)
+      gas: 8000000, // 8M gas limit
+      timeout: 60000, // 60 second timeout
     },
 
     // Local development (if running local node)
     localhost: {
-      type: "http",
       url: "http://127.0.0.1:8545",
       chainId: 65001, // Xaheen Chain ID
     },
