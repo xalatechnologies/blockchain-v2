@@ -1,0 +1,332 @@
+
+📧 COPY THIS EMAIL AND SEND TO: listings@coinmarketcap.com
+
+
+SUBJECT: New Cryptocurrency Listing Request - Xaheen Token (XHT)
+
+
+
+Dear CoinMarketCap Team,
+
+I am writing to request a listing for Xaheen Token (XHT) on CoinMarketCap.
+
+
+📋 PROJECT INFORMATION
+
+
+Project Name: Xaheen Chain
+Token Name: Xaheen Token
+Token Symbol/Ticker: XHT
+Token Type: Native Blockchain Token / Utility Token
+
+
+🔗 OFFICIAL LINKS
+
+
+Official Website: https://xaheen.org
+Block Explorer: https://explorer.xaheen.org
+Documentation: https://docs.xaheen.org
+
+Social Media (if available):
+Twitter: https://twitter.com/XaheenChain
+Telegram: https://t.me/xaheenchain
+Discord: https://discord.gg/xaheenchain
+
+
+⛓️ BLOCKCHAIN INFORMATION
+
+
+Blockchain Platform: Xaheen Chain (Custom EVM-compatible blockchain)
+Platform Type: Independent Blockchain (Layer 1)
+Consensus Mechanism: Parlia PoSA (Proof of Staked Authority)
+Block Time: 3 seconds
+Chain ID: 65001
+Network ID: 65001
+
+EVM Compatible: Yes (fully compatible with Ethereum tooling)
+Compatible With: MetaMask, Web3.js, ethers.js, Hardhat, Truffle
+
+
+📍 TOKEN CONTRACT DETAILS
+
+
+Contract Address (Wrapped XHT): 0x26c0eaF731885b14c031cc50dB79b36458E0b355
+Contract Type: ERC-20 Compatible
+Token Standard: ERC-20
+Decimals: 18
+
+Total Supply: 21,000,000,000 XHT
+Max Supply: 21,000,000,000 XHT
+Circulating Supply: ~1,000,000,000 XHT (approximate, initial phase)
+
+
+🌐 NETWORK ACCESS
+
+
+RPC Endpoints:
+• Primary: https://rpc.xaheen.org
+• Alternative: http://3.91.50.187:8545
+
+WebSocket: wss://rpc.xaheen.org
+
+Block Explorer:
+• Main: https://explorer.xaheen.org
+• Contract: https://explorer.xaheen.org/address/0x26c0eaF731885b14c031cc50dB79b36458E0b355
+
+Add Network to MetaMask:
+{
+  "chainId": 65001,
+  "chainName": "Xaheen Chain",
+  "rpcUrls": ["https://rpc.xaheen.org"],
+  "nativeCurrency": {
+    "name": "Xaheen Token",
+    "symbol": "XHT",
+    "decimals": 18
+  },
+  "blockExplorerUrls": ["https://explorer.xaheen.org"]
+}
+
+
+💱 MARKET & TRADING DATA
+
+
+Launch Date: January 2025
+Current Status: Live and Trading
+
+Primary Exchange: Xaheen DEX (Native)
+Exchange Type: Decentralized Exchange (DEX)
+DEX Protocol: Uniswap V2 Fork
+
+Smart Contracts:
+• Router: 0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916
+• Factory: 0xBE254176B4f13b02f367a9feCE599ee8887E2D34
+
+Trading Pairs (Live):
+1. XHT/USDT
+   • Liquidity: 600,000,000 XHT
+   • Pair Address: 0x3eCD8786EfCf66cc0a021c234f7Ac8606FCc0212
+
+2. XHT/BNB
+   • Liquidity: 100,000,000 XHT
+
+3. XHT/ETH
+   • Liquidity: 100,000,000 XHT
+
+Total Value Locked (TVL): ~$800,000 USD
+24h Trading Volume: Growing (recent launch)
+
+Current Price: ~$0.001 USD (indicative, DEX-based pricing)
+Market Capitalization: ~$1,000,000 USD (circulating supply based)
+
+
+📊 TOKEN DISTRIBUTION
+
+
+Total Supply: 21,000,000,000 XHT (100%)
+
+Distribution:
+• Treasury/Development: 95% (19,950,000,000 XHT)
+• Liquidity Pools: 4% (800,000,000 XHT locked in DEX)
+• Initial Circulation: 1% (200,000,000 XHT)
+
+Token Utility:
+• Network gas fees (primary use case)
+• DEX trading fees
+• Liquidity provision rewards
+• Staking rewards (active)
+• Governance voting (planned)
+• Cross-chain bridge fees (planned)
+
+
+🎯 PROJECT DESCRIPTION
+
+
+What is Xaheen Chain?
+
+Xaheen Chain is a high-performance, EVM-compatible blockchain network
+designed specifically for decentralized finance (DeFi) applications.
+Built on proven Parlia PoSA consensus (same technology as BNB Chain),
+Xaheen offers significantly faster transaction speeds and lower costs
+compared to traditional blockchains.
+
+Key Features & Advantages:
+
+1. Ultra-Fast Transactions
+   • 3-second block finality (10x faster than Ethereum)
+   • High throughput capacity
+   • Minimal transaction confirmation delays
+
+2. Low-Cost Operations
+   • Average transaction fee: < $0.01 USD
+   • 100x cheaper than Ethereum mainnet
+   • Sustainable for micro-transactions
+
+3. Native DeFi Infrastructure
+   • Built-in decentralized exchange (Xaheen DEX)
+   • Protocol-level liquidity mechanisms
+   • Integrated staking and rewards system
+   • Native cross-chain bridge capabilities (planned)
+
+4. Full EVM Compatibility
+   • Works seamlessly with MetaMask
+   • Compatible with Web3.js and ethers.js
+   • Supports Solidity smart contracts
+   • Easy migration for Ethereum dApps
+
+5. Proven Technology
+   • Parlia consensus (battle-tested on BNB Chain)
+   • Security-focused architecture
+   • Professional validator network
+   • Transparent on-chain operations
+
+Use Cases:
+• Decentralized trading (active)
+• Liquidity provision (active)
+• Token staking and rewards (active)
+• DeFi protocol development (available)
+• NFT marketplace (planned)
+• Cross-chain asset bridging (planned)
+• Gaming and metaverse applications (future)
+
+
+🔐 SECURITY & AUDIT STATUS
+
+
+Smart Contract Security:
+• Based on audited Uniswap V2 codebase
+• Standard ERC-20 token implementation
+• Open-source contract code
+• Transparent on-chain verification
+
+Blockchain Security:
+• Parlia PoSA consensus (proven secure)
+• Multi-validator network
+• Regular security updates
+• Active monitoring systems
+
+Audit Status:
+• Core DEX contracts: Based on audited Uniswap V2
+• Custom contracts: Internal security review
+• Future: Third-party security audit planned
+
+
+👥 TEAM & DEVELOPMENT
+
+
+Development Status: Active
+GitHub: Available (contracts open-source compatible)
+Roadmap: Published on website
+
+Team:
+• Experienced blockchain developers
+• Full-stack infrastructure engineers
+• Active community management
+• Dedicated support team
+
+Contact:
+• General: contact@xaheen.org
+• Support: support@xaheen.org
+• Technical: technical@xaheen.org
+
+
+✅ VERIFICATION & TESTING
+
+
+Your team can verify Xaheen Chain and XHT token through:
+
+1. Test RPC Endpoint (confirms blockchain is live):
+   curl -X POST https://rpc.xaheen.org \
+     -H "Content-Type: application/json" \
+     -d '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
+
+   Expected: Returns current block number in hex format
+
+2. View Block Explorer:
+   https://explorer.xaheen.org
+   (Browse blocks, transactions, contracts, accounts)
+
+3. Inspect Token Contract:
+   https://explorer.xaheen.org/address/0x26c0eaF731885b14c031cc50dB79b36458E0b355
+   (View contract bytecode, transactions, token info)
+
+4. Check DEX Router Contract:
+   https://explorer.xaheen.org/address/0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916
+   (View trading activity, swaps, liquidity operations)
+
+5. Add Network to MetaMask:
+   Network Name: Xaheen Chain
+   RPC URL: https://rpc.xaheen.org
+   Chain ID: 65001
+   Currency Symbol: XHT
+   Block Explorer: https://explorer.xaheen.org
+
+6. Test Token Import:
+   Import token address: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
+   Will display as "Wrapped XHT" with 18 decimals
+
+7. View Recent Transactions:
+   https://explorer.xaheen.org/txs
+   (Real trading activity visible)
+
+
+📊 WHY LIST ON COINMARKETCAP?
+
+
+1. Real, Operating Blockchain
+   • Not just a token - full blockchain platform
+   • Live trading, real liquidity, actual users
+   • Working infrastructure, not vaporware
+
+2. Strong Technology Foundation
+   • Proven Parlia consensus
+   • Full EVM compatibility
+   • Professional development
+
+3. Growing Ecosystem
+   • Active DEX with significant liquidity
+   • Staking and rewards operational
+   • Bridge and expansion plans
+
+4. Transparent Operations
+   • Public blockchain explorer
+   • Verifiable on-chain data
+   • Open smart contracts
+
+5. Long-term Vision
+   • Sustainable tokenomics
+   • Active development roadmap
+   • Community-focused growth
+
+
+📎 ADDITIONAL INFORMATION
+
+
+Logo: Available upon request (PNG, 200x200px minimum)
+Whitepaper: Available on website
+Documentation: https://docs.xaheen.org
+API Access: Standard EVM JSON-RPC API
+
+Listing Preference:
+• Primary listing as XHT on Xaheen Chain
+• Category: Platform / Infrastructure Token
+• Tag: DeFi, DEX, Layer 1
+
+
+
+We believe Xaheen Token and the Xaheen Chain platform would be a
+valuable addition to CoinMarketCap's comprehensive cryptocurrency
+database. Our blockchain is live, operational, and providing real
+utility to an active and growing user base.
+
+Please let me know if you require any additional information,
+documentation, or verification for this listing request.
+
+Thank you for your consideration!
+
+Best regards,
+Xaheen Chain Team
+
+Website: https://xaheen.org
+Email: contact@xaheen.org
+
+

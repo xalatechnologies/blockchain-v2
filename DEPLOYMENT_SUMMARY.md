@@ -50,6 +50,14 @@ The Xaheen Chain is now **fully deployed and operational** with:
 | **BNB** | `0xa4cBBcbd8146482E5618c833faFf5fA4C29B78a6` | 1,000,000 BNB |
 | **ETH** | `0xc6E0cD72723C9409ba221197e06830EB928a7A76` | 1,000,000 ETH |
 
+### Tokenomics Contracts
+
+| Contract | Address | Purpose |
+|----------|---------|---------|
+| **XHTStaking** | `0xbA554577De2d3eE1AdE77737Dc32717527E0cA86` | Flexible staking with 5 lock tiers |
+| **WeeklyBuyback** | `0xa8ee927a73BED490A5F1CE36A788A7DF1E556542` | Weekly XHT buyback & burn mechanism |
+| **BurnMechanism** | `0xA609ad73915f72a824b1bFEACd5cA3027490d5b9` | Triple burn (gas, rewards, bridge) |
+
 ---
 
 ## 💧 Liquidity Pools
@@ -229,7 +237,7 @@ console.log("Reserve1:", ethers.formatEther(reserves[1]));
 - [x] XHT/BNB liquidity pool created
 - [x] XHT/ETH liquidity pool created
 - [x] HTTPS RPC endpoint configured
-- [ ] Tokenomics contracts (pending)
+- [x] Tokenomics contracts deployed (Staking, Buyback, Burn)
 - [ ] Block explorer (pending)
 - [ ] DEX frontend (pending)
 
@@ -243,11 +251,14 @@ All liquidity pools are active, and users can now:
 - Wrap/unwrap XHT ↔ WXHT
 - Trade XHT for USDT, BNB, or ETH
 - Provide liquidity and earn fees
+- Stake XHT for rewards and voting power
+- Participate in weekly buyback & burn
 - Build dApps on the Xaheen Chain
 
-**Block Height at Completion:** ~2100+
+**Block Height at Completion:** ~2200+
 **Total WXHT Wrapped:** 600,000,000 WXHT
 **Total Value Locked:** $1,200 USDT + 100 BNB + 2 ETH
+**Tokenomics:** Staking, Buyback & Triple Burn Mechanism Active
 
 ---
 

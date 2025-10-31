@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy XHT - Xaheen Chain</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #2d3748;
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #718096;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            color: #4a5568;
+        }
+
+        .info-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .label {
+            font-weight: 500;
+        }
+
+        .value {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .wallet-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+
+        .wallet-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .amount-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .amount-btn {
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .amount-btn:hover {
+            border-color: #667eea;
+            background: #f7fafc;
+        }
+
+        .amount-btn.active {
+            border-color: #667eea;
+            background: #667eea;
+            color: white;
+        }
+
+        .buy-button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 15px;
+        }
+
+        .buy-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .buy-button:active {
+            transform: translateY(0);
+        }
+
+        .buy-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .providers {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .provider-btn {
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .provider-btn:hover {
+            border-color: #667eea;
+            background: #f7fafc;
+        }
+
+        .provider-btn.active {
+            border-color: #667eea;
+            background: #667eea;
+            color: white;
+        }
+
+        .note {
+            background: #fff5f5;
+            border-left: 4px solid #fc8181;
+            padding: 15px;
+            border-radius: 8px;
+            color: #742a2a;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .note strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .features {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #4a5568;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>💎 Buy XHT</h1>
+            <p class="subtitle">Purchase XHT with credit card or bank transfer</p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-row">
+                <span class="label">Chain:</span>
+                <span class="value">Xaheen Chain</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Token:</span>
+                <span class="value">XHT</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Fee:</span>
+                <span class="value">3.5-4.5%</span>
+            </div>
+        </div>
+
+        <input
+            type="text"
+            class="wallet-input"
+            id="walletAddress"
+            placeholder="Your wallet address (0x...)"
+        >
+
+        <div class="amount-selector">
+            <button class="amount-btn" data-amount="50">$50</button>
+            <button class="amount-btn active" data-amount="100">$100</button>
+            <button class="amount-btn" data-amount="250">$250</button>
+            <button class="amount-btn" data-amount="500">$500</button>
+            <button class="amount-btn" data-amount="1000">$1000</button>
+            <button class="amount-btn" data-amount="custom">Custom</button>
+        </div>
+
+        <div class="providers">
+            <button class="provider-btn active" data-provider="moonpay">
+                🌙 MoonPay
+            </button>
+            <button class="provider-btn" data-provider="transak">
+                ⚡ Transak
+            </button>
+        </div>
+
+        <button class="buy-button" id="buyButton">
+            💳 Buy XHT with Card
+        </button>
+
+        <div class="note">
+            <strong>⚠️ Important:</strong>
+            This requires XHT to be listed on the provider. Currently in demo mode.
+            In production, users will complete KYC with the payment provider.
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <span>Instant delivery to your wallet</span>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <span>Secure payment processing</span>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <span>24/7 customer support</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const CONFIG = {
+            moonpay: {
+                apiKey: 'pk_test_YOUR_KEY_HERE', // Replace with your key
+                baseUrl: 'https://buy-sandbox.moonpay.com', // Use 'https://buy.moonpay.com' for production
+                currencyCode: 'xht', // Will need approval from MoonPay
+            },
+            transak: {
+                apiKey: 'YOUR_TRANSAK_KEY_HERE', // Replace with your key
+                environment: 'STAGING', // Use 'PRODUCTION' for production
+                currencyCode: 'XHT',
+            },
+            xaheen: {
+                chainId: 65001,
+                rpcUrl: 'https://rpc.xaheen.org',
+            }
+        };
+
+        // State
+        let selectedAmount = 100;
+        let selectedProvider = 'moonpay';
+        let walletAddress = '';
+
+        // Elements
+        const amountButtons = document.querySelectorAll('.amount-btn');
+        const providerButtons = document.querySelectorAll('.provider-btn');
+        const walletInput = document.getElementById('walletAddress');
+        const buyButton = document.getElementById('buyButton');
+
+        // Amount selection
+        amountButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                amountButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const amount = btn.dataset.amount;
+                if (amount === 'custom') {
+                    selectedAmount = prompt('Enter amount in USD:', '100');
+                    selectedAmount = parseInt(selectedAmount) || 100;
+                } else {
+                    selectedAmount = parseInt(amount);
+                }
+            });
+        });
+
+        // Provider selection
+        providerButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                providerButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedProvider = btn.dataset.provider;
+            });
+        });
+
+        // Wallet address input
+        walletInput.addEventListener('input', (e) => {
+            walletAddress = e.target.value.trim();
+            updateButton();
+        });
+
+        // Try to get wallet from MetaMask
+        async function connectWallet() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    const accounts = await window.ethereum.request({
+                        method: 'eth_requestAccounts'
+                    });
+                    walletAddress = accounts[0];
+                    walletInput.value = walletAddress;
+                    updateButton();
+                } catch (error) {
+                    console.error('Failed to connect wallet:', error);
+                }
+            }
+        }
+
+        // Auto-fill wallet if connected
+        window.addEventListener('load', connectWallet);
+
+        // Update button state
+        function updateButton() {
+            if (walletAddress && walletAddress.startsWith('0x') && walletAddress.length === 42) {
+                buyButton.disabled = false;
+            } else {
+                buyButton.disabled = true;
+            }
+        }
+
+        // Open MoonPay
+        function openMoonPay() {
+            const url = new URL(CONFIG.moonpay.baseUrl);
+
+            url.searchParams.append('apiKey', CONFIG.moonpay.apiKey);
+            url.searchParams.append('currencyCode', CONFIG.moonpay.currencyCode);
+            url.searchParams.append('walletAddress', walletAddress);
+            url.searchParams.append('baseCurrencyAmount', selectedAmount.toString());
+            url.searchParams.append('defaultCurrencyCode', 'USD');
+            url.searchParams.append('colorCode', '#667eea');
+            url.searchParams.append('redirectURL', window.location.href);
+
+            const width = 500;
+            const height = 700;
+            const left = (window.screen.width / 2) - (width / 2);
+            const top = (window.screen.height / 2) - (height / 2);
+
+            window.open(
+                url.toString(),
+                'MoonPay',
+                `width=${width},height=${height},left=${left},top=${top}`
+            );
+        }
+
+        // Open Transak
+        function openTransak() {
+            alert('Transak integration coming soon! Demo purposes only.');
+
+            // In production, use Transak SDK:
+            // const transak = new transakSDK({ ... });
+            // transak.init();
+        }
+
+        // Buy button click
+        buyButton.addEventListener('click', () => {
+            if (!walletAddress) {
+                alert('Please enter your wallet address');
+                return;
+            }
+
+            if (selectedProvider === 'moonpay') {
+                openMoonPay();
+            } else if (selectedProvider === 'transak') {
+                openTransak();
+            }
+        });
+
+        // Demo mode notice
+        setTimeout(() => {
+            console.log('%c🚀 Fiat On-Ramp Demo', 'font-size: 20px; font-weight: bold; color: #667eea;');
+            console.log('%cThis is a demonstration of fiat on-ramp integration.', 'font-size: 14px;');
+            console.log('%cTo enable real purchases:', 'font-size: 14px; font-weight: bold;');
+            console.log('1. Sign up at https://www.moonpay.com/dashboard');
+            console.log('2. Get your API keys');
+            console.log('3. Apply to list XHT token');
+            console.log('4. Replace API keys in this code');
+        }, 1000);
+    </script>
+</body>
+</html>

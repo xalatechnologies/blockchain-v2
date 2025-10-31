@@ -1,0 +1,50 @@
+{
+  "network": {
+    "name": "Xaheen Chain",
+    "chainId": 65001,
+    "networkId": 65001,
+    "rpcUrl": "https://rpc.xaheen.org",
+    "blockTime": "3 seconds",
+    "consensus": "Parlia PoSA"
+  },
+  "core": {
+    "WXHT": "0x26c0eaF731885b14c031cc50dB79b36458E0b355",
+    "Factory": "0xBE254176B4f13b02f367a9feCE599ee8887E2D34",
+    "Router": "0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916"
+  },
+  "tokens": {
+    "USDT": "0xB8fa87a1dAC07e077a51999F5cE79BD236f06acf",
+    "BNB": "0xa4cBBcbd8146482E5618c833faFf5fA4C29B78a6",
+    "ETH": "0xc6E0cD72723C9409ba221197e06830EB928a7A76"
+  },
+  "tokenomics": {
+    "XHTStaking": "0xbA554577De2d3eE1AdE77737Dc32717527E0cA86",
+    "WeeklyBuyback": "0xa8ee927a73BED490A5F1CE36A788A7DF1E556542",
+    "BurnMechanism": "0xA609ad73915f72a824b1bFEACd5cA3027490d5b9"
+  },
+  "treasury": {
+    "address": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+    "nativeXHT": "~20.4 billion XHT",
+    "wxhtBalance": "600,000,000 WXHT"
+  },
+  "liquidityPools": {
+    "XHT_USDT": {
+      "xht": "500,000,000 XHT",
+      "usdt": "1,200 USDT",
+      "initialPrice": "~$0.0000024 per XHT"
+    },
+    "XHT_BNB": {
+      "xht": "50,000,000 XHT",
+      "bnb": "100 BNB"
+    },
+    "XHT_ETH": {
+      "xht": "50,000,000 XHT",
+      "eth": "2 ETH"
+    }
+  },
+  "deployment": {
+    "date": "2025-10-31",
+    "blockHeight": "~2200+",
+    "status": "FULLY OPERATIONAL"
+  }
+}
