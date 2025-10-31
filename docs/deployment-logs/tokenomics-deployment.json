@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-10-31T08:48:08.640Z",
+  "network": "Xaheen Chain",
+  "chainId": 65001,
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "contracts": {
+    "charity": {
+      "address": "0x64d3fd069d0b151B847284c2bDA4B3f3cDB4664e",
+      "owner": "0xdD779a290C937144F80Eb75b75d814c834536B1b"
+    },
+    "buyback": {
+      "address": "0xe99Cb96DDbE6F8e018443E0215eBcb179Ff89713",
+      "router": "0x4A82C98A950125F17943F56273efae39dDe81763",
+      "xhtToken": "0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c",
+      "usdtToken": "0xA37C1f80Bd02D9d70ce0188831A85c65fdFBeEDe",
+      "treasury": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+      "lpManager": "0xdD779a290C937144F80Eb75b75d814c834536B1b"
+    }
+  }
+}

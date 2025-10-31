@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-10-31T08:32:30.762Z",
+  "network": "Xaheen Chain",
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "tokens": {
+    "WBNB": {
+      "address": "0x1495fCf5F09D53203EE1CD1fF974591dc101df0b",
+      "name": "Wrapped BNB",
+      "symbol": "WBNB",
+      "decimals": 18,
+      "initialSupply": "100000.0 WBNB"
+    },
+    "WETH": {
+      "address": "0x26c0eaF731885b14c031cc50dB79b36458E0b355",
+      "name": "Wrapped Ether",
+      "symbol": "WETH",
+      "decimals": 18,
+      "initialSupply": "100000.0 WETH"
+    }
+  },
+  "verification": {
+    "wbnb": "https://explorer.xaheen.org/address/0x1495fCf5F09D53203EE1CD1fF974591dc101df0b",
+    "weth": "https://explorer.xaheen.org/address/0x26c0eaF731885b14c031cc50dB79b36458E0b355"
+  }
+}

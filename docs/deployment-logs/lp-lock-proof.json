@@ -1,0 +1,38 @@
+{
+  "timestamp": "2025-10-30T23:12:22.000Z",
+  "network": "Xaheen Chain",
+  "pair": "0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8",
+  "timelock": "0x02938F8c35A08126b0be008AaEb0B29B7E48d355",
+  "lock": {
+    "lockId": "0",
+    "amount": "3227486.121581315181224232 LP tokens",
+    "amountRaw": "3227486121581315181224232",
+    "valueUSD": "$10,000",
+    "lockTime": "2025-10-30T23:12:22.000Z",
+    "unlockTime": "2026-10-30T23:12:22.000Z",
+    "daysUntilUnlock": 365,
+    "description": "Initial 100% liquidity lock - $10k of $150k target (XaheenSwap Launch)",
+    "percentage": "100%"
+  },
+  "balances": {
+    "yourLPBalance": "0.0 LP tokens",
+    "timelockBalance": "3227486.121581315181224232 LP tokens",
+    "lockedPercentage": "100.00%"
+  },
+  "transactions": {
+    "approve": "0x3f7c89be79e4d68e4d606b87e8a97a0da99054ceb349b5dbb835f91a4cb27106",
+    "lock": "0xcddd533de6293df4d952596b0f55c8636de49e5dde83fffdeea3c101d836eda4"
+  },
+  "verification": {
+    "timelock": "https://explorer.xaheen.org/address/0x02938F8c35A08126b0be008AaEb0B29B7E48d355",
+    "lockTx": "https://explorer.xaheen.org/tx/0xcddd533de6293df4d952596b0f55c8636de49e5dde83fffdeea3c101d836eda4",
+    "approveTx": "https://explorer.xaheen.org/tx/0x3f7c89be79e4d68e4d606b87e8a97a0da99054ceb349b5dbb835f91a4cb27106",
+    "pair": "https://explorer.xaheen.org/address/0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8"
+  },
+  "futureTarget": {
+    "currentLocked": "$10,000",
+    "targetLocked": "$150,000",
+    "remainingToLock": "$140,000",
+    "strategy": "Lock 30% of total $500k liquidity = $150k target"
+  }
+}

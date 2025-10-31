@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-10-31T08:35:25.488Z",
+  "network": "Xaheen Chain",
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "pools": {
+    "XHT/BNB": {
+      "pairAddress": "0x21E85cdc46C808b28A405ac901fCCc22E317422d",
+      "xhtAmount": "5000000.0",
+      "bnbAmount": "1000.0",
+      "addLiquidityTx": "0x9940112fb689b202dac79243423956600c6e53c4445c3fe63de91aa78c945fa1"
+    },
+    "XHT/ETH": {
+      "pairAddress": "0x256EAEcd35e40058b80b78fCB0c51A8975E5592d",
+      "xhtAmount": "5000000.0",
+      "ethAmount": "500.0",
+      "addLiquidityTx": "0x38bde1bae214b1c78d6d588a56cca68485287312f3e048233d2b023c6e39cab1"
+    }
+  }
+}

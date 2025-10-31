@@ -1,0 +1,23 @@
+{
+  "network": "Xaheen Chain",
+  "timestamp": "2025-10-30T23:31:38.912Z",
+  "contract": {
+    "name": "WeeklyBuyback",
+    "address": "0x4002f8C3c2CDDd4Ff7746c445d5DdD7321f8C6fF",
+    "xhtToken": "0xeeE0Bf805c80456C539Ec73855b3a9bf81E54862",
+    "usdtToken": "0xd16F235BB4b53b448e5ECdE89Cf17568FD91CFaA",
+    "router": "0x25a4240A868f9F5D5e6b55e5dd355bF2e1F9890a",
+    "treasury": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+    "lpManager": "0xdD779a290C937144F80Eb75b75d814c834536B1b"
+  },
+  "settings": {
+    "burnPercentage": "50%",
+    "treasuryPercentage": "30%",
+    "lpPercentage": "20%",
+    "minBuybackAmount": "500 USDT",
+    "maxBuybackAmount": "5000 USDT",
+    "interval": "7 days (weekly)"
+  },
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "verificationUrl": "https://explorer.xaheen.org/address/0x4002f8C3c2CDDd4Ff7746c445d5DdD7321f8C6fF"
+}

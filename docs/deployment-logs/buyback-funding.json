@@ -1,0 +1,10 @@
+{
+  "timestamp": "2025-10-30T23:32:14.047Z",
+  "network": "Xaheen Chain",
+  "buybackContract": "0x4002f8C3c2CDDd4Ff7746c445d5DdD7321f8C6fF",
+  "amount": "2000.0 USDT",
+  "transaction": "0x2c2ba991b652acb0c6437ffccb587e46c9ced669e9a8236edcdefa95849ef780",
+  "from": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "newContractBalance": "2000.0 USDT",
+  "verification": "https://explorer.xaheen.org/tx/0x2c2ba991b652acb0c6437ffccb587e46c9ced669e9a8236edcdefa95849ef780"
+}

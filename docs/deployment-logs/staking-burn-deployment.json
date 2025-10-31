@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-10-31T08:51:31.958Z",
+  "network": "Xaheen Chain",
+  "chainId": 65001,
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "contracts": {
+    "staking": {
+      "address": "0x039523871b6DbaF18664785d73447b07cD0E9E98",
+      "totalStaked": "0.0",
+      "totalSupply": "1000000000.0",
+      "currentAPY": "20"
+    },
+    "burn": {
+      "address": "0x2e67F0F77Dcf20E8a81907Bd8CDe80e4466A6C51",
+      "totalBurned": "0.0",
+      "currentSupply": "1000000000.0",
+      "gasBurnPercentage": "50",
+      "validatorBurnPercentage": "10",
+      "bridgeBurnPercentage": "5"
+    }
+  }
+}

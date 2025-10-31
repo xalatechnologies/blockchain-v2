@@ -1,0 +1,51 @@
+{
+  "timestamp": "2025-10-31T10:44:29.117Z",
+  "chainId": 65001,
+  "networkId": 65001,
+  "blockTime": 3,
+  "epoch": 30000,
+  "validators": [
+    {
+      "index": 1,
+      "address": "0xa3aaC90d6505c2a57141EaFDA973222DF91BBe1C",
+      "password": "3d5679f1148d19b440646957f146176c063a645dd44fc1b8f759fe613eae8edd",
+      "recommendedLocation": "AWS us-east-1 (Virginia)"
+    },
+    {
+      "index": 2,
+      "address": "0x632b5aCF4FfbBE8dAe81df89754Fb1b217924788",
+      "password": "1951ebbb13475ec4e85f7b4805217d73f5ce47fd514f7ccad06a7ee8de2d1fb9",
+      "recommendedLocation": "AWS us-east-1 (Virginia)"
+    },
+    {
+      "index": 3,
+      "address": "0xB3B4f4fb663d9C8c6AD57e30631Ae1BB0E60c62B",
+      "password": "5d63896daa81bbe7856a40d0592de750d211d10a19676ac0905198a498fb8d83",
+      "recommendedLocation": "AWS us-west-2 (Oregon)"
+    },
+    {
+      "index": 4,
+      "address": "0x8b4b32C6853cdaeD42C88A7B4A1Cb4E4b002F294",
+      "password": "669445410b9d20c003c7fe3638ca47fd28d435a02d8fa83662e34490513fa2cd",
+      "recommendedLocation": "AWS us-west-2 (Oregon)"
+    },
+    {
+      "index": 5,
+      "address": "0xeE95057aEe4F04Da10976b0DeB8dD74230CEC38d",
+      "password": "35fdb0fdbb5fa84bd0e899ccc10485b83612107c65829d97f1571c0d67e214c8",
+      "recommendedLocation": "AWS eu-west-1 (Ireland)"
+    },
+    {
+      "index": 6,
+      "address": "0x726bA3b10c9d57df9DED1b40B93e97A6D6206235",
+      "password": "e5bdfec263cb1f94314f588271ff1eecde6a256cf1583719efb2283ea88dd754",
+      "recommendedLocation": "AWS eu-west-1 (Ireland)"
+    },
+    {
+      "index": 7,
+      "address": "0x76D4dE9f9324F3A6f411ca56aAB022c5856E24d9",
+      "password": "860f4d8d0116161cc5d99619da6ef481fde4d642c4dcb3c1460fe251a6e14d57",
+      "recommendedLocation": "AWS ap-southeast-1 (Singapore)"
+    }
+  ]
+}

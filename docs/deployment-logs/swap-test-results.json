@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-10-30T23:00:40.977Z",
+  "network": "Xaheen Chain",
+  "tests": [
+    {
+      "name": "XHT to USDT",
+      "input": "1000.0 XHT",
+      "output": "0.002392798855285027 USDT",
+      "price": "0.0000023928",
+      "transaction": "0xb4e4a25a08ab460f129a4ee24b81f200a56070ef953bfda512a832c18e2a6350",
+      "status": "SUCCESS"
+    },
+    {
+      "name": "USDT to XHT",
+      "input": "0.001 USDT",
+      "output": "415.416812600909579353 XHT",
+      "price": "0.0000024072",
+      "transaction": "0x36a541b06a0dddf716b2bba1c54a1d71eb9f4376a0eadb75ccc4b180b660436a",
+      "status": "SUCCESS"
+    }
+  ],
+  "summary": {
+    "allTestsPassed": true,
+    "gasEfficient": true,
+    "liquiditySufficient": true,
+    "readyForProduction": true
+  }
+}

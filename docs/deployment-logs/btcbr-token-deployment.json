@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-10-31T08:50:18.010Z",
+  "network": "Xaheen Chain",
+  "chainId": 65001,
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "contract": {
+    "name": "BTCBR",
+    "address": "0xFDE8f93aC81D55E0E23Bec1bC6c79F10111bCBDC",
+    "totalSupply": "21000000000000000000000000.0",
+    "deployerBalance": "10500000000000000000000000.0",
+    "validatorBalance": "10500000000000000000000000.0",
+    "validatorAddress": "0xFAA5AA97651c2e2b6860219bb8f9902d416dB5DD"
+  }
+}

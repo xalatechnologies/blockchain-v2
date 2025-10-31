@@ -1,0 +1,13 @@
+{
+  "network": "Xaheen Chain",
+  "chainId": 65001,
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "timestamp": "2025-10-31T08:31:16.561Z",
+  "contracts": {
+    "WXHT": "0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c",
+    "Factory": "0xe97D574A2e1B62f4d32C5cfeaFa8e6B99Da020fa",
+    "Router": "0x4A82C98A950125F17943F56273efae39dDe81763"
+  },
+  "rpc": "https://rpc.xaheen.org",
+  "explorer": "https://explorer.xaheen.org"
+}

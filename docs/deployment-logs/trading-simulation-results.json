@@ -1,0 +1,109 @@
+{
+  "timestamp": "2025-10-30T23:41:24.237Z",
+  "network": "Xaheen Chain",
+  "pair": "0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8",
+  "totalTrades": 10,
+  "trades": [
+    {
+      "trade": 1,
+      "direction": "XHT → USDT",
+      "input": "10,000 XHT",
+      "output": "0.023927929369535486 USDT",
+      "tradeValue": "$0.02",
+      "fee": "$0.0001",
+      "tx": "0x1d0c9629f070c881bd28760aa1c5b7180252265634136949cf0ea72e4d2d6274"
+    },
+    {
+      "trade": 2,
+      "direction": "USDT → XHT",
+      "input": "0.01 USDT",
+      "output": "4154.184757228839579552 XHT",
+      "tradeValue": "$0.01",
+      "fee": "$0.000030",
+      "tx": "0x1423bb597a92aae9773bfd24545e30caf7670594787c41ef0fbdf4b1e15fb87b"
+    },
+    {
+      "trade": 3,
+      "direction": "XHT → USDT",
+      "input": "10,000 XHT",
+      "output": "0.02392786247228708 USDT",
+      "tradeValue": "$0.02",
+      "fee": "$0.0001",
+      "tx": "0x55bdb89f4e56a4199142b0a0b12e4c5167aa34a4097805ce4cbfdf0960b8f879"
+    },
+    {
+      "trade": 4,
+      "direction": "USDT → XHT",
+      "input": "0.01 USDT",
+      "output": "4154.196371432039688033 XHT",
+      "tradeValue": "$0.01",
+      "fee": "$0.000030",
+      "tx": "0x81496462c42d4afb863cd584e06490de081d324bb0a0916aa0b561de988f286f"
+    },
+    {
+      "trade": 5,
+      "direction": "XHT → USDT",
+      "input": "10,000 XHT",
+      "output": "0.023927795575453153 USDT",
+      "tradeValue": "$0.02",
+      "fee": "$0.0001",
+      "tx": "0xc8eb39e9c4c9c18c11a9bfecd102637e8648b66a275c292a8e71f3332924d70a"
+    },
+    {
+      "trade": 6,
+      "direction": "USDT → XHT",
+      "input": "0.01 USDT",
+      "output": "4154.207985628222274411 XHT",
+      "tradeValue": "$0.01",
+      "fee": "$0.000030",
+      "tx": "0x8480a67e11dd61d8543ed89228e3d4f6999a558a6d640b2a367863496ac58738"
+    },
+    {
+      "trade": 7,
+      "direction": "XHT → USDT",
+      "input": "10,000 XHT",
+      "output": "0.023927728679033702 USDT",
+      "tradeValue": "$0.02",
+      "fee": "$0.0001",
+      "tx": "0xf0f1fea1bfe52cb2615787d81efb5acc1dc6ea7837c1ffb9715b2c58ef804ff9"
+    },
+    {
+      "trade": 8,
+      "direction": "USDT → XHT",
+      "input": "0.01 USDT",
+      "output": "4154.219599817387255458 XHT",
+      "tradeValue": "$0.01",
+      "fee": "$0.000030",
+      "tx": "0xa672fb6b2440319d40e1fbd8af466d96242ee7a256ccd4b202a32c2797ba8a18"
+    },
+    {
+      "trade": 9,
+      "direction": "XHT → USDT",
+      "input": "10,000 XHT",
+      "output": "0.023927661783028724 USDT",
+      "tradeValue": "$0.02",
+      "fee": "$0.0001",
+      "tx": "0x946ebdac45f47d694b66f051363b1e2fdce18fee35866b9e74e1127de17f61a4"
+    },
+    {
+      "trade": 10,
+      "direction": "USDT → XHT",
+      "input": "0.01 USDT",
+      "output": "4154.231213999534547944 XHT",
+      "tradeValue": "$0.01",
+      "fee": "$0.000030",
+      "tx": "0x5e48a2917c79a9fc621db56dacbb1e36c9728620ac2805875727646e0ed6f05e"
+    }
+  ],
+  "fees": {
+    "totalGenerated": "$0.0005",
+    "yourShare": "$0.0003",
+    "yourSharePercent": "50%"
+  },
+  "lpTokenValue": {
+    "before": "$10,000.0000",
+    "feesAdded": "+$0.0003",
+    "after": "$10000.0003",
+    "increasePercent": "0.0000%"
+  }
+}

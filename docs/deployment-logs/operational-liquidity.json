@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-10-30T23:24:20.092Z",
+  "network": "Xaheen Chain",
+  "pair": "0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8",
+  "router": "0x25a4240A868f9F5D5e6b55e5dd355bF2e1F9890a",
+  "operationalLiquidity": {
+    "xhtAmount": "2083334497.9161987 XHT",
+    "usdtAmount": "5000.0 USDT",
+    "valueUSD": "$10,000",
+    "lpTokens": "3227487.020629360571760602 LP tokens",
+    "status": "UNLOCKED"
+  },
+  "totalPool": {
+    "xhtReserve": "4166668415.499216732090420647 WXHT",
+    "usdtReserve": "9999.998607201144458681 USDT",
+    "totalLiquidityUSD": "$20000.00",
+    "price": "$0.0000024000 USDT/XHT"
+  },
+  "breakdown": {
+    "locked": {
+      "value": "$10,000",
+      "percentage": "50%",
+      "timelock": "0x02938F8c35A08126b0be008AaEb0B29B7E48d355",
+      "unlockDate": "October 30, 2026"
+    },
+    "operational": {
+      "value": "$10,000",
+      "percentage": "50%",
+      "status": "UNLOCKED - Can earn fees and withdraw anytime"
+    }
+  },
+  "transactions": {
+    "approve": "0xafeca7c3cce76ba96ef1d3916de83505fdc0ef476dcc5bc8bc700b492b32b165",
+    "addLiquidity": "0x59c5059d3b8ced265ee60c48949d23d778e6e0de5d621f9609ccba9e3cd908f0"
+  },
+  "verification": {
+    "pair": "https://explorer.xaheen.org/address/0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8",
+    "transaction": "https://explorer.xaheen.org/tx/0x59c5059d3b8ced265ee60c48949d23d778e6e0de5d621f9609ccba9e3cd908f0"
+  }
+}

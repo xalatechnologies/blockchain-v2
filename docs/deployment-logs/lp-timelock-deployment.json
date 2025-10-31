@@ -1,0 +1,17 @@
+{
+  "network": "Xaheen Chain",
+  "timestamp": "2025-10-31T08:36:52.573Z",
+  "contract": {
+    "name": "LPTokenTimelock",
+    "address": "0x7857D6a475498e535969121f1B7B96151E422813",
+    "lpToken": "0x59a09aCEb22A5dE82222ddA235490eD7317Eb7f9",
+    "beneficiary": "0xdD779a290C937144F80Eb75b75d814c834536B1b"
+  },
+  "configuration": {
+    "emergencyDelay": "7 days",
+    "totalLocked": "0.0 LP tokens",
+    "totalLocks": "0"
+  },
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "verificationUrl": "https://explorer.xaheen.org/address/0x7857D6a475498e535969121f1B7B96151E422813"
+}

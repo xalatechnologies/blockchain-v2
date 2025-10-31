@@ -1,0 +1,30 @@
+{
+  "timestamp": "2025-10-30T23:17:17.994Z",
+  "pair": "0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8",
+  "wallet": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "lpBalance": "0",
+  "lpBalanceFormatted": "0.0",
+  "totalSupply": "3227486121581315181225232",
+  "sharePercentage": "0.0000%",
+  "reserves": {
+    "reserve0": "4999998607201144714973",
+    "reserve1": "2083333917583018032090420647",
+    "token0": "0xd16F235BB4b53b448e5ECdE89Cf17568FD91CFaA",
+    "token1": "0xeeE0Bf805c80456C539Ec73855b3a9bf81E54862"
+  },
+  "estimatedValue": {
+    "xhtSide": "$0.00",
+    "usdtSide": "$0.00",
+    "total": "$0.00"
+  },
+  "lockingPlan": {
+    "recommendedLockPercentage": "30%",
+    "amountToLock": "0.0 LP tokens",
+    "valueToLock": "$0.00",
+    "keepOperational": "0.0 LP tokens",
+    "operationalValue": "$0.00"
+  },
+  "unicryptCompatible": false,
+  "reason": "Xaheen Chain (65001) not yet supported by Unicrypt",
+  "recommendedAlternative": "Deploy custom timelock contract"
+}

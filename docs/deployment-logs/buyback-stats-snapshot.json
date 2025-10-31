@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-10-30T23:45:10.539Z",
+  "contract": "0x4002f8C3c2CDDd4Ff7746c445d5DdD7321f8C6fF",
+  "statistics": {
+    "totalBuybacks": 0,
+    "totalUSDTSpent": "0.0 USDT",
+    "totalXHTBurned": "0.0 XHT",
+    "supplyReductionPercent": "0.0000%"
+  },
+  "status": {
+    "buybackDue": false,
+    "timeUntilNext": "603990 seconds",
+    "availableUSDT": "2000.0 USDT"
+  },
+  "projections": {
+    "weeklyBuybackUSDT": "$2000",
+    "yearlyTotalUSDT": "$104,000",
+    "yearlyBurnedXHT": "21,666,666,667 XHT",
+    "yearlySupplyReduction": "10.32%"
+  }
+}

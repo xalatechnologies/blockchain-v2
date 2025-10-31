@@ -1,0 +1,13 @@
+{
+  "network": "Xaheen Chain",
+  "chainId": 65001,
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "timestamp": "2025-10-31T08:32:01.480Z",
+  "contract": {
+    "name": "Test USDT",
+    "symbol": "USDT",
+    "decimals": 18,
+    "totalSupply": "1000000000000000000000000",
+    "address": "0xA37C1f80Bd02D9d70ce0188831A85c65fdFBeEDe"
+  }
+}
