@@ -25,7 +25,7 @@ contract XHTBridgeToken is ERC20, Ownable {
     event BridgeDeposit(address indexed from, uint256 amount, string destinationChain, bytes32 txHash);
     event BridgeWithdrawal(address indexed to, uint256 amount, string sourceChain, bytes32 txHash);
 
-    constructor() ERC20("Xaheen Token", "XHT") Ownable(msg.sender) {
+    constructor() ERC20("Xaheen Token", "XHT") Ownable() {
         // Owner is initial bridge operator
         bridges[msg.sender] = true;
     }

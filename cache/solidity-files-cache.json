@@ -2678,6 +2678,168 @@
       "artifacts": [
         "SimpleERC20"
       ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/XHTBridgeToken.sol": {
+      "lastModificationDate": 1761944302916,
+      "contentHash": "1e6f521d058410f58059e3943f1a0ac1",
+      "sourceName": "contracts/XHTBridgeToken.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "XHTBridgeToken"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/production/BNBBridgeXaheen.sol": {
+      "lastModificationDate": 1761944203504,
+      "contentHash": "60d2df9281df5265782b468bd06ea714",
+      "sourceName": "contracts/bridges/production/BNBBridgeXaheen.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/security/Pausable.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/utils/cryptography/ECDSA.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "BNBBridgeXaheen",
+        "IWBNBToken"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/production/BNBBridgeMainnet.sol": {
+      "lastModificationDate": 1761944090885,
+      "contentHash": "e57ee2337fe66d80ef9ab506c546cec9",
+      "sourceName": "contracts/bridges/production/BNBBridgeMainnet.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/security/Pausable.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/utils/cryptography/ECDSA.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "BNBBridgeMainnet"
+      ]
+    },
+    "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/production/WBNBToken.sol": {
+      "lastModificationDate": 1761944181332,
+      "contentHash": "13489894c0271e947ca75f29d269fc79",
+      "sourceName": "contracts/bridges/production/WBNBToken.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "@openzeppelin/contracts/security/Pausable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "WBNBToken"
+      ]
     }
   }
 }
