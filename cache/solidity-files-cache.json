@@ -3008,8 +3008,8 @@
       ]
     },
     "/Volumes/Development/sahalat/blockchain-v2/contracts/bridges/production/ETHBridgeMainnet.sol": {
-      "lastModificationDate": 1761946169016,
-      "contentHash": "30aa342c816ff92317a5628380610f66",
+      "lastModificationDate": 1761951053496,
+      "contentHash": "14855c82dc6a4098c4eea227892f2d4d",
       "sourceName": "contracts/bridges/production/ETHBridgeMainnet.sol",
       "solcConfig": {
         "version": "0.8.20",
@@ -3036,6 +3036,7 @@
         }
       },
       "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
         "@openzeppelin/contracts/access/Ownable.sol",
         "@openzeppelin/contracts/security/Pausable.sol",
         "@openzeppelin/contracts/security/ReentrancyGuard.sol",

@@ -155,15 +155,14 @@ contract ETHBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
     /**
      * @notice Withdraw fees (REVENUE COLLECTION!)
      */
-    function withdrawFees(address payable recipient) external onlyOwner {
+    function withdrawFees(address recipient) external onlyOwner {
         require(recipient != address(0), "Invalid recipient");
         uint256 fees = totalFees;
         require(fees > 0, "No fees to withdraw");
 
         totalFees = 0;
 
-        (bool success, ) = recipient.call{value: fees}("");
-        require(success, "Transfer failed");
+        require(ethToken.transfer(recipient, fees), "Transfer failed");
     }
 
     // Validator management
@@ -227,9 +226,5 @@ contract ETHBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
 
     function getValidators() external view returns (address[] memory) {
         return validatorList;
-    }
-
-    receive() external payable {
-        revert("Use bridgeETH() function");
     }
 }
