@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
@@ -8,13 +9,15 @@ import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
 /**
  * @title ETHBridgeMainnet
- * @notice Bridge ETH from BSC to Xaheen Chain (REVENUE GENERATOR!)
- * @dev Locks ETH on BSC, mints WETH on Xaheen
+ * @notice Bridge ETH (ERC-20) from BSC to Xaheen Chain (REVENUE GENERATOR!)
+ * @dev Locks ERC-20 ETH on BSC, mints WETH on Xaheen
  *
  * MONETIZATION: 0.2% fee on every bridge = PURE PROFIT!
  */
 contract ETHBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
     using ECDSA for bytes32;
+
+    IERC20 public immutable ethToken; // Binance-Peg ETH Token
 
     uint256 public requiredSignatures;
     uint256 public minTransferAmount;
@@ -55,9 +58,11 @@ contract ETHBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
     event ValidatorAdded(address indexed validator);
     event ValidatorRemoved(address indexed validator);
 
-    constructor(uint256 _requiredSignatures) {
+    constructor(address _ethToken, uint256 _requiredSignatures) {
+        require(_ethToken != address(0), "Invalid token address");
         require(_requiredSignatures > 0, "Invalid signature requirement");
 
+        ethToken = IERC20(_ethToken);
         requiredSignatures = _requiredSignatures;
 
         // ETH limits
@@ -68,26 +73,29 @@ contract ETHBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
     }
 
     /**
-     * @notice Lock ETH on BSC to bridge to Xaheen
+     * @notice Lock ETH (ERC-20) on BSC to bridge to Xaheen
      */
-    function bridgeETH(address recipient) external payable whenNotPaused nonReentrant {
-        require(msg.value >= minTransferAmount, "Amount below minimum");
-        require(msg.value <= maxTransferAmount, "Amount above maximum");
+    function bridgeETH(address recipient, uint256 amount) external whenNotPaused nonReentrant {
+        require(amount >= minTransferAmount, "Amount below minimum");
+        require(amount <= maxTransferAmount, "Amount above maximum");
         require(recipient != address(0), "Invalid recipient");
 
         uint256 today = block.timestamp / 1 days;
         require(
-            dailyTransfers[msg.sender][today] + msg.value <= dailyLimit,
+            dailyTransfers[msg.sender][today] + amount <= dailyLimit,
             "Daily limit exceeded"
         );
 
         // Calculate fee (0.2% = 20 basis points)
-        uint256 fee = (msg.value * bridgeFeePercent) / 10000;
-        uint256 netAmount = msg.value - fee;
+        uint256 fee = (amount * bridgeFeePercent) / 10000;
+        uint256 netAmount = amount - fee;
+
+        // Transfer ETH tokens from user to bridge
+        require(ethToken.transferFrom(msg.sender, address(this), amount), "Transfer failed");
 
         totalLocked += netAmount;
         totalFees += fee; // Track revenue!
-        dailyTransfers[msg.sender][today] += msg.value;
+        dailyTransfers[msg.sender][today] += amount;
 
         emit BridgeDeposit(
             msg.sender,
@@ -108,7 +116,7 @@ contract ETHBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
      */
     function releaseETH(
         uint256 amount,
-        address payable recipient,
+        address recipient,
         uint256 nonce,
         bytes[] calldata signatures
     ) external whenNotPaused nonReentrant {
@@ -139,8 +147,7 @@ contract ETHBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
         processedNonces[nonce] = true;
         totalReleased += amount;
 
-        (bool success, ) = recipient.call{value: amount}("");
-        require(success, "Transfer failed");
+        require(ethToken.transfer(recipient, amount), "Transfer failed");
 
         emit BridgeWithdrawal(recipient, amount, nonce, block.timestamp);
     }
