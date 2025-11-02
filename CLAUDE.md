@@ -4,20 +4,55 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Blockchain V2** is a private BNB Smart Chain (BSC/Parlia-PoSA) node implementation for the **Xaheen Chain** network with comprehensive bridge infrastructure for cross-chain token transfers.
+**Xaheen Chain** is a next-generation Layer-1 blockchain engineered to connect compliant finance with decentralized innovation. It merges a **regulated foundation**—aligned with NSM, ISO 27001, GDPR, and AAOIFI—with the openness and liquidity of public markets.
 
-**Key Details:**
+**Mission**: To enable ethical, transparent, and intelligent financial systems across emerging economies—bridging fiat, gold, digital assets, and AI-driven governance.
+
+**Vision**: A world where anyone can transact, invest, and build in a transparent halal-compliant environment governed by verified institutions yet open to the public.
+
+### Core Technical Specs
+
 - **Chain Name**: Xaheen Chain
 - **Domain**: xaheen.org
-- **Chain ID**: 65001
+- **Chain ID**: 65001 (0xFDE9)
 - **Network ID**: 65001
 - **Native Token**: XHT (Xaheen Token)
-- **Block Time**: 3 seconds (Parlia consensus)
+  - **Supply**: 21 billion (24 decimals)
+  - **Use Cases**: Gas, staking, liquidity, governance, fund subscriptions
+- **Block Time**: 3 seconds (Parlia PoSA consensus)
+- **Epoch Length**: 10,000 blocks (~8 hours 20 minutes)
+- **Validators**: 3 active + 2 standby
+- **Finality**: < 30 seconds
 - **BTCBR Contract**: 0x0cF8e180350253271f4b917CcFb0aCCc4862F262 (bridged token from BSC mainnet)
-- **RPC Endpoint**: https://rpc.xaheen.org (or https://rpc.bitcoinbr.tech during migration)
+- **RPC Endpoint**: https://rpc.xaheen.org
 - **JSON-RPC Port**: 8545
 - **WebSocket Port**: 8546
 - **P2P Port**: 30303
+
+### Core Philosophy
+
+1. **Ethical by Design** — No interest (riba), no gharar (excessive uncertainty), transparent risk-sharing
+2. **Compliant by Default** — GDPR, AAOIFI, NSM, and ISO 27001 mapped into smart-contract templates
+3. **Intelligent by Architecture** — AI-driven validators, liquidity, and compliance agents
+4. **Inclusive by Access** — Publicly readable, permissionless use with verified-governance validators
+5. **Sustainable by Operation** — Low-energy PoSA consensus + carbon-offset program
+
+## Ecosystem Components
+
+Xaheen Chain is the anchor of a complete financial and technological ecosystem:
+
+| Component | Purpose | Status |
+|-----------|---------|--------|
+| **Xaheen Chain (L1)** | Core blockchain running PoSA consensus with 3s blocks and 10,000-block epochs | ✅ Production |
+| **Dirhamat** | AED/Gold-backed Shariah-compliant stable-asset | 🔄 Development |
+| **Digital KES** | Stable digital Kenyan Shilling aligned with CBK sandbox | 🔄 Development |
+| **NordCoin** | Nordic-compliant currency focused on ESG reporting and EU MiCA | 🔄 Development |
+| **Xaheen Wallet** | Chrome Extension + Mobile wallet for cross-chain assets | 🔄 Development |
+| **Xaheen Swap (DEX)** | Native decentralized exchange with hybrid liquidity routing | ✅ Deployed |
+| **Xaheen Bridge** | Cross-chain vault and router system (BSC, Polygon, Ethereum) | ✅ Deployed |
+| **Xaheen Funds** | On-chain halal mutual and retirement funds | 🔄 Development |
+| **Compliance Core (XCC)** | Smart-contract framework for AML/KYC/GDPR/AAOIFI rules | 🔄 Development |
+| **Xaheen AI Agents** | Autonomous agents handling liquidity, compliance, and governance | 🔄 Development |
 
 ## Architecture Overview
 
@@ -459,12 +494,156 @@ Located in `infrastructure/ansible/`:
    ./scripts/check-rpc.sh
    ```
 
+## Governance Framework
+
+Xaheen Chain balances **institutional accountability** with **community participation**.
+
+### Governance Layers
+
+| Layer | Participants | Decision Scope |
+|-------|--------------|----------------|
+| **Council DAO** | 5 signers (UAE, Kenya, Nordic institutions, Xaheen Foundation) | Protocol changes, validator on/offboarding, treasury |
+| **Validator DAO** | All active validators + delegators | Consensus params, epoch policy |
+| **Community DAO** | Token holders (staked XHT ≥ 10,000) | Grant funding, feature votes |
+| **AI Advisory Layer** | Autonomous agents with read-only rights | Forecast models, risk alerts |
+
+### Voting Mechanics
+- Weighted 1 vote per XHT (staked)
+- Minimum participation quorum 15%
+- Council supermajority (3 of 5) for critical actions
+- AI Advisors propose parameter tweaks → require DAO approval
+
+## Compliance & Regulatory Alignment
+
+### Compliance Core (XCC)
+
+The Xaheen Compliance Core is a modular smart-contract framework providing:
+
+1. **KYC Registry**: Off-chain verification hash anchored on-chain
+2. **AML Monitoring**: Integrates with Chainalysis/Elliptic feeds
+3. **Jurisdiction Tagging**: Transactions carry region metadata for travel rule
+4. **Freeze/Thaw**: Regulated token issuers can freeze illicit funds under court order
+5. **Data Retention**: PII stored off-chain with hash link only; user can revoke consent
+
+### Regulatory Standards
+
+| Framework | Coverage | Xaheen Implementation |
+|-----------|----------|----------------------|
+| **UAE VARA/ADGM** | VASP licensing & stablecoin oversight | Dirhamat issuer licensed; audit proofs on-chain |
+| **Kenya CBK/CMA** | Digital KES VASP + fund licensing | Sandbox pilot registered; AML module integrated |
+| **EU GDPR/MiCA** | Data protection & crypto-asset issuance | XCC GDPR mode; MiCA e-money alignment |
+| **AAOIFI** | Islamic finance Shariah standards | Shariah Oracle and SSB certification |
+| **NSM Security** | Critical infrastructure baseline (Norway) | HSM, ISO 27001 ops, audited validators |
+
+## AI Integration Layer
+
+### AI Agents
+
+AI agents operate as micro-services with read-only RPC access and on-chain reporting rights:
+
+| Agent | Purpose | Inputs | Outputs |
+|-------|---------|--------|---------|
+| **Validator Health Agent** | Predict node downtime | Block latency, ping metrics | Rotation alerts |
+| **Liquidity Agent** | Balance DEX/bridge pools | TVL, price feeds | Swap recommendations |
+| **Compliance AI** | Flag high-risk transactions | XCC logs, wallet scores | Risk scores |
+| **NAV AI** | Reconcile fund NAV and market data | Oracle feeds | NAV variance alerts |
+| **Governance AI** | Model impact of policy changes | DAO data | Forecast reports |
+
+### Ethical AI Principles
+
+1. **Transparency**: All model outputs are verifiable and open for review
+2. **No autonomy over funds**: AI cannot sign financial transactions
+3. **Privacy-by-design**: Complies with GDPR & AAOIFI ethics
+4. **Explainability**: Every decision traceable to inputs
+5. **Bias mitigation**: Regular audits using diverse datasets
+
+## Halal Financial Products
+
+Xaheen Funds enables creation and management of **Shariah-compliant investment vehicles**:
+
+### Fund Types
+
+| Fund Type | Shariah Structure | Example Assets | Return Mechanism |
+|-----------|------------------|----------------|------------------|
+| **Gold Savings Fund** | Murābaḥah / Wakālah | Vaulted gold, Dirhamat | Gold appreciation, trade profit |
+| **Sukuk Income Fund** | Muḍārabah | Investment-grade sukuk | Rental/lease income |
+| **Halal Equity Index** | Wakālah | AAOIFI-screened equities | Dividends + capital gains |
+| **Real Estate Ijārah** | Mushārakah / Ijārah | Income property | Rent distribution |
+| **SME Partnership** | Mushārakah | Halal SMEs | Profit/loss share |
+| **Liquidity Park** | Commodity Murābaḥah | Short-term trades | Markup profit |
+| **Waqf Impact Fund** | Waqf / Tabarru' | Social projects | Capped-fee/impact KPIs |
+
+### FundUnit Token Standard
+
+Every investor position is represented by a **`FundUnit`** ERC-20-compatible token with:
+- **KYC flag** (`isVerified`)
+- **Transfer restriction hooks** per jurisdiction
+- **NAV oracle binding** for valuation
+- **Redemption lock** (`noticePeriod`, `gateLimit`)
+- **Zakat metadata** (`purificationDue`, `charityTarget`)
+
+### Zakat & Purification Engine
+- Computes 2.5% annual zakat on eligible holdings
+- Tracks incidental non-compliant income (purification)
+- Auto-routes charity via CharityContract with public ledger
+
+## Market Strategy & Launch Plan
+
+### Launch Timeline (Indicative)
+
+| Week | Milestone |
+|------|-----------|
+| 0 | Mainnet go-live + DEX pairs (XHT/USDT, Dirhamat/USDT) |
+| 2 | Bridge activation to BSC & Polygon |
+| 4 | $800,000 LP lock announcement + audit release |
+| 6 | Gate.io or BitMart listing application |
+| 8 | CMC & CoinGecko listing approval |
+| 10 | Trust Wallet & MetaMask Chainlist integration |
+| 12 | Press & community roadshow (MENA + Kenya) |
+
+### Tokenomics
+
+| Category | % | Vesting |
+|----------|---|---------|
+| Public Sale & Liquidity | 30 | Unlocked |
+| Treasury & Grants | 25 | 24 mo linear |
+| Team & Advisors | 15 | 18 mo cliff + 24 mo linear |
+| Reserve (Treasury) | 20 | Locked 12 mo |
+| Charity & Zakat Fund | 5 | Unlocked |
+| Validators & Rewards | 5 | Dynamic epoch release |
+
+## Roadmap (2025-2027)
+
+| Quarter | Milestone |
+|---------|-----------|
+| Q1 2025 | Mainnet launch + DEX + Bridge activation |
+| Q2 2025 | Halal Funds beta + AI agents v1 |
+| Q3 2025 | First CEX listing + mobile wallet release |
+| Q4 2025 | Public DAO launch + Compliance Dashboard |
+| 2026 | CBDC pilot integration + Real-estate tokenization |
+| 2027 | Global expansion + multi-region validator network |
+
 ## Key Differences from Standard BSC/Ethereum Projects
 
-1. **Custom Genesis**: Pre-funded accounts and embedded BTCBR contract bytecode
-2. **Parlia Consensus**: 3-second blocks, validator-based (not PoW)
-3. **Multi-Chain Architecture**: Mainnet + Private chain bridging
-4. **22 Bridge Types**: Far beyond typical single-bridge projects
-5. **Docker-Based Validators**: All validators run in containers
-6. **Static Peering**: Validators use static-nodes.json for P2P discovery
-7. **ES Modules**: Import/export syntax, not CommonJS require
+1. **Halal-Compliant Finance**: No interest (riba), no gharar, Shariah Oracle governance
+2. **Hybrid Governance**: Institutional Council + Community DAO + AI Advisory Layer
+3. **Compliance-Native**: GDPR, AAOIFI, NSM, MiCA built into smart contracts
+4. **AI-Enhanced**: Autonomous agents for liquidity, compliance, and governance
+5. **Multi-Asset Ecosystem**: Dirhamat, Digital KES, NordCoin, FundUnits beyond XHT
+6. **Custom Genesis**: Pre-funded accounts and embedded BTCBR contract bytecode
+7. **Parlia Consensus**: 10,000-block epochs, 3-second blocks, validator-based (not PoW)
+8. **Multi-Chain Architecture**: Mainnet + Private chain bridging with hub-and-spoke model
+9. **22 Bridge Types**: Far beyond typical single-bridge projects
+10. **Docker-Based Validators**: All validators run in containers with AI monitoring
+11. **Static Peering**: Validators use static-nodes.json for P2P discovery
+12. **ES Modules**: Import/export syntax, not CommonJS require
+
+## Documentation & Playbook
+
+For comprehensive vision, strategy, and technical details, see:
+- **`docs/09-playbook/`** - Complete Xaheen Chain Playbook v3 (5 parts)
+  - Part 1: Vision, Ecosystem & Philosophy
+  - Part 2: Technical Foundations (Consensus → Cross-Chain DEX)
+  - Part 3: Financial Products & Halal Funds
+  - Part 4: Governance, Compliance & AI
+  - Part 5: Market Strategy & Appendices
