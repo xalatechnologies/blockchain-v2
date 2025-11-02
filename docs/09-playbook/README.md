@@ -1,8 +1,8 @@
-# 09 - Xaheen Chain Playbook
+# 09 - Noor Chain Playbook
 
-**Xaheen Chain Playbook v3** - Public Master Edition
+**Noor Chain Playbook v3** - Public Master Edition
 
-This directory contains the comprehensive vision, strategy, and technical playbook for Xaheen Chain.
+This directory contains the comprehensive vision, strategy, and technical playbook for Noor Chain.
 
 ## Playbook Parts
 
@@ -11,7 +11,7 @@ This directory contains the comprehensive vision, strategy, and technical playbo
    - Ecosystem overview (Dirhamat, Digital KES, NordCoin, etc.)
    - Core philosophy (ethical, compliant, intelligent, inclusive)
    - Governance and participation model
-   - Token economy (XHT)
+   - Token economy (NOR)
 
 2. **Part 2 – Technical Foundations**
    - Parlia PoSA consensus
@@ -45,16 +45,26 @@ This directory contains the comprehensive vision, strategy, and technical playbo
    - Sustainability and ESG
    - 2025-2027 roadmap
 
+6. **Part 6 – Smart Contracts & DeFi Architecture**
+   - NOR Token implementation (21B supply, 24 decimals)
+   - NoorSwap DEX (Factory, Pair, Router)
+   - Liquidity pools and AMM mechanics
+   - Bridge contracts (Lock/Mint, Atomic Swap, NFT)
+   - Stablecoins (Dirhamat, Digital KES)
+   - Governance & DAO system
+   - Noor Funds (Halal investment products)
+   - Security and auditing standards
+
 ## Key Concepts
 
 **Ecosystem Components**:
-- Xaheen Chain (L1) - Core blockchain
+- Noor Chain (L1) - Core blockchain
 - Dirhamat - AED/Gold-backed stablecoin
 - Digital KES - Kenyan Shilling token
 - NordCoin - Nordic ESG-compliant currency
-- Xaheen Swap (DEX) - Native decentralized exchange
-- Xaheen Bridge - Cross-chain vault system
-- Xaheen Funds - Halal mutual and retirement funds
+- NoorSwap (DEX) - Native decentralized exchange
+- Noor Bridge - Cross-chain vault system
+- Noor Funds - Halal mutual and retirement funds
 - Compliance Core (XCC) - AML/KYC/GDPR framework
 - AI Agents - Autonomous liquidity and compliance management
 
@@ -63,7 +73,7 @@ This directory contains the comprehensive vision, strategy, and technical playbo
 - Block Time: 3 seconds
 - Epoch: 10,000 blocks (~8h 20m)
 - Validators: 3 active + 2 standby
-- Native Token: XHT (21 billion, 24 decimals)
+- Native Token: NOR (21 billion, 24 decimals)
 
 **Philosophy**:
 - Ethical by Design (no riba, no gharar)
@@ -76,6 +86,26 @@ This directory contains the comprehensive vision, strategy, and technical playbo
 
 ---
 
-**Document Version**: v3.0-2025-11-02
-**Copyright**: © 2025 Xaheen Technologies AS
+**Document Version**: v3.1-2025-11-02 (Noor Chain Rebrand)  
+**Copyright**: © 2025 Noor Technologies (formerly Xaheen Technologies AS)  
 **Purpose**: Educational and development reference
+
+---
+
+**Rebrand Notice**: As of November 2, 2025, Xaheen Chain has been fully rebranded to **Noor Chain** (نور - "Light"). All references, infrastructure, and branding have been updated to reflect this new identity while maintaining full technical compatibility.
+
+---
+
+## New Documents
+
+- **IMPLEMENTATION-TRACKER.md**: Links playbook features to actual codebase implementation with current status
+- **ROADMAP-2025-2027.md**: Detailed quarterly milestones and KPIs for the next 3 years
+- **COMPLIANCE-FRAMEWORK.md**: Comprehensive regulatory compliance strategy (GDPR, ISO 27001/27701, SOC 2)
+
+## Archive Notice
+
+Duplicate versions of Part 3 and Part 4 have been archived:
+- Part 3 – Financial Products & Halal Funds (archived).md
+- Part 4 – Governance, Compliance & AI (archived).md
+
+Please use the v2 versions (without "v2" suffix) as the current reference.

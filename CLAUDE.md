@@ -4,27 +4,28 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Xaheen Chain** is a next-generation Layer-1 blockchain engineered to connect compliant finance with decentralized innovation. It merges a **regulated foundation**—aligned with NSM, ISO 27001, GDPR, and AAOIFI—with the openness and liquidity of public markets.
+**Noor Chain** (نور - "Light") is a next-generation Layer-1 blockchain engineered to illuminate the future of compliant finance with decentralized innovation. It merges a **regulated foundation**—aligned with NSM, ISO 27001, GDPR, and AAOIFI—with the openness and liquidity of public markets.
 
-**Mission**: To enable ethical, transparent, and intelligent financial systems across emerging economies—bridging fiat, gold, digital assets, and AI-driven governance.
+**Mission**: To empower the future of blockchain technology with light, trust, and inclusive innovation—enabling ethical, transparent financial systems across emerging economies through compliant, decentralized infrastructure.
 
-**Vision**: A world where anyone can transact, invest, and build in a transparent halal-compliant environment governed by verified institutions yet open to the public.
+**Vision**: A world where anyone can transact, invest, and build in a transparent halal-compliant environment illuminated by clarity, governed by verified institutions yet open to the public.
 
 ### Core Technical Specs
 
-- **Chain Name**: Xaheen Chain
-- **Domain**: xaheen.org
-- **Chain ID**: 65001 (0xFDE9)
+- **Chain Name**: Noor Chain
+- **Domain**: noorchain.org (migrating from xaheen.org)
+- **Chain ID**: 65001 (0xFDE9) - **UNCHANGED**
 - **Network ID**: 65001
-- **Native Token**: XHT (Xaheen Token)
+- **Native Token**: NOR (Noor Token)
   - **Supply**: 21 billion (24 decimals)
   - **Use Cases**: Gas, staking, liquidity, governance, fund subscriptions
 - **Block Time**: 3 seconds (Parlia PoSA consensus)
-- **Epoch Length**: 10,000 blocks (~8 hours 20 minutes)
+- **Epoch Length**: 10,000 blocks (~8.3 hours) - **TESTING CONFIGURATION FOR EPOCH REVALIDATION**
+  - Production will use 9,000,000 blocks (~1.5 years)
 - **Validators**: 3 active + 2 standby
 - **Finality**: < 30 seconds
 - **BTCBR Contract**: 0x0cF8e180350253271f4b917CcFb0aCCc4862F262 (bridged token from BSC mainnet)
-- **RPC Endpoint**: https://rpc.xaheen.org
+- **RPC Endpoint**: https://rpc.noorchain.org (currently https://rpc.xaheen.org during migration)
 - **JSON-RPC Port**: 8545
 - **WebSocket Port**: 8546
 - **P2P Port**: 30303
@@ -39,20 +40,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Ecosystem Components
 
-Xaheen Chain is the anchor of a complete financial and technological ecosystem:
+Noor Chain is the anchor of a complete financial and technological ecosystem:
 
 | Component | Purpose | Status |
 |-----------|---------|--------|
-| **Xaheen Chain (L1)** | Core blockchain running PoSA consensus with 3s blocks and 10,000-block epochs | ✅ Production |
+| **Noor Chain (L1)** | Core blockchain running PoSA consensus with 3s blocks and 9M-block epochs | ✅ Production |
 | **Dirhamat** | AED/Gold-backed Shariah-compliant stable-asset | 🔄 Development |
 | **Digital KES** | Stable digital Kenyan Shilling aligned with CBK sandbox | 🔄 Development |
 | **NordCoin** | Nordic-compliant currency focused on ESG reporting and EU MiCA | 🔄 Development |
-| **Xaheen Wallet** | Chrome Extension + Mobile wallet for cross-chain assets | 🔄 Development |
-| **Xaheen Swap (DEX)** | Native decentralized exchange with hybrid liquidity routing | ✅ Deployed |
-| **Xaheen Bridge** | Cross-chain vault and router system (BSC, Polygon, Ethereum) | ✅ Deployed |
-| **Xaheen Funds** | On-chain halal mutual and retirement funds | 🔄 Development |
+| **Noor Wallet** | Chrome Extension + Mobile wallet for cross-chain assets | 🔄 Development |
+| **NoorSwap (DEX)** | Native decentralized exchange with hybrid liquidity routing | ✅ Deployed |
+| **Noor Bridge** | Cross-chain vault and router system (BSC, Polygon, Ethereum) | ✅ Deployed |
+| **Noor Funds** | On-chain halal mutual and retirement funds | 🔄 Development |
 | **Compliance Core (XCC)** | Smart-contract framework for AML/KYC/GDPR/AAOIFI rules | 🔄 Development |
-| **Xaheen AI Agents** | Autonomous agents handling liquidity, compliance, and governance | 🔄 Development |
+| **Noor AI Agents** | Autonomous agents handling liquidity, compliance, and governance | 🔄 Development |
 
 ## Architecture Overview
 
@@ -88,7 +89,7 @@ npx hardhat compile
 # Deploy bridge to BSC mainnet
 npx hardhat run scripts/hardhat-deploy-mainnet.js --network bsc
 
-# Deploy bridge to private Xaheen Chain
+# Deploy bridge to private Noor Chain
 npx hardhat run scripts/hardhat-deploy-private.js --network btcbr
 
 # Deploy to BSC testnet (for testing)
@@ -120,7 +121,7 @@ node scripts/deploy-bridge-day2.js
 # Check RPC endpoint health
 ./scripts/check-rpc.sh
 
-# Connect to existing Xaheen network
+# Connect to existing Noor Chain network
 ./scripts/connect-to-network.sh
 
 # Initialize BSC node
@@ -178,7 +179,103 @@ ansible-playbook playbooks/deploy-bsc.yml
 
 # Fix SSH access issues
 ./scripts/fix-ssh-access.sh
+
+# Apply documented working configuration (RECOMMENDED)
+./scripts/noor-apply-documented-fix.sh
 ```
+
+### Working Validator Configuration (Nov 2, 2025)
+
+**Status**: ✅ **VERIFIED WORKING** - Blocks producing with 2-3 stable peers
+
+This is the EXACT configuration that successfully produces blocks. Key differences from other approaches:
+
+#### Critical Success Factors
+
+1. **Container Creation**: Use `docker run -d` (NOT `docker create` + `docker start`)
+2. **Enode Discovery**: Use `geth attach /bsc/geth.ipc --exec "admin.nodeInfo.enode"` (NOT docker logs parsing)
+3. **Asymmetric Configuration**: Only Validator 1 has `--syncmode full --gcmode archive`
+4. **Miner Flags**: Use both `--miner.etherbase` AND `--unlock`
+5. **Permissions**: Use `sudo` to write static-nodes.json files
+
+#### Validator 1 (RPC + Mining)
+
+```bash
+docker run -d --name xaheen-rpc --network host \
+    -v /home/ec2-user/validator-1:/bsc \
+    dysnix/bsc \
+    --datadir /bsc \
+    --networkid 65001 \
+    --syncmode full \
+    --gcmode archive \
+    --http --http.addr 0.0.0.0 --http.port 8545 \
+    --http.vhosts "*" --http.corsdomain "*" \
+    --http.api eth,net,web3,txpool,personal,admin \
+    --ws --ws.addr 0.0.0.0 --ws.port 8546 \
+    --ws.origins "*" --ws.api eth,net,web3,txpool \
+    --mine --miner.threads=1 \
+    --miner.etherbase 0xbb64F4050fC21A2eC3506245A1Ad63cB0256b6dE \
+    --unlock 0xbb64F4050fC21A2eC3506245A1Ad63cB0256b6dE \
+    --password /bsc/password.txt \
+    --allow-insecure-unlock \
+    --port 30303 \
+    --maxpeers 25
+```
+
+#### Validator 2 (Mining Only - NO --syncmode or --gcmode)
+
+```bash
+docker run -d --name bsc-validator-2 --network host \
+    -v /home/ec2-user/validator-2:/bsc \
+    dysnix/bsc \
+    --datadir /bsc \
+    --networkid 65001 \
+    --port 30304 \
+    --unlock 0x689CF2C189781d9bB6859A830acbF64044E4432f \
+    --password /bsc/password.txt \
+    --mine --miner.threads=1 \
+    --miner.etherbase 0x689CF2C189781d9bB6859A830acbF64044E4432f \
+    --allow-insecure-unlock \
+    --maxpeers 25
+```
+
+#### Validator 3 (Mining Only - NO --syncmode or --gcmode)
+
+```bash
+docker run -d --name bsc-validator-3 --network host \
+    -v /home/ec2-user/validator-3:/bsc \
+    dysnix/bsc \
+    --datadir /bsc \
+    --networkid 65001 \
+    --port 30305 \
+    --unlock 0x15f0f5B738BC2b1ab8cD68E4674769a89bF5390a \
+    --password /bsc/password.txt \
+    --mine --miner.threads=1 \
+    --miner.etherbase 0x15f0f5B738BC2b1ab8cD68E4674769a89bF5390a \
+    --allow-insecure-unlock \
+    --maxpeers 25
+```
+
+#### Static Peering Setup
+
+```bash
+# Get enodes using geth attach (CRITICAL - use this method, not docker logs)
+ENODE1=$(docker exec xaheen-rpc geth attach /bsc/geth.ipc --exec "admin.nodeInfo.enode" 2>/dev/null | sed 's/@[0-9.]*:/@127.0.0.1:/')
+ENODE2=$(docker exec bsc-validator-2 geth attach /bsc/geth.ipc --exec "admin.nodeInfo.enode" 2>/dev/null | sed 's/@[0-9.]*:/@127.0.0.1:/')
+ENODE3=$(docker exec bsc-validator-3 geth attach /bsc/geth.ipc --exec "admin.nodeInfo.enode" 2>/dev/null | sed 's/@[0-9.]*:/@127.0.0.1:/')
+
+# Create static-nodes.json files (use sudo for permissions)
+sudo bash -c "echo '[\"$ENODE2\", \"$ENODE3\"]' > /home/ec2-user/validator-1/static-nodes.json"
+sudo bash -c "echo '[\"$ENODE1\", \"$ENODE3\"]' > /home/ec2-user/validator-2/static-nodes.json"
+sudo bash -c "echo '[\"$ENODE1\", \"$ENODE2\"]' > /home/ec2-user/validator-3/static-nodes.json"
+
+# Restart validators to apply static peering
+docker restart xaheen-rpc bsc-validator-2 bsc-validator-3
+```
+
+**Expected Result**: Blocks producing with 2-3 stable peer connections within 20 seconds.
+
+**Reference Documentation**: `/docs/00-critical/NOOR_CHAIN_SUCCESS_EPOCH_10K.md`
 
 ### Smart Contract Interactions
 
@@ -206,15 +303,15 @@ node scripts/atomic-swap-helper.js
 **REQUIRED** environment variables:
 - `MAIN_WALLET_PRIVATE_KEY` - Main wallet private key for deployments
 - `MAINNET_PRIVATE_KEY` - BSC mainnet deployer key (for bridge deployment)
-- `PRIVATE_CHAIN_KEY` - Xaheen Chain deployer key
+- `PRIVATE_CHAIN_KEY` - Noor Chain deployer key
 - `BSC_MAINNET_RPC` - BSC mainnet RPC URL
-- `PRIVATE_CHAIN_RPC` - Xaheen Chain RPC URL (https://rpc.xaheen.org)
+- `PRIVATE_CHAIN_RPC` - Noor Chain RPC URL (https://rpc.noorchain.org, currently https://rpc.xaheen.org)
 - `BSCSCAN_API_KEY` - For contract verification (optional)
 
 **Network Configuration:**
 - `VALIDATOR_ADDRESS` - Primary validator address
-- `CHAIN_ID=65001` - Xaheen Chain ID
-- `NETWORK_ID=65001` - Xaheen Chain network ID
+- `CHAIN_ID=65001` - Noor Chain ID
+- `NETWORK_ID=65001` - Noor Chain network ID
 - `BTCBR_ADDR=0x0cF8e180350253271f4b917CcFb0aCCc4862F262`
 
 ### Hardhat Configuration (hardhat.config.js)
@@ -222,7 +319,7 @@ node scripts/atomic-swap-helper.js
 Networks configured:
 - `bsc` - BSC Mainnet (chainId: 56, gasPrice: 3 gwei)
 - `bscTestnet` - BSC Testnet (chainId: 97, gasPrice: 10 gwei)
-- `btcbr` - Xaheen Chain (chainId: 65001, gasPrice: 1 gwei)
+- `btcbr` - Noor Chain (chainId: 65001, gasPrice: 1 gwei)
 - `localhost` - Local development (chainId: 65001)
 
 Solidity version: **0.8.20** with optimizer enabled (200 runs)
@@ -496,19 +593,19 @@ Located in `infrastructure/ansible/`:
 
 ## Governance Framework
 
-Xaheen Chain balances **institutional accountability** with **community participation**.
+Noor Chain balances **institutional accountability** with **community participation**.
 
 ### Governance Layers
 
 | Layer | Participants | Decision Scope |
 |-------|--------------|----------------|
-| **Council DAO** | 5 signers (UAE, Kenya, Nordic institutions, Xaheen Foundation) | Protocol changes, validator on/offboarding, treasury |
+| **Council DAO** | 5 signers (UAE, Kenya, Nordic institutions, Noor Chain Foundation) | Protocol changes, validator on/offboarding, treasury |
 | **Validator DAO** | All active validators + delegators | Consensus params, epoch policy |
-| **Community DAO** | Token holders (staked XHT ≥ 10,000) | Grant funding, feature votes |
+| **Community DAO** | Token holders (staked NOR ≥ 10,000) | Grant funding, feature votes |
 | **AI Advisory Layer** | Autonomous agents with read-only rights | Forecast models, risk alerts |
 
 ### Voting Mechanics
-- Weighted 1 vote per XHT (staked)
+- Weighted 1 vote per NOR (staked)
 - Minimum participation quorum 15%
 - Council supermajority (3 of 5) for critical actions
 - AI Advisors propose parameter tweaks → require DAO approval
@@ -517,7 +614,7 @@ Xaheen Chain balances **institutional accountability** with **community particip
 
 ### Compliance Core (XCC)
 
-The Xaheen Compliance Core is a modular smart-contract framework providing:
+The Noor Chain Compliance Core is a modular smart-contract framework providing:
 
 1. **KYC Registry**: Off-chain verification hash anchored on-chain
 2. **AML Monitoring**: Integrates with Chainalysis/Elliptic feeds
@@ -559,14 +656,14 @@ AI agents operate as micro-services with read-only RPC access and on-chain repor
 
 ## Halal Financial Products
 
-Xaheen Funds enables creation and management of **Shariah-compliant investment vehicles**, positioning Xaheen Chain as the **financial backbone** for:
+Noor Funds enables creation and management of **Shariah-compliant investment vehicles**, positioning Noor Chain as the **financial backbone** for:
 - **UAE & GCC Islamic banks** seeking Shariah-compliant tokenization
 - **Fintechs** needing ready-made halal-compliant infrastructure
 - **Real-estate developers** issuing tokenized ijārah or sukuk
 - **Zakat & Charity organizations** tracking transparent distribution
 - **Global investors** seeking ethical ESG-aligned returns
 
-> "Xaheen connects capital with conscience — turning finance into impact."
+> "Noor Chain connects capital with conscience — illuminating finance with purpose and turning investment into impact."
 
 ### Fund Types
 
@@ -587,15 +684,15 @@ Xaheen Funds enables creation and management of **Shariah-compliant investment v
 
 **Step 2 – Fund Deployment**: Each partner receives a **Fund Router** smart contract with branding & fee configuration
 
-**Step 3 – Investor Access**: Xaheen Wallet & APIs expose subscription, NAV, and redemption flows
+**Step 3 – Investor Access**: Noor Wallet & APIs expose subscription, NAV, and redemption flows
 
 **Step 4 – Reporting & Governance**: Daily NAV + fatwa hashes published on-chain → regulator & auditor dashboards
 
 ### Industry-Specific Value Propositions
 
-| Industry | Challenge | Xaheen Solution |
+| Industry | Challenge | Noor Chain Solution |
 |-----------|------------|----------------|
-| **Banks** | Legacy core systems, lack of blockchain integration | Plug-and-play tokenization via Xaheen API |
+| **Banks** | Legacy core systems, lack of blockchain integration | Plug-and-play tokenization via Noor Chain API |
 | **Real Estate** | Liquidity lock-in & fractional ownership barriers | On-chain Ijārah tokens + DEX liquidity |
 | **Fintechs** | Compliance burden & slow licensing | Built-in AAOIFI & GDPR modules |
 | **Charities** | Opaque fund flows & trust deficit | Transparent zakat & waqf tracking |
@@ -612,7 +709,7 @@ Xaheen Funds enables creation and management of **Shariah-compliant investment v
 
 ### Ideal Partnership Profile
 
-Xaheen seeks partnerships with:
+Noor Chain seeks partnerships with:
 - Central banks & regulators
 - Islamic financial institutions (banks, takaful companies)
 - Fintech and payment companies
@@ -620,13 +717,14 @@ Xaheen seeks partnerships with:
 - Zakat and charity foundations
 - ESG and impact investment funds
 
-**Why Partner with Xaheen:**
+**Why Partner with Noor Chain:**
 - Shariah compliance & regulatory readiness out-of-the-box
 - Rapid market entry with minimal technical overhead
 - Global liquidity and transparent fund governance
 - Demonstrable social impact and ESG alignment
+- Illuminating finance with transparency, trust, and ethical innovation
 
-**Contact**: partners@xaheen.io | Website: xaheen.io | Locations: Dubai | Oslo | Oman
+**Contact**: partners@noorchain.org | Website: noorchain.org | Locations: Dubai | Oslo | Oman
 
 ### FundUnit Token Standard
 
@@ -648,7 +746,7 @@ Every investor position is represented by a **`FundUnit`** ERC-20-compatible tok
 
 | Week | Milestone |
 |------|-----------|
-| 0 | Mainnet go-live + DEX pairs (XHT/USDT, Dirhamat/USDT) |
+| 0 | Mainnet go-live + DEX pairs (NOR/USDT, Dirhamat/USDT) |
 | 2 | Bridge activation to BSC & Polygon |
 | 4 | $800,000 LP lock announcement + audit release |
 | 6 | Gate.io or BitMart listing application |
@@ -684,9 +782,9 @@ Every investor position is represented by a **`FundUnit`** ERC-20-compatible tok
 2. **Hybrid Governance**: Institutional Council + Community DAO + AI Advisory Layer
 3. **Compliance-Native**: GDPR, AAOIFI, NSM, MiCA built into smart contracts
 4. **AI-Enhanced**: Autonomous agents for liquidity, compliance, and governance
-5. **Multi-Asset Ecosystem**: Dirhamat, Digital KES, NordCoin, FundUnits beyond XHT
+5. **Multi-Asset Ecosystem**: Dirhamat, Digital KES, NordCoin, FundUnits beyond NOR
 6. **Custom Genesis**: Pre-funded accounts and embedded BTCBR contract bytecode
-7. **Parlia Consensus**: 10,000-block epochs, 3-second blocks, validator-based (not PoW)
+7. **Parlia Consensus**: 9,000,000-block epochs (~1.5 years), 3-second blocks, validator-based (not PoW)
 8. **Multi-Chain Architecture**: Mainnet + Private chain bridging with hub-and-spoke model
 9. **22 Bridge Types**: Far beyond typical single-bridge projects
 10. **Docker-Based Validators**: All validators run in containers with AI monitoring
@@ -696,7 +794,7 @@ Every investor position is represented by a **`FundUnit`** ERC-20-compatible tok
 ## Documentation & Playbook
 
 For comprehensive vision, strategy, and technical details, see:
-- **`docs/09-playbook/`** - Complete Xaheen Chain Playbook v3 (5 parts)
+- **`docs/09-playbook/`** - Complete Noor Chain Playbook v3 (5 parts)
   - Part 1: Vision, Ecosystem & Philosophy
   - Part 2: Technical Foundations (Consensus → Cross-Chain DEX)
   - Part 3: Financial Products & Halal Funds

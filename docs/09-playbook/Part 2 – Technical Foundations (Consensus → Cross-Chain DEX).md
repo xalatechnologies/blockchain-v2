@@ -1,13 +1,15 @@
 Perfect 🔧
-# Part 2 – Technical Foundations
+# Part 2 – Technical Foundations  
+**Version**: v3.1-2025-11-02  
+**Part of**: Noor Chain Playbook v3 - Public Master Edition  
 ---
-#ai:module xaheen-chain-core
+#ai:module noor-chain-core
 #ai:topic consensus, validators, bridge, liquidity
 #ai:audience developer, ai-agent, infrastructure-engineer
 ---
 
 ## 9 Consensus & Validator Framework
-Xaheen Chain uses a refined **Parlia Proof-of-Staked Authority (PoSA)** model—optimized for predictable performance, regulatory transparency, and AI-assisted monitoring.
+Noor Chain uses a refined **Parlia Proof-of-Staked Authority (PoSA)** model—optimized for predictable performance, regulatory transparency, and AI-assisted monitoring.
 
 ### Parameters
 | Field | Value |
@@ -18,7 +20,7 @@ Xaheen Chain uses a refined **Parlia Proof-of-Staked Authority (PoSA)** model—
 | Finality | < 30 seconds |
 | Consensus Engine | Parlia v3 with EpochManager |
 | Chain ID | 65001 (0xFDE9) |
-| Native Token | XHT (24 decimals) |
+| Native Token | NOR (24 decimals) |
 
 ### Epoch Rotation Mechanism
 1. **Trigger:** when `blockHeight % 10000 == 0`.  
@@ -28,7 +30,7 @@ Xaheen Chain uses a refined **Parlia Proof-of-Staked Authority (PoSA)** model—
 5. **AI Integration:** ValidatorHealth Agent predicts node downtime and suggests rotation.
 
 ### Validator Requirements
-- ≥ 10 000 000 XHT bonded (self + delegations).  
+- ≥ 10 000 000 NOR bonded (self + delegations).  
 - > 99 % uptime with redundant infrastructure.  
 - Public RPC + monitoring endpoint.  
 - Audited validator key custody per NSM security guidelines.  
@@ -43,7 +45,7 @@ Xaheen Chain uses a refined **Parlia Proof-of-Staked Authority (PoSA)** model—
 ### Mermaid – Validator Lifecycle
 ```mermaid
 flowchart LR
-  Stake[Stake XHT] --> Candidate[Candidate Pool]
+  Stake[Stake NOR] --> Candidate[Candidate Pool]
   Candidate --> Election[Epoch Election]
   Election --> ActiveValidator
   ActiveValidator --> Reward[Block Rewards]
@@ -78,11 +80,11 @@ Sample (Excerpt)
 
 Bootstrap Checklist
 	1.	Generate validator keys → import to Ansible automation.
-	2.	Distribute pre-funded accounts (1000 XHT each for testing).
-	3.	Run init --genesis xaheen.json on all nodes.
+	2.	Distribute pre-funded accounts (1000 NOR each for testing).
+	3.	Run init --genesis noor.json on all nodes.
 	4.	Start with --networkid 65001 --syncmode full.
 	5.	Confirm via RPC: eth_chainId = 0xFDE9.
-	6.	Deploy system contracts (XHT, DEX, Bridge).
+	6.	Deploy system contracts (NOR, DEX, Bridge).
 	7.	Register validators in EpochManager.
 
 ⸻
@@ -90,8 +92,8 @@ Bootstrap Checklist
 11 Smart Contract Suite Overview
 
 Contract	Purpose
-XHTToken	Native governance + gas token.
-XaheenSwapFactory/Router	AMM DEX core for spot and liquidity pools.
+NORToken	Native governance + gas token.
+NoorSwapFactory/Router	AMM DEX core for spot and liquidity pools.
 BridgeVault	Cross-chain asset locking and minting.
 EpochManager	Validator rotation and epoch state.
 ComplianceCore (XCC)	AML/KYC/GDPR rule enforcer.
@@ -107,21 +109,21 @@ Each contract has OpenZeppelin-style upgrade patterns with multi-sig governance 
 
 Concept
 
-Xaheen Bridge = hybrid vault + router network linking Xaheen ↔ BSC ↔ Polygon ↔ Ethereum.
-Main liquidity resides on Xaheen; external routers expose mirror tokens for visibility.
+Xaheen Bridge = hybrid vault + router network linking Noor ↔ BSC ↔ Polygon ↔ Ethereum.
+Main liquidity resides on Noor; external routers expose mirror tokens for visibility.
 
 Workflow
-	1.	User locks token in BridgeVault on Xaheen.
+	1.	User locks token in BridgeVault on Noor.
 	2.	AI-verified relayers confirm event → mint mirror token on destination chain.
-	3.	Reverse burn on destination chain → unlock original in Xaheen vault.
+	3.	Reverse burn on destination chain → unlock original in Noor vault.
 	4.	Oracle syncs prices and volumes across DEXes.
 
 Mermaid – Bridge Flow
 
 sequenceDiagram
-  participant Xaheen
+  participant Noor
   participant BSC
-  Xaheen->>BridgeVault: Lock BTCBR
+  Noor->>BridgeVault: Lock BTCBR
   BridgeVault->>AI_Relayer: Emit LockEvent
   AI_Relayer->>BSC_Router: Mint Mirror BTCBR
   BSC_Router->>User: Receive fBTCBR
@@ -131,14 +133,14 @@ sequenceDiagram
 Deterministic Deployment (CREATE2)
 
 To preserve branding and reduce confusion, routers use CREATE2 salted deployments for predictable addresses across chains.
-If address already taken, use versioned mirror BTCBR(Xaheen v2) with verified symbol and logo.
+If address already taken, use versioned mirror BTCBR(Noor v2) with verified symbol and logo.
 
 ⸻
 
 13 Liquidity and Price Control
 
 Initial Liquidity
-	•	$800 000 equivalent (XHT/USDT) seeded at launch.
+	•	$800 000 equivalent (NOR/USDT) seeded at launch.
 	•	Locked 12 months via UniCrypt locker.
 	•	Split: 70 % DEX liquidity, 30 % treasury reserve.
 

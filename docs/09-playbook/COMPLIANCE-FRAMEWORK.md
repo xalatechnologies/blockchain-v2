@@ -1,14 +1,15 @@
-# Xaheen Chain - Compliance & Regulatory Framework
+# Noor Chain - Compliance & Regulatory Framework
 
-**Version**: 1.0
-**Date**: 2025-10-31
-**Status**: Design Phase
+**Version**: 1.1  
+**Date**: 2025-11-02  
+**Status**: Active Implementation
+**Rebrand Notice**: Updated from Xaheen Chain to Noor Chain
 
 ---
 
 ## 🎯 Overview
 
-Xaheen Chain compliance framework addressing:
+Noor Chain compliance framework addressing:
 - **GDPR** (General Data Protection Regulation) - EU data privacy
 - **ISO 27001** - Information security management
 - **ISO 27701** - Privacy information management
@@ -38,7 +39,7 @@ Xaheen Chain compliance framework addressing:
 | **Data Portability (Art. 20)** | Chain-locked data | Export APIs + standardized formats |
 | **Privacy by Design (Art. 25)** | Transparent ledger | Zero-knowledge proofs for sensitive data |
 
-#### Xaheen GDPR Strategy:
+#### Noor GDPR Strategy:
 
 **1. Data Classification**
 
@@ -62,7 +63,7 @@ Private Ledger (Off-chain - XLEP-001):
 
 ```solidity
 // On-chain: Only pseudonymous data
-contract XaheenTransfer {
+contract NoorTransfer {
     mapping(address => uint256) public balances;  // Address = pseudonymous
     // NO personal data on-chain
 }
@@ -166,7 +167,7 @@ Create comprehensive privacy policy covering:
 **1. Information Security Policy**
 
 ```markdown
-# Xaheen Chain Information Security Policy
+# Noor Chain Information Security Policy
 
 ## Scope
 All blockchain infrastructure, smart contracts, validator nodes,

@@ -1,19 +1,21 @@
-# Part 5 – Market Strategy & Appendices
+# Part 5 – Market Strategy & Appendices  
+**Version**: v3.1-2025-11-02  
+**Part of**: Noor Chain Playbook v3 - Public Master Edition  
 ---
-#ai:module xaheen-chain-market
+#ai:module noor-chain-market
 #ai:topic launch, liquidity, listings, community, appendices
 #ai:audience developer, investor, public, ai-agent
 ---
 
 ## 36 Public Trading & Launch Plan
-Xaheen Chain enters the market through a **dual-launch path**:  
-1️⃣ native DEX (Xaheen Swap) for instant liquidity;  
+Noor Chain enters the market through a **dual-launch path**:  
+1️⃣ native DEX (NoorSwap) for instant liquidity;  
 2️⃣ centralized exchange (CEX) listings for mass visibility.
 
 ### Launch Timeline (Indicative)
 | Week | Milestone |
 | -- | -- |
-| 0 | Mainnet go-live + DEX pairs (XHT/USDT, Dirhamat/USDT) |
+| 0 | Mainnet go-live + DEX pairs (NOR/USDT, Dirhamat/USDT) |
 | 2 | Bridge activation to BSC & Polygon |
 | 4 | $800 000 LP lock announcement + audit release |
 | 6 | Gate.io or BitMart listing application |
@@ -46,7 +48,7 @@ Xaheen Chain enters the market through a **dual-launch path**:
 
 ### Channels
 - **Social:** X (Twitter), LinkedIn, Telegram, Discord.  
-- **Education:** Xaheen Academy tutorials + video courses.  
+- **Education:** Noor Academy tutorials + video courses.  
 - **Partnerships:** universities (Nairobi, Dubai Tech Hub), Islamic finance institutes.  
 - **Events:** Gitex, Africa Fintech Summit, World Islamic Banking Conf.  
 - **Content:** bi-weekly blog, monthly AI-authored analytics report.
@@ -71,7 +73,7 @@ Xaheen Chain enters the market through a **dual-launch path**:
 | Validators & Rewards | 5 | Dynamic epoch release |
 
 ### Investor Utility
-- XHT staking for validator delegation yield.  
+- NOR staking for validator delegation yield.  
 - Participation in DAO governance.  
 - Access to Halal Funds and Sukuk markets.  
 - Fee discounts on DEX and bridge operations.
@@ -82,8 +84,8 @@ Xaheen Chain enters the market through a **dual-launch path**:
 ### Technical Stack
 - Languages: Solidity, TypeScript, Rust (optional agents).  
 - Frameworks: Hardhat, Foundry, Next.js, Supabase.  
-- AI SDK: Xaheen-AI Python/TS bindings.  
-- Packages: `@xaheen/contracts`, `@xaheen/ai-agents`, `@xaheen/sdk`.
+- AI SDK: Noor-AI Python/TS bindings.  
+- Packages: `@noor/contracts`, `@noor/ai-agents`, `@noor/sdk`.
 
 ### Developer Portal Structure
 | Section | Purpose |
@@ -123,8 +125,8 @@ Xaheen Chain enters the market through a **dual-launch path**:
 - `blockTime`: 3 s  
 - `epoch`: 10 000  
 - Validators: 3 active, 2 standby  
-- Pre-funded accounts: 5 × 1000 XHT  
-- Treasury: 800 000 XHT (locked LP)
+- Pre-funded accounts: 5 × 1000 NOR  
+- Treasury: 800 000 NOR (locked LP)
 
 ### 42.2 Mermaid Diagrams Index
 - Validator Lifecycle  
@@ -135,7 +137,7 @@ Xaheen Chain enters the market through a **dual-launch path**:
 - Governance Workflow  
 
 ### 42.3 Compliance References
-| Standard | Xaheen Mapping |
+| Standard | Noor Mapping |
 | -- | -- |
 | GDPR Art. 17 (Right to erasure) | Key revocation in XCC |
 | ISO 27001 | Validator ops certification |
@@ -146,10 +148,10 @@ Xaheen Chain enters the market through a **dual-launch path**:
 ---
 
 ## 43 Public Summary
-**Xaheen Chain** is a compliant, AI-enhanced Layer-1 network bridging Islamic finance, real-world assets, and digital innovation.  
+**Noor Chain** is a compliant, AI-enhanced Layer-1 network bridging Islamic finance, real-world assets, and digital innovation.  
 Its mission is to deliver secure, transparent, and ethical financial infrastructure for emerging economies and global investors.  
 
-- **Native Token:** XHT  
+- **Native Token:** NOR  
 - **Stable Assets:** Dirhamat (AED / Gold), Digital KES  
 - **Ecosystem:** DEX, Bridge, Wallet, Funds, Compliance Core, AI Agents  
 - **Governance:** Hybrid DAO with institutional anchors & AI advisory layer  
@@ -157,17 +159,17 @@ Its mission is to deliver secure, transparent, and ethical financial infrastruct
 - **Launch Goal:** Public availability Q1 2025, CEX listings by Q3 2025  
 
 For developers, investors, and the public:  
-👉 **Website:** [xaheen.io](https://xaheen.io)  
-👉 **Explorer:** [explorer.xaheen.io](https://explorer.xaheen.io)  
-👉 **Docs:** [docs.xaheen.io](https://docs.xaheen.io)  
-👉 **Contact:** hello@xaheen.io  
+👉 **Website:** [noor.io](https://noor.io)  
+👉 **Explorer:** [explorer.noor.io](https://explorer.noor.io)  
+👉 **Docs:** [docs.noor.io](https://docs.noor.io)  
+👉 **Contact:** hello@noor.io  
 
 ---
 
 ## License
-© 2025 Xaheen Technologies AS | All Rights Reserved  
+© 2025 Noor Technologies (formerly Xaheen Technologies AS) | All Rights Reserved  
 This document is provided for educational and development purposes.  
 
 ---
 
-[End of Xaheen Chain Playbook v3 – Public Master Edition]
+[End of Noor Chain Playbook v3 – Public Master Edition]

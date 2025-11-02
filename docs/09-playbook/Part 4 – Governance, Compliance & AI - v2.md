@@ -1,11 +1,13 @@
-# Xaheen Funds & Halal Finance Platform  
+# Noor Funds & Halal Finance Platform  
 ### Ethical Investment Infrastructure for the Digital Economy  
-© 2025 Xaheen Technologies AS | All Rights Reserved  
+**Version**: v3.1-2025-11-02  
+**Part of**: Noor Chain Playbook v3 - Public Master Edition  
+© 2025 Noor Technologies (formerly Xaheen Technologies AS) | All Rights Reserved  
 
 ---
 
 ## 1. Executive Overview
-**Xaheen Funds** transform Islamic finance into a borderless, transparent, and Shariah-compliant ecosystem.  
+**Noor Funds** transform Islamic finance into a borderless, transparent, and Shariah-compliant ecosystem.  
 They allow banks, fintechs, and institutions to tokenize **real-world assets (RWA)**, automate compliance, and offer halal investment products backed by **gold, real estate, sukuk, SMEs, and ESG projects**.
 
 > “Xaheen connects capital with conscience — turning finance into impact.”
@@ -13,11 +15,11 @@ They allow banks, fintechs, and institutions to tokenize **real-world assets (RW
 ---
 
 ## 2. Institutional Opportunity
-| Sector | Challenge | Xaheen Solution |
+| Sector | Challenge | Noor Solution |
 |--------|------------|----------------|
 | **Banking & Finance** | Legacy core systems; manual sukuk lifecycle | Smart-contract tokenization & profit-sharing models |
 | **Fintech & Payments** | Compliance burden; Shariah certification delays | Pre-audited halal API stack & Compliance Core (XCC) |
-| **Real Estate** | Illiquid portfolios; complex REIT structures | Ijārah-based tokenization + instant liquidity via Xaheen DEX |
+| **Real Estate** | Illiquid portfolios; complex REIT structures | Ijārah-based tokenization + instant liquidity via NoorSwap DEX |
 | **Charity & Zakat** | Lack of transparency & trust | On-chain zakat routing and Waqf tracking |
 | **Investors & ESG Funds** | Few ethical high-yield instruments | Verified halal funds with transparent ESG metrics |
 

@@ -1,16 +1,16 @@
-# Xaheen Chain Playbook v3 – Public Master Edition  
+# Noor Chain Playbook v3 – Public Master Edition  
 *The compliant blockchain for real-world finance*  
-© 2025 Xaheen Technologies AS | All Rights Reserved  
-Version v3.0-2025-11-02  
+© 2025 Noor Technologies (formerly Xaheen Technologies AS) | All Rights Reserved  
+Version v3.1-2025-11-02  
 
 ---
-#ai:module xaheen-chain
+#ai:module noor-chain
 #ai:topic vision, ecosystem, compliance, halal-economy
 #ai:audience developer, investor, regulator, public
 ---
 
 ## 1  Introduction
-**Xaheen Chain** is a next-generation Layer-1 blockchain engineered to connect compliant finance with decentralized innovation.  
+**Noor Chain** (نور - "Light") is a next-generation Layer-1 blockchain engineered to connect compliant finance with decentralized innovation.  
 It merges a **regulated foundation**—aligned with NSM, ISO 27001, GDPR and AAOIFI—with the openness and liquidity of public markets.
 
 ### Mission
@@ -22,22 +22,22 @@ A world where anyone can transact, invest, and build in a transparent halal-comp
 ---
 
 ## 2  Ecosystem Overview
-Xaheen Chain is the anchor of a complete financial and technological ecosystem:
+Noor Chain is the anchor of a complete financial and technological ecosystem:
 
 | Component | Purpose |
 |------------|----------|
-| **Xaheen Chain (L1)** | Core blockchain running PoSA (Parlia) consensus with 3 s blocks and 10 000-block epochs |
+| **Noor Chain (L1)** | Core blockchain running PoSA (Parlia) consensus with 3 s blocks and 10 000-block epochs |
 | **Dirhamat (AED/Gold-backed)** | Shariah-compliant stable-asset representing UAE Dirham and vaulted gold |
 | **Digital KES** | Stable digital Kenyan Shilling aligned with CBK sandbox regulations |
 | **NordCoin** | Nordic-compliant currency focused on ESG reporting and EU MiCA alignment |
-| **Xaheen Wallet** | Chrome Extension + Mobile wallet for cross-chain assets and halal fund participation |
-| **Xaheen Swap (DEX)** | Native decentralized exchange with hybrid liquidity routing |
-| **Xaheen Bridge** | Cross-chain vault and router system linking Xaheen with BSC, Polygon, Ethereum |
-| **Xaheen Funds** | On-chain halal mutual and retirement funds |
+| **Noor Wallet** | Chrome Extension + Mobile wallet for cross-chain assets and halal fund participation |
+| **NoorSwap (DEX)** | Native decentralized exchange with hybrid liquidity routing |
+| **Noor Bridge** | Cross-chain vault and router system linking Noor with BSC, Polygon, Ethereum |
+| **Noor Funds** | On-chain halal mutual and retirement funds |
 | **Compliance Core (XCC)** | Smart-contract framework for AML/KYC/GDPR/AAOIFI rules |
-| **Xaheen AI Agents** | Autonomous agents handling liquidity, compliance, and governance automation |
+| **Noor AI Agents** | Autonomous agents handling liquidity, compliance, and governance automation |
 
-Each component interoperates through unified standards and the **Xaheen AI protocol layer** for predictive management.
+Each component interoperates through unified standards and the **Noor AI protocol layer** for predictive management.
 
 ---
 
@@ -51,7 +51,7 @@ Each component interoperates through unified standards and the **Xaheen AI proto
 ---
 
 ## 4  Governance and Participation Model
-Xaheen Chain operates under a **Public-Permissioned Governance** structure:
+Noor Chain operates under a **Public-Permissioned Governance** structure:
 
 | Role | Description |
 |------|--------------|
@@ -66,10 +66,10 @@ AI Advisors provide predictive insights but cannot execute changes without human
 
 ---
 
-## 5  Token Economy (XHT & Assets)
-### Native Token: XHT
-- **Supply:** 21 billion (Xaheen-standard 24 decimals)  
-- **Contract:** `0x...263`  
+## 5  Token Economy (NOR & Assets)
+### Native Token: NOR
+- **Supply:** 21 billion (Noor-standard 24 decimals)  
+- **Contract:** TBD (NOR Token)  
 - **Use Cases:** Gas, staking, liquidity pair, governance, fund subscriptions  
 - **Burn Mechanism:** 1 % of network fees → burn address  
 - **Charity Allocation:** 0.5 % of fees → Charity Contract for zakat-funded projects  
@@ -77,34 +77,34 @@ AI Advisors provide predictive insights but cannot execute changes without human
 ### Other Key Assets
 | Asset | Contract | Purpose |
 |--------|-----------|---------|
-| **BTCBR (Xaheen Mirror)** | `0x...262` | Bridge representation of Bitcoin BR token |
-| **Dirhamat** | `0x...AED` | Gold + AED-backed stablecoin |
-| **Digital KES** | `0x...KES` | CBK-regulated Kenyan Shilling token |
+| **BTCBR (Noor Mirror)** | TBD | Bridge representation of Bitcoin BR token |
+| **Dirhamat** | TBD | Gold + AED-backed stablecoin |
+| **Digital KES** | TBD | CBK-regulated Kenyan Shilling token |
 | **FundUnits** | dynamic | Shares of halal mutual funds and retirement plans |
 
 ---
 
 ## 6  Hybrid Network Vision
-**“Xaheen is the engine; all other chains are branches.”**
+**"Noor is the engine; all other chains are branches."**
 
 ### Design Principle
-- Xaheen holds the real liquidity and price control.  
+- Noor holds the real liquidity and price control.  
 - External chains (BSC, Polygon, Ethereum) host **routers + mirror tokens** for visibility.  
-- Routers sync prices and volume with Xaheen DEX in real time.
+- Routers sync prices and volume with NoorSwap DEX in real time.
 
 ### User Experience Example
 **Case 1 – With Mirror Tokens:**  
-User opens MetaMask → selects BSC → adds `Xaheen Token (XHT)` → trades on PancakeSwap as normal.  
-Behind the scenes, the router calls Xaheen’s DEX for actual execution and settles via bridge.
+User opens MetaMask → selects BSC → adds `Noor Token (NOR)` → trades on PancakeSwap as normal.  
+Behind the scenes, the router calls Noor's DEX for actual execution and settles via bridge.
 
 **Case 2 – Router-Only (High Control):**  
-User trades USDT→XHT on BSC router; no mirror minted; Xaheen records ownership internally.  
+User trades USDT→NOR on BSC router; no mirror minted; Noor records ownership internally.  
 Best for regulatory jurisdictions requiring on-chain proof without token circulation.
 
 ---
 
 ## 7  Public Benefit and Market Impact
-Xaheen Chain serves as:
+Noor Chain serves as:
 - **Economic Infrastructure** for Islamic finance and emerging markets.  
 - **Compliance Sandbox** for governments testing CBDCs and tokenized securities.  
 - **Sustainability Hub** linking real-world carbon credits and ESG assets.  
@@ -115,12 +115,12 @@ Xaheen Chain serves as:
 ## 8  Ecosystem Diagram
 ```mermaid
 graph TD
-  A[Xaheen Chain (Core)] --> B[Dirhamat (AED/Gold)]
+  A[Noor Chain Core] --> B[Dirhamat AED/Gold]
   A --> C[Digital KES]
   A --> D[NordCoin]
-  A --> E[Xaheen Swap DEX]
-  A --> F[Xaheen Bridge]
-  A --> G[Xaheen Funds]
+  A --> E[NoorSwap DEX]
+  A --> F[Noor Bridge]
+  A --> G[Noor Funds]
   A --> H[Compliance Core XCC]
   A --> I[AI Agents]
   subgraph Public Chains

@@ -1,7 +1,7 @@
 {
-  "name": "xaheen-chain",
+  "name": "noor-chain",
   "version": "1.0.0",
-  "description": "Xaheen Chain - An intelligent, high-performance private blockchain network based on BNB Smart Chain (BSC/Parlia-PoSA) technology with comprehensive bridge infrastructure. Chain ID: 65001, Native Token: XHT",
+  "description": "Noor Chain (formerly Xaheen Chain) - Illuminating the future of blockchain with light and trust. An intelligent, ethical, high-performance private blockchain network based on BNB Smart Chain (BSC/Parlia-PoSA) technology with comprehensive bridge infrastructure. Chain ID: 65001, Native Token: NOR",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -10,34 +10,37 @@
     "test": "npx hardhat test",
     "compile": "npx hardhat compile",
     "deploy:mainnet": "npx hardhat run scripts/hardhat-deploy-mainnet.js --network bsc",
-    "deploy:xaheen": "npx hardhat run scripts/hardhat-deploy-private.js --network btcbr",
+    "deploy:noor": "npx hardhat run scripts/hardhat-deploy-private.js --network btcbr",
     "deploy:testnet": "npx hardhat run scripts/hardhat-deploy-mainnet.js --network bscTestnet",
     "deploy:bridges": "./scripts/deploy-bridge-complete.sh"
   },
   "keywords": [
-    "xaheen",
-    "xaheen-chain",
+    "noor",
+    "noor-chain",
+    "nor",
+    "noor-token",
     "blockchain",
     "bsc",
     "parlia",
     "bridge",
-    "xht",
-    "xaheen-token",
     "smart-contracts",
     "ethereum",
     "evm",
     "defi",
-    "web3"
+    "web3",
+    "halal-finance",
+    "shariah-compliant",
+    "ethical-blockchain"
   ],
-  "author": "Xaheen Chain Team",
+  "author": "Noor Chain Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xaheen-chain/blockchain-v2"
+    "url": "https://github.com/noor-chain/blockchain-v2"
   },
-  "homepage": "https://xaheen.org",
+  "homepage": "https://noorchain.org",
   "bugs": {
-    "url": "https://github.com/xaheen-chain/blockchain-v2/issues"
+    "url": "https://github.com/noor-chain/blockchain-v2/issues"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.9.6",

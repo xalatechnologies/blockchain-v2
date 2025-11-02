@@ -18,7 +18,7 @@
     "gibbsBlock": 0,
     "parlia": {
       "period": 3,
-      "epoch": 10000
+      "epoch": 20
     }
   },
   "nonce": "0x0",

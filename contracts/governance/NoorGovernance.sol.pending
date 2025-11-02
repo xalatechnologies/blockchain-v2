@@ -1,0 +1,338 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/governance/Governor.sol";
+import "@openzeppelin/contracts/governance/extensions/GovernorSettings.sol";
+import "@openzeppelin/contracts/governance/extensions/GovernorCountingSimple.sol";
+import "@openzeppelin/contracts/governance/extensions/GovernorVotes.sol";
+import "@openzeppelin/contracts/governance/extensions/GovernorVotesQuorumFraction.sol";
+import "@openzeppelin/contracts/governance/extensions/GovernorTimelockControl.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
+
+/**
+ * @title NoorGovernance
+ * @notice Three-Layer DAO Governance System for Noor Chain
+ * @dev Implements hybrid governance with institutional and community participation
+ *
+ * Governance Layers:
+ * 1. Council DAO (5 institutional signers)
+ *    - Protocol upgrades
+ *    - Validator onboarding/offboarding
+ *    - Treasury management
+ *    - Requires 3/5 supermajority
+ *
+ * 2. Validator DAO (all active validators + delegators)
+ *    - Consensus parameter changes
+ *    - Epoch policy adjustments
+ *    - Emergency response
+ *
+ * 3. Community DAO (NOR token holders ≥ 10,000 staked)
+ *    - Grant funding decisions
+ *    - Feature prioritization
+ *    - Community treasury allocation
+ *
+ * Voting Mechanics:
+ * - Weighted: 1 vote per NOR token (staked)
+ * - Minimum participation quorum: 15%
+ * - Proposal threshold: 100,000 NOR
+ * - Voting delay: 1 day
+ * - Voting period: 3 days
+ * - Timelock execution: 2 days
+ */
+contract NoorGovernance is
+    Governor,
+    GovernorSettings,
+    GovernorCountingSimple,
+    GovernorVotes,
+    GovernorVotesQuorumFraction,
+    GovernorTimelockControl,
+    AccessControl
+{
+    bytes32 public constant COUNCIL_ROLE = keccak256("COUNCIL_ROLE");
+    bytes32 public constant VALIDATOR_ROLE = keccak256("VALIDATOR_ROLE");
+    bytes32 public constant COMMUNITY_ROLE = keccak256("COMMUNITY_ROLE");
+
+    // Council members (5 institutional signers)
+    address[] public councilMembers;
+    mapping(address => bool) public isCouncilMember;
+
+    // Minimum NOR stake for community participation
+    uint256 public constant COMMUNITY_MIN_STAKE = 10_000 * 10**24; // 10,000 NOR (24 decimals)
+
+    // Proposal types
+    enum ProposalType {
+        COMMUNITY,    // Community DAO proposals
+        VALIDATOR,    // Validator DAO proposals
+        COUNCIL       // Council DAO proposals (highest authority)
+    }
+
+    // Proposal metadata
+    struct ProposalMetadata {
+        ProposalType proposalType;
+        address proposer;
+        uint256 createdAt;
+        string description;
+        bool executed;
+    }
+
+    mapping(uint256 => ProposalMetadata) public proposalMetadata;
+
+    // Events
+    event CouncilMemberAdded(address indexed member);
+    event CouncilMemberRemoved(address indexed member);
+    event ValidatorAdded(address indexed validator);
+    event ValidatorRemoved(address indexed validator);
+    event ProposalCreatedWithType(
+        uint256 indexed proposalId,
+        ProposalType proposalType,
+        address proposer,
+        string description
+    );
+
+    constructor(
+        IVotes _token,
+        TimelockController _timelock,
+        address[] memory _initialCouncil
+    )
+        Governor("Noor Chain Governance")
+        GovernorSettings(
+            1 days,     // Voting delay: 1 day
+            3 days,     // Voting period: 3 days
+            100_000 * 10**24  // Proposal threshold: 100,000 NOR
+        )
+        GovernorVotes(_token)
+        GovernorVotesQuorumFraction(15) // 15% quorum
+        GovernorTimelockControl(_timelock)
+    {
+        require(_initialCouncil.length == 5, "NoorGovernance: INVALID_COUNCIL_SIZE");
+
+        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+
+        // Initialize council members
+        for (uint256 i = 0; i < _initialCouncil.length; i++) {
+            address member = _initialCouncil[i];
+            require(member != address(0), "NoorGovernance: ZERO_ADDRESS");
+
+            _grantRole(COUNCIL_ROLE, member);
+            councilMembers.push(member);
+            isCouncilMember[member] = true;
+
+            emit CouncilMemberAdded(member);
+        }
+    }
+
+    // ==================== COUNCIL MANAGEMENT ====================
+
+    /**
+     * @notice Adds a new council member
+     * @dev Requires 3/5 council supermajority via proposal
+     */
+    function addCouncilMember(address member) external onlyGovernance {
+        require(member != address(0), "NoorGovernance: ZERO_ADDRESS");
+        require(!isCouncilMember[member], "NoorGovernance: ALREADY_MEMBER");
+
+        _grantRole(COUNCIL_ROLE, member);
+        councilMembers.push(member);
+        isCouncilMember[member] = true;
+
+        emit CouncilMemberAdded(member);
+    }
+
+    /**
+     * @notice Removes a council member
+     * @dev Requires 3/5 council supermajority via proposal
+     */
+    function removeCouncilMember(address member) external onlyGovernance {
+        require(isCouncilMember[member], "NoorGovernance: NOT_MEMBER");
+        require(councilMembers.length > 3, "NoorGovernance: MIN_COUNCIL_SIZE");
+
+        _revokeRole(COUNCIL_ROLE, member);
+        isCouncilMember[member] = false;
+
+        // Remove from array
+        for (uint256 i = 0; i < councilMembers.length; i++) {
+            if (councilMembers[i] == member) {
+                councilMembers[i] = councilMembers[councilMembers.length - 1];
+                councilMembers.pop();
+                break;
+            }
+        }
+
+        emit CouncilMemberRemoved(member);
+    }
+
+    /**
+     * @notice Returns list of council members
+     */
+    function getCouncilMembers() external view returns (address[] memory) {
+        return councilMembers;
+    }
+
+    // ==================== VALIDATOR MANAGEMENT ====================
+
+    /**
+     * @notice Adds a validator to the DAO
+     */
+    function addValidator(address validator) external onlyRole(COUNCIL_ROLE) {
+        require(validator != address(0), "NoorGovernance: ZERO_ADDRESS");
+        _grantRole(VALIDATOR_ROLE, validator);
+        emit ValidatorAdded(validator);
+    }
+
+    /**
+     * @notice Removes a validator from the DAO
+     */
+    function removeValidator(address validator) external onlyRole(COUNCIL_ROLE) {
+        _revokeRole(VALIDATOR_ROLE, validator);
+        emit ValidatorRemoved(validator);
+    }
+
+    // ==================== PROPOSAL FUNCTIONS ====================
+
+    /**
+     * @notice Creates a proposal with type classification
+     * @param targets Target contract addresses
+     * @param values ETH values to send
+     * @param calldatas Function call data
+     * @param description Proposal description
+     * @param proposalType Type of proposal (Community, Validator, or Council)
+     */
+    function proposeWithType(
+        address[] memory targets,
+        uint256[] memory values,
+        bytes[] memory calldatas,
+        string memory description,
+        ProposalType proposalType
+    ) public returns (uint256) {
+        // Verify proposer has appropriate role
+        if (proposalType == ProposalType.COUNCIL) {
+            require(hasRole(COUNCIL_ROLE, msg.sender), "NoorGovernance: NOT_COUNCIL");
+        } else if (proposalType == ProposalType.VALIDATOR) {
+            require(hasRole(VALIDATOR_ROLE, msg.sender), "NoorGovernance: NOT_VALIDATOR");
+        } else {
+            // Community proposal requires minimum stake
+            require(
+                getVotes(msg.sender, block.number - 1) >= COMMUNITY_MIN_STAKE,
+                "NoorGovernance: INSUFFICIENT_STAKE"
+            );
+        }
+
+        uint256 proposalId = propose(targets, values, calldatas, description);
+
+        proposalMetadata[proposalId] = ProposalMetadata({
+            proposalType: proposalType,
+            proposer: msg.sender,
+            createdAt: block.timestamp,
+            description: description,
+            executed: false
+        });
+
+        emit ProposalCreatedWithType(proposalId, proposalType, msg.sender, description);
+
+        return proposalId;
+    }
+
+    /**
+     * @notice Returns proposal metadata
+     */
+    function getProposalMetadata(uint256 proposalId) external view returns (
+        ProposalType proposalType,
+        address proposer,
+        uint256 createdAt,
+        string memory description,
+        bool executed
+    ) {
+        ProposalMetadata memory metadata = proposalMetadata[proposalId];
+        return (
+            metadata.proposalType,
+            metadata.proposer,
+            metadata.createdAt,
+            metadata.description,
+            metadata.executed
+        );
+    }
+
+    // ==================== OVERRIDES ====================
+
+    function votingDelay() public view override(IGovernor, GovernorSettings) returns (uint256) {
+        return super.votingDelay();
+    }
+
+    function votingPeriod() public view override(IGovernor, GovernorSettings) returns (uint256) {
+        return super.votingPeriod();
+    }
+
+    function quorum(uint256 blockNumber)
+        public
+        view
+        override(IGovernor, GovernorVotesQuorumFraction)
+        returns (uint256)
+    {
+        return super.quorum(blockNumber);
+    }
+
+    function state(uint256 proposalId)
+        public
+        view
+        override(IGovernor, GovernorTimelockControl)
+        returns (ProposalState)
+    {
+        return super.state(proposalId);
+    }
+
+    function propose(
+        address[] memory targets,
+        uint256[] memory values,
+        bytes[] memory calldatas,
+        string memory description
+    ) public override(IGovernor) returns (uint256) {
+        return super.propose(targets, values, calldatas, description);
+    }
+
+    function proposalThreshold()
+        public
+        view
+        override(IGovernor, GovernorSettings)
+        returns (uint256)
+    {
+        return super.proposalThreshold();
+    }
+
+    function _execute(
+        uint256 proposalId,
+        address[] memory targets,
+        uint256[] memory values,
+        bytes[] memory calldatas,
+        bytes32 descriptionHash
+    ) internal override(Governor, GovernorTimelockControl) {
+        super._execute(proposalId, targets, values, calldatas, descriptionHash);
+        proposalMetadata[proposalId].executed = true;
+    }
+
+    function _cancel(
+        address[] memory targets,
+        uint256[] memory values,
+        bytes[] memory calldatas,
+        bytes32 descriptionHash
+    ) internal override(Governor, GovernorTimelockControl) returns (uint256) {
+        return super._cancel(targets, values, calldatas, descriptionHash);
+    }
+
+    function _executor()
+        internal
+        view
+        override(Governor, GovernorTimelockControl)
+        returns (address)
+    {
+        return super._executor();
+    }
+
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        override(Governor, GovernorTimelockControl, AccessControl)
+        returns (bool)
+    {
+        return super.supportsInterface(interfaceId);
+    }
+}
