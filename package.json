@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx hardhat test",
     "compile": "npx hardhat compile",
     "deploy:mainnet": "npx hardhat run scripts/hardhat-deploy-mainnet.js --network bsc",
     "deploy:xaheen": "npx hardhat run scripts/hardhat-deploy-private.js --network btcbr",
@@ -46,10 +46,22 @@
     "web3": "^4.16.0"
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.1.0",
     "@nomicfoundation/hardhat-ethers": "^3.1.1",
+    "@nomicfoundation/hardhat-network-helpers": "^3.0.1",
     "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.1.3",
+    "@typechain/ethers-v6": "^0.5.1",
+    "@typechain/hardhat": "^9.1.0",
+    "@types/mocha": "^10.0.10",
+    "chai": "^6.2.0",
     "ethers": "^6.15.0",
-    "hardhat": "^2.26.4"
+    "hardhat": "^2.26.4",
+    "hardhat-gas-reporter": "^1.0.10",
+    "solidity-coverage": "^0.8.16",
+    "ts-node": "^10.9.2",
+    "typechain": "^8.3.2",
+    "typescript": "^5.9.3"
   },
   "type": "module"
 }

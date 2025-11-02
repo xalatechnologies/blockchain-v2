@@ -100,11 +100,11 @@ contract XHTRevenue is Ownable, ReentrancyGuard {
     /**
      * @notice Collect revenue from various sources
      * @param source Description of revenue source (bridge, dex, nft, etc.)
+     * @dev Uses Checks-Effects-Interactions (CEI) pattern to prevent reentrancy
      */
-    function collectRevenue(string memory source) external payable {
+    function collectRevenue(string memory source) external payable nonReentrant {
+        // ============ CHECKS ============
         require(msg.value > 0, "No revenue sent");
-
-        stats.totalCollected += msg.value;
 
         // Split revenue according to percentages
         uint256 toStakers = (msg.value * STAKERS_PERCENTAGE) / 100;
@@ -112,30 +112,45 @@ contract XHTRevenue is Ownable, ReentrancyGuard {
         uint256 toBurn = (msg.value * BURN_PERCENTAGE) / 100;
         uint256 toTreasury = msg.value - toStakers - toValidators - toBurn;
 
-        pendingStakerPool += toStakers;
-        pendingValidatorPool += toValidators;
+        // Check if auto-distribution needed
+        bool shouldDistributeStakers = (pendingStakerPool + toStakers) >= MIN_DISTRIBUTION_AMOUNT;
+        bool shouldDistributeValidators = (pendingValidatorPool + toValidators) >= MIN_DISTRIBUTION_AMOUNT;
 
+        // ============ EFFECTS (all state updates BEFORE external calls) ============
+        stats.totalCollected += msg.value;
+        stats.burned += toBurn;
+        stats.toTreasury += toTreasury;
+
+        if (shouldDistributeStakers) {
+            // Calculate total before resetting
+            uint256 stakerAmount = pendingStakerPool + toStakers;
+            pendingStakerPool = 0;
+            stats.distributedToStakers += stakerAmount;
+        } else {
+            pendingStakerPool += toStakers;
+        }
+
+        if (shouldDistributeValidators) {
+            // Calculate total before resetting
+            uint256 validatorAmount = pendingValidatorPool + toValidators;
+            pendingValidatorPool = 0;
+            stats.distributedToValidators += validatorAmount;
+        } else {
+            pendingValidatorPool += toValidators;
+        }
+
+        emit RevenueReceived(msg.sender, msg.value, source);
+
+        // ============ INTERACTIONS (all external calls LAST) ============
         // Burn portion
         if (toBurn > 0) {
             burnContract.burnBridgeFees{value: toBurn}();
-            stats.burned += toBurn;
         }
 
         // Send to treasury
         if (toTreasury > 0) {
             (bool success, ) = treasuryAddress.call{value: toTreasury}("");
             require(success, "Treasury transfer failed");
-            stats.toTreasury += toTreasury;
-        }
-
-        emit RevenueReceived(msg.sender, msg.value, source);
-
-        // Auto-distribute if threshold reached
-        if (pendingStakerPool >= MIN_DISTRIBUTION_AMOUNT) {
-            _distributeToStakers();
-        }
-        if (pendingValidatorPool >= MIN_DISTRIBUTION_AMOUNT) {
-            _distributeToValidators();
         }
     }
 

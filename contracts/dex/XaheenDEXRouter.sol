@@ -2,6 +2,7 @@
 pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "./XaheenDEXFactory.sol";
 import "./XaheenDEXPair.sol";
 import "./WXHT.sol";
@@ -12,6 +13,8 @@ import "./WXHT.sol";
  * @dev Handles all swaps, liquidity addition/removal with support for XHT
  */
 contract XaheenDEXRouter {
+    using SafeERC20 for IERC20;
+
     address public immutable factory;
     WXHT public immutable wxht;
 
@@ -85,7 +88,7 @@ contract XaheenDEXRouter {
         uint256 deadline
     ) public ensure(deadline) returns (uint256 amountA, uint256 amountB) {
         address pair = XaheenDEXFactory(factory).getPair(tokenA, tokenB);
-        IERC20(pair).transferFrom(msg.sender, pair, liquidity);
+        IERC20(pair).safeTransferFrom(msg.sender, pair, liquidity);
         (uint256 amount0, uint256 amount1) = XaheenDEXPair(pair).burn(to);
         (address token0,) = sortTokens(tokenA, tokenB);
         (amountA, amountB) = tokenA == token0 ? (amount0, amount1) : (amount1, amount0);

@@ -2,6 +2,7 @@
 pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
@@ -26,6 +27,7 @@ interface IXaheenRouter {
  * - Public verification
  */
 contract WeeklyBuyback is Ownable, ReentrancyGuard {
+    using SafeERC20 for IERC20;
 
     // XHT token
     IERC20 public immutable xhtToken;
@@ -145,15 +147,15 @@ contract WeeklyBuyback is Ownable, ReentrancyGuard {
 
         // Execute splits
         if (xhtToBurn > 0) {
-            xhtToken.transfer(BURN_ADDRESS, xhtToBurn);
+            xhtToken.safeTransfer(BURN_ADDRESS, xhtToBurn);
         }
 
         if (xhtToTreasury > 0) {
-            xhtToken.transfer(treasury, xhtToTreasury);
+            xhtToken.safeTransfer(treasury, xhtToTreasury);
         }
 
         if (xhtToLP > 0) {
-            xhtToken.transfer(lpManager, xhtToLP);
+            xhtToken.safeTransfer(lpManager, xhtToLP);
         }
 
         // Update statistics
@@ -178,7 +180,7 @@ contract WeeklyBuyback is Ownable, ReentrancyGuard {
      */
     function depositUSDT(uint256 amount) external {
         require(amount > 0, "Amount must be positive");
-        usdtToken.transferFrom(msg.sender, address(this), amount);
+        usdtToken.safeTransferFrom(msg.sender, address(this), amount);
     }
 
     /**
@@ -278,6 +280,6 @@ contract WeeklyBuyback is Ownable, ReentrancyGuard {
      * Only for stuck funds or emergencies
      */
     function emergencyWithdraw(address token, uint256 amount) external onlyOwner {
-        IERC20(token).transfer(owner(), amount);
+        IERC20(token).safeTransfer(owner(), amount);
     }
 }

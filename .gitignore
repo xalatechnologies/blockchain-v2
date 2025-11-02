@@ -17,6 +17,9 @@ data/password.txt
 # Build outputs
 build/
 dist/
+.build/
+artifacts/
+cache/
 
 # IDE and editor files
 .vscode/
@@ -47,6 +50,11 @@ bsc/
 *.dat
 *.ldb
 *.log
+
+# Validator data directories
+config/validators/validator-*/
+config/validators/validator-base/
+!config/validators/README.md
 
 # Backup files
 *.bak

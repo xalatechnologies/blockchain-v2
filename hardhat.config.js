@@ -1,5 +1,5 @@
 import { config as dotenvConfig } from "dotenv";
-import "@nomicfoundation/hardhat-ethers";
+import "@nomicfoundation/hardhat-toolbox";
 
 // Load environment variables
 dotenvConfig();
@@ -62,8 +62,8 @@ export default {
   paths: {
     sources: "./contracts",
     tests: "./test",
-    cache: "./cache",
-    artifacts: "./artifacts",
+    cache: "./.build/cache",
+    artifacts: "./.build/artifacts",
   },
 
   etherscan: {

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xaheen Bridge - Cross-Chain BTCBR Transfer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1>🌉 Xaheen Bridge</h1>
+                <p class="tagline">Seamless Cross-Chain BTCBR Transfers</p>
+            </div>
+            <button id="connectWallet" class="btn btn-primary">
+                <span id="walletStatus">Connect Wallet</span>
+            </button>
+        </header>
+
+        <!-- Network Status -->
+        <div class="network-status" id="networkStatus">
+            <div class="status-item">
+                <span class="label">Network:</span>
+                <span id="currentNetwork" class="value">Not Connected</span>
+            </div>
+            <div class="status-item">
+                <span class="label">Address:</span>
+                <span id="walletAddress" class="value">-</span>
+            </div>
+        </div>
+
+        <!-- Bridge Interface -->
+        <div class="bridge-container">
+            <div class="bridge-header">
+                <h2>Transfer BTCBR</h2>
+                <div class="fee-info">
+                    <span>Fee: <span id="bridgeFee">0.1%</span></span>
+                </div>
+            </div>
+
+            <!-- From Chain -->
+            <div class="chain-section">
+                <label class="section-label">From</label>
+                <div class="chain-selector">
+                    <select id="fromChain" class="chain-select">
+                        <option value="56">BSC Mainnet</option>
+                        <option value="65001">Xaheen Chain</option>
+                    </select>
+                    <div class="balance-display">
+                        <span class="balance-label">Balance:</span>
+                        <span id="fromBalance" class="balance-value">0.00 BTCBR</span>
+                    </div>
+                </div>
+                <div class="amount-input-wrapper">
+                    <input
+                        type="number"
+                        id="transferAmount"
+                        class="amount-input"
+                        placeholder="0.00"
+                        min="100"
+                        max="100000"
+                        step="1"
+                    >
+                    <span class="token-label">BTCBR</span>
+                    <button id="maxButton" class="max-button">MAX</button>
+                </div>
+                <div class="limits-info">
+                    <small>Min: 100 BTCBR | Max: 100,000 BTCBR</small>
+                </div>
+            </div>
+
+            <!-- Swap Direction Button -->
+            <div class="swap-direction">
+                <button id="swapDirection" class="swap-btn" title="Swap Direction">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="17 1 21 5 17 9"></polyline>
+                        <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                        <polyline points="7 23 3 19 7 15"></polyline>
+                        <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- To Chain -->
+            <div class="chain-section">
+                <label class="section-label">To</label>
+                <div class="chain-selector">
+                    <select id="toChain" class="chain-select">
+                        <option value="65001">Xaheen Chain</option>
+                        <option value="56">BSC Mainnet</option>
+                    </select>
+                    <div class="balance-display">
+                        <span class="balance-label">Balance:</span>
+                        <span id="toBalance" class="balance-value">0.00 BTCBR</span>
+                    </div>
+                </div>
+                <div class="receive-amount">
+                    <div class="receive-label">You will receive:</div>
+                    <div id="receiveAmount" class="receive-value">0.00 BTCBR</div>
+                </div>
+            </div>
+
+            <!-- Transfer Summary -->
+            <div class="transfer-summary" id="transferSummary" style="display: none;">
+                <div class="summary-row">
+                    <span>Transfer Amount:</span>
+                    <span id="summaryAmount">0 BTCBR</span>
+                </div>
+                <div class="summary-row">
+                    <span>Bridge Fee (<span id="summaryFeePercent">0.1%</span>):</span>
+                    <span id="summaryFee">0 BTCBR</span>
+                </div>
+                <div class="summary-row total">
+                    <span>You Receive:</span>
+                    <span id="summaryReceive">0 BTCBR</span>
+                </div>
+            </div>
+
+            <!-- Transfer Button -->
+            <button id="transferButton" class="btn btn-transfer" disabled>
+                Connect Wallet to Transfer
+            </button>
+
+            <!-- Transaction Status -->
+            <div id="transactionStatus" class="transaction-status" style="display: none;">
+                <div class="status-content">
+                    <div class="status-icon" id="statusIcon">⏳</div>
+                    <div class="status-text" id="statusText">Processing...</div>
+                    <div class="status-details" id="statusDetails"></div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Transfers -->
+        <div class="recent-transfers">
+            <h3>Your Recent Transfers</h3>
+            <div id="transfersList" class="transfers-list">
+                <div class="no-transfers">
+                    <p>No recent transfers</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Cards -->
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🚀 Fast Transfers</h3>
+                <p>Cross-chain transfers complete in ~2 minutes with multi-sig validation</p>
+            </div>
+            <div class="info-card">
+                <h3>🔒 Secure</h3>
+                <p>Multi-signature validation with 2-of-3 validators required</p>
+            </div>
+            <div class="info-card">
+                <h3>💰 Low Fees</h3>
+                <p>Only 0.1% fee for BSC→Xaheen, 0.2% for Xaheen→BSC</p>
+            </div>
+            <div class="info-card">
+                <h3>📊 Daily Limits</h3>
+                <p>Up to 500,000 BTCBR per address per day</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Xaheen Chain</h4>
+                    <p>Chain ID: 65001 | RPC: https://rpc.xaheen.org</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <a href="docs/USER_GUIDE.md">User Guide</a>
+                    <a href="docs/METAMASK_SETUP.md">MetaMask Setup</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="https://t.me/xaheenchain" target="_blank">Telegram</a>
+                    <a href="https://twitter.com/xaheenchain" target="_blank">Twitter</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Xaheen Chain. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
