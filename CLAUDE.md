@@ -559,7 +559,14 @@ AI agents operate as micro-services with read-only RPC access and on-chain repor
 
 ## Halal Financial Products
 
-Xaheen Funds enables creation and management of **Shariah-compliant investment vehicles**:
+Xaheen Funds enables creation and management of **Shariah-compliant investment vehicles**, positioning Xaheen Chain as the **financial backbone** for:
+- **UAE & GCC Islamic banks** seeking Shariah-compliant tokenization
+- **Fintechs** needing ready-made halal-compliant infrastructure
+- **Real-estate developers** issuing tokenized ijārah or sukuk
+- **Zakat & Charity organizations** tracking transparent distribution
+- **Global investors** seeking ethical ESG-aligned returns
+
+> "Xaheen connects capital with conscience — turning finance into impact."
 
 ### Fund Types
 
@@ -572,6 +579,54 @@ Xaheen Funds enables creation and management of **Shariah-compliant investment v
 | **SME Partnership** | Mushārakah | Halal SMEs | Profit/loss share |
 | **Liquidity Park** | Commodity Murābaḥah | Short-term trades | Markup profit |
 | **Waqf Impact Fund** | Waqf / Tabarru' | Social projects | Capped-fee/impact KPIs |
+| **Takaful Reserve Pool** | Tabarru' | Insurance operations | Cooperative risk-sharing |
+
+### Business Integration Path (Institutional Partners)
+
+**Step 1 – Institution On-boarding**: Partners complete compliance registration via XCC (AML/KYC + AAOIFI certification)
+
+**Step 2 – Fund Deployment**: Each partner receives a **Fund Router** smart contract with branding & fee configuration
+
+**Step 3 – Investor Access**: Xaheen Wallet & APIs expose subscription, NAV, and redemption flows
+
+**Step 4 – Reporting & Governance**: Daily NAV + fatwa hashes published on-chain → regulator & auditor dashboards
+
+### Industry-Specific Value Propositions
+
+| Industry | Challenge | Xaheen Solution |
+|-----------|------------|----------------|
+| **Banks** | Legacy core systems, lack of blockchain integration | Plug-and-play tokenization via Xaheen API |
+| **Real Estate** | Liquidity lock-in & fractional ownership barriers | On-chain Ijārah tokens + DEX liquidity |
+| **Fintechs** | Compliance burden & slow licensing | Built-in AAOIFI & GDPR modules |
+| **Charities** | Opaque fund flows & trust deficit | Transparent zakat & waqf tracking |
+| **Governments** | Limited visibility on social impact | Real-time analytics via AI dashboards |
+
+### Geographic Focus & Partnerships
+
+| Region | Objective | Target Partners |
+|--------|------------|-----------------|
+| **UAE / GCC** | Gold & Dirhamat funds; sukuk tokenization | Islamic banks & ADGM/VARA-regulated entities |
+| **Kenya / Africa** | Digital KES income funds; micro-finance | CBK sandbox institutions |
+| **Nordics / EU** | ESG & NordCoin funds | Green investment groups |
+| **Southeast Asia** | Takaful & SME funds (2026 expansion) | Malaysia & Indonesia Islamic banks |
+
+### Ideal Partnership Profile
+
+Xaheen seeks partnerships with:
+- Central banks & regulators
+- Islamic financial institutions (banks, takaful companies)
+- Fintech and payment companies
+- Real-estate developers and REITs
+- Zakat and charity foundations
+- ESG and impact investment funds
+
+**Why Partner with Xaheen:**
+- Shariah compliance & regulatory readiness out-of-the-box
+- Rapid market entry with minimal technical overhead
+- Global liquidity and transparent fund governance
+- Demonstrable social impact and ESG alignment
+
+**Contact**: partners@xaheen.io | Website: xaheen.io | Locations: Dubai | Oslo | Oman
 
 ### FundUnit Token Standard
 
@@ -620,7 +675,7 @@ Every investor position is represented by a **`FundUnit`** ERC-20-compatible tok
 | Q2 2025 | Halal Funds beta + AI agents v1 |
 | Q3 2025 | First CEX listing + mobile wallet release |
 | Q4 2025 | Public DAO launch + Compliance Dashboard |
-| 2026 | CBDC pilot integration + Real-estate tokenization |
+| 2026 | CBDC pilot integration + Real-estate tokenization + Southeast Asia expansion (Malaysia & Indonesia) |
 | 2027 | Global expansion + multi-region validator network |
 
 ## Key Differences from Standard BSC/Ethereum Projects

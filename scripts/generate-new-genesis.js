@@ -80,6 +80,27 @@ async function generateNewGenesis() {
   const extraData = generateExtraData(VALIDATORS);
   console.log(`   extraData: ${extraData}`);
 
+  // Convert balance and nonce to hex format for BSC/Geth
+  const convertedAlloc = {};
+  for (const [address, account] of Object.entries(stateExport.alloc)) {
+    convertedAlloc[address] = {
+      balance: account.balance
+        ? ethers.toQuantity(ethers.getBigInt(account.balance))
+        : "0x0", // Geth requires balance field, default to 0x0
+      code: account.code,
+      storage: account.storage,
+    };
+
+    // Only add nonce if > 0
+    if (account.nonce !== undefined && account.nonce > 0) {
+      convertedAlloc[address].nonce = ethers.toQuantity(account.nonce);
+    }
+
+    // Remove undefined values
+    if (!convertedAlloc[address].code) delete convertedAlloc[address].code;
+    if (!convertedAlloc[address].storage) delete convertedAlloc[address].storage;
+  }
+
   const newGenesis = {
     config: {
       chainId: 65001, // KEEP SAME
@@ -111,7 +132,7 @@ async function generateNewGenesis() {
     mixHash:
       "0x0000000000000000000000000000000000000000000000000000000000000000",
     coinbase: "0x0000000000000000000000000000000000000000",
-    alloc: stateExport.alloc, // 🔥 IMPORTED STATE
+    alloc: convertedAlloc, // 🔥 IMPORTED STATE (hex-formatted)
     number: "0x0",
     gasUsed: "0x0",
     parentHash:
