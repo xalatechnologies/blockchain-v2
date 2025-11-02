@@ -1,0 +1,29 @@
+{
+  "timestamp": "2025-11-02T23:00:48.079Z",
+  "network": "btcbr",
+  "chainId": "65001",
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "totalPairs": 4,
+  "pairs": [
+    {
+      "name": "NOR/WUSDT",
+      "address": "0xe7c6B1853078eA5aBff5FbAaF801D6A1E9b1f59b",
+      "status": "Previously deployed"
+    },
+    {
+      "name": "NOR/WETH",
+      "address": "0x88992eE68E23fbDA10e9a85B5cf7Ee5bA8BaeD84",
+      "lpTokens": "18774983355518587516337468"
+    },
+    {
+      "name": "NOR/Dirhamat",
+      "address": "0x82bBA6ffcBeC38fb07AC8ABd745D47e7Af2Af26e",
+      "lpTokens": "1443376250324218130890985533"
+    },
+    {
+      "name": "Dirhamat/WUSDT",
+      "address": "0x41C9B2D4Ff3c5aE69c651140bF91f2B71dDE45ba",
+      "lpTokens": "48112628279901733091349"
+    }
+  ]
+}

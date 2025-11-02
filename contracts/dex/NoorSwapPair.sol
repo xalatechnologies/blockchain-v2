@@ -165,7 +165,7 @@ contract NoorSwapPair is ERC20 {
         if (_totalSupply == 0) {
             // First liquidity provider
             liquidity = Math.sqrt(amount0 * amount1) - MINIMUM_LIQUIDITY;
-            _mint(address(0), MINIMUM_LIQUIDITY); // Lock minimum liquidity forever
+            _mint(address(0x000000000000000000000000000000000000dEaD), MINIMUM_LIQUIDITY); // Lock minimum liquidity forever
         } else {
             // Subsequent liquidity additions
             liquidity = Math.min(

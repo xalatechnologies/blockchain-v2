@@ -1,0 +1,56 @@
+{
+  "timestamp": "2025-11-02T23:03:32.800Z",
+  "network": "btcbr",
+  "chainId": "65001",
+  "liquidityLockContract": "0xFB50672F7c4240e43d07A6eb7B51641B05bA30C6",
+  "beneficiary": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "lockDuration": "36 months (3 years)",
+  "unlockDate": "2028-11-01T23:02:44.000Z",
+  "totalLiquidity": "$800,000",
+  "locks": [
+    {
+      "lockId": "0",
+      "pairName": "NOR/WUSDT",
+      "lpTokenAddress": "0xe7c6B1853078eA5aBff5FbAaF801D6A1E9b1f59b",
+      "amount": "2499999999999999999999999000",
+      "beneficiary": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+      "lockTime": 1762124576,
+      "unlockTime": 1856732564,
+      "unlockDate": "2028-11-01T23:02:44.000Z",
+      "description": "NOR/WUSDT LP - undefined locked for 36 months"
+    },
+    {
+      "lockId": "1",
+      "pairName": "NOR/WETH",
+      "lpTokenAddress": "0x88992eE68E23fbDA10e9a85B5cf7Ee5bA8BaeD84",
+      "amount": "18774983355518587516337468",
+      "beneficiary": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+      "lockTime": 1762124588,
+      "unlockTime": 1856732564,
+      "unlockDate": "2028-11-01T23:02:44.000Z",
+      "description": "NOR/WETH LP - undefined locked for 36 months"
+    },
+    {
+      "lockId": "2",
+      "pairName": "NOR/Dirhamat",
+      "lpTokenAddress": "0x82bBA6ffcBeC38fb07AC8ABd745D47e7Af2Af26e",
+      "amount": "1443376250324218130890985533",
+      "beneficiary": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+      "lockTime": 1762124601,
+      "unlockTime": 1856732564,
+      "unlockDate": "2028-11-01T23:02:44.000Z",
+      "description": "NOR/Dirhamat LP - undefined locked for 36 months"
+    },
+    {
+      "lockId": "3",
+      "pairName": "Dirhamat/WUSDT",
+      "lpTokenAddress": "0x41C9B2D4Ff3c5aE69c651140bF91f2B71dDE45ba",
+      "amount": "48112628279901733091349",
+      "beneficiary": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+      "lockTime": 1762124612,
+      "unlockTime": 1856732564,
+      "unlockDate": "2028-11-01T23:02:44.000Z",
+      "description": "Dirhamat/WUSDT LP - undefined locked for 36 months"
+    }
+  ]
+}
