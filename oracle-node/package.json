@@ -1,0 +1,29 @@
+{
+  "name": "noor-chain-oracle-node",
+  "version": "1.0.0",
+  "description": "Decentralized oracle node for Noor Chain price feeds",
+  "type": "module",
+  "main": "oracle-service.js",
+  "scripts": {
+    "start": "node oracle-service.js",
+    "dev": "nodemon oracle-service.js",
+    "test": "node test-oracle.js"
+  },
+  "keywords": [
+    "oracle",
+    "blockchain",
+    "noor-chain",
+    "price-feed",
+    "defi"
+  ],
+  "author": "Noor Chain",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
