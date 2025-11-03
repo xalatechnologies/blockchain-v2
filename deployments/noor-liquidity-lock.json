@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-11-03T14:27:05Z",
+  "chainId": 65001,
+  "network": "Noor Chain",
+  "liquidityLock": {
+    "contract": "0x704cf9Fd1977365426Bd15A1aD348B17B401877B",
+    "lpToken": "0x6509341929d0dC8376d2158d920287EF94594c53",
+    "amount": "31622776601683793319987935",
+    "amountFormatted": "31622776.601684 LP",
+    "lockDuration": "36 months",
+    "unlockTimestamp": 1855488413,
+    "unlockDate": "2028-10-18 13:26:53 UTC",
+    "beneficiary": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+    "description": "$800K Initial Liquidity Lock - 36 Months",
+    "lockId": 0
+  }
+}

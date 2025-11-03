@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-11-03T13:55:59.129225Z",
+  "chainId": 65001,
+  "network": "Noor Chain",
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "liquidity_lock_contract": "0x704cf9Fd1977365426Bd15A1aD348B17B401877B",
+  "total_pairs": 3,
+  "total_liquidity_usd": 30000,
+  "lock_duration": "36 months",
+  "pairs": [
+    {
+      "name": "DIRHAMAT/WBNB",
+      "pair_address": "0x2115B48AB1f67f63CBDb2A378Ba901dbc4C811a7",
+      "token0": "0xd1a00bb0f0af75c20D58ABcF11590780003133D7",
+      "token1": "0x4664836683f62eB96388461f79602fC1Aeb6A78E",
+      "liquidity_usd": 10000,
+      "lp_locked": "384.905183 LP",
+      "lock_id": 1,
+      "unlock_date": "2028-10-18 13:55:35 UTC"
+    },
+    {
+      "name": "DIRHAMAT/WETH",
+      "pair_address": "0x425aF33638Fd31e907A7F92E11a94b7c89ffCc7e",
+      "token0": "0xd1a00bb0f0af75c20D58ABcF11590780003133D7",
+      "token1": "0x381Acd8Ab92811094D0b8F73411C24F0b2122359",
+      "liquidity_usd": 10000,
+      "lp_locked": "19245.259156 LP",
+      "lock_id": 2,
+      "unlock_date": "2028-10-18 13:55:35 UTC"
+    }
+  ]
+}

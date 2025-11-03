@@ -1,0 +1,30 @@
+{
+  "timestamp": "2025-11-03T14:31:23Z",
+  "chainId": 65001,
+  "network": "Noor Chain",
+  "wrapped_tokens": {
+    "WBNB": "0x4664836683f62eB96388461f79602fC1Aeb6A78E",
+    "WETH": "0x381Acd8Ab92811094D0b8F73411C24F0b2122359",
+    "WUSDT": "0x8ea180e32448d695A9036A992B2a3bdE67348B9e"
+  },
+  "pairs": [
+    {
+      "name": "BTCBR/WBNB",
+      "address": "0x16106822360Cd68C496BEe0BebE8c8E2E3faE7C1",
+      "token0": "0x0cF8e180350253271f4b917CcFb0aCCc4862F262",
+      "token1": "0x4664836683f62eB96388461f79602fC1Aeb6A78E"
+    },
+    {
+      "name": "BTCBR/WETH",
+      "address": "0xe28B0755E978f7B7302dddC14269ef4A209F74Ef",
+      "token0": "0x0cF8e180350253271f4b917CcFb0aCCc4862F262",
+      "token1": "0x381Acd8Ab92811094D0b8F73411C24F0b2122359"
+    },
+    {
+      "name": "BTCBR/WUSDT",
+      "address": "0x538DEFAbe8dC5F99a420058B675E9111C5B7a50C",
+      "token0": "0x0cF8e180350253271f4b917CcFb0aCCc4862F262",
+      "token1": "0x8ea180e32448d695A9036A992B2a3bdE67348B9e"
+    }
+  ]
+}

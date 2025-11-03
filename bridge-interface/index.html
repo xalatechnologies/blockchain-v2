@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noor Chain Cross-Chain Bridge</title>
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .wallet-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .wallet-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .connect-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .connect-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .bridge-form {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .chain-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .chain-btn {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .chain-btn:hover {
+            border-color: #667eea;
+        }
+
+        .chain-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .arrow-icon {
+            text-align: center;
+            font-size: 24px;
+            color: #667eea;
+            margin: 20px 0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .status {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .address {
+            font-family: monospace;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌉 Noor Chain Bridge</h1>
+        <p class="subtitle">Seamlessly transfer BTCBR, NOR & Dirhamat across chains</p>
+
+        <div class="wallet-section">
+            <div class="wallet-info">
+                <div>
+                    <strong>Wallet Status:</strong>
+                    <span id="walletStatus">Not Connected</span>
+                </div>
+                <button class="connect-btn" id="connectBtn" onclick="connectWallet()">Connect Wallet</button>
+            </div>
+            <div id="walletAddress" class="address" style="display: none;"></div>
+        </div>
+
+        <div class="bridge-form">
+            <div class="form-group">
+                <label>From Chain</label>
+                <div class="chain-selector">
+                    <button class="chain-btn active" data-chain="noor" onclick="selectSourceChain('noor')">
+                        Noor Chain
+                    </button>
+                    <button class="chain-btn" data-chain="ethereum" onclick="selectSourceChain('ethereum')">
+                        Ethereum
+                    </button>
+                    <button class="chain-btn" data-chain="bsc" onclick="selectSourceChain('bsc')">
+                        BSC
+                    </button>
+                    <button class="chain-btn" data-chain="polygon" onclick="selectSourceChain('polygon')">
+                        Polygon
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Token</label>
+                <select id="tokenSelect">
+                    <option value="btcbr">BTCBR</option>
+                    <option value="nor">NOR</option>
+                    <option value="dirhamat">Dirhamat (AED)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Amount</label>
+                <input type="number" id="amount" placeholder="0.00" min="0" step="0.01">
+            </div>
+
+            <div class="arrow-icon">↓</div>
+
+            <div class="form-group">
+                <label>To Chain</label>
+                <div class="chain-selector">
+                    <button class="chain-btn" data-chain="noor" onclick="selectTargetChain('noor')">
+                        Noor Chain
+                    </button>
+                    <button class="chain-btn" data-chain="ethereum" onclick="selectTargetChain('ethereum')">
+                        Ethereum
+                    </button>
+                    <button class="chain-btn" data-chain="bsc" onclick="selectTargetChain('bsc')">
+                        BSC
+                    </button>
+                    <button class="chain-btn" data-chain="polygon" onclick="selectTargetChain('polygon')">
+                        Polygon
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Recipient Address</label>
+                <input type="text" id="recipient" placeholder="0x...">
+            </div>
+
+            <button class="submit-btn" id="bridgeBtn" onclick="executeBridge()">Bridge Tokens</button>
+
+            <div class="status" id="status"></div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value" id="totalBridged">-</div>
+                <div class="stat-label">Total Bridged</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="activeBridges">3</div>
+                <div class="stat-label">Active Bridges</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="validators">2/3</div>
+                <div class="stat-label">Validators</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const CHAINS = {
+            noor: {
+                name: 'Noor Chain',
+                chainId: 65001,
+                rpc: 'http://3.91.50.187:8545',
+                bridge: '0xC808e1962bD8fE5d0fBc41D76B7909B80C442D84',
+                tokens: {
+                    btcbr: '0x0cF8e180350253271f4b917CcFb0aCCc4862F262',
+                    nor: '0x0f8498072DB1611497e2068f9896aeFfcf173583',
+                    dirhamat: '0xd1a00bb0f0af75c20D58ABcF11590780003133D7'
+                }
+            },
+            ethereum: {
+                name: 'Ethereum',
+                chainId: 1,
+                bridge: '0x0000000000000000000000000000000000000000', // Deploy manually
+                tokens: {
+                    btcbr: '0x0000000000000000000000000000000000000000',
+                    nor: '0x0000000000000000000000000000000000000000',
+                    dirhamat: '0x0000000000000000000000000000000000000000'
+                }
+            },
+            bsc: {
+                name: 'BSC',
+                chainId: 56,
+                bridge: '0x0000000000000000000000000000000000000000',
+                tokens: {
+                    btcbr: '0x0000000000000000000000000000000000000000',
+                    nor: '0x0000000000000000000000000000000000000000',
+                    dirhamat: '0x0000000000000000000000000000000000000000'
+                }
+            },
+            polygon: {
+                name: 'Polygon',
+                chainId: 137,
+                bridge: '0x0000000000000000000000000000000000000000',
+                tokens: {
+                    btcbr: '0x0000000000000000000000000000000000000000',
+                    nor: '0x0000000000000000000000000000000000000000',
+                    dirhamat: '0x0000000000000000000000000000000000000000'
+                }
+            }
+        };
+
+        let provider, signer, userAddress;
+        let sourceChain = 'noor';
+        let targetChain = null;
+
+        async function connectWallet() {
+            if (typeof window.ethereum === 'undefined') {
+                showStatus('Please install MetaMask!', 'error');
+                return;
+            }
+
+            try {
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                provider = new ethers.providers.Web3Provider(window.ethereum);
+                signer = provider.getSigner();
+                userAddress = await signer.getAddress();
+
+                document.getElementById('walletStatus').textContent = 'Connected';
+                document.getElementById('walletAddress').textContent = `Address: ${userAddress}`;
+                document.getElementById('walletAddress').style.display = 'block';
+                document.getElementById('connectBtn').textContent = 'Connected ✓';
+                document.getElementById('connectBtn').disabled = true;
+
+                loadBridgeStats();
+            } catch (error) {
+                showStatus('Failed to connect wallet: ' + error.message, 'error');
+            }
+        }
+
+        function selectSourceChain(chain) {
+            sourceChain = chain;
+            document.querySelectorAll('.chain-selector')[0].querySelectorAll('.chain-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.chain === chain) btn.classList.add('active');
+            });
+        }
+
+        function selectTargetChain(chain) {
+            if (chain === sourceChain) {
+                showStatus('Source and target chains must be different!', 'error');
+                return;
+            }
+            targetChain = chain;
+            document.querySelectorAll('.chain-selector')[1].querySelectorAll('.chain-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.chain === chain) btn.classList.add('active');
+            });
+        }
+
+        async function executeBridge() {
+            if (!userAddress) {
+                showStatus('Please connect your wallet first!', 'error');
+                return;
+            }
+
+            if (!targetChain) {
+                showStatus('Please select a target chain!', 'error');
+                return;
+            }
+
+            const token = document.getElementById('tokenSelect').value;
+            const amount = document.getElementById('amount').value;
+            const recipient = document.getElementById('recipient').value || userAddress;
+
+            if (!amount || parseFloat(amount) <= 0) {
+                showStatus('Please enter a valid amount!', 'error');
+                return;
+            }
+
+            try {
+                showStatus('Initiating bridge transfer...', 'info');
+
+                const sourceConfig = CHAINS[sourceChain];
+                const targetConfig = CHAINS[targetChain];
+
+                // Switch to source chain
+                await window.ethereum.request({
+                    method: 'wallet_switchEthereumChain',
+                    params: [{ chainId: `0x${sourceConfig.chainId.toString(16)}` }]
+                });
+
+                const bridgeABI = [
+                    "function lock(address token, uint256 amount, address recipient, uint256 targetChainId) returns (bytes32)",
+                    "function approveTransfer(bytes32 transferId, bytes32 sourceTxHash)"
+                ];
+
+                const tokenABI = [
+                    "function approve(address spender, uint256 amount) returns (bool)",
+                    "function balanceOf(address account) view returns (uint256)"
+                ];
+
+                const tokenContract = new ethers.Contract(
+                    sourceConfig.tokens[token],
+                    tokenABI,
+                    signer
+                );
+
+                const bridgeContract = new ethers.Contract(
+                    sourceConfig.bridge,
+                    bridgeABI,
+                    signer
+                );
+
+                const amountWei = ethers.utils.parseEther(amount);
+
+                // Approve bridge
+                showStatus('Approving tokens...', 'info');
+                const approveTx = await tokenContract.approve(sourceConfig.bridge, amountWei);
+                await approveTx.wait();
+
+                // Lock tokens
+                showStatus('Locking tokens on source chain...', 'info');
+                const lockTx = await bridgeContract.lock(
+                    sourceConfig.tokens[token],
+                    amountWei,
+                    recipient,
+                    targetConfig.chainId
+                );
+
+                const receipt = await lockTx.wait();
+                const transferId = receipt.logs[0].topics[1]; // Assuming first log is TransferInitiated
+
+                showStatus(
+                    `✓ Tokens locked successfully! Transfer ID: ${transferId}<br>` +
+                    `Validators will process your transfer within 5-10 minutes.<br>` +
+                    `You will receive ${amount} w${token.toUpperCase()} on ${targetConfig.name}.`,
+                    'success'
+                );
+
+                document.getElementById('amount').value = '';
+
+            } catch (error) {
+                console.error(error);
+                showStatus('Bridge failed: ' + error.message, 'error');
+            }
+        }
+
+        async function loadBridgeStats() {
+            try {
+                const config = CHAINS.noor;
+                const bridgeABI = [
+                    "function totalLocked(address token) view returns (uint256)"
+                ];
+
+                const noorProvider = new ethers.providers.JsonRpcProvider(config.rpc);
+                const bridgeContract = new ethers.Contract(config.bridge, bridgeABI, noorProvider);
+
+                const btcbrLocked = await bridgeContract.totalLocked(config.tokens.btcbr);
+                const totalBridged = ethers.utils.formatEther(btcbrLocked);
+
+                document.getElementById('totalBridged').textContent = `$${(parseFloat(totalBridged) * 0.0001).toFixed(2)}`;
+            } catch (error) {
+                console.error('Failed to load stats:', error);
+            }
+        }
+
+        function showStatus(message, type) {
+            const statusEl = document.getElementById('status');
+            statusEl.innerHTML = message;
+            statusEl.className = `status ${type}`;
+            statusEl.style.display = 'block';
+
+            if (type === 'success' || type === 'error') {
+                setTimeout(() => {
+                    statusEl.style.display = 'none';
+                }, 10000);
+            }
+        }
+
+        // Auto-connect if already authorized
+        window.addEventListener('load', () => {
+            if (window.ethereum && window.ethereum.selectedAddress) {
+                connectWallet();
+            }
+        });
+    </script>
+</body>
+</html>

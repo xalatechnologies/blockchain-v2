@@ -1,0 +1,51 @@
+{
+  "timestamp": "2025-11-03T13:38:53.224161Z",
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "noor_chain": {
+    "chain_id": 65001,
+    "bridge": "0xC808e1962bD8fE5d0fBc41D76B7909B80C442D84",
+    "validators": [
+      "0xa3aaC90d6505c2a57141EaFDA973222DF91BBe1C",
+      "0x632b5aCF4FfbBE8dAe81df89754Fb1b217924788",
+      "0xB3B4f4fb663d9C8c6AD57e30631Ae1BB0E60c62B"
+    ],
+    "supported_tokens": {
+      "BTCBR": "0x0cF8e180350253271f4b917CcFb0aCCc4862F262",
+      "WNOR": "0x0f8498072DB1611497e2068f9896aeFfcf173583",
+      "Dirhamat": "0xd1a00bb0f0af75c20D58ABcF11590780003133D7"
+    }
+  },
+  "external_chains": {
+    "ethereum": {
+      "chain_id": 1,
+      "bridge": "0x0000000000000000000000000000000000000000",
+      "wrapped_btcbr": "0x0000000000000000000000000000000000000000",
+      "wrapped_nor": "0x0000000000000000000000000000000000000000",
+      "wrapped_dirhamat": "0x0000000000000000000000000000000000000000"
+    },
+    "bsc": {
+      "chain_id": 56,
+      "bridge": "0x0000000000000000000000000000000000000000",
+      "wrapped_btcbr": "0x0000000000000000000000000000000000000000",
+      "wrapped_nor": "0x0000000000000000000000000000000000000000",
+      "wrapped_dirhamat": "0x0000000000000000000000000000000000000000"
+    },
+    "polygon": {
+      "chain_id": 137,
+      "bridge": "0x0000000000000000000000000000000000000000",
+      "wrapped_btcbr": "0x0000000000000000000000000000000000000000",
+      "wrapped_nor": "0x0000000000000000000000000000000000000000",
+      "wrapped_dirhamat": "0x0000000000000000000000000000000000000000"
+    }
+  },
+  "configuration": {
+    "required_signatures": 2,
+    "min_validators": 2
+  },
+  "instructions": {
+    "ethereum": "Deploy WrappedBTCBR, WrappedNOR, WrappedDirhamat, and CrossChainBridge on Ethereum mainnet",
+    "bsc": "Deploy WrappedBTCBR, WrappedNOR, WrappedDirhamat, and CrossChainBridge on BSC mainnet",
+    "polygon": "Deploy WrappedBTCBR, WrappedNOR, WrappedDirhamat, and CrossChainBridge on Polygon mainnet",
+    "update_bridges": "After deploying on external chains, call updateBridge() on Noor Chain bridge with actual addresses"
+  }
+}
