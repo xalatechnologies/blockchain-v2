@@ -1,0 +1,140 @@
+{
+  "config": {
+    "chainId": 65001,
+    "homesteadBlock": 0,
+    "eip150Block": 0,
+    "eip155Block": 0,
+    "eip158Block": 0,
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0,
+    "petersburgBlock": 0,
+    "istanbulBlock": 0,
+    "muirGlacierBlock": 0,
+    "ramanujanBlock": 0,
+    "nielsBlock": 0,
+    "mirrorSyncBlock": 0,
+    "brunoBlock": 0,
+    "eulerBlock": 0,
+    "parlia": {
+      "period": 3,
+      "epoch": 10000
+    }
+  },
+  "difficulty": "0x1",
+  "gasLimit": "0x2FAF080",
+  "extradata": "0x000000000000000000000000000000000000000000000000000000000000000015f0f5b738bc2b1ab8cd68e4674769a89bf5390a689cf2c189781d9bb6859a830acbf64044e4432fbb64f4050fc21a2ec3506245a1ad63cb0256b6de0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "alloc": {
+    "0x15f0f5b738bc2b1ab8cd68e4674769a89bf5390a": {
+      "balance": "0xc9f2c9cd04674edea40000000"
+    },
+    "0x689cf2c189781d9bb6859a830acbf64044e4432f": {
+      "balance": "0xc9f2c9cd04674edea40000000"
+    },
+    "0xbb64f4050fc21a2ec3506245a1ad63cb0256b6de": {
+      "balance": "0xc9f2c9cd04674edea40000000"
+    },
+    "0xdd779a290c937144f80eb75b75d814c834536b1b": {
+      "balance": "0xc9f2c9cd04674edea40000000"
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f262": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {
+        "0x0000000000000000000000000000000000000000000000000000000000000002": "0x72f3448b515c5a54d2b9f4448b82a800000000000"
+      }
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f263": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {
+        "0x0000000000000000000000000000000000000000000000000000000000000002": "0x40b61439f9d13a7dc77d200000000"
+      }
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f266": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {
+        "0x0000000000000000000000000000000000000000000000000000000000000002": "0x84595161401484a000000"
+      }
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f267": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {
+        "0x0000000000000000000000000000000000000000000000000000000000000002": "0x84595161401484a000000"
+      }
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f268": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {
+        "0x0000000000000000000000000000000000000000000000000000000000000002": "0x84595161401484a000000"
+      }
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f269": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {}
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f26a": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {}
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f26b": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {}
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f26c": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {}
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f264": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {}
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f265": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {}
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f26d": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {}
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f26e": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {}
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f26f": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {}
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f270": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {}
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f271": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {}
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f272": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {}
+    },
+    "0x0cf8e180350253271f4b917ccfb0accc4862f273": {
+      "balance": "0x0",
+      "code": "0x60806040",
+      "storage": {}
+    }
+  }
+}

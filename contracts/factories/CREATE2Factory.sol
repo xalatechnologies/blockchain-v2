@@ -3,35 +3,34 @@ pragma solidity ^0.8.20;
 
 /**
  * @title CREATE2Factory
- * @dev Factory contract for deploying contracts with deterministic addresses using CREATE2
- * This enables same contract addresses across different chains
+ * @notice Factory for deterministic contract deployment using CREATE2
  */
 contract CREATE2Factory {
     event ContractDeployed(address indexed deployedAddress, bytes32 indexed salt);
 
     /**
-     * @dev Deploys a contract using CREATE2
-     * @param bytecode The creation bytecode of the contract to deploy
-     * @param salt The salt to use for CREATE2 (determines the address)
-     * @return deployedAddress The address of the deployed contract
+     * @notice Deploy a contract using CREATE2
+     * @param bytecode Contract bytecode to deploy
+     * @param salt Salt for deterministic address
+     * @return deployed Address of deployed contract
      */
-    function deploy(bytes memory bytecode, bytes32 salt) public returns (address deployedAddress) {
+    function deploy(bytes memory bytecode, bytes32 salt) external returns (address deployed) {
         assembly {
-            deployedAddress := create2(0, add(bytecode, 0x20), mload(bytecode), salt)
+            deployed := create2(0, add(bytecode, 0x20), mload(bytecode), salt)
         }
-
-        require(deployedAddress != address(0), "CREATE2: Failed to deploy contract");
-
-        emit ContractDeployed(deployedAddress, salt);
+        require(deployed != address(0), "CREATE2Factory: deployment failed");
+        
+        emit ContractDeployed(deployed, salt);
+        return deployed;
     }
 
     /**
-     * @dev Computes the address of a contract deployed with CREATE2
-     * @param bytecode The creation bytecode of the contract
-     * @param salt The salt used for CREATE2
-     * @return predictedAddress The predicted address where the contract will be deployed
+     * @notice Compute the address where a contract will be deployed
+     * @param bytecode Contract bytecode
+     * @param salt Salt for deterministic address
+     * @return predicted Predicted deployment address
      */
-    function computeAddress(bytes memory bytecode, bytes32 salt) public view returns (address predictedAddress) {
+    function computeAddress(bytes memory bytecode, bytes32 salt) external view returns (address predicted) {
         bytes32 hash = keccak256(
             abi.encodePacked(
                 bytes1(0xff),
@@ -40,31 +39,20 @@ contract CREATE2Factory {
                 keccak256(bytecode)
             )
         );
-
-        predictedAddress = address(uint160(uint256(hash)));
+        
+        return address(uint160(uint256(hash)));
     }
 
     /**
-     * @dev Computes the address with a specific factory address (for cross-chain prediction)
-     * @param factoryAddress The address of the CREATE2Factory on another chain
-     * @param bytecode The creation bytecode of the contract
-     * @param salt The salt to use
-     * @return predictedAddress The predicted address
+     * @notice Check if contract is deployed at address
+     * @param addr Address to check
+     * @return deployed True if contract exists at address
      */
-    function computeAddressWithFactory(
-        address factoryAddress,
-        bytes memory bytecode,
-        bytes32 salt
-    ) public pure returns (address predictedAddress) {
-        bytes32 hash = keccak256(
-            abi.encodePacked(
-                bytes1(0xff),
-                factoryAddress,
-                salt,
-                keccak256(bytecode)
-            )
-        );
-
-        predictedAddress = address(uint160(uint256(hash)));
+    function isDeployed(address addr) external view returns (bool deployed) {
+        uint size;
+        assembly {
+            size := extcodesize(addr)
+        }
+        return size > 0;
     }
 }

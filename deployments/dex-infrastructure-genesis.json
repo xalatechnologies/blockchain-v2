@@ -1,0 +1,99 @@
+{
+  "timestamp": "2025-11-03T00:00:00.000Z",
+  "network": "Noor Chain Genesis",
+  "chainId": "65001",
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "description": "Sequential contract addresses for genesis deployment - starting from 0x0cF8e180350253271f4b917CcFb0aCCc4862F262",
+  "contracts": {
+    "BTCBR": "0x0cF8e180350253271f4b917CcFb0aCCc4862F262",
+    "NOR_TOKEN": "0x0cF8e180350253271f4b917CcFb0aCCc4862F263",
+    "NOORSWAP_FACTORY": "0x0cF8e180350253271f4b917CcFb0aCCc4862F264",
+    "NOORSWAP_ROUTER": "0x0cF8e180350253271f4b917CcFb0aCCc4862F265",
+    "DIRHAMAT": "0x0cF8e180350253271f4b917CcFb0aCCc4862F266",
+    "DIGITAL_KES": "0x0cF8e180350253271f4b917CcFb0aCCc4862F267",
+    "NORDCOIN": "0x0cF8e180350253271f4b917CcFb0aCCc4862F268",
+    "WNOR": "0x0cF8e180350253271f4b917CcFb0aCCc4862F269",
+    "WUSDT": "0x0cF8e180350253271f4b917CcFb0aCCc4862F26A",
+    "WBNB": "0x0cF8e180350253271f4b917CcFb0aCCc4862F26B",
+    "WETH": "0x0cF8e180350253271f4b917CcFb0aCCc4862F26C",
+    "LIQUIDITY_LOCK": "0x0cF8e180350253271f4b917CcFb0aCCc4862F26D",
+    "ORACLE_AGGREGATOR_GOLD": "0x0cF8e180350253271f4b917CcFb0aCCc4862F26E",
+    "ORACLE_AGGREGATOR_AED": "0x0cF8e180350253271f4b917CcFb0aCCc4862F26F",
+    "ORACLE_AGGREGATOR_KES": "0x0cF8e180350253271f4b917CcFb0aCCc4862F270",
+    "ORACLE_AGGREGATOR_NOK": "0x0cF8e180350253271f4b917CcFb0aCCc4862F271",
+    "ORACLE_AGGREGATOR_SEK": "0x0cF8e180350253271f4b917CcFb0aCCc4862F272",
+    "ORACLE_AGGREGATOR_DKK": "0x0cF8e180350253271f4b917CcFb0aCCc4862F273"
+  },
+  "funds": {
+    "FACTORY": "0x0cF8e180350253271f4b917CcFb0aCCc4862F274",
+    "GOLD_SAVINGS_FUND": "0x0cF8e180350253271f4b917CcFb0aCCc4862F275"
+  },
+  "liquidityPairs": {
+    "NOR_WUSDT": {
+      "description": "NOR/WUSDT pair - $250k liquidity",
+      "token0": "0x0cF8e180350253271f4b917CcFb0aCCc4862F263",
+      "token1": "0x0cF8e180350253271f4b917CcFb0aCCc4862F26A",
+      "liquidity": "$250,000",
+      "reserves": {
+        "nor": "12,500,000 NOR",
+        "usdt": "125,000 USDT"
+      },
+      "initialPrice": "1 NOR = $0.01"
+    },
+    "NOR_WBNB": {
+      "description": "NOR/WBNB pair - $200k liquidity",
+      "token0": "0x0cF8e180350253271f4b917CcFb0aCCc4862F263",
+      "token1": "0x0cF8e180350253271f4b917CcFb0aCCc4862F26B",
+      "liquidity": "$200,000",
+      "reserves": {
+        "nor": "10,000,000 NOR",
+        "bnb": "333 BNB"
+      },
+      "initialPrice": "1 NOR = 0.00003333 BNB"
+    },
+    "NOR_WETH": {
+      "description": "NOR/WETH pair - $150k liquidity",
+      "token0": "0x0cF8e180350253271f4b917CcFb0aCCc4862F263",
+      "token1": "0x0cF8e180350253271f4b917CcFb0aCCc4862F26C",
+      "liquidity": "$150,000",
+      "reserves": {
+        "nor": "7,500,000 NOR",
+        "eth": "37.5 ETH"
+      },
+      "initialPrice": "1 NOR = 0.000005 ETH"
+    },
+    "NOR_DIRHAMAT": {
+      "description": "NOR/Dirhamat pair - $150k liquidity",
+      "token0": "0x0cF8e180350253271f4b917CcFb0aCCc4862F263",
+      "token1": "0x0cF8e180350253271f4b917CcFb0aCCc4862F266",
+      "liquidity": "$150,000",
+      "reserves": {
+        "nor": "7,500,000 NOR",
+        "dirhamat": "277,778 DIRHAMAT"
+      },
+      "initialPrice": "1 DIRHAMAT = 27 NOR ($0.27)"
+    },
+    "DIRHAMAT_WUSDT": {
+      "description": "Dirhamat/WUSDT pair - $50k liquidity",
+      "token0": "0x0cF8e180350253271f4b917CcFb0aCCc4862F266",
+      "token1": "0x0cF8e180350253271f4b917CcFb0aCCc4862F26A",
+      "liquidity": "$50,000",
+      "reserves": {
+        "dirhamat": "92,593 DIRHAMAT",
+        "usdt": "25,000 USDT"
+      },
+      "initialPrice": "1 DIRHAMAT = $0.27"
+    }
+  },
+  "totalLiquidity": "$800,000",
+  "lpLockDuration": "36 months (3 years)",
+  "notes": [
+    "All addresses are sequential starting from BTCBR base address",
+    "Contracts 0-17: Core protocol contracts (18 total)",
+    "Contracts 18-19: Fund infrastructure",
+    "DEX pairs will be CREATE2 addresses calculated from factory",
+    "LP tokens will be locked for 36 months in LiquidityLock contract",
+    "All balances and reserves will be pre-configured in genesis",
+    "Zero deployments needed - instant production-ready chain"
+  ]
+}

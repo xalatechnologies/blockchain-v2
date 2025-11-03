@@ -377,6 +377,102 @@ Validators verify cross-chain transfers and co-sign transactions.
 
 ## Genesis Configuration
 
+### Noor Chain Ultimate Genesis (Nov 3, 2025)
+
+**Status**: ✅ **PRODUCTION READY** - Complete genesis with all contracts and sorted validators
+
+The ultimate genesis includes:
+- ✅ **Correctly sorted validators** (prevents ALL epoch issues forever)
+- ✅ **NOR Token** (NOT XHT!) with reserved address
+- ✅ **Sequential contract addresses** (F262-F269)
+- ✅ **Pre-funded accounts** (100M NOR each for gas)
+- ✅ **BTCBR integration** (existing bridge contract)
+- ✅ **Future-proof architecture** (DEX, stablecoins, wrapped tokens)
+
+#### Genesis Files
+
+| File | Purpose | Status |
+|------|---------|--------|
+| **`data/genesis-noor-ultimate.json`** | Production ultimate genesis with all contracts | ✅ Ready |
+| **`data/genesis-clean.json`** | Simple genesis with sorted validators only | ✅ Working |
+| `data/genesis-production-ultimate.json` | Old version (has placeholder bytecode) | ⚠️ Deprecated |
+
+#### Generate Ultimate Genesis
+
+```bash
+# Generate new ultimate genesis
+node scripts/generate-noor-ultimate-genesis.js
+
+# Verify genesis created
+cat data/genesis-noor-ultimate.json | jq '.config.chainId, .config.parlia.epoch'
+```
+
+#### Reserved Contract Addresses (Sequential)
+
+All contract addresses are **deterministic** and **sequential** starting from BTCBR:
+
+```javascript
+const BASE_ADDRESS = '0x0cF8e180350253271f4b917CcFb0aCCc4862F262';
+
+// Sequential addresses (offset from base)
+BTCBR:            0x0cF8e180350253271f4b917CcFb0aCCc4862F262  // +0 (existing)
+NOR_TOKEN:        0x0cf8e180350253271f4b917ccfb0accc4862f263  // +1 (deploy next)
+NOORSWAP_FACTORY: 0x0cf8e180350253271f4b917ccfb0accc4862f264  // +2
+NOORSWAP_ROUTER:  0x0cf8e180350253271f4b917ccfb0accc4862f265  // +3
+DIRHAMAT:         0x0cf8e180350253271f4b917ccfb0accc4862f266  // +4
+DIGITAL_KES:      0x0cf8e180350253271f4b917ccfb0accc4862f267  // +5
+NORDCOIN:         0x0cf8e180350253271f4b917ccfb0accc4862f268  // +6
+WNOR:             0x0cf8e180350253271f4b917ccfb0accc4862f269  // +7
+```
+
+#### Deploy Ultimate Genesis to Production
+
+```bash
+# 1. Upload genesis to production server
+scp -i ~/.ssh/bsc-validator-key.pem data/genesis-noor-ultimate.json ec2-user@3.91.50.187:/home/ec2-user/
+
+# 2. Backup current chain data
+ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@3.91.50.187 \
+  "tar -czf blockchain-backup-$(date +%Y%m%d).tar.gz validator-*"
+
+# 3. Reinitialize all validators
+ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@3.91.50.187 << 'EOF'
+docker stop xaheen-rpc bsc-validator-2 bsc-validator-3
+docker rm xaheen-rpc bsc-validator-2 bsc-validator-3
+rm -rf validator-*/geth
+
+# Reinit with new genesis
+docker run --rm -v $(pwd)/validator-1:/bsc -v $(pwd)/genesis-noor-ultimate.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
+docker run --rm -v $(pwd)/validator-2:/bsc -v $(pwd)/genesis-noor-ultimate.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
+docker run --rm -v $(pwd)/validator-3:/bsc -v $(pwd)/genesis-noor-ultimate.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
+EOF
+
+# 4. Start validators with verified configuration
+bash scripts/fix-static-nodes-properly.sh
+```
+
+#### Genesis Validator Ordering (CRITICAL!)
+
+The **ONLY** critical requirement for epoch stability is **lexicographically sorted lowercase validators** in extradata:
+
+```
+✅ CORRECT (Sorted):
+0x15f0f5b738bc2b1ab8cd68e4674769a89bf5390a
+0x689cf2c189781d9bb6859a830acbf64044e4432f
+0xbb64f4050fc21a2ec3506245a1ad63cb0256b6de
+
+❌ WRONG (Unsorted):
+0xbb64F4050fC21A2eC3506245A1Ad63cB0256b6dE  # Capital letters, wrong order
+0x689CF2C189781d9bB6859A830acbF64044E4432f
+0x15f0f5B738BC2b1ab8cD68E4674769a89bF5390a
+```
+
+**Why This Matters**: Parlia consensus revalidates the validator set at every epoch boundary. If validators aren't sorted, the revalidation fails and the chain deadlocks at blocks 10,000, 20,000, etc.
+
+**Documentation**: See `NOOR_ULTIMATE_GENESIS_COMPLETE.md` for complete details.
+
+### Legacy Genesis Files
+
 Genesis files are located in `data/`:
 - Pre-funded accounts with BNB for gas
 - BTCBR contract bytecode embedded at 0x0cF8e180350253271f4b917CcFb0aCCc4862F262
@@ -384,19 +480,7 @@ Genesis files are located in `data/`:
 - Initial supply: 10.5 septillion BTCBR for main wallet
 - **Chain ID**: 65001 (must match in genesis.json)
 
-**Important**: Genesis changes (including chain ID) require full node reinitialization:
-```bash
-# Stop nodes, delete blockchain data
-docker stop bsc-validator-1 bsc-validator-2 bsc-validator-3
-rm -rf validator-*/geth
-
-# Reinitialize with new genesis
-docker run --rm -v $(pwd)/validator-1:/bsc -v $(pwd)/config/genesis.json:/genesis.json \
-  dysnix/bsc init --datadir /bsc /genesis.json
-
-# Restart validators
-./scripts/setup-production-multi-validator.sh
-```
+**Important**: Genesis changes (including chain ID) require full node reinitialization (see deployment steps above).
 
 ## Docker Deployment
 

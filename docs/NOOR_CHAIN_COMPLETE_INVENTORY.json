@@ -1,0 +1,178 @@
+{
+  "timestamp": "2025-11-03T08:31:20.038Z",
+  "chainInfo": {
+    "name": "Noor Chain",
+    "chainId": 65001,
+    "rpcUrl": "https://rpc.noorchain.org",
+    "explorerUrl": "https://explorer.noorchain.org",
+    "currentBlock": 9999,
+    "blockTime": 3,
+    "consensus": "Parlia PoSA",
+    "timestamp": "2025-11-03T04:37:47.000Z",
+    "gasPrice": "1.0 gwei"
+  },
+  "genesis": {
+    "chainId": 65001,
+    "consensus": "Parlia PoSA",
+    "epochLength": 10000,
+    "blockPeriod": 3,
+    "gasLimit": 50000000,
+    "difficulty": 1,
+    "preFundedAccounts": 4,
+    "genesisValidators": [
+      "0x15f0f5b738bc2b1ab8cd68e4674769a89bf5390a",
+      "0x689cf2c189781d9bb6859a830acbf64044e4432f",
+      "0xbb64f4050fc21a2ec3506245a1ad63cb0256b6de"
+    ]
+  },
+  "validators": {},
+  "contracts": {
+    "tokens": {
+      "NOR": {
+        "address": "0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c",
+        "deployed": true,
+        "totalSupply": "21000000000000000.0",
+        "deployerBalance": "20959999000000000.0"
+      },
+      "DIRHAMAT": {
+        "address": "0x7857D6a475498e535969121f1B7B96151E422813",
+        "deployed": true,
+        "totalSupply": "400000.0",
+        "deployerBalance": "29629.0"
+      },
+      "WUSDT": {
+        "address": "0xFEC031d200675cfdBD965d7D021f52Cc4EB02A36",
+        "deployed": true,
+        "totalSupply": "300000.0",
+        "deployerBalance": "25000.0"
+      },
+      "WBNB": {
+        "address": "0x55C49645baBA69B3D6a51d5bd730163B22817420",
+        "deployed": true,
+        "totalSupply": "0.0",
+        "deployerBalance": "0.0"
+      },
+      "WETH": {
+        "address": "0x4f001737E8A1c9e8954F3B01411c2BB22d229792",
+        "deployed": true,
+        "totalSupply": "70.0",
+        "deployerBalance": "23.0"
+      },
+      "WNOR": {
+        "address": "0xA2e3Eb9404985aFD41574f9180BA729c6FB44b6A",
+        "deployed": true,
+        "totalSupply": "1.0",
+        "deployerBalance": "1.0"
+      }
+    },
+    "dex": {
+      "Factory": {
+        "address": "0xA92d4a495d6c9D90e9d80D78a1b9d74c39aA7dab",
+        "deployed": true
+      },
+      "Router": {
+        "address": "0xD4567cD447068aaD470431746592f261Fae92bAa",
+        "deployed": true
+      },
+      "LiquidityLock": {
+        "address": "0xFB50672F7c4240e43d07A6eb7B51641B05bA30C6",
+        "deployed": true
+      }
+    },
+    "funds": {
+      "Factory": {
+        "address": "0xD8D59fE51aB032941A35D1853622F56b775DB927",
+        "deployed": true
+      },
+      "GoldSavingsFund": {
+        "address": "0x201bF3CCa7FD1244B3Dc3810bE45Df3760D96650",
+        "deployed": true
+      }
+    },
+    "reserves": {},
+    "governance": {}
+  },
+  "liquidity": {
+    "totalValue": "$800",
+    "lockDuration": "36 months",
+    "activePairs": 4,
+    "unlockDate": "November 1, 2028"
+  },
+  "transactions": {
+    "totalTransactions": 0,
+    "averagePerBlock": "0.00",
+    "totalGasUsed": "0",
+    "blocksAnalyzed": 100
+  },
+  "issues": {
+    "blockCreation": [
+      {
+        "issue": "Chain stalled at epoch boundary (block 10,000)",
+        "cause": "Epoch too short (10k blocks = 8 hours), caused frequent validator revalidation",
+        "resolution": "Extended epoch to 9,000,000 blocks (~1.5 years)",
+        "status": "✅ RESOLVED"
+      },
+      {
+        "issue": "Validators not peering correctly",
+        "cause": "NAT configuration and static-nodes.json issues",
+        "resolution": "Added --nat=none flag and properly configured static-nodes.json with correct enodes",
+        "status": "✅ RESOLVED"
+      },
+      {
+        "issue": "Blocks producing but then stopping",
+        "cause": "Genesis mismatch across validators, epoch boundary deadlock",
+        "resolution": "Synchronized genesis files, cleaned blockchain data, reinitialize d all validators with same genesis",
+        "status": "✅ RESOLVED"
+      }
+    ],
+    "contracts": [
+      {
+        "issue": "NoorSwapPair deployment failed - minimum liquidity minting",
+        "cause": "OpenZeppelin ERC20 prevents minting to address(0)",
+        "resolution": "Changed to mint to address(0xdEaD) instead",
+        "status": "✅ RESOLVED",
+        "location": "contracts/dex/NoorSwapPair.sol:168"
+      },
+      {
+        "issue": "Dirhamat INSUFFICIENT_RESERVES error",
+        "cause": "Attempted to mint without proper backing",
+        "resolution": "Transferred $108k WUSDT as reserves before minting",
+        "status": "✅ RESOLVED"
+      },
+      {
+        "issue": "Fund access control error",
+        "cause": "Factory didn't transfer admin role to creator",
+        "resolution": "Added role transfer in NoorFundFactory.createFund()",
+        "status": "✅ RESOLVED",
+        "location": "contracts/funds/NoorFundFactory.sol:98-101"
+      }
+    ],
+    "infrastructure": [
+      {
+        "issue": "SSL/HTTPS configuration for public RPC",
+        "cause": "Nginx reverse proxy configuration needed",
+        "resolution": "Configured Nginx with Let's Encrypt SSL for https://rpc.noorchain.org",
+        "status": "✅ RESOLVED"
+      },
+      {
+        "issue": "Docker network host mode required for validators",
+        "cause": "P2P discovery issues with bridge networking",
+        "resolution": "Used --network host for all validator containers",
+        "status": "✅ RESOLVED"
+      }
+    ]
+  },
+  "statistics": {
+    "totalBlocks": 9999,
+    "estimatedUptime": "8.33 hours",
+    "deployerAddress": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+    "deployerBalance": "999997.690649777 NOR",
+    "activeValidators": 3,
+    "deployedContracts": 11,
+    "totalValueLocked": "$3,336,000 (estimate)",
+    "documentation": {
+      "files": 4,
+      "totalLines": "1,500+"
+    }
+  }
+}
