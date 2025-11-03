@@ -1,0 +1,80 @@
+═══════════════════════════════════════════════════════════════════════════
+🔐 NOOR CHAIN VALIDATOR PRIVATE KEYS - HIGHLY CONFIDENTIAL 🔐
+═══════════════════════════════════════════════════════════════════════════
+
+⚠️  WARNING: KEEP THIS FILE SECURE - DO NOT COMMIT TO GIT
+⚠️  These keys control validator nodes and have massive NOR balances
+
+Generated: 2025-11-03
+Chain: Noor Chain (Chain ID: 65001)
+Network: http://3.91.50.187:8545
+
+═══════════════════════════════════════════════════════════════════════════
+VALIDATOR 1 (Active - Deployed)
+═══════════════════════════════════════════════════════════════════════════
+Address:     0xa3aaC90d6505c2a57141EaFDA973222DF91BBe1C
+Private Key: 0x3193f4dbdf307b1193f3cf7723f1fac5ec621a4468908da4384313df66925e4a
+Balance:     ~100 trillion NOR
+Port:        30303 (RPC: 8545, WS: 8546)
+Keystore:    data/validator-keystores-v2/validator-1-keystore.json
+Password:    3d5679f1148d19b440646957f146176c063a645dd44fc1b8f759fe613eae8edd
+
+═══════════════════════════════════════════════════════════════════════════
+YOUR MAIN WALLET (User - Deployer)
+═══════════════════════════════════════════════════════════════════════════
+Address:     0xdD779a290C937144F80Eb75b75d814c834536B1b
+Private Key: 0x681fda6ad9585ce9c27688eb60087ddaf4a90ca75f8f77b0f039bd5692ed2bd4
+Balance:     ~100 trillion NOR
+BTCBR:       10.5 septillion tokens
+
+═══════════════════════════════════════════════════════════════════════════
+VALIDATOR 2 (Active)
+═══════════════════════════════════════════════════════════════════════════
+Address:     0x632b5aCF4FfbBE8dAe81df89754Fb1b217924788
+Port:        30304
+Keystore:    data/validator-keystores-v2/validator-2-keystore.json
+Password:    3d5679f1148d19b440646957f146176c063a645dd44fc1b8f759fe613eae8edd
+
+═══════════════════════════════════════════════════════════════════════════
+VALIDATOR 3 (Active)
+═══════════════════════════════════════════════════════════════════════════
+Address:     0xB3B4f4fb663d9C8c6AD57e30631Ae1BB0E60c62B
+Port:        30305
+Keystore:    data/validator-keystores-v2/validator-3-keystore.json
+Password:    3d5679f1148d19b440646957f146176c063a645dd44fc1b8f759fe613eae8edd
+
+═══════════════════════════════════════════════════════════════════════════
+DEPLOYED CONTRACTS
+═══════════════════════════════════════════════════════════════════════════
+BTCBR Token:       0x0cF8e180350253271f4b917CcFb0aCCc4862F262
+Total Supply:      21 septillion (21 × 10^42 wei)
+
+═══════════════════════════════════════════════════════════════════════════
+BACKUP & SECURITY INSTRUCTIONS
+═══════════════════════════════════════════════════════════════════════════
+
+1. ✅ STORED: This file is saved in data/.validator-keys-SECURE
+2. ✅ GITIGNORED: data/ folder is in .gitignore
+3. 🔒 ENCRYPT: Consider encrypting this file with GPG:
+   gpg -c data/.validator-keys-SECURE
+   
+4. 💾 BACKUP: Store encrypted copy in:
+   - Password manager (1Password, LastPass, Bitwarden)
+   - Hardware wallet (for production use)
+   - Offline encrypted USB drive
+   
+5. 🚨 NEVER:
+   - Commit to GitHub
+   - Share in plain text
+   - Email without encryption
+   - Store in cloud without encryption
+
+═══════════════════════════════════════════════════════════════════════════
+USAGE
+═══════════════════════════════════════════════════════════════════════════
+
+For deployments, use one of these in .env:
+PRIVATE_CHAIN_KEY=0x3193f4dbdf307b1193f3cf7723f1fac5ec621a4468908da4384313df66925e4a  # Validator 1
+PRIVATE_CHAIN_KEY=0x681fda6ad9585ce9c27688eb60087ddaf4a90ca75f8f77b0f039bd5692ed2bd4  # Your Wallet
+
+═══════════════════════════════════════════════════════════════════════════

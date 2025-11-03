@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-11-03T14:12:50Z",
+  "chainId": 65001,
+  "network": "Noor Chain",
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "oracle": {
+    "MockOracle": "0xEd511294b4Fa418458B2abD577F26104cdB3D4af"
+  },
+  "bridges": {
+    "Ethereum_Mainnet": "0xb9B2139a1682c07411E2e13333132C68671664Ff",
+    "Private_Chain": "0x70252c548B5D7220e9cdc867b188594208FD0bE7",
+    "Tron": "0x64d3fd069d0b151B847284c2bDA4B3f3cDB4664e"
+  }
+}

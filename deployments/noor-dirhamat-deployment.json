@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-11-03T14:16:45Z",
+  "chainId": 65001,
+  "network": "Noor Chain",
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "stablecoin": {
+    "Dirhamat": "0xd1a00bb0f0af75c20D58ABcF11590780003133D7"
+  },
+  "vault": {
+    "MultiAssetReserveVault": "0x127a1865d4206143e0B335D1E4CE593C3E4503Bc"
+  }
+}

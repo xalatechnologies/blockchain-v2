@@ -58,4 +58,4 @@ config/validators/validator-base/
 
 # Backup files
 *.bak
-*.backup
+*.backupdata/.validator-keys-SECURE

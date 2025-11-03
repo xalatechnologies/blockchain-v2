@@ -1,0 +1,18 @@
+🔐 TO ENCRYPT THIS FILE (RECOMMENDED):
+
+1. Install GPG (if not installed):
+   brew install gnupg  # macOS
+   sudo apt install gnupg  # Linux
+
+2. Encrypt the file:
+   gpg -c data/.validator-keys-SECURE
+   # Enter a strong passphrase when prompted
+
+3. Verify encrypted file created:
+   ls -la data/.validator-keys-SECURE.gpg
+
+4. Delete original (ONLY after verifying encrypted backup):
+   rm data/.validator-keys-SECURE
+
+5. To decrypt when needed:
+   gpg -d data/.validator-keys-SECURE.gpg > data/.validator-keys-SECURE

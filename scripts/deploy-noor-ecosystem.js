@@ -11,230 +11,193 @@
  * 5. FundUnit (example fund)
  */
 
-import { ethers } from "hardhat";
-import { config as dotenvConfig } from "dotenv";
-dotenvConfig();
+import hre from "hardhat";
+const { ethers } = hre;
+import fs from "fs";
+
+/**
+ * NOOR CHAIN ECOSYSTEM DEPLOYMENT
+ *
+ * Deploys complete DeFi infrastructure:
+ * 1. Wrapped NOR (WNOR) - Native token wrapper
+ * 2. NoorSwap Factory - DEX factory
+ * 3. NoorSwap Router - DEX router
+ * 4. Oracle contracts
+ * 5. Bridge contracts
+ *
+ * Network: Noor Chain (Chain ID 65001)
+ * RPC: http://3.91.50.187:8545
+ */
+
+const DEPLOYMENT_CONFIG = {
+  network: "noor",
+  rpc: "http://3.91.50.187:8545",
+  chainId: 65001,
+  btcbrAddress: "0x0cF8e180350253271f4b917CcFb0aCCc4862F262",
+  deployerPrivateKey: process.env.DEPLOYER_PRIVATE_KEY,
+};
+
+const deploymentResults = {
+  timestamp: new Date().toISOString(),
+  chainId: DEPLOYMENT_CONFIG.chainId,
+  contracts: {},
+  pairs: [],
+};
 
 async function main() {
-  console.log("🌙 Noor Chain Ecosystem Deployment Started\n");
-  console.log("=".repeat(60));
+  console.log(
+    "═══════════════════════════════════════════════════════════════════════════"
+  );
+  console.log("         🌙 NOOR CHAIN ECOSYSTEM DEPLOYMENT 🌙");
+  console.log(
+    "═══════════════════════════════════════════════════════════════════════════"
+  );
+  console.log("");
 
+  // Get deployer
   const [deployer] = await ethers.getSigners();
-  console.log("\n📝 Deployer:", deployer.address);
-  console.log("💰 Balance:", ethers.formatEther(await ethers.provider.getBalance(deployer.address)), "NOR\n");
+  console.log("📍 Deployer address:", deployer.address);
 
-  const deployedContracts = {};
+  const balance = await ethers.provider.getBalance(deployer.address);
+  console.log("💰 Deployer balance:", ethers.formatEther(balance), "NOR");
 
-  try {
-    // ==================== 1. NOR TOKEN ====================
-    console.log("=".repeat(60));
-    console.log("1️⃣  Deploying NOR Token...");
-    console.log("=".repeat(60));
+  // Get current nonce
+  const nonce = await ethers.provider.getTransactionCount(
+    deployer.address,
+    "latest"
+  );
+  console.log("🔢 Current nonce:", nonce);
+  console.log("");
 
-    const NOR = await ethers.getContractFactory("NOR");
-    const norToken = await NOR.deploy();
-    await norToken.waitForDeployment();
-    const norAddress = await norToken.getAddress();
+  // Step 1: Deploy WNOR (Wrapped NOR)
+  console.log("📦 Step 1: Deploying WNOR (Wrapped NOR)...");
+  const WNOR = await ethers.getContractFactory("WNOR");
+  const wnor = await WNOR.deploy({
+    gasPrice: ethers.parseUnits("10", "gwei"),
+    gasLimit: 3000000,
+    nonce: nonce,
+  });
+  await wnor.waitForDeployment();
+  const wnorAddress = await wnor.getAddress();
+  console.log("   ✅ WNOR deployed at:", wnorAddress);
+  deploymentResults.contracts.WNOR = wnorAddress;
+  console.log("");
 
-    deployedContracts.NOR = norAddress;
+  // Step 2: Deploy NoorSwap Factory
+  console.log("📦 Step 2: Deploying NoorSwap Factory...");
+  const NoorSwapFactory = await ethers.getContractFactory("NoorSwapFactory");
+  const factory = await NoorSwapFactory.deploy(deployer.address); // feeToSetter
+  await factory.waitForDeployment();
+  const factoryAddress = await factory.getAddress();
+  console.log("   ✅ Factory deployed at:", factoryAddress);
+  deploymentResults.contracts.NoorSwapFactory = factoryAddress;
 
-    console.log("✅ NOR Token deployed to:", norAddress);
-    console.log("   Total Supply:", ethers.formatUnits(await norToken.totalSupply(), 24), "NOR");
-    console.log("   Decimals:", await norToken.decimals());
+  const initCodeHash = await factory.INIT_CODE_PAIR_HASH();
+  console.log("   📋 INIT_CODE_PAIR_HASH:", initCodeHash);
+  deploymentResults.contracts.initCodeHash = initCodeHash;
+  console.log("");
 
-    // ==================== 2. GOVERNANCE ====================
-    console.log("\n" + "=".repeat(60));
-    console.log("2️⃣  Deploying Governance Contracts...");
-    console.log("=".repeat(60));
+  // Step 3: Deploy NoorSwap Router
+  console.log("📦 Step 3: Deploying NoorSwap Router...");
+  const NoorSwapRouter = await ethers.getContractFactory("NoorSwapRouter");
+  const router = await NoorSwapRouter.deploy(factoryAddress, wnorAddress);
+  await router.waitForDeployment();
+  const routerAddress = await router.getAddress();
+  console.log("   ✅ Router deployed at:", routerAddress);
+  deploymentResults.contracts.NoorSwapRouter = routerAddress;
+  console.log("");
 
-    // Deploy Timelock Controller
-    console.log("\n📋 Deploying TimelockController...");
-    const minDelay = 2 * 24 * 60 * 60; // 2 days
-    const proposers = [deployer.address];
-    const executors = [deployer.address];
-    const admin = deployer.address;
+  // Step 4: Create BTCBR/WNOR Pair
+  console.log("📦 Step 4: Creating BTCBR/WNOR trading pair...");
+  const createPairTx = await factory.createPair(
+    DEPLOYMENT_CONFIG.btcbrAddress,
+    wnorAddress
+  );
+  await createPairTx.wait();
+  const btcbrWnorPair = await factory.getPair(
+    DEPLOYMENT_CONFIG.btcbrAddress,
+    wnorAddress
+  );
+  console.log("   ✅ BTCBR/WNOR Pair created at:", btcbrWnorPair);
+  deploymentResults.pairs.push({
+    name: "BTCBR/WNOR",
+    address: btcbrWnorPair,
+    token0: DEPLOYMENT_CONFIG.btcbrAddress,
+    token1: wnorAddress,
+  });
+  console.log("");
 
-    const Timelock = await ethers.getContractFactory("TimelockController");
-    const timelock = await Timelock.deploy(minDelay, proposers, executors, admin);
-    await timelock.waitForDeployment();
-    const timelockAddress = await timelock.getAddress();
+  // Step 5: Verify BTCBR contract
+  console.log("📦 Step 5: Verifying BTCBR token...");
+  const btcbr = await ethers.getContractAt(
+    [
+      "function totalSupply() view returns (uint256)",
+      "function symbol() view returns (string)",
+      "function decimals() view returns (uint8)",
+    ],
+    DEPLOYMENT_CONFIG.btcbrAddress
+  );
+  const totalSupply = await btcbr.totalSupply();
+  const symbol = await btcbr.symbol();
+  const decimals = await btcbr.decimals();
+  console.log("   ✅ Symbol:", symbol);
+  console.log("   ✅ Decimals:", decimals);
+  console.log("   ✅ Total Supply:", ethers.formatUnits(totalSupply, decimals));
+  deploymentResults.contracts.BTCBR = {
+    address: DEPLOYMENT_CONFIG.btcbrAddress,
+    symbol,
+    decimals: Number(decimals),
+    totalSupply: totalSupply.toString(),
+  };
+  console.log("");
 
-    deployedContracts.Timelock = timelockAddress;
-    console.log("✅ Timelock deployed to:", timelockAddress);
-    console.log("   Min Delay:", minDelay / 86400, "days");
+  // Step 6: Save deployment info
+  console.log("📦 Step 6: Saving deployment information...");
+  const deploymentPath = "deployments/noor-ecosystem-deployment.json";
+  fs.mkdirSync("deployments", { recursive: true });
+  fs.writeFileSync(deploymentPath, JSON.stringify(deploymentResults, null, 2));
+  console.log("   ✅ Deployment info saved to:", deploymentPath);
+  console.log("");
 
-    // Initial council members
-    const councilMembers = [
-      deployer.address, // Noor Chain Foundation
-      "0xbb64F4050fC21A2eC3506245A1Ad63cB0256b6dE", // UAE Institutional Partner
-      "0x689CF2C189781d9bB6859A830acbF64044E4432f", // Kenya Partner
-      "0x15f0f5B738BC2b1ab8cD68E4674769a89bF5390a", // Nordic Partner
-      "0xFAA5AA97651c2e2b6860219bb8f9902d416dB5DD"  // Additional Partner
-    ];
-
-    // Deploy Governor
-    console.log("\n📋 Deploying NoorGovernance...");
-    const Governor = await ethers.getContractFactory("NoorGovernance");
-    const governor = await Governor.deploy(norAddress, timelockAddress, councilMembers);
-    await governor.waitForDeployment();
-    const governorAddress = await governor.getAddress();
-
-    deployedContracts.Governor = governorAddress;
-    console.log("✅ Governor deployed to:", governorAddress);
-    console.log("   Council Members:", councilMembers.length);
-
-    // ==================== 3. DEX CONTRACTS ====================
-    console.log("\n" + "=".repeat(60));
-    console.log("3️⃣  Deploying NoorSwap DEX...");
-    console.log("=".repeat(60));
-
-    // Deploy Factory
-    console.log("\n📋 Deploying NoorSwapFactory...");
-    const Factory = await ethers.getContractFactory("NoorSwapFactory");
-    const factory = await Factory.deploy(deployer.address); // feeToSetter
-    await factory.waitForDeployment();
-    const factoryAddress = await factory.getAddress();
-
-    deployedContracts.NoorSwapFactory = factoryAddress;
-    console.log("✅ Factory deployed to:", factoryAddress);
-
-    // For WNOR, we'll use the NOR token itself as a placeholder
-    // In production, you'd deploy a proper WNOR wrapper contract
-    const wnorAddress = norAddress; // Using NOR as WNOR for now
-
-    // Deploy Router
-    console.log("\n📋 Deploying NoorSwapRouter...");
-    const Router = await ethers.getContractFactory("NoorSwapRouter");
-    const router = await Router.deploy(factoryAddress, wnorAddress);
-    await router.waitForDeployment();
-    const routerAddress = await router.getAddress();
-
-    deployedContracts.NoorSwapRouter = routerAddress;
-    console.log("✅ Router deployed to:", routerAddress);
-    console.log("   Factory:", factoryAddress);
-    console.log("   WNOR:", wnorAddress);
-
-    // ==================== 4. STABLECOINS ====================
-    console.log("\n" + "=".repeat(60));
-    console.log("4️⃣  Deploying Stablecoins...");
-    console.log("=".repeat(60));
-
-    // Deploy mock oracles (in production, use Chainlink or similar)
-    const MockOracle = await ethers.getContractFactory("MockOracle");
-
-    console.log("\n📋 Deploying Mock Oracles...");
-    const goldOracle = await MockOracle.deploy();
-    await goldOracle.waitForDeployment();
-    const goldOracleAddress = await goldOracle.getAddress();
-
-    const aedUsdOracle = await MockOracle.deploy();
-    await aedUsdOracle.waitForDeployment();
-    const aedUsdOracleAddress = await aedUsdOracle.getAddress();
-
-    const kesUsdOracle = await MockOracle.deploy();
-    await kesUsdOracle.waitForDeployment();
-    const kesUsdOracleAddress = await kesUsdOracle.getAddress();
-
-    console.log("✅ Mock Oracles deployed");
-
-    // Deploy Dirhamat
-    console.log("\n📋 Deploying Dirhamat...");
-    const Dirhamat = await ethers.getContractFactory("Dirhamat");
-    const dirhamat = await Dirhamat.deploy(
-      goldOracleAddress,
-      aedUsdOracleAddress,
-      deployer.address // complianceCore
-    );
-    await dirhamat.waitForDeployment();
-    const dirhamatAddress = await dirhamat.getAddress();
-
-    deployedContracts.Dirhamat = dirhamatAddress;
-    console.log("✅ Dirhamat deployed to:", dirhamatAddress);
-    console.log("   Symbol:", await dirhamat.symbol());
-    console.log("   Decimals:", await dirhamat.decimals());
-
-    // Deploy Digital KES
-    console.log("\n📋 Deploying Digital KES...");
-    const DigitalKES = await ethers.getContractFactory("DigitalKES");
-    const digitalKES = await DigitalKES.deploy(
-      kesUsdOracleAddress,
-      deployer.address // complianceCore
-    );
-    await digitalKES.waitForDeployment();
-    const digitalKESAddress = await digitalKES.getAddress();
-
-    deployedContracts.DigitalKES = digitalKESAddress;
-    console.log("✅ Digital KES deployed to:", digitalKESAddress);
-    console.log("   Symbol:", await digitalKES.symbol());
-
-    // ==================== 5. FUND UNIT (EXAMPLE) ====================
-    console.log("\n" + "=".repeat(60));
-    console.log("5️⃣  Deploying Example Fund Unit...");
-    console.log("=".repeat(60));
-
-    const FundUnit = await ethers.getContractFactory("FundUnit");
-    const fundUnit = await FundUnit.deploy(
-      "Noor Gold Savings Fund",
-      "NOOR-GOLD",
-      "Gold Savings",
-      "Murabahah",
-      deployer.address, // fundManager
-      deployer.address, // navOracle
-      deployer.address  // zakatRecipient
-    );
-    await fundUnit.waitForDeployment();
-    const fundUnitAddress = await fundUnit.getAddress();
-
-    deployedContracts.FundUnit = fundUnitAddress;
-    console.log("✅ Fund Unit deployed to:", fundUnitAddress);
-    console.log("   Name:", await fundUnit.name());
-    console.log("   Type:", await fundUnit.fundType());
-    console.log("   Shariah Structure:", await fundUnit.shariahStructure());
-
-    // ==================== SUMMARY ====================
-    console.log("\n" + "=".repeat(60));
-    console.log("🎉 Deployment Complete!");
-    console.log("=".repeat(60));
-
-    console.log("\n📋 Deployed Contracts:");
-    console.log("━".repeat(60));
-    for (const [name, address] of Object.entries(deployedContracts)) {
-      console.log(`${name.padEnd(20)} : ${address}`);
-    }
-
-    console.log("\n" + "=".repeat(60));
-    console.log("📝 Next Steps:");
-    console.log("=".repeat(60));
-    console.log("1. Initialize liquidity pools on NoorSwap");
-    console.log("2. Update reserve backing for Dirhamat and Digital KES");
-    console.log("3. Configure bank licenses for Digital KES");
-    console.log("4. Set up NAV oracles for FundUnit");
-    console.log("5. Grant appropriate roles to validators and partners");
-    console.log("6. Verify contracts on block explorer");
-
-    // Save deployment addresses to file
-    const fs = await import("fs");
-    const deploymentData = {
-      network: "noor-chain",
-      chainId: 65001,
-      timestamp: new Date().toISOString(),
-      deployer: deployer.address,
-      contracts: deployedContracts
-    };
-
-    fs.writeFileSync(
-      "deployment-addresses.json",
-      JSON.stringify(deploymentData, null, 2)
-    );
-
-    console.log("\n✅ Deployment addresses saved to deployment-addresses.json");
-    console.log("\n🌙 Noor Chain - Illuminating the Future of Finance 🌙\n");
-
-  } catch (error) {
-    console.error("\n❌ Deployment failed:", error);
-    process.exit(1);
-  }
+  // Summary
+  console.log(
+    "═══════════════════════════════════════════════════════════════════════════"
+  );
+  console.log("                      🎉 DEPLOYMENT COMPLETE! 🎉");
+  console.log(
+    "═══════════════════════════════════════════════════════════════════════════"
+  );
+  console.log("");
+  console.log("📋 Deployed Contracts:");
+  console.log("   BTCBR Token:      ", DEPLOYMENT_CONFIG.btcbrAddress);
+  console.log("   WNOR:             ", wnorAddress);
+  console.log("   NoorSwap Factory: ", factoryAddress);
+  console.log("   NoorSwap Router:  ", routerAddress);
+  console.log("   BTCBR/WNOR Pair:  ", btcbrWnorPair);
+  console.log("");
+  console.log(
+    "🔗 Network: Noor Chain (Chain ID",
+    DEPLOYMENT_CONFIG.chainId + ")"
+  );
+  console.log("🌐 RPC:", DEPLOYMENT_CONFIG.rpc);
+  console.log("");
+  console.log("📝 Next Steps:");
+  console.log("   1. Add liquidity to BTCBR/WNOR pair");
+  console.log("   2. Deploy oracle contracts");
+  console.log("   3. Deploy bridge contracts");
+  console.log("   4. Configure governance");
+  console.log("");
+  console.log(
+    "═══════════════════════════════════════════════════════════════════════════"
+  );
 }
+
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error("❌ Deployment failed:", error);
+    process.exit(1);
+  });
 
 /**
  * @title MockOracle
