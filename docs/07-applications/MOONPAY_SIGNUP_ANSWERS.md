@@ -35,7 +35,7 @@ https://xaheen.org/terms-of-service
 
 ### 5. What is your Social Media Profile URL? (Max 3)
 ```
-URL 1: https://twitter.com/XaheenChain
+URL 1: https://twitter.com/NorChain
 URL 2: https://t.me/xaheenchain
 URL 3: https://discord.gg/xaheenchain
 ```
@@ -82,14 +82,14 @@ Before submitting your MoonPay application, verify:
 - [ ] **Privacy Policy is accessible:** https://xaheen.org/privacy-policy.html
 - [ ] **Terms of Service is accessible:** https://xaheen.org/terms-of-service.html
 - [ ] **Both pages clearly display:**
-  - Your business name: "Xaheen Chain"
+  - Your business name: "Nor Chain"
   - Contact email: privacy@xaheen.org / legal@xaheen.org
   - Service description
   - Last updated date
 
 - [ ] **Website shows:**
-  - What Xaheen Chain does (blockchain/DeFi platform)
-  - How to buy XHT (even if widget not active yet)
+  - What Nor Chain does (blockchain/DeFi platform)
+  - How to buy NOR (even if widget not active yet)
   - Contact information
 
 ---
@@ -100,7 +100,7 @@ MoonPay will also ask for:
 
 ### Business Name:
 ```
-Xaheen Chain
+Nor Chain
 ```
 or
 ```
@@ -120,9 +120,9 @@ or your actual business email
 
 ### Business Description:
 ```
-Xaheen Chain is a high-performance blockchain platform with native DeFi
+Nor Chain is a high-performance blockchain platform with native DeFi
 infrastructure, enabling fast and secure decentralized transactions.
-We provide users with the ability to purchase XHT tokens directly with
+We provide users with the ability to purchase NOR tokens directly with
 fiat currency through integrated payment processing.
 ```
 
@@ -211,7 +211,7 @@ If MoonPay asks for more info:
 | Integration URL | https://xaheen.org/buy |
 | Privacy Policy | https://xaheen.org/privacy-policy.html |
 | Terms of Service | https://xaheen.org/terms-of-service.html |
-| Social Media 1 | https://twitter.com/XaheenChain |
+| Social Media 1 | https://twitter.com/NorChain |
 | Social Media 2 | https://t.me/xaheenchain |
 | Social Media 3 | https://discord.gg/xaheenchain |
 

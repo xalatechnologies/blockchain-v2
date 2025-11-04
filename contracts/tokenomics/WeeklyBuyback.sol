@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-interface IXaheenRouter {
+interface INorRouter {
     function swapExactTokensForTokens(
         uint amountIn,
         uint amountOutMin,
@@ -18,7 +18,7 @@ interface IXaheenRouter {
 
 /**
  * @title WeeklyBuyback
- * @dev Automated weekly buyback mechanism for Xaheen Chain
+ * @dev Automated weekly buyback mechanism for Nor Chain
  *
  * Features:
  * - Weekly automated buybacks
@@ -29,14 +29,14 @@ interface IXaheenRouter {
 contract WeeklyBuyback is Ownable, ReentrancyGuard {
     using SafeERC20 for IERC20;
 
-    // XHT token
+    // NOR token
     IERC20 public immutable xhtToken;
 
     // USDT (or payment token)
     IERC20 public immutable usdtToken;
 
-    // XaheenSwap router
-    IXaheenRouter public immutable router;
+    // NorSwap router
+    INorRouter public immutable router;
 
     // Split percentages (basis points, 10000 = 100%)
     uint256 public burnPercentage = 5000;      // 50%
@@ -63,7 +63,7 @@ contract WeeklyBuyback is Ownable, ReentrancyGuard {
     // Statistics
     uint256 public totalBuybacks;
     uint256 public totalUSDTSpent;
-    uint256 public totalXHTBurned;
+    uint256 public totalNORBurned;
 
     // Events
     event BuybackExecuted(
@@ -97,7 +97,7 @@ contract WeeklyBuyback is Ownable, ReentrancyGuard {
         address _treasury,
         address _lpManager
     ) {
-        require(_xhtToken != address(0), "Invalid XHT token");
+        require(_xhtToken != address(0), "Invalid NOR token");
         require(_usdtToken != address(0), "Invalid USDT token");
         require(_router != address(0), "Invalid router");
         require(_treasury != address(0), "Invalid treasury");
@@ -105,7 +105,7 @@ contract WeeklyBuyback is Ownable, ReentrancyGuard {
 
         xhtToken = IERC20(_xhtToken);
         usdtToken = IERC20(_usdtToken);
-        router = IXaheenRouter(_router);
+        router = INorRouter(_router);
         treasury = _treasury;
         lpManager = _lpManager;
 
@@ -125,14 +125,14 @@ contract WeeklyBuyback is Ownable, ReentrancyGuard {
         // Approve router to spend USDT
         usdtToken.approve(address(router), usdtAmount);
 
-        // Swap USDT for XHT
+        // Swap USDT for NOR
         address[] memory path = new address[](2);
         path[0] = address(usdtToken);
         path[1] = address(xhtToken);
 
         uint[] memory amounts = router.swapExactTokensForTokens(
             usdtAmount,
-            0, // Accept any amount of XHT
+            0, // Accept any amount of NOR
             path,
             address(this),
             block.timestamp + 300 // 5 min deadline
@@ -161,7 +161,7 @@ contract WeeklyBuyback is Ownable, ReentrancyGuard {
         // Update statistics
         totalBuybacks++;
         totalUSDTSpent += usdtAmount;
-        totalXHTBurned += xhtToBurn;
+        totalNORBurned += xhtToBurn;
         lastBuybackTime = block.timestamp;
 
         emit BuybackExecuted(
@@ -262,14 +262,14 @@ contract WeeklyBuyback is Ownable, ReentrancyGuard {
     function getStatistics() external view returns (
         uint256 _totalBuybacks,
         uint256 _totalUSDTSpent,
-        uint256 _totalXHTBurned,
+        uint256 _totalNORBurned,
         uint256 _lastBuybackTime,
         uint256 _nextBuybackTime
     ) {
         return (
             totalBuybacks,
             totalUSDTSpent,
-            totalXHTBurned,
+            totalNORBurned,
             lastBuybackTime,
             lastBuybackTime + BUYBACK_INTERVAL
         );

@@ -2,11 +2,11 @@
 pragma solidity ^0.8.20;
 
 /**
- * @title MockXaheenDEXPair
+ * @title MockNorDEXPair
  * @notice Mock contract for testing PriceAuthority
- * @dev Simulates XaheenDEXPair price cumulative behavior
+ * @dev Simulates NorDEXPair price cumulative behavior
  */
-contract MockXaheenDEXPair {
+contract MockNorDEXPair {
     address public token0;
     address public token1;
     uint256 public reserve0;

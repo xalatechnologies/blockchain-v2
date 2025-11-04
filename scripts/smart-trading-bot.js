@@ -4,7 +4,7 @@ const { ethers } = hre;
 /**
  * Smart Trading Bot
  *
- * Creates organic-looking trading activity on Xaheen DEX to:
+ * Creates organic-looking trading activity on Nor DEX to:
  * 1. Attract arbitrage bots
  * 2. Generate volume
  * 3. Earn fees
@@ -14,13 +14,13 @@ const { ethers } = hre;
  */
 
 const ROUTER_ADDRESS = "0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916";
-const WXHT_ADDRESS = "0x26c0eaF731885b14c031cc50dB79b36458E0b355";
+const WNOR_ADDRESS = "0x26c0eaF731885b14c031cc50dB79b36458E0b355";
 const USDT_ADDRESS = "0x55d398326f99059fF775485246999027B3197955"; // BSC USDT (if bridged)
 
 // Trading parameters
-const MIN_TRADE_USD = 10;  // $10 minimum
+const MIN_TRADE_USD = 10; // $10 minimum
 const MAX_TRADE_USD = 500; // $500 maximum
-const MIN_INTERVAL = 5 * 60 * 1000;  // 5 minutes
+const MIN_INTERVAL = 5 * 60 * 1000; // 5 minutes
 const MAX_INTERVAL = 30 * 60 * 1000; // 30 minutes
 
 async function main() {
@@ -31,15 +31,20 @@ async function main() {
   console.log("💼 Trader:", trader.address);
 
   const balance = await ethers.provider.getBalance(trader.address);
-  console.log("💰 Balance:", ethers.formatEther(balance), "XHT\n");
+  console.log("💰 Balance:", ethers.formatEther(balance), "NOR\n");
 
-  const router = await ethers.getContractAt("IUniswapV2Router02", ROUTER_ADDRESS);
-  const wxht = await ethers.getContractAt("IERC20", WXHT_ADDRESS);
+  const router = await ethers.getContractAt(
+    "IUniswapV2Router02",
+    ROUTER_ADDRESS
+  );
+  const wxht = await ethers.getContractAt("IERC20", WNOR_ADDRESS);
 
   console.log("📊 Trading Configuration:");
   console.log(`   Min trade: $${MIN_TRADE_USD}`);
   console.log(`   Max trade: $${MAX_TRADE_USD}`);
-  console.log(`   Interval: ${MIN_INTERVAL/60000}-${MAX_INTERVAL/60000} minutes`);
+  console.log(
+    `   Interval: ${MIN_INTERVAL / 60000}-${MAX_INTERVAL / 60000} minutes`
+  );
   console.log(`   Strategy: Random buy/sell to create activity\n`);
 
   console.log("═".repeat(60));
@@ -62,9 +67,12 @@ async function main() {
 
       // Random wait time
       const waitTime = getRandomInterval();
-      console.log(`⏰ Waiting ${Math.floor(waitTime/60000)} minutes until next trade...\n`);
+      console.log(
+        `⏰ Waiting ${Math.floor(
+          waitTime / 60000
+        )} minutes until next trade...\n`
+      );
       await sleep(waitTime);
-
     } catch (error) {
       console.error("❌ Trade failed:", error.message);
       console.log("⏰ Waiting 5 minutes before retry...\n");
@@ -78,9 +86,9 @@ async function main() {
     const isBuy = Math.random() > 0.5; // 50/50 buy or sell
 
     if (isBuy) {
-      await buyXHT(tradeSize);
+      await buyNOR(tradeSize);
     } else {
-      await sellXHT(tradeSize);
+      await sellNOR(tradeSize);
     }
 
     totalVolume += tradeSize;
@@ -90,21 +98,21 @@ async function main() {
     console.log(`   Your fees earned: $${(totalVolume * 0.003).toFixed(2)}`);
   }
 
-  async function buyXHT(amountUSD) {
-    console.log(`\n🟢 BUY: $${amountUSD} worth of XHT`);
+  async function buyNOR(amountUSD) {
+    console.log(`\n🟢 BUY: $${amountUSD} worth of NOR`);
 
-    // Assuming XHT price ~$0.001
+    // Assuming NOR price ~$0.001
     const xhtAmount = ethers.parseEther((amountUSD / 0.001).toString());
     const slippage = 0.05; // 5% slippage tolerance
-    const minXhtOut = xhtAmount * BigInt(95) / BigInt(100);
+    const minXhtOut = (xhtAmount * BigInt(95)) / BigInt(100);
 
-    // Path: XHT → (if USDT pair exists, otherwise direct)
-    const path = [WXHT_ADDRESS]; // Simplified for example
+    // Path: NOR → (if USDT pair exists, otherwise direct)
+    const path = [WNOR_ADDRESS]; // Simplified for example
 
     const deadline = Math.floor(Date.now() / 1000) + 3600;
 
-    console.log(`   Amount: ${ethers.formatEther(xhtAmount)} XHT`);
-    console.log(`   Min expected: ${ethers.formatEther(minXhtOut)} XHT`);
+    console.log(`   Amount: ${ethers.formatEther(xhtAmount)} NOR`);
+    console.log(`   Min expected: ${ethers.formatEther(minXhtOut)} NOR`);
     console.log(`   Slippage: 5%`);
 
     // Execute swap
@@ -122,18 +130,18 @@ async function main() {
     console.log(`   TX: https://explorer.xaheen.org/tx/${tx.hash}`);
   }
 
-  async function sellXHT(amountUSD) {
-    console.log(`\n🔴 SELL: $${amountUSD} worth of XHT`);
+  async function sellNOR(amountUSD) {
+    console.log(`\n🔴 SELL: $${amountUSD} worth of NOR`);
 
     const xhtAmount = ethers.parseEther((amountUSD / 0.001).toString());
     const slippage = 0.05;
-    const minOut = xhtAmount * BigInt(95) / BigInt(100);
+    const minOut = (xhtAmount * BigInt(95)) / BigInt(100);
 
-    const path = [WXHT_ADDRESS]; // Simplified
+    const path = [WNOR_ADDRESS]; // Simplified
 
     const deadline = Math.floor(Date.now() / 1000) + 3600;
 
-    console.log(`   Amount: ${ethers.formatEther(xhtAmount)} XHT`);
+    console.log(`   Amount: ${ethers.formatEther(xhtAmount)} NOR`);
     console.log(`   Min expected output`);
     console.log(`   Slippage: 5%`);
 
@@ -161,7 +169,7 @@ function getRandomInterval() {
 }
 
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 main()

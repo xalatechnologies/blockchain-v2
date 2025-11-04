@@ -10,7 +10,7 @@
 
 After encountering epoch boundary issues at block 29,999 and during regenesis attempts, we've decided to **start completely fresh** with a properly configured genesis from day 1.
 
-This is NOT a recovery - this is a **strategic reset** to implement the Xaheen playbook correctly from the beginning.
+This is NOT a recovery - this is a **strategic reset** to implement the Nor playbook correctly from the beginning.
 
 ---
 
@@ -74,7 +74,7 @@ This is NOT a recovery - this is a **strategic reset** to implement the Xaheen p
 
 ### Phase 4: Implement Playbook
 Follow master plan:
-1. Deploy core tokens (BTCBR, WXHT)
+1. Deploy core tokens (BTCBR, WNOR)
 2. Deploy DEX infrastructure
 3. Deploy halal finance contracts (FundUnit, Shariah Oracle, etc.)
 4. Deploy governance DAOs
@@ -104,12 +104,12 @@ Follow master plan:
 ### ⚠️ Data Loss (Accepted)
 - All transaction history (blocks 0-29,999)
 - All deployed contracts:
-  - WXHT wrapper
+  - WNOR wrapper
   - Factory, Router
-  - XHT/USDT pair
+  - NOR/USDT pair
   - BTCBR token
   - USDT bridge
-- All liquidity pools ($20K XHT/USDT)
+- All liquidity pools ($20K NOR/USDT)
 - All user balances (except validator gas funds)
 
 **Why This Is Acceptable**:
@@ -134,7 +134,7 @@ Follow master plan:
 ### Phase 1: Foundation (Week 1-2)
 **~2 weeks**
 1. Deploy BTCBR token
-2. Deploy WXHT wrapper
+2. Deploy WNOR wrapper
 3. Deploy DEX (Factory, Router)
 4. Create initial liquidity pools
 5. Deploy FundUnit token standard
@@ -211,7 +211,7 @@ See: `docs/00-critical/EPOCH_STRATEGY.md`
 
 ### Week 1 Success
 ✅ Stable block production (no stalls)
-✅ Core contracts deployed (BTCBR, WXHT, DEX)
+✅ Core contracts deployed (BTCBR, WNOR, DEX)
 ✅ Initial liquidity created
 ✅ Test transactions succeed
 
@@ -321,7 +321,7 @@ See: `docs/00-critical/EPOCH_STRATEGY.md`
 
 ## Conclusion
 
-This fresh start is a **strategic decision** to properly implement the Xaheen playbook from the beginning, rather than attempting to fix accumulated technical debt.
+This fresh start is a **strategic decision** to properly implement the Nor playbook from the beginning, rather than attempting to fix accumulated technical debt.
 
 **Benefits**:
 - ✅ Proper epoch configuration (9,000,000)

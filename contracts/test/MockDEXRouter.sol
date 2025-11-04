@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
 /**
  * @title MockDEXRouter
- * @notice Mock DEX router for testing XaheenRouter swap functionality
+ * @notice Mock DEX router for testing NorRouter swap functionality
  * @dev Simulates PancakeSwap/Uniswap V2 router interface
  */
 contract MockDEXRouter {

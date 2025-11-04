@@ -1,7 +1,7 @@
 /**
  * Receipt Forwarder
  *
- * Forwards fill receipts to SettlementHub on Xaheen Chain
+ * Forwards fill receipts to SettlementHub on Nor Chain
  */
 
 import { ethers } from "ethers";
@@ -35,7 +35,7 @@ export class ReceiptForwarder {
   async initialize() {
     console.log("📤 Initializing Receipt Forwarder...");
 
-    // Connect to Xaheen
+    // Connect to Nor
     this.provider = new ethers.JsonRpcProvider(this.config.xaheenChain.rpc);
 
     // Create wallet
@@ -43,7 +43,10 @@ export class ReceiptForwarder {
       throw new Error("No relayer private key configured");
     }
 
-    this.wallet = new ethers.Wallet(this.config.wallet.privateKey, this.provider);
+    this.wallet = new ethers.Wallet(
+      this.config.wallet.privateKey,
+      this.provider
+    );
 
     // Connect to SettlementHub
     this.settlementHub = new ethers.Contract(
@@ -70,7 +73,9 @@ export class ReceiptForwarder {
 
     try {
       // Check if already processed on hub
-      const isProcessed = await this.settlementHub.isFillProcessed(receipt.fillId);
+      const isProcessed = await this.settlementHub.isFillProcessed(
+        receipt.fillId
+      );
       if (isProcessed) {
         console.log(`   ⏭️  Already processed on hub`);
         return true;
@@ -102,7 +107,15 @@ export class ReceiptForwarder {
   async signReceipt(receipt) {
     // Create message hash
     const messageHash = ethers.solidityPackedKeccak256(
-      ["bytes32", "uint64", "address", "int256", "uint256", "uint256", "uint256"],
+      [
+        "bytes32",
+        "uint64",
+        "address",
+        "int256",
+        "uint256",
+        "uint256",
+        "uint256",
+      ],
       [
         receipt.fillId,
         receipt.chainId,
@@ -115,7 +128,9 @@ export class ReceiptForwarder {
     );
 
     // Sign the message
-    const signature = await this.wallet.signMessage(ethers.getBytes(messageHash));
+    const signature = await this.wallet.signMessage(
+      ethers.getBytes(messageHash)
+    );
 
     return {
       ...receipt,
@@ -130,7 +145,9 @@ export class ReceiptForwarder {
     const maxAttempts = this.config.retry.maxAttempts;
 
     try {
-      console.log(`   📡 Submitting to SettlementHub (attempt ${attempt}/${maxAttempts})...`);
+      console.log(
+        `   📡 Submitting to SettlementHub (attempt ${attempt}/${maxAttempts})...`
+      );
 
       const tx = await this.settlementHub.acknowledgeFill(receipt, {
         gasLimit: 500000, // 500K gas limit
@@ -140,16 +157,22 @@ export class ReceiptForwarder {
 
       const txReceipt = await tx.wait();
 
-      console.log(`   ✅ Transaction confirmed in block ${txReceipt.blockNumber}`);
+      console.log(
+        `   ✅ Transaction confirmed in block ${txReceipt.blockNumber}`
+      );
       return true;
     } catch (error) {
-      console.error(`   ❌ Submission failed (attempt ${attempt}):`, error.message);
+      console.error(
+        `   ❌ Submission failed (attempt ${attempt}):`,
+        error.message
+      );
 
       // Check if we should retry
       if (attempt < maxAttempts) {
         // Calculate delay with exponential backoff
         const delay = Math.min(
-          this.config.retry.initialDelayMs * Math.pow(this.config.retry.backoffMultiplier, attempt - 1),
+          this.config.retry.initialDelayMs *
+            Math.pow(this.config.retry.backoffMultiplier, attempt - 1),
           this.config.retry.maxDelayMs
         );
 
@@ -183,7 +206,9 @@ export class ReceiptForwarder {
   async submitBatch() {
     if (this.pendingReceipts.length === 0) return;
 
-    console.log(`\n📦 Submitting batch of ${this.pendingReceipts.length} receipts...`);
+    console.log(
+      `\n📦 Submitting batch of ${this.pendingReceipts.length} receipts...`
+    );
 
     try {
       // Sign all receipts
@@ -192,9 +217,12 @@ export class ReceiptForwarder {
       );
 
       // Submit batch
-      const tx = await this.settlementHub.batchAcknowledgeFills(signedReceipts, {
-        gasLimit: 500000 * signedReceipts.length,
-      });
+      const tx = await this.settlementHub.batchAcknowledgeFills(
+        signedReceipts,
+        {
+          gasLimit: 500000 * signedReceipts.length,
+        }
+      );
 
       console.log(`   ⏳ Batch transaction sent: ${tx.hash}`);
 

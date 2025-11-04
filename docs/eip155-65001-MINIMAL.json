@@ -1,13 +1,11 @@
 {
-  "name": "Xaheen Chain",
-  "chain": "Xaheen",
-  "rpc": [
-    "https://rpc.xaheen.org"
-  ],
+  "name": "Nor Chain",
+  "chain": "Nor",
+  "rpc": ["https://rpc.xaheen.org"],
   "faucets": [],
   "nativeCurrency": {
-    "name": "Xaheen Token",
-    "symbol": "XHT",
+    "name": "Nor Token",
+    "symbol": "NOR",
     "decimals": 18
   },
   "shortName": "xaheen",

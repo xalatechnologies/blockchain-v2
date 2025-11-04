@@ -14,10 +14,12 @@ async function main() {
     "function symbol() view returns (string)",
     "function name() view returns (string)",
     "function totalSupply() view returns (uint256)",
-    "function owner() view returns (address)"
+    "function owner() view returns (address)",
   ];
 
-  const provider = new ethers.JsonRpcProvider("https://bsc-dataseed.binance.org");
+  const provider = new ethers.JsonRpcProvider(
+    "https://bsc-dataseed.binance.org"
+  );
   const btcbr = new ethers.Contract(BTCBR_ADDRESS, abi, provider);
 
   try {
@@ -38,10 +40,15 @@ async function main() {
     try {
       const owner = await btcbr.owner();
       console.log("👤 Contract Owner:", owner);
-      console.log("   You are owner:", owner.toLowerCase() === YOUR_WALLET.toLowerCase() ? "✅ YES" : "❌ NO");
+      console.log(
+        "   You are owner:",
+        owner.toLowerCase() === YOUR_WALLET.toLowerCase() ? "✅ YES" : "❌ NO"
+      );
       console.log("");
     } catch (e) {
-      console.log("⚠️  No owner() function (may use different access control)\n");
+      console.log(
+        "⚠️  No owner() function (may use different access control)\n"
+      );
     }
 
     // Get your balance
@@ -62,24 +69,30 @@ async function main() {
     if (balanceNum >= 40000) {
       console.log("✅ CONSERVATIVE (40,000 BTCBR):");
       console.log("   BSC Side: 30,000 BTCBR");
-      console.log("   Xaheen Side: 10,000 BTCBR");
-      console.log("   Remaining: " + (balanceNum - 40000).toLocaleString() + " BTCBR");
+      console.log("   Nor Side: 10,000 BTCBR");
+      console.log(
+        "   Remaining: " + (balanceNum - 40000).toLocaleString() + " BTCBR"
+      );
       console.log("");
     }
 
     if (balanceNum >= 60000) {
       console.log("✅ RECOMMENDED (60,000 BTCBR):");
       console.log("   BSC Side: 45,000 BTCBR");
-      console.log("   Xaheen Side: 15,000 BTCBR");
-      console.log("   Remaining: " + (balanceNum - 60000).toLocaleString() + " BTCBR");
+      console.log("   Nor Side: 15,000 BTCBR");
+      console.log(
+        "   Remaining: " + (balanceNum - 60000).toLocaleString() + " BTCBR"
+      );
       console.log("");
     }
 
     if (balanceNum >= 80000) {
       console.log("✅ AGGRESSIVE (80,000 BTCBR):");
       console.log("   BSC Side: 60,000 BTCBR");
-      console.log("   Xaheen Side: 20,000 BTCBR");
-      console.log("   Remaining: " + (balanceNum - 80000).toLocaleString() + " BTCBR");
+      console.log("   Nor Side: 20,000 BTCBR");
+      console.log(
+        "   Remaining: " + (balanceNum - 80000).toLocaleString() + " BTCBR"
+      );
       console.log("");
     }
 
@@ -87,13 +100,19 @@ async function main() {
       console.log("⚠️  INSUFFICIENT for recommended liquidity");
       console.log("   You have: " + balanceNum.toLocaleString() + " BTCBR");
       console.log("   Need: 40,000 BTCBR minimum");
-      console.log("   Shortfall: " + (40000 - balanceNum).toLocaleString() + " BTCBR");
+      console.log(
+        "   Shortfall: " + (40000 - balanceNum).toLocaleString() + " BTCBR"
+      );
       console.log("");
 
       console.log("💡 Options:");
-      console.log("   1. Use all " + balanceNum.toLocaleString() + " BTCBR for smaller bridge");
+      console.log(
+        "   1. Use all " +
+          balanceNum.toLocaleString() +
+          " BTCBR for smaller bridge"
+      );
       console.log("   2. Acquire more BTCBR");
-      console.log("   3. Start with XHT DEX (doesn't need BTCBR)");
+      console.log("   3. Start with NOR DEX (doesn't need BTCBR)");
       console.log("");
     }
 
@@ -106,19 +125,18 @@ async function main() {
     if (balanceNum >= 60000) {
       console.log("✅ Status: READY for recommended bridge launch!");
       console.log("💰 Cost: $0 (using your existing BTCBR)");
-      console.log("🚀 Can launch BOTH XHT DEX + BTCBR Bridge");
+      console.log("🚀 Can launch BOTH NOR DEX + BTCBR Bridge");
     } else if (balanceNum >= 40000) {
       console.log("✅ Status: READY for conservative bridge launch");
       console.log("💰 Cost: $0 (using your existing BTCBR)");
-      console.log("🚀 Can launch BOTH XHT DEX + BTCBR Bridge");
+      console.log("🚀 Can launch BOTH NOR DEX + BTCBR Bridge");
     } else {
       console.log("⚠️  Status: Insufficient for standard bridge");
-      console.log("💡 Recommendation: Start with XHT DEX first");
+      console.log("💡 Recommendation: Start with NOR DEX first");
       console.log("🚀 Then add BTCBR bridge when you have more");
     }
 
     console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
-
   } catch (error) {
     console.error("❌ Error fetching balance:", error.message);
   }

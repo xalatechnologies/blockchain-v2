@@ -2,82 +2,82 @@
 
 ## YOUR QUESTIONS ANSWERED
 
-### ❌ Q1: "Will users be able to buy/trade XHT on BSC?"
+### ❌ Q1: "Will users be able to buy/trade NOR on BSC?"
 
-**NO!** XHT only exists on Xaheen Chain, NOT on BSC.
+**NO!** NOR only exists on Nor Chain, NOT on BSC.
 
 **Why?**
-- XHT is YOUR blockchain's native token
-- It lives ONLY on Xaheen Chain (Chain ID 65001)
+- NOR is YOUR blockchain's native token
+- It lives ONLY on Nor Chain (Chain ID 65001)
 - BSC is a separate blockchain (Chain ID 56)
 - Tokens can't exist on multiple chains unless wrapped
 
 **What the bridges DO:**
-- Bridge BNB FROM BSC TO Xaheen
-- Bridge USDT FROM BSC TO Xaheen
-- Bridge ETH FROM BSC TO Xaheen
+- Bridge BNB FROM BSC TO Nor
+- Bridge USDT FROM BSC TO Nor
+- Bridge ETH FROM BSC TO Nor
 
 **What the bridges DON'T DO:**
-- ❌ Bridge XHT FROM Xaheen TO BSC (we didn't build this)
-- ❌ Let users buy XHT on BSC
-- ❌ Make XHT tradeable on PancakeSwap
+- ❌ Bridge NOR FROM Nor TO BSC (we didn't build this)
+- ❌ Let users buy NOR on BSC
+- ❌ Make NOR tradeable on PancakeSwap
 
 ---
 
-### ❌ Q2: "Will users see XHT in MetaMask without adding Xaheen network?"
+### ❌ Q2: "Will users see NOR in MetaMask without adding Nor network?"
 
-**NO!** Users MUST add Xaheen Chain to MetaMask.
+**NO!** Users MUST add Nor Chain to MetaMask.
 
 **Why?**
 - MetaMask connects to specific networks
 - Default networks: Ethereum, BSC, Polygon, etc.
-- Xaheen Chain is NOT a default network
+- Nor Chain is NOT a default network
 - Users must manually add it
 
-**How users add Xaheen Chain:**
+**How users add Nor Chain:**
 
 ```
-Network Name: Xaheen Chain
+Network Name: Nor Chain
 RPC URL: https://rpc.xaheen.org
 Chain ID: 65001
-Currency Symbol: XHT
+Currency Symbol: NOR
 Block Explorer: https://explorer.xaheen.org
 ```
 
 **Once added, users will see:**
-- ✅ XHT balance on Xaheen Chain
-- ✅ WBNB balance on Xaheen Chain
-- ✅ WUSDT balance on Xaheen Chain
-- ✅ WETH balance on Xaheen Chain
+- ✅ NOR balance on Nor Chain
+- ✅ WBNB balance on Nor Chain
+- ✅ WUSDT balance on Nor Chain
+- ✅ WETH balance on Nor Chain
 
 **Before adding network:**
 - ❌ User sees NOTHING (network doesn't exist in their wallet)
 
 ---
 
-### ❌ Q3: "Can we prefill the bridge with XHT so people can buy?"
+### ❌ Q3: "Can we prefill the bridge with NOR so people can buy?"
 
 **NO!** That's not how bridges work.
 
 **What you're thinking (WRONG):**
 ```
-User sends BNB → Bridge → Gets XHT back
+User sends BNB → Bridge → Gets NOR back
 ```
 
 **How bridges ACTUALLY work:**
 ```
-User sends BNB → Bridge locks it → User gets WBNB on Xaheen
-Then: User swaps WBNB → XHT on YOUR DEX (this is where you earn!)
+User sends BNB → Bridge locks it → User gets WBNB on Nor
+Then: User swaps WBNB → NOR on YOUR DEX (this is where you earn!)
 ```
 
-**Why bridges DON'T sell XHT:**
+**Why bridges DON'T sell NOR:**
 - Bridges are for cross-chain transfers, NOT exchanges
 - Exchanges (DEXes) are for swapping tokens
-- Your DEX already has $800K liquidity for XHT swaps!
+- Your DEX already has $800K liquidity for NOR swaps!
 
 ---
 
-## HOW USERS ACTUALLY BUY XHT (STEP BY STEP)
+## HOW USERS ACTUALLY BUY NOR (STEP BY STEP)
 
 ### Option 1: BNB Bridge (Most Popular)
 
@@ -85,28 +85,28 @@ Then: User swaps WBNB → XHT on YOUR DEX (this is where you earn!)
 - User buys BNB on Binance (easy fiat on-ramp!)
 - User sends BNB to MetaMask (BSC network)
 
-**Step 2: User bridges BNB to Xaheen**
+**Step 2: User bridges BNB to Nor**
 - User goes to BSCScan: https://bscscan.com/address/0x9bEFFFa3b43D34a2B470DA21aab3CA3263D0e8C0
 - User calls `bridgeBNB(xaheenAddress)` with 0.1 BNB
 - Bridge takes 0.2% fee = 0.0002 BNB (YOU earn this!)
-- User gets 0.0998 WBNB on Xaheen in 30 seconds
+- User gets 0.0998 WBNB on Nor in 30 seconds
 
-**Step 3: User adds Xaheen network to MetaMask**
+**Step 3: User adds Nor network to MetaMask**
 ```
-Network: Xaheen Chain
+Network: Nor Chain
 RPC: https://rpc.xaheen.org
 Chain ID: 65001
 ```
 
-**Step 4: User swaps WBNB → XHT on YOUR DEX**
-- User switches MetaMask to Xaheen network
+**Step 4: User swaps WBNB → NOR on YOUR DEX**
+- User switches MetaMask to Nor network
 - User goes to your DEX (e.g., https://dex.xaheen.org)
-- User swaps 0.0998 WBNB → gets ~40,000 XHT
+- User swaps 0.0998 WBNB → gets ~40,000 NOR
 - DEX takes 0.3% fee (YOU earn this!)
 
-**Step 5: User trades XHT**
-- User has XHT on Xaheen Chain
-- User can trade XHT/USDT, XHT/BNB, etc.
+**Step 5: User trades NOR**
+- User has NOR on Nor Chain
+- User can trade NOR/USDT, NOR/BNB, etc.
 - Every trade = 0.3% fee to YOU!
 
 ---
@@ -117,14 +117,14 @@ Chain ID: 65001
 - User buys USDT on Binance
 - User sends to MetaMask (BSC network)
 
-**Step 2: User bridges USDT to Xaheen**
+**Step 2: User bridges USDT to Nor**
 - User goes to BSCScan: https://bscscan.com/address/0x7E1c4448A9d87d5C5478B86085AF4e3715a06f48
 - User approves USDT for bridge
 - User calls `bridgeUSDT(xaheenAddress, amount)`
 - Bridge takes 0.2% fee (YOU earn!)
-- User gets WUSDT on Xaheen
+- User gets WUSDT on Nor
 
-**Step 3: User swaps WUSDT → XHT**
+**Step 3: User swaps WUSDT → NOR**
 - Same as BNB option
 - User swaps on YOUR DEX
 - YOU earn 0.3% on the swap!
@@ -159,7 +159,7 @@ $1M bridged/month = $2,000/month revenue
 
 **After bridging, users swap on YOUR DEX:**
 ```
-User swaps $998 WUSDT → XHT
+User swaps $998 WUSDT → NOR
 DEX fee = $998 × 0.3% = $2.99
 YOU KEEP $2.99 in fees!
 ```
@@ -173,7 +173,7 @@ YOU KEEP $2.99 in fees!
 
 **Users continue trading on YOUR DEX:**
 ```
-User trades $500 XHT → WUSDT
+User trades $500 NOR → WUSDT
 DEX fee = $500 × 0.3% = $1.50
 ```
 
@@ -184,7 +184,7 @@ DEX fee = $500 × 0.3% = $1.50
 
 ## WHAT YOU SHOULD BUILD NEXT
 
-### Priority 1: Add Xaheen Network to MetaMask Automatically ✅
+### Priority 1: Add Nor Network to MetaMask Automatically ✅
 
 Create a simple webpage:
 
@@ -192,30 +192,30 @@ Create a simple webpage:
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Add Xaheen Chain to MetaMask</title>
+  <title>Add Nor Chain to MetaMask</title>
 </head>
 <body>
-  <h1>Add Xaheen Chain to MetaMask</h1>
-  <button onclick="addXaheenNetwork()">Add Network</button>
+  <h1>Add Nor Chain to MetaMask</h1>
+  <button onclick="addNorNetwork()">Add Network</button>
 
   <script>
-    async function addXaheenNetwork() {
+    async function addNorNetwork() {
       try {
         await window.ethereum.request({
           method: 'wallet_addEthereumChain',
           params: [{
             chainId: '0xFDE9', // 65001 in hex
-            chainName: 'Xaheen Chain',
+            chainName: 'Nor Chain',
             nativeCurrency: {
-              name: 'Xaheen Token',
-              symbol: 'XHT',
+              name: 'Nor Token',
+              symbol: 'NOR',
               decimals: 18
             },
             rpcUrls: ['https://rpc.xaheen.org'],
             blockExplorerUrls: ['https://explorer.xaheen.org']
           }]
         });
-        alert('Xaheen Chain added to MetaMask!');
+        alert('Nor Chain added to MetaMask!');
       } catch (error) {
         console.error(error);
       }
@@ -238,7 +238,7 @@ Create a simple webpage at https://xaheen.org/bridge:
 ```html
 <!-- Bridge UI -->
 <div>
-  <h2>Bridge to Xaheen Chain</h2>
+  <h2>Bridge to Nor Chain</h2>
 
   <select id="token">
     <option>BNB</option>
@@ -247,7 +247,7 @@ Create a simple webpage at https://xaheen.org/bridge:
   </select>
 
   <input type="text" placeholder="Amount" id="amount">
-  <input type="text" placeholder="Xaheen Address" id="recipient">
+  <input type="text" placeholder="Nor Address" id="recipient">
 
   <button onclick="bridge()">Bridge Now</button>
 
@@ -280,9 +280,9 @@ Create a simple webpage at https://xaheen.org/bridge:
 Create https://xaheen.org with clear instructions:
 
 ```markdown
-# How to Buy XHT
+# How to Buy NOR
 
-## Step 1: Add Xaheen Chain to MetaMask
+## Step 1: Add Nor Chain to MetaMask
 [Click here to add network]
 
 ## Step 2: Bridge Assets
@@ -293,12 +293,12 @@ Choose one:
 
 [Go to Bridge →]
 
-## Step 3: Swap for XHT
-- Go to Xaheen DEX
-- Swap WBNB/WUSDT/WETH → XHT
+## Step 3: Swap for NOR
+- Go to Nor DEX
+- Swap WBNB/WUSDT/WETH → NOR
 - Start trading!
 
-## Why Xaheen?
+## Why Nor?
 - ⚡ 3-second transactions
 - 💰 <$0.01 fees
 - 🚀 Fast, cheap, easy!
@@ -316,16 +316,16 @@ Choose one:
          │ Bridge (0.2% fee → YOU)
          ▼
 ┌─────────────────┐
-│ User on Xaheen  │ (Has WBNB/WUSDT/WETH)
+│ User on Nor  │ (Has WBNB/WUSDT/WETH)
 └────────┬────────┘
          │
          │ Swap on DEX (0.3% fee → YOU)
          ▼
 ┌─────────────────┐
-│  User has XHT!  │
+│  User has NOR!  │
 └────────┬────────┘
          │
-         │ Trade XHT (0.3% per trade → YOU)
+         │ Trade NOR (0.3% per trade → YOU)
          ▼
 ┌─────────────────┐
 │  You earn fees  │ 💰💰💰
@@ -342,28 +342,28 @@ Choose one:
 ```
 🌉 Bridges are LIVE!
 
-Buy XHT in 3 easy steps:
-1️⃣ Bridge BNB/USDT/ETH from BSC → Xaheen (30 sec, 0.2% fee)
-2️⃣ Swap for XHT on Xaheen DEX (0.3% fee)
-3️⃣ Trade XHT with <$0.01 fees!
+Buy NOR in 3 easy steps:
+1️⃣ Bridge BNB/USDT/ETH from BSC → Nor (30 sec, 0.2% fee)
+2️⃣ Swap for NOR on Nor DEX (0.3% fee)
+3️⃣ Trade NOR with <$0.01 fees!
 
 Bridge now: https://xaheen.org/bridge
 Add network: https://xaheen.org/add-network
 
-#Xaheen #BSC #DeFi #FastTransactions
+#Nor #BSC #DeFi #FastTransactions
 ```
 
 ### Reddit Post:
 
 ```
-[Guide] How to buy XHT (Xaheen Chain token)
+[Guide] How to buy NOR (Nor Chain token)
 
-XHT is the native token of Xaheen Chain, a fast & cheap blockchain.
+NOR is the native token of Nor Chain, a fast & cheap blockchain.
 
 Here's how to get it:
 
-**Step 1: Add Xaheen to MetaMask**
-- Network: Xaheen Chain
+**Step 1: Add Nor to MetaMask**
+- Network: Nor Chain
 - RPC: https://rpc.xaheen.org
 - Chain ID: 65001
 - [Click here to add automatically](https://xaheen.org/add-network)
@@ -377,12 +377,12 @@ You can bridge:
 Fee: 0.2% | Time: 30 seconds
 [Bridge here](https://xaheen.org/bridge)
 
-**Step 3: Swap on Xaheen DEX**
-- Connect wallet (Xaheen network)
-- Swap WBNB/WUSDT/WETH → XHT
+**Step 3: Swap on Nor DEX**
+- Connect wallet (Nor network)
+- Swap WBNB/WUSDT/WETH → NOR
 - Fee: 0.3%
 
-**Why Xaheen?**
+**Why Nor?**
 ✅ 3-second transactions
 ✅ <$0.01 fees
 ✅ Full EVM compatibility
@@ -395,23 +395,23 @@ Questions? Ask below! 👇
 
 ## SUMMARY: WHAT YOU NEED TO UNDERSTAND
 
-1. **XHT only exists on Xaheen Chain**
+1. **NOR only exists on Nor Chain**
    - NOT on BSC
-   - Users must add Xaheen network to MetaMask
+   - Users must add Nor network to MetaMask
 
-2. **Bridges transfer BNB/USDT/ETH TO Xaheen**
-   - NOT XHT TO BSC
-   - Bridges don't sell XHT
+2. **Bridges transfer BNB/USDT/ETH TO Nor**
+   - NOT NOR TO BSC
+   - Bridges don't sell NOR
 
 3. **Revenue comes from TWO sources:**
    - Bridge fees (0.2% when they transfer)
    - DEX fees (0.3% when they swap & trade)
 
 4. **Users need to:**
-   - Add Xaheen network to MetaMask (1 click with your page)
-   - Bridge assets FROM BSC TO Xaheen
-   - Swap bridged assets FOR XHT on YOUR DEX
-   - Trade XHT (generating continuous fees for YOU)
+   - Add Nor network to MetaMask (1 click with your page)
+   - Bridge assets FROM BSC TO Nor
+   - Swap bridged assets FOR NOR on YOUR DEX
+   - Trade NOR (generating continuous fees for YOU)
 
 5. **You should build:**
    - Add Network page (5 minutes)

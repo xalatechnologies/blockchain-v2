@@ -4,12 +4,12 @@
 
 ### BTCBR Token
 - **BSC Mainnet**: `0x03FC6dA7C9E48201b8FEC1Ca53EA62eA6514d48f`
-- **Xaheen Chain**: `0x0cF8e180350253271f4b917CcFb0aCCc4862F262`
+- **Nor Chain**: `0x0cF8e180350253271f4b917CcFb0aCCc4862F262`
 - **Status**: Different addresses ❌
 
 ### XHN Token
 - **BSC Mainnet**: `0x1777C32Da09d4FD65a74B6C9AFca17862423Fd1C`
-- **Xaheen Chain**: `0x1777C32Da09d4FD65a74B6C9AFca17862423Fd1C`
+- **Nor Chain**: `0x1777C32Da09d4FD65a74B6C9AFca17862423Fd1C`
 - **Status**: SAME address ✅
 
 ## Why MetaMask Shows/Doesn't Show USD
@@ -20,26 +20,26 @@
 - **Timeline**: 30 minutes - 2 hours after trading begins
 - **Current Status**: Trading bot has run, generating volume
 
-### On Xaheen Private Chain ⏳
+### On Nor Private Chain ⏳
 - **XHN will show USD**: Maybe (same address as BSC)
 - **BTCBR will NOT show USD**: No (different address)
 - **Why**: MetaMask relies on public price aggregators
 - **Private chains**: Not automatically indexed
 
-## Solutions for Xaheen USD Display
+## Solutions for Nor USD Display
 
 ### Solution 1: Leverage XHN Same Address ✅
 
-Since XHN has the same contract address on both chains, MetaMask might recognize it and show USD values on Xaheen. This happens when:
+Since XHN has the same contract address on both chains, MetaMask might recognize it and show USD values on Nor. This happens when:
 - The token is indexed on BSC mainnet
 - MetaMask sees the same address on different chains
 - The price feed is available
 
-**Wait 1-2 hours after BSC trading**, then check if XHN shows USD on Xaheen.
+**Wait 1-2 hours after BSC trading**, then check if XHN shows USD on Nor.
 
 ### Solution 2: Deploy Price Oracle Contract 🔧
 
-Deploy a smart contract on Xaheen that reads BSC prices:
+Deploy a smart contract on Nor that reads BSC prices:
 
 ```solidity
 // PriceOracle.sol
@@ -71,13 +71,13 @@ contract PriceOracle {
 Build a simple web app that:
 1. Reads BSC PancakeSwap prices
 2. Shows token balances with USD values
-3. Works for Xaheen chain users
+3. Works for Nor chain users
 
 **This is the BEST solution for private chains.**
 
 ### Solution 4: Submit to CoinGecko/DexScreener ⏳
 
-**For BSC tokens only** (not Xaheen):
+**For BSC tokens only** (not Nor):
 
 1. **DexScreener** - Automatic indexing
    - URL: https://dexscreener.com/bsc/[PAIR_ADDRESS]
@@ -104,7 +104,7 @@ Build a simple web app that:
 - 📊 DexScreener: Will auto-detect trading
 - 💰 MetaMask USD: Will appear soon
 
-### Xaheen Chain (Private)
+### Nor Chain (Private)
 - ✅ BTCBR deployed (different address)
 - ✅ XHN deployed (same address as BSC)
 - ❓ XHN might show USD (same address)
@@ -115,7 +115,7 @@ Build a simple web app that:
 
 ### Short Term (Today)
 1. ✅ Wait 1-2 hours for BSC indexing
-2. ✅ Check if XHN shows USD on Xaheen (same address)
+2. ✅ Check if XHN shows USD on Nor (same address)
 3. ✅ Monitor DexScreener for automatic listing
 
 ### Medium Term (This Week)
@@ -139,7 +139,7 @@ Build a simple web app that:
 4. Refresh MetaMask
 5. USD value should appear
 
-### On Xaheen Chain
+### On Nor Chain
 1. Add XHN token (same address)
 2. Check if USD appears (might work!)
 3. For BTCBR: Need custom solution
@@ -155,9 +155,9 @@ Build a simple web app that:
 ## Price Display Custom App
 
 I can build a simple web app that:
-- Connects to both BSC and Xaheen
+- Connects to both BSC and Nor
 - Reads PancakeSwap prices from BSC
-- Shows your Xaheen balances with USD values
+- Shows your Nor balances with USD values
 - Works in browser, no installation needed
 
 Would you like me to build this? It will take about 1 hour.
@@ -169,12 +169,12 @@ Would you like me to build this? It will take about 1 hour.
 - 📈 Trading volume generated
 - 🔍 Being indexed by DexScreener
 
-**Xaheen Private Chain:**
+**Nor Private Chain:**
 - 💡 XHN might show USD (same address)
 - 🔧 Need custom app for reliable USD display
 - 🚀 Best solution: Bridge UI with built-in prices
 
 **Next Steps:**
 1. Wait for BSC indexing
-2. Check if XHN shows USD on Xaheen
+2. Check if XHN shows USD on Nor
 3. Build custom price display app (if needed)

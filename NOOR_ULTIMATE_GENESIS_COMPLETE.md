@@ -1,8 +1,8 @@
-# Noor Chain Ultimate Genesis - Complete
+# Nor Chain Ultimate Genesis - Complete
 
 ## 🎉 Successfully Generated!
 
-The **Noor Chain Ultimate Genesis** has been successfully created with all the critical fixes and future-proof architecture.
+The **Nor Chain Ultimate Genesis** has been successfully created with all the critical fixes and future-proof architecture.
 
 ---
 
@@ -10,10 +10,10 @@ The **Noor Chain Ultimate Genesis** has been successfully created with all the c
 
 ### Files Generated
 
-1. **`scripts/generate-noor-ultimate-genesis.js`**
-   Genesis generator script with NOR token (NOT XHT) and sequential contract addresses
+1. **`scripts/generate-nor-ultimate-genesis.js`**
+   Genesis generator script with NOR token (NOT NOR) and sequential contract addresses
 
-2. **`data/genesis-noor-ultimate.json`**
+2. **`data/genesis-nor-ultimate.json`**
    Production-ready genesis file with correctly sorted validators
 
 3. **`scripts/fix-static-nodes-properly.sh`**
@@ -35,10 +35,10 @@ const VALIDATORS = [
 
 **Result**: Zero epoch revalidation issues FOREVER
 
-### 2. NOR Token (NOT XHT)
+### 2. NOR Token (NOT NOR)
 
 - **Address**: `0x0cf8e180350253271f4b917ccfb0accc4862f263`
-- **Symbol**: **NOR** (NOT XHT!)
+- **Symbol**: **NOR** (NOT NOR!)
 - **Total Supply**: 21 billion
 - **Decimals**: 24
 - **Use Case**: Native governance & gas token
@@ -73,7 +73,7 @@ All contract addresses are **deterministic** and **sequential**:
 ```
 
 - **Chain ID**: 65001 (0xFDE9)
-- **Network**: Noor Chain (نور - "Light")
+- **Network**: Nor Chain (نور - "Light")
 - **Block Time**: 3 seconds
 - **Epoch**: 10,000 blocks (~8.3 hours)
 - **Consensus**: Parlia PoSA
@@ -95,7 +95,7 @@ Each account funded with **100M NOR** for gas:
 
 1. **Upload genesis to production server**
    ```bash
-   scp -i ~/.ssh/bsc-validator-key.pem data/genesis-noor-ultimate.json ec2-user@3.91.50.187:/home/ec2-user/
+   scp -i ~/.ssh/bsc-validator-key.pem data/genesis-nor-ultimate.json ec2-user@3.91.50.187:/home/ec2-user/
    ```
 
 2. **Backup current chain data**
@@ -112,9 +112,9 @@ Each account funded with **100M NOR** for gas:
    rm -rf validator-*/geth
 
    # Reinit with new genesis
-   docker run --rm -v $(pwd)/validator-1:/bsc -v $(pwd)/genesis-noor-ultimate.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
-   docker run --rm -v $(pwd)/validator-2:/bsc -v $(pwd)/genesis-noor-ultimate.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
-   docker run --rm -v $(pwd)/validator-3:/bsc -v $(pwd)/genesis-noor-ultimate.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
+   docker run --rm -v $(pwd)/validator-1:/bsc -v $(pwd)/genesis-nor-ultimate.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
+   docker run --rm -v $(pwd)/validator-2:/bsc -v $(pwd)/genesis-nor-ultimate.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
+   docker run --rm -v $(pwd)/validator-3:/bsc -v $(pwd)/genesis-nor-ultimate.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
    EOF
    ```
 
@@ -130,7 +130,7 @@ Each account funded with **100M NOR** for gas:
    - Supply: 21 billion
    - Decimals: 24
 
-2. **Deploy NoorSwap DEX**
+2. **Deploy NorSwap DEX**
    - Factory: `0x0cf8e180350253271f4b917ccfb0accc4862f264`
    - Router: `0x0cf8e180350253271f4b917ccfb0accc4862f265`
 
@@ -196,26 +196,26 @@ The **exact validator configuration** that produces blocks with 2-3 stable peers
 
 ## 📖 Important Notes
 
-### Rebranding: XHT → NOR
+### Rebranding: NOR → NOR
 
-- **Old**: Xaheen Chain (XHT Token)
-- **New**: **Noor Chain (NOR Token)**
+- **Old**: Nor Chain (NOR Token)
+- **New**: **Nor Chain (NOR Token)**
 - **Meaning**: نور (Arabic) = "Light"
 
-**All references to XHT have been removed and replaced with NOR.**
+**All references to NOR have been removed and replaced with NOR.**
 
 ### Chain Identity
 
-- **Chain Name**: Noor Chain
-- **Domain**: noorchain.org (migrating from xaheen.org)
-- **Native Token**: **NOR** (NOT XHT!)
+- **Chain Name**: Nor Chain
+- **Domain**: norchain.org (migrating from xaheen.org)
+- **Native Token**: **NOR** (NOT NOR!)
 - **Mission**: "Empowering the Future with Light and Trust"
 
 ---
 
 ## 🌟 What's Different from genesis-clean.json
 
-| Feature | genesis-clean.json | genesis-noor-ultimate.json |
+| Feature | genesis-clean.json | genesis-nor-ultimate.json |
 |---------|-------------------|----------------------------|
 | Validators | ✅ Correctly sorted | ✅ Correctly sorted |
 | Gas Funding | ✅ 100M NOR each | ✅ 100M NOR each |
@@ -231,23 +231,23 @@ The **exact validator configuration** that produces blocks with 2-3 stable peers
 
 Before deploying to production, verify:
 
-- [ ] Genesis file exists at `data/genesis-noor-ultimate.json`
+- [ ] Genesis file exists at `data/genesis-nor-ultimate.json`
 - [ ] Chain ID is 65001
 - [ ] Epoch is 10,000 blocks
 - [ ] Validators are correctly sorted in extradata
 - [ ] All 4 accounts have 100M NOR balance
 - [ ] BTCBR address is `0x0cF8e180350253271f4b917CcFb0aCCc4862F262`
 - [ ] NOR token address is `0x0cf8e180350253271f4b917ccfb0accc4862f263`
-- [ ] No references to XHT token anywhere
+- [ ] No references to NOR token anywhere
 
 ---
 
 ## 🚀 Ready for Production!
 
-The **Noor Chain Ultimate Genesis** is production-ready with:
+The **Nor Chain Ultimate Genesis** is production-ready with:
 
 ✅ Zero epoch issues forever
-✅ NOR token (not XHT)
+✅ NOR token (not NOR)
 ✅ Sequential contract addresses
 ✅ Clean, extensible structure
 ✅ BTCBR bridge integration
@@ -256,7 +256,7 @@ The **Noor Chain Ultimate Genesis** is production-ready with:
 ---
 
 **Generated**: November 3, 2025
-**File**: `data/genesis-noor-ultimate.json`
-**Generator**: `scripts/generate-noor-ultimate-genesis.js`
+**File**: `data/genesis-nor-ultimate.json`
+**Generator**: `scripts/generate-nor-ultimate-genesis.js`
 
-🌙 **Noor Chain - Where Light Meets Trust**
+🌙 **Nor Chain - Where Light Meets Trust**

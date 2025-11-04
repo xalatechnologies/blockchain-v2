@@ -15,7 +15,7 @@ This is a huge accomplishment - the core bridge infrastructure is now live!
 
 ## 🌉 DEPLOYED BRIDGE ADDRESSES
 
-### Xaheen Chain (rpc.xaheen.org, Chain ID: 885824)
+### Nor Chain (rpc.xaheen.org, Chain ID: 885824)
 
 **BTCBR Bridge (Private Side)**
 - Address: `0xe9Aa0276196928fb1dD42afda89F47CF821e987C`
@@ -35,7 +35,7 @@ This is a huge accomplishment - the core bridge infrastructure is now live!
 
 **BTCBR Bridge (Mainnet Side)** 🆕
 - Address: `0xa48e7B09Af5ABCfC5eB2657d8d1Afa988B13e424`
-- Function: Locks BTCBR on BSC, Releases when returned from Xaheen
+- Function: Locks BTCBR on BSC, Releases when returned from Nor
 - Status: ✅ LIVE with 3 validators
 - Limits: 100 - 100,000 BTCBR per transfer
 - Daily limit: 500,000 BTCBR per address
@@ -43,7 +43,7 @@ This is a huge accomplishment - the core bridge infrastructure is now live!
 
 **XHN Bridge (Mainnet Side)** 🆕
 - Address: `0xB4d455356e273EaFd82E6076AFA639CdB3546750`
-- Function: Locks XHN on BSC, Releases when returned from Xaheen
+- Function: Locks XHN on BSC, Releases when returned from Nor
 - Status: ✅ LIVE with 3 validators
 - Limits: 100 - 100,000 XHN per transfer
 - Daily limit: 500,000 XHN per address
@@ -74,13 +74,13 @@ Three validator addresses with 2-of-3 multi-signature requirement:
 
 ### Fees
 
-- **BSC → Xaheen**: 0.1% (paid in locked tokens)
-- **Xaheen → BSC**: 0.2% (paid in burned tokens)
+- **BSC → Nor**: 0.1% (paid in locked tokens)
+- **Nor → BSC**: 0.2% (paid in burned tokens)
 
-Example: Bridge 1000 BTCBR from BSC → Xaheen
+Example: Bridge 1000 BTCBR from BSC → Nor
 - Lock 1000 BTCBR on BSC
 - Fee: 1 BTCBR (0.1%)
-- Receive: 999 BTCBR minted on Xaheen
+- Receive: 999 BTCBR minted on Nor
 
 ---
 
@@ -122,15 +122,15 @@ Example: Bridge 1000 BTCBR from BSC → Xaheen
 │                      USER FLOW                              │
 └─────────────────────────────────────────────────────────────┘
 
-STEP 1: Earn on Xaheen
-  → User plays games, stakes, trades on Xaheen Chain
+STEP 1: Earn on Nor
+  → User plays games, stakes, trades on Nor Chain
   → Earns 1000 BTCBR (fast 3-second blocks, cheap gas)
 
 STEP 2: Bridge to BSC
   → Opens bridge UI
-  → Connects MetaMask to Xaheen (rpc.xaheen.org)
+  → Connects MetaMask to Nor (rpc.xaheen.org)
   → Sends 1000 BTCBR to bridge contract
-  → Bridge burns 1000 BTCBR on Xaheen
+  → Bridge burns 1000 BTCBR on Nor
   → 2 of 3 validators sign the burn transaction
   → Relayer sends signed proof to BSC bridge
   → BSC bridge releases 998 BTCBR (0.2% fee)
@@ -153,10 +153,10 @@ STEP 4: Cash Out
 
 ## ⚙️ HOW THE BRIDGE WORKS
 
-### Xaheen → BSC (Withdraw Flow)
+### Nor → BSC (Withdraw Flow)
 
-1. **User initiates**: Calls `burn(amount, recipientAddress)` on Xaheen bridge
-2. **Xaheen bridge burns**: Tokens are burned on private chain
+1. **User initiates**: Calls `burn(amount, recipientAddress)` on Nor bridge
+2. **Nor bridge burns**: Tokens are burned on private chain
 3. **Event emitted**: `Burned` event with amount, recipient, nonce
 4. **Validators listen**: 3 validators detect the burn event
 5. **Validators sign**: Each validator creates a signature approving the transfer
@@ -166,7 +166,7 @@ STEP 4: Cash Out
 9. **BSC bridge releases**: Transfers locked tokens to recipient on BSC
 10. **User receives**: Tokens appear in MetaMask on BSC
 
-### BSC → Xaheen (Deposit Flow)
+### BSC → Nor (Deposit Flow)
 
 1. **User initiates**: Calls `deposit(amount, recipientAddress)` on BSC bridge
 2. **BSC bridge locks**: Tokens are locked in bridge contract
@@ -174,10 +174,10 @@ STEP 4: Cash Out
 4. **Validators listen**: 3 validators detect the lock event
 5. **Validators sign**: Each validator creates a signature approving the mint
 6. **Relayer collects**: Relayer service collects at least 2 signatures
-7. **Relayer submits**: Sends signatures to Xaheen bridge's `mint()` function
-8. **Xaheen bridge verifies**: Checks 2-of-3 validators signed correctly
-9. **Xaheen bridge mints**: Creates new tokens for recipient on Xaheen
-10. **User receives**: Tokens appear in MetaMask on Xaheen
+7. **Relayer submits**: Sends signatures to Nor bridge's `mint()` function
+8. **Nor bridge verifies**: Checks 2-of-3 validators signed correctly
+9. **Nor bridge mints**: Creates new tokens for recipient on Nor
+10. **User receives**: Tokens appear in MetaMask on Nor
 
 ---
 
@@ -194,7 +194,7 @@ STEP 4: Cash Out
 2. **Build Bridge UI** (~2 hours)
    - React frontend
    - Connect wallet button
-   - Network switcher (Xaheen ↔ BSC)
+   - Network switcher (Nor ↔ BSC)
    - Amount input
    - Bridge button
    - Transaction status tracking
@@ -207,10 +207,10 @@ STEP 4: Cash Out
 ### Testing Phase (1-2 hours)
 
 4. **Test BTCBR Bridge**
-   - Bridge 100 BTCBR from Xaheen → BSC
+   - Bridge 100 BTCBR from Nor → BSC
    - Verify it appears on BSC
    - Trade on PancakeSwap
-   - Bridge back to Xaheen
+   - Bridge back to Nor
    - Verify complete cycle
 
 5. **Test XHN Bridge**
@@ -231,9 +231,9 @@ STEP 4: Cash Out
 
 ### Smart Contract Functions
 
-**Xaheen Bridge (BTCBRBridgePrivate / XHNBridgePrivate):**
+**Nor Bridge (BTCBRBridgePrivate / XHNBridgePrivate):**
 ```solidity
-// Minting (BSC → Xaheen)
+// Minting (BSC → Nor)
 function mint(
     uint256 amount,
     address recipient,
@@ -241,7 +241,7 @@ function mint(
     bytes[] calldata signatures
 ) external;
 
-// Burning (Xaheen → BSC)
+// Burning (Nor → BSC)
 function burn(
     uint256 amount,
     address recipient
@@ -250,13 +250,13 @@ function burn(
 
 **BSC Bridge (BTCBRBridgeMainnet / XHNBridgeMainnet):**
 ```solidity
-// Locking (BSC → Xaheen)
+// Locking (BSC → Nor)
 function deposit(
     uint256 amount,
     address recipient
 ) external;
 
-// Releasing (Xaheen → BSC)
+// Releasing (Nor → BSC)
 function withdraw(
     uint256 amount,
     address recipient,
@@ -267,7 +267,7 @@ function withdraw(
 
 ### Events
 
-**Xaheen Bridge:**
+**Nor Bridge:**
 - `Minted(address indexed recipient, uint256 amount, uint256 nonce, uint256 timestamp)`
 - `Burned(address indexed user, address indexed recipient, uint256 amount, uint256 nonce, uint256 timestamp)`
 
@@ -304,7 +304,7 @@ cast call 0xB4d455356e273EaFd82E6076AFA639CdB3546750 "getValidators()" --rpc-url
 ## 🎯 SUCCESS METRICS
 
 ### Infrastructure ✅ 100% Complete
-- ✅ Xaheen Chain running (rpc.xaheen.org)
+- ✅ Nor Chain running (rpc.xaheen.org)
 - ✅ BTCBR and XHN tokens deployed on both chains
 - ✅ All 4 bridge contracts deployed
 - ✅ Validators configured on all bridges
@@ -344,7 +344,7 @@ cast call 0xB4d455356e273EaFd82E6076AFA639CdB3546750 "getValidators()" --rpc-url
 **Timeline to Launch**: ~6 hours of development time
 
 **User Experience When Complete**:
-1. User earns on Xaheen (fast, cheap)
+1. User earns on Nor (fast, cheap)
 2. User bridges to BSC (automated via UI)
 3. User trades on PancakeSwap (real liquidity)
 4. User cashes out to fiat (via exchange)

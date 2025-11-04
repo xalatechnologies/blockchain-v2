@@ -1,6 +1,6 @@
 # Quick Start Checklist 🚀
 
-Fast-track guide to launch Xaheen Bridge and start earning revenue.
+Fast-track guide to launch Nor Bridge and start earning revenue.
 
 ---
 
@@ -27,14 +27,14 @@ npx hardhat run scripts/deploy-dex-testnet.cjs --network bscTestnet
 
 **Expected Output**:
 ```
-✅ XHT Token deployed
+✅ NOR Token deployed
 ✅ Mock DEX infrastructure deployed
 ✅ PriceAuthority deployed
 ✅ SupplyController deployed
 ✅ SettlementHub deployed
-✅ Wrapped XHT deployed
+✅ Wrapped NOR deployed
 ✅ SettlementInbox deployed
-✅ XaheenRouter deployed
+✅ NorRouter deployed
 ✅ Configuration complete
 ✅ Inventory initialized
 📄 Deployment info saved to: deployment-testnet.json
@@ -103,7 +103,7 @@ npm run dev
 2. Get test USDT (mint from deployed contract)
 3. Execute transfer (100 BTCBR minimum)
 4. Monitor relayer logs
-5. Verify settlement on Xaheen Chain
+5. Verify settlement on Nor Chain
 6. Check database: `SELECT * FROM bridge_transfers;`
 
 **Success Criteria**:
@@ -119,13 +119,13 @@ npm run dev
 ### ☐ Step 5: Create Social Accounts (1 day)
 
 **Twitter**:
-- [ ] Create @XaheenBridge account
+- [ ] Create @NorBridge account
 - [ ] Add profile picture + banner
 - [ ] Write bio (see `docs/MARKETING_CAMPAIGN.md`)
 - [ ] Post teaser content
 
 **Telegram**:
-- [ ] Create Xaheen Bridge group
+- [ ] Create Nor Bridge group
 - [ ] Add welcome message
 - [ ] Pin getting started guide
 - [ ] Add moderators
@@ -209,12 +209,12 @@ npx hardhat run scripts/deploy-dex-testnet.cjs --network bsc
 **Initial Liquidity**: $40-80K
 
 **Distribution**:
-- BSC → Xaheen: 60% ($24-48K)
-- Xaheen → BSC: 40% ($16-32K)
+- BSC → Nor: 60% ($24-48K)
+- Nor → BSC: 40% ($16-32K)
 
 **Process**:
 1. Mint BTCBR on spoke (or bridge from BSC)
-2. Approve to XaheenRouter
+2. Approve to NorRouter
 3. Monitor first few transfers
 4. Adjust inventory as needed
 
@@ -228,7 +228,7 @@ npx hardhat run scripts/deploy-dex-testnet.cjs --network bsc
 
 Fastest, cheapest way to bridge BTCBR
 
-✅ BSC ↔ Xaheen
+✅ BSC ↔ Nor
 ✅ 0.1% fees
 ✅ 2-min settlement
 ✅ Multi-sig security
@@ -401,7 +401,7 @@ npx hardhat run scripts/deploy-spoke-ethereum.js --network goerli
 
 **Monitoring**:
 - BSC Testnet Explorer: https://testnet.bscscan.com
-- Xaheen Explorer: https://explorer.xaheen.org
+- Nor Explorer: https://explorer.xaheen.org
 - API Stats: `http://localhost:3000/api/bridge/stats`
 
 **Faucets**:

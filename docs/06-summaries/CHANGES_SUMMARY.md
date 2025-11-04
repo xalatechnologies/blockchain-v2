@@ -6,7 +6,7 @@ This document summarizes the updates made to the blockchain-v2 migration scripts
 ## Key Changes Made
 
 ### 1. Chain ID and Network Configuration
-- Updated CHAIN_ID and NETWORK_ID from 222222 to 1001 to match the Xaheen private chain configuration
+- Updated CHAIN_ID and NETWORK_ID from 222222 to 1001 to match the Nor private chain configuration
 - Updated NODE_NAME to "xaheen-bsc-validator-1" for better identification
 
 ### 2. BTCBR Contract Address

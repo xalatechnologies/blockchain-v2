@@ -1,4 +1,4 @@
-# 💰 Xaheen Chain Monetization Strategy
+# 💰 Nor Chain Monetization Strategy
 
 **PRIMARY GOAL: MAKE MONEY FROM YOUR BLOCKCHAIN**
 
@@ -9,7 +9,7 @@
 ### 1. DEX TRADING FEES (PRIMARY REVENUE) 💰
 
 **How it works:**
-- Every trade on Xaheen DEX pays 0.3% fee
+- Every trade on Nor DEX pays 0.3% fee
 - Fee goes to liquidity providers (LPs)
 - **YOU are the main LP** (you own $800K of the $800K liquidity!)
 - **YOU earn 100% of trading fees!**
@@ -37,7 +37,7 @@ Yearly revenue = $1,080,000/year (over $1M!)
 
 **When you deploy BSC bridge:**
 - Charge 0.1-0.5% fee per bridge transaction
-- Users pay to bridge BNB → Xaheen
+- Users pay to bridge BNB → Nor
 - Goes directly to treasury
 
 **Math:**
@@ -58,21 +58,21 @@ Yearly = $24,000/year
 ### 3. GAS FEES (DEFLATIONARY REVENUE) 💰
 
 **How it works:**
-- Every transaction on Xaheen pays gas fees in XHT
+- Every transaction on Nor pays gas fees in NOR
 - Gas fees are BURNED (deflationary!)
-- Treasury holds 20B XHT
-- As XHT becomes scarcer → price goes up → your treasury appreciates!
+- Treasury holds 20B NOR
+- As NOR becomes scarcer → price goes up → your treasury appreciates!
 
 **Math:**
 ```
-Average gas fee: 0.001 XHT (~$0.001)
+Average gas fee: 0.001 NOR (~$0.001)
 If 10,000 transactions/day:
-Daily burn = 10 XHT
-Monthly burn = 300 XHT
-Yearly burn = 3,650 XHT
+Daily burn = 10 NOR
+Monthly burn = 300 NOR
+Yearly burn = 3,650 NOR
 
-Your treasury: 20,000,000,000 XHT
-As supply shrinks → your XHT becomes more valuable!
+Your treasury: 20,000,000,000 NOR
+As supply shrinks → your NOR becomes more valuable!
 ```
 
 **This is INDIRECT revenue** (treasury appreciation)
@@ -82,17 +82,17 @@ As supply shrinks → your XHT becomes more valuable!
 ### 4. TREASURY APPRECIATION (BIGGEST GAIN) 💰💰💰
 
 **Your situation:**
-- You own 20 billion XHT
+- You own 20 billion NOR
 - Current price: ~$0.001
 - Current treasury value: $20 million
 
-**If XHT reaches $0.01:**
+**If NOR reaches $0.01:**
 ```
 Treasury value = 20B × $0.01 = $200 million
 Your gain = $180 million
 ```
 
-**If XHT reaches $0.10:**
+**If NOR reaches $0.10:**
 ```
 Treasury value = 20B × $0.10 = $2 billion
 Your gain = $1.98 billion
@@ -115,11 +115,11 @@ Your gain = $1.98 billion
 
 ## WHY KEEPING LIQUIDITY ON XAHEEN = MORE MONEY
 
-### Scenario A: All Liquidity on Xaheen (YOUR STRATEGY) ✅
+### Scenario A: All Liquidity on Nor (YOUR STRATEGY) ✅
 
 **Revenue breakdown:**
 ```
-$100K daily trading volume on Xaheen DEX
+$100K daily trading volume on Nor DEX
 Trading fees (0.3%) = $300/day
 Bridge fees (0.2% of $10K bridged) = $20/day
 
@@ -132,18 +132,18 @@ Yearly = $115,200/year
 
 ---
 
-### Scenario B: Split Liquidity (Xaheen + PancakeSwap) ❌
+### Scenario B: Split Liquidity (Nor + PancakeSwap) ❌
 
 **Volume splits between chains:**
 ```
-$50K daily volume on Xaheen DEX
+$50K daily volume on Nor DEX
 $50K daily volume on PancakeSwap
 
-Xaheen DEX fees = $50K × 0.3% = $150/day (YOU earn)
+Nor DEX fees = $50K × 0.3% = $150/day (YOU earn)
 PancakeSwap fees = $50K × 0.3% = $150/day (OTHER LPs earn, NOT YOU!)
 
 Your revenue:
-Xaheen fees = $150/day
+Nor fees = $150/day
 Bridge fees = $20/day
 Total = $170/day
 
@@ -159,7 +159,7 @@ Lost revenue to PancakeSwap = $150/day
 
 ## THE MONETIZATION DECISION
 
-### Keep Liquidity on Xaheen = YOU MAKE MONEY ✅
+### Keep Liquidity on Nor = YOU MAKE MONEY ✅
 
 **Why:**
 - You own most of the liquidity
@@ -188,7 +188,7 @@ Lost revenue to PancakeSwap = $150/day
 ### Phase 1: Maximize YOUR Revenue (Month 1)
 
 **Strategy:**
-1. Keep ALL liquidity on Xaheen DEX ✅
+1. Keep ALL liquidity on Nor DEX ✅
 2. Deploy BSC bridge ($420) ✅
 3. Charge 0.2% bridge fee ✅
 4. Earn 100% of trading fees ✅
@@ -224,14 +224,14 @@ Total: $96,000/month = $1.15M/year
 ### Phase 3: Treasury Growth (Ongoing)
 
 **As volume grows:**
-- XHT becomes more valuable
+- NOR becomes more valuable
 - Your 20B treasury appreciates
 - Even 10X growth = $200M treasury value!
 
 **Combined wealth:**
 ```
 Trading fee revenue: $1M+/year
-Treasury appreciation: $180M+ (at $0.01/XHT)
+Treasury appreciation: $180M+ (at $0.01/NOR)
 Total wealth creation: $180M+
 ```
 
@@ -264,7 +264,7 @@ Net loss: $43,500/year
 
 ## THE WINNING STRATEGY
 
-### 1. Concentrate Liquidity on Xaheen ✅
+### 1. Concentrate Liquidity on Nor ✅
 
 **Why:**
 - YOU own the liquidity = YOU earn fees
@@ -289,7 +289,7 @@ Net loss: $43,500/year
 ### 3. Drive Volume to YOUR DEX ✅
 
 **Marketing focus:**
-- "Trade on Xaheen DEX - 100X faster than Ethereum"
+- "Trade on Nor DEX - 100X faster than Ethereum"
 - "Sub-cent fees"
 - "$800K liquidity - best prices"
 
@@ -300,9 +300,9 @@ Net loss: $43,500/year
 
 ### 4. Let Treasury Appreciate ✅
 
-**As XHT grows:**
-- 20B XHT at $0.01 = $200M
-- 20B XHT at $0.10 = $2B
+**As NOR grows:**
+- 20B NOR at $0.01 = $200M
+- 20B NOR at $0.10 = $2B
 
 **Your wealth grows passively!**
 
@@ -317,7 +317,7 @@ Trading fees: $9,000/month
 Bridge fees: $600/month
 Total: $9,600/month ($115K/year)
 
-Treasury: 20B XHT at $0.001 = $20M
+Treasury: 20B NOR at $0.001 = $20M
 ```
 
 ### Moderate (Month 6):
@@ -327,7 +327,7 @@ Trading fees: $45,000/month
 Bridge fees: $3,000/month
 Total: $48,000/month ($576K/year)
 
-Treasury: 20B XHT at $0.005 = $100M (5X growth)
+Treasury: 20B NOR at $0.005 = $100M (5X growth)
 Wealth increase: $80M
 ```
 
@@ -338,7 +338,7 @@ Trading fees: $180,000/month
 Bridge fees: $12,000/month
 Total: $192,000/month ($2.3M/year)
 
-Treasury: 20B XHT at $0.02 = $400M (20X growth)
+Treasury: 20B NOR at $0.02 = $400M (20X growth)
 Wealth increase: $380M
 ```
 
@@ -354,7 +354,7 @@ Wealth increase: $380M
 - Costs $10K to setup
 - Loses $54K/year in revenue
 
-**When to consider:** Only after $1M daily volume on Xaheen
+**When to consider:** Only after $1M daily volume on Nor
 
 ---
 
@@ -381,7 +381,7 @@ Wealth increase: $380M
 ## MONETIZATION CHECKLIST
 
 **Current (Month 1):**
-- [x] $800K liquidity on Xaheen DEX ✅
+- [x] $800K liquidity on Nor DEX ✅
 - [x] You own majority of liquidity ✅
 - [ ] Deploy BSC bridge ($420)
 - [ ] Start earning bridge fees
@@ -396,13 +396,13 @@ Wealth increase: $380M
 **Month 6:**
 - [ ] $1M daily volume
 - [ ] $96K/month revenue
-- [ ] XHT at $0.005 (5X growth)
+- [ ] NOR at $0.005 (5X growth)
 - [ ] Treasury worth $100M
 
 **Year 1:**
 - [ ] $2M daily volume
 - [ ] $192K/month revenue ($2.3M/year)
-- [ ] XHT at $0.02+ (20X growth)
+- [ ] NOR at $0.02+ (20X growth)
 - [ ] Treasury worth $400M+
 
 ---
@@ -434,7 +434,7 @@ Tactics:
 
 ---
 
-### 3. Retain Liquidity on Xaheen ⬆️
+### 3. Retain Liquidity on Nor ⬆️
 
 **Every $ of liquidity on YOUR DEX = you earn fees**
 
@@ -446,7 +446,7 @@ Tactics:
 
 ---
 
-### 4. Burn More XHT (Treasury Appreciation) ⬆️
+### 4. Burn More NOR (Treasury Appreciation) ⬆️
 
 **More burns = scarcer supply = higher price = richer treasury**
 
@@ -461,7 +461,7 @@ Tactics:
 ## FINAL RECOMMENDATION FOR MONETIZATION
 
 ### DO THIS (High ROI):
-1. ✅ Keep all liquidity on Xaheen DEX
+1. ✅ Keep all liquidity on Nor DEX
 2. ✅ Deploy BSC bridge ($420 cost)
 3. ✅ Charge 0.2% bridge fee
 4. ✅ Drive volume to YOUR DEX
@@ -485,7 +485,7 @@ Tactics:
 
 **To maximize monetization:**
 
-**Keep everything on Xaheen Chain!**
+**Keep everything on Nor Chain!**
 
 ✅ Your blockchain = your fees
 ✅ Your DEX = your revenue

@@ -20,8 +20,8 @@ contract MockDEXPair {
         token0 = _token0;
         token1 = _token1;
 
-        // Initialize with some reserves (1M XHT : 100K USDT = 1 XHT = 0.1 USDT)
-        reserve0 = 1000000 * 1e18; // 1M XHT
+        // Initialize with some reserves (1M NOR : 100K USDT = 1 NOR = 0.1 USDT)
+        reserve0 = 1000000 * 1e18; // 1M NOR
         reserve1 = 100000 * 1e6;   // 100K USDT
 
         blockTimestampLast = block.timestamp;
@@ -58,8 +58,8 @@ contract MockDEXPair {
 
         if (timeElapsed > 0 && reserve0 > 0 && reserve1 > 0) {
             // Accumulate prices (price * timeElapsed)
-            // price0 = reserve1 / reserve0 (USDT per XHT)
-            // price1 = reserve0 / reserve1 (XHT per USDT)
+            // price0 = reserve1 / reserve0 (USDT per NOR)
+            // price1 = reserve0 / reserve1 (NOR per USDT)
 
             // Use FixedPoint math (Q112 encoding like Uniswap V2)
             price0CumulativeLast += (reserve1 * 1e18 / reserve0) * timeElapsed;

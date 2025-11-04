@@ -116,17 +116,17 @@ npx hardhat run scripts/deploy-dex-testnet.cjs --network bscTestnet
 
 When you run the deployment script with sufficient BNB:
 
-1. ✅ Deploy XHT Token (mock for testnet)
+1. ✅ Deploy NOR Token (mock for testnet)
 2. ✅ Deploy Mock USDT Token
 3. ✅ Deploy Mock DEX Router (for TWAP oracle)
 4. ✅ Deploy PriceAuthority
 5. ✅ Deploy SupplyController
 6. ✅ Deploy SettlementHub
-7. ✅ Deploy Wrapped XHT (for spoke)
+7. ✅ Deploy Wrapped NOR (for spoke)
 8. ✅ Deploy SettlementInbox
-9. ✅ Deploy XaheenRouter
+9. ✅ Deploy NorRouter
 10. ✅ Configure roles and permissions
-11. ✅ Initialize inventory (10K XHT)
+11. ✅ Initialize inventory (10K NOR)
 12. ✅ Save deployment addresses
 
 **Time:** 5-10 minutes

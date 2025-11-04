@@ -1,12 +1,12 @@
 # 🌉 BSC Bridge Quick Deployment Guide
 
-**Goal**: Enable users to bridge BNB from BSC → Xaheen Chain → Swap to XHT
+**Goal**: Enable users to bridge BNB from BSC → Nor Chain → Swap to NOR
 
 **Why This Solves Fiat Problem:**
 - Users buy BNB on Binance (fiat on-ramp already exists!)
-- Bridge BNB to Xaheen Chain (using your bridge)
-- Swap BNB → XHT on Xaheen DEX
-- Now users have XHT for gas + trading
+- Bridge BNB to Nor Chain (using your bridge)
+- Swap BNB → NOR on Nor DEX
+- Now users have NOR for gas + trading
 
 **Cost**: $100-200 (gas fees for deployment)
 **Time**: 2-3 hours
@@ -19,7 +19,7 @@
 ### Simple Lock & Mint Bridge:
 
 ```
-BSC Mainnet                    Xaheen Chain
+BSC Mainnet                    Nor Chain
 ─────────────────────          ─────────────────────
 
 User locks BNB    ────────►    Validator detects
@@ -29,14 +29,14 @@ in bridge contract             lock event
                                mint transaction
 
                                Bridge mints WBNB
-                               on Xaheen Chain
+                               on Nor Chain
 
 User gets WBNB    ◄────────    WBNB credited
-on Xaheen Chain                to user wallet
+on Nor Chain                to user wallet
 ```
 
-**Reverse flow (Xaheen → BSC):**
-- User burns WBNB on Xaheen
+**Reverse flow (Nor → BSC):**
+- User burns WBNB on Nor
 - Validator signs release
 - User gets BNB on BSC
 
@@ -67,9 +67,9 @@ contract BNBBridgeBSC {
 }
 ```
 
-#### 2. Xaheen Side (Mint Contract)
+#### 2. Nor Side (Mint Contract)
 ```solidity
-// contracts/bridges/BNBBridgeXaheen.sol
+// contracts/bridges/BNBBridgeNor.sol
 contract WBNBToken is ERC20 {
     address public bridge;
 
@@ -139,8 +139,8 @@ async function main() {
   const bscAddress = await bridgeBSC.getAddress();
   console.log("✅ BSC Bridge:", bscAddress);
 
-  // Switch to Xaheen Chain
-  console.log("\n📍 Switching to Xaheen Chain...");
+  // Switch to Nor Chain
+  console.log("\n📍 Switching to Nor Chain...");
 
   // Deploy WBNB Token
   const WBNBToken = await ethers.getContractFactory("WBNBToken");
@@ -150,13 +150,13 @@ async function main() {
   const wbnbAddress = await wbnb.getAddress();
   console.log("✅ WBNB Token:", wbnbAddress);
 
-  // Deploy Xaheen Bridge
-  const BNBBridgeXaheen = await ethers.getContractFactory("BNBBridgeXaheen");
-  const bridgeXaheen = await BNBBridgeXaheen.deploy(wbnbAddress);
-  await bridgeXaheen.waitForDeployment();
+  // Deploy Nor Bridge
+  const BNBBridgeNor = await ethers.getContractFactory("BNBBridgeNor");
+  const bridgeNor = await BNBBridgeNor.deploy(wbnbAddress);
+  await bridgeNor.waitForDeployment();
 
-  const xaheenAddress = await bridgeXaheen.getAddress();
-  console.log("✅ Xaheen Bridge:", xaheenAddress);
+  const xaheenAddress = await bridgeNor.getAddress();
+  console.log("✅ Nor Bridge:", xaheenAddress);
 
   // Grant minting rights
   console.log("\n🔐 Setting up permissions...");
@@ -172,7 +172,7 @@ async function main() {
 
   for (const validator of validators) {
     await bridgeBSC.addValidator(validator);
-    await bridgeXaheen.addValidator(validator);
+    await bridgeNor.addValidator(validator);
     console.log("✅ Added validator:", validator);
   }
 
@@ -213,7 +213,7 @@ cat .env | grep -E "MAINNET_PRIVATE_KEY|PRIVATE_CHAIN_KEY|BSC_MAINNET_RPC"
 # 3. Deploy to BSC Mainnet
 npx hardhat run scripts/deploy-bnb-bridge.js --network bsc
 
-# 4. Deploy to Xaheen Chain
+# 4. Deploy to Nor Chain
 npx hardhat run scripts/deploy-bnb-bridge.js --network btcbr
 
 # 5. Verify on BSCScan (optional)
@@ -229,9 +229,9 @@ BSC Balance: 0.5 BNB
 📍 Deploying to BSC Mainnet...
 ✅ BSC Bridge: 0xABC...123
 
-📍 Switching to Xaheen Chain...
+📍 Switching to Nor Chain...
 ✅ WBNB Token: 0xDEF...456
-✅ Xaheen Bridge: 0xGHI...789
+✅ Nor Bridge: 0xGHI...789
 
 🔐 Setting up permissions...
 ✅ Bridge can mint WBNB
@@ -255,24 +255,24 @@ import { ethers } from "hardhat";
 async function main() {
   const ROUTER_ADDRESS = "0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916";
   const WBNB_ADDRESS = "0xDEF...456"; // From deployment
-  const WXHT_ADDRESS = "0x26c0eaF731885b14c031cc50dB79b36458E0b355";
+  const WNOR_ADDRESS = "0x26c0eaF731885b14c031cc50dB79b36458E0b355";
 
   const router = await ethers.getContractAt("IUniswapV2Router02", ROUTER_ADDRESS);
   const wbnb = await ethers.getContractAt("IERC20", WBNB_ADDRESS);
-  const wxht = await ethers.getContractAt("IERC20", WXHT_ADDRESS);
+  const wxht = await ethers.getContractAt("IERC20", WNOR_ADDRESS);
 
-  // Add liquidity: 10 WBNB + 10,000 XHT
+  // Add liquidity: 10 WBNB + 10,000 NOR
   const bnbAmount = ethers.parseEther("10");
   const xhtAmount = ethers.parseEther("10000");
 
-  console.log("Adding WBNB/XHT liquidity...");
+  console.log("Adding WBNB/NOR liquidity...");
 
   await wbnb.approve(ROUTER_ADDRESS, bnbAmount);
   await wxht.approve(ROUTER_ADDRESS, xhtAmount);
 
   await router.addLiquidity(
     WBNB_ADDRESS,
-    WXHT_ADDRESS,
+    WNOR_ADDRESS,
     bnbAmount,
     xhtAmount,
     0, // Min amounts (for testing)
@@ -281,8 +281,8 @@ async function main() {
     Math.floor(Date.now() / 1000) + 3600 // 1 hour deadline
   );
 
-  console.log("✅ WBNB/XHT pair created!");
-  console.log("Users can now swap WBNB → XHT");
+  console.log("✅ WBNB/NOR pair created!");
+  console.log("Users can now swap WBNB → NOR");
 }
 
 main();
@@ -311,13 +311,13 @@ async function monitorBridge() {
   console.log("🔍 Bridge Validator Running...\n");
 
   const providerBSC = new ethers.JsonRpcProvider(process.env.BSC_MAINNET_RPC);
-  const providerXaheen = new ethers.JsonRpcProvider(process.env.PRIVATE_CHAIN_RPC);
+  const providerNor = new ethers.JsonRpcProvider(process.env.PRIVATE_CHAIN_RPC);
 
   const signerBSC = new ethers.Wallet(process.env.VALIDATOR_PRIVATE_KEY, providerBSC);
-  const signerXaheen = new ethers.Wallet(process.env.VALIDATOR_PRIVATE_KEY, providerXaheen);
+  const signerNor = new ethers.Wallet(process.env.VALIDATOR_PRIVATE_KEY, providerNor);
 
   const bridgeBSC = await ethers.getContractAt("BNBBridgeBSC", BSC_BRIDGE, signerBSC);
-  const bridgeXaheen = await ethers.getContractAt("BNBBridgeXaheen", XAHEEN_BRIDGE, signerXaheen);
+  const bridgeNor = await ethers.getContractAt("BNBBridgeNor", XAHEEN_BRIDGE, signerNor);
 
   // Listen for deposits on BSC
   bridgeBSC.on("BridgeDeposit", async (user, amount, nonce) => {
@@ -333,23 +333,23 @@ async function monitorBridge() {
         [user, amount, nonce]
       );
 
-      const signature = await signerXaheen.signMessage(ethers.getBytes(messageHash));
+      const signature = await signerNor.signMessage(ethers.getBytes(messageHash));
 
-      // Mint WBNB on Xaheen
-      console.log("🔨 Minting WBNB on Xaheen Chain...");
-      const tx = await bridgeXaheen.mint(user, amount, nonce, signature);
+      // Mint WBNB on Nor
+      console.log("🔨 Minting WBNB on Nor Chain...");
+      const tx = await bridgeNor.mint(user, amount, nonce, signature);
       await tx.wait();
 
       console.log("✅ Bridge complete!");
-      console.log(`User ${user} received ${ethers.formatEther(amount)} WBNB on Xaheen`);
+      console.log(`User ${user} received ${ethers.formatEther(amount)} WBNB on Nor`);
     } catch (error) {
       console.error("❌ Bridge failed:", error.message);
     }
   });
 
-  // Listen for burns on Xaheen (reverse bridge)
-  bridgeXaheen.on("BridgeBurn", async (user, amount, nonce) => {
-    console.log(`\n🔥 Burn detected on Xaheen!`);
+  // Listen for burns on Nor (reverse bridge)
+  bridgeNor.on("BridgeBurn", async (user, amount, nonce) => {
+    console.log(`\n🔥 Burn detected on Nor!`);
     console.log(`User: ${user}`);
     console.log(`Amount: ${ethers.formatEther(amount)} WBNB`);
 
@@ -398,19 +398,19 @@ node scripts/bridge-validator.js
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Xaheen Bridge - BNB ↔ Xaheen</title>
+    <title>Nor Bridge - BNB ↔ Nor</title>
     <script src="https://cdn.ethers.io/lib/ethers-5.7.2.umd.min.js"></script>
 </head>
 <body>
-    <h1>🌉 Xaheen Bridge</h1>
+    <h1>🌉 Nor Bridge</h1>
 
     <div id="bridge-container">
-        <h2>Bridge BNB to Xaheen Chain</h2>
+        <h2>Bridge BNB to Nor Chain</h2>
 
         <label>Amount (BNB):</label>
         <input type="number" id="amount" placeholder="0.1" min="0.01" max="10" step="0.01">
 
-        <button onclick="bridgeToXaheen()">Bridge to Xaheen →</button>
+        <button onclick="bridgeToNor()">Bridge to Nor →</button>
 
         <div id="status"></div>
     </div>
@@ -420,7 +420,7 @@ node scripts/bridge-validator.js
         const BSC_CHAIN_ID = 56;
         const XAHEEN_CHAIN_ID = 65001;
 
-        async function bridgeToXaheen() {
+        async function bridgeToNor() {
             const amount = document.getElementById('amount').value;
 
             if (!amount || amount < 0.01) {
@@ -461,7 +461,7 @@ node scripts/bridge-validator.js
 
                 document.getElementById('status').innerHTML =
                     `✅ Success! <br>
-                     Your BNB is being bridged to Xaheen Chain.<br>
+                     Your BNB is being bridged to Nor Chain.<br>
                      You'll receive WBNB in ~30 seconds.<br>
                      <a href="https://explorer.xaheen.org/address/${await signer.getAddress()}">View on Explorer</a>`;
 
@@ -491,22 +491,22 @@ Upload to: `https://xaheen.org/bridge`
 - User withdraws BNB from Binance to MetaMask
 - User pays small network fee (~$0.50)
 
-**3. User bridges BNB to Xaheen**
+**3. User bridges BNB to Nor**
 - User goes to https://xaheen.org/bridge
 - User connects MetaMask (BSC network)
 - User enters amount (e.g., 0.5 BNB)
-- User clicks "Bridge to Xaheen"
+- User clicks "Bridge to Nor"
 - Wait 30-60 seconds for validator
 
-**4. User receives WBNB on Xaheen**
+**4. User receives WBNB on Nor**
 - Automatically credited to same wallet address
-- User switches MetaMask to Xaheen Chain
+- User switches MetaMask to Nor Chain
 - User sees WBNB balance
 
-**5. User swaps WBNB → XHT on DEX**
-- User goes to Xaheen DEX
-- User swaps WBNB for XHT
-- Now user has XHT for gas + trading!
+**5. User swaps WBNB → NOR on DEX**
+- User goes to Nor DEX
+- User swaps WBNB for NOR
+- Now user has NOR for gas + trading!
 
 **Total time: 5-10 minutes**
 **Total cost: ~$1-2 in fees**
@@ -518,11 +518,11 @@ Upload to: `https://xaheen.org/bridge`
 ### Before Going Live:
 
 - [ ] Deploy to BSC Testnet first (test with fake BNB)
-- [ ] Deploy to Xaheen Chain
-- [ ] Test bridge BSC → Xaheen with 0.01 BNB
-- [ ] Verify WBNB minted correctly on Xaheen
-- [ ] Test reverse bridge Xaheen → BSC
-- [ ] Test swap WBNB → XHT on DEX
+- [ ] Deploy to Nor Chain
+- [ ] Test bridge BSC → Nor with 0.01 BNB
+- [ ] Verify WBNB minted correctly on Nor
+- [ ] Test reverse bridge Nor → BSC
+- [ ] Test swap WBNB → NOR on DEX
 - [ ] Test with multiple users
 - [ ] Verify validator is signing correctly
 - [ ] Check all events are logged
@@ -576,7 +576,7 @@ function unpause() external onlyOwner {
 
 ### Deployment:
 - BSC gas: ~0.02 BNB (~$8)
-- Xaheen gas: ~0.001 XHT (~$0.001)
+- Nor gas: ~0.001 NOR (~$0.001)
 - **Total deployment: ~$10**
 
 ### Operational:
@@ -584,7 +584,7 @@ function unpause() external onlyOwner {
 - User pays bridge fee: 0.1% (covers validator costs)
 
 ### Liquidity:
-- Initial WBNB/XHT pool: 10 BNB + 10,000 XHT (~$400 + $10)
+- Initial WBNB/NOR pool: 10 BNB + 10,000 NOR (~$400 + $10)
 - **Total liquidity: ~$410**
 
 **Grand total to launch bridge: ~$420**
@@ -624,7 +624,7 @@ EOF
 # 2. Deploy to BSC Mainnet
 npx hardhat run scripts/deploy-bnb-bridge-quick.js --network bsc
 
-# 3. Deploy to Xaheen Chain
+# 3. Deploy to Nor Chain
 npx hardhat run scripts/deploy-bnb-bridge-quick.js --network btcbr
 
 # 4. Add WBNB liquidity to DEX
@@ -662,11 +662,11 @@ scp frontend/bridge.html user@yourserver:/var/www/html/bridge.html
 **Problem**: Bridge transaction stuck
 **Solution**: Check validator logs, manually process if needed
 
-**Problem**: WBNB not minting on Xaheen
+**Problem**: WBNB not minting on Nor
 **Solution**: Verify bridge has MINTER_ROLE on WBNB contract
 
 **Problem**: Validator not signing
-**Solution**: Check validator has BNB/XHT for gas on both chains
+**Solution**: Check validator has BNB/NOR for gas on both chains
 
 **Problem**: User can't see WBNB
 **Solution**: User needs to add WBNB token to MetaMask (provide contract address)
@@ -679,7 +679,7 @@ scp frontend/bridge.html user@yourserver:/var/www/html/bridge.html
 
 1. **Add more pairs**: USDT bridge, ETH bridge
 2. **List on bridge aggregators**: Multichain, Celer, Connext
-3. **Create tutorial videos**: "How to bridge to Xaheen"
+3. **Create tutorial videos**: "How to bridge to Nor"
 4. **Offer bridge fee discounts**: First 100 users get free bridging
 5. **Monitor and optimize**: Reduce bridge time, add features
 
@@ -689,7 +689,7 @@ scp frontend/bridge.html user@yourserver:/var/www/html/bridge.html
 
 **Pre-deployment checklist:**
 - [ ] Have 0.05 BNB on BSC for gas
-- [ ] Have XHT on Xaheen for gas
+- [ ] Have NOR on Nor for gas
 - [ ] `.env` configured with private keys
 - [ ] Hardhat networks configured
 - [ ] Validator key ready
@@ -703,4 +703,4 @@ npm run deploy:bridge
 
 **This is your fastest path to solving the fiat problem!** 🚀
 
-Users buy BNB (easy) → Bridge to Xaheen (your bridge) → Swap to XHT (your DEX) → Trade! ✅
+Users buy BNB (easy) → Bridge to Nor (your bridge) → Swap to NOR (your DEX) → Trade! ✅

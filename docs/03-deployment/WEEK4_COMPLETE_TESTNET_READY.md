@@ -34,7 +34,7 @@
 | PriceAuthority | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ READY |
 | SupplyController | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ READY |
 | SettlementHub | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ READY |
-| XaheenRouter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ READY |
+| NorRouter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ READY |
 | SettlementInbox | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ READY |
 
 **Perfect Score: 10/10 on all security dimensions** ✅
@@ -64,7 +64,7 @@
 
 ## 📝 Security Fixes Applied
 
-### 1. Reentrancy in XHTRevenue.sol - FIXED ✅
+### 1. Reentrancy in NORRevenue.sol - FIXED ✅
 **Before:**
 ```solidity
 burnContract.burnBridgeFees{value: toBurn}();  // External call
@@ -98,7 +98,7 @@ xhtToken.safeTransfer(BURN_ADDRESS, xhtToBurn);
 usdtToken.safeTransferFrom(msg.sender, address(this), amount);
 ```
 
-**Files Fixed:** XHTRevenue.sol, WeeklyBuyback.sol, XaheenDEXRouter.sol
+**Files Fixed:** NORRevenue.sol, WeeklyBuyback.sol, NorDEXRouter.sol
 
 ---
 
@@ -131,9 +131,9 @@ usdtToken.safeTransferFrom(msg.sender, address(this), amount);
 
 **Features:**
 - ✅ Deploys all hub contracts (PriceAuthority, SupplyController, SettlementHub)
-- ✅ Deploys all spoke contracts (XaheenRouter, SettlementInbox, Wrapped XHT)
+- ✅ Deploys all spoke contracts (NorRouter, SettlementInbox, Wrapped NOR)
 - ✅ Configures roles and permissions
-- ✅ Initializes inventory (10K XHT)
+- ✅ Initializes inventory (10K NOR)
 - ✅ Sets up mock tokens for testing (USDT, Mock DEX)
 - ✅ Saves deployment addresses to JSON
 
@@ -171,14 +171,14 @@ cd services/relayer
 npm start
 
 # Step 4: Execute test trades
-# Use the deployed addresses to test buy/sell XHT
+# Use the deployed addresses to test buy/sell NOR
 ```
 
 ---
 
 ## 🔄 Test Flow on Testnet
 
-### 1. Buy XHT (User → Spoke)
+### 1. Buy NOR (User → Spoke)
 ```javascript
 // Get test USDT
 await usdtToken.mint(yourAddress, 1000 * 1e6); // 1000 USDT
@@ -191,10 +191,10 @@ const quote = await priceAuthority.currentQuote();
 const signedQuote = await signQuote(quote.price, quote.timestamp, nonce, signer);
 
 // Execute buy
-await xaheenRouter.buyXHT(
+await xaheenRouter.buyNOR(
   usdtAddress,          // stablecoin
   100 * 1e6,            // 100 USDT
-  950 * 1e18,           // minXHTOut (950 XHT with 5% slippage)
+  950 * 1e18,           // minNOROut (950 NOR with 5% slippage)
   signedQuote,          // signed price quote
   deadline              // transaction deadline
 );
@@ -206,7 +206,7 @@ await xaheenRouter.buyXHT(
 event Fill(
   bytes32 fillId,
   address trader,
-  int256 xhtDelta,    // +950 XHT (buy)
+  int256 xhtDelta,    // +950 NOR (buy)
   uint256 cashDelta,  // 100 USDT
   uint256 nonce,
   uint256 timestamp
@@ -226,7 +226,7 @@ event Fill(
 await settlementHub.acknowledgeFill(receipt);
 
 // Triggers SupplyController.settleFill()
-// Updates inventory: currentInventory -= 950 XHT
+// Updates inventory: currentInventory -= 950 NOR
 // Records revenue: 100 USDT
 ```
 
@@ -289,8 +289,8 @@ await settlementHub.acknowledgeFill(receipt);
 - [ ] Monitor for any issues
 
 ### Test Scenarios to Validate
-1. ✅ Happy path buy XHT
-2. ✅ Happy path sell XHT
+1. ✅ Happy path buy NOR
+2. ✅ Happy path sell NOR
 3. ✅ Quote expiry (should reject old quotes)
 4. ✅ Inventory depletion (should route to public DEX)
 5. ✅ Circuit breaker (price deviation >3%)
@@ -385,8 +385,8 @@ Before moving to mainnet, we must achieve:
 - Initial inventory set up correctly
 
 ✅ **Trade Execution (20+ trades)**
-- Buy XHT: 10+ successful trades
-- Sell XHT: 10+ successful trades
+- Buy NOR: 10+ successful trades
+- Sell NOR: 10+ successful trades
 - Average execution time: <2 minutes
 - Success rate: >95%
 

@@ -12,11 +12,11 @@
 
 **Overall Risk Level: LOW ✅**
 
-The cross-chain DEX smart contracts have been analyzed using industry-standard automated security tools and manual review. The core DEX contracts (PriceAuthority, SupplyController, SettlementHub, XaheenRouter, SettlementInbox) show **no critical vulnerabilities**.
+The cross-chain DEX smart contracts have been analyzed using industry-standard automated security tools and manual review. The core DEX contracts (PriceAuthority, SupplyController, SettlementHub, NorRouter, SettlementInbox) show **no critical vulnerabilities**.
 
 **Findings:**
 - ✅ **0 Critical Issues** in production cross-chain DEX contracts
-- ⚠️ **2 Medium Issues** in peripheral contracts (XHTRevenue, XaheenDEXPair - not core DEX)
+- ⚠️ **2 Medium Issues** in peripheral contracts (NORRevenue, NorDEXPair - not core DEX)
 - ℹ️ **5 Low/Informational** issues in theoretical/experimental bridges
 
 **Cost Savings:** $15-25K (vs professional audit)
@@ -41,7 +41,7 @@ The cross-chain DEX smart contracts have been analyzed using industry-standard a
 - Receipt processing and settlement
 - No vulnerabilities found ✅
 
-✅ **contracts/crosschain/spokes/XaheenRouter.sol** (320 lines)
+✅ **contracts/crosschain/spokes/NorRouter.sol** (320 lines)
 - Trade execution on spokes
 - No vulnerabilities found ✅
 
@@ -57,12 +57,12 @@ The cross-chain DEX smart contracts have been analyzed using industry-standard a
 
 ### 1.2 Supporting Contracts (Not Core DEX)
 
-⚠️ **contracts/tokenomics/XHTRevenue.sol** (340 lines)
+⚠️ **contracts/tokenomics/NORRevenue.sol** (340 lines)
 - Revenue distribution contract
 - 1 medium reentrancy issue (see Section 3.1)
 - NOT part of core cross-chain trade flow
 
-⚠️ **contracts/dex/XaheenDEXPair.sol** (230 lines)
+⚠️ **contracts/dex/NorDEXPair.sol** (230 lines)
 - Uniswap V2-style LP pair
 - 1 medium reentrancy issue (see Section 3.2)
 - Used for public liquidity routing (optional)
@@ -115,9 +115,9 @@ The cross-chain DEX smart contracts have been analyzed using industry-standard a
 
 ## 3. Findings
 
-### 3.1 MEDIUM: Reentrancy in XHTRevenue.collectRevenue()
+### 3.1 MEDIUM: Reentrancy in NORRevenue.collectRevenue()
 
-**Contract:** `contracts/tokenomics/XHTRevenue.sol`
+**Contract:** `contracts/tokenomics/NORRevenue.sol`
 **Function:** `collectRevenue(string memory source)`
 **Line:** 104-140
 **Severity:** MEDIUM ⚠️
@@ -171,9 +171,9 @@ function collectRevenue(string memory source) external nonReentrant {
 
 ---
 
-### 3.2 MEDIUM: Reentrancy in XaheenDEXPair.swap()
+### 3.2 MEDIUM: Reentrancy in NorDEXPair.swap()
 
-**Contract:** `contracts/dex/XaheenDEXPair.sol`
+**Contract:** `contracts/dex/NorDEXPair.sol`
 **Function:** `swap(uint256 amount0Out, uint256 amount1Out, address to, bytes calldata data)`
 **Line:** 179-218
 **Severity:** MEDIUM ⚠️
@@ -186,7 +186,7 @@ Reserves are updated after external calls to transfer tokens and send revenue. T
 function swap(uint256 amount0Out, uint256 amount1Out, address to, bytes calldata data) external lock {
     _safeTransfer(_token0, to, amount0Out);  // External call
     _safeTransfer(_token1, to, amount1Out);  // External call
-    IXHTRevenue(revenueContract).addRevenue{value: revenueFee}();  // External call
+    INORRevenue(revenueContract).addRevenue{value: revenueFee}();  // External call
     _update(balance0, balance1, _reserve0, _reserve1);  // State update AFTER calls ⚠️
 }
 ```
@@ -208,7 +208,7 @@ function swap(uint256 amount0Out, uint256 amount1Out, address to, bytes calldata
 
     // Revenue call last
     if (revenueFee > 0) {
-        IXHTRevenue(revenueContract).addRevenue{value: revenueFee}();
+        INORRevenue(revenueContract).addRevenue{value: revenueFee}();
     }
 }
 ```
@@ -219,7 +219,7 @@ function swap(uint256 amount0Out, uint256 amount1Out, address to, bytes calldata
 
 ### 3.3 LOW: Unchecked Transfer Return Values
 
-**Contracts:** Various (GameTheoryBridge, WeeklyBuyback, XaheenDEXRouter)
+**Contracts:** Various (GameTheoryBridge, WeeklyBuyback, NorDEXRouter)
 **Severity:** LOW ℹ️
 
 **Description:**
@@ -248,9 +248,9 @@ token.safeTransfer(recipient, amount);
 
 ---
 
-### 3.4 INFORMATIONAL: Weak PRNG in XaheenDEXPair._update()
+### 3.4 INFORMATIONAL: Weak PRNG in NorDEXPair._update()
 
-**Contract:** `contracts/dex/XaheenDEXPair.sol`
+**Contract:** `contracts/dex/NorDEXPair.sol`
 **Function:** `_update()`
 **Line:** 77
 **Severity:** INFORMATIONAL ℹ️
@@ -335,7 +335,7 @@ No action needed. These contracts are NOT for production use.
 
 ### 5.2 Gas Costs (Estimated)
 
-**Hub Operations (Xaheen Chain @ 1 gwei):**
+**Hub Operations (Nor Chain @ 1 gwei):**
 | Function | Gas Used | Cost ($) |
 |----------|----------|----------|
 | acknowledgeFill() | 120,000 | $0.00012 |
@@ -345,8 +345,8 @@ No action needed. These contracts are NOT for production use.
 **Spoke Operations (BSC @ 3 gwei):**
 | Function | Gas Used | Cost ($) |
 |----------|----------|----------|
-| buyXHT() | 180,000 | $0.054 |
-| sellXHT() | 190,000 | $0.057 |
+| buyNOR() | 180,000 | $0.054 |
+| sellNOR() | 190,000 | $0.057 |
 | replenishInventory() | 100,000 | $0.03 |
 
 **Total per trade:** ~$0.10 (very efficient!)
@@ -356,7 +356,7 @@ No action needed. These contracts are NOT for production use.
 ## 6. Testing Coverage
 
 ### 6.1 Integration Tests
-✅ Happy path trade flow (buy/sell XHT)
+✅ Happy path trade flow (buy/sell NOR)
 ✅ Quote expiry protection
 ✅ Inventory cap enforcement
 ✅ Circuit breaker triggers
@@ -375,14 +375,14 @@ No action needed. These contracts are NOT for production use.
 ## 7. Recommendations Summary
 
 ### 7.1 MUST FIX (Before Mainnet)
-1. ⚠️ Fix reentrancy in XHTRevenue.collectRevenue() (apply CEI pattern)
+1. ⚠️ Fix reentrancy in NORRevenue.collectRevenue() (apply CEI pattern)
 2. ⚠️ Use SafeERC20 for all token transfers (replace unchecked transfers)
 
 **Estimated Fix Time:** 2-3 hours
 **Risk if not fixed:** Medium (potential fund loss)
 
 ### 7.2 SHOULD FIX (Before Mainnet)
-1. ℹ️ Update XaheenDEXPair.swap() to reduce false positives (optional)
+1. ℹ️ Update NorDEXPair.swap() to reduce false positives (optional)
 
 **Estimated Fix Time:** 1 hour
 **Risk if not fixed:** Low (already mitigated by `lock` modifier)
@@ -396,7 +396,7 @@ No action needed. These contracts are NOT for production use.
 ## 8. Next Steps
 
 ### 8.1 Immediate Actions
-- [ ] Implement CEI pattern in XHTRevenue.collectRevenue()
+- [ ] Implement CEI pattern in NORRevenue.collectRevenue()
 - [ ] Replace all `transfer()`/`transferFrom()` with `safeTransfer()`/`safeTransferFrom()`
 - [ ] Re-run Slither to verify fixes
 - [ ] Run Mythril on critical contracts (PriceAuthority, SettlementHub, SupplyController)
@@ -427,7 +427,7 @@ The core cross-chain DEX contracts demonstrate strong security practices:
 - ✅ Economic safeguards (caps, limits, circuit breakers)
 - ✅ Operational security (pausing, events, finality windows)
 
-The identified issues are limited to peripheral contracts (XHTRevenue, DEX pair) and can be fixed in 2-3 hours. After implementing the recommended fixes and completing testnet validation, the system is ready for mainnet deployment.
+The identified issues are limited to peripheral contracts (NORRevenue, DEX pair) and can be fixed in 2-3 hours. After implementing the recommended fixes and completing testnet validation, the system is ready for mainnet deployment.
 
 **Cost Savings:** This DIY audit using professional tools saved $15-25K compared to hiring external auditors, while maintaining the same level of security analysis.
 

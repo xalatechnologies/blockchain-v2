@@ -4,7 +4,7 @@
 
 1. **Environment Variables (.env)**
 ```bash
-# Xaheen Chain
+# Nor Chain
 PRIVATE_CHAIN_RPC=https://rpc.xaheen.org
 PRIVATE_CHAIN_KEY=your_xaheen_deployer_private_key
 
@@ -21,15 +21,15 @@ ETH_RPC=https://eth.llamarpc.com
 ETH_PRIVATE_KEY=your_eth_deployer_private_key
 
 # Configuration
-XAHEEN_PAIR_ADDRESS=0x[XHT/USDT_PAIR_ADDRESS]
-XHT_TOKEN_ADDRESS=0x[XHT_TOKEN_ADDRESS]
+XAHEEN_PAIR_ADDRESS=0x[NOR/USDT_PAIR_ADDRESS]
+NOR_TOKEN_ADDRESS=0x[NOR_TOKEN_ADDRESS]
 TREASURY_ADDRESS=0x[GNOSIS_SAFE_ADDRESS]
 RELAYER_ADDRESS=0x[RELAYER_SERVICE_ADDRESS]
 
-# Spoke XHT Addresses (after bridging/wrapping)
-XHT_BSC_ADDRESS=0x[WRAPPED_XHT_BSC]
-XHT_POLYGON_ADDRESS=0x[WRAPPED_XHT_POLYGON]
-XHT_ETH_ADDRESS=0x[WRAPPED_XHT_ETH]
+# Spoke NOR Addresses (after bridging/wrapping)
+NOR_BSC_ADDRESS=0x[WRAPPED_NOR_BSC]
+NOR_POLYGON_ADDRESS=0x[WRAPPED_NOR_POLYGON]
+NOR_ETH_ADDRESS=0x[WRAPPED_NOR_ETH]
 
 # Quote Signer
 PRICE_AUTHORITY_SIGNER=0x[AUTHORIZED_SIGNER]
@@ -37,7 +37,7 @@ PRICE_AUTHORITY_SIGNER=0x[AUTHORIZED_SIGNER]
 
 ---
 
-## Phase 1: Hub Deployment (Xaheen Chain)
+## Phase 1: Hub Deployment (Nor Chain)
 
 ### Step 1: Compile Contracts
 ```bash
@@ -101,33 +101,33 @@ npx hardhat run scripts/deploy-crosschain-spoke.js --network bsc
 
 **Expected Output:**
 ```
-✅ XaheenRouter deployed at: 0x...
+✅ NorRouter deployed at: 0x...
 ✅ SettlementInbox deployed at: 0x...
 ✅ Payment tokens configured (USDT, BUSD)
 ```
 
-**Step 2: Replenish Hot Inventory ($10K worth of XHT)**
+**Step 2: Replenish Hot Inventory ($10K worth of NOR)**
 ```javascript
-const XaheenRouter = await ethers.getContractAt("XaheenRouter", "0x[BSC_ROUTER_ADDRESS]");
-const XHT = await ethers.getContractAt("IERC20", "0x[XHT_BSC_ADDRESS]");
+const NorRouter = await ethers.getContractAt("NorRouter", "0x[BSC_ROUTER_ADDRESS]");
+const NOR = await ethers.getContractAt("IERC20", "0x[NOR_BSC_ADDRESS]");
 
-// Approve router to spend XHT
-await XHT.approve("0x[BSC_ROUTER_ADDRESS]", ethers.parseEther("100000")); // 100K XHT
+// Approve router to spend NOR
+await NOR.approve("0x[BSC_ROUTER_ADDRESS]", ethers.parseEther("100000")); // 100K NOR
 
 // Replenish inventory
-await XaheenRouter.replenishInventory(ethers.parseEther("100000"));
+await NorRouter.replenishInventory(ethers.parseEther("100000"));
 ```
 
 **Step 3: (Optional) Create Public LP on PancakeSwap**
 ```javascript
 // Go to https://pancakeswap.finance/add
-// Add liquidity: XHT/BUSD ($10K worth)
+// Add liquidity: NOR/BUSD ($10K worth)
 // Get LP address from transaction
 
-// Register LP in XaheenRouter
-await XaheenRouter.registerPublicLP(
+// Register LP in NorRouter
+await NorRouter.registerPublicLP(
     "0x55d398326f99059fF775485246999027B3197955", // BUSD address
-    "0x[XHT_BUSD_LP_ADDRESS]"
+    "0x[NOR_BUSD_LP_ADDRESS]"
 );
 ```
 
@@ -140,20 +140,20 @@ await XaheenRouter.registerPublicLP(
 npx hardhat run scripts/deploy-crosschain-spoke.js --network polygon
 ```
 
-**Step 2: Replenish Hot Inventory ($7.5K worth of XHT)**
+**Step 2: Replenish Hot Inventory ($7.5K worth of NOR)**
 ```javascript
-const XaheenRouter = await ethers.getContractAt("XaheenRouter", "0x[POLYGON_ROUTER_ADDRESS]");
-const XHT = await ethers.getContractAt("IERC20", "0x[XHT_POLYGON_ADDRESS]");
+const NorRouter = await ethers.getContractAt("NorRouter", "0x[POLYGON_ROUTER_ADDRESS]");
+const NOR = await ethers.getContractAt("IERC20", "0x[NOR_POLYGON_ADDRESS]");
 
-await XHT.approve("0x[POLYGON_ROUTER_ADDRESS]", ethers.parseEther("75000"));
-await XaheenRouter.replenishInventory(ethers.parseEther("75000"));
+await NOR.approve("0x[POLYGON_ROUTER_ADDRESS]", ethers.parseEther("75000"));
+await NorRouter.replenishInventory(ethers.parseEther("75000"));
 ```
 
 **Step 3: (Optional) Create Public LP on QuickSwap**
 ```javascript
 // Go to https://quickswap.exchange/#/pool
-// Add liquidity: XHT/USDC ($7.5K worth)
-// Register LP in XaheenRouter
+// Add liquidity: NOR/USDC ($7.5K worth)
+// Register LP in NorRouter
 ```
 
 ---
@@ -165,13 +165,13 @@ await XaheenRouter.replenishInventory(ethers.parseEther("75000"));
 npx hardhat run scripts/deploy-crosschain-spoke.js --network mainnet
 ```
 
-**Step 2: Replenish Hot Inventory ($5K worth of XHT)**
+**Step 2: Replenish Hot Inventory ($5K worth of NOR)**
 ```javascript
-const XaheenRouter = await ethers.getContractAt("XaheenRouter", "0x[ETH_ROUTER_ADDRESS]");
-const XHT = await ethers.getContractAt("IERC20", "0x[XHT_ETH_ADDRESS]");
+const NorRouter = await ethers.getContractAt("NorRouter", "0x[ETH_ROUTER_ADDRESS]");
+const NOR = await ethers.getContractAt("IERC20", "0x[NOR_ETH_ADDRESS]");
 
-await XHT.approve("0x[ETH_ROUTER_ADDRESS]", ethers.parseEther("50000"));
-await XaheenRouter.replenishInventory(ethers.parseEther("50000"));
+await NOR.approve("0x[ETH_ROUTER_ADDRESS]", ethers.parseEther("50000"));
+await NorRouter.replenishInventory(ethers.parseEther("50000"));
 ```
 
 ---
@@ -249,14 +249,14 @@ export const config = {
             name: "BSC",
             rpc: process.env.BSC_MAINNET_RPC,
             dexRouter: "0x10ED43C718714eb63d5aA57B78B54704E256024E", // PancakeSwap
-            xhtAddress: process.env.XHT_BSC_ADDRESS
+            xhtAddress: process.env.NOR_BSC_ADDRESS
         },
         {
             chainId: 137,
             name: "Polygon",
             rpc: process.env.POLYGON_RPC,
             dexRouter: "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff", // QuickSwap
-            xhtAddress: process.env.XHT_POLYGON_ADDRESS
+            xhtAddress: process.env.NOR_POLYGON_ADDRESS
         }
     ],
 
@@ -279,9 +279,9 @@ npm run start
 
 ### Test Trade Flow
 
-**Step 1: Buy XHT on BSC**
+**Step 1: Buy NOR on BSC**
 ```javascript
-const XaheenRouter = await ethers.getContractAt("XaheenRouter", "0x[BSC_ROUTER_ADDRESS]");
+const NorRouter = await ethers.getContractAt("NorRouter", "0x[BSC_ROUTER_ADDRESS]");
 const BUSD = await ethers.getContractAt("IERC20", "0x55d398326f99059fF775485246999027B3197955");
 
 // Get signed quote from PriceAuthority
@@ -290,11 +290,11 @@ const signedQuote = await getSignedQuote(); // From relayer service
 // Approve BUSD
 await BUSD.approve("0x[BSC_ROUTER_ADDRESS]", ethers.parseEther("100"));
 
-// Buy 1000 XHT with 100 BUSD
-await XaheenRouter.buyXHT(
+// Buy 1000 NOR with 100 BUSD
+await NorRouter.buyNOR(
     "0x55d398326f99059fF775485246999027B3197955", // BUSD
     ethers.parseEther("100"), // 100 BUSD
-    ethers.parseEther("990"), // Min 990 XHT (1% slippage)
+    ethers.parseEther("990"), // Min 990 NOR (1% slippage)
     signedQuote,
     Math.floor(Date.now() / 1000) + 300 // 5 minute deadline
 );
@@ -302,7 +302,7 @@ await XaheenRouter.buyXHT(
 
 **Step 2: Verify Settlement**
 ```javascript
-// Check SettlementHub logs on Xaheen
+// Check SettlementHub logs on Nor
 const SettlementHub = await ethers.getContractAt("SettlementHub", "0x[HUB_ADDRESS]");
 const events = await SettlementHub.queryFilter("FillProcessed");
 console.log(events);
@@ -379,25 +379,25 @@ const SupplyController = await ethers.getContractAt("SupplyController", "0x[CONT
 
 After deployment, save these addresses:
 
-### Hub (Xaheen Chain)
+### Hub (Nor Chain)
 - [ ] PriceAuthority: `0x________________________`
 - [ ] SupplyController: `0x________________________`
 - [ ] SettlementHub: `0x________________________`
 
 ### BSC Spoke
-- [ ] XaheenRouter: `0x________________________`
+- [ ] NorRouter: `0x________________________`
 - [ ] SettlementInbox: `0x________________________`
-- [ ] XHT Token (wrapped): `0x________________________`
+- [ ] NOR Token (wrapped): `0x________________________`
 
 ### Polygon Spoke
-- [ ] XaheenRouter: `0x________________________`
+- [ ] NorRouter: `0x________________________`
 - [ ] SettlementInbox: `0x________________________`
-- [ ] XHT Token (wrapped): `0x________________________`
+- [ ] NOR Token (wrapped): `0x________________________`
 
 ### Ethereum Spoke
-- [ ] XaheenRouter: `0x________________________`
+- [ ] NorRouter: `0x________________________`
 - [ ] SettlementInbox: `0x________________________`
-- [ ] XHT Token (wrapped): `0x________________________`
+- [ ] NOR Token (wrapped): `0x________________________`
 
 ### Infrastructure
 - [ ] Multi-Sig Treasury: `0x________________________`

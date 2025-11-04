@@ -4,7 +4,7 @@
   "statistics": {
     "totalBuybacks": 0,
     "totalUSDTSpent": "0.0 USDT",
-    "totalXHTBurned": "0.0 XHT",
+    "totalNORBurned": "0.0 NOR",
     "supplyReductionPercent": "0.0000%"
   },
   "status": {
@@ -15,7 +15,7 @@
   "projections": {
     "weeklyBuybackUSDT": "$2000",
     "yearlyTotalUSDT": "$104,000",
-    "yearlyBurnedXHT": "21,666,666,667 XHT",
+    "yearlyBurnedNOR": "21,666,666,667 NOR",
     "yearlySupplyReduction": "10.32%"
   }
 }

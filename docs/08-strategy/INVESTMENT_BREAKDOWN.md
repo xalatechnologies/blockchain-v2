@@ -10,10 +10,10 @@
 
 ## ✅ What You Already Have (FREE!)
 
-### Xaheen Chain Infrastructure:
+### Nor Chain Infrastructure:
 - ✅ **Blockchain running** - $0 (your chain, your servers)
-- ✅ **20 billion XHT in treasury** - $0 (you minted this!)
-- ✅ **600M WXHT liquidity** - $0 (wrapped from your XHT!)
+- ✅ **20 billion NOR in treasury** - $0 (you minted this!)
+- ✅ **600M WNOR liquidity** - $0 (wrapped from your NOR!)
 - ✅ **DEX deployed** - $0 (already done!)
 - ✅ **Smart contracts** - $0 (already deployed!)
 
@@ -31,7 +31,7 @@ Cost: $0
 
 Strategy:
 - Focus ONLY on fiat on-ramp
-- All sales happen on Xaheen Chain
+- All sales happen on Nor Chain
 - No need for BSC at all initially
 - Add BSC later when you have revenue
 
@@ -45,7 +45,7 @@ Cost: $5,100
 Breakdown:
 ├─ Bridge deployment gas (BSC): $100 (0.1 BNB)
 ├─ PancakeSwap liquidity: $5,000 USDT
-│   └─ 10M XHT + $5,000 USDT
+│   └─ 10M NOR + $5,000 USDT
 │   └─ Creates small arbitrage market
 └─ Total: $5,100 real money
 
@@ -117,18 +117,18 @@ Total: $2,000 typical
 ```
 What You Do:
 ✅ Fiat on-ramp only (no BSC)
-✅ All liquidity on Xaheen (you already have it!)
+✅ All liquidity on Nor (you already have it!)
 ✅ Minimal marketing ($1,000)
 
 Investment Breakdown:
-├─ Xaheen liquidity: $0 (use your XHT!)
+├─ Nor liquidity: $0 (use your NOR!)
 ├─ BSC: $0 (skip it!)
 ├─ MoonPay: $0 (free signup)
 └─ Marketing: $1,000
 
 How It Works:
-1. Users buy XHT with fiat on YOUR website
-2. MoonPay swaps USDT → XHT on YOUR Xaheen DEX
+1. Users buy NOR with fiat on YOUR website
+2. MoonPay swaps USDT → NOR on YOUR Nor DEX
 3. You earn fees + treasury appreciates
 4. NO BSC needed at all!
 
@@ -137,7 +137,7 @@ ROI: 5x - 10x 🚀
 ```
 
 **Why This Works:**
-- You control the ONLY market (Xaheen)
+- You control the ONLY market (Nor)
 - No price competition from BSC
 - You set the price
 - Maximum control!
@@ -155,7 +155,7 @@ What You Do:
 ✅ Better content production
 
 Investment Breakdown:
-├─ Xaheen liquidity: $0 (use your XHT!)
+├─ Nor liquidity: $0 (use your NOR!)
 ├─ BSC: $0 (still skip it!)
 ├─ MoonPay: $0 (free)
 └─ Marketing: $5,000
@@ -181,9 +181,9 @@ What You Do:
 ✅ Full marketing campaign
 
 Investment Breakdown:
-├─ Xaheen liquidity: $0 (already have it!)
+├─ Nor liquidity: $0 (already have it!)
 ├─ BSC bridge: $100 (gas fees)
-├─ BSC liquidity: $5,000 (10M XHT + $5K USDT)
+├─ BSC liquidity: $5,000 (10M NOR + $5K USDT)
 ├─ MoonPay: $0 (free)
 └─ Marketing: $5,000
 
@@ -240,9 +240,9 @@ Use profits to fund BSC expansion!
 ```
 User Flow:
 1. User goes to YOUR website
-2. Buys XHT with fiat via MoonPay
-3. MoonPay swaps on YOUR Xaheen DEX
-4. User gets XHT
+2. Buys NOR with fiat via MoonPay
+3. MoonPay swaps on YOUR Nor DEX
+4. User gets NOR
 5. YOU earned fees + treasury appreciates
 
 All value flows to YOU! 💰
@@ -410,9 +410,9 @@ Focus: Domination! 🚀
 
 ### ❌ DON'T Spend Money On:
 
-**1. More Xaheen Liquidity**
+**1. More Nor Liquidity**
 ```
-You already have 600M WXHT!
+You already have 600M WNOR!
 That's plenty for Month 1-3!
 
 Don't add more until you see actual demand!
@@ -484,7 +484,7 @@ This is how YOU will succeed! 🚀
 **Breakdown:**
 ```
 $0    - Fiat on-ramp setup (free)
-$0    - Xaheen liquidity (you own it!)
+$0    - Nor liquidity (you own it!)
 $0    - Smart contracts (deployed!)
 $1,000 - Marketing
 
@@ -507,7 +507,7 @@ Total: $1,000
 4. **Get first 100 customers** ✅
 5. **Reinvest profits in BSC** ✅
 
-**You already have everything you need on Xaheen Chain!** 🎉
+**You already have everything you need on Nor Chain!** 🎉
 
 **BSC is a nice-to-have, not a must-have!** 💡
 

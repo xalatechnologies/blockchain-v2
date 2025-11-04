@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Noor Chain** (نور - "Light") is a next-generation Layer-1 blockchain engineered to illuminate the future of compliant finance with decentralized innovation. It merges a **regulated foundation**—aligned with NSM, ISO 27001, GDPR, and AAOIFI—with the openness and liquidity of public markets.
+**Nor Chain** (نور - "Light") is a next-generation Layer-1 blockchain engineered to illuminate the future of compliant finance with decentralized innovation. It merges a **regulated foundation**—aligned with NSM, ISO 27001, GDPR, and AAOIFI—with the openness and liquidity of public markets.
 
 **Mission**: To empower the future of blockchain technology with light, trust, and inclusive innovation—enabling ethical, transparent financial systems across emerging economies through compliant, decentralized infrastructure.
 
@@ -12,11 +12,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Core Technical Specs
 
-- **Chain Name**: Noor Chain
-- **Domain**: noorchain.org (migrating from xaheen.org)
+- **Chain Name**: Nor Chain
+- **Domain**: norchain.org (migrating from xaheen.org)
 - **Chain ID**: 65001 (0xFDE9) - **UNCHANGED**
 - **Network ID**: 65001
-- **Native Token**: NOR (Noor Token)
+- **Native Token**: NOR (Nor Token)
   - **Supply**: 21 billion (24 decimals)
   - **Use Cases**: Gas, staking, liquidity, governance, fund subscriptions
 - **Block Time**: 3 seconds (Parlia PoSA consensus)
@@ -25,7 +25,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Validators**: 3 active + 2 standby
 - **Finality**: < 30 seconds
 - **BTCBR Contract**: 0x0cF8e180350253271f4b917CcFb0aCCc4862F262 (bridged token from BSC mainnet)
-- **RPC Endpoint**: https://rpc.noorchain.org (currently https://rpc.xaheen.org during migration)
+- **RPC Endpoint**: https://rpc.norchain.org (currently https://rpc.xaheen.org during migration)
 - **JSON-RPC Port**: 8545
 - **WebSocket Port**: 8546
 - **P2P Port**: 30303
@@ -40,20 +40,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Ecosystem Components
 
-Noor Chain is the anchor of a complete financial and technological ecosystem:
+Nor Chain is the anchor of a complete financial and technological ecosystem:
 
 | Component | Purpose | Status |
 |-----------|---------|--------|
-| **Noor Chain (L1)** | Core blockchain running PoSA consensus with 3s blocks and 9M-block epochs | ✅ Production |
+| **Nor Chain (L1)** | Core blockchain running PoSA consensus with 3s blocks and 9M-block epochs | ✅ Production |
 | **Dirhamat** | AED/Gold-backed Shariah-compliant stable-asset | 🔄 Development |
 | **Digital KES** | Stable digital Kenyan Shilling aligned with CBK sandbox | 🔄 Development |
 | **NordCoin** | Nordic-compliant currency focused on ESG reporting and EU MiCA | 🔄 Development |
-| **Noor Wallet** | Chrome Extension + Mobile wallet for cross-chain assets | 🔄 Development |
-| **NoorSwap (DEX)** | Native decentralized exchange with hybrid liquidity routing | ✅ Deployed |
-| **Noor Bridge** | Cross-chain vault and router system (BSC, Polygon, Ethereum) | ✅ Deployed |
-| **Noor Funds** | On-chain halal mutual and retirement funds | 🔄 Development |
+| **Nor Wallet** | Chrome Extension + Mobile wallet for cross-chain assets | 🔄 Development |
+| **NorSwap (DEX)** | Native decentralized exchange with hybrid liquidity routing | ✅ Deployed |
+| **Nor Bridge** | Cross-chain vault and router system (BSC, Polygon, Ethereum) | ✅ Deployed |
+| **Nor Funds** | On-chain halal mutual and retirement funds | 🔄 Development |
 | **Compliance Core (XCC)** | Smart-contract framework for AML/KYC/GDPR/AAOIFI rules | 🔄 Development |
-| **Noor AI Agents** | Autonomous agents handling liquidity, compliance, and governance | 🔄 Development |
+| **Nor AI Agents** | Autonomous agents handling liquidity, compliance, and governance | 🔄 Development |
 
 ## Architecture Overview
 
@@ -89,7 +89,7 @@ npx hardhat compile
 # Deploy bridge to BSC mainnet
 npx hardhat run scripts/hardhat-deploy-mainnet.js --network bsc
 
-# Deploy bridge to private Noor Chain
+# Deploy bridge to private Nor Chain
 npx hardhat run scripts/hardhat-deploy-private.js --network btcbr
 
 # Deploy to BSC testnet (for testing)
@@ -121,7 +121,7 @@ node scripts/deploy-bridge-day2.js
 # Check RPC endpoint health
 ./scripts/check-rpc.sh
 
-# Connect to existing Noor Chain network
+# Connect to existing Nor Chain network
 ./scripts/connect-to-network.sh
 
 # Initialize BSC node
@@ -181,7 +181,7 @@ ansible-playbook playbooks/deploy-bsc.yml
 ./scripts/fix-ssh-access.sh
 
 # Apply documented working configuration (RECOMMENDED)
-./scripts/noor-apply-documented-fix.sh
+./scripts/nor-apply-documented-fix.sh
 ```
 
 ### Working Validator Configuration (Nov 2, 2025)
@@ -303,15 +303,15 @@ node scripts/atomic-swap-helper.js
 **REQUIRED** environment variables:
 - `MAIN_WALLET_PRIVATE_KEY` - Main wallet private key for deployments
 - `MAINNET_PRIVATE_KEY` - BSC mainnet deployer key (for bridge deployment)
-- `PRIVATE_CHAIN_KEY` - Noor Chain deployer key
+- `PRIVATE_CHAIN_KEY` - Nor Chain deployer key
 - `BSC_MAINNET_RPC` - BSC mainnet RPC URL
-- `PRIVATE_CHAIN_RPC` - Noor Chain RPC URL (https://rpc.noorchain.org, currently https://rpc.xaheen.org)
+- `PRIVATE_CHAIN_RPC` - Nor Chain RPC URL (https://rpc.norchain.org, currently https://rpc.xaheen.org)
 - `BSCSCAN_API_KEY` - For contract verification (optional)
 
 **Network Configuration:**
 - `VALIDATOR_ADDRESS` - Primary validator address
-- `CHAIN_ID=65001` - Noor Chain ID
-- `NETWORK_ID=65001` - Noor Chain network ID
+- `CHAIN_ID=65001` - Nor Chain ID
+- `NETWORK_ID=65001` - Nor Chain network ID
 - `BTCBR_ADDR=0x0cF8e180350253271f4b917CcFb0aCCc4862F262`
 
 ### Hardhat Configuration (hardhat.config.js)
@@ -319,7 +319,7 @@ node scripts/atomic-swap-helper.js
 Networks configured:
 - `bsc` - BSC Mainnet (chainId: 56, gasPrice: 3 gwei)
 - `bscTestnet` - BSC Testnet (chainId: 97, gasPrice: 10 gwei)
-- `btcbr` - Noor Chain (chainId: 65001, gasPrice: 1 gwei)
+- `btcbr` - Nor Chain (chainId: 65001, gasPrice: 1 gwei)
 - `localhost` - Local development (chainId: 65001)
 
 Solidity version: **0.8.20** with optimizer enabled (200 runs)
@@ -377,13 +377,13 @@ Validators verify cross-chain transfers and co-sign transactions.
 
 ## Genesis Configuration
 
-### Noor Chain Ultimate Genesis (Nov 3, 2025)
+### Nor Chain Ultimate Genesis (Nov 3, 2025)
 
 **Status**: ✅ **PRODUCTION READY** - Complete genesis with all contracts and sorted validators
 
 The ultimate genesis includes:
 - ✅ **Correctly sorted validators** (prevents ALL epoch issues forever)
-- ✅ **NOR Token** (NOT XHT!) with reserved address
+- ✅ **NOR Token** (NOT NOR!) with reserved address
 - ✅ **Sequential contract addresses** (F262-F269)
 - ✅ **Pre-funded accounts** (100M NOR each for gas)
 - ✅ **BTCBR integration** (existing bridge contract)
@@ -393,7 +393,7 @@ The ultimate genesis includes:
 
 | File | Purpose | Status |
 |------|---------|--------|
-| **`data/genesis-noor-ultimate.json`** | Production ultimate genesis with all contracts | ✅ Ready |
+| **`data/genesis-nor-ultimate.json`** | Production ultimate genesis with all contracts | ✅ Ready |
 | **`data/genesis-clean.json`** | Simple genesis with sorted validators only | ✅ Working |
 | `data/genesis-production-ultimate.json` | Old version (has placeholder bytecode) | ⚠️ Deprecated |
 
@@ -401,10 +401,10 @@ The ultimate genesis includes:
 
 ```bash
 # Generate new ultimate genesis
-node scripts/generate-noor-ultimate-genesis.js
+node scripts/generate-nor-ultimate-genesis.js
 
 # Verify genesis created
-cat data/genesis-noor-ultimate.json | jq '.config.chainId, .config.parlia.epoch'
+cat data/genesis-nor-ultimate.json | jq '.config.chainId, .config.parlia.epoch'
 ```
 
 #### Reserved Contract Addresses (Sequential)
@@ -429,7 +429,7 @@ WNOR:             0x0cf8e180350253271f4b917ccfb0accc4862f269  // +7
 
 ```bash
 # 1. Upload genesis to production server
-scp -i ~/.ssh/bsc-validator-key.pem data/genesis-noor-ultimate.json ec2-user@3.91.50.187:/home/ec2-user/
+scp -i ~/.ssh/bsc-validator-key.pem data/genesis-nor-ultimate.json ec2-user@3.91.50.187:/home/ec2-user/
 
 # 2. Backup current chain data
 ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@3.91.50.187 \
@@ -442,9 +442,9 @@ docker rm xaheen-rpc bsc-validator-2 bsc-validator-3
 rm -rf validator-*/geth
 
 # Reinit with new genesis
-docker run --rm -v $(pwd)/validator-1:/bsc -v $(pwd)/genesis-noor-ultimate.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
-docker run --rm -v $(pwd)/validator-2:/bsc -v $(pwd)/genesis-noor-ultimate.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
-docker run --rm -v $(pwd)/validator-3:/bsc -v $(pwd)/genesis-noor-ultimate.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
+docker run --rm -v $(pwd)/validator-1:/bsc -v $(pwd)/genesis-nor-ultimate.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
+docker run --rm -v $(pwd)/validator-2:/bsc -v $(pwd)/genesis-nor-ultimate.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
+docker run --rm -v $(pwd)/validator-3:/bsc -v $(pwd)/genesis-nor-ultimate.json:/genesis.json dysnix/bsc init --datadir /bsc /genesis.json
 EOF
 
 # 4. Start validators with verified configuration
@@ -677,13 +677,13 @@ Located in `infrastructure/ansible/`:
 
 ## Governance Framework
 
-Noor Chain balances **institutional accountability** with **community participation**.
+Nor Chain balances **institutional accountability** with **community participation**.
 
 ### Governance Layers
 
 | Layer | Participants | Decision Scope |
 |-------|--------------|----------------|
-| **Council DAO** | 5 signers (UAE, Kenya, Nordic institutions, Noor Chain Foundation) | Protocol changes, validator on/offboarding, treasury |
+| **Council DAO** | 5 signers (UAE, Kenya, Nordic institutions, Nor Chain Foundation) | Protocol changes, validator on/offboarding, treasury |
 | **Validator DAO** | All active validators + delegators | Consensus params, epoch policy |
 | **Community DAO** | Token holders (staked NOR ≥ 10,000) | Grant funding, feature votes |
 | **AI Advisory Layer** | Autonomous agents with read-only rights | Forecast models, risk alerts |
@@ -698,7 +698,7 @@ Noor Chain balances **institutional accountability** with **community participat
 
 ### Compliance Core (XCC)
 
-The Noor Chain Compliance Core is a modular smart-contract framework providing:
+The Nor Chain Compliance Core is a modular smart-contract framework providing:
 
 1. **KYC Registry**: Off-chain verification hash anchored on-chain
 2. **AML Monitoring**: Integrates with Chainalysis/Elliptic feeds
@@ -708,7 +708,7 @@ The Noor Chain Compliance Core is a modular smart-contract framework providing:
 
 ### Regulatory Standards
 
-| Framework | Coverage | Xaheen Implementation |
+| Framework | Coverage | Nor Implementation |
 |-----------|----------|----------------------|
 | **UAE VARA/ADGM** | VASP licensing & stablecoin oversight | Dirhamat issuer licensed; audit proofs on-chain |
 | **Kenya CBK/CMA** | Digital KES VASP + fund licensing | Sandbox pilot registered; AML module integrated |
@@ -740,14 +740,14 @@ AI agents operate as micro-services with read-only RPC access and on-chain repor
 
 ## Halal Financial Products
 
-Noor Funds enables creation and management of **Shariah-compliant investment vehicles**, positioning Noor Chain as the **financial backbone** for:
+Nor Funds enables creation and management of **Shariah-compliant investment vehicles**, positioning Nor Chain as the **financial backbone** for:
 - **UAE & GCC Islamic banks** seeking Shariah-compliant tokenization
 - **Fintechs** needing ready-made halal-compliant infrastructure
 - **Real-estate developers** issuing tokenized ijārah or sukuk
 - **Zakat & Charity organizations** tracking transparent distribution
 - **Global investors** seeking ethical ESG-aligned returns
 
-> "Noor Chain connects capital with conscience — illuminating finance with purpose and turning investment into impact."
+> "Nor Chain connects capital with conscience — illuminating finance with purpose and turning investment into impact."
 
 ### Fund Types
 
@@ -768,15 +768,15 @@ Noor Funds enables creation and management of **Shariah-compliant investment veh
 
 **Step 2 – Fund Deployment**: Each partner receives a **Fund Router** smart contract with branding & fee configuration
 
-**Step 3 – Investor Access**: Noor Wallet & APIs expose subscription, NAV, and redemption flows
+**Step 3 – Investor Access**: Nor Wallet & APIs expose subscription, NAV, and redemption flows
 
 **Step 4 – Reporting & Governance**: Daily NAV + fatwa hashes published on-chain → regulator & auditor dashboards
 
 ### Industry-Specific Value Propositions
 
-| Industry | Challenge | Noor Chain Solution |
+| Industry | Challenge | Nor Chain Solution |
 |-----------|------------|----------------|
-| **Banks** | Legacy core systems, lack of blockchain integration | Plug-and-play tokenization via Noor Chain API |
+| **Banks** | Legacy core systems, lack of blockchain integration | Plug-and-play tokenization via Nor Chain API |
 | **Real Estate** | Liquidity lock-in & fractional ownership barriers | On-chain Ijārah tokens + DEX liquidity |
 | **Fintechs** | Compliance burden & slow licensing | Built-in AAOIFI & GDPR modules |
 | **Charities** | Opaque fund flows & trust deficit | Transparent zakat & waqf tracking |
@@ -793,7 +793,7 @@ Noor Funds enables creation and management of **Shariah-compliant investment veh
 
 ### Ideal Partnership Profile
 
-Noor Chain seeks partnerships with:
+Nor Chain seeks partnerships with:
 - Central banks & regulators
 - Islamic financial institutions (banks, takaful companies)
 - Fintech and payment companies
@@ -801,14 +801,14 @@ Noor Chain seeks partnerships with:
 - Zakat and charity foundations
 - ESG and impact investment funds
 
-**Why Partner with Noor Chain:**
+**Why Partner with Nor Chain:**
 - Shariah compliance & regulatory readiness out-of-the-box
 - Rapid market entry with minimal technical overhead
 - Global liquidity and transparent fund governance
 - Demonstrable social impact and ESG alignment
 - Illuminating finance with transparency, trust, and ethical innovation
 
-**Contact**: partners@noorchain.org | Website: noorchain.org | Locations: Dubai | Oslo | Oman
+**Contact**: partners@norchain.org | Website: norchain.org | Locations: Dubai | Oslo | Oman
 
 ### FundUnit Token Standard
 
@@ -878,7 +878,7 @@ Every investor position is represented by a **`FundUnit`** ERC-20-compatible tok
 ## Documentation & Playbook
 
 For comprehensive vision, strategy, and technical details, see:
-- **`docs/09-playbook/`** - Complete Noor Chain Playbook v3 (5 parts)
+- **`docs/09-playbook/`** - Complete Nor Chain Playbook v3 (5 parts)
   - Part 1: Vision, Ecosystem & Philosophy
   - Part 2: Technical Foundations (Consensus → Cross-Chain DEX)
   - Part 3: Financial Products & Halal Funds

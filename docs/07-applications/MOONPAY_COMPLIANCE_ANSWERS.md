@@ -1,6 +1,6 @@
 # 🔐 MoonPay Compliance Questions - Correct Answers
 
-## ✅ Your Answers for Xaheen Chain
+## ✅ Your Answers for Nor Chain
 
 ### Question 1: Do you plan to collect affiliate fees?
 ```
@@ -53,7 +53,7 @@ Explanation:
 Answer: No
 
 Explanation:
-- XHT is a utility token (not a security)
+- NOR is a utility token (not a security)
 - No derivatives trading
 - No futures contracts
 - No leveraged products
@@ -61,7 +61,7 @@ Explanation:
 ```
 
 **Why "No":**
-- Only utility token (XHT) trading
+- Only utility token (NOR) trading
 - Not offering securities
 - Not offering derivatives
 - Not offering futures
@@ -104,13 +104,13 @@ Explanation:
 
 **Your Business Model:**
 ```
-Xaheen Chain provides decentralized blockchain infrastructure:
+Nor Chain provides decentralized blockchain infrastructure:
 
 ✅ Non-custodial decentralized exchange (DEX)
 ✅ Users maintain control of private keys
 ✅ Smart contracts execute trades automatically
 ✅ MoonPay integration for fiat on-ramp (they handle fiat, KYC, custody)
-✅ Utility token (XHT) for network operations
+✅ Utility token (NOR) for network operations
 
 ❌ NOT a broker or custodian
 ❌ NOT moving funds on behalf of customers
@@ -159,7 +159,7 @@ Users provide:
 
 **Your explanation:**
 ```
-"Xaheen Chain is a decentralized blockchain protocol with an integrated
+"Nor Chain is a decentralized blockchain protocol with an integrated
 DEX (decentralized exchange). We provide the infrastructure (smart contracts
 and blockchain), but users maintain full control of their funds through
 self-custody wallets like MetaMask.
@@ -170,7 +170,7 @@ handles:
 - KYC/AML compliance
 - Fiat to crypto conversion
 
-Once MoonPay completes the conversion to USDT, it swaps the USDT for XHT
+Once MoonPay completes the conversion to USDT, it swaps the USDT for NOR
 on our DEX through the user's wallet. At no point do we have custody of
 user funds - all transactions are executed via smart contracts that users
 interact with directly.
@@ -203,13 +203,13 @@ Revenue from network fees (paid by smart contracts, not users directly).
 ### How MoonPay Integration Works
 ```
 1. User visits our website
-2. User clicks "Buy XHT with card"
+2. User clicks "Buy NOR with card"
 3. MoonPay widget opens (their service)
 4. User completes KYC with MoonPay (if first time)
 5. User pays with card/bank to MoonPay
 6. MoonPay converts fiat → USDT
-7. MoonPay executes swap USDT → XHT on our DEX (via smart contract)
-8. XHT delivered to user's self-custody wallet
+7. MoonPay executes swap USDT → NOR on our DEX (via smart contract)
+8. NOR delivered to user's self-custody wallet
 
 We never touch the fiat or have custody of crypto.
 ```

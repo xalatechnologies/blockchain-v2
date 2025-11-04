@@ -1,4 +1,4 @@
-# Epoch Strategy - Xaheen Chain
+# Epoch Strategy - Nor Chain
 
 **Date**: November 2, 2025
 **Status**: Fresh Start - Clean Genesis Design
@@ -7,7 +7,7 @@
 
 ## Executive Summary
 
-This document defines the epoch configuration strategy for Xaheen Chain to prevent future epoch boundary stalls while maintaining optimal validator rotation and network security.
+This document defines the epoch configuration strategy for Nor Chain to prevent future epoch boundary stalls while maintaining optimal validator rotation and network security.
 
 **Core Decision**: Epoch = 9,000,000 blocks from genesis
 
@@ -396,7 +396,7 @@ console.log("Sorted correctly:", JSON.stringify(validators) === JSON.stringify(s
 
 ## Conclusion
 
-With epoch = 9,000,000 and proper monitoring, Xaheen Chain will have **1.5 years of stable operation** before the next epoch boundary. This provides ample time to:
+With epoch = 9,000,000 and proper monitoring, Nor Chain will have **1.5 years of stable operation** before the next epoch boundary. This provides ample time to:
 
 1. Deploy halal finance products
 2. Onboard institutional partners

@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "./NoorSwapPair.sol";
+import "./NorSwapPair.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
- * @title NoorSwapFactory
- * @notice Factory contract for creating NoorSwap trading pairs
+ * @title NorSwapFactory
+ * @notice Factory contract for creating NorSwap trading pairs
  * @dev Follows Uniswap V2 architecture with Shariah compliance features
  *
  * Key Features:
@@ -17,17 +17,17 @@ import "@openzeppelin/contracts/access/Ownable.sol";
  *
  * Fee Structure:
  * - LP fee: 0.25% (250 basis points) to liquidity providers
- * - Protocol fee: 0.05% (50 basis points) to Noor Chain treasury
+ * - Protocol fee: 0.05% (50 basis points) to Nor Chain treasury
  * - Total swap fee: 0.30% (300 basis points)
  */
-contract NoorSwapFactory is Ownable {
+contract NorSwapFactory is Ownable {
     // Mapping: tokenA => tokenB => pair address
     mapping(address => mapping(address => address)) public getPair;
 
     // Array of all created pairs
     address[] public allPairs;
 
-    // Fee recipient (Noor Chain treasury)
+    // Fee recipient (Nor Chain treasury)
     address public feeTo;
 
     // Address that can change feeTo
@@ -45,7 +45,7 @@ contract NoorSwapFactory is Ownable {
     event FeeToSetterUpdated(address indexed previousSetter, address indexed newSetter);
 
     constructor(address _feeToSetter) {
-        require(_feeToSetter != address(0), "NoorSwapFactory: ZERO_ADDRESS");
+        require(_feeToSetter != address(0), "NorSwapFactory: ZERO_ADDRESS");
         feeToSetter = _feeToSetter;
     }
 
@@ -63,15 +63,15 @@ contract NoorSwapFactory is Ownable {
      * @return pair Address of the created pair
      */
     function createPair(address tokenA, address tokenB) external returns (address pair) {
-        require(tokenA != tokenB, "NoorSwapFactory: IDENTICAL_ADDRESSES");
+        require(tokenA != tokenB, "NorSwapFactory: IDENTICAL_ADDRESSES");
 
         // Sort tokens to ensure consistent pair addressing
         (address token0, address token1) = tokenA < tokenB ? (tokenA, tokenB) : (tokenB, tokenA);
-        require(token0 != address(0), "NoorSwapFactory: ZERO_ADDRESS");
-        require(getPair[token0][token1] == address(0), "NoorSwapFactory: PAIR_EXISTS");
+        require(token0 != address(0), "NorSwapFactory: ZERO_ADDRESS");
+        require(getPair[token0][token1] == address(0), "NorSwapFactory: PAIR_EXISTS");
 
         // Deploy new pair contract
-        bytes memory bytecode = type(NoorSwapPair).creationCode;
+        bytes memory bytecode = type(NorSwapPair).creationCode;
         bytes32 salt = keccak256(abi.encodePacked(token0, token1));
 
         assembly {
@@ -79,7 +79,7 @@ contract NoorSwapFactory is Ownable {
         }
 
         // Initialize the pair
-        NoorSwapPair(pair).initialize(token0, token1);
+        NorSwapPair(pair).initialize(token0, token1);
 
         // Store pair in both directions
         getPair[token0][token1] = pair;
@@ -94,7 +94,7 @@ contract NoorSwapFactory is Ownable {
      * @param _feeTo New fee recipient address
      */
     function setFeeTo(address _feeTo) external {
-        require(msg.sender == feeToSetter, "NoorSwapFactory: FORBIDDEN");
+        require(msg.sender == feeToSetter, "NorSwapFactory: FORBIDDEN");
         emit FeeToUpdated(feeTo, _feeTo);
         feeTo = _feeTo;
     }
@@ -104,8 +104,8 @@ contract NoorSwapFactory is Ownable {
      * @param _feeToSetter New feeToSetter address
      */
     function setFeeToSetter(address _feeToSetter) external {
-        require(msg.sender == feeToSetter, "NoorSwapFactory: FORBIDDEN");
-        require(_feeToSetter != address(0), "NoorSwapFactory: ZERO_ADDRESS");
+        require(msg.sender == feeToSetter, "NorSwapFactory: FORBIDDEN");
+        require(_feeToSetter != address(0), "NorSwapFactory: ZERO_ADDRESS");
         emit FeeToSetterUpdated(feeToSetter, _feeToSetter);
         feeToSetter = _feeToSetter;
     }
@@ -122,7 +122,7 @@ contract NoorSwapFactory is Ownable {
             hex'ff',
             address(this),
             keccak256(abi.encodePacked(token0, token1)),
-            keccak256(type(NoorSwapPair).creationCode)
+            keccak256(type(NorSwapPair).creationCode)
         )))));
     }
 }

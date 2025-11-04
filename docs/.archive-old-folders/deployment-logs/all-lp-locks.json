@@ -1,37 +1,37 @@
 {
   "timestamp": "2025-10-31T08:40:22.026Z",
-  "network": "Xaheen Chain",
+  "network": "Nor Chain",
   "beneficiary": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
   "locks": [
     {
-      "pair": "XHT/USDT",
+      "pair": "NOR/USDT",
       "pairAddress": "0x59a09aCEb22A5dE82222ddA235490eD7317Eb7f9",
       "timelockContract": "0x502ec2Ce7cd266Eff9e147d66Df3e4D4fcB9e812",
       "amountLocked": "3066111.81550224942216302",
       "lockDurationDays": 730,
       "unlockDate": "2027-10-31T08:39:58.043Z",
       "transaction": "0xdf17368758ae41b8db741e257fe9fe07b22b4c99f795580e38f9e160a642bb99",
-      "description": "XHT/USDT LP Lock - 2 years"
+      "description": "NOR/USDT LP Lock - 2 years"
     },
     {
-      "pair": "XHT/BNB",
+      "pair": "NOR/BNB",
       "pairAddress": "0x21E85cdc46C808b28A405ac901fCCc22E317422d",
       "timelockContract": "0x0D8e7Ed1B328302bbAA0249CeFD6ca52E050F86e",
       "amountLocked": "67175.144212722014817129",
       "lockDurationDays": 730,
       "unlockDate": "2027-10-31T08:40:10.082Z",
       "transaction": "0x5024f6377c21578afd3033dc60be9ba95eab8af2632c1c8beb7c080f22e21341",
-      "description": "XHT/BNB LP Lock - 2 years"
+      "description": "NOR/BNB LP Lock - 2 years"
     },
     {
-      "pair": "XHT/ETH",
+      "pair": "NOR/ETH",
       "pairAddress": "0x256EAEcd35e40058b80b78fCB0c51A8975E5592d",
       "timelockContract": "0xa8f2fa9B2B7c26d69E996480C914914Aad25D4E6",
       "amountLocked": "47499.99999999999999905",
       "lockDurationDays": 730,
       "unlockDate": "2027-10-31T08:40:22.026Z",
       "transaction": "0x3b701f152422ca1df4798b96689d7a470eea1913a11ce71c9d8cb8c5f00f9b47",
-      "description": "XHT/ETH LP Lock - 2 years"
+      "description": "NOR/ETH LP Lock - 2 years"
     }
   ]
 }

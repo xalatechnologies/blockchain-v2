@@ -19,7 +19,7 @@ Successfully completed DIY security audit of cross-chain DEX contracts using pro
 **File:** `test/Integration.test.js`
 
 **Test Coverage:**
-- ✅ Happy path trade flow (buy/sell XHT)
+- ✅ Happy path trade flow (buy/sell NOR)
 - ✅ Quote expiry protection (60-second freshness)
 - ✅ Inventory cap enforcement (3% max per spoke)
 - ✅ Circuit breaker triggers (±3% price deviation)
@@ -59,20 +59,20 @@ pip3 install mythril
 - `PriceAuthority.sol` - Clean ✅
 - `SupplyController.sol` - Clean ✅
 - `SettlementHub.sol` - Clean ✅
-- `XaheenRouter.sol` - Clean ✅
+- `NorRouter.sol` - Clean ✅
 - `SettlementInbox.sol` - Clean ✅
 
 **Result:** Core cross-chain DEX is **PRODUCTION-READY** ✅
 
 #### Supporting Contracts: 2 Medium Issues (FIXED ✅)
-1. ⚠️ Reentrancy in `XHTRevenue.collectRevenue()` - **FIXED**
-2. ⚠️ Unchecked transfers in `WeeklyBuyback`, `XaheenDEXRouter` - **FIXED**
+1. ⚠️ Reentrancy in `NORRevenue.collectRevenue()` - **FIXED**
+2. ⚠️ Unchecked transfers in `WeeklyBuyback`, `NorDEXRouter` - **FIXED**
 
 ---
 
 ### 4. ✅ Security Fixes Implemented
 
-#### Fix #1: Reentrancy Protection in XHTRevenue.sol
+#### Fix #1: Reentrancy Protection in NORRevenue.sol
 
 **Issue:** State variables updated after external calls (lines 120-140)
 
@@ -128,7 +128,7 @@ function collectRevenue(string memory source) external payable nonReentrant {
 
 **Files Fixed:**
 1. ✅ `contracts/tokenomics/WeeklyBuyback.sol`
-2. ✅ `contracts/dex/XaheenDEXRouter.sol`
+2. ✅ `contracts/dex/NorDEXRouter.sol`
 
 **Changes:**
 ```solidity
@@ -152,7 +152,7 @@ contract WeeklyBuyback is Ownable, ReentrancyGuard {
 - `WeeklyBuyback.executeBuyback()` - 3 transfers
 - `WeeklyBuyback.depositUSDT()` - 1 transferFrom
 - `WeeklyBuyback.emergencyWithdraw()` - 1 transfer
-- `XaheenDEXRouter.removeLiquidity()` - 1 transferFrom
+- `NorDEXRouter.removeLiquidity()` - 1 transferFrom
 
 **Status:** ✅ All compiled successfully
 
@@ -188,9 +188,9 @@ contract WeeklyBuyback is Ownable, ReentrancyGuard {
 5. ✅ `WEEK4_SECURITY_AUDIT_COMPLETE.md` (this file)
 
 ### Security Fixes Applied (3)
-1. ✅ `contracts/tokenomics/XHTRevenue.sol` - CEI pattern + nonReentrant
+1. ✅ `contracts/tokenomics/NORRevenue.sol` - CEI pattern + nonReentrant
 2. ✅ `contracts/tokenomics/WeeklyBuyback.sol` - SafeERC20 (5 transfers)
-3. ✅ `contracts/dex/XaheenDEXRouter.sol` - SafeERC20 (1 transfer)
+3. ✅ `contracts/dex/NorDEXRouter.sol` - SafeERC20 (1 transfer)
 
 **Total Lines:** ~1,200 new/modified lines
 
@@ -213,7 +213,7 @@ contract WeeklyBuyback is Ownable, ReentrancyGuard {
 
 ### Core DEX Security Assessment ✅
 
-**Architecture:** Hub-and-Spoke (Xaheen = hub, BSC/Polygon/ETH = spokes)
+**Architecture:** Hub-and-Spoke (Nor = hub, BSC/Polygon/ETH = spokes)
 
 **Security Features:**
 ✅ Role-based access control (RELAYER_ROLE, ADMIN_ROLE)
@@ -260,7 +260,7 @@ contract WeeklyBuyback is Ownable, ReentrancyGuard {
 ### Immediate (This Week)
 - [x] ✅ Install security tools (Slither, Mythril)
 - [x] ✅ Run Slither static analysis
-- [x] ✅ Fix reentrancy in XHTRevenue
+- [x] ✅ Fix reentrancy in NORRevenue
 - [x] ✅ Replace unchecked transfers with SafeERC20
 - [x] ✅ Generate security audit report
 - [ ] 🔄 Run Mythril on critical contracts (PriceAuthority, SettlementHub, SupplyController)
@@ -273,7 +273,7 @@ contract WeeklyBuyback is Ownable, ReentrancyGuard {
 - [ ] Fund deployer wallets with testnet BNB, MATIC
 - [ ] Initialize inventory on spokes
 - [ ] Deploy relayer service on testnet
-- [ ] Execute 20+ test trades (buy/sell XHT)
+- [ ] Execute 20+ test trades (buy/sell NOR)
 - [ ] Verify settlement on hub
 - [ ] Test circuit breakers and pause mechanisms
 
@@ -295,7 +295,7 @@ contract WeeklyBuyback is Ownable, ReentrancyGuard {
 
 **Completed:**
 - ✅ Hub contracts (PriceAuthority, SupplyController, SettlementHub)
-- ✅ Spoke contracts (XaheenRouter, SettlementInbox)
+- ✅ Spoke contracts (NorRouter, SettlementInbox)
 - ✅ Relayer service (event monitoring & forwarding)
 - ✅ Arbitrage bot (price monitoring & profit optimization)
 - ✅ Integration tests (5 comprehensive scenarios)

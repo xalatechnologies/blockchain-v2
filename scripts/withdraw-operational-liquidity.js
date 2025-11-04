@@ -3,115 +3,128 @@ const { ethers } = hre;
 import fs from "fs";
 
 async function main() {
-    console.log("\n💰 WITHDRAW OPERATIONAL LIQUIDITY");
-    console.log("=".repeat(70));
+  console.log("\n💰 WITHDRAW OPERATIONAL LIQUIDITY");
+  console.log("=".repeat(70));
 
-    // Load deployment info
-    const dexDeployment = JSON.parse(
-        fs.readFileSync("docs/deployment-logs/xaheen-dex-deployment.json", "utf8")
-    );
-    const usdtDeployment = JSON.parse(
-        fs.readFileSync("docs/deployment-logs/test-usdt-deployment.json", "utf8")
-    );
-    const liquidityInfo = JSON.parse(
-        fs.readFileSync("docs/deployment-logs/xaheen-liquidity-deployed.json", "utf8")
-    );
+  // Load deployment info
+  const dexDeployment = JSON.parse(
+    fs.readFileSync("docs/deployment-logs/xaheen-dex-deployment.json", "utf8")
+  );
+  const usdtDeployment = JSON.parse(
+    fs.readFileSync("docs/deployment-logs/test-usdt-deployment.json", "utf8")
+  );
+  const liquidityInfo = JSON.parse(
+    fs.readFileSync(
+      "docs/deployment-logs/xaheen-liquidity-deployed.json",
+      "utf8"
+    )
+  );
 
-    const ROUTER_ADDRESS = dexDeployment.contracts.Router;
-    const USDT_ADDRESS = usdtDeployment.contract.address;
-    const PAIR_ADDRESS = liquidityInfo.pair;
-    const WXHT_ADDRESS = liquidityInfo.tokens.XHT;
+  const ROUTER_ADDRESS = dexDeployment.contracts.Router;
+  const USDT_ADDRESS = usdtDeployment.contract.address;
+  const PAIR_ADDRESS = liquidityInfo.pair;
+  const WNOR_ADDRESS = liquidityInfo.tokens.NOR;
 
-    console.log("\n📍 Contract Addresses:");
-    console.log("  Router:", ROUTER_ADDRESS);
-    console.log("  Pair:", PAIR_ADDRESS);
+  console.log("\n📍 Contract Addresses:");
+  console.log("  Router:", ROUTER_ADDRESS);
+  console.log("  Pair:", PAIR_ADDRESS);
 
-    // Connect to Xaheen Chain
-    const provider = new ethers.JsonRpcProvider("https://rpc.xaheen.org");
-    const wallet = new ethers.Wallet(process.env.MAIN_WALLET_PRIVATE_KEY, provider);
+  // Connect to Nor Chain
+  const provider = new ethers.JsonRpcProvider("https://rpc.xaheen.org");
+  const wallet = new ethers.Wallet(
+    process.env.MAIN_WALLET_PRIVATE_KEY,
+    provider
+  );
 
-    console.log("\n👤 Wallet:", wallet.address);
+  console.log("\n👤 Wallet:", wallet.address);
 
-    // Get LP token balance
-    const lpToken = new ethers.Contract(
-        PAIR_ADDRESS,
-        [
-            "function balanceOf(address) view returns (uint256)",
-            "function approve(address,uint256) returns (bool)",
-            "function totalSupply() view returns (uint256)"
-        ],
-        wallet
-    );
+  // Get LP token balance
+  const lpToken = new ethers.Contract(
+    PAIR_ADDRESS,
+    [
+      "function balanceOf(address) view returns (uint256)",
+      "function approve(address,uint256) returns (bool)",
+      "function totalSupply() view returns (uint256)",
+    ],
+    wallet
+  );
 
-    const lpBalance = await lpToken.balanceOf(wallet.address);
-    const totalSupply = await lpToken.totalSupply();
+  const lpBalance = await lpToken.balanceOf(wallet.address);
+  const totalSupply = await lpToken.totalSupply();
 
-    console.log("\n💰 Your LP Token Balance:");
-    console.log("  Balance:", ethers.formatEther(lpBalance), "LP tokens");
-    console.log("  Total Supply:", ethers.formatEther(totalSupply), "LP tokens");
-    console.log("  Your Share:", ((Number(lpBalance) / Number(totalSupply)) * 100).toFixed(2) + "%");
+  console.log("\n💰 Your LP Token Balance:");
+  console.log("  Balance:", ethers.formatEther(lpBalance), "LP tokens");
+  console.log("  Total Supply:", ethers.formatEther(totalSupply), "LP tokens");
+  console.log(
+    "  Your Share:",
+    ((Number(lpBalance) / Number(totalSupply)) * 100).toFixed(2) + "%"
+  );
 
-    if (lpBalance === 0n) {
-        console.log("\n⚠️  No operational LP tokens to withdraw!");
-        console.log("  All your LP tokens are locked in the timelock contract.");
-        console.log("  They will be available on October 30, 2026.");
-        return;
-    }
+  if (lpBalance === 0n) {
+    console.log("\n⚠️  No operational LP tokens to withdraw!");
+    console.log("  All your LP tokens are locked in the timelock contract.");
+    console.log("  They will be available on October 30, 2026.");
+    return;
+  }
 
-    // Get current reserves
-    const pair = new ethers.Contract(
-        PAIR_ADDRESS,
-        [
-            "function getReserves() view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast)",
-            "function token0() view returns (address)"
-        ],
-        provider
-    );
+  // Get current reserves
+  const pair = new ethers.Contract(
+    PAIR_ADDRESS,
+    [
+      "function getReserves() view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast)",
+      "function token0() view returns (address)",
+    ],
+    provider
+  );
 
-    const reserves = await pair.getReserves();
-    const token0 = await pair.token0();
+  const reserves = await pair.getReserves();
+  const token0 = await pair.token0();
 
-    let xhtReserve, usdtReserve;
-    if (token0.toLowerCase() === USDT_ADDRESS.toLowerCase()) {
-        usdtReserve = reserves[0];
-        xhtReserve = reserves[1];
-    } else {
-        xhtReserve = reserves[0];
-        usdtReserve = reserves[1];
-    }
+  let xhtReserve, usdtReserve;
+  if (token0.toLowerCase() === USDT_ADDRESS.toLowerCase()) {
+    usdtReserve = reserves[0];
+    xhtReserve = reserves[1];
+  } else {
+    xhtReserve = reserves[0];
+    usdtReserve = reserves[1];
+  }
 
-    // Calculate what you'll receive
-    const sharePercentage = Number(lpBalance) / Number(totalSupply);
-    const xhtToReceive = (BigInt(xhtReserve) * BigInt(lpBalance)) / BigInt(totalSupply);
-    const usdtToReceive = (BigInt(usdtReserve) * BigInt(lpBalance)) / BigInt(totalSupply);
+  // Calculate what you'll receive
+  const sharePercentage = Number(lpBalance) / Number(totalSupply);
+  const xhtToReceive =
+    (BigInt(xhtReserve) * BigInt(lpBalance)) / BigInt(totalSupply);
+  const usdtToReceive =
+    (BigInt(usdtReserve) * BigInt(lpBalance)) / BigInt(totalSupply);
 
-    const currentPrice = Number(usdtReserve) / Number(xhtReserve);
-    const valueUSD = (Number(ethers.formatEther(xhtToReceive)) * currentPrice) + Number(ethers.formatUnits(usdtToReceive, 18));
+  const currentPrice = Number(usdtReserve) / Number(xhtReserve);
+  const valueUSD =
+    Number(ethers.formatEther(xhtToReceive)) * currentPrice +
+    Number(ethers.formatUnits(usdtToReceive, 18));
 
-    console.log("\n💎 You Will Receive:");
-    console.log("  XHT:", ethers.formatEther(xhtToReceive), "WXHT");
-    console.log("  USDT:", ethers.formatUnits(usdtToReceive, 18), "USDT");
-    console.log("  Estimated Value: $" + valueUSD.toFixed(2));
+  console.log("\n💎 You Will Receive:");
+  console.log("  NOR:", ethers.formatEther(xhtToReceive), "WNOR");
+  console.log("  USDT:", ethers.formatUnits(usdtToReceive, 18), "USDT");
+  console.log("  Estimated Value: $" + valueUSD.toFixed(2));
 
-    console.log("\n⚠️  IMPORTANT:");
-    console.log("  This will remove your operational liquidity from the pool.");
-    console.log("  You will stop earning trading fees on this amount.");
-    console.log("  The locked liquidity ($10k) remains locked until Oct 2026.");
+  console.log("\n⚠️  IMPORTANT:");
+  console.log("  This will remove your operational liquidity from the pool.");
+  console.log("  You will stop earning trading fees on this amount.");
+  console.log("  The locked liquidity ($10k) remains locked until Oct 2026.");
 
-    console.log("\n🤔 Do you want to proceed?");
-    console.log("  Type 'yes' to continue, or press Ctrl+C to cancel.");
-    console.log("\n  (This script requires manual confirmation)");
-    console.log("  To proceed, uncomment the withdrawal code below.");
+  console.log("\n🤔 Do you want to proceed?");
+  console.log("  Type 'yes' to continue, or press Ctrl+C to cancel.");
+  console.log("\n  (This script requires manual confirmation)");
+  console.log("  To proceed, uncomment the withdrawal code below.");
 
-    // Uncomment the code below to actually execute the withdrawal
-    /*
+  // Uncomment the code below to actually execute the withdrawal
+  /*
     console.log("\n📝 PROCEEDING WITH WITHDRAWAL...");
 
     // Load router
     const router = new ethers.Contract(
         ROUTER_ADDRESS,
         [
-            "function removeLiquidityXHT(address token, uint liquidity, uint amountTokenMin, uint amountXHTMin, address to, uint deadline) returns (uint amountToken, uint amountXHT)"
+            "function removeLiquidityNOR(address token, uint liquidity, uint amountTokenMin, uint amountNORMin, address to, uint deadline) returns (uint amountToken, uint amountNOR)"
         ],
         wallet
     );
@@ -132,13 +145,13 @@ async function main() {
     const slippage = 5; // 5% slippage
 
     const amountTokenMin = (usdtToReceive * BigInt(100 - slippage)) / 100n;
-    const amountXHTMin = (xhtToReceive * BigInt(100 - slippage)) / 100n;
+    const amountNORMin = (xhtToReceive * BigInt(100 - slippage)) / 100n;
 
-    const tx = await router.removeLiquidityXHT(
+    const tx = await router.removeLiquidityNOR(
         USDT_ADDRESS,
         lpBalance,
         amountTokenMin,
-        amountXHTMin,
+        amountNORMin,
         wallet.address,
         deadline,
         { gasLimit: 500000 }
@@ -159,24 +172,24 @@ async function main() {
     const usdtBalanceAfter = await usdt.balanceOf(wallet.address);
 
     console.log("\n💰 Updated Balances:");
-    console.log("  XHT:", ethers.formatEther(xhtBalanceAfter), "XHT");
+    console.log("  NOR:", ethers.formatEther(xhtBalanceAfter), "NOR");
     console.log("  USDT:", ethers.formatUnits(usdtBalanceAfter, 18), "USDT");
 
     console.log("\n✅ WITHDRAWAL COMPLETE!");
     console.log("\n💡 What to do now:");
-    console.log("  1. Keep XHT for price appreciation");
-    console.log("  2. Swap USDT to XHT (or vice versa) on XaheenSwap");
+    console.log("  1. Keep NOR for price appreciation");
+    console.log("  2. Swap USDT to NOR (or vice versa) on NorSwap");
     console.log("  3. Bridge USDT to BSC/Ethereum for cash out");
     console.log("  4. Re-add liquidity when ready to earn more fees");
 
     // Save withdrawal info
     const withdrawalInfo = {
         timestamp: new Date().toISOString(),
-        network: "Xaheen Chain",
+        network: "Nor Chain",
         pair: PAIR_ADDRESS,
         withdrawn: {
             lpTokens: ethers.formatEther(lpBalance) + " LP tokens",
-            xhtReceived: ethers.formatEther(xhtToReceive) + " XHT",
+            xhtReceived: ethers.formatEther(xhtToReceive) + " NOR",
             usdtReceived: ethers.formatUnits(usdtToReceive, 18) + " USDT",
             valueUSD: "$" + valueUSD.toFixed(2)
         },
@@ -192,16 +205,18 @@ async function main() {
     console.log("\n💾 Withdrawal info saved to: docs/deployment-logs/");
     */
 
-    console.log("\n" + "=".repeat(70));
-    console.log("ℹ️  WITHDRAWAL PREVIEW COMPLETE");
-    console.log("=".repeat(70));
-    console.log("\nTo execute withdrawal, edit this script and uncomment the code.");
+  console.log("\n" + "=".repeat(70));
+  console.log("ℹ️  WITHDRAWAL PREVIEW COMPLETE");
+  console.log("=".repeat(70));
+  console.log(
+    "\nTo execute withdrawal, edit this script and uncomment the code."
+  );
 }
 
 main()
-    .then(() => process.exit(0))
-    .catch((error) => {
-        console.error("\n❌ ERROR:", error.message);
-        console.error(error);
-        process.exit(1);
-    });
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error("\n❌ ERROR:", error.message);
+    console.error(error);
+    process.exit(1);
+  });

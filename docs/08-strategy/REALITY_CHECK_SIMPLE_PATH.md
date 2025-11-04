@@ -34,14 +34,14 @@
 What You Have Ready NOW:
 ✅ Working blockchain
 ✅ Operational DEX
-✅ 20 billion XHT
+✅ 20 billion NOR
 ✅ Trading proven
 ✅ ZERO complexity
 
 What Users Do:
 1. Buy USDT on Binance/Coinbase
-2. Withdraw USDT to Xaheen Chain
-3. Swap USDT → XHT on YOUR DEX
+2. Withdraw USDT to Nor Chain
+3. Swap USDT → NOR on YOUR DEX
 4. Done!
 
 Your Job:
@@ -67,7 +67,7 @@ Your Job:
 Strategy:
 1. Deploy bridge to BSC (1 hour, $5K)
 2. List on PancakeSwap (10 min, $0)
-3. Users buy XHT with BNB/USDT on PancakeSwap
+3. Users buy NOR with BNB/USDT on PancakeSwap
 4. Users can already buy BNB/USDT with fiat on Binance!
 
 Cost: $5K one-time (bridge + liquidity)
@@ -124,14 +124,14 @@ Focus: Get users WITHOUT fiat complexity
    - Takes 1 week approval
    - Instant credibility
 
-2. Create "How to Buy XHT" Guide:
+2. Create "How to Buy NOR" Guide:
    Step 1: Buy USDT on Binance
-   Step 2: Withdraw to Xaheen Chain
-   Step 3: Swap on Xaheen DEX
+   Step 2: Withdraw to Nor Chain
+   Step 3: Swap on Nor DEX
    Step 4: Done!
 
 3. Marketing:
-   - Twitter: "XHT now trading!"
+   - Twitter: "NOR now trading!"
    - Telegram: Share buying guide
    - Reddit: Post in crypto communities
    Budget: $1,000
@@ -161,7 +161,7 @@ After you have initial traction:
 3. Now users can:
    - Buy on Binance with fiat
    - Swap on PancakeSwap
-   - Bridge to Xaheen if they want
+   - Bridge to Nor if they want
 
 This gives you indirect fiat on-ramp!
 ```
@@ -255,10 +255,10 @@ They don't need fiat on-ramp because they:
 Visit: https://www.coingecko.com/en/request/form
 
 Fill out:
-- Token Name: Xaheen Token
-- Symbol: XHT
+- Token Name: Nor Token
+- Symbol: NOR
 - Contract: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
-- Chain: Xaheen Chain (custom)
+- Chain: Nor Chain (custom)
 - Website: https://xaheen.org
 
 # 2. Apply to CoinMarketCap (FREE)
@@ -269,7 +269,7 @@ Same info as above
 # 3. Create "How to Buy" page
 Simple guide:
 - Step 1: Buy USDT on Binance
-- Step 2: Withdraw to Xaheen Chain
+- Step 2: Withdraw to Nor Chain
 - Step 3: Swap on our DEX
 ```
 
@@ -282,7 +282,7 @@ Marketing:
 └─ Simple explainer video: $100
 
 Focus Message:
-"Buy XHT on Xaheen DEX - 3-second blocks, low fees, real DeFi!"
+"Buy NOR on Nor DEX - 3-second blocks, low fees, real DeFi!"
 
 Target:
 - Crypto traders (already have USDT)
@@ -305,7 +305,7 @@ Let users access from BSC
 
 **Path 1: Direct (What I wrongly focused on)**
 ```
-Normie → Fiat → MoonPay → XHT
+Normie → Fiat → MoonPay → NOR
 ❌ Complex
 ❌ Expensive
 ❌ High friction
@@ -313,7 +313,7 @@ Normie → Fiat → MoonPay → XHT
 
 **Path 2: Indirect (What Actually Works)**
 ```
-Crypto User → Already Has USDT → Your DEX → XHT
+Crypto User → Already Has USDT → Your DEX → NOR
 ✅ Simple
 ✅ FREE
 ✅ Works TODAY
@@ -321,7 +321,7 @@ Crypto User → Already Has USDT → Your DEX → XHT
 
 **Path 3: BSC Bridge (Best of Both)**
 ```
-Anyone → Binance (buy with fiat) → PancakeSwap → Bridge → XHT
+Anyone → Binance (buy with fiat) → PancakeSwap → Bridge → NOR
 ✅ Indirect fiat access
 ✅ Major exchange listing
 ✅ $5K one-time cost
@@ -374,7 +374,7 @@ Anyone → Binance (buy with fiat) → PancakeSwap → Bridge → XHT
 1. **TODAY:**
    - Apply to CoinGecko (FREE)
    - Apply to CoinMarketCap (FREE)
-   - Create "How to Buy XHT" guide
+   - Create "How to Buy NOR" guide
 
 2. **THIS WEEK:**
    - Launch marketing campaign ($1K)
@@ -425,7 +425,7 @@ Users just:
 **Focus on what makes you SPECIAL:**
 
 ```
-Xaheen Chain Advantages:
+Nor Chain Advantages:
 ✅ 3-second blocks (10x faster than Ethereum!)
 ✅ Low fees (100x cheaper than Ethereum!)
 ✅ Working DEX (many chains promise, you deliver!)
@@ -453,21 +453,21 @@ Don't focus on:
 
 # 2. Create buying guide
 cat > how-to-buy-xht.md << 'EOF'
-# How to Buy XHT
+# How to Buy NOR
 
 ## Step 1: Get USDT
 - Buy on Binance, Coinbase, or Kraken
 - Withdraw to your wallet
 
-## Step 2: Add Xaheen Chain to MetaMask
-- Network: Xaheen Chain
+## Step 2: Add Nor Chain to MetaMask
+- Network: Nor Chain
 - RPC: https://rpc.xaheen.org
 - Chain ID: 65001
 
-## Step 3: Swap on Xaheen DEX
+## Step 3: Swap on Nor DEX
 - Visit: https://explorer.xaheen.org
 - Connect wallet
-- Swap USDT → XHT
+- Swap USDT → NOR
 - Done!
 
 Low fees, 3-second confirmation! 🚀

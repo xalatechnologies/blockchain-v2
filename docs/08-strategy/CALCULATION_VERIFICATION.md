@@ -10,7 +10,7 @@
 
 ### Total Supply Calculation
 
-**Stated Total Supply:** 21 Trillion XHT (21,000,000,000,000)
+**Stated Total Supply:** 21 Trillion NOR (21,000,000,000,000)
 
 **Verification:**
 ```
@@ -19,18 +19,18 @@
 
 ### Circulating Supply at Launch
 
-**Stated:** 210 Billion XHT (1% of total)
+**Stated:** 210 Billion NOR (1% of total)
 
 **Verification:**
 ```
 1% of 21,000,000,000,000 = 0.01 × 21,000,000,000,000
                          = 210,000,000,000
-                         = 210 Billion XHT ✅ CORRECT
+                         = 210 Billion NOR ✅ CORRECT
 ```
 
 ### Token Distribution Verification
 
-| Allocation | % | Calculation | Amount (XHT) | Verification |
+| Allocation | % | Calculation | Amount (NOR) | Verification |
 |------------|---|-------------|--------------|--------------|
 | Public Liquidity | 0.1% | 21T × 0.001 | 21,000,000,000 | ✅ 21B |
 | Airdrop/Faucet | 0.5% | 21T × 0.005 | 105,000,000,000 | ✅ 105B |
@@ -268,8 +268,8 @@ $185,000 + $1,000,000 + $160,000 = $1,345,000 ✅ MATH CORRECT
 **Calculation:**
 ```
 Circulating supply: 210,000,000,000 (210B)
-Monthly burn target: 210B × 0.005 = 1,050,000,000 = 1.05B XHT ✅ CORRECT
-Annual burn: 1.05B × 12 = 12.6B XHT ✅ CORRECT
+Monthly burn target: 210B × 0.005 = 1,050,000,000 = 1.05B NOR ✅ CORRECT
+Annual burn: 1.05B × 12 = 12.6B NOR ✅ CORRECT
 ```
 
 ### Burn Sources
@@ -283,8 +283,8 @@ Annual burn: 1.05B × 12 = 12.6B XHT ✅ CORRECT
 
 **Reality Check:**
 ```
-Assuming 1M DEX swaps/month at 100 XHT average:
-Burns = 1,000,000 × 100 × 0.0025 = 250,000 XHT/month
+Assuming 1M DEX swaps/month at 100 NOR average:
+Burns = 1,000,000 × 100 × 0.0025 = 250,000 NOR/month
 
 To hit 1.05B/month needs MUCH higher volume OR higher burn rate.
 ```
@@ -377,12 +377,12 @@ The $164k is calculated from a **different base** than stated. Need to clarify.
 
 ### ✅ VERIFIED CALCULATIONS (100% Accurate)
 
-1. **Total Supply:** 21 Trillion XHT ✅
+1. **Total Supply:** 21 Trillion NOR ✅
 2. **Circulating at Launch:** 210 Billion (1%) ✅
 3. **Token Distribution:** All percentages add to 100% ✅
 4. **Launch Price:** $0.0000024 ✅ (based on $500k market cap)
 5. **Liquidity Split:** 30% locked ($150k), 70% operational ($350k) ✅
-6. **Burn Target:** 1.05B XHT/month = 0.5% of circulating ✅
+6. **Burn Target:** 1.05B NOR/month = 0.5% of circulating ✅
 
 ### ⚠️ DISCREPANCIES FOUND (Need Clarification)
 
@@ -481,7 +481,7 @@ Aggressive estimate: $1M/year (exponential growth)
 
 | Metric | Value | Status |
 |--------|-------|--------|
-| Total Supply | 21 Trillion XHT | ✅ Verified |
+| Total Supply | 21 Trillion NOR | ✅ Verified |
 | Circulating at Launch | 210 Billion (1%) | ✅ Verified |
 | Launch Price | $0.0000024 | ✅ Verified |
 | Market Cap | $500,000 | ✅ Verified |

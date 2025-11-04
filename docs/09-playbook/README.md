@@ -1,8 +1,8 @@
-# 09 - Noor Chain Playbook
+# 09 - Nor Chain Playbook
 
-**Noor Chain Playbook v3** - Public Master Edition
+**Nor Chain Playbook v3** - Public Master Edition
 
-This directory contains the comprehensive vision, strategy, and technical playbook for Noor Chain.
+This directory contains the comprehensive vision, strategy, and technical playbook for Nor Chain.
 
 ## Playbook Parts
 
@@ -47,24 +47,24 @@ This directory contains the comprehensive vision, strategy, and technical playbo
 
 6. **Part 6 – Smart Contracts & DeFi Architecture**
    - NOR Token implementation (21B supply, 24 decimals)
-   - NoorSwap DEX (Factory, Pair, Router)
+   - NorSwap DEX (Factory, Pair, Router)
    - Liquidity pools and AMM mechanics
    - Bridge contracts (Lock/Mint, Atomic Swap, NFT)
    - Stablecoins (Dirhamat, Digital KES)
    - Governance & DAO system
-   - Noor Funds (Halal investment products)
+   - Nor Funds (Halal investment products)
    - Security and auditing standards
 
 ## Key Concepts
 
 **Ecosystem Components**:
-- Noor Chain (L1) - Core blockchain
+- Nor Chain (L1) - Core blockchain
 - Dirhamat - AED/Gold-backed stablecoin
 - Digital KES - Kenyan Shilling token
 - NordCoin - Nordic ESG-compliant currency
-- NoorSwap (DEX) - Native decentralized exchange
-- Noor Bridge - Cross-chain vault system
-- Noor Funds - Halal mutual and retirement funds
+- NorSwap (DEX) - Native decentralized exchange
+- Nor Bridge - Cross-chain vault system
+- Nor Funds - Halal mutual and retirement funds
 - Compliance Core (XCC) - AML/KYC/GDPR framework
 - AI Agents - Autonomous liquidity and compliance management
 
@@ -86,13 +86,13 @@ This directory contains the comprehensive vision, strategy, and technical playbo
 
 ---
 
-**Document Version**: v3.1-2025-11-02 (Noor Chain Rebrand)  
-**Copyright**: © 2025 Noor Technologies (formerly Xaheen Technologies AS)  
+**Document Version**: v3.1-2025-11-02 (Nor Chain Rebrand)  
+**Copyright**: © 2025 Nor Technologies (formerly Nor Technologies AS)  
 **Purpose**: Educational and development reference
 
 ---
 
-**Rebrand Notice**: As of November 2, 2025, Xaheen Chain has been fully rebranded to **Noor Chain** (نور - "Light"). All references, infrastructure, and branding have been updated to reflect this new identity while maintaining full technical compatibility.
+**Rebrand Notice**: As of November 2, 2025, Nor Chain has been fully rebranded to **Nor Chain** (نور - "Light"). All references, infrastructure, and branding have been updated to reflect this new identity while maintaining full technical compatibility.
 
 ---
 

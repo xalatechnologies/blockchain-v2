@@ -1,4 +1,4 @@
-# 🔧 Noor Chain Epoch Revalidation - COMPLETE SOLUTION
+# 🔧 Nor Chain Epoch Revalidation - COMPLETE SOLUTION
 
 **Date:** November 3, 2025
 **Status:** ✅ READY FOR TESTING
@@ -115,7 +115,7 @@ curl -s http://localhost:18545 -X POST -H 'Content-Type: application/json' \
   --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' | jq
 
 # Watch auto-sealer
-tail -f /tmp/noor-testnet/logs/auto-sealer.log
+tail -f /tmp/nor-testnet/logs/auto-sealer.log
 
 # Expected timeline:
 # Block 1000:  ~50 minutes (first epoch)
@@ -178,7 +178,7 @@ ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@3.91.50.187 \
 ### Chain Status
 - **Current Block:** 9999 (STUCK at epoch boundary)
 - **Chain ID:** 65001
-- **RPC:** https://rpc.noorchain.org
+- **RPC:** https://rpc.norchain.org
 - **Epoch:** 10,000 blocks
 - **Issue:** Validator ordering causing deadlock
 
@@ -306,7 +306,7 @@ If production regenesis fails:
 
 ## 🌙 RESULT
 
-**Noor Chain will run FOREVER with smooth epoch revalidation!**
+**Nor Chain will run FOREVER with smooth epoch revalidation!**
 
 - ✅ Root cause fixed (validator ordering)
 - ✅ Automation deployed (auto-sealer)
@@ -319,4 +319,4 @@ If production regenesis fails:
 ---
 
 **Generated:** November 3, 2025
-**Noor Chain - Illuminating Finance with Transparency**
+**Nor Chain - Illuminating Finance with Transparency**

@@ -1,6 +1,6 @@
-# 🚀 Easy Go-Live Trading Strategy for Xaheen Chain
+# 🚀 Easy Go-Live Trading Strategy for Nor Chain
 
-**Goal**: Get real users trading XHT with minimal cost and complexity
+**Goal**: Get real users trading NOR with minimal cost and complexity
 
 **Budget**: $0-$1,000 (mostly free strategies)
 **Timeline**: Start today, see results in 7-14 days
@@ -54,9 +54,9 @@
 
 #### Twitter/X Account
 ```
-Handle: @XaheenChain
+Handle: @NorChain
 Bio: "High-performance EVM blockchain | 3-sec finality | <$0.01 fees | Native DEX live 🚀"
-Pin: "Xaheen Chain is LIVE! ⚡️
+Pin: "Nor Chain is LIVE! ⚡️
 - 3-second transactions
 - Sub-cent fees
 - $800K liquidity
@@ -71,8 +71,8 @@ Pin: "Xaheen Chain is LIVE! ⚡️
 
 #### Telegram Group
 ```
-Name: Xaheen Chain Official
-Description: "Official community for Xaheen Chain - High-performance DeFi blockchain"
+Name: Nor Chain Official
+Description: "Official community for Nor Chain - High-performance DeFi blockchain"
 Pin: Welcome message with links (RPC, explorer, docs)
 ```
 
@@ -99,10 +99,10 @@ Pin: Welcome message with links (RPC, explorer, docs)
 
 **Example post:**
 ```
-Title: "Xaheen Chain just launched - 3-second finality, <$0.01 fees, $800K TVL"
+Title: "Nor Chain just launched - 3-second finality, <$0.01 fees, $800K TVL"
 
 Body:
-We just launched Xaheen Chain, a high-performance EVM blockchain:
+We just launched Nor Chain, a high-performance EVM blockchain:
 
 ✅ 3-second block finality (10x faster than Ethereum)
 ✅ <$0.01 transaction fees (100x cheaper)
@@ -130,32 +130,32 @@ Not asking for investment, just sharing what we built. DEX is live if anyone wan
 
 ---
 
-## PHASE 4: "HOW TO BUY XHT" GUIDE (THIS WEEK)
+## PHASE 4: "HOW TO BUY NOR" GUIDE (THIS WEEK)
 
 ### Create Simple User Guide:
 
 **Landing page on xaheen.org/buy or separate doc:**
 
 ```markdown
-# How to Buy XHT (Xaheen Token)
+# How to Buy NOR (Nor Token)
 
 ## Step 1: Get a Wallet
 Download MetaMask: https://metamask.io
 
-## Step 2: Add Xaheen Chain
-Network Name: Xaheen Chain
+## Step 2: Add Nor Chain
+Network Name: Nor Chain
 RPC: https://rpc.xaheen.org
 Chain ID: 65001
-Symbol: XHT
+Symbol: NOR
 Explorer: https://explorer.xaheen.org
 
-## Step 3: Get Some XHT
-Option A: Buy USDT on Binance, send to Xaheen, swap on DEX
+## Step 3: Get Some NOR
+Option A: Buy USDT on Binance, send to Nor, swap on DEX
 Option B: [Bridge from BSC - coming soon]
 
 ## Step 4: Start Trading!
-Xaheen DEX: [link]
-Pairs: XHT/USDT, XHT/BNB, XHT/ETH
+Nor DEX: [link]
+Pairs: NOR/USDT, NOR/BNB, NOR/ETH
 ```
 
 **With screenshots!** Visual guides convert 5x better.
@@ -170,14 +170,14 @@ Pairs: XHT/USDT, XHT/BNB, XHT/ETH
 
 ### Why Bridge to BSC?
 
-**Problem**: Users need XHT to pay gas on Xaheen Chain
+**Problem**: Users need NOR to pay gas on Nor Chain
 **Solution**: Bridge from BSC where they can buy with fiat (via Binance, etc.)
 
 **User flow:**
 1. User buys BNB on Binance (fiat on-ramp already exists!)
-2. User bridges BNB → Xaheen Chain
-3. User swaps BNB → XHT on your DEX
-4. User has XHT for gas + trading
+2. User bridges BNB → Nor Chain
+3. User swaps BNB → NOR on your DEX
+4. User has NOR for gas + trading
 
 **This is your "indirect fiat on-ramp"** we discussed!
 
@@ -203,20 +203,20 @@ You already have bridge contracts! Just need to:
 **Target**: Early adopters, testers, community members
 
 **Strategy:**
-- Airdrop 100-1,000 XHT to first 100 users
-- Require: Add Xaheen to MetaMask, make 1 swap on DEX
-- Reward: Small XHT airdrop + NFT badge
+- Airdrop 100-1,000 NOR to first 100 users
+- Require: Add Nor to MetaMask, make 1 swap on DEX
+- Reward: Small NOR airdrop + NFT badge
 
-**Budget from treasury:** 100 users × 500 XHT = 50,000 XHT (~$50 value)
+**Budget from treasury:** 100 users × 500 NOR = 50,000 NOR (~$50 value)
 **Impact:** 100 active users, social media buzz, word of mouth
 
 **How to execute:**
-1. Tweet: "First 100 users to trade on Xaheen DEX get airdrop!"
+1. Tweet: "First 100 users to trade on Nor DEX get airdrop!"
 2. Users submit wallet addresses
 3. You verify they made trades (check explorer)
 4. Send airdrop from treasury
 
-**Cost: ~$50 worth of XHT**
+**Cost: ~$50 worth of NOR**
 **Time: 2 hours**
 **Expected: 100 active users, 1K+ social media reach**
 
@@ -228,21 +228,21 @@ You already have bridge contracts! Just need to:
 
 #### Twitter/Telegram Posts:
 - "24h stats: X blocks, Y transactions, Z volume"
-- "Gas fee comparison: Ethereum $5, Xaheen $0.008"
+- "Gas fee comparison: Ethereum $5, Nor $0.008"
 - "Network uptime: 100% since launch"
 - User testimonials/screenshots
 - Tech deep-dives
 
 #### Medium/Blog Articles:
-- "Why we built Xaheen Chain"
+- "Why we built Nor Chain"
 - "Technical architecture deep-dive"
-- "How to migrate dApps from Ethereum to Xaheen"
+- "How to migrate dApps from Ethereum to Nor"
 - "DeFi guide for beginners"
 
 #### YouTube (if budget allows):
-- Screen recording: "How to add Xaheen to MetaMask"
-- "How to trade on Xaheen DEX"
-- "Xaheen vs Ethereum: Speed test"
+- Screen recording: "How to add Nor to MetaMask"
+- "How to trade on Nor DEX"
+- "Nor vs Ethereum: Speed test"
 
 **Time: 30 min/day**
 **Cost: $0**
@@ -291,7 +291,7 @@ DEX aggregators show multiple DEXes in one interface (like 1inch, Paraswap)
 
 #### Other DeFi Projects:
 - Reach out to small DeFi protocols
-- Offer: "Deploy on Xaheen, get lower fees"
+- Offer: "Deploy on Nor, get lower fees"
 - Target: Lending protocols, NFT marketplaces, DEXes
 
 #### Blockchain Gaming:
@@ -319,7 +319,7 @@ DEX aggregators show multiple DEXes in one interface (like 1inch, Paraswap)
 **Next step:** Reward LPs to keep them there
 
 **Simple strategy:**
-- Allocate 1M XHT/month for LP rewards
+- Allocate 1M NOR/month for LP rewards
 - Split across pools based on volume
 - Auto-distribute via smart contract
 
@@ -328,7 +328,7 @@ DEX aggregators show multiple DEXes in one interface (like 1inch, Paraswap)
 - LPs earn fees + rewards = sticky liquidity
 - Attracts mercenary capital (good for volume)
 
-**Cost: From treasury (you have 20B XHT)**
+**Cost: From treasury (you have 20B NOR)**
 **Impact: Stable, growing liquidity**
 
 ---
@@ -342,12 +342,12 @@ DEX aggregators show multiple DEXes in one interface (like 1inch, Paraswap)
 - [ ] Create Twitter account ✅
 - [ ] Create Telegram group ✅
 - [ ] Post on crypto Reddit (3-5 subreddits) ✅
-- [ ] Create "How to Buy XHT" guide ✅
+- [ ] Create "How to Buy NOR" guide ✅
 - [ ] Update website with clear CTAs ✅
 
 **Next Week (Low Cost, Medium Effort):**
 - [ ] Deploy BSC bridge ($100-200)
-- [ ] Launch small airdrop campaign ($50 worth XHT)
+- [ ] Launch small airdrop campaign ($50 worth NOR)
 - [ ] Apply to DeFi Llama
 - [ ] Post 1 Medium article
 - [ ] Record 1 YouTube tutorial
@@ -509,7 +509,7 @@ Want me to:
 - [ ] Write Twitter content calendar?
 - [ ] Design airdrop campaign details?
 - [ ] Plan BSC bridge deployment?
-- [ ] Create "How to Buy XHT" guide?
+- [ ] Create "How to Buy NOR" guide?
 
 **Bottom line**: You have everything you need to go live RIGHT NOW. Just need visibility! Start with free strategies (tracking sites + social media), then add bridge for easy onboarding. Growth will be slow at first (normal!), then compound.
 

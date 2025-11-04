@@ -7,8 +7,8 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
 /**
- * @title NOR - Noor Chain Native Token
- * @notice NOR (نور - "Light") is the native utility token of Noor Chain
+ * @title NOR - Nor Chain Native Token
+ * @notice NOR (نور - "Light") is the native utility token of Nor Chain
  *
  * Token Economics:
  * - Total Supply: 21,000,000,000 NOR (21 billion)
@@ -56,7 +56,7 @@ contract NOR is ERC20, ERC20Burnable, Pausable, AccessControl {
 
     event TokensVested(address indexed beneficiary, uint256 amount);
 
-    constructor() ERC20("Noor Token", "NOR") {
+    constructor() ERC20("Nor Token", "NOR") {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(MINTER_ROLE, msg.sender);
         _grantRole(PAUSER_ROLE, msg.sender);
@@ -67,7 +67,7 @@ contract NOR is ERC20, ERC20Burnable, Pausable, AccessControl {
 
     /**
      * @notice Returns 24 decimals for ultra-high precision
-     * @dev Matches Noor Chain's native precision
+     * @dev Matches Nor Chain's native precision
      */
     function decimals() public pure override returns (uint8) {
         return 24;

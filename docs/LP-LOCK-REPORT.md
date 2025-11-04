@@ -1,4 +1,4 @@
-# Noor Chain DEX - LP Token Lock Report
+# Nor Chain DEX - LP Token Lock Report
 
 ## Executive Summary
 
@@ -8,7 +8,7 @@
 **Total Locked Liquidity**: $800,000
 **Unlock Date**: November 1, 2028
 
-All Noor Chain DEX liquidity pool tokens have been successfully locked for 36 months using the LiquidityLock smart contract, ensuring maximum security and community trust.
+All Nor Chain DEX liquidity pool tokens have been successfully locked for 36 months using the LiquidityLock smart contract, ensuring maximum security and community trust.
 
 ---
 
@@ -16,7 +16,7 @@ All Noor Chain DEX liquidity pool tokens have been successfully locked for 36 mo
 
 | Parameter | Value |
 |-----------|-------|
-| Network | Noor Chain (btcbr) |
+| Network | Nor Chain (btcbr) |
 | Chain ID | 65001 |
 | LiquidityLock Contract | `0xFB50672F7c4240e43d07A6eb7B51641B05bA30C6` |
 | Beneficiary (Treasury) | `0xdD779a290C937144F80Eb75b75d814c834536B1b` |
@@ -111,7 +111,7 @@ All deployer LP token balances have been reduced to **0.0**, confirming 100% of 
 - **Rug Pull Prevention**: No liquidity can be withdrawn until November 1, 2028
 - **Community Trust**: Maximum security for all DEX users and liquidity providers
 - **Emergency Controls**: Only owner/governance multisig can perform emergency unlocks
-- **On-Chain Verification**: All locks publicly verifiable on Noor Chain blockchain
+- **On-Chain Verification**: All locks publicly verifiable on Nor Chain blockchain
 - **Transparent Beneficiary**: Treasury multisig address clearly defined
 
 ---
@@ -165,13 +165,13 @@ For each LP token pair:
 
 ### Recommended Announcements
 
-1. **Social Media**: "Noor Chain DEX now features $800K in locked liquidity for 36 months - the longest lock period in the industry. Trade with confidence!"
+1. **Social Media**: "Nor Chain DEX now features $800K in locked liquidity for 36 months - the longest lock period in the industry. Trade with confidence!"
 
 2. **Documentation**: Update all DEX documentation to highlight locked liquidity feature
 
 3. **Website Banner**: "100% LP Tokens Locked for 3 Years - Maximum Security"
 
-4. **Press Release**: "Noor Chain Sets New Standard with $800K 36-Month Liquidity Lock"
+4. **Press Release**: "Nor Chain Sets New Standard with $800K 36-Month Liquidity Lock"
 
 ---
 
@@ -221,7 +221,7 @@ Users can verify locks by:
    ```
 
 3. **Block Explorer**:
-   - Visit Noor Chain explorer
+   - Visit Nor Chain explorer
    - Search for LiquidityLock contract
    - View all lock transactions and balances
 
@@ -253,7 +253,7 @@ All deployment and lock data stored in:
 
 ## Conclusion
 
-The Noor Chain DEX liquidity lock has been **successfully completed** with industry-leading security standards. All $800,000 in liquidity is now secured for 36 months, providing maximum protection against rug pulls and demonstrating the team's long-term commitment to the ecosystem.
+The Nor Chain DEX liquidity lock has been **successfully completed** with industry-leading security standards. All $800,000 in liquidity is now secured for 36 months, providing maximum protection against rug pulls and demonstrating the team's long-term commitment to the ecosystem.
 
 **Status**: PRODUCTION READY
 **Security Level**: MAXIMUM
@@ -262,10 +262,10 @@ The Noor Chain DEX liquidity lock has been **successfully completed** with indus
 ---
 
 **Report Generated**: November 2, 2025
-**Network**: Noor Chain (Chain ID 65001)
+**Network**: Nor Chain (Chain ID 65001)
 **Verified By**: Automated deployment system
 
 ---
 
-*For technical inquiries, contact: tech@noorchain.org*
-*For partnership inquiries, contact: partners@noorchain.org*
+*For technical inquiries, contact: tech@norchain.org*
+*For partnership inquiries, contact: partners@norchain.org*

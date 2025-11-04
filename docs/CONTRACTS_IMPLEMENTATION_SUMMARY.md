@@ -1,4 +1,4 @@
-# Noor Chain Smart Contracts Implementation Summary
+# Nor Chain Smart Contracts Implementation Summary
 
 **Date**: November 2, 2025
 **Version**: 1.0
@@ -8,9 +8,9 @@
 
 ## Executive Summary
 
-Successfully implemented the complete Noor Chain smart contract ecosystem, including:
+Successfully implemented the complete Nor Chain smart contract ecosystem, including:
 - Native token (NOR)
-- Decentralized exchange (NoorSwap)
+- Decentralized exchange (NorSwap)
 - Stablecoins (Dirhamat, Digital KES)
 - Governance system (three-layer DAO)
 - Halal investment funds (FundUnit standard)
@@ -27,7 +27,7 @@ Successfully implemented the complete Noor Chain smart contract ecosystem, inclu
 
 ### 1.1 NOR Token (`contracts/tokens/NOR.sol`)
 
-**Purpose**: Native utility token for Noor Chain ecosystem
+**Purpose**: Native utility token for Nor Chain ecosystem
 
 **Key Features**:
 - Total Supply: 21 billion NOR (21,000,000,000)
@@ -48,17 +48,17 @@ Successfully implemented the complete Noor Chain smart contract ecosystem, inclu
 ```
 
 **Use Cases**:
-- Gas fees on Noor Chain
+- Gas fees on Nor Chain
 - Staking for validators
 - Governance voting power
-- Liquidity provision on NoorSwap
+- Liquidity provision on NorSwap
 - Fund subscription payments
 
 ---
 
-## 2. DEX Contracts (NoorSwap)
+## 2. DEX Contracts (NorSwap)
 
-### 2.1 NoorSwapFactory (`contracts/dex/NoorSwapFactory.sol`)
+### 2.1 NorSwapFactory (`contracts/dex/NorSwapFactory.sol`)
 
 **Purpose**: Factory for creating liquidity pool pairs
 
@@ -76,7 +76,7 @@ allPairsLength() → total pairs
 setFeeTo(address) → update fee recipient
 ```
 
-### 2.2 NoorSwapPair (`contracts/dex/NoorSwapPair.sol`)
+### 2.2 NorSwapPair (`contracts/dex/NorSwapPair.sol`)
 
 **Purpose**: Individual liquidity pool implementation
 
@@ -105,7 +105,7 @@ getReserves() → (reserve0, reserve1, timestamp)
 Output = (Input × 997 × ReserveOut) / ((ReserveIn × 1000) + (Input × 997))
 ```
 
-### 2.3 NoorSwapRouter (`contracts/dex/NoorSwapRouter.sol`)
+### 2.3 NorSwapRouter (`contracts/dex/NorSwapRouter.sol`)
 
 **Purpose**: User-facing interface for swaps and liquidity
 
@@ -206,7 +206,7 @@ mintFromMpesa(recipient, amount, mpesaTxHash)
 
 ## 4. Governance Contracts
 
-### 4.1 NoorGovernance (`contracts/governance/NoorGovernance.sol`)
+### 4.1 NorGovernance (`contracts/governance/NorGovernance.sol`)
 
 **Purpose**: Three-layer DAO governance system
 
@@ -333,7 +333,7 @@ getShariahStatus() → compliance check
 
 ## 7. Deployment Scripts
 
-### 7.1 Main Deployment (`scripts/deploy-noor-ecosystem.js`)
+### 7.1 Main Deployment (`scripts/deploy-nor-ecosystem.js`)
 
 **Purpose**: Comprehensive ecosystem deployment
 
@@ -346,7 +346,7 @@ getShariahStatus() → compliance check
 
 **Usage**:
 ```bash
-npx hardhat run scripts/deploy-noor-ecosystem.js --network btcbr
+npx hardhat run scripts/deploy-nor-ecosystem.js --network btcbr
 ```
 
 **Output**:
@@ -374,7 +374,7 @@ npx hardhat run scripts/deploy-noor-ecosystem.js --network btcbr
     ┌────────────┼────────────┬───────────┼───────────┐
     │            │            │           │           │
 ┌───▼────┐  ┌───▼────┐  ┌────▼────┐  ┌──▼─────┐  ┌─▼──────┐
-│NoorSwap│  │Dirhamat│  │DigitalKE│  │FundUnit│  │Bridges │
+│NorSwap│  │Dirhamat│  │DigitalKE│  │FundUnit│  │Bridges │
 │  DEX   │  │(AED/Au)│  │S (KES)  │  │(Halal) │  │(Cross- │
 │        │  │        │  │         │  │        │  │chain)  │
 └────────┘  └────────┘  └─────────┘  └────────┘  └────────┘
@@ -429,7 +429,7 @@ npx hardhat run scripts/deploy-noor-ecosystem.js --network btcbr
 8. Verify all contracts on block explorer
 
 ### Post-Deployment
-- [ ] Initialize liquidity pools on NoorSwap
+- [ ] Initialize liquidity pools on NorSwap
 - [ ] Update reserve backing for stablecoins
 - [ ] Configure bank licenses for Digital KES
 - [ ] Set up NAV oracles for FundUnit
@@ -446,14 +446,14 @@ After deployment, update this section with actual addresses:
 
 ```json
 {
-  "network": "noor-chain",
+  "network": "nor-chain",
   "chainId": 65001,
   "contracts": {
     "NOR": "0x...",
     "Timelock": "0x...",
     "Governor": "0x...",
-    "NoorSwapFactory": "0x...",
-    "NoorSwapRouter": "0x...",
+    "NorSwapFactory": "0x...",
+    "NorSwapRouter": "0x...",
     "Dirhamat": "0x...",
     "DigitalKES": "0x...",
     "FundUnit": "0x..."
@@ -472,7 +472,7 @@ After deployment, update this section with actual addresses:
 - Bug bounty program
 
 ### Phase 2: Testnet Deployment (Weeks 5-8)
-- Deploy to Noor Chain testnet
+- Deploy to Nor Chain testnet
 - Community testing
 - Bug fixes and optimization
 - Documentation updates
@@ -495,7 +495,7 @@ After deployment, update this section with actual addresses:
 ## 13. Key Metrics & KPIs
 
 ### Technical Metrics
-- Total Value Locked (TVL) in NoorSwap
+- Total Value Locked (TVL) in NorSwap
 - Number of trading pairs
 - Daily trading volume
 - Stablecoin reserves ratio
@@ -546,7 +546,7 @@ After deployment, update this section with actual addresses:
 **Technical Spec**: `Part 6 – Smart Contracts & DeFi Architecture.md`
 **Deployment Guide**: This document
 **GitHub**: (To be published)
-**Website**: https://noorchain.org (migrating from xaheen.org)
+**Website**: https://norchain.org (migrating from xaheen.org)
 
 ---
 
@@ -554,7 +554,7 @@ After deployment, update this section with actual addresses:
 
 ✅ **All core smart contracts successfully implemented**
 
-The Noor Chain ecosystem now has a complete set of production-ready smart contracts covering:
+The Nor Chain ecosystem now has a complete set of production-ready smart contracts covering:
 - Native token with vesting
 - Full-featured DEX (Factory, Pair, Router)
 - Two Shariah-compliant stablecoins
@@ -574,6 +574,6 @@ The Noor Chain ecosystem now has a complete set of production-ready smart contra
 
 **Document Version**: 1.0
 **Last Updated**: November 2, 2025
-**Author**: Noor Chain Development Team
+**Author**: Nor Chain Development Team
 
-🌙 **Noor Chain - Illuminating the Future of Finance** 🌙
+🌙 **Nor Chain - Illuminating the Future of Finance** 🌙

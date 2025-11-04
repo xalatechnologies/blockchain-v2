@@ -23,7 +23,7 @@ You want:
 │         User's Browser                  │
 │                                         │
 │  ┌───────────────────────────────────┐  │
-│  │   XaheenSwap Frontend (React)     │  │
+│  │   NorSwap Frontend (React)     │  │
 │  │   (Hosted on Vercel/Your Server)  │  │
 │  └───────────────────────────────────┘  │
 │              ↓ Web3 / ethers.js         │
@@ -37,7 +37,7 @@ You want:
 └─────────────────────────────────────────┘
               ↓
 ┌─────────────────────────────────────────┐
-│   Xaheen Chain (Blockchain)             │
+│   Nor Chain (Blockchain)             │
 │   RPC: https://rpc.xaheen.org           │
 │                                         │
 │   Smart Contracts:                      │
@@ -106,7 +106,7 @@ User selects MetaMask:
 
 Frontend shows:
 ├─ Wallet address: 0xdD77...6B1b
-├─ XHT balance: 21B XHT
+├─ NOR balance: 21B NOR
 ├─ USDT balance: 1M USDT
 └─ Now ready to swap ✅
 ```
@@ -128,10 +128,10 @@ User enters swap details:
 │           ↓↓↓                       │
 │   You Receive:                      │
 │   ┌───────────────────────────────┐ │
-│   │ 41,666,666   [XHT ▼]          │ │
+│   │ 41,666,666   [NOR ▼]          │ │
 │   └───────────────────────────────┘ │
 │                                     │
-│   Price: 1 XHT = $0.0000024        │
+│   Price: 1 NOR = $0.0000024        │
 │   Price Impact: <0.01%              │
 │   Fee: 0.3% (0.3 USDT)              │
 │                                     │
@@ -147,8 +147,8 @@ User clicks "Swap":
 │  └─ User clicks "Confirm" ✅
 │
 └─ Transaction sent to blockchain
-   ├─ Executed on Xaheen Chain
-   ├─ User receives XHT
+   ├─ Executed on Nor Chain
+   ├─ User receives NOR
    └─ Complete in 3 seconds ✅
 ```
 
@@ -166,7 +166,7 @@ Frontend shows:
 ├─────────────────────────────────────┤
 │                                     │
 │   You swapped:                      │
-│   100 USDT → 41,666,666 XHT         │
+│   100 USDT → 41,666,666 NOR         │
 │                                     │
 │   Transaction:                      │
 │   0x1d0c9629f070c881bd287...        │
@@ -177,7 +177,7 @@ Frontend shows:
 
 User's wallet now shows:
 ├─ USDT: 999,900 (spent 100)
-└─ XHT: 21,041,666,666 (received ~41.6M)
+└─ NOR: 21,041,666,666 (received ~41.6M)
 ```
 
 ---
@@ -394,9 +394,9 @@ We NEVER execute without user approval ✅
 │   Swap                              │
 ├─────────────────────────────────────┤
 │   From: [100] [USDT ▼]              │
-│   To: [41,666,666] [XHT ▼]          │
+│   To: [41,666,666] [NOR ▼]          │
 │                                     │
-│   Price: 1 XHT = $0.0000024         │
+│   Price: 1 NOR = $0.0000024         │
 │   Fee: 0.3%                         │
 │                                     │
 │   [Connect Wallet] or [Swap]        │
@@ -408,7 +408,7 @@ We NEVER execute without user approval ✅
 ┌─────────────────────────────────────┐
 │   Add Liquidity                     │
 ├─────────────────────────────────────┤
-│   Token A: [1000] [XHT ▼]           │
+│   Token A: [1000] [NOR ▼]           │
 │   Token B: [0.0024] [USDT ▼]        │
 │                                     │
 │   You'll receive: 100 LP tokens     │
@@ -425,7 +425,7 @@ We NEVER execute without user approval ✅
 │   LP Tokens: [100] XLP              │
 │                                     │
 │   You'll receive:                   │
-│   ├─ 1000 XHT                       │
+│   ├─ 1000 NOR                       │
 │   └─ 0.0024 USDT                    │
 │                                     │
 │   [Remove Liquidity]                │
@@ -437,7 +437,7 @@ We NEVER execute without user approval ✅
 ┌─────────────────────────────────────┐
 │   Pool Statistics                   │
 ├─────────────────────────────────────┤
-│   XHT/USDT Pool                     │
+│   NOR/USDT Pool                     │
 │                                     │
 │   Total Liquidity: $20,000          │
 │   24h Volume: $150                  │
@@ -455,11 +455,11 @@ We NEVER execute without user approval ✅
 ┌─────────────────────────────────────┐
 │   Your Transactions                 │
 ├─────────────────────────────────────┤
-│   Swap: 100 USDT → 41.6M XHT        │
+│   Swap: 100 USDT → 41.6M NOR        │
 │   2 minutes ago                     │
 │   [View on Explorer]                │
 │                                     │
-│   Add Liquidity: 1000 XHT + 0.024 U │
+│   Add Liquidity: 1000 NOR + 0.024 U │
 │   1 hour ago                        │
 │   [View on Explorer]                │
 └─────────────────────────────────────┘
@@ -468,7 +468,7 @@ We NEVER execute without user approval ✅
 **6. Price Charts**
 ```
 ┌─────────────────────────────────────┐
-│   XHT/USDT Price Chart              │
+│   NOR/USDT Price Chart              │
 ├─────────────────────────────────────┤
 │        Price: $0.0000024            │
 │        Change: +0.5%                │
@@ -490,8 +490,8 @@ We NEVER execute without user approval ✅
 │   Unique Users (24h): 1             │
 │                                     │
 │   Top Pairs:                        │
-│   1. XHT/USDT - $20k                │
-│   2. XHT/BTCBR - $0 (coming soon)   │
+│   1. NOR/USDT - $20k                │
+│   2. NOR/BTCBR - $0 (coming soon)   │
 └─────────────────────────────────────┘
 ```
 
@@ -502,7 +502,7 @@ We NEVER execute without user approval ✅
 ### Desktop View:
 ```
 ┌────────────────────────────────────────────────┐
-│  XaheenSwap                  [Connect Wallet]  │
+│  NorSwap                  [Connect Wallet]  │
 ├────────────────────────────────────────────────┤
 │                                                │
 │  ┌──────────────────┐  ┌──────────────────┐   │
@@ -518,7 +518,7 @@ We NEVER execute without user approval ✅
 ### Mobile View:
 ```
 ┌─────────────────┐
-│  XaheenSwap    │
+│  NorSwap    │
 │  [≡ Menu]      │
 ├─────────────────┤
 │                │
@@ -528,7 +528,7 @@ We NEVER execute without user approval ✅
 │  100 USDT      │
 │      ↓         │
 │  [To]          │
-│  41.6M XHT     │
+│  41.6M NOR     │
 │                │
 │  [Swap Now]    │
 │                │
@@ -568,7 +568,7 @@ User's Browser
      ↓ HTTPS
 Vercel CDN (Frontend)
      ↓ RPC
-Xaheen Chain (https://rpc.xaheen.org)
+Nor Chain (https://rpc.xaheen.org)
      ↓ Smart Contracts
 Router/Factory/Pair Contracts
 ```
@@ -579,19 +579,19 @@ Router/Factory/Pair Contracts
 
 ## User Journey Example
 
-### Alice Wants to Buy $100 of XHT:
+### Alice Wants to Buy $100 of NOR:
 
 **Step 1: Setup (One-time)**
 ```
 1. Alice installs MetaMask
 2. Creates wallet (writes down seed phrase)
-3. Adds Xaheen Chain network:
+3. Adds Nor Chain network:
    - RPC: https://rpc.xaheen.org
    - Chain ID: 65001
-4. Bridges 100 USDT from BSC to Xaheen
+4. Bridges 100 USDT from BSC to Nor
 ```
 
-**Step 2: Buy XHT**
+**Step 2: Buy NOR**
 ```
 1. Alice visits: swap.xaheen.org
 2. Clicks "Connect Wallet"
@@ -600,11 +600,11 @@ Router/Factory/Pair Contracts
    - Your address: 0x...
    - Your USDT: 100
 5. Alice enters: "100 USDT"
-6. Sees output: "41,666,666 XHT"
+6. Sees output: "41,666,666 NOR"
 7. Clicks "Swap"
 8. MetaMask popup → Reviews → Confirms
 9. Transaction executes (3 seconds)
-10. Alice now has 41.6M XHT ✅
+10. Alice now has 41.6M NOR ✅
 ```
 
 **Total time: 1 minute (after initial setup)**

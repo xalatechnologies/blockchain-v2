@@ -1,4 +1,4 @@
-# Noor Chain DEX Liquidity Implementation Guide
+# Nor Chain DEX Liquidity Implementation Guide
 
 **Date:** November 2, 2025
 **Status:** Ready for Implementation
@@ -8,9 +8,9 @@
 
 ## 🎯 Implementation Goals
 
-Based on Noor Chain Playbook v3 (Part 5 & 6):
+Based on Nor Chain Playbook v3 (Part 5 & 6):
 
-1. **Launch NoorSwap DEX** with $800k initial liquidity
+1. **Launch NorSwap DEX** with $800k initial liquidity
 2. **Lock LP tokens** for trust and security (prevent rug pulls)
 3. **Establish initial pricing** for NOR and stable assets
 4. **Create trading pairs** for ecosystem tokens
@@ -71,13 +71,13 @@ Constant Product (k): 277,778 × $75k = 20.8 billion
 
 **1.1 Deployed Contracts:**
 - ✅ NOR Token: `0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c`
-- ✅ NoorSwapFactory: `0xbbb1ec421b156f0442D435A875E5267B8A2FDc39`
+- ✅ NorSwapFactory: `0xbbb1ec421b156f0442D435A875E5267B8A2FDc39`
 - ✅ Dirhamat: `0x7857D6a475498e535969121f1B7B96151E422813`
 - ✅ LiquidityLock: ⏳ Ready to deploy
 
 **1.2 Required Tokens (Need to Deploy):**
 - ⏳ WUSDT: Wrapped USDT (18 decimals, bridge-ready, can mint for initial liquidity)
-- ⏳ Router: NoorSwapRouter (if not deployed)
+- ⏳ Router: NorSwapRouter (if not deployed)
 - ⏳ WNOR: Wrapped NOR (for native token trading, 18 decimals)
 
 **1.3 Compile LiquidityLock:**
@@ -87,9 +87,9 @@ npx hardhat compile
 
 ### Phase 2: Deploy Missing Infrastructure
 
-**2.1 Deploy NoorSwapRouter** (if not exists)
+**2.1 Deploy NorSwapRouter** (if not exists)
 ```bash
-npx hardhat run scripts/deploy-noorswap-router.js --network btcbr
+npx hardhat run scripts/deploy-norswap-router.js --network btcbr
 ```
 
 **2.2 Deploy WNOR** (Wrapped NOR)
@@ -101,7 +101,7 @@ npx hardhat run scripts/deploy-wnor.js --network btcbr
 ```bash
 # WUSDT is bridge-compatible and will be deployed automatically
 # In deploy-dex-infrastructure.js script
-# For production: Bridge real USDT from BSC → WUSDT on Noor Chain
+# For production: Bridge real USDT from BSC → WUSDT on Nor Chain
 ```
 
 **2.4 Deploy LiquidityLock Contract**
@@ -113,8 +113,8 @@ npx hardhat run scripts/deploy-liquidity-lock.js --network btcbr
 
 **3.1 Create Pairs via Factory:**
 ```javascript
-// Using NoorSwapFactory
-const factory = await ethers.getContractAt("NoorSwapFactory", FACTORY_ADDRESS);
+// Using NorSwapFactory
+const factory = await ethers.getContractAt("NorSwapFactory", FACTORY_ADDRESS);
 
 // Create NOR/USDT pair
 await factory.createPair(NOR_ADDRESS, USDT_ADDRESS);
@@ -133,7 +133,7 @@ const dirhamatUsdtPair = await factory.getPair(DIRHAMAT_ADDRESS, USDT_ADDRESS);
 
 **4.1 Approve Tokens for Router:**
 ```javascript
-const router = await ethers.getContractAt("NoorSwapRouter", ROUTER_ADDRESS);
+const router = await ethers.getContractAt("NorSwapRouter", ROUTER_ADDRESS);
 
 // Approve NOR
 await norToken.approve(router.address, ethers.parseEther("30000000"));
@@ -193,13 +193,13 @@ await router.addLiquidity(
 
 **5.1 Get LP Token Balances:**
 ```javascript
-const norUsdtPair = await ethers.getContractAt("NoorSwapPair", NOR_USDT_PAIR_ADDRESS);
+const norUsdtPair = await ethers.getContractAt("NorSwapPair", NOR_USDT_PAIR_ADDRESS);
 const lpBalance1 = await norUsdtPair.balanceOf(deployer.address);
 
-const norDirhamatPair = await ethers.getContractAt("NoorSwapPair", NOR_DIRHAMAT_PAIR_ADDRESS);
+const norDirhamatPair = await ethers.getContractAt("NorSwapPair", NOR_DIRHAMAT_PAIR_ADDRESS);
 const lpBalance2 = await norDirhamatPair.balanceOf(deployer.address);
 
-const dirhamatUsdtPair = await ethers.getContractAt("NoorSwapPair", DIRHAMAT_USDT_PAIR_ADDRESS);
+const dirhamatUsdtPair = await ethers.getContractAt("NorSwapPair", DIRHAMAT_USDT_PAIR_ADDRESS);
 const lpBalance3 = await dirhamatUsdtPair.balanceOf(deployer.address);
 ```
 
@@ -264,11 +264,11 @@ console.log("Unlock Time:", new Date(lock.unlockTime * 1000));
 
 **6.2 Public Announcement:**
 ```
-🌙 Noor Chain DEX Launch Announcement 🌙
+🌙 Nor Chain DEX Launch Announcement 🌙
 
 ✅ $800,000 Initial Liquidity Deployed
 ✅ All LP Tokens Locked for 12 Months
-✅ Trading Now Live on NoorSwap
+✅ Trading Now Live on NorSwap
 
 Trading Pairs:
 - NOR/USDT: $400k liquidity (1 NOR = $0.01)
@@ -280,7 +280,7 @@ Contract: [LIQUIDITY_LOCK_ADDRESS]
 Unlock Date: [DATE]
 Total Locked: 100% of initial LP tokens
 
-Trade on: https://swap.noorchain.org
+Trade on: https://swap.norchain.org
 ```
 
 ---
@@ -394,7 +394,7 @@ Or: 10,000,000 / 370,370 = 27 NOR per DIRHAMAT ✅
 
 All required deployment scripts need to be created in `/scripts/`:
 
-1. `deploy-noorswap-router.js` - Deploy Router contract
+1. `deploy-norswap-router.js` - Deploy Router contract
 2. `deploy-wnor.js` - Deploy Wrapped NOR
 3. `deploy-mock-usdt.js` - Deploy test USDT (or bridge real)
 4. `deploy-liquidity-lock.js` - Deploy LiquidityLock
@@ -413,7 +413,7 @@ npx hardhat run scripts/deploy-dex-complete.js --network btcbr
 ## ✅ Pre-Launch Checklist
 
 - [ ] Compile all contracts
-- [ ] Deploy NoorSwapRouter
+- [ ] Deploy NorSwapRouter
 - [ ] Deploy WNOR (Wrapped NOR)
 - [ ] Deploy or bridge USDT
 - [ ] Deploy LiquidityLock contract
@@ -447,4 +447,4 @@ npx hardhat run scripts/deploy-dex-complete.js --network btcbr
 **Security:** 100% LP tokens locked, multi-sig treasury
 **Status:** Ready for Implementation
 
-🌙 **Noor Chain - Illuminating DeFi with Trust and Transparency** 🌙
+🌙 **Nor Chain - Illuminating DeFi with Trust and Transparency** 🌙

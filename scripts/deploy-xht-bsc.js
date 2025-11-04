@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 /**
- * Deploy XHT Bridge Token on BSC
+ * Deploy NOR Bridge Token on BSC
  *
  * This deploys the BSC side of the bridge - the "World 2" token
- * that will be traded on PancakeSwap and connected to Xaheen Chain.
+ * that will be traded on PancakeSwap and connected to Nor Chain.
  *
  * Cost: ~$50 (BSC gas fees)
  */
@@ -14,7 +14,7 @@ import { config as dotenvConfig } from "dotenv";
 dotenvConfig();
 
 async function main() {
-  console.log("🌉 Deploying XHT Bridge Token on BSC");
+  console.log("🌉 Deploying NOR Bridge Token on BSC");
   console.log("=====================================================\n");
 
   // Get deployer
@@ -30,14 +30,14 @@ async function main() {
     process.exit(1);
   }
 
-  // Deploy XHT Bridge Token
-  console.log("📦 Deploying XHT Bridge Token...");
-  const XHTBridgeToken = await ethers.getContractFactory("XHTBridgeToken");
-  const xht = await XHTBridgeToken.deploy();
+  // Deploy NOR Bridge Token
+  console.log("📦 Deploying NOR Bridge Token...");
+  const NORBridgeToken = await ethers.getContractFactory("NORBridgeToken");
+  const xht = await NORBridgeToken.deploy();
   await xht.waitForDeployment();
 
   const xhtAddress = await xht.getAddress();
-  console.log("✅ XHT Bridge Token deployed:", xhtAddress);
+  console.log("✅ NOR Bridge Token deployed:", xhtAddress);
   console.log("");
 
   // Verify deployment
@@ -50,23 +50,23 @@ async function main() {
   console.log("   Name:", name);
   console.log("   Symbol:", symbol);
   console.log("   Decimals:", decimals);
-  console.log("   Total Supply:", ethers.formatEther(totalSupply), "XHT");
+  console.log("   Total Supply:", ethers.formatEther(totalSupply), "NOR");
   console.log("");
 
   // Mint initial supply for liquidity
   console.log("💎 Minting initial supply for liquidity...");
-  const liquidityAmount = ethers.parseEther("10000000"); // 10M XHT
+  const liquidityAmount = ethers.parseEther("10000000"); // 10M NOR
   const mintTx = await xht.mint(deployer.address, liquidityAmount);
   await mintTx.wait();
-  console.log("✅ Minted 10,000,000 XHT for PancakeSwap liquidity");
+  console.log("✅ Minted 10,000,000 NOR for PancakeSwap liquidity");
   console.log("");
 
   // Save deployment info
   console.log("📝 Deployment Summary:");
   console.log("=====================================================");
-  console.log("XHT Token (BSC):", xhtAddress);
+  console.log("NOR Token (BSC):", xhtAddress);
   console.log("Deployer:", deployer.address);
-  console.log("Initial Supply: 10,000,000 XHT");
+  console.log("Initial Supply: 10,000,000 NOR");
   console.log("");
 
   console.log("✅ DEPLOYMENT COMPLETE!");
@@ -78,9 +78,9 @@ async function main() {
   console.log("   https://pancakeswap.finance/add/" + xhtAddress);
   console.log("");
   console.log("2. Pair with USDT:");
-  console.log("   - XHT: 10,000,000");
+  console.log("   - NOR: 10,000,000");
   console.log("   - USDT: 5,000");
-  console.log("   - Price: $0.0005 per XHT");
+  console.log("   - Price: $0.0005 per NOR");
   console.log("");
   console.log("3. Configure bridge validators:");
   console.log("   node scripts/setup-bridge.js");
@@ -90,7 +90,7 @@ async function main() {
   console.log("");
 
   // Save to file
-  const fs = await import('fs');
+  const fs = await import("fs");
   const deploymentInfo = {
     network: "BSC Mainnet",
     chainId: 56,
@@ -99,11 +99,11 @@ async function main() {
     timestamp: new Date().toISOString(),
     initialSupply: "10000000",
     pancakeSwapRouter: "0x10ED43C718714eb63d5aA57B78B54704E256024E",
-    usdtAddress: "0x55d398326f99059fF775485246999027B3197955"
+    usdtAddress: "0x55d398326f99059fF775485246999027B3197955",
   };
 
   fs.writeFileSync(
-    'deployment-bsc-bridge.json',
+    "deployment-bsc-bridge.json",
     JSON.stringify(deploymentInfo, null, 2)
   );
 

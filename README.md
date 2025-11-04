@@ -1,4 +1,4 @@
-# Xaheen Chain - Where Intelligence Meets Blockchain 🧠⚡
+# Nor Chain - Where Intelligence Meets Blockchain 🧠⚡
 
 **A production-grade private BNB Smart Chain (BSC/Parlia PoSA) implementation with comprehensive DEX and bridge infrastructure for cross-chain operations.**
 
@@ -13,7 +13,7 @@
 **Chain Status**: 🔴 **STUCK at block 29,999** (epoch boundary issue)
 
 **💰 Critical Assets**:
-- **$20,000 XHT/USDT liquidity deployed** on Xaheen Chain
+- **$20,000 NOR/USDT liquidity deployed** on Nor Chain
 - **$10,000 locked in timelock** until October 30, 2026
 - **$10,000 operational liquidity**
 - **352.7 billion BTCBR** on BSC Mainnet (SAFE ✅)
@@ -26,11 +26,11 @@
 
 | Parameter | Value |
 |-----------|-------|
-| **Chain Name** | Xaheen Chain |
+| **Chain Name** | Nor Chain |
 | **Domain** | xaheen.org |
 | **Chain ID** | 65001 (0xFDE9) |
 | **Network ID** | 65001 |
-| **Native Token** | XHT (Xaheen Token) |
+| **Native Token** | NOR (Nor Token) |
 | **Block Time** | 3 seconds |
 | **Consensus** | Parlia PoSA (Proof of Staked Authority) |
 | **Validators** | 3 validators (2-of-3 multi-sig) |
@@ -47,7 +47,7 @@
 ### For Emergency Issues
 👉 See: **[docs/00-critical/](docs/00-critical/)**
 
-### Add Xaheen Chain to MetaMask
+### Add Nor Chain to MetaMask
 
 **Automatic**:
 1. Visit: `https://xaheen.org/add-to-metamask.html` (when live)
@@ -55,10 +55,10 @@
 **Manual Configuration**:
 ```json
 {
-  "networkName": "Xaheen Chain",
+  "networkName": "Nor Chain",
   "rpcUrl": "http://3.91.50.187:8545",
   "chainId": "65001",
-  "currencySymbol": "XHT",
+  "currencySymbol": "NOR",
   "blockExplorerUrl": ""
 }
 ```
@@ -92,13 +92,13 @@ Each directory contains a **README.md** with detailed contents and navigation.
 ```
 ┌──────────────────────────────────────────────────────────┐
 │                   XAHEEN CHAIN (Hub)                     │
-│   Chain ID: 65001  |  Native Token: XHT  |  3s blocks   │
+│   Chain ID: 65001  |  Native Token: NOR  |  3s blocks   │
 │   ┌────────────────────────────────────────────────────┐ │
-│   │  DEX (XaheenDEX - Uniswap V2 Fork)                 │ │
-│   │  ├─ WXHT Token: 0x26c0...355                       │ │
+│   │  DEX (NorDEX - Uniswap V2 Fork)                 │ │
+│   │  ├─ WNOR Token: 0x26c0...355                       │ │
 │   │  ├─ Factory: 0x5DAB...Da3                          │ │
 │   │  ├─ Router: 0xbe0d...D80                           │ │
-│   │  └─ XHT/USDT Pool: $20K liquidity                  │ │
+│   │  └─ NOR/USDT Pool: $20K liquidity                  │ │
 │   └────────────────────────────────────────────────────┘ │
 │   ┌────────────────────────────────────────────────────┐ │
 │   │  Genesis Contracts                                  │ │
@@ -110,7 +110,7 @@ Each directory contains a **README.md** with detailed contents and navigation.
 │               BRIDGE INFRASTRUCTURE                       │
 │   ┌──────────────────┬──────────────────┬──────────────┐ │
 │   │   BNB Bridge     │   USDT Bridge    │  ETH Bridge  │ │
-│   │   BSC ↔ Xaheen   │   BSC ↔ Xaheen   │ BSC ↔ Xaheen │ │
+│   │   BSC ↔ Nor   │   BSC ↔ Nor   │ BSC ↔ Nor │ │
 │   └──────────────────┴──────────────────┴──────────────┘ │
 └──────────────────────────────────────────────────────────┘
                           ↕️ ↕️ ↕️
@@ -130,22 +130,22 @@ Each directory contains a **README.md** with detailed contents and navigation.
 
 ## 💰 Deployed Assets
 
-### Xaheen Chain (Chain ID: 65001) - ⚠️ STUCK
+### Nor Chain (Chain ID: 65001) - ⚠️ STUCK
 
 #### Core DEX Infrastructure
-- **WXHT Token**: `0x26c0eaF731885b14c031cc50dB79b36458E0b355`
+- **WNOR Token**: `0x26c0eaF731885b14c031cc50dB79b36458E0b355`
 - **DEX Factory**: `0x5DAB997112119BeCf715607CaA0A94f020AE2Da3`
 - **DEX Router**: `0xbe0d0ec34A93a2Ec08492715a51C613B7E530D80`
 
 #### Liquidity Pools
-- **XHT/USDT Pair**: `0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8`
+- **NOR/USDT Pair**: `0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8`
   - Total Value: **$20,000 USD**
   - Locked: $10,000 (timelock until Oct 30, 2026)
   - Operational: $10,000 (unlocked)
-  - Current Price: $0.0000024/XHT
+  - Current Price: $0.0000024/NOR
   - Timelock Contract: `0x02938F8c35A08126b0be008AaEb0B29B7E48d355`
 
-#### Bridge Contracts (Xaheen Side)
+#### Bridge Contracts (Nor Side)
 | Asset | Wrapped Token | Bridge Contract |
 |-------|---------------|-----------------|
 | BNB | `0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B` | `0xB1347E378CE63475b282fCC4E9037D51F189758A` |
@@ -241,7 +241,7 @@ curl -s http://localhost:8545 -X POST \
 ### Deploy Contracts
 
 ```bash
-# Deploy to Xaheen Chain (local/production)
+# Deploy to Nor Chain (local/production)
 npx hardhat run scripts/your-deploy-script.js --network btcbr
 
 # Deploy to BSC Mainnet
@@ -298,8 +298,8 @@ Bridges use **2-of-3 multi-sig** validation:
 - **Daily Limit**: 500,000 BTCBR per address
 
 ### Bridge Fees
-- **Mainnet → Xaheen**: 0.1% (minimum 10 BTCBR)
-- **Xaheen → Mainnet**: 0.2% (minimum 20 BTCBR)
+- **Mainnet → Nor**: 0.1% (minimum 10 BTCBR)
+- **Nor → Mainnet**: 0.2% (minimum 20 BTCBR)
 
 ---
 
@@ -372,7 +372,7 @@ blockchain-v2/
 
 ### Insufficient Funds for Gas
 
-**Xaheen Chain**: You need XHT for gas fees
+**Nor Chain**: You need NOR for gas fees
 **BSC Mainnet**: You need BNB for gas fees
 
 Get test tokens: [docs/01-getting-started/GET_TEST_TOKENS.md](docs/01-getting-started/GET_TEST_TOKENS.md)
@@ -449,4 +449,4 @@ Get test tokens: [docs/01-getting-started/GET_TEST_TOKENS.md](docs/01-getting-st
 
 ---
 
-**Xaheen Chain - Where Intelligence Meets Blockchain** 🧠⚡
+**Nor Chain - Where Intelligence Meets Blockchain** 🧠⚡

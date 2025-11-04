@@ -3,7 +3,7 @@
  */
 
 export const config = {
-  // Xaheen Chain (Hub)
+  // Nor Chain (Hub)
   xaheenChain: {
     rpc: process.env.PRIVATE_CHAIN_RPC || "https://rpc.xaheen.org",
     chainId: 65001,
@@ -25,7 +25,8 @@ export const config = {
       chainId: 137,
       name: "Polygon",
       rpc: process.env.POLYGON_RPC || "https://polygon-rpc.com",
-      settlementInboxAddress: process.env.SETTLEMENT_INBOX_POLYGON_ADDRESS || "",
+      settlementInboxAddress:
+        process.env.SETTLEMENT_INBOX_POLYGON_ADDRESS || "",
       requiredConfirmations: 128, // ~4 minutes on Polygon
       blockTime: 2000, // 2 seconds
     },
@@ -41,7 +42,8 @@ export const config = {
 
   // Relayer wallet (must have RELAYER_ROLE on SettlementHub)
   wallet: {
-    privateKey: process.env.RELAYER_PRIVATE_KEY || process.env.MAIN_WALLET_PRIVATE_KEY,
+    privateKey:
+      process.env.RELAYER_PRIVATE_KEY || process.env.MAIN_WALLET_PRIVATE_KEY,
   },
 
   // Retry configuration
@@ -77,7 +79,9 @@ function validateConfig() {
 
   config.spokes.forEach((spoke) => {
     if (!spoke.settlementInboxAddress) {
-      errors.push(`Missing SETTLEMENT_INBOX_${spoke.name.toUpperCase()}_ADDRESS`);
+      errors.push(
+        `Missing SETTLEMENT_INBOX_${spoke.name.toUpperCase()}_ADDRESS`
+      );
     }
   });
 

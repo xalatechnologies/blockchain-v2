@@ -9,7 +9,7 @@ import "@openzeppelin/contracts/security/Pausable.sol";
  * @title BTCBR_TRC20 (BTCBR for Tron Network)
  * @notice TRC20 version of BTCBR for Tron blockchain
  * @dev Compatible with TVM (Tron Virtual Machine) - same as EVM
- *      Minted by bridge when BTCBR is locked on Xaheen Chain
+ *      Minted by bridge when BTCBR is locked on Nor Chain
  */
 contract BTCBR_TRC20 is ERC20, AccessControl, Pausable {
 
@@ -81,7 +81,7 @@ contract BTCBR_TRC20 is ERC20, AccessControl, Pausable {
     }
 
     /**
-     * @notice Decimals (18 to match Xaheen Chain BTCBR)
+     * @notice Decimals (18 to match Nor Chain BTCBR)
      */
     function decimals() public pure override returns (uint8) {
         return 18;

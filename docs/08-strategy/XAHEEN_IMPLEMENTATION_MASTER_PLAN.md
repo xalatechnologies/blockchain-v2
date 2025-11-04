@@ -1,4 +1,4 @@
-# Xaheen Chain Implementation Master Plan
+# Nor Chain Implementation Master Plan
 
 **Version**: 1.0
 **Date**: November 2, 2025
@@ -9,7 +9,7 @@
 
 ## Executive Summary
 
-This master plan outlines the complete implementation roadmap for Xaheen Chain's evolution from a basic blockchain to a comprehensive halal financial ecosystem with AI-enhanced governance and compliance.
+This master plan outlines the complete implementation roadmap for Nor Chain's evolution from a basic blockchain to a comprehensive halal financial ecosystem with AI-enhanced governance and compliance.
 
 **Immediate Priority**: Fix epoch boundary issue (chain stuck at block 29,999, $20K at risk)
 **Strategic Goal**: Implement playbook concepts for institutional partnerships and halal finance infrastructure
@@ -18,7 +18,7 @@ This master plan outlines the complete implementation roadmap for Xaheen Chain's
 
 ## 🚨 PHASE 0: CRITICAL RECOVERY (Immediate - Today)
 
-**Risk**: $20,000 XHT/USDT liquidity locked on stuck chain
+**Risk**: $20,000 NOR/USDT liquidity locked on stuck chain
 **Timeline**: 0.5 - 2 hours
 **Success Criteria**: Block number > 29,999 and increasing
 
@@ -54,7 +54,7 @@ curl -s https://rpc.xaheen.org -X POST \
 ./scripts/epoch-recovery-regenesis.sh
 
 # Verify contracts and liquidity intact
-# Check WXHT, Factory, Router, XHT/USDT pair
+# Check WNOR, Factory, Router, NOR/USDT pair
 ```
 
 **What it does**:
@@ -66,7 +66,7 @@ curl -s https://rpc.xaheen.org -X POST \
 #### 0.3 Post-Recovery Verification
 - ✅ Block production continuing
 - ✅ All 3 validators running with peer count ≥ 2
-- ✅ XHT/USDT LP reserves: ~$20K intact
+- ✅ NOR/USDT LP reserves: ~$20K intact
 - ✅ Contract addresses unchanged
 - ✅ Transactions working
 
@@ -469,7 +469,7 @@ contract CouncilDAO is IGovernor {
 ```
 
 **Members** (proposed):
-1. Xaheen Technologies AS (Norway)
+1. Nor Technologies AS (Norway)
 2. UAE Islamic Bank Representative
 3. Kenya CBK Sandbox Partner
 4. Nordic ESG Fund Representative
@@ -486,10 +486,10 @@ contract CouncilDAO is IGovernor {
 
 ```solidity
 contract ValidatorDAO {
-  mapping(address => uint256) public stakedXHT;
+  mapping(address => uint256) public stakedNOR;
   mapping(address => address) public delegation;
 
-  uint256 public constant MIN_STAKE = 100000 * 10**24; // 100K XHT
+  uint256 public constant MIN_STAKE = 100000 * 10**24; // 100K NOR
 
   function stake(uint256 amount) external;
   function delegate(address validator) external;
@@ -498,13 +498,13 @@ contract ValidatorDAO {
 }
 ```
 
-**Voting Weight**: 1 XHT staked = 1 vote
+**Voting Weight**: 1 NOR staked = 1 vote
 
 ---
 
 ### 3.3 Community DAO (Week 8)
 
-**Structure**: Token holders (≥10,000 XHT staked)
+**Structure**: Token holders (≥10,000 NOR staked)
 **Scope**: Grant funding, feature votes
 
 **Contract**: `CommunityDAO.sol`
@@ -520,7 +520,7 @@ contract CommunityDAO {
 }
 ```
 
-**Treasury**: 25% of XHT supply (24-month linear vesting)
+**Treasury**: 25% of NOR supply (24-month linear vesting)
 
 ---
 
@@ -594,7 +594,7 @@ contract AIAdvisoryBoard {
 **Purpose**: Balance DEX/bridge pools, optimize capital efficiency
 
 **Inputs**:
-- DEX pool reserves (XHT/USDT, Dirhamat/USDT, etc.)
+- DEX pool reserves (NOR/USDT, Dirhamat/USDT, etc.)
 - Bridge vault balances
 - Trading volume (24h, 7d)
 - Price volatility
@@ -780,7 +780,7 @@ contract AIAdvisoryBoard {
 
 ### Phase 3 (Governance)
 - ✅ Council DAO with 5 institutional members
-- ✅ 1,000+ XHT holders participating in Community DAO
+- ✅ 1,000+ NOR holders participating in Community DAO
 - ✅ 10+ proposals voted on
 
 ### Phase 4 (AI Integration)
@@ -905,4 +905,4 @@ Follow master plan phases sequentially
 
 ---
 
-*"Xaheen connects capital with conscience — turning finance into impact."*
+*"Nor connects capital with conscience — turning finance into impact."*

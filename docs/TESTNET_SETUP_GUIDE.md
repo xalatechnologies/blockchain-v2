@@ -1,4 +1,4 @@
-# Noor Chain Testnet Setup Guide
+# Nor Chain Testnet Setup Guide
 
 **Version**: 1.0
 **Date**: November 2, 2025
@@ -8,7 +8,7 @@
 
 ## Overview
 
-Noor Chain currently operates as a **private testnet** with 3 validators. This guide outlines the steps to convert it into a **public testnet** for community testing and development.
+Nor Chain currently operates as a **private testnet** with 3 validators. This guide outlines the steps to convert it into a **public testnet** for community testing and development.
 
 ---
 
@@ -17,7 +17,7 @@ Noor Chain currently operates as a **private testnet** with 3 validators. This g
 | Component | Status | Details |
 |-----------|--------|---------|
 | **Blockchain** | ✅ Running | Chain ID 65001, 3 validators, producing blocks |
-| **RPC Endpoint** | ✅ Active | https://rpc.xaheen.org (migrating to rpc.noorchain.org) |
+| **RPC Endpoint** | ✅ Active | https://rpc.xaheen.org (migrating to rpc.norchain.org) |
 | **WebSocket** | ✅ Active | Port 8546 on validator-1 |
 | **Block Explorer** | ❌ **NEEDED** | Critical for public testnet |
 | **Faucet** | ❌ **NEEDED** | Users need test NOR tokens |
@@ -40,7 +40,7 @@ cd /opt
 git clone https://github.com/blockscout/blockscout.git
 cd blockscout/docker-compose
 
-# Configure for Noor Chain
+# Configure for Nor Chain
 cp .env.example .env
 ```
 
@@ -53,16 +53,16 @@ ETHEREUM_JSONRPC_WS_URL=ws://3.91.50.187:8546
 CHAIN_ID=65001
 
 # Branding
-SUBNETWORK=Noor Chain Testnet
-LOGO=/images/noor_logo.svg
+SUBNETWORK=Nor Chain Testnet
+LOGO=/images/nor_logo.svg
 COIN=NOR
-COIN_NAME=Noor
+COIN_NAME=Nor
 
 # Database
 DATABASE_URL=postgresql://postgres:password@postgres:5432/blockscout
 
 # URLs
-BLOCKSCOUT_HOST=explorer.testnet.noorchain.org
+BLOCKSCOUT_HOST=explorer.testnet.norchain.org
 BLOCKSCOUT_PROTOCOL=https
 ```
 
@@ -72,22 +72,22 @@ docker-compose up -d
 ```
 
 **DNS Setup**:
-- Point `explorer.testnet.noorchain.org` → Server IP
+- Point `explorer.testnet.norchain.org` → Server IP
 - Configure SSL certificate (Let's Encrypt)
 
 **Verification**:
 ```bash
-curl https://explorer.testnet.noorchain.org/api/v2/stats
+curl https://explorer.testnet.norchain.org/api/v2/stats
 ```
 
 #### 2. Test Token Faucet ⭐ **HIGH PRIORITY**
 
-**Faucet Contract** (`contracts/testnet/NoorFaucet.sol`):
+**Faucet Contract** (`contracts/testnet/NorFaucet.sol`):
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-contract NoorFaucet {
+contract NorFaucet {
     address public owner;
     uint256 public constant DRIP_AMOUNT = 100 * 10**24; // 100 NOR
     uint256 public constant COOLDOWN_TIME = 24 hours;
@@ -125,15 +125,15 @@ contract NoorFaucet {
 }
 ```
 
-**Faucet Frontend** (`faucet.testnet.noorchain.org`):
+**Faucet Frontend** (`faucet.testnet.norchain.org`):
 ```html
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Noor Chain Testnet Faucet</title>
+    <title>Nor Chain Testnet Faucet</title>
 </head>
 <body>
-    <h1>🌙 Noor Chain Testnet Faucet</h1>
+    <h1>🌙 Nor Chain Testnet Faucet</h1>
     <p>Get 100 test NOR tokens (once per 24 hours)</p>
 
     <input id="address" placeholder="0x... your address" />
@@ -161,7 +161,7 @@ import express from 'express';
 import { ethers } from 'ethers';
 
 const app = express();
-const provider = new ethers.JsonRpcProvider('https://rpc.testnet.noorchain.org');
+const provider = new ethers.JsonRpcProvider('https://rpc.testnet.norchain.org');
 const faucetWallet = new ethers.Wallet(process.env.FAUCET_PRIVATE_KEY, provider);
 const faucetContract = new ethers.Contract(FAUCET_ADDRESS, FAUCET_ABI, faucetWallet);
 
@@ -196,10 +196,10 @@ app.listen(3000);
 
 **DNS Records** (at domain registrar):
 ```
-testnet.noorchain.org        → AWS EC2 IP
-rpc.testnet.noorchain.org    → AWS EC2 IP (3.91.50.187)
-explorer.testnet.noorchain.org → Blockscout server IP
-faucet.testnet.noorchain.org   → Faucet server IP
+testnet.norchain.org        → AWS EC2 IP
+rpc.testnet.norchain.org    → AWS EC2 IP (3.91.50.187)
+explorer.testnet.norchain.org → Blockscout server IP
+faucet.testnet.norchain.org   → Faucet server IP
 ```
 
 **SSL Certificates** (Let's Encrypt):
@@ -208,23 +208,23 @@ faucet.testnet.noorchain.org   → Faucet server IP
 sudo apt install certbot python3-certbot-nginx
 
 # Get certificates for all domains
-sudo certbot --nginx -d rpc.testnet.noorchain.org
-sudo certbot --nginx -d explorer.testnet.noorchain.org
-sudo certbot --nginx -d faucet.testnet.noorchain.org
+sudo certbot --nginx -d rpc.testnet.norchain.org
+sudo certbot --nginx -d explorer.testnet.norchain.org
+sudo certbot --nginx -d faucet.testnet.norchain.org
 
 # Auto-renewal
 sudo certbot renew --dry-run
 ```
 
-**Nginx Configuration** (`/etc/nginx/sites-available/noor-testnet`):
+**Nginx Configuration** (`/etc/nginx/sites-available/nor-testnet`):
 ```nginx
 # RPC Endpoint
 server {
     listen 443 ssl http2;
-    server_name rpc.testnet.noorchain.org;
+    server_name rpc.testnet.norchain.org;
 
-    ssl_certificate /etc/letsencrypt/live/rpc.testnet.noorchain.org/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/rpc.testnet.noorchain.org/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/rpc.testnet.norchain.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/rpc.testnet.norchain.org/privkey.pem;
 
     location / {
         proxy_pass http://localhost:8545;
@@ -239,10 +239,10 @@ server {
 # WebSocket
 server {
     listen 443 ssl http2;
-    server_name ws.testnet.noorchain.org;
+    server_name ws.testnet.norchain.org;
 
-    ssl_certificate /etc/letsencrypt/live/rpc.testnet.noorchain.org/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/rpc.testnet.noorchain.org/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/rpc.testnet.norchain.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/rpc.testnet.norchain.org/privkey.pem;
 
     location / {
         proxy_pass http://localhost:8546;
@@ -271,40 +271,40 @@ http {
 ```json
 {
   "chainId": "0xFDE9",
-  "chainName": "Noor Chain Testnet",
+  "chainName": "Nor Chain Testnet",
   "nativeCurrency": {
-    "name": "Noor",
+    "name": "Nor",
     "symbol": "NOR",
     "decimals": 24
   },
-  "rpcUrls": ["https://rpc.testnet.noorchain.org"],
-  "blockExplorerUrls": ["https://explorer.testnet.noorchain.org"],
-  "iconUrls": ["https://noorchain.org/logo.png"]
+  "rpcUrls": ["https://rpc.testnet.norchain.org"],
+  "blockExplorerUrls": ["https://explorer.testnet.norchain.org"],
+  "iconUrls": ["https://norchain.org/logo.png"]
 }
 ```
 
 **"Add to MetaMask" Button** (for website):
 ```html
-<button onclick="addNoorTestnet()">Add Noor Testnet to MetaMask</button>
+<button onclick="addNorTestnet()">Add Nor Testnet to MetaMask</button>
 
 <script>
-async function addNoorTestnet() {
+async function addNorTestnet() {
     try {
         await window.ethereum.request({
             method: 'wallet_addEthereumChain',
             params: [{
                 chainId: '0xFDE9',
-                chainName: 'Noor Chain Testnet',
+                chainName: 'Nor Chain Testnet',
                 nativeCurrency: {
-                    name: 'Noor',
+                    name: 'Nor',
                     symbol: 'NOR',
                     decimals: 24
                 },
-                rpcUrls: ['https://rpc.testnet.noorchain.org'],
-                blockExplorerUrls: ['https://explorer.testnet.noorchain.org']
+                rpcUrls: ['https://rpc.testnet.norchain.org'],
+                blockExplorerUrls: ['https://explorer.testnet.norchain.org']
             }]
         });
-        alert('Noor Testnet added to MetaMask!');
+        alert('Nor Testnet added to MetaMask!');
     } catch (error) {
         console.error(error);
     }
@@ -318,29 +318,29 @@ async function addNoorTestnet() {
 
 **Create** `docs/testnet/DEVELOPER_GUIDE.md`:
 ```markdown
-# Noor Chain Testnet Developer Guide
+# Nor Chain Testnet Developer Guide
 
 ## Quick Start
 
 ### 1. Add Network to MetaMask
-- Network Name: Noor Chain Testnet
-- RPC URL: https://rpc.testnet.noorchain.org
+- Network Name: Nor Chain Testnet
+- RPC URL: https://rpc.testnet.norchain.org
 - Chain ID: 65001
 - Symbol: NOR
-- Explorer: https://explorer.testnet.noorchain.org
+- Explorer: https://explorer.testnet.norchain.org
 
 ### 2. Get Test Tokens
-Visit https://faucet.testnet.noorchain.org
+Visit https://faucet.testnet.norchain.org
 Enter your address
 Receive 100 NOR (once per 24 hours)
 
 ### 3. Deploy a Contract
 ```bash
-npx hardhat run scripts/deploy.js --network noorTestnet
+npx hardhat run scripts/deploy.js --network norTestnet
 ```
 
 ### 4. Verify on Explorer
-https://explorer.testnet.noorchain.org/address/YOUR_CONTRACT
+https://explorer.testnet.norchain.org/address/YOUR_CONTRACT
 ```
 
 #### 6. Hardhat Configuration
@@ -350,15 +350,15 @@ https://explorer.testnet.noorchain.org/address/YOUR_CONTRACT
 module.exports = {
   networks: {
     // Testnet
-    noorTestnet: {
-      url: "https://rpc.testnet.noorchain.org",
+    norTestnet: {
+      url: "https://rpc.testnet.norchain.org",
       chainId: 65001,
       accounts: [process.env.PRIVATE_KEY],
       gasPrice: 1000000000, // 1 gwei
     },
     // Mainnet (future)
-    noorMainnet: {
-      url: "https://rpc.noorchain.org",
+    norMainnet: {
+      url: "https://rpc.norchain.org",
       chainId: 65002, // Different chain ID for mainnet
       accounts: [process.env.PRIVATE_KEY],
       gasPrice: 1000000000,
@@ -374,7 +374,7 @@ module.exports = {
 | Aspect | Testnet | Mainnet |
 |--------|---------|---------|
 | **Chain ID** | 65001 | 65002 (recommended) |
-| **Domain** | `*.testnet.noorchain.org` | `*.noorchain.org` |
+| **Domain** | `*.testnet.norchain.org` | `*.norchain.org` |
 | **Token Value** | $0 (no value) | Real value |
 | **Validators** | 3 (current) | 5+ (increase for mainnet) |
 | **Epoch** | 10,000 blocks (testing) | 9,000,000 blocks (production) |
@@ -479,19 +479,19 @@ docker-compose -f monitoring/docker-compose.yml up -d
 ### Check Testnet Status
 ```bash
 # Block number
-curl https://rpc.testnet.noorchain.org \
+curl https://rpc.testnet.norchain.org \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
 
 # Peer count
-curl https://rpc.testnet.noorchain.org \
+curl https://rpc.testnet.norchain.org \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}'
 
 # Chain ID
-curl https://rpc.testnet.noorchain.org \
+curl https://rpc.testnet.norchain.org \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}'
@@ -499,12 +499,12 @@ curl https://rpc.testnet.noorchain.org \
 
 ### Deploy Test Contract
 ```bash
-npx hardhat run scripts/deploy-noor-ecosystem.js --network noorTestnet
+npx hardhat run scripts/deploy-nor-ecosystem.js --network norTestnet
 ```
 
 ### Verify Contract
 ```bash
-npx hardhat verify --network noorTestnet CONTRACT_ADDRESS
+npx hardhat verify --network norTestnet CONTRACT_ADDRESS
 ```
 
 ---
@@ -523,13 +523,13 @@ npx hardhat verify --network noorTestnet CONTRACT_ADDRESS
 
 ## Support & Resources
 
-**Documentation**: https://docs.noorchain.org/testnet
-**Faucet**: https://faucet.testnet.noorchain.org
-**Explorer**: https://explorer.testnet.noorchain.org
-**RPC**: https://rpc.testnet.noorchain.org
+**Documentation**: https://docs.norchain.org/testnet
+**Faucet**: https://faucet.testnet.norchain.org
+**Explorer**: https://explorer.testnet.norchain.org
+**RPC**: https://rpc.testnet.norchain.org
 **Discord**: (Create community server)
 **GitHub**: (Open testnet feedback repo)
 
 ---
 
-🌙 **Noor Chain Testnet - Building the Future of Finance** 🌙
+🌙 **Nor Chain Testnet - Building the Future of Finance** 🌙

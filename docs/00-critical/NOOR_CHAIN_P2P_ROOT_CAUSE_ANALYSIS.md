@@ -1,14 +1,14 @@
-# 🔬 Noor Chain P2P Root Cause Analysis
+# 🔬 Nor Chain P2P Root Cause Analysis
 
 **Date**: November 2, 2025, 7:00 PM
 **Status**: ⚠️ CRITICAL - Block production stuck at block 1
-**Chain**: Noor Chain (formerly Xaheen), Chain ID 65001
+**Chain**: Nor Chain (formerly Nor), Chain ID 65001
 
 ---
 
 ## Executive Summary
 
-**Problem**: Noor Chain validators produce genesis block (block 1) but then block production stops. Peer connectivity is unstable (0-1 peers instead of required 2 peers for Parlia consensus).
+**Problem**: Nor Chain validators produce genesis block (block 1) but then block production stops. Peer connectivity is unstable (0-1 peers instead of required 2 peers for Parlia consensus).
 
 **Root Causes Identified**:
 1. ✅ **Snap Protocol Incompatibility** (SOLVED)
@@ -27,7 +27,7 @@
 - **Genesis**: epoch 9,000,000, hash `058b19..84d159`
 
 ### Nov 2, 2025 - 6:00 PM: ❌ REBRAND STARTED
-- Started comprehensive Noor Chain rebrand
+- Started comprehensive Nor Chain rebrand
 - Modified CLAUDE.md, hardhat.config.js, package.json
 - Created brand identity documentation
 - User requested epoch 10,000 for revalidation testing
@@ -268,7 +268,7 @@ docker create --name xaheen-rpc \
 
 ## Conclusion
 
-**Summary**: The Noor Chain rebrand completed successfully (100%), but restoring block production revealed a critical P2P connectivity issue. While snap protocol errors have been resolved, peer connections remain unstable preventing Parlia consensus from completing the round-robin block sealing.
+**Summary**: The Nor Chain rebrand completed successfully (100%), but restoring block production revealed a critical P2P connectivity issue. While snap protocol errors have been resolved, peer connections remain unstable preventing Parlia consensus from completing the round-robin block sealing.
 
 **Status**: Blocks stuck at block 1, miners functioning but waiting for peers.
 

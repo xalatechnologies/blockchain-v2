@@ -1,4 +1,4 @@
-# 🎉 Xaheen Chain - AWS Production Status
+# 🎉 Nor Chain - AWS Production Status
 
 **Status**: ✅ LIVE ON AWS
 **Date**: October 30, 2025
@@ -14,7 +14,7 @@
 - **SSH Access**: `ssh -i bsc-validator-key.pem ec2-user@3.91.50.187`
 - **Status**: ✅ Running
 
-### Xaheen Chain Details
+### Nor Chain Details
 - **Chain ID**: 65001 (0xFDE9) ✅ VERIFIED
 - **Network ID**: 65001
 - **Validators**: 3 operational
@@ -39,14 +39,14 @@ WebSocket: wss://ws.xaheen.org
 
 ### What Changed
 - ❌ Old: BitcoinBR Chain (ID: 885824 / 0xd8440)
-- ✅ New: Xaheen Chain (ID: 65001 / 0xfde9)
+- ✅ New: Nor Chain (ID: 65001 / 0xfde9)
 
 ### Migration Steps Completed
 1. ✅ Stopped old validators (BitcoinBR)
 2. ✅ Backed up old chain data
 3. ✅ Deployed new genesis (Chain ID 65001)
 4. ✅ Re-initialized all 3 validators
-5. ✅ Started Xaheen Chain validators
+5. ✅ Started Nor Chain validators
 6. ✅ Verified Chain ID: 0xfde9
 
 ### Backup Location
@@ -277,7 +277,7 @@ curl -s http://3.91.50.187:8545 -X POST \
 
 **Already Completed**:
 - ✅ AWS server running (3.91.50.187)
-- ✅ Xaheen Chain deployed (Chain ID 65001)
+- ✅ Nor Chain deployed (Chain ID 65001)
 - ✅ 3 validators operational
 - ✅ RPC endpoint responding
 - ✅ BTCBR contract deployed
@@ -293,4 +293,4 @@ curl -s http://3.91.50.187:8545 -X POST \
 
 ---
 
-**Xaheen Chain - Where Intelligence Meets Blockchain** 🧠⚡
+**Nor Chain - Where Intelligence Meets Blockchain** 🧠⚡

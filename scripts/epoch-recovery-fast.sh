@@ -132,7 +132,7 @@ VERIFY
     echo "║                    EPOCH RECOVERY SUCCESSFUL! ✅                          ║"
     echo "╚═══════════════════════════════════════════════════════════════════════════╝"
     echo ""
-    echo "Your $20,000 XHT/USDT liquidity is safe! 🎉"
+    echo "Your $20,000 NOR/USDT liquidity is safe! 🎉"
     echo "All contracts, balances, and LP reserves preserved."
     echo ""
     exit 0

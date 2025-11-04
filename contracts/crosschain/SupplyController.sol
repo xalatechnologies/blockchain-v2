@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-interface IXHTToken {
+interface INORToken {
     function mint(address to, uint256 amount) external;
     function burn(address from, uint256 amount) external;
     function totalSupply() external view returns (uint256);
@@ -13,8 +13,8 @@ interface IXHTToken {
 
 /**
  * @title SupplyController
- * @notice Treasury management and XHT supply control for cross-chain DEX
- * @dev Central bank model - Xaheen controls all minting/burning across all chains
+ * @notice Treasury management and NOR supply control for cross-chain DEX
+ * @dev Central bank model - Nor controls all minting/burning across all chains
  *
  * Architecture:
  * - Enforces per-chain inventory caps (max 3% circulating supply)
@@ -32,12 +32,12 @@ contract SupplyController is AccessControl, ReentrancyGuard {
 
     // ============ State Variables ============
 
-    /// @notice XHT token contract
-    IXHTToken public immutable xhtToken;
+    /// @notice NOR token contract
+    INORToken public immutable xhtToken;
 
     /// @notice Chain inventory tracking
     struct ChainInventory {
-        uint256 balance; // Current XHT balance on spoke
+        uint256 balance; // Current NOR balance on spoke
         uint256 dailyLimit; // Max daily movement in USD (18 decimals)
         uint256 inventoryCap; // Max inventory as % of circulating supply (basis points)
         uint256 lastResetTimestamp; // Last daily limit reset
@@ -83,10 +83,10 @@ contract SupplyController is AccessControl, ReentrancyGuard {
     // ============ Constructor ============
 
     constructor(address _xhtToken, address _treasury) {
-        require(_xhtToken != address(0), "Invalid XHT address");
+        require(_xhtToken != address(0), "Invalid NOR address");
         require(_treasury != address(0), "Invalid treasury address");
 
-        xhtToken = IXHTToken(_xhtToken);
+        xhtToken = INORToken(_xhtToken);
 
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(TREASURY_ROLE, _treasury);
@@ -147,7 +147,7 @@ contract SupplyController is AccessControl, ReentrancyGuard {
     /**
      * @notice Authorize top-up of spoke chain inventory
      * @param dstChainId Destination chain ID
-     * @param xhtAmount Amount of XHT to send
+     * @param xhtAmount Amount of NOR to send
      */
     function authorizeTopup(uint64 dstChainId, uint256 xhtAmount)
         external
@@ -162,8 +162,8 @@ contract SupplyController is AccessControl, ReentrancyGuard {
         uint256 newBalance = inv.balance + xhtAmount;
         require(newBalance <= maxAllowedInventory(dstChainId), "Exceeds inventory cap");
 
-        // Check daily limit (assume $0.10 per XHT for simplicity, should use oracle)
-        uint256 usdValue = (xhtAmount * 10) / 100; // $0.10 per XHT
+        // Check daily limit (assume $0.10 per NOR for simplicity, should use oracle)
+        uint256 usdValue = (xhtAmount * 10) / 100; // $0.10 per NOR
         _checkDailyLimit(dstChainId, usdValue);
 
         // Update inventory
@@ -180,7 +180,7 @@ contract SupplyController is AccessControl, ReentrancyGuard {
      * @notice Settle a fill from spoke chain
      * @param fillId Unique fill identifier
      * @param chainId Source chain ID
-     * @param xhtDelta Net XHT change (positive = user bought XHT, negative = user sold XHT)
+     * @param xhtDelta Net NOR change (positive = user bought NOR, negative = user sold NOR)
      * @param proceeds Payment received in USD (18 decimals)
      */
     function settleFill(
@@ -199,12 +199,12 @@ contract SupplyController is AccessControl, ReentrancyGuard {
 
         // Update inventory balance
         if (xhtDelta > 0) {
-            // User bought XHT → spoke inventory decreased
+            // User bought NOR → spoke inventory decreased
             uint256 amountOut = uint256(xhtDelta);
             require(inv.balance >= amountOut, "Insufficient inventory");
             inv.balance -= amountOut;
         } else if (xhtDelta < 0) {
-            // User sold XHT → spoke inventory increased
+            // User sold NOR → spoke inventory increased
             uint256 amountIn = uint256(-xhtDelta);
             inv.balance += amountIn;
 

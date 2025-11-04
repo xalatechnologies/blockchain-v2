@@ -1,6 +1,6 @@
 # 01 - Getting Started
 
-Quick start guides and essential first steps for working with Xaheen Chain.
+Quick start guides and essential first steps for working with Nor Chain.
 
 ## Quick Reference
 

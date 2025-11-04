@@ -89,7 +89,7 @@ All bridge services have been **fully implemented** in your xaheen-sdk API backe
 # Relayer Configuration
 RELAYER_PRIVATE_KEY=...
 
-# Hub Chain (Xaheen)
+# Hub Chain (Nor)
 XAHEEN_CHAIN_RPC=...
 HUB_SETTLEMENT_HUB=...
 HUB_SUPPLY_CONTROLLER=...
@@ -179,8 +179,8 @@ npm run dev
 
 **Expected output**:
 ```
-🌉 Initializing Xaheen Bridge Relayer...
-💰 Hub balance: 0.0 XHT
+🌉 Initializing Nor Bridge Relayer...
+💰 Hub balance: 0.0 NOR
 💰 BSC Testnet balance: 0.0 BNB
 👂 Listening for Fill events on BSC Testnet
 ✅ Bridge relayer started successfully
@@ -262,7 +262,7 @@ curl http://localhost:4000/api/bridge/stats
                       │ Forwards
                       ▼
         ┌──────────────────────────┐
-        │   Xaheen Chain           │
+        │   Nor Chain           │
         │   SettlementHub          │
         │   (Settlement)           │
         └──────────────────────────┘

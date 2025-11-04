@@ -1,4 +1,4 @@
-# 🚀 Xaheen Chain - Launch Summary
+# 🚀 Nor Chain - Launch Summary
 
 **Everything you need to go public and compete with BNB Smart Chain**
 
@@ -11,7 +11,7 @@
 - ✅ **3 Validators** - Running locally, ready for production
 - ✅ **BTCBR Contract** - Deployed at genesis (0x0cF8e180350253271f4b917CcFb0aCCc4862F262)
 - ✅ **Genesis Hash** - 0x677806..842d4a verified
-- ✅ **Native Token** - XHT (Xaheen Token, 18 decimals)
+- ✅ **Native Token** - NOR (Nor Token, 18 decimals)
 - ✅ **Consensus** - Parlia PoSA (2-of-3 multi-validator)
 - ✅ **Block Time** - 3 seconds
 - ✅ **Finality** - Instant (faster than BNB)
@@ -40,7 +40,7 @@
 - ✅ **Brand Guidelines** - Colors, fonts, logo usage
 - ✅ **Launch Announcements** - Twitter, LinkedIn, Reddit, Discord
 - ✅ **Developer Outreach** - Email templates
-- ✅ **Competitive Positioning** - Xaheen vs BNB comparison
+- ✅ **Competitive Positioning** - Nor vs BNB comparison
 
 ---
 
@@ -145,13 +145,13 @@ After deployment, these will be live:
 
 ## 🔌 METAMASK CONNECTION
 
-**Users add Xaheen Chain:**
+**Users add Nor Chain:**
 
 ```javascript
 Chain ID: 65001
-Network Name: Xaheen Chain
+Network Name: Nor Chain
 RPC URL: https://rpc.xaheen.org
-Currency Symbol: XHT
+Currency Symbol: NOR
 Block Explorer: https://explorer.xaheen.org
 ```
 
@@ -164,20 +164,20 @@ https://xaheen.org/add-to-metamask.html
 
 ### vs BNB Smart Chain
 
-| Feature | Xaheen Chain | BNB Smart Chain |
+| Feature | Nor Chain | BNB Smart Chain |
 |---------|--------------|-----------------|
 | **Governance** | DAO + Community | Binance-controlled |
 | **TX Fees** | $0.000001 | $0.50 |
 | **Finality** | Instant | ~6 seconds |
 | **Privacy** | GDPR-compliant | Public only |
-| **Validator Entry** | 10K XHT (~$1K) | 10K BNB (~$3M) |
+| **Validator Entry** | 10K NOR (~$1K) | 10K BNB (~$3M) |
 | **Data Sovereignty** | Full control | Binance infrastructure |
 | **Open Source** | 100% | Partially |
 
 ### Unique Selling Points
 
 1. **Flash-Token Bridge** - 60-minute expiry, vault-backed (no duplicate supply)
-2. **Dual-Token Economics** - XHT (gas) + BTCBR (value)
+2. **Dual-Token Economics** - NOR (gas) + BTCBR (value)
 3. **GDPR Compliance** - Right to deletion on private chains
 4. **Lower Entry Barrier** - Validators need $1K vs $3M
 5. **True Decentralization** - Community governance, not plutocracy
@@ -199,14 +199,14 @@ The intelligent blockchain competing with BNB Smart Chain.
 
 Add to MetaMask: xaheen.org/add-to-metamask
 
-#XaheenChain #BSC #DeFi
+#NorChain #BSC #DeFi
 ```
 
 ### Reddit (r/cryptocurrency, r/ethdev, r/defi)
 ```
-[ANN] Xaheen Chain - EVM-Compatible Blockchain Competing with BSC
+[ANN] Nor Chain - EVM-Compatible Blockchain Competing with BSC
 
-After months of development, we're launching Xaheen Chain (Chain ID 65001).
+After months of development, we're launching Nor Chain (Chain ID 65001).
 
 Key Features:
 🎯 99.99% lower fees ($0.000001 vs BSC's $0.50)
@@ -223,7 +223,7 @@ Docs: https://docs.xaheen.org
 
 ### LinkedIn
 ```
-Excited to announce Xaheen Chain - an intelligent, EVM-compatible blockchain
+Excited to announce Nor Chain - an intelligent, EVM-compatible blockchain
 for enterprise and DeFi applications.
 
 • 3-second blocks, instant finality
@@ -243,14 +243,14 @@ Learn more: https://xaheen.org
 ### For Early Validators
 - 🔥 **2x Rewards** for first 21 validators
 - 💎 **Governance Rights** immediate voting power
-- 📊 **Low Entry** 10,000 XHT stake (~$1,000)
+- 📊 **Low Entry** 10,000 NOR stake (~$1,000)
 - 🏆 **Founder Status** recognized in community
 
 ### For DApp Developers
 - 💰 **$5,000 Grants** for first 10 DApps
 - 🚀 **Free Promotion** featured on xaheen.org
 - 🛠️ **Technical Support** direct access to core team
-- 🎓 **Migration Help** from BSC to Xaheen
+- 🎓 **Migration Help** from BSC to Nor
 
 ### For Liquidity Providers
 - 📈 **1.5x APY** for first 3 months
@@ -288,7 +288,7 @@ Learn more: https://xaheen.org
 
 ### Getting Started
 ```bash
-# Add Xaheen network to Hardhat
+# Add Nor network to Hardhat
 # hardhat.config.js
 module.exports = {
   networks: {
@@ -312,14 +312,14 @@ npm install -g xaheen-migrate
 # Migrate contract
 xaheen-migrate --from bsc --to xaheen --contract 0x...
 
-# Automatic redeployment to Xaheen Chain
+# Automatic redeployment to Nor Chain
 ```
 
-### Faucet (Free XHT for Testing)
+### Faucet (Free NOR for Testing)
 ```
 Visit: https://faucet.xaheen.org
 Enter wallet address
-Receive 10 XHT instantly
+Receive 10 NOR instantly
 ```
 
 ---
@@ -352,7 +352,7 @@ docker restart xaheen-validator-1
 - 📧 Email: support@xaheen.org
 - 💬 Telegram: t.me/xaheen_chain
 - 💬 Discord: discord.gg/xaheen
-- 🐦 Twitter: @XaheenChain
+- 🐦 Twitter: @NorChain
 - 📖 Docs: docs.xaheen.org
 
 ---
@@ -428,7 +428,7 @@ certbot --nginx -d ws.xaheen.org
 
 ## 💪 LET'S COMPETE WITH BNB SMART CHAIN!
 
-**Xaheen Chain has:**
+**Nor Chain has:**
 - ✅ Better governance (DAO vs centralized)
 - ✅ Lower fees (99.99% cheaper)
 - ✅ Faster finality (instant vs 6 seconds)
@@ -463,4 +463,4 @@ Where Intelligence Meets Blockchain 🧠⚡
 
 **LET'S GO PUBLIC AND WIN! 🏆**
 
-**Xaheen Chain - Where Intelligence Meets Blockchain** 🧠⚡
+**Nor Chain - Where Intelligence Meets Blockchain** 🧠⚡

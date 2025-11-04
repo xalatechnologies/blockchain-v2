@@ -13,11 +13,11 @@
   node scripts/treasury-market-maker.js status
   ```
 
-- [ ] **Deploy initial treasury liquidity** (Conservative: 100M XHT + $100K USDT)
+- [ ] **Deploy initial treasury liquidity** (Conservative: 100M NOR + $100K USDT)
   ```bash
   node scripts/treasury-market-maker.js setup 100000000 100000
   ```
-  - This sets initial price at $0.001 per XHT
+  - This sets initial price at $0.001 per NOR
   - Treasury now owns 100% of liquidity
   - Treasury earns 100% of trading fees
 
@@ -46,7 +46,7 @@
   - Backup option if MoonPay delays
 
 - [ ] **Update widget with your API keys**
-  - Edit `frontend/BuyXHT.html`
+  - Edit `frontend/BuyNOR.html`
   - Replace `pk_test_YOUR_KEY_HERE` with real key
   - Test in sandbox mode first
 
@@ -55,10 +55,10 @@
 ### Day 5: Deploy to Production Website
 
 - [ ] **Add widget to your website**
-  - Copy `frontend/BuyXHT.html` to your site
+  - Copy `frontend/BuyNOR.html` to your site
   - Or embed iframe:
   ```html
-  <iframe src="/BuyXHT.html" width="100%" height="800px"></iframe>
+  <iframe src="/BuyNOR.html" width="100%" height="800px"></iframe>
   ```
 
 - [ ] **Configure purchase limits** (Start small)
@@ -70,7 +70,7 @@
   1. Open widget on your site
   2. Enter test amount ($10 in sandbox)
   3. Complete MoonPay flow
-  4. Verify XHT arrives in wallet
+  4. Verify NOR arrives in wallet
   5. Check treasury earned fees
 
 ---
@@ -78,13 +78,13 @@
 ### Day 6-7: Marketing Setup
 
 - [ ] **Create social media accounts** (if not exists)
-  - Twitter: @XaheenChain
+  - Twitter: @NorChain
   - Telegram: t.me/xaheenchain
   - Discord: discord.gg/xaheenchain
 
 - [ ] **Prepare launch announcement**
   ```
-  🚀 Buy XHT directly with credit card!
+  🚀 Buy NOR directly with credit card!
 
   ✅ Instant delivery (30 seconds)
   ✅ No exchange account needed
@@ -128,11 +128,11 @@
 - [ ] **Launch publicly**
   - Post on Twitter/Telegram/Discord
   - Share explainer video
-  - Offer launch bonus: "First 100 buyers get 10% bonus XHT!"
+  - Offer launch bonus: "First 100 buyers get 10% bonus NOR!"
 
 - [ ] **Run targeted ads** ($2K budget)
   - Facebook: Target crypto investors
-  - Google: "Buy XHT" keywords
+  - Google: "Buy NOR" keywords
   - Twitter: Crypto community
 
 - [ ] **Engage with community**
@@ -151,13 +151,13 @@
 - [ ] **Add more treasury liquidity** (if needed)
   ```bash
   node scripts/treasury-market-maker.js add 50000000 50000
-  # Adds 50M XHT + $50K USDT more
+  # Adds 50M NOR + $50K USDT more
   ```
 
 - [ ] **Monitor treasury metrics**
   - Total volume through DEX
   - Fees earned by treasury
-  - XHT price stability
+  - NOR price stability
   - User acquisition cost
 
 ---
@@ -171,12 +171,12 @@
   ```
 
 - [ ] **Add liquidity on PancakeSwap** (small amount)
-  - 10M XHT + $10K USDT
+  - 10M NOR + $10K USDT
   - Let market find equilibrium
   - Arbitrageurs will maintain price parity
 
 - [ ] **Monitor arbitrage**
-  - Xaheen price: Check your DEX
+  - Nor price: Check your DEX
   - BSC price: Check PancakeSwap
   - Should converge automatically
 
@@ -208,7 +208,7 @@
 - [ ] **Add more treasury liquidity**
   ```bash
   node scripts/treasury-market-maker.js add 100000000 100000
-  # Now 250M XHT + $250K total
+  # Now 250M NOR + $250K total
   ```
 
 - [ ] **Launch staking program**
@@ -269,7 +269,7 @@
 ```bash
 # Treasury buyback to support price
 node scripts/treasury-market-maker.js add 0 50000
-# Adds $50K USDT buy pressure (no XHT)
+# Adds $50K USDT buy pressure (no NOR)
 ```
 
 ### If Liquidity Too Low:
@@ -298,7 +298,7 @@ Every day, check:
 
 - [ ] **Number of new purchases** (MoonPay dashboard)
 - [ ] **Total fiat inflow** (today, this week, this month)
-- [ ] **XHT price stability** (should stay near target)
+- [ ] **NOR price stability** (should stay near target)
 - [ ] **Treasury fees earned** (cumulative)
 - [ ] **Social media engagement** (followers, mentions)
 - [ ] **Support tickets** (resolve within 24h)
@@ -311,7 +311,7 @@ Every day, check:
 - Daily fiat inflow
 - Treasury fees earned
 - Treasury LP value
-- XHT price (target: gradual increase)
+- NOR price (target: gradual increase)
 
 ### User KPIs:
 - New users per day
@@ -359,10 +359,10 @@ Every day, check:
 - **Strategy**: `docs/GENIUS_STRATEGY_UNIFIED_MARKET.md`
 - **Fiat Integration**: `docs/FIAT_ONRAMP_INTEGRATION.md`
 - **Treasury Script**: `scripts/treasury-market-maker.js`
-- **Widget**: `frontend/BuyXHT.html`
+- **Widget**: `frontend/BuyNOR.html`
 
 ### Smart Contracts:
-- **WXHT**: `0x26c0eaF731885b14c031cc50dB79b36458E0b355`
+- **WNOR**: `0x26c0eaF731885b14c031cc50dB79b36458E0b355`
 - **Router**: `0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916`
 - **Factory**: `0xBE254176B4f13b02f367a9feCE599ee8887E2D34`
 - **Staking**: `0xbA554577De2d3eE1AdE77737Dc32717527E0cA86`

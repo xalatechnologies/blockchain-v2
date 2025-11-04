@@ -11,7 +11,7 @@
 
 ✅ **BNB Bridge:** Already tested successfully!
 - Locked 0.01 BNB on BSC
-- Minted 0.00998 WBNB on Xaheen
+- Minted 0.00998 WBNB on Nor
 - Revenue: $0.008
 
 🔄 **USDT Bridge:** Ready to test
@@ -88,10 +88,10 @@ npx hardhat run scripts/test-usdt-bridge.js --network bsc
 
 **What happens:**
 1. Script approves 10 USDT to bridge contract
-2. Bridges 10 USDT → Xaheen Chain
+2. Bridges 10 USDT → Nor Chain
 3. Fee: 0.02 USDT (0.2%)
 4. Net: 9.98 USDT locked on BSC
-5. Validator auto-mints 9.98 WUSDT on Xaheen
+5. Validator auto-mints 9.98 WUSDT on Nor
 
 **Wait 30-60 seconds**, then check validator:
 ```bash
@@ -108,7 +108,7 @@ pm2 logs bridge-validator --lines 50
 ```
 
 **Add WUSDT to MetaMask:**
-- Network: Xaheen Chain (65001)
+- Network: Nor Chain (65001)
 - Address: `0xA0de216D0bF10E9a40C0666FB3De458e3AEB70F5`
 - Symbol: `WUSDT` (enter manually)
 - Decimals: `18` (enter manually)
@@ -124,10 +124,10 @@ npx hardhat run scripts/test-eth-bridge.js --network bsc
 
 **What happens:**
 1. Script approves 0.005 ETH to bridge contract
-2. Bridges 0.005 ETH → Xaheen Chain
+2. Bridges 0.005 ETH → Nor Chain
 3. Fee: 0.00001 ETH (0.2%)
 4. Net: 0.00499 ETH locked on BSC
-5. Validator auto-mints 0.00499 WETH on Xaheen
+5. Validator auto-mints 0.00499 WETH on Nor
 
 **Wait 30-60 seconds**, then check validator:
 ```bash
@@ -144,7 +144,7 @@ pm2 logs bridge-validator --lines 50
 ```
 
 **Add WETH to MetaMask:**
-- Network: Xaheen Chain (65001)
+- Network: Nor Chain (65001)
 - Address: `0xF1C1dc0263686093389Fbd66c2951122B2133aEA`
 - Symbol: `WETH` (enter manually)
 - Decimals: `18` (enter manually)
@@ -154,11 +154,11 @@ pm2 logs bridge-validator --lines 50
 
 ## Final Verification:
 
-### Check Your Xaheen Wallet:
+### Check Your Nor Wallet:
 
-**MetaMask on Xaheen Chain should show:**
+**MetaMask on Nor Chain should show:**
 ```
-XHT:   20,189,999,999.86 XHT
+NOR:   20,189,999,999.86 NOR
 WBNB:  0.00998 WBNB        ✅ (from earlier test)
 WUSDT: 9.98 WUSDT          ✅ (from USDT bridge)
 WETH:  0.00499 WETH        ✅ (from ETH bridge)

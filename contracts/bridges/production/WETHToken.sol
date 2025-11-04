@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 
 /**
  * @title WETHToken
- * @notice Wrapped ETH on Xaheen Chain
+ * @notice Wrapped ETH on Nor Chain
  * @dev Minted when ETH is locked on BSC, burned when withdrawn
  */
 contract WETHToken is ERC20, AccessControl, Pausable {

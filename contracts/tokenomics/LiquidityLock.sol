@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 /**
  * @title LiquidityLock
- * @notice Time-locked liquidity pool token vault for Noor Chain DEX
+ * @notice Time-locked liquidity pool token vault for Nor Chain DEX
  * @dev Locks LP tokens for a specified period to prevent rug pulls and build trust
  *
  * Features:

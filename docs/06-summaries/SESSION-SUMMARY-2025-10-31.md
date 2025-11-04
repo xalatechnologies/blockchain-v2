@@ -1,4 +1,4 @@
-# Xaheen Chain Infrastructure Overhaul - Session Summary
+# Nor Chain Infrastructure Overhaul - Session Summary
 
 **Date**: October 31, 2025
 **Duration**: Extended session
@@ -86,7 +86,7 @@ All tokens configured with deployer (`0xdD779a290C937144F80Eb75b75d814c834536B1b
 | **USDT.z** | `0x4BE35Ec329343d7d9F548d42B0F8c17FFfe07db4` | 18 | 21 septillion | ✅ In Genesis |
 
 **Native Token**:
-- **XHT**: 21 billion to deployer
+- **NOR**: 21 billion to deployer
 
 ---
 
@@ -115,7 +115,7 @@ All tokens configured with deployer (`0xdD779a290C937144F80Eb75b75d814c834536B1b
 ### Deployed Contracts (Will be Preserved)
 
 **DEX Infrastructure**:
-- WXHT: `0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c`
+- WNOR: `0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c`
 - Factory: `0xe97D574A2e1B62f4d32C5cfeaFa8e6B99Da020fa`
 - Router: `0x4A82C98A950125F17943F56273efae39dDe81763`
 
@@ -125,14 +125,14 @@ All tokens configured with deployer (`0xdD779a290C937144F80Eb75b75d814c834536B1b
 - WETH: `0x26c0eaF731885b14c031cc50dB79b36458E0b355`
 
 **Liquidity Pools**:
-- XHT/USDT: `0x59a09aCEb22A5dE82222ddA235490eD7317Eb7f9`
-- XHT/BNB: `0x21E85cdc46C808b28A405ac901fCCc22E317422d`
-- XHT/ETH: `0x256EAEcd35e40058b80b78fCB0c51A8975E5592d`
+- NOR/USDT: `0x59a09aCEb22A5dE82222ddA235490eD7317Eb7f9`
+- NOR/BNB: `0x21E85cdc46C808b28A405ac901fCCc22E317422d`
+- NOR/ETH: `0x256EAEcd35e40058b80b78fCB0c51A8975E5592d`
 
 **LP Timelocks** (2 years):
-- XHT/USDT: `0x502ec2Ce7cd266Eff9e147d66Df3e4D4fcB9e812`
-- XHT/BNB: `0x0D8e7Ed1B328302bbAA0249CeFD6ca52E050F86e`
-- XHT/ETH: `0xa8f2fa9B2B7c26d69E996480C914914Aad25D4E6`
+- NOR/USDT: `0x502ec2Ce7cd266Eff9e147d66Df3e4D4fcB9e812`
+- NOR/BNB: `0x0D8e7Ed1B328302bbAA0249CeFD6ca52E050F86e`
+- NOR/ETH: `0xa8f2fa9B2B7c26d69E996480C914914Aad25D4E6`
 
 **Tokenomics**:
 - Charity: `0x64d3fd069d0b151B847284c2bDA4B3f3cDB4664e`
@@ -242,7 +242,7 @@ All tokens configured with deployer (`0xdD779a290C937144F80Eb75b75d814c834536B1b
    - Little Rabbit: 18 decimals (not 9)
    - Bnb Tiger: 24 decimals (not 9)
    - BTCBR: 24 decimals (not 18)
-   - All tokens: 21 septillion supply (except XHT: 21 billion)
+   - All tokens: 21 septillion supply (except NOR: 21 billion)
 
 2. **Genesis Strategy**:
    - Hybrid approach: Embed tokens in genesis, preserve deployed contracts

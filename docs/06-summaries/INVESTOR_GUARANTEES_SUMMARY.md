@@ -69,9 +69,9 @@ We can't dump tokens and disappear:
 
 ## YOUR RETURN POTENTIAL
 
-**Conservative (4x):** XHT at $0.000001 = $2.1M
-**Moderate (42x):** XHT at $0.00001 = $21M
-**Aggressive (420x):** XHT at $0.0001 = $210M
+**Conservative (4x):** NOR at $0.000001 = $2.1M
+**Moderate (42x):** NOR at $0.00001 = $21M
+**Aggressive (420x):** NOR at $0.0001 = $210M
 
 **Plus equity value if company exits or goes public**
 

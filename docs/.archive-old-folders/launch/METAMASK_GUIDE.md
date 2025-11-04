@@ -5,7 +5,7 @@
 **Once Chainlist PR is approved:**
 
 1. Visit https://chainlist.org
-2. Search for "Xaheen" or "65001"
+2. Search for "Nor" or "65001"
 3. Click "Add to MetaMask"
 4. Approve in MetaMask popup
 5. Done! ✅
@@ -23,15 +23,15 @@
 5. Enter the following details:
 
 ```
-Network Name: Xaheen Chain
+Network Name: Nor Chain
 New RPC URL: https://rpc.xaheen.org
 Chain ID: 65001
-Currency Symbol: XHT
+Currency Symbol: NOR
 Block Explorer URL: https://explorer.xaheen.org
 ```
 
 6. Click "Save"
-7. Switch to Xaheen Chain network
+7. Switch to Nor Chain network
 8. Done! ✅
 
 ### Mobile App:
@@ -54,31 +54,31 @@ Block Explorer URL: https://explorer.xaheen.org
 Add this JavaScript to enable one-click add:
 
 ```javascript
-async function addXaheenNetwork() {
+async function addNorNetwork() {
   try {
     await window.ethereum.request({
       method: 'wallet_addEthereumChain',
       params: [{
         chainId: '0xFDF9', // 65001 in hex
-        chainName: 'Xaheen Chain',
+        chainName: 'Nor Chain',
         nativeCurrency: {
-          name: 'Xaheen Token',
-          symbol: 'XHT',
+          name: 'Nor Token',
+          symbol: 'NOR',
           decimals: 18
         },
         rpcUrls: ['https://rpc.xaheen.org'],
         blockExplorerUrls: ['https://explorer.xaheen.org']
       }]
     });
-    console.log('Xaheen Chain added successfully!');
+    console.log('Nor Chain added successfully!');
   } catch (error) {
-    console.error('Error adding Xaheen Chain:', error);
+    console.error('Error adding Nor Chain:', error);
   }
 }
 
 // HTML button
-<button onclick="addXaheenNetwork()">
-  Add Xaheen to MetaMask
+<button onclick="addNorNetwork()">
+  Add Nor to MetaMask
 </button>
 ```
 
@@ -86,29 +86,29 @@ async function addXaheenNetwork() {
 
 ## Verifying Connection
 
-After adding Xaheen:
+After adding Nor:
 
-1. **Check Network:** Top of MetaMask should show "Xaheen Chain"
-2. **Check RPC:** Settings → Networks → Xaheen Chain → RPC URL should be `https://rpc.xaheen.org`
-3. **Check Balance:** Your XHT balance will appear (0 if new)
+1. **Check Network:** Top of MetaMask should show "Nor Chain"
+2. **Check RPC:** Settings → Networks → Nor Chain → RPC URL should be `https://rpc.xaheen.org`
+3. **Check Balance:** Your NOR balance will appear (0 if new)
 4. **Test Transaction:** Try sending a small amount to test
 
 ---
 
-## Getting XHT (Native Token)
+## Getting NOR (Native Token)
 
 ### Option 1: Airdrop (First 1,000 Users)
 - Join Telegram: https://t.me/xaheenchain
 - Complete airdrop form
-- Receive 1,000 XHT
+- Receive 1,000 NOR
 
 ### Option 2: Bridge from BSC
-- Use Xaheen Bridge
+- Use Nor Bridge
 - Bridge BTCBR or other tokens
-- Swap for XHT on native DEX
+- Swap for NOR on native DEX
 
 ### Option 3: DEX (Coming Soon)
-- Buy XHT directly on native DEX
+- Buy NOR directly on native DEX
 - Requires having BTCBR or other tokens first
 
 ---
@@ -121,11 +121,11 @@ After adding Xaheen:
 - RPC might be temporarily down
 
 ### "Wrong network" error when using dApp
-- Make sure you're on Xaheen Chain network
-- Click network dropdown and select "Xaheen Chain"
+- Make sure you're on Nor Chain network
+- Click network dropdown and select "Nor Chain"
 
 ### "Insufficient funds for gas"
-- You need XHT for gas fees
+- You need NOR for gas fees
 - Get from airdrop or bridge
 
 ### Chain ID mismatch
@@ -188,9 +188,9 @@ module.exports = {
 ## Network Information
 
 ```
-Chain Name: Xaheen Chain
-Network Name: Xaheen Mainnet
-Native Currency: XHT (Xaheen Token)
+Chain Name: Nor Chain
+Network Name: Nor Mainnet
+Native Currency: NOR (Nor Token)
 Chain ID: 65001 (0xFDF9 in hex)
 Network ID: 65001
 RPC Endpoint: https://rpc.xaheen.org
@@ -209,12 +209,12 @@ Consensus: Parlia (Proof of Staked Authority)
 ✅ **Always verify:**
 - RPC URL is exactly: https://rpc.xaheen.org
 - Chain ID is exactly: 65001
-- You're on official Xaheen website/links
+- You're on official Nor website/links
 
 ❌ **Never:**
 - Share your private key or seed phrase
 - Use unofficial RPC endpoints
-- Trust unsolicited messages about Xaheen
+- Trust unsolicited messages about Nor
 
 ⚠️ **Be cautious:**
 - Start with small transactions
@@ -228,9 +228,9 @@ Consensus: Parlia (Proof of Staked Authority)
 🌐 Website: https://xaheen.org
 📖 Docs: https://docs.xaheen.org
 💬 Telegram: https://t.me/xaheenchain
-🐦 Twitter: https://twitter.com/XaheenChain
+🐦 Twitter: https://twitter.com/NorChain
 📧 Email: support@xaheen.org
 
 ---
 
-**Welcome to Xaheen Chain! 🚀**
+**Welcome to Nor Chain! 🚀**

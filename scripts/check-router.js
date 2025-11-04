@@ -15,10 +15,10 @@ async function main() {
     console.log("Need to redeploy liquidity infrastructure");
   } else {
     console.log("\n✅ Contract exists!");
-    const router = await ethers.getContractAt("XaheenDEXRouter", routerAddress);
+    const router = await ethers.getContractAt("NorDEXRouter", routerAddress);
     try {
       const wxhtAddr = await router.wxht();
-      console.log("WXHT address:", wxhtAddr);
+      console.log("WNOR address:", wxhtAddr);
     } catch (error) {
       console.error("Error calling wxht():", error.message);
     }

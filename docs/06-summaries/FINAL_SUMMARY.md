@@ -54,7 +54,7 @@
 ### **Cross-Chain Bridges**
 - **Total Designed:** 22 bridge types
 - **Production Ready:** 4 bridges
-  1. Lock & Mint (BSC ↔ Xaheen)
+  1. Lock & Mint (BSC ↔ Nor)
   2. Atomic Swap (trustless P2P)
   3. Liquidity Pool (instant transfers)
   4. NFT Bridge (ERC721 wrapper)
@@ -73,11 +73,11 @@
 
 ## 💰 TOKEN ECONOMICS
 
-### **XHT Token Fundamentals**
-- **Total Supply:** 21 Trillion XHT
-- **Launch Price:** $0.0000024 per XHT
+### **NOR Token Fundamentals**
+- **Total Supply:** 21 Trillion NOR
+- **Launch Price:** $0.0000024 per NOR
 - **Initial Market Cap:** $500,000
-- **Circulating at Launch:** 1% (210B XHT)
+- **Circulating at Launch:** 1% (210B NOR)
 
 ### **Token Distribution**
 | Allocation | % | Amount | Vesting |
@@ -123,7 +123,7 @@
 - **Seeking:** $500,000 seed round
 - **Valuation:** $5M pre-money
 - **Equity:** 10% for investors
-- **Tokens:** 10% of XHT supply (2.1T tokens)
+- **Tokens:** 10% of NOR supply (2.1T tokens)
 - **Structure:** Delaware C-Corp + Cayman Foundation
 
 ### **Investor Protections**
@@ -169,7 +169,7 @@
 
 ### **Return Potential**
 
-| Scenario | XHT Price | Market Cap | Investor Return |
+| Scenario | NOR Price | Market Cap | Investor Return |
 |----------|-----------|------------|-----------------|
 | Conservative | $0.000005 | $1M | 4x ($2.1M) |
 | Moderate | $0.00001 | $2.1M | 10x ($5M) |
@@ -182,7 +182,7 @@
 - Polygon: $450M → $19B (42x)
 - Avalanche: $290M → $30B (103x)
 - Fantom: $40M → $4B (100x)
-- **Xaheen: $500k → ??? (ground floor)**
+- **Nor: $500k → ??? (ground floor)**
 
 ---
 
@@ -194,15 +194,15 @@
 - **Action:** 50% burned, 50% to treasury
 - **Visibility:** Announced on Twitter/Telegram with tx hash
 
-### **#BuyXaheenFriday Campaign**
+### **#BuyNorFriday Campaign**
 - Weekly community buy event
 - Foundation commits $2,000 buyback
 - Community buys small amounts ($10-$50)
-- Random rewards: NFTs, XHT bonuses, whitelist access
+- Random rewards: NFTs, NOR bonuses, whitelist access
 - Creates recurring viral hashtag
 
 ### **Influencer Challenge**
-- "50 Influencers Buy $100 XHT"
+- "50 Influencers Buy $100 NOR"
 - Foundation matches with equal burn
 - Cost: $5,000 match
 - Reach: 500k+ followers
@@ -289,18 +289,18 @@ cd docs/investor
 ### **NEXT 2 WEEKS (Priority 2)**
 
 **4. Launch Social Media**
-- Twitter/X: @XaheenChain
-- Telegram: @XaheenOfficial
+- Twitter/X: @NorChain
+- Telegram: @NorOfficial
 - Reddit: r/xaheen
 - Use content from `/docs/launch/SOCIAL_MEDIA_LAUNCH.md`
 
 **5. Deploy Airdrop Contract**
-- 1,000 XHT for first 1,000 users
+- 1,000 NOR for first 1,000 users
 - Simple claim mechanism
 - Social sharing rewards
 
 **6. Deploy Faucet Contract**
-- 10 XHT per user per day
+- 10 NOR per user per day
 - Prevents spam
 - Enables gas-free onboarding
 
@@ -318,11 +318,11 @@ cd docs/investor
 - Influencer outreach
 
 **9. Deploy Initial Liquidity**
-- $10,000 XHT/USDT pair
+- $10,000 NOR/USDT pair
 - Lock LP tokens (12 months)
 - Publish verification link
 
-**10. Launch #BuyXaheenFriday**
+**10. Launch #BuyNorFriday**
 - First weekly buyback event
 - Community participation
 - Viral hashtag campaign
@@ -521,10 +521,10 @@ cd docs/investor && ./create-investor-pdf.sh
 
 ## 💖 CHARITY & SOCIAL IMPACT (HIGHLIGHTED)
 
-### Xaheen Global Impact Fund (XGIF)
+### Nor Global Impact Fund (XGIF)
 
 **What Makes This Special:**
-Xaheen is the **world's first blockchain with built-in charity** — not a marketing gimmick, but a core protocol feature enforced by smart contracts.
+Nor is the **world's first blockchain with built-in charity** — not a marketing gimmick, but a core protocol feature enforced by smart contracts.
 
 **Automatic Contributions:**
 - **5% of all gas fees** → Charity wallet
@@ -548,7 +548,7 @@ Xaheen is the **world's first blockchain with built-in charity** — not a marke
 
 **Governance:**
 - **Multi-sig wallet** (3-of-5 including community rep)
-- **Quarterly DAO votes** (XHT holders decide allocations)
+- **Quarterly DAO votes** (NOR holders decide allocations)
 - **Public dashboard:** charity.xaheen.org
 - **Independent audits** (annual third-party verification)
 

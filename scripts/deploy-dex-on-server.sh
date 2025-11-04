@@ -3,7 +3,7 @@
 ################################################################################
 # NOOR CHAIN - DEPLOY DEX CONTRACTS ON SERVER
 #
-# Deploys NoorSwap DEX infrastructure directly on the blockchain server
+# Deploys NorSwap DEX infrastructure directly on the blockchain server
 # using the validator account for deployment
 ################################################################################
 
@@ -48,8 +48,8 @@ async function main() {
     console.log('✅ WNOR:', wnorAddress, '\n');
     
     // Deploy Factory
-    console.log('📦 Deploying NoorSwapFactory...');
-    const Factory = await ethers.getContractFactory('NoorSwapFactory');
+    console.log('📦 Deploying NorSwapFactory...');
+    const Factory = await ethers.getContractFactory('NorSwapFactory');
     const factory = await Factory.deploy(deployer.address);
     await factory.waitForDeployment();
     const factoryAddress = await factory.getAddress();
@@ -59,8 +59,8 @@ async function main() {
     console.log('   INIT_CODE_HASH:', initCodeHash, '\n');
     
     // Deploy Router
-    console.log('📦 Deploying NoorSwapRouter...');
-    const Router = await ethers.getContractFactory('NoorSwapRouter');
+    console.log('📦 Deploying NorSwapRouter...');
+    const Router = await ethers.getContractFactory('NorSwapRouter');
     const router = await Router.deploy(factoryAddress, wnorAddress);
     await router.waitForDeployment();
     const routerAddress = await router.getAddress();
@@ -81,8 +81,8 @@ async function main() {
         contracts: {
             BTCBR: btcbrAddress,
             WNOR: wnorAddress,
-            NoorSwapFactory: factoryAddress,
-            NoorSwapRouter: routerAddress,
+            NorSwapFactory: factoryAddress,
+            NorSwapRouter: routerAddress,
             initCodeHash: initCodeHash,
         },
         pairs: [
@@ -95,8 +95,8 @@ async function main() {
         ],
     };
     
-    fs.writeFileSync('noor-dex-deployment.json', JSON.stringify(deployment, null, 2));
-    console.log('✅ Deployment saved to noor-dex-deployment.json\n');
+    fs.writeFileSync('nor-dex-deployment.json', JSON.stringify(deployment, null, 2));
+    console.log('✅ Deployment saved to nor-dex-deployment.json\n');
     
     console.log('═══════════════════════════════════════════════════════════════════');
     console.log('                   🎉 DEPLOYMENT COMPLETE! 🎉');
@@ -104,8 +104,8 @@ async function main() {
     console.log('\nDeployed Contracts:');
     console.log('  BTCBR:            ', btcbrAddress);
     console.log('  WNOR:             ', wnorAddress);
-    console.log('  NoorSwap Factory: ', factoryAddress);
-    console.log('  NoorSwap Router:  ', routerAddress);
+    console.log('  NorSwap Factory: ', factoryAddress);
+    console.log('  NorSwap Router:  ', routerAddress);
     console.log('  BTCBR/WNOR Pair:  ', pairAddress);
     console.log('');
 }
@@ -120,13 +120,13 @@ echo ""
 
 # Check if contracts directory exists on server
 echo "📤 Step 2: Uploading smart contracts..."
-ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@$SERVER 'mkdir -p ~/noor-contracts/contracts/dex'
+ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@$SERVER 'mkdir -p ~/nor-contracts/contracts/dex'
 
 # Upload DEX contracts
-scp -i ~/.ssh/bsc-validator-key.pem contracts/dex/WNOR.sol ec2-user@$SERVER:~/noor-contracts/contracts/dex/
-scp -i ~/.ssh/bsc-validator-key.pem contracts/dex/NoorSwapFactory.sol ec2-user@$SERVER:~/noor-contracts/contracts/dex/
-scp -i ~/.ssh/bsc-validator-key.pem contracts/dex/NoorSwapRouter.sol ec2-user@$SERVER:~/noor-contracts/contracts/dex/
-scp -i ~/.ssh/bsc-validator-key.pem contracts/dex/NoorSwapPair.sol ec2-user@$SERVER:~/noor-contracts/contracts/dex/
+scp -i ~/.ssh/bsc-validator-key.pem contracts/dex/WNOR.sol ec2-user@$SERVER:~/nor-contracts/contracts/dex/
+scp -i ~/.ssh/bsc-validator-key.pem contracts/dex/NorSwapFactory.sol ec2-user@$SERVER:~/nor-contracts/contracts/dex/
+scp -i ~/.ssh/bsc-validator-key.pem contracts/dex/NorSwapRouter.sol ec2-user@$SERVER:~/nor-contracts/contracts/dex/
+scp -i ~/.ssh/bsc-validator-key.pem contracts/dex/NorSwapPair.sol ec2-user@$SERVER:~/nor-contracts/contracts/dex/
 
 echo "✅ Contracts uploaded"
 echo ""
@@ -147,7 +147,7 @@ module.exports = {
     },
   },
   networks: {
-    noor: {
+    nor: {
       url: "http://localhost:8545",
       chainId: 65001,
       accounts: ["0x3d5679f1148d19b440646957f146176c063a645dd44fc1b8f759fe613eae8edd"], // Validator 1 private key
@@ -164,12 +164,12 @@ module.exports = {
 };
 HARDHAT_CONFIG
 
-scp -i ~/.ssh/bsc-validator-key.pem /tmp/hardhat.config.js ec2-user@$SERVER:~/noor-contracts/
+scp -i ~/.ssh/bsc-validator-key.pem /tmp/hardhat.config.js ec2-user@$SERVER:~/nor-contracts/
 
 # Upload package.json
 cat << 'PACKAGE_JSON' > /tmp/package.json
 {
-  "name": "noor-contracts",
+  "name": "nor-contracts",
   "version": "1.0.0",
   "type": "commonjs",
   "dependencies": {
@@ -180,7 +180,7 @@ cat << 'PACKAGE_JSON' > /tmp/package.json
 }
 PACKAGE_JSON
 
-scp -i ~/.ssh/bsc-validator-key.pem /tmp/package.json ec2-user@$SERVER:~/noor-contracts/
+scp -i ~/.ssh/bsc-validator-key.pem /tmp/package.json ec2-user@$SERVER:~/nor-contracts/
 
 echo "✅ Configuration uploaded"
 echo ""
@@ -188,7 +188,7 @@ echo ""
 # Deploy on server
 echo "🚀 Step 4: Deploying contracts on server..."
 ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@$SERVER << 'REMOTE'
-cd ~/noor-contracts
+cd ~/nor-contracts
 
 # Install dependencies if needed
 if [ ! -d "node_modules" ]; then
@@ -199,16 +199,16 @@ fi
 # Run deployment
 echo ""
 echo "🚀 Running deployment script..."
-npx hardhat run ~/deploy-dex.js --network noor
+npx hardhat run ~/deploy-dex.js --network nor
 
 # Show results
-if [ -f "noor-dex-deployment.json" ]; then
+if [ -f "nor-dex-deployment.json" ]; then
     echo ""
     echo "📋 Deployment Results:"
-    cat noor-dex-deployment.json
+    cat nor-dex-deployment.json
     
     # Copy to home directory for easy access
-    cp noor-dex-deployment.json ~/
+    cp nor-dex-deployment.json ~/
 fi
 REMOTE
 
@@ -216,7 +216,7 @@ echo ""
 echo "✅ Deployment complete!"
 echo ""
 echo "📥 Downloading deployment results..."
-scp -i ~/.ssh/bsc-validator-key.pem ec2-user@$SERVER:~/noor-dex-deployment.json deployments/ 2>/dev/null || echo "⚠️  No deployment file found"
+scp -i ~/.ssh/bsc-validator-key.pem ec2-user@$SERVER:~/nor-dex-deployment.json deployments/ 2>/dev/null || echo "⚠️  No deployment file found"
 
 echo ""
 echo "═══════════════════════════════════════════════════════════════════════════"
@@ -224,8 +224,8 @@ echo "                         DEPLOYMENT SUMMARY"
 echo "═══════════════════════════════════════════════════════════════════════════"
 echo ""
 echo "Check deployment results:"
-echo "  Local:  deployments/noor-dex-deployment.json"
-echo "  Server: ~/noor-dex-deployment.json"
+echo "  Local:  deployments/nor-dex-deployment.json"
+echo "  Server: ~/nor-dex-deployment.json"
 echo ""
 echo "Next steps:"
 echo "  1. Add liquidity to BTCBR/WNOR pair"

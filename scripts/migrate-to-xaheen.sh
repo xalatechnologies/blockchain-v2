@@ -1,13 +1,13 @@
 #!/bin/bash
 
 ###############################################################################
-# Migrate BitcoinBR Chain (885824) to Xaheen Chain (65001)
+# Migrate BitcoinBR Chain (885824) to Nor Chain (65001)
 #
 # This script will:
 # 1. Stop old validators
 # 2. Backup old data
 # 3. Deploy new genesis with Chain ID 65001
-# 4. Restart validators with Xaheen Chain
+# 4. Restart validators with Nor Chain
 #
 # Server: 3.91.50.187
 # User: ec2-user
@@ -30,7 +30,7 @@ echo "║                                                                ║"
 echo "║     MIGRATING TO XAHEEN CHAIN (Chain ID 65001)                 ║"
 echo "║                                                                ║"
 echo "║     From: BitcoinBR (885824)                                   ║"
-echo "║     To:   Xaheen Chain (65001)                                 ║"
+echo "║     To:   Nor Chain (65001)                                 ║"
 echo "║                                                                ║"
 echo "╚════════════════════════════════════════════════════════════════╝"
 echo -e "${NC}"
@@ -94,11 +94,11 @@ sudo rm -rf $HOME/bsc-production/validator-*/geth/lightchaindata
 sudo rm -rf $HOME/bsc-production/validator-*/geth/nodes
 echo -e "${GREEN}✓ Old chain data removed${NC}"
 
-echo -e "${YELLOW}→ Copying new Xaheen genesis...${NC}"
+echo -e "${YELLOW}→ Copying new Nor genesis...${NC}"
 sudo cp /tmp/genesis-xaheen.json $HOME/bsc-production/config/genesis.json
 echo -e "${GREEN}✓ Genesis updated${NC}"
 
-echo -e "${YELLOW}→ Re-initializing validators with Xaheen Chain...${NC}"
+echo -e "${YELLOW}→ Re-initializing validators with Nor Chain...${NC}"
 
 # Re-initialize validator 1
 sudo docker run --rm \
@@ -120,7 +120,7 @@ sudo docker run --rm \
 
 echo -e "${GREEN}✓ All validators re-initialized${NC}"
 
-echo -e "${YELLOW}→ Starting Xaheen Chain validators...${NC}"
+echo -e "${YELLOW}→ Starting Nor Chain validators...${NC}"
 sudo docker start bsc-validator-1
 sudo docker start bsc-validator-2
 sudo docker start bsc-validator-3

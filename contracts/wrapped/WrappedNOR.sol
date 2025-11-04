@@ -9,55 +9,55 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 /**
  * @title WrappedNOR
  * @dev Wrapped NOR token for deployment on external chains (Ethereum, BSC, Polygon)
- * Minted 1:1 when NOR is locked on Noor Chain
- * Burned when users bridge back to Noor Chain
+ * Minted 1:1 when NOR is locked on Nor Chain
+ * Burned when users bridge back to Nor Chain
  */
 contract WrappedNOR is ERC20, ERC20Burnable, AccessControl, Pausable {
     bytes32 public constant BRIDGE_ROLE = keccak256("BRIDGE_ROLE");
     
-    address public noorChainBridge;
+    address public norChainBridge;
     uint256 public totalBridged;
     uint256 public totalRedeemed;
     
-    event Bridged(address indexed user, uint256 amount, bytes32 noorTxHash);
-    event Redeemed(address indexed user, uint256 amount, address noorAddress);
+    event Bridged(address indexed user, uint256 amount, bytes32 norTxHash);
+    event Redeemed(address indexed user, uint256 amount, address norAddress);
     event BridgeUpdated(address indexed oldBridge, address indexed newBridge);
     
-    constructor(address _bridge) ERC20("Wrapped Noor", "wNOR") {
+    constructor(address _bridge) ERC20("Wrapped Nor", "wNOR") {
         require(_bridge != address(0), "WrappedNOR: ZERO_ADDRESS");
         
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(BRIDGE_ROLE, _bridge);
         
-        noorChainBridge = _bridge;
+        norChainBridge = _bridge;
     }
     
     /**
-     * @dev Mint wrapped NOR when tokens are locked on Noor Chain
+     * @dev Mint wrapped NOR when tokens are locked on Nor Chain
      * Only callable by authorized bridge contract
      */
-    function mint(address to, uint256 amount, bytes32 noorTxHash) external onlyRole(BRIDGE_ROLE) whenNotPaused {
+    function mint(address to, uint256 amount, bytes32 norTxHash) external onlyRole(BRIDGE_ROLE) whenNotPaused {
         require(to != address(0), "WrappedNOR: ZERO_ADDRESS");
         require(amount > 0, "WrappedNOR: ZERO_AMOUNT");
         
         _mint(to, amount);
         totalBridged += amount;
         
-        emit Bridged(to, amount, noorTxHash);
+        emit Bridged(to, amount, norTxHash);
     }
     
     /**
-     * @dev Burn wrapped NOR to redeem on Noor Chain
+     * @dev Burn wrapped NOR to redeem on Nor Chain
      * Tokens are burned and unlock event is emitted for bridge validators
      */
-    function redeem(uint256 amount, address noorAddress) external whenNotPaused {
+    function redeem(uint256 amount, address norAddress) external whenNotPaused {
         require(amount > 0, "WrappedNOR: ZERO_AMOUNT");
-        require(noorAddress != address(0), "WrappedNOR: ZERO_ADDRESS");
+        require(norAddress != address(0), "WrappedNOR: ZERO_ADDRESS");
         
         _burn(msg.sender, amount);
         totalRedeemed += amount;
         
-        emit Redeemed(msg.sender, amount, noorAddress);
+        emit Redeemed(msg.sender, amount, norAddress);
     }
     
     /**
@@ -66,11 +66,11 @@ contract WrappedNOR is ERC20, ERC20Burnable, AccessControl, Pausable {
     function updateBridge(address newBridge) external onlyRole(DEFAULT_ADMIN_ROLE) {
         require(newBridge != address(0), "WrappedNOR: ZERO_ADDRESS");
         
-        address oldBridge = noorChainBridge;
+        address oldBridge = norChainBridge;
         _revokeRole(BRIDGE_ROLE, oldBridge);
         _grantRole(BRIDGE_ROLE, newBridge);
         
-        noorChainBridge = newBridge;
+        norChainBridge = newBridge;
         
         emit BridgeUpdated(oldBridge, newBridge);
     }

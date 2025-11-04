@@ -1,7 +1,7 @@
-# 🌙 Noor Chain DEX - Deployment Status
+# 🌙 Nor Chain DEX - Deployment Status
 
 **Date:** November 2, 2025  
-**Network:** Noor Chain Mainnet (Chain ID: 65001)  
+**Network:** Nor Chain Mainnet (Chain ID: 65001)  
 **Deployer:** 0xdD779a290C937144F80Eb75b75d814c834536B1b  
 **Status:** ✅ **INFRASTRUCTURE COMPLETE - READY FOR LIQUIDITY**
 
@@ -22,8 +22,8 @@
 ### DEX Infrastructure
 | Contract | Address | Purpose | Status |
 |----------|---------|---------|--------|
-| **NoorSwapFactory** | `0xbbb1ec421b156f0442D435A875E5267B8A2FDc39` | Creates pairs | ✅ Live |
-| **NoorSwapRouter** | `0xb9B2139a1682c07411E2e13333132C68671664Ff` | Adds liquidity | ✅ Live |
+| **NorSwapFactory** | `0xbbb1ec421b156f0442D435A875E5267B8A2FDc39` | Creates pairs | ✅ Live |
+| **NorSwapRouter** | `0xb9B2139a1682c07411E2e13333132C68671664Ff` | Adds liquidity | ✅ Live |
 | **LiquidityLock** | `0x70252c548B5D7220e9cdc867b188594208FD0bE7` | Locks LP tokens | ✅ Live |
 
 **Total Contracts Deployed:** 9 contracts live on mainnet
@@ -151,7 +151,7 @@ npx hardhat run scripts/lock-all-lp-tokens.js --network btcbr
 - [x] Deploy WUSDT  
 - [x] Deploy WBNB
 - [x] Deploy WETH
-- [x] Deploy NoorSwapRouter
+- [x] Deploy NorSwapRouter
 - [x] Deploy LiquidityLock
 - [x] Mint test supplies
 - [x] Document all addresses
@@ -180,4 +180,4 @@ npx hardhat run scripts/lock-all-lp-tokens.js --network btcbr
 
 **Timeline:** 30 minutes to full DEX launch with locked liquidity
 
-🌙 **Noor Chain - Illuminating DeFi with $800K Locked Liquidity** 🌙
+🌙 **Nor Chain - Illuminating DeFi with $800K Locked Liquidity** 🌙

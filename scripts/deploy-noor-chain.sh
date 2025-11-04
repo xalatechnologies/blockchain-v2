@@ -3,7 +3,7 @@
 ################################################################################
 # NOOR CHAIN - CORRECTED BTCBR SUPPLY DEPLOYMENT SCRIPT
 # 
-# This script deploys the Noor Chain with the corrected BTCBR total supply
+# This script deploys the Nor Chain with the corrected BTCBR total supply
 # of 21 septillion tokens (21 × 10^42 wei)
 #
 # Chain ID: 885824
@@ -22,7 +22,7 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Configuration
-GENESIS_FILE="genesis-noor-corrected.json"
+GENESIS_FILE="genesis-nor-corrected.json"
 NETWORK_ID="885824"
 CHAIN_ID="885824"
 
@@ -155,7 +155,7 @@ stop_validators() {
 backup_data() {
     print_header "💾 BACKING UP CURRENT DATA"
     
-    BACKUP_DIR=~/backups/pre-noor-$(date +%Y%m%d-%H%M%S)
+    BACKUP_DIR=~/backups/pre-nor-$(date +%Y%m%d-%H%M%S)
     print_step "Creating backup directory: $BACKUP_DIR"
     mkdir -p "$BACKUP_DIR"
     
@@ -411,7 +411,7 @@ display_summary() {
     echo "  Stop all:        pkill -f geth"
     echo ""
     echo -e "${CYAN}═══════════════════════════════════════════════════════════════════════════${NC}"
-    echo -e "${GREEN}✨ Noor Chain is now LIVE with corrected BTCBR supply! ✨${NC}"
+    echo -e "${GREEN}✨ Nor Chain is now LIVE with corrected BTCBR supply! ✨${NC}"
     echo -e "${CYAN}═══════════════════════════════════════════════════════════════════════════${NC}"
     echo ""
 }

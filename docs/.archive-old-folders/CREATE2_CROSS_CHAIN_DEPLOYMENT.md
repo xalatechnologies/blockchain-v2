@@ -6,7 +6,7 @@
 
 ## 🎯 GOAL: Maximum Address Consistency
 
-Deploy your ecosystem with **deterministic addresses** across BSC, Tron, Ethereum, and Xaheen Chain using CREATE2.
+Deploy your ecosystem with **deterministic addresses** across BSC, Tron, Ethereum, and Nor Chain using CREATE2.
 
 **Result**:
 - ✅ WBNB/WTRX/WETH at SAME address on all chains
@@ -145,8 +145,8 @@ Use these deterministic salts across ALL chains:
 ```javascript
 const SALTS = {
     WBNB: ethers.id("WBNB-v1.0.0"),
-    Factory: ethers.id("XaheenDEXFactory-v1.0.0"),
-    Router: ethers.id("XaheenDEXRouter-v1.0.0"),
+    Factory: ethers.id("NorDEXFactory-v1.0.0"),
+    Router: ethers.id("NorDEXRouter-v1.0.0"),
     XHN: ethers.id("XHN-v1.0.0"),
 
     // BTCBR uses DIFFERENT salt on BSC due to collision
@@ -157,7 +157,7 @@ const SALTS = {
 ```
 
 **Why Different BTCBR Salt on BSC?**
-- Original Xaheen deployment used: `BTCBR-v1.0.0`
+- Original Nor deployment used: `BTCBR-v1.0.0`
 - This results in address: `0x0cF8e180350253271f4b917CcFb0aCCc4862F262`
 - This address is ALREADY TAKEN on BSC mainnet!
 - Solution: Use `BTCBR-BSC-v1.0.0` on BSC for different address
@@ -169,7 +169,7 @@ const SALTS = {
 
 ### After Deployment (Assuming Same Factory Address)
 
-| Contract | BSC Address | Tron Address | Ethereum Address | Xaheen Address |
+| Contract | BSC Address | Tron Address | Ethereum Address | Nor Address |
 |----------|-------------|--------------|------------------|----------------|
 | CREATE2Factory | `0xABCD...` | `0xABCD...` | `0xABCD...` | `0xABCD...` |
 | WBNB/WTRX/WETH | `0x1234...` | `0x1234...` | `0x1234...` | `0x1234...` |

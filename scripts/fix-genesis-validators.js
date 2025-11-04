@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Read the genesis file
-const genesisPath = path.join(__dirname, "../data/genesis-noor-ultimate.json");
+const genesisPath = path.join(__dirname, "../data/genesis-nor-ultimate.json");
 const genesis = JSON.parse(fs.readFileSync(genesisPath, "utf8"));
 
 // Correct validator addresses (from validators-info-v2.json)
@@ -47,7 +47,7 @@ console.log("New extraData:", newExtraData);
 genesis.extradata = newExtraData;
 
 // Save updated genesis
-const outputPath = path.join(__dirname, "../data/genesis-noor-corrected.json");
+const outputPath = path.join(__dirname, "../data/genesis-nor-corrected.json");
 fs.writeFileSync(outputPath, JSON.stringify(genesis, null, 2));
 
 console.log("\n✓ Genesis file updated successfully!");

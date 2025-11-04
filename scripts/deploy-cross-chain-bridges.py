@@ -6,7 +6,7 @@ from datetime import datetime
 NOOR_CHAIN = {
     'rpc': 'http://3.91.50.187:8545',
     'chain_id': 65001,
-    'name': 'Noor Chain'
+    'name': 'Nor Chain'
 }
 
 # Note: These are placeholder RPCs - user needs to provide actual endpoints
@@ -18,33 +18,33 @@ EXTERNAL_CHAINS = {
 
 PRIVATE_KEY = "0x681fda6ad9585ce9c27688eb60087ddaf4a90ca75f8f77b0f039bd5692ed2bd4"
 
-# Connect to Noor Chain
-w3_noor = Web3(Web3.HTTPProvider(NOOR_CHAIN['rpc']))
-account = w3_noor.eth.account.from_key(PRIVATE_KEY)
+# Connect to Nor Chain
+w3_nor = Web3(Web3.HTTPProvider(NOOR_CHAIN['rpc']))
+account = w3_nor.eth.account.from_key(PRIVATE_KEY)
 
 print(f"Deploying cross-chain bridges from {account.address}")
-print(f"Balance: {w3_noor.from_wei(w3_noor.eth.get_balance(account.address), 'ether')} NOR\n")
+print(f"Balance: {w3_nor.from_wei(w3_nor.eth.get_balance(account.address), 'ether')} NOR\n")
 
 # Load contract artifacts
 def load_artifact(path):
     with open(path) as f:
         return json.load(f)
 
-# Deploy wrapped tokens on Noor Chain
-def deploy_on_noor(contract_name, *args):
+# Deploy wrapped tokens on Nor Chain
+def deploy_on_nor(contract_name, *args):
     artifact = load_artifact(f'.build/artifacts/contracts/wrapped/{contract_name}.sol/{contract_name}.json')
-    contract = w3_noor.eth.contract(abi=artifact['abi'], bytecode=artifact['bytecode'])
+    contract = w3_nor.eth.contract(abi=artifact['abi'], bytecode=artifact['bytecode'])
     
     tx = contract.constructor(*args).build_transaction({
         'chainId': NOOR_CHAIN['chain_id'],
         'gas': 5000000,
-        'gasPrice': w3_noor.to_wei('10', 'gwei'),
-        'nonce': w3_noor.eth.get_transaction_count(account.address)
+        'gasPrice': w3_nor.to_wei('10', 'gwei'),
+        'nonce': w3_nor.eth.get_transaction_count(account.address)
     })
     
-    signed = w3_noor.eth.account.sign_transaction(tx, PRIVATE_KEY)
-    tx_hash = w3_noor.eth.send_raw_transaction(signed.raw_transaction)
-    receipt = w3_noor.eth.wait_for_transaction_receipt(tx_hash)
+    signed = w3_nor.eth.account.sign_transaction(tx, PRIVATE_KEY)
+    tx_hash = w3_nor.eth.send_raw_transaction(signed.raw_transaction)
+    receipt = w3_nor.eth.wait_for_transaction_receipt(tx_hash)
     
     return receipt['contractAddress']
 
@@ -67,11 +67,11 @@ def deploy_bridge(w3_instance, chain_id, required_sigs=2):
     return receipt['contractAddress']
 
 print("=" * 80)
-print("STEP 1: Deploy CrossChainBridge on Noor Chain")
+print("STEP 1: Deploy CrossChainBridge on Nor Chain")
 print("=" * 80)
 
-bridge_noor = deploy_bridge(w3_noor, NOOR_CHAIN['chain_id'])
-print(f"✓ Noor Chain Bridge: {bridge_noor}")
+bridge_nor = deploy_bridge(w3_nor, NOOR_CHAIN['chain_id'])
+print(f"✓ Nor Chain Bridge: {bridge_nor}")
 
 print("\n" + "=" * 80)
 print("STEP 2: Deploy Wrapped Tokens on External Chains")
@@ -112,14 +112,14 @@ for chain, addrs in external_deployments.items():
         print(f"  {contract}: {addr}")
 
 print("\n" + "=" * 80)
-print("STEP 3: Configure Noor Chain Bridge")
+print("STEP 3: Configure Nor Chain Bridge")
 print("=" * 80)
 
 # Get deployed token addresses from previous deployments
-with open('deployments/noor-dex-deployment.json') as f:
+with open('deployments/nor-dex-deployment.json') as f:
     dex_deployment = json.load(f)
 
-with open('deployments/noor-dirhamat-deployment.json') as f:
+with open('deployments/nor-dirhamat-deployment.json') as f:
     dirhamat_deployment = json.load(f)
 
 BTCBR = "0x0cF8e180350253271f4b917CcFb0aCCc4862F262"
@@ -128,7 +128,7 @@ DIRHAMAT = dirhamat_deployment['stablecoin']['Dirhamat']
 
 # Load bridge contract
 bridge_artifact = load_artifact('.build/artifacts/contracts/bridges/production/CrossChainBridge.sol/CrossChainBridge.json')
-bridge_contract = w3_noor.eth.contract(address=bridge_noor, abi=bridge_artifact['abi'])
+bridge_contract = w3_nor.eth.contract(address=bridge_nor, abi=bridge_artifact['abi'])
 
 # Add validator nodes (using the 3 validator addresses)
 validators = [
@@ -142,13 +142,13 @@ for i, validator in enumerate(validators, 1):
     tx = bridge_contract.functions.addValidator(validator).build_transaction({
         'chainId': NOOR_CHAIN['chain_id'],
         'gas': 200000,
-        'gasPrice': w3_noor.to_wei('10', 'gwei'),
-        'nonce': w3_noor.eth.get_transaction_count(account.address)
+        'gasPrice': w3_nor.to_wei('10', 'gwei'),
+        'nonce': w3_nor.eth.get_transaction_count(account.address)
     })
     
-    signed = w3_noor.eth.account.sign_transaction(tx, PRIVATE_KEY)
-    tx_hash = w3_noor.eth.send_raw_transaction(signed.raw_transaction)
-    w3_noor.eth.wait_for_transaction_receipt(tx_hash)
+    signed = w3_nor.eth.account.sign_transaction(tx, PRIVATE_KEY)
+    tx_hash = w3_nor.eth.send_raw_transaction(signed.raw_transaction)
+    w3_nor.eth.wait_for_transaction_receipt(tx_hash)
     print(f"  ✓ Validator {i} added: {validator}")
 
 # Add supported tokens
@@ -163,13 +163,13 @@ for name, address in tokens:
     tx = bridge_contract.functions.addToken(address).build_transaction({
         'chainId': NOOR_CHAIN['chain_id'],
         'gas': 200000,
-        'gasPrice': w3_noor.to_wei('10', 'gwei'),
-        'nonce': w3_noor.eth.get_transaction_count(account.address)
+        'gasPrice': w3_nor.to_wei('10', 'gwei'),
+        'nonce': w3_nor.eth.get_transaction_count(account.address)
     })
     
-    signed = w3_noor.eth.account.sign_transaction(tx, PRIVATE_KEY)
-    tx_hash = w3_noor.eth.send_raw_transaction(signed.raw_transaction)
-    w3_noor.eth.wait_for_transaction_receipt(tx_hash)
+    signed = w3_nor.eth.account.sign_transaction(tx, PRIVATE_KEY)
+    tx_hash = w3_nor.eth.send_raw_transaction(signed.raw_transaction)
+    w3_nor.eth.wait_for_transaction_receipt(tx_hash)
     print(f"  ✓ {name} added: {address}")
 
 # Add bridge connections (will need to update with actual addresses after external deployment)
@@ -182,13 +182,13 @@ for chain, config in external_deployments.items():
     ).build_transaction({
         'chainId': NOOR_CHAIN['chain_id'],
         'gas': 300000,
-        'gasPrice': w3_noor.to_wei('10', 'gwei'),
-        'nonce': w3_noor.eth.get_transaction_count(account.address)
+        'gasPrice': w3_nor.to_wei('10', 'gwei'),
+        'nonce': w3_nor.eth.get_transaction_count(account.address)
     })
     
-    signed = w3_noor.eth.account.sign_transaction(tx, PRIVATE_KEY)
-    tx_hash = w3_noor.eth.send_raw_transaction(signed.raw_transaction)
-    w3_noor.eth.wait_for_transaction_receipt(tx_hash)
+    signed = w3_nor.eth.account.sign_transaction(tx, PRIVATE_KEY)
+    tx_hash = w3_nor.eth.send_raw_transaction(signed.raw_transaction)
+    w3_nor.eth.wait_for_transaction_receipt(tx_hash)
     print(f"  ✓ {chain.capitalize()} bridge added (Chain ID: {config['chain_id']})")
 
 print("\n" + "=" * 80)
@@ -198,9 +198,9 @@ print("=" * 80)
 deployment_data = {
     'timestamp': datetime.utcnow().isoformat() + 'Z',
     'deployer': account.address,
-    'noor_chain': {
+    'nor_chain': {
         'chain_id': NOOR_CHAIN['chain_id'],
-        'bridge': bridge_noor,
+        'bridge': bridge_nor,
         'validators': validators,
         'supported_tokens': {
             'BTCBR': BTCBR,
@@ -217,21 +217,21 @@ deployment_data = {
         'ethereum': 'Deploy WrappedBTCBR, WrappedNOR, WrappedDirhamat, and CrossChainBridge on Ethereum mainnet',
         'bsc': 'Deploy WrappedBTCBR, WrappedNOR, WrappedDirhamat, and CrossChainBridge on BSC mainnet',
         'polygon': 'Deploy WrappedBTCBR, WrappedNOR, WrappedDirhamat, and CrossChainBridge on Polygon mainnet',
-        'update_bridges': 'After deploying on external chains, call updateBridge() on Noor Chain bridge with actual addresses'
+        'update_bridges': 'After deploying on external chains, call updateBridge() on Nor Chain bridge with actual addresses'
     }
 }
 
-with open('deployments/noor-cross-chain-bridges.json', 'w') as f:
+with open('deployments/nor-cross-chain-bridges.json', 'w') as f:
     json.dump(deployment_data, f, indent=2)
 
-print("\nNoor Chain Bridge Configuration:")
-print(f"  Bridge Contract: {bridge_noor}")
+print("\nNor Chain Bridge Configuration:")
+print(f"  Bridge Contract: {bridge_nor}")
 print(f"  Validators: {len(validators)}")
 print(f"  Required Signatures: 2/3")
 print(f"  Supported Tokens: BTCBR, WNOR, Dirhamat")
 print(f"  Connected Chains: Ethereum (1), BSC (56), Polygon (137)")
 
-print("\n✓ Deployment data saved to deployments/noor-cross-chain-bridges.json")
+print("\n✓ Deployment data saved to deployments/nor-cross-chain-bridges.json")
 
 print("\n" + "=" * 80)
 print("NEXT STEPS:")
@@ -244,7 +244,7 @@ print("""
 
 2. Deploy CrossChainBridge on each external chain
 
-3. Update Noor Chain bridge with actual external addresses:
+3. Update Nor Chain bridge with actual external addresses:
    bridge_contract.functions.updateBridge(chainId, newAddress)
 
 4. Configure wrapped tokens to trust their respective bridges:
@@ -253,10 +253,10 @@ print("""
 5. Add initial bridge liquidity for seamless transfers
 
 6. Test cross-chain transfers:
-   - Lock BTCBR on Noor → Mint wBTCBR on Ethereum
-   - Burn wBTCBR on Ethereum → Unlock BTCBR on Noor
+   - Lock BTCBR on Nor → Mint wBTCBR on Ethereum
+   - Burn wBTCBR on Ethereum → Unlock BTCBR on Nor
 """)
 
 print("=" * 80)
-print("Bridge deployment on Noor Chain completed!")
+print("Bridge deployment on Nor Chain completed!")
 print("=" * 80)

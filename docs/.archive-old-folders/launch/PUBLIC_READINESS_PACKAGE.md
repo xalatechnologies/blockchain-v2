@@ -1,4 +1,4 @@
-# 🚀 Xaheen Chain - Public Readiness & Competitive Launch Package
+# 🚀 Nor Chain - Public Readiness & Competitive Launch Package
 
 **Version 1.0 | Date: October 30, 2025**
 
@@ -10,20 +10,20 @@
 
 ### Executive Summary
 
-**Xaheen Chain has successfully reached public-ready status**, marking a significant milestone in blockchain innovation. After comprehensive rebranding, technical validation, and infrastructure preparation, Xaheen Chain stands ready to serve as an intelligent, sovereign alternative to existing Layer 1 networks while maintaining full EVM compatibility and cross-chain interoperability.
+**Nor Chain has successfully reached public-ready status**, marking a significant milestone in blockchain innovation. After comprehensive rebranding, technical validation, and infrastructure preparation, Nor Chain stands ready to serve as an intelligent, sovereign alternative to existing Layer 1 networks while maintaining full EVM compatibility and cross-chain interoperability.
 
-**Xaheen Chain** (Arabic: ذهين, meaning "Smart, Genius, Intelligent") represents a new paradigm in blockchain technology — one that combines the proven security and compatibility of BNB Smart Chain architecture with intelligent governance, private-chain sovereignty, and advanced bridge mechanisms. Our successful local deployment has verified all critical components: 3 operational validators, pre-funded accounts with XHT tokens, embedded BTCBR contract deployment via genesis, and active RPC/WebSocket endpoints.
+**Nor Chain** (Arabic: ذهين, meaning "Smart, Genius, Intelligent") represents a new paradigm in blockchain technology — one that combines the proven security and compatibility of BNB Smart Chain architecture with intelligent governance, private-chain sovereignty, and advanced bridge mechanisms. Our successful local deployment has verified all critical components: 3 operational validators, pre-funded accounts with NOR tokens, embedded BTCBR contract deployment via genesis, and active RPC/WebSocket endpoints.
 
-Unlike traditional blockchain forks or clones, **Xaheen Chain positions itself as an "intelligent mirror network"** — capable of secure experimentation, private liquidity control, and cross-chain innovation while maintaining economic parity with public chains through our revolutionary flash-token bridge architecture. We don't just replicate; we learn, adapt, and synchronize intelligently.
+Unlike traditional blockchain forks or clones, **Nor Chain positions itself as an "intelligent mirror network"** — capable of secure experimentation, private liquidity control, and cross-chain innovation while maintaining economic parity with public chains through our revolutionary flash-token bridge architecture. We don't just replicate; we learn, adapt, and synchronize intelligently.
 
 ### Core Achievements
 
-✅ **Complete Network Rebranding** - From BitcoinBR network to Xaheen Chain
+✅ **Complete Network Rebranding** - From BitcoinBR network to Nor Chain
 ✅ **Chain ID Migration** - Successfully deployed with Chain ID 65001 (0xFDE9)
-✅ **Native Token Launch** - XHT (Xaheen Token) as gas and governance token
+✅ **Native Token Launch** - NOR (Nor Token) as gas and governance token
 ✅ **Genesis Deployment** - BTCBR contract embedded at 0x0cF8e180350253271f4b917CcFb0aCCc4862F262
 ✅ **Validator Network** - 3 validators operational with 2-of-3 consensus
-✅ **Pre-Funded Accounts** - 5 accounts with 1000 XHT each for operations
+✅ **Pre-Funded Accounts** - 5 accounts with 1000 NOR each for operations
 ✅ **Documentation Suite** - 30+ organized technical and user guides
 ✅ **Brand Identity** - Complete visual system with logo, colors, typography
 ✅ **RPC Infrastructure** - Active endpoints ready for public access
@@ -31,7 +31,7 @@ Unlike traditional blockchain forks or clones, **Xaheen Chain positions itself a
 
 ### Competitive Positioning
 
-**Xaheen Chain is not a clone; it's an intelligent, compliant mirror network that learns, adapts, and synchronizes.**
+**Nor Chain is not a clone; it's an intelligent, compliant mirror network that learns, adapts, and synchronizes.**
 
 We extend and compete with BNB Smart Chain through:
 
@@ -45,15 +45,15 @@ We extend and compete with BNB Smart Chain through:
 
 | Parameter | Value |
 |-----------|-------|
-| **Chain Name** | Xaheen Chain |
+| **Chain Name** | Nor Chain |
 | **Chain ID** | 65001 (0xFDE9) |
 | **Network ID** | 65001 |
-| **Native Token** | XHT (Xaheen Token, 18 decimals) |
+| **Native Token** | NOR (Nor Token, 18 decimals) |
 | **Core Asset** | BTCBR (0x0cF8e180350253271f4b917CcFb0aCCc4862F262) |
 | **Block Time** | 3 seconds |
 | **Consensus** | Parlia PoSA (Intelligent Hybrid) |
-| **Gas Token** | XHT |
-| **Governance** | XHT + DAO Hybrid |
+| **Gas Token** | NOR |
+| **Governance** | NOR + DAO Hybrid |
 | **EVM Compatibility** | 100% (Solidity 0.8+) |
 
 ### Official Endpoints
@@ -143,7 +143,7 @@ We extend and compete with BNB Smart Chain through:
   - Requirements:
     - [ ] PostgreSQL database setup
     - [ ] Blockscout instance configuration
-    - [ ] Xaheen branding application
+    - [ ] Nor branding application
     - [ ] Chain ID 65001 configuration
     - [ ] RPC connection verification
 
@@ -153,7 +153,7 @@ We extend and compete with BNB Smart Chain through:
     - [ ] Transaction search
     - [ ] Address tracking
     - [ ] Contract verification
-    - [ ] Token tracking (XHT, BTCBR, fBTCBR)
+    - [ ] Token tracking (NOR, BTCBR, fBTCBR)
     - [ ] Validator statistics
 
 #### Bridge Infrastructure
@@ -162,7 +162,7 @@ We extend and compete with BNB Smart Chain through:
   - Status: ⚙️ Pending
   - Components:
     - [ ] Mainnet vault contract (BSC)
-    - [ ] Private vault contract (Xaheen Chain)
+    - [ ] Private vault contract (Nor Chain)
     - [ ] Flash token contract (fBTCBR)
     - [ ] Oracle/validator relayer
     - [ ] Burn-and-mint verification system
@@ -192,7 +192,7 @@ We extend and compete with BNB Smart Chain through:
   - Requirements:
     - [ ] Governance contract deployment
     - [ ] Proposal submission mechanism
-    - [ ] Voting system (XHT-weighted)
+    - [ ] Voting system (NOR-weighted)
     - [ ] Execution timelock
 
 - [ ] **Staking Configuration**
@@ -256,11 +256,11 @@ We extend and compete with BNB Smart Chain through:
 - [ ] **Social Media Presence**
   - Status: ⚙️ Pending
   - Platforms:
-    - [ ] Twitter/X: @XaheenChain
-    - [ ] LinkedIn: Xaheen Chain
+    - [ ] Twitter/X: @NorChain
+    - [ ] LinkedIn: Nor Chain
     - [ ] Telegram: t.me/xaheen_chain
     - [ ] Discord: discord.gg/xaheen
-    - [ ] Reddit: r/XaheenChain
+    - [ ] Reddit: r/NorChain
 
 - [ ] **Communication Channels**
   - Status: ⚙️ Pending
@@ -276,15 +276,15 @@ We extend and compete with BNB Smart Chain through:
 
 ### FOR IMMEDIATE RELEASE
 
-**Xaheen Chain Enters Public-Ready Phase — The Intelligent Alternative to BNB Smart Chain**
+**Nor Chain Enters Public-Ready Phase — The Intelligent Alternative to BNB Smart Chain**
 
 *Revolutionary blockchain network combines sovereignty, intelligence, and cross-chain interoperability*
 
-**[CITY, DATE]** — Xaheen Technologies is proud to announce that **Xaheen Chain** has successfully achieved public-ready status, positioning itself as a next-generation blockchain platform that extends and competes with established Layer 1 networks like BNB Smart Chain through intelligent design, modular architecture, and revolutionary bridge technology.
+**[CITY, DATE]** — Nor Technologies is proud to announce that **Nor Chain** has successfully achieved public-ready status, positioning itself as a next-generation blockchain platform that extends and competes with established Layer 1 networks like BNB Smart Chain through intelligent design, modular architecture, and revolutionary bridge technology.
 
-**What is Xaheen Chain?**
+**What is Nor Chain?**
 
-Xaheen Chain (Arabic: ذهين, meaning "Smart, Genius, Intelligent") is a high-performance, EVM-compatible blockchain network built on proven Parlia Proof-of-Staked Authority (PoSA) consensus. With Chain ID 65001 and native token XHT (Xaheen Token), the network delivers 3-second block finality, full Ethereum compatibility, and innovative cross-chain capabilities through its flash-token bridge architecture.
+Nor Chain (Arabic: ذهين, meaning "Smart, Genius, Intelligent") is a high-performance, EVM-compatible blockchain network built on proven Parlia Proof-of-Staked Authority (PoSA) consensus. With Chain ID 65001 and native token NOR (Nor Token), the network delivers 3-second block finality, full Ethereum compatibility, and innovative cross-chain capabilities through its flash-token bridge architecture.
 
 **Key Innovations:**
 
@@ -292,7 +292,7 @@ Xaheen Chain (Arabic: ذهين, meaning "Smart, Genius, Intelligent") is a high-
 
 2. **Economic Parity Model** - Mirrored supply design and liquidity synchronization ensuring 1:1 pegging with BSC mainnet tokens while maintaining private-chain sovereignty.
 
-3. **Intelligent Governance** - Hybrid PoA/DAO system combining validator consensus with community governance through XHT token voting.
+3. **Intelligent Governance** - Hybrid PoA/DAO system combining validator consensus with community governance through NOR token voting.
 
 4. **Compliance-Ready Architecture** - GDPR and ISO 27001 compatible design for enterprise and institutional adoption.
 
@@ -301,17 +301,17 @@ Xaheen Chain (Arabic: ذهين, meaning "Smart, Genius, Intelligent") is a high-
 - ✅ Chain ID 65001 (0xFDE9) operational
 - ✅ 3 validators with 2-of-3 multi-signature security
 - ✅ BTCBR contract deployed via genesis at 0x0cF8e180350253271f4b917CcFb0aCCc4862F262
-- ✅ Pre-funded accounts with XHT for immediate operations
+- ✅ Pre-funded accounts with NOR for immediate operations
 - ✅ Complete documentation suite (30+ guides)
 - ✅ RPC and WebSocket endpoints verified
 
 **Leadership Quote:**
 
-"Xaheen Chain represents our vision for a smarter, more sovereign blockchain layer," said **Ibrahim Rahmani, Founder of Xaheen Technologies**. "We're not simply forking existing networks — we're building an intelligent mirror that learns, adapts, and synchronizes. Our flash-token architecture solves the critical problem of cross-chain liquidity without compromising security or creating duplicate assets. This is blockchain evolution, not imitation."
+"Nor Chain represents our vision for a smarter, more sovereign blockchain layer," said **Ibrahim Rahmani, Founder of Nor Technologies**. "We're not simply forking existing networks — we're building an intelligent mirror that learns, adapts, and synchronizes. Our flash-token architecture solves the critical problem of cross-chain liquidity without compromising security or creating duplicate assets. This is blockchain evolution, not imitation."
 
 **Competitive Positioning:**
 
-Unlike traditional blockchain networks, Xaheen Chain offers:
+Unlike traditional blockchain networks, Nor Chain offers:
 
 - **Sovereignty**: Private-chain control with public interoperability
 - **Intelligence**: AI-driven governance and predictive systems
@@ -327,16 +327,16 @@ Unlike traditional blockchain networks, Xaheen Chain offers:
 - Documentation: https://docs.xaheen.org
 - GitHub: https://github.com/xaheen-chain
 
-**About Xaheen Technologies**
+**About Nor Technologies**
 
-Xaheen Technologies is a blockchain innovation company focused on building intelligent, sovereign, and interoperable blockchain infrastructure. The company's flagship product, Xaheen Chain, combines proven consensus mechanisms with revolutionary bridge technology and compliance-ready architecture.
+Nor Technologies is a blockchain innovation company focused on building intelligent, sovereign, and interoperable blockchain infrastructure. The company's flagship product, Nor Chain, combines proven consensus mechanisms with revolutionary bridge technology and compliance-ready architecture.
 
 **Media Contact:**
 
-Xaheen Technologies
+Nor Technologies
 Email: press@xaheen.org
 Website: https://xaheen.org
-Twitter: @XaheenChain
+Twitter: @NorChain
 
 **Additional Resources:**
 
@@ -353,7 +353,7 @@ Twitter: @XaheenChain
 
 ### Overview
 
-Xaheen Chain validators secure the network through Parlia PoSA consensus, earning XHT staking rewards and cross-bridge gas incentives. This guide provides the essential steps to join as a validator.
+Nor Chain validators secure the network through Parlia PoSA consensus, earning NOR staking rewards and cross-bridge gas incentives. This guide provides the essential steps to join as a validator.
 
 ### Hardware Requirements
 
@@ -458,14 +458,14 @@ curl -s http://localhost:8545 -X POST \
 **Earnings Structure:**
 
 1. **Block Rewards**
-   - Base reward: 0.5 XHT per block
+   - Base reward: 0.5 NOR per block
    - Block time: 3 seconds
-   - Daily potential: ~14,400 blocks × 0.5 XHT = 7,200 XHT/day
-   - Annual potential: ~2.6M XHT/year (shared among validators)
+   - Daily potential: ~14,400 blocks × 0.5 NOR = 7,200 NOR/day
+   - Annual potential: ~2.6M NOR/year (shared among validators)
 
 2. **Transaction Fees**
    - Validators receive 100% of gas fees
-   - Average gas price: 1-10 Gwei in XHT
+   - Average gas price: 1-10 Gwei in NOR
    - Variable based on network activity
 
 3. **Cross-Bridge Gas Incentives**
@@ -474,7 +474,7 @@ curl -s http://localhost:8545 -X POST \
    - Vault management rewards
 
 4. **Staking Rewards**
-   - Minimum stake: 10,000 XHT
+   - Minimum stake: 10,000 NOR
    - APY: 8-15% (dynamic based on network participation)
    - Lockup period: 14 days
 
@@ -518,7 +518,7 @@ curl -s http://localhost:8545 -X POST \
 
 **Concept**: Temporary voucher tokens (fBTCBR) that unlock or redeem real BTCBR upon vault validation.
 
-Xaheen Chain's revolutionary bridge architecture solves the critical problem of cross-chain liquidity without creating duplicate or "fake" tokens through a sophisticated vault-based, flash-token system.
+Nor Chain's revolutionary bridge architecture solves the critical problem of cross-chain liquidity without creating duplicate or "fake" tokens through a sophisticated vault-based, flash-token system.
 
 ### How It Works
 
@@ -529,7 +529,7 @@ Most bridges create synthetic tokens (wBTC, wETH, etc.) that can be:
 - Double-spent across chains
 - Difficult to verify 1:1 parity
 
-#### Xaheen's Flash Token Solution
+#### Nor's Flash Token Solution
 
 **fBTCBR (Flash BTCBR)** is a temporary, time-limited voucher that:
 - Expires after 60 minutes if not redeemed
@@ -544,16 +544,16 @@ Most bridges create synthetic tokens (wBTC, wETH, etc.) that can be:
 │                    Bridge Architecture                       │
 └─────────────────────────────────────────────────────────────┘
 
-BSC Mainnet                          Xaheen Chain
+BSC Mainnet                          Nor Chain
 ┌─────────────────┐                 ┌──────────────────┐
 │  BTCBR Token    │                 │  BTCBR Token     │
-│  (Mainnet)      │                 │  (Xaheen)        │
+│  (Mainnet)      │                 │  (Nor)        │
 └────────┬────────┘                 └────────┬─────────┘
          │                                   │
          │ Lock                              │ Mint
          ▼                                   ▼
 ┌─────────────────┐    Validation    ┌──────────────────┐
-│  Mainnet Vault  │◄────────────────►│  Xaheen Vault    │
+│  Mainnet Vault  │◄────────────────►│  Nor Vault    │
 │  Contract       │                  │  Contract        │
 └────────┬────────┘                  └────────┬─────────┘
          │                                    │
@@ -573,9 +573,9 @@ BSC Mainnet                          Xaheen Chain
 1. **Mainnet Vault** (BSC)
    - Holds locked BTCBR from mainnet users
    - Requires 2-of-3 validator signatures for release
-   - Generates proof-of-lock for Xaheen validators
+   - Generates proof-of-lock for Nor validators
 
-2. **Xaheen Vault** (Private Chain)
+2. **Nor Vault** (Private Chain)
    - Holds reserve BTCBR matching mainnet locks
    - Issues fBTCBR upon validated mainnet lock
    - Burns fBTCBR and releases BTCBR upon redemption
@@ -583,15 +583,15 @@ BSC Mainnet                          Xaheen Chain
 3. **Economic Logic (Burn-and-Mint Symmetry)**
 
 ```
-Mainnet → Xaheen:
+Mainnet → Nor:
 1. User locks 1000 BTCBR in Mainnet Vault
 2. Validators verify and sign proof-of-lock
-3. Xaheen Vault issues 1000 fBTCBR (60min expiry)
-4. User redeems fBTCBR for 1000 BTCBR from Xaheen Vault
+3. Nor Vault issues 1000 fBTCBR (60min expiry)
+4. User redeems fBTCBR for 1000 BTCBR from Nor Vault
 5. fBTCBR is burned
 
-Xaheen → Mainnet:
-1. User burns 1000 BTCBR on Xaheen (proof-of-burn)
+Nor → Mainnet:
+1. User burns 1000 BTCBR on Nor (proof-of-burn)
 2. Validators verify burn transaction
 3. Validators sign release from Mainnet Vault
 4. User receives 1000 BTCBR on BSC mainnet
@@ -603,16 +603,16 @@ Net Effect: Total supply across both chains remains constant
 
 **Before Bridge Swap:**
 ```
-Wallet on Xaheen Chain:
-- 1000 XHT (gas token)
+Wallet on Nor Chain:
+- 1000 NOR (gas token)
 - 0 BTCBR
 - 0 fBTCBR
 ```
 
 **After Bridge Request (Flash Token Issued):**
 ```
-Wallet on Xaheen Chain:
-- 1000 XHT (minus gas fee ~0.01 XHT)
+Wallet on Nor Chain:
+- 1000 NOR (minus gas fee ~0.01 NOR)
 - 0 BTCBR
 - 1000 fBTCBR (expires in 60 minutes)
 
@@ -622,22 +622,22 @@ Mainnet Vault:
 
 **After Redemption (Flash → Real):**
 ```
-Wallet on Xaheen Chain:
-- 999.99 XHT
+Wallet on Nor Chain:
+- 999.99 NOR
 - 1000 BTCBR (vault released)
 - 0 fBTCBR (burned)
 
 Mainnet Vault:
 - 1000 BTCBR locked (remains)
 
-Xaheen Vault:
+Nor Vault:
 - Matched liquidity maintained
 ```
 
 **If Flash Token Expires (Not Redeemed):**
 ```
-Wallet on Xaheen Chain:
-- 999.99 XHT
+Wallet on Nor Chain:
+- 999.99 NOR
 - 0 BTCBR
 - 0 fBTCBR (auto-burned)
 
@@ -651,7 +651,7 @@ Mainnet Vault:
 
 1. **Minimum Reserve Ratio**: 150%
    - For every 100 BTCBR locked on mainnet
-   - Xaheen Vault must hold 150 BTCBR in reserve
+   - Nor Vault must hold 150 BTCBR in reserve
 
 2. **Dynamic Replenishment**
    - Automated monitoring of vault balances
@@ -696,10 +696,10 @@ Mainnet Vault:
 
 | Operation | Fee | Recipient |
 |-----------|-----|-----------|
-| Mainnet → Xaheen Lock | 0.1% (min 10 BTCBR) | Mainnet Vault |
-| Flash Token Issuance | 0.05% in XHT | Validators |
-| Flash → Real Redemption | 0.1% (min 10 BTCBR) | Xaheen Vault |
-| Xaheen → Mainnet Burn | 0.2% (min 20 BTCBR) | Validators + Liquidity Pool |
+| Mainnet → Nor Lock | 0.1% (min 10 BTCBR) | Mainnet Vault |
+| Flash Token Issuance | 0.05% in NOR | Validators |
+| Flash → Real Redemption | 0.1% (min 10 BTCBR) | Nor Vault |
+| Nor → Mainnet Burn | 0.2% (min 20 BTCBR) | Validators + Liquidity Pool |
 | Mainnet Release | 0.1% (min 10 BTCBR) | Mainnet Vault |
 
 ### Technical Implementation
@@ -711,12 +711,12 @@ Mainnet Vault:
    - Release validation logic
    - Multi-sig authorization
 
-2. `XaheenVaultBridge.sol` (Xaheen Chain)
+2. `NorVaultBridge.sol` (Nor Chain)
    - fBTCBR minting logic
    - Redemption validation
    - Reserve management
 
-3. `FlashTokenBTCBR.sol` (Xaheen Chain)
+3. `FlashTokenBTCBR.sol` (Nor Chain)
    - Time-limited token logic
    - Non-transferable implementation
    - Auto-burn mechanism
@@ -728,16 +728,16 @@ Mainnet Vault:
 
 ### User Experience Flow
 
-1. **User connects MetaMask to Xaheen Chain**
+1. **User connects MetaMask to Nor Chain**
 2. **Navigates to bridge.xaheen.org**
 3. **Selects "Bridge BTCBR from BSC"**
 4. **Enters amount (e.g., 1000 BTCBR)**
 5. **Confirms mainnet transaction** (locks BTCBR)
 6. **Waits 1-2 minutes for validation**
-7. **Receives 1000 fBTCBR on Xaheen Chain**
+7. **Receives 1000 fBTCBR on Nor Chain**
 8. **Clicks "Redeem Flash Token"**
 9. **Confirms redemption transaction**
-10. **Receives 1000 BTCBR on Xaheen Chain**
+10. **Receives 1000 BTCBR on Nor Chain**
 11. **fBTCBR automatically burns**
 
 **Total Time**: 3-5 minutes
@@ -747,27 +747,27 @@ Mainnet Vault:
 
 ## 💹 6. Competitive Strategy Section
 
-### Market Positioning: Xaheen Chain vs. BNB Smart Chain
+### Market Positioning: Nor Chain vs. BNB Smart Chain
 
-Xaheen Chain doesn't aim to replace BNB Smart Chain — we extend, complement, and intelligently compete by offering capabilities that public chains cannot provide while maintaining full interoperability.
+Nor Chain doesn't aim to replace BNB Smart Chain — we extend, complement, and intelligently compete by offering capabilities that public chains cannot provide while maintaining full interoperability.
 
 ### Feature Comparison Matrix
 
-| Feature | Xaheen Chain | BNB Smart Chain |
+| Feature | Nor Chain | BNB Smart Chain |
 |---------|--------------|-----------------|
 | **Governance Model** | Intelligent PoA / DAO Hybrid | Pure PoSA (21 validators) |
 | **Validator Count** | 3+ (expandable) | 21 fixed |
 | **Block Time** | 3 seconds | 3 seconds |
 | **Finality** | 2-of-3 (instant) | ~15 blocks (~45 seconds) |
 | **Bridge System** | Flash Token Vaults (no duplicates) | Pegged Tokens (synthetic) |
-| **Native Token** | XHT (gas + governance + liquidity) | BNB (gas + staking) |
+| **Native Token** | NOR (gas + governance + liquidity) | BNB (gas + staking) |
 | **Compliance** | GDPR, ISO 27001 ready | Non-sovereign, public |
 | **Data Sovereignty** | Full private-chain control | Public transparency |
 | **Innovation Focus** | AI-driven, modular, private interop | General DeFi ecosystem |
 | **Contract Address** | Same as BSC (mirrored supply) | Native |
 | **Economic Parity** | 1:1 through vault reserves | Market-driven |
 | **Oracle Integration** | Built-in validator relays | External oracles required |
-| **Staking Model** | XHT staking + bridge rewards | BNB staking only |
+| **Staking Model** | NOR staking + bridge rewards | BNB staking only |
 | **Cross-Chain Strategy** | Vault-based, temporary tokens | Permanent synthetic tokens |
 | **Emergency Controls** | Multi-sig pause + recovery | Limited |
 | **Enterprise Features** | Permissioned modules available | Public only |
@@ -777,17 +777,17 @@ Xaheen Chain doesn't aim to replace BNB Smart Chain — we extend, complement, a
 
 #### 1. Liquidity Peg Strategy
 
-**Objective**: Maintain 1:1 economic parity between BTCBR on BSC and BTCBR on Xaheen Chain
+**Objective**: Maintain 1:1 economic parity between BTCBR on BSC and BTCBR on Nor Chain
 
 **Mechanism**:
 - **Vault Reserve Ratio**: 150% over-collateralization
 - **Automatic Arbitrage Prevention**: Flash token expiry ensures no long-term price deviation
 - **Oracle Price Alignment**: Real-time price feeds from BSC mainnet
-- **Liquidity Pool Matching**: Xaheen DEX liquidity mirrors BSC liquidity ratios
+- **Liquidity Pool Matching**: Nor DEX liquidity mirrors BSC liquidity ratios
 
 **Formula**:
 ```
-Xaheen_BTCBR_Supply = (BSC_Locked_BTCBR × Vault_Reserve_Ratio)
+Nor_BTCBR_Supply = (BSC_Locked_BTCBR × Vault_Reserve_Ratio)
 Vault_Reserve_Ratio = 1.5 (150%)
 
 Maximum Outstanding fBTCBR = Vault_BTCBR_Balance × 0.67
@@ -795,7 +795,7 @@ Maximum Outstanding fBTCBR = Vault_BTCBR_Balance × 0.67
 
 **Example**:
 - BSC Vault Locks: 100,000 BTCBR
-- Xaheen Vault Reserve: 150,000 BTCBR
+- Nor Vault Reserve: 150,000 BTCBR
 - Maximum fBTCBR Issuable: 100,000 (backed 1:1 by locked mainnet BTCBR)
 - Safety Buffer: 50,000 BTCBR (emergency liquidity)
 
@@ -811,21 +811,21 @@ Maximum Outstanding fBTCBR = Vault_BTCBR_Balance × 0.67
 
 **Anti-Arbitrage Calculation**:
 ```
-Arbitrage Profit = |Price_BSC - Price_Xaheen| - Bridge_Fees - Gas_Costs
+Arbitrage Profit = |Price_BSC - Price_Nor| - Bridge_Fees - Gas_Costs
 
 If Arbitrage Profit < 0.5%, transaction blocked by smart contract
 ```
 
 #### 3. Staking Parity
 
-**Objective**: Make XHT staking competitive with BNB staking
+**Objective**: Make NOR staking competitive with BNB staking
 
-| Metric | XHT Staking | BNB Staking |
+| Metric | NOR Staking | BNB Staking |
 |--------|-------------|-------------|
-| Minimum Stake | 10,000 XHT (~$100) | 1 BNB (~$300) |
+| Minimum Stake | 10,000 NOR (~$100) | 1 BNB (~$300) |
 | APY Range | 8-15% (dynamic) | 5-7% |
 | Lock Period | 14 days | 7-90 days |
-| Rewards | XHT + Bridge Fees | BNB only |
+| Rewards | NOR + Bridge Fees | BNB only |
 | Slashing Risk | Validator only | Delegator shared |
 | Additional Benefits | Governance voting | None |
 
@@ -833,11 +833,11 @@ If Arbitrage Profit < 0.5%, transaction blocked by smart contract
 
 #### 4. Mirrored Supply Design
 
-**Concept**: Match BTCBR total supply on Xaheen to BSC mainnet circulation
+**Concept**: Match BTCBR total supply on Nor to BSC mainnet circulation
 
 **Implementation**:
 ```solidity
-// BTCBR on Xaheen Chain
+// BTCBR on Nor Chain
 totalSupply() = BSC_BTCBR_CirculatingSupply + Vault_Reserve
 
 // Ensures:
@@ -848,12 +848,12 @@ totalSupply() = BSC_BTCBR_CirculatingSupply + Vault_Reserve
 
 **Supply Tracking**:
 - **BSC BTCBR Total Supply**: Query from 0x0cF8e180350253271f4b917CcFb0aCCc4862F262
-- **Xaheen BTCBR Minted**: Matches vault locked amount
+- **Nor BTCBR Minted**: Matches vault locked amount
 - **fBTCBR Temporary Supply**: Excluded from total supply calculation
 
 **Transparency Dashboard** (bridge.xaheen.org):
 - Live BSC BTCBR supply: [Real-time]
-- Xaheen BTCBR minted: [Real-time]
+- Nor BTCBR minted: [Real-time]
 - Vault locked amount: [Real-time]
 - Reserve ratio: [Real-time]
 - Supply parity percentage: [Real-time]
@@ -863,7 +863,7 @@ totalSupply() = BSC_BTCBR_CirculatingSupply + Vault_Reserve
 #### 1. Intelligence Over Scale
 
 **BSC Strength**: Large validator set (21), massive ecosystem
-**Xaheen Answer**: Intelligent 3-validator consensus with AI-driven governance
+**Nor Answer**: Intelligent 3-validator consensus with AI-driven governance
 
 - Faster decision-making (3 vs 21)
 - Lower coordination complexity
@@ -873,7 +873,7 @@ totalSupply() = BSC_BTCBR_CirculatingSupply + Vault_Reserve
 #### 2. Sovereignty Over Transparency
 
 **BSC Limitation**: Fully public, no privacy options
-**Xaheen Advantage**: Private-chain sovereignty with public interoperability
+**Nor Advantage**: Private-chain sovereignty with public interoperability
 
 - Enterprise-grade data privacy
 - GDPR compliance capabilities
@@ -883,7 +883,7 @@ totalSupply() = BSC_BTCBR_CirculatingSupply + Vault_Reserve
 #### 3. Innovation Over Standardization
 
 **BSC Model**: Stable, proven, standardized
-**Xaheen Model**: Experimental, innovative, modular
+**Nor Model**: Experimental, innovative, modular
 
 - Flash token architecture (unique)
 - Pluggable bridge systems
@@ -893,7 +893,7 @@ totalSupply() = BSC_BTCBR_CirculatingSupply + Vault_Reserve
 #### 4. Compliance Over Decentralization
 
 **BSC Challenge**: Regulatory uncertainty for enterprises
-**Xaheen Solution**: Compliance-first design
+**Nor Solution**: Compliance-first design
 
 - ISO 27001 compatible
 - GDPR-ready architecture
@@ -905,11 +905,11 @@ totalSupply() = BSC_BTCBR_CirculatingSupply + Vault_Reserve
 **Target Audiences**:
 
 1. **Enterprises seeking private blockchain + public interop**
-   - Offer: Private Xaheen deployment + BSC bridge
+   - Offer: Private Nor deployment + BSC bridge
    - Value: Sovereignty + liquidity access
 
 2. **DeFi projects needing fast experimentation**
-   - Offer: Low-cost testing on Xaheen before BSC mainnet
+   - Offer: Low-cost testing on Nor before BSC mainnet
    - Value: Cheaper gas, private testing, same codebase
 
 3. **Institutional investors requiring compliance**
@@ -917,7 +917,7 @@ totalSupply() = BSC_BTCBR_CirculatingSupply + Vault_Reserve
    - Value: Regulatory certainty + professional infrastructure
 
 4. **Existing BSC projects wanting expansion**
-   - Offer: Mirror deployment on Xaheen with bridge
+   - Offer: Mirror deployment on Nor with bridge
    - Value: New market, same users, additional liquidity
 
 **Go-to-Market Tactics**:
@@ -941,45 +941,45 @@ totalSupply() = BSC_BTCBR_CirculatingSupply + Vault_Reserve
    - Compliance certification
    - Institutional partnerships
 
-### Pricing Strategy: XHT Token Economics
+### Pricing Strategy: NOR Token Economics
 
 **Initial Distribution**:
-- Genesis Allocation: 10M XHT
-- Validator Rewards: 5M XHT/year
-- Ecosystem Fund: 5M XHT
-- Team & Advisors: 2M XHT (4-year vest)
-- Community Airdrop: 1M XHT
+- Genesis Allocation: 10M NOR
+- Validator Rewards: 5M NOR/year
+- Ecosystem Fund: 5M NOR
+- Team & Advisors: 2M NOR (4-year vest)
+- Community Airdrop: 1M NOR
 
 **Value Accrual Mechanisms**:
-1. Gas fees (burn 50% of XHT used)
-2. Bridge fees (10% to XHT stakers)
+1. Gas fees (burn 50% of NOR used)
+2. Bridge fees (10% to NOR stakers)
 3. Governance rights (voting power)
-4. Validator staking (minimum 10K XHT)
+4. Validator staking (minimum 10K NOR)
 
 **Comparison to BNB**:
 
 | Token | Current Price* | Market Cap* | Use Cases |
 |-------|----------------|-------------|-----------|
 | BNB | $300 | $46B | Gas, staking, trading fees |
-| XHT | TBD (launch) | TBD | Gas, governance, bridge fees, staking |
+| NOR | TBD (launch) | TBD | Gas, governance, bridge fees, staking |
 
 *Hypothetical example
 
-**XHT Price Targets** (Illustrative):
+**NOR Price Targets** (Illustrative):
 
 - Conservative: $0.10 (100M market cap)
 - Moderate: $1.00 (1B market cap)
 - Aggressive: $10.00 (10B market cap)
 
 Based on validator rewards alone:
-- At $1.00/XHT: Validator earns $7,200/day = $2.6M/year
-- At $10.00/XHT: Validator earns $72,000/day = $26M/year
+- At $1.00/NOR: Validator earns $7,200/day = $2.6M/year
+- At $10.00/NOR: Validator earns $72,000/day = $26M/year
 
 ### Long-Term Vision
 
 **Not BNB Killer, But BNB Complement**
 
-Xaheen Chain aims to:
+Nor Chain aims to:
 1. Co-exist with BSC ecosystem
 2. Provide services BSC cannot (privacy, compliance)
 3. Enable new use cases (private DeFi, enterprise blockchain)
@@ -997,7 +997,7 @@ Xaheen Chain aims to:
 
 **Post 1: Main Announcement** (280 characters)
 ```
-🚀 Xaheen Chain is LIVE! 🧠⚡
+🚀 Nor Chain is LIVE! 🧠⚡
 
 The intelligent blockchain built for secure, private & interoperable ecosystems.
 
@@ -1010,18 +1010,18 @@ Welcome to the era of smart chains.
 
 🌐 xaheen.org
 
-#XaheenChain #Blockchain
+#NorChain #Blockchain
 ```
 
 **Post 2: Technical Highlights**
 ```
-What makes Xaheen Chain different?
+What makes Nor Chain different?
 
 🔐 Vault-backed bridges (no fake tokens)
 🧠 AI-driven governance
 ⚡ 3-second blocks
 🌉 Flash-token architecture
-💎 XHT native token
+💎 NOR native token
 🔗 100% EVM compatible
 
 Read the tech: docs.xaheen.org
@@ -1031,27 +1031,27 @@ Read the tech: docs.xaheen.org
 
 **Post 3: Call to Action**
 ```
-Ready to build on Xaheen Chain?
+Ready to build on Nor Chain?
 
 👨‍💻 Developers: Same Solidity, better sovereignty
-🔍 Validators: Earn XHT + bridge fees
+🔍 Validators: Earn NOR + bridge fees
 🏢 Enterprises: GDPR-ready blockchain
 
 Get started: xaheen.org/get-started
 
-#BuildOnXaheen #SmartContracts
+#BuildOnNor #SmartContracts
 ```
 
 #### LinkedIn Posts
 
 **Post 1: Professional Announcement** (1300 characters)
 ```
-Announcing Xaheen Chain Public Launch 🚀
+Announcing Nor Chain Public Launch 🚀
 
-We're excited to share that Xaheen Chain has achieved public-ready status, introducing a new paradigm in blockchain technology that combines sovereignty, intelligence, and cross-chain interoperability.
+We're excited to share that Nor Chain has achieved public-ready status, introducing a new paradigm in blockchain technology that combines sovereignty, intelligence, and cross-chain interoperability.
 
-What is Xaheen Chain?
-Xaheen (Arabic: "Smart, Genius, Intelligent") is an EVM-compatible blockchain network built on Parlia PoSA consensus, delivering 3-second finality with revolutionary flash-token bridge architecture.
+What is Nor Chain?
+Nor (Arabic: "Smart, Genius, Intelligent") is an EVM-compatible blockchain network built on Parlia PoSA consensus, delivering 3-second finality with revolutionary flash-token bridge architecture.
 
 Key Innovations:
 • Flash-Token Bridge: Vault-backed temporary tokens preventing duplicate asset creation
@@ -1081,7 +1081,7 @@ Documentation: docs.xaheen.org
 ```
 Why Private-Public Blockchain Bridges Matter
 
-Traditional bridges create synthetic tokens that often lack proper backing. Xaheen Chain solves this through flash-token architecture:
+Traditional bridges create synthetic tokens that often lack proper backing. Nor Chain solves this through flash-token architecture:
 
 1. Temporary vouchers (60min expiry)
 2. Vault-backed 1:1 reserves
@@ -1103,11 +1103,11 @@ What are your thoughts on cross-chain security?
 ```
 🎉 XAHEEN CHAIN IS LIVE! 🎉
 
-After months of development, we're excited to announce that Xaheen Chain has reached public-ready status!
+After months of development, we're excited to announce that Nor Chain has reached public-ready status!
 
 🌐 Chain ID: 65001 (0xFDE9)
 ⚡ Block Time: 3 seconds
-💎 Native Token: XHT
+💎 Native Token: NOR
 🔗 EVM Compatible: 100%
 
 🔗 Key Links:
@@ -1117,23 +1117,23 @@ After months of development, we're excited to announce that Xaheen Chain has rea
 • Docs: docs.xaheen.org
 
 📚 Getting Started:
-1. Add Xaheen to MetaMask
-2. Get XHT from faucet
+1. Add Nor to MetaMask
+2. Get NOR from faucet
 3. Start building!
 
 Join the conversation: 💬
 
-#XaheenChain #SmartChain #Web3
+#NorChain #SmartChain #Web3
 ```
 
 **Announcement 2: Validator Recruitment**
 ```
 🔥 CALLING ALL VALIDATORS! 🔥
 
-Xaheen Chain is recruiting independent validators to secure our network.
+Nor Chain is recruiting independent validators to secure our network.
 
 💰 Earn:
-• Block rewards: 0.5 XHT/block
+• Block rewards: 0.5 NOR/block
 • Transaction fees: 100%
 • Bridge fees: 10% share
 • Staking rewards: 8-15% APY
@@ -1160,11 +1160,11 @@ Questions? Ask in chat! 👇
 
 🚀 **XAHEEN CHAIN PUBLIC LAUNCH** 🚀
 
-We're thrilled to announce that Xaheen Chain is now public-ready and open for developers, validators, and users!
+We're thrilled to announce that Nor Chain is now public-ready and open for developers, validators, and users!
 
 **🌐 Network Details:**
 • Chain ID: 65001 (0xFDE9)
-• Native Token: XHT (Xaheen Token)
+• Native Token: NOR (Nor Token)
 • Block Time: 3 seconds
 • Consensus: Parlia PoSA
 
@@ -1186,24 +1186,24 @@ We're thrilled to announce that Xaheen Chain is now public-ready and open for de
 3. Join development discussions in #💻-dev-chat
 4. Apply for validator in #🔒-validators
 
-Welcome to Xaheen Chain - Where Intelligence Meets Blockchain! 🧠⚡
+Welcome to Nor Chain - Where Intelligence Meets Blockchain! 🧠⚡
 
 Questions? Ask in #❓-support
 ```
 
 **#general Channel**
 ```
-Hey Xaheen community! 👋
+Hey Nor community! 👋
 
 Now that we're live, here's what you can do RIGHT NOW:
 
-1️⃣ **Add Xaheen to MetaMask**
-   • Network Name: Xaheen Chain
+1️⃣ **Add Nor to MetaMask**
+   • Network Name: Nor Chain
    • RPC: https://rpc.xaheen.org
    • Chain ID: 65001
-   • Symbol: XHT
+   • Symbol: NOR
 
-2️⃣ **Get Free XHT** (Testnet)
+2️⃣ **Get Free NOR** (Testnet)
    Visit: faucet.xaheen.org
 
 3️⃣ **Explore the Network**
@@ -1214,27 +1214,27 @@ Now that we're live, here's what you can do RIGHT NOW:
 
 Drop your wallet address below and share what you're building! 🛠️
 
-#LFG #BuildOnXaheen
+#LFG #BuildOnNor
 ```
 
-#### Reddit r/XaheenChain Launch Post
+#### Reddit r/NorChain Launch Post
 
-**Title**: Xaheen Chain Is Now Public-Ready! 🚀 The Intelligent Blockchain Alternative to BSC
+**Title**: Nor Chain Is Now Public-Ready! 🚀 The Intelligent Blockchain Alternative to BSC
 
 **Body**:
 ```markdown
-Hey r/XaheenChain!
+Hey r/NorChain!
 
-After months of development and extensive testing, I'm excited to announce that **Xaheen Chain has reached public-ready status**!
+After months of development and extensive testing, I'm excited to announce that **Nor Chain has reached public-ready status**!
 
-## What is Xaheen Chain?
+## What is Nor Chain?
 
-Xaheen (Arabic: ذهين, meaning "Smart, Genius, Intelligent") is an EVM-compatible blockchain network built on proven Parlia PoSA consensus. Think of it as an intelligent mirror of BNB Smart Chain — with privacy, sovereignty, and revolutionary bridge technology.
+Nor (Arabic: ذهين, meaning "Smart, Genius, Intelligent") is an EVM-compatible blockchain network built on proven Parlia PoSA consensus. Think of it as an intelligent mirror of BNB Smart Chain — with privacy, sovereignty, and revolutionary bridge technology.
 
 ## Key Stats
 - **Chain ID**: 65001 (0xFDE9)
 - **Block Time**: 3 seconds
-- **Native Token**: XHT (Xaheen Token)
+- **Native Token**: NOR (Nor Token)
 - **Consensus**: Parlia PoSA (Intelligent Hybrid)
 - **EVM Compatible**: 100%
 
@@ -1247,26 +1247,26 @@ Instead of creating permanent synthetic tokens (like wBTC), we use **temporary v
 - Supply inflation
 
 ### 2. Vault-Backed Liquidity
-Every token on Xaheen is backed 1:1 (actually 1.5:1) by real reserves in vaults. You can verify this on-chain.
+Every token on Nor is backed 1:1 (actually 1.5:1) by real reserves in vaults. You can verify this on-chain.
 
 ### 3. Intelligent Governance
-Our hybrid PoA/DAO model combines validator consensus with community governance through XHT token voting.
+Our hybrid PoA/DAO model combines validator consensus with community governance through NOR token voting.
 
 ### 4. Compliance-Ready
 Built for enterprises with GDPR and ISO 27001 compatibility from day one.
 
 ## For Developers
 
-If you've built on Ethereum or BSC, you can deploy on Xaheen with **zero code changes**. Same Solidity, same tools, same workflows.
+If you've built on Ethereum or BSC, you can deploy on Nor with **zero code changes**. Same Solidity, same tools, same workflows.
 
 ```javascript
-// Add Xaheen to MetaMask
+// Add Nor to MetaMask
 await ethereum.request({
   method: 'wallet_addEthereumChain',
   params: [{
     chainId: '0xFDE9',
-    chainName: 'Xaheen Chain',
-    nativeCurrency: { name: 'XHT', symbol: 'XHT', decimals: 18 },
+    chainName: 'Nor Chain',
+    nativeCurrency: { name: 'NOR', symbol: 'NOR', decimals: 18 },
     rpcUrls: ['https://rpc.xaheen.org'],
     blockExplorerUrls: ['https://explorer.xaheen.org']
   }]
@@ -1278,7 +1278,7 @@ await ethereum.request({
 We're recruiting independent validators!
 
 **Earnings**:
-- Block rewards: 0.5 XHT/block (~7,200 XHT/day shared)
+- Block rewards: 0.5 NOR/block (~7,200 NOR/day shared)
 - Transaction fees: 100%
 - Bridge fees: 10% share
 - Staking rewards: 8-15% APY
@@ -1296,7 +1296,7 @@ We're recruiting independent validators!
 ## Roadmap
 
 **Q4 2025**: Public launch, validator onboarding
-**Q1 2026**: Bridge launch (BSC ↔ Xaheen)
+**Q1 2026**: Bridge launch (BSC ↔ Nor)
 **Q2 2026**: Ecosystem grants, DApp migration
 **Q3 2026**: Enterprise partnerships
 
@@ -1306,29 +1306,29 @@ AMA in the comments! I'll be here to answer any questions about the tech, tokeno
 
 ---
 
-**TL;DR**: Xaheen Chain is a new EVM-compatible blockchain with innovative bridge tech, intelligent governance, and compliance-ready architecture. Public-ready now!
+**TL;DR**: Nor Chain is a new EVM-compatible blockchain with innovative bridge tech, intelligent governance, and compliance-ready architecture. Public-ready now!
 
-#XaheenChain #Blockchain #Cryptocurrency #DeFi
+#NorChain #Blockchain #Cryptocurrency #DeFi
 ```
 
 ### Short-Form Content (All Platforms)
 
 **Version 1** (Hype)
 ```
-🚀 Xaheen Chain is LIVE!
+🚀 Nor Chain is LIVE!
 
 The blockchain that learns, adapts & synchronizes.
 
-Chain ID: 65001 | Token: XHT | Speed: 3s blocks
+Chain ID: 65001 | Token: NOR | Speed: 3s blocks
 
 Join the intelligent revolution: xaheen.org
 
-#XaheenChain #Web3
+#NorChain #Web3
 ```
 
 **Version 2** (Technical)
 ```
-⚡ Xaheen Chain: BSC compatibility + intelligent governance + flash-token bridges
+⚡ Nor Chain: BSC compatibility + intelligent governance + flash-token bridges
 
 No fake tokens. No duplicates. Just secure, vault-backed liquidity.
 
@@ -1346,7 +1346,7 @@ Are you building the next big dApp?
 ✅ Private options
 ✅ Fast finality
 
-Try Xaheen Chain: xaheen.org
+Try Nor Chain: xaheen.org
 
 #BuildWeb3
 ```
@@ -1354,7 +1354,7 @@ Try Xaheen Chain: xaheen.org
 ### Hashtag Strategy
 
 **Primary Hashtags** (Always use):
-- #XaheenChain
+- #NorChain
 - #Blockchain
 - #Web3
 
@@ -1362,7 +1362,7 @@ Try Xaheen Chain: xaheen.org
 - #DeFi
 - #Cryptocurrency
 - #SmartContracts
-- #BuildOnXaheen
+- #BuildOnNor
 - #EVMCompatible
 - #CrossChain
 - #BlockchainInnovation
@@ -1757,7 +1757,7 @@ Input Field:
 
 ### Week 3: Bridge Development
 - [ ] Deploy mainnet vault contract (BSC)
-- [ ] Deploy Xaheen vault contract
+- [ ] Deploy Nor vault contract
 - [ ] Implement fBTCBR flash token
 - [ ] Setup oracle/validator relayer
 - [ ] Test bridge end-to-end
@@ -1798,7 +1798,7 @@ Input Field:
 - [ ] 1000+ wallet addresses
 - [ ] 100+ deployed smart contracts
 - [ ] 10+ active DApps
-- [ ] 1M+ XHT in circulation
+- [ ] 1M+ NOR in circulation
 - [ ] 100K+ BTCBR bridged
 
 ### Community Metrics
@@ -1811,7 +1811,7 @@ Input Field:
 ### Economic Metrics
 - [ ] $1M+ total value locked (TVL)
 - [ ] $100K+ daily bridge volume
-- [ ] XHT trading on 2+ exchanges
+- [ ] NOR trading on 2+ exchanges
 - [ ] 150% vault reserve ratio maintained
 - [ ] Positive validator economics (ROI > 15%)
 
@@ -1839,8 +1839,8 @@ Input Field:
 
 ### Media Inquiries
 - Email: press@xaheen.org
-- Twitter: @XaheenChain
-- LinkedIn: Xaheen Chain
+- Twitter: @NorChain
+- LinkedIn: Nor Chain
 
 ### Developer Support
 - Documentation: https://docs.xaheen.org
@@ -1863,7 +1863,7 @@ Input Field:
 ## 🎓 Additional Resources
 
 ### Technical Documentation
-- [Xaheen Chain Technical Whitepaper](https://docs.xaheen.org/whitepaper)
+- [Nor Chain Technical Whitepaper](https://docs.xaheen.org/whitepaper)
 - [Bridge Architecture Deep Dive](https://docs.xaheen.org/bridge-architecture)
 - [Flash Token Specification](https://docs.xaheen.org/flash-tokens)
 - [Economic Model Documentation](https://docs.xaheen.org/economics)
@@ -1891,18 +1891,18 @@ Input Field:
 **Consensus Algorithm**: Parlia Proof-of-Staked Authority (PoSA)
 **Block Time**: 3 seconds
 **Block Gas Limit**: 30,000,000
-**Minimum Gas Price**: 1 Gwei (in XHT)
+**Minimum Gas Price**: 1 Gwei (in NOR)
 **EVM Version**: London (EIP-1559 compatible)
 **Supported Standards**: ERC20, ERC721, ERC1155, ERC777
 
 ### Appendix B: Tokenomics Summary
 
-**XHT Token**:
-- Total Genesis Supply: 10,000,000 XHT
-- Annual Inflation: 5,000,000 XHT (decreasing 10% yearly)
+**NOR Token**:
+- Total Genesis Supply: 10,000,000 NOR
+- Annual Inflation: 5,000,000 NOR (decreasing 10% yearly)
 - Burn Mechanism: 50% of gas fees burned
 - Staking Rewards: 8-15% APY
-- Governance Weight: 1 XHT = 1 vote
+- Governance Weight: 1 NOR = 1 vote
 
 ### Appendix C: Comparison Table
 
@@ -1911,7 +1911,7 @@ See Section 6 (Competitive Strategy) for detailed feature comparison.
 ### Appendix D: Glossary
 
 - **fBTCBR**: Flash BTCBR, temporary voucher token with 60-minute expiry
-- **XHT**: Xaheen Token, native gas and governance token
+- **NOR**: Nor Token, native gas and governance token
 - **Parlia PoSA**: Proof-of-Staked Authority consensus (BNB Smart Chain variant)
 - **Vault Reserve Ratio**: Ratio of vault holdings to circulating supply (target: 150%)
 - **Flash Token**: Temporary, non-transferable token used in bridge architecture
@@ -1920,11 +1920,11 @@ See Section 6 (Competitive Strategy) for detailed feature comparison.
 
 ## 🎉 Conclusion
 
-Xaheen Chain represents a new chapter in blockchain innovation — one that doesn't seek to replace existing networks but to extend, complement, and intelligently compete through sovereignty, security, and superior architecture.
+Nor Chain represents a new chapter in blockchain innovation — one that doesn't seek to replace existing networks but to extend, complement, and intelligently compete through sovereignty, security, and superior architecture.
 
 **We are public-ready. We are technically sound. We are competitively positioned.**
 
-**Welcome to Xaheen Chain — Where Intelligence Meets Blockchain.** 🧠⚡
+**Welcome to Nor Chain — Where Intelligence Meets Blockchain.** 🧠⚡
 
 ---
 
@@ -1939,6 +1939,6 @@ GitHub: github.com/xaheen-chain/docs/issues
 
 ---
 
-*This document is a living document and will be updated as Xaheen Chain evolves. All information is subject to change based on technical developments, market conditions, and community feedback.*
+*This document is a living document and will be updated as Nor Chain evolves. All information is subject to change based on technical developments, market conditions, and community feedback.*
 
-**© 2025 Xaheen Technologies. All rights reserved.**
+**© 2025 Nor Technologies. All rights reserved.**

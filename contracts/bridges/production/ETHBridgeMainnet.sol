@@ -9,8 +9,8 @@ import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
 /**
  * @title ETHBridgeMainnet
- * @notice Bridge ETH (ERC-20) from BSC to Xaheen Chain (REVENUE GENERATOR!)
- * @dev Locks ERC-20 ETH on BSC, mints WETH on Xaheen
+ * @notice Bridge ETH (ERC-20) from BSC to Nor Chain (REVENUE GENERATOR!)
+ * @dev Locks ERC-20 ETH on BSC, mints WETH on Nor
  *
  * MONETIZATION: 0.2% fee on every bridge = PURE PROFIT!
  */
@@ -73,7 +73,7 @@ contract ETHBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
     }
 
     /**
-     * @notice Lock ETH (ERC-20) on BSC to bridge to Xaheen
+     * @notice Lock ETH (ERC-20) on BSC to bridge to Nor
      */
     function bridgeETH(address recipient, uint256 amount) external whenNotPaused nonReentrant {
         require(amount >= minTransferAmount, "Amount below minimum");
@@ -112,7 +112,7 @@ contract ETHBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
     }
 
     /**
-     * @notice Release ETH back to user (Xaheen → BSC withdrawal)
+     * @notice Release ETH back to user (Nor → BSC withdrawal)
      */
     function releaseETH(
         uint256 amount,

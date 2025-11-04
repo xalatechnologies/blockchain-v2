@@ -1,5 +1,5 @@
 #!/bin/bash
-# Create Xaheen Chain Genesis with generated validator
+# Create Nor Chain Genesis with generated validator
 
 set -e
 
@@ -14,7 +14,7 @@ VANITY="0000000000000000000000000000000000000000000000000000000000000000"
 SEAL="0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
 EXTRA_DATA="0x${VANITY}${VALIDATOR_CLEAN}${SEAL}"
 
-echo "Creating Xaheen Chain Genesis..."
+echo "Creating Nor Chain Genesis..."
 echo "Validator: $VALIDATOR_ADDR"
 echo "Deployer: $DEPLOYER_ADDR"
 echo "ExtraData: $EXTRA_DATA"
@@ -71,5 +71,5 @@ EOF
 
 echo "✅ Genesis created: data/genesis-xaheen-working.json"
 echo "Chain ID: 65001"
-echo "Deployer balance: 21 billion XHT"
-echo "Validator balance: 1,000 XHT"
+echo "Deployer balance: 21 billion NOR"
+echo "Validator balance: 1,000 NOR"

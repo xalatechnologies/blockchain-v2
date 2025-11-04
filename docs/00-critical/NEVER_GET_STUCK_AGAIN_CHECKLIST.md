@@ -1,6 +1,6 @@
 # Never Get Stuck at Epoch Again - Production Checklist
 
-**Purpose**: Prevent future epoch boundary stalls on Xaheen Chain
+**Purpose**: Prevent future epoch boundary stalls on Nor Chain
 **Last Updated**: November 2, 2025
 
 ---
@@ -45,7 +45,7 @@ In `genesis.json` → `config.parlia.epoch`:
 - Fewer epoch blocks = fewer chances for header mismatch stalls
 - At 3-second blocks, 9M blocks = ~1.5 years
 
-**Current Xaheen Chain**:
+**Current Nor Chain**:
 - ❌ Epoch: 30,000 (caused the stall)
 - ✅ Should be: 9,000,000+
 
@@ -93,7 +93,7 @@ console.log("Sorted validators:", sorted);
 console.log("extraData:", extraData);
 ```
 
-**Output** (Xaheen Chain):
+**Output** (Nor Chain):
 ```
 Sorted validators: [
   '0xb753b892551d1c374fda6fd7f6e9b787688c4ea5',
@@ -487,7 +487,7 @@ groups:
 
 ```
 EPOCH BOUNDARY EMERGENCY RUNBOOK
-Xaheen Chain - Chain ID 65001
+Nor Chain - Chain ID 65001
 
 ═════════════════════════════════════════
 

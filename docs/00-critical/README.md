@@ -1,13 +1,13 @@
 # 00 - Critical & Emergency Documentation
 
-⚠️ **CURRENT CRISIS**: Chain stuck at block 29,999 - $20,000 XHT/USDT liquidity at risk
+⚠️ **CURRENT CRISIS**: Chain stuck at block 29,999 - $20,000 NOR/USDT liquidity at risk
 
 ---
 
 ## 🚨 IMMEDIATE ACTION REQUIRED
 
 **Chain Status**: STUCK at block 29,999 (epoch boundary)
-**At Risk**: $20,000 XHT/USDT liquidity
+**At Risk**: $20,000 NOR/USDT liquidity
 **Safe**: 352.7B BTCBR on BSC Mainnet ✅
 
 ### Quick Recovery
@@ -102,7 +102,7 @@ All scripts located in `../../scripts/`:
 ## 📊 What's at Stake
 
 ### At Risk (on stuck chain)
-- **$20,000 XHT/USDT liquidity**
+- **$20,000 NOR/USDT liquidity**
   - $10,000 locked in timelock (until Oct 30, 2026)
   - $10,000 operational liquidity
   - Pair: 0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8
@@ -111,7 +111,7 @@ All scripts located in `../../scripts/`:
 - **352.7 billion BTCBR** ✅
   - Contract: 0x0cF8e180350253271f4b917CcFb0aCCc4862F262
   - Network: BSC Mainnet (Chain ID: 56)
-  - 100% independent of Xaheen Chain
+  - 100% independent of Nor Chain
 
 ---
 
@@ -122,7 +122,7 @@ All scripts located in `../../scripts/`:
 - ✅ All contract storage
 - ✅ All account balances
 - ✅ All LP reserves
-- ✅ $20,000 XHT/USDT liquidity
+- ✅ $20,000 NOR/USDT liquidity
 - ✅ Same contract addresses
 - ✅ Same LP pair addresses
 

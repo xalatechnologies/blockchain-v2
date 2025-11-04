@@ -26,7 +26,7 @@
 
 ### **Method 1: Trading Fees (Passive Income)** 🎯
 
-Every time someone swaps on XaheenSwap:
+Every time someone swaps on NorSwap:
 1. They pay a **0.3% fee**
 2. Fee is added to the liquidity pool
 3. Your LP tokens automatically become worth more
@@ -34,21 +34,21 @@ Every time someone swaps on XaheenSwap:
 
 **Example:**
 ```
-User swaps 10,000 XHT for USDT:
+User swaps 10,000 NOR for USDT:
 - Trade value: ~$24
 - Fee (0.3%): ~$0.072
 - Added to pool reserves
-- Your LP tokens now represent slightly more XHT+USDT
+- Your LP tokens now represent slightly more NOR+USDT
 ```
 
 ### **Method 2: Price Appreciation** 📈
 
-Your XHT holdings increase in value as price goes up:
+Your NOR holdings increase in value as price goes up:
 
-**Your XHT Holdings:**
-- In operational liquidity: ~2.08B XHT
-- In wallet: ~18.9B XHT
-- **Total: ~21B XHT**
+**Your NOR Holdings:**
+- In operational liquidity: ~2.08B NOR
+- In wallet: ~18.9B NOR
+- **Total: ~21B NOR**
 
 **Value at Different Prices:**
 | Price | Your Total Value |
@@ -131,7 +131,7 @@ node scripts/withdraw-operational-liquidity.js
 ```
 
 **What You'll Receive:**
-- ~2.08B XHT (WXHT)
+- ~2.08B NOR (WNOR)
 - ~5,000 USDT
 - **Plus any accumulated trading fees**
 
@@ -145,7 +145,7 @@ node scripts/withdraw-from-timelock.js
 ```
 
 **What You'll Receive:**
-- ~2.08B XHT (WXHT)
+- ~2.08B NOR (WNOR)
 - ~5,000 USDT
 - **Plus 12 months of accumulated fees**
 
@@ -172,8 +172,8 @@ node scripts/withdraw-from-timelock.js
 ### **Strategy 2: Withdraw & Sell for Cash**
 
 1. Withdraw operational liquidity
-2. You receive XHT + USDT
-3. Swap XHT to USDT on XaheenSwap
+2. You receive NOR + USDT
+3. Swap NOR to USDT on NorSwap
 4. Bridge USDT to BSC/Ethereum
 5. Sell USDT for fiat on exchange
 
@@ -186,10 +186,10 @@ node scripts/withdraw-from-timelock.js
 - ⚠️ Stop earning fees
 - ⚠️ Miss potential price appreciation
 
-### **Strategy 3: Hold XHT for Price Gains**
+### **Strategy 3: Hold NOR for Price Gains**
 
 1. Leave liquidity in pool OR withdraw
-2. Hold XHT tokens
+2. Hold NOR tokens
 3. Wait for price appreciation
 4. Sell at higher price
 
@@ -212,11 +212,11 @@ node scripts/withdraw-from-timelock.js
 ```bash
 node scripts/withdraw-operational-liquidity.js
 ```
-**Result:** You now have XHT + USDT in wallet
+**Result:** You now have NOR + USDT in wallet
 
-#### **Step 2: Convert XHT to USDT (if needed)**
+#### **Step 2: Convert NOR to USDT (if needed)**
 ```bash
-# Swap XHT for USDT on XaheenSwap
+# Swap NOR for USDT on NorSwap
 node scripts/swap-xht-to-usdt.js
 ```
 **Result:** All assets now in USDT
@@ -224,12 +224,12 @@ node scripts/swap-xht-to-usdt.js
 #### **Step 3: Check Your USDT Balance**
 ```bash
 # In MetaMask:
-1. Switch to Xaheen Chain
+1. Switch to Nor Chain
 2. Add USDT token: 0xd16F235BB4b53b448e5ECdE89Cf17568FD91CFaA
 3. View balance
 ```
 
-#### **Step 4A: Use USDT on Xaheen Chain**
+#### **Step 4A: Use USDT on Nor Chain**
 - Pay for services
 - Trade with others
 - Keep as stablecoin
@@ -278,7 +278,7 @@ node scripts/check-current-price.js
 **A:** MetaMask shows token balances, not cash. You'll see:
 - LP tokens (represent your pool share)
 - USDT balance (stablecoin = dollars)
-- XHT balance (native token)
+- NOR balance (native token)
 
 To get "dollars", withdraw LP → convert to USDT → bridge to mainnet → sell on exchange.
 
@@ -298,7 +298,7 @@ Daily Earnings = ($10,000 × 0.003) × 0.5 = $15/day
 - ❌ **Locked liquidity ($10k):** NO, locked until October 30, 2026
 
 ### **Q: What is impermanent loss?**
-**A:** If XHT price changes dramatically, you might have been better off just holding tokens instead of providing liquidity. But:
+**A:** If NOR price changes dramatically, you might have been better off just holding tokens instead of providing liquidity. But:
 - Trading fees usually compensate for small price changes
 - Locked liquidity protects 50% of your position
 - Price is stable at $0.0000024 currently
@@ -407,13 +407,13 @@ Run `check-lp-balance.js` regularly to track value.
 ```bash
 # Monitoring
 check-lp-balance.js            # Check your LP value
-check-current-price.js         # Check XHT price
+check-current-price.js         # Check NOR price
 test-swap-xaheen.js           # Test trading
 
 # Actions
 add-operational-liquidity.js   # Add more liquidity
 withdraw-operational-liquidity.js  # Withdraw operational
-swap-xht-to-usdt.js           # Convert XHT to USDT
+swap-xht-to-usdt.js           # Convert NOR to USDT
 ```
 
 ### **Documentation**
@@ -423,7 +423,7 @@ swap-xht-to-usdt.js           # Convert XHT to USDT
 
 ---
 
-**🎉 Congratulations! You're now earning passive income from XaheenSwap! 🎉**
+**🎉 Congratulations! You're now earning passive income from NorSwap! 🎉**
 
 **Remember:** The more trading volume, the more fees you earn. Focus on:
 1. Marketing (bring users)

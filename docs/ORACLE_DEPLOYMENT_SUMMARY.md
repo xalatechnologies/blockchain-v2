@@ -1,8 +1,8 @@
-# Noor Chain Oracle Network - Deployment Summary
+# Nor Chain Oracle Network - Deployment Summary
 
 ## 🎉 Implementation Complete!
 
-You now have a **production-ready, decentralized oracle network** for Noor Chain with multi-source price aggregation and blockchain consensus.
+You now have a **production-ready, decentralized oracle network** for Nor Chain with multi-source price aggregation and blockchain consensus.
 
 ---
 
@@ -49,7 +49,7 @@ You now have a **production-ready, decentralized oracle network** for Noor Chain
 ### 4. Deployment Scripts
 
 **deploy-oracle-network.js** - Deploys all 6 OracleAggregator contracts
-- ✅ Automated deployment to Noor Chain mainnet
+- ✅ Automated deployment to Nor Chain mainnet
 - ✅ Generates oracle node configuration
 - ✅ Saves deployment addresses
 
@@ -183,10 +183,10 @@ nano .env
 # (addresses auto-filled from Phase 1 deployment)
 
 # Restart oracle
-pm2 restart noor-oracle
+pm2 restart nor-oracle
 
 # Monitor logs
-pm2 logs noor-oracle
+pm2 logs nor-oracle
 ```
 
 ### Phase 4: Verify Oracle Operation (5 minutes)
@@ -196,7 +196,7 @@ pm2 logs noor-oracle
 pm2 status
 
 # View recent logs (should show price submissions)
-pm2 logs noor-oracle --lines 50
+pm2 logs nor-oracle --lines 50
 
 # Check blockchain for price submissions
 # (use block explorer or web3 calls)
@@ -260,10 +260,10 @@ ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@3.91.50.187
 pm2 status
 
 # View recent activity
-pm2 logs noor-oracle --lines 100
+pm2 logs nor-oracle --lines 100
 
 # Check for errors
-pm2 logs noor-oracle --err
+pm2 logs nor-oracle --err
 ```
 
 ### Oracle Health Indicators
@@ -382,10 +382,10 @@ pm2 logs noor-oracle --err
 3. **Configure and Start:**
    - SSH to AWS
    - Edit `~/oracle-node/.env`
-   - Restart oracle: `pm2 restart noor-oracle`
+   - Restart oracle: `pm2 restart nor-oracle`
 
 4. **Verify:**
-   - Check logs: `pm2 logs noor-oracle`
+   - Check logs: `pm2 logs nor-oracle`
    - Monitor submissions on blockchain
 
 ### Short Term (This Week)
@@ -420,7 +420,7 @@ pm2 logs noor-oracle --err
 ### Long Term (Q1 2026)
 
 10. **Chainlink Integration:**
-    - Research Chainlink on Noor Chain
+    - Research Chainlink on Nor Chain
     - Hybrid oracle (custom + Chainlink)
     - Multi-oracle consensus
 
@@ -488,6 +488,6 @@ pm2 logs noor-oracle --err
 
 **Implementation Date:** November 2, 2025
 **Version:** 1.0
-**Network:** Noor Chain Mainnet (Chain ID 65001)
+**Network:** Nor Chain Mainnet (Chain ID 65001)
 
-🌙 **Noor Chain - Illuminating Finance with Decentralized Price Oracles** 🌙
+🌙 **Nor Chain - Illuminating Finance with Decentralized Price Oracles** 🌙

@@ -6,7 +6,7 @@ import fs from "fs";
 dotenv.config();
 
 /**
- * Deploy Complete Xaheen Ecosystem to BSC Mainnet
+ * Deploy Complete Nor Ecosystem to BSC Mainnet
  *
  * Deploys:
  * - BTCBR Token
@@ -58,18 +58,18 @@ async function main() {
     deployment.contracts.wbnb = wbnbAddress;
     console.log("✅ WBNB deployed at:", wbnbAddress);
 
-    // 2. Deploy XaheenDEXFactory
+    // 2. Deploy NorDEXFactory
     console.log("\n[2/8] Deploying DEX Factory...");
-    const Factory = await ethers.getContractFactory("XaheenDEXFactory");
+    const Factory = await ethers.getContractFactory("NorDEXFactory");
     const factory = await Factory.deploy(deployer.address);
     await factory.waitForDeployment();
     const factoryAddress = await factory.getAddress();
     deployment.contracts.factory = factoryAddress;
     console.log("✅ Factory deployed at:", factoryAddress);
 
-    // 3. Deploy XaheenDEXRouter
+    // 3. Deploy NorDEXRouter
     console.log("\n[3/8] Deploying DEX Router...");
-    const Router = await ethers.getContractFactory("XaheenDEXRouter");
+    const Router = await ethers.getContractFactory("NorDEXRouter");
     const router = await Router.deploy(factoryAddress, wbnbAddress);
     await router.waitForDeployment();
     const routerAddress = await router.getAddress();

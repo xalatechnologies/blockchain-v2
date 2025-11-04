@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Xaheen Chain to MetaMask</title>
+    <title>Add Nor Chain to MetaMask</title>
     <style>
         * {
             margin: 0;
@@ -184,13 +184,13 @@
 <body>
     <div class="container">
         <div class="logo">XH</div>
-        <h1>Xaheen Chain</h1>
+        <h1>Nor Chain</h1>
         <p class="tagline">Where Intelligence Meets Blockchain</p>
 
         <div class="network-info">
             <div class="info-row">
                 <span class="info-label">Network Name</span>
-                <span class="info-value">Xaheen Chain</span>
+                <span class="info-value">Nor Chain</span>
             </div>
             <div class="info-row">
                 <span class="info-label">Chain ID</span>
@@ -198,7 +198,7 @@
             </div>
             <div class="info-row">
                 <span class="info-label">Currency Symbol</span>
-                <span class="info-value">XHT</span>
+                <span class="info-value">NOR</span>
             </div>
             <div class="info-row">
                 <span class="info-label">RPC URL</span>
@@ -212,8 +212,8 @@
 
         <div id="status"></div>
 
-        <button id="addNetworkBtn" class="button" onclick="addXaheenNetwork()">
-            Add Xaheen Chain to MetaMask
+        <button id="addNetworkBtn" class="button" onclick="addNorNetwork()">
+            Add Nor Chain to MetaMask
         </button>
 
         <div class="features">
@@ -231,7 +231,7 @@
             </div>
             <div class="feature">
                 <div class="feature-icon"></div>
-                <span class="feature-text">💰 Low gas fees with XHT token</span>
+                <span class="feature-text">💰 Low gas fees with NOR token</span>
             </div>
             <div class="feature">
                 <div class="feature-icon"></div>
@@ -241,18 +241,18 @@
 
         <div class="footer">
             <p>Need help? Visit <a href="https://docs.xaheen.org" class="link">docs.xaheen.org</a></p>
-            <p style="margin-top: 8px;">© 2024 Xaheen Chain. All rights reserved.</p>
+            <p style="margin-top: 8px;">© 2024 Nor Chain. All rights reserved.</p>
         </div>
     </div>
 
     <script>
-        // Xaheen Chain Network Configuration
+        // Nor Chain Network Configuration
         const XAHEEN_NETWORK = {
             chainId: '0xFDE9', // 65001 in hex
-            chainName: 'Xaheen Chain',
+            chainName: 'Nor Chain',
             nativeCurrency: {
-                name: 'Xaheen Token',
-                symbol: 'XHT',
+                name: 'Nor Token',
+                symbol: 'NOR',
                 decimals: 18
             },
             rpcUrls: ['https://rpc.xaheen.org'],
@@ -278,8 +278,8 @@
             return typeof window.ethereum !== 'undefined' && window.ethereum.isMetaMask;
         }
 
-        // Add Xaheen Chain to MetaMask
-        async function addXaheenNetwork() {
+        // Add Nor Chain to MetaMask
+        async function addNorNetwork() {
             const button = document.getElementById('addNetworkBtn');
 
             // Check if MetaMask is installed
@@ -304,13 +304,13 @@
                 });
 
                 // Success
-                showStatus('✅ Xaheen Chain added successfully! You can now switch to it in MetaMask.', 'success');
+                showStatus('✅ Nor Chain added successfully! You can now switch to it in MetaMask.', 'success');
                 button.textContent = '✓ Network Added';
 
                 // Reset button after 3 seconds
                 setTimeout(() => {
                     button.disabled = false;
-                    button.textContent = 'Add Xaheen Chain to MetaMask';
+                    button.textContent = 'Add Nor Chain to MetaMask';
                 }, 3000);
 
             } catch (error) {
@@ -327,17 +327,17 @@
 
                 // Re-enable button
                 button.disabled = false;
-                button.textContent = 'Add Xaheen Chain to MetaMask';
+                button.textContent = 'Add Nor Chain to MetaMask';
             }
         }
 
-        // Check if already on Xaheen Chain
+        // Check if already on Nor Chain
         async function checkCurrentChain() {
             if (isMetaMaskInstalled()) {
                 try {
                     const chainId = await window.ethereum.request({ method: 'eth_chainId' });
                     if (chainId === XAHEEN_NETWORK.chainId) {
-                        showStatus('✅ You are already connected to Xaheen Chain!', 'success');
+                        showStatus('✅ You are already connected to Nor Chain!', 'success');
                     }
                 } catch (error) {
                     console.error('Error checking chain:', error);
@@ -349,7 +349,7 @@
         if (typeof window.ethereum !== 'undefined') {
             window.ethereum.on('chainChanged', (chainId) => {
                 if (chainId === XAHEEN_NETWORK.chainId) {
-                    showStatus('✅ Successfully switched to Xaheen Chain!', 'success');
+                    showStatus('✅ Successfully switched to Nor Chain!', 'success');
                 }
             });
         }

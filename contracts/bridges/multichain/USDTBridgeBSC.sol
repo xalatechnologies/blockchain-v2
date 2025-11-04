@@ -8,8 +8,8 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 
 /**
  * @title USDTBridgeBSC
- * @notice Bridge USDT-BEP20 from BSC to Xaheen Chain
- * @dev Lock on BSC, mint wrapped on Xaheen (or vice versa)
+ * @notice Bridge USDT-BEP20 from BSC to Nor Chain
+ * @dev Lock on BSC, mint wrapped on Nor (or vice versa)
  */
 contract USDTBridgeBSC is Ownable, ReentrancyGuard, Pausable {
 
@@ -59,12 +59,12 @@ contract USDTBridgeBSC is Ownable, ReentrancyGuard, Pausable {
     }
 
     /**
-     * @notice Bridge USDT from BSC to Xaheen Chain
-     * @param recipient Address on Xaheen Chain
+     * @notice Bridge USDT from BSC to Nor Chain
+     * @param recipient Address on Nor Chain
      * @param amount Amount to bridge
-     * @param destinationChainId Target chain ID (65001 for Xaheen)
+     * @param destinationChainId Target chain ID (65001 for Nor)
      */
-    function bridgeToXaheen(
+    function bridgeToNor(
         address recipient,
         uint256 amount,
         uint256 destinationChainId

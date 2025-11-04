@@ -22,13 +22,13 @@ https://bscscan.com/address/0x9bEFFFa3b43D34a2B470DA21aab3CA3263D0e8C0
 - Bridge fee: 0.2% (20 basis points)
 - Validators: 3 (2-of-3 multisig)
 
-### Xaheen Chain:
+### Nor Chain:
 ```
 WBNB Token:       0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B
-BNBBridgeXaheen:  0xB1347E378CE63475b282fCC4E9037D51F189758A
+BNBBridgeNor:  0xB1347E378CE63475b282fCC4E9037D51F189758A
 ```
 
-**View on Xaheen Explorer:**
+**View on Nor Explorer:**
 - WBNB: https://explorer.xaheen.org/address/0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B
 - Bridge: https://explorer.xaheen.org/address/0xB1347E378CE63475b282fCC4E9037D51F189758A
 
@@ -51,7 +51,7 @@ If $1,000,000 bridged/month:
 ```
 
 **Plus DEX Trading Fees (0.3%):**
-After users bridge and swap WBNB → XHT:
+After users bridge and swap WBNB → NOR:
 ```
 If $100K trading volume/month:
   DEX fees = $100K × 0.3% = $300/month
@@ -63,11 +63,11 @@ Total revenue = $520/month ($6,240/year)
 
 ## 🔄 HOW THE BRIDGE WORKS
 
-### User Flow (BSC → Xaheen):
+### User Flow (BSC → Nor):
 
 1. **User locks BNB on BSC**
    - Go to BSCScan: 0x9bEFFFa3b43D34a2B470DA21aab3CA3263D0e8C0
-   - Call `bridgeBNB(yourXaheenAddress)`
+   - Call `bridgeBNB(yourNorAddress)`
    - Send BNB amount (min 0.01, max 10)
 
 2. **Bridge deducts 0.2% fee**
@@ -78,16 +78,16 @@ Total revenue = $520/month ($6,240/year)
    - 2 of 3 validators must sign
    - Happens automatically (~30 seconds)
 
-4. **User receives WBNB on Xaheen**
+4. **User receives WBNB on Nor**
    - Check: https://explorer.xaheen.org/address/YOUR_ADDRESS
    - WBNB balance appears
 
-5. **User swaps WBNB → XHT**
-   - Go to Xaheen DEX
-   - Swap WBNB for XHT
+5. **User swaps WBNB → NOR**
+   - Go to Nor DEX
+   - Swap WBNB for NOR
    - YOU earn 0.3% DEX fee!
 
-6. **User trades on Xaheen**
+6. **User trades on Nor**
    - Ultra-fast (3-second blocks)
    - Ultra-cheap (<$0.01 fees)
    - YOU earn fees on every trade!
@@ -103,14 +103,14 @@ Total revenue = $520/month ($6,240/year)
 2. Connect MetaMask (BSC network)
 3. Find `bridgeBNB` function
 4. Enter:
-   - `recipient`: Your Xaheen address
+   - `recipient`: Your Nor address
    - `value`: 0.01 BNB (in payableAmount field)
 5. Click "Write"
 6. Confirm transaction
 
 **Wait ~30 seconds**
 
-7. Check Xaheen explorer:
+7. Check Nor explorer:
    https://explorer.xaheen.org/address/YOUR_ADDRESS
 8. You should see: 0.0098 WBNB (0.01 minus 0.2% fee)
 
@@ -136,7 +136,7 @@ async function main() {
   await tx.wait();
 
   console.log("✅ Bridge transaction sent!");
-  console.log("Check Xaheen explorer in 30 seconds");
+  console.log("Check Nor explorer in 30 seconds");
 }
 
 main();
@@ -149,9 +149,9 @@ npx hardhat run scripts/test-bridge.js --network bsc
 
 ---
 
-## 💧 ADDING WBNB/XHT LIQUIDITY (OPTIONAL)
+## 💧 ADDING WBNB/NOR LIQUIDITY (OPTIONAL)
 
-If you want users to swap WBNB → XHT on your DEX, add liquidity:
+If you want users to swap WBNB → NOR on your DEX, add liquidity:
 
 ```javascript
 // scripts/add-wbnb-xht-liquidity.js
@@ -160,19 +160,19 @@ const hre = require("hardhat");
 async function main() {
   const ROUTER = "0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916";
   const WBNB = "0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B";
-  const WXHT = "0x26c0eaF731885b14c031cc50dB79b36458E0b355";
+  const WNOR = "0x26c0eaF731885b14c031cc50dB79b36458E0b355";
 
   const router = await hre.ethers.getContractAt("IUniswapV2Router02", ROUTER);
 
-  // Add liquidity: 1 WBNB + 1,000 XHT (adjust ratio as needed)
+  // Add liquidity: 1 WBNB + 1,000 NOR (adjust ratio as needed)
   const bnbAmount = hre.ethers.parseEther("1");
   const xhtAmount = hre.ethers.parseEther("1000");
 
-  console.log("Adding WBNB/XHT liquidity...");
+  console.log("Adding WBNB/NOR liquidity...");
 
   // Approve tokens
   const wbnb = await hre.ethers.getContractAt("IERC20", WBNB);
-  const wxht = await hre.ethers.getContractAt("IERC20", WXHT);
+  const wxht = await hre.ethers.getContractAt("IERC20", WNOR);
 
   await wbnb.approve(ROUTER, bnbAmount);
   await wxht.approve(ROUTER, xhtAmount);
@@ -180,7 +180,7 @@ async function main() {
   // Add liquidity
   await router.addLiquidity(
     WBNB,
-    WXHT,
+    WNOR,
     bnbAmount,
     xhtAmount,
     0,
@@ -189,7 +189,7 @@ async function main() {
     Math.floor(Date.now() / 1000) + 3600
   );
 
-  console.log("✅ WBNB/XHT liquidity added!");
+  console.log("✅ WBNB/NOR liquidity added!");
 }
 
 main();
@@ -200,7 +200,7 @@ Run:
 npx hardhat run scripts/add-wbnb-xht-liquidity.js --network btcbr
 ```
 
-**Cost:** 1 BNB (~$400) + 1,000 XHT (~$1) = ~$401
+**Cost:** 1 BNB (~$400) + 1,000 NOR (~$1) = ~$401
 
 ---
 
@@ -246,26 +246,26 @@ console.log("✅ Fees withdrawn!");
 ### 1. Test the Bridge (5 minutes)
 ```bash
 # Send 0.01 BNB through bridge
-# Verify WBNB appears on Xaheen
+# Verify WBNB appears on Nor
 ```
 
-### 2. Add WBNB/XHT Liquidity (Optional, $401)
+### 2. Add WBNB/NOR Liquidity (Optional, $401)
 ```bash
-# So users can swap WBNB → XHT
+# So users can swap WBNB → NOR
 npx hardhat run scripts/add-wbnb-xht-liquidity.js --network btcbr
 ```
 
 ### 3. Create Simple Web UI (1 hour)
 ```html
 <!-- Upload to https://xaheen.org/bridge -->
-<button onclick="bridgeBNB()">Bridge BNB to Xaheen</button>
+<button onclick="bridgeBNB()">Bridge BNB to Nor</button>
 ```
 
 ### 4. Market to Users! (Ongoing)
 ```
-- "Buy BNB on Binance, bridge to Xaheen!"
-- "Bridge BNB in 30 seconds, trade on Xaheen DEX"
-- "Fastest & cheapest way to get XHT"
+- "Buy BNB on Binance, bridge to Nor!"
+- "Bridge BNB in 30 seconds, trade on Nor DEX"
+- "Fastest & cheapest way to get NOR"
 ```
 
 ---
@@ -276,23 +276,23 @@ npx hardhat run scripts/add-wbnb-xht-liquidity.js --network btcbr
 ```
 🌉 BNB Bridge is LIVE!
 
-Buy BNB on Binance → Bridge to Xaheen → Trade XHT!
+Buy BNB on Binance → Bridge to Nor → Trade NOR!
 
 ✅ 0.2% bridge fee (cheaper than CEX)
 ✅ 30-second transfers
-✅ Sub-cent fees on Xaheen
+✅ Sub-cent fees on Nor
 
 Bridge now: https://xaheen.org/bridge
 ```
 
 ### Reddit:
 ```
-[Tutorial] How to get XHT using Binance
+[Tutorial] How to get NOR using Binance
 
 1. Buy BNB on Binance (easy fiat on-ramp!)
 2. Withdraw to MetaMask (BSC network)
-3. Bridge to Xaheen Chain (0.2% fee)
-4. Swap BNB → XHT on Xaheen DEX
+3. Bridge to Nor Chain (0.2% fee)
+4. Swap BNB → NOR on Nor DEX
 5. Trade! 🚀
 
 Bridge contract (verified):
@@ -324,7 +324,7 @@ Total cost: ~$1-2 in fees
    - Non-custodial
    - You control your keys
 
-5. **Access to Xaheen benefits**
+5. **Access to Nor benefits**
    - 3-second transactions
    - <$0.01 fees
    - Fast trading
@@ -343,7 +343,7 @@ Total cost: ~$1-2 in fees
 - [ ] 100+ bridges
 - [ ] $10,000+ volume
 - [ ] $20+ revenue
-- [ ] WBNB/XHT pair added to DEX
+- [ ] WBNB/NOR pair added to DEX
 
 ### Month 3 Target:
 - [ ] 1,000+ bridges
@@ -373,15 +373,15 @@ Every DEX swap = 0.3% to you
 **Contract Addresses:**
 - BSC: 0x9bEFFFa3b43D34a2B470DA21aab3CA3263D0e8C0
 - WBNB: 0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B
-- Xaheen Bridge: 0xB1347E378CE63475b282fCC4E9037D51F189758A
+- Nor Bridge: 0xB1347E378CE63475b282fCC4E9037D51F189758A
 
 **Explorers:**
 - BSC: https://bscscan.com
-- Xaheen: https://explorer.xaheen.org
+- Nor: https://explorer.xaheen.org
 
 **RPC Endpoints:**
 - BSC: https://bsc-dataseed.binance.org
-- Xaheen: https://rpc.xaheen.org
+- Nor: https://rpc.xaheen.org
 
 ---
 

@@ -5,21 +5,23 @@ import fs from "fs";
 dotenvConfig();
 
 async function main() {
-  console.log("💰 Noor Chain DEX - Adding Available Liquidity\n");
-  console.log("=" .repeat(70));
+  console.log("💰 Nor Chain DEX - Adding Available Liquidity\n");
+  console.log("=".repeat(70));
 
   const [deployer] = await ethers.getSigners();
   console.log("📋 Deployer:", deployer.address);
 
   // Load deployment info
-  const deployment = JSON.parse(fs.readFileSync("./deployments/dex-infrastructure.json", "utf8"));
+  const deployment = JSON.parse(
+    fs.readFileSync("./deployments/dex-infrastructure.json", "utf8")
+  );
   const {
     NOR_TOKEN,
     WUSDT,
     WETH,
     DIRHAMAT,
     NOORSWAP_FACTORY,
-    NOORSWAP_ROUTER
+    NOORSWAP_ROUTER,
   } = deployment.contracts;
 
   // Get contract instances
@@ -27,8 +29,11 @@ async function main() {
   const wusdt = await ethers.getContractAt("WUSDTToken", WUSDT);
   const weth = await ethers.getContractAt("WETHToken", WETH);
   const dirhamat = await ethers.getContractAt("Dirhamat", DIRHAMAT);
-  const factory = await ethers.getContractAt("NoorSwapFactory", NOORSWAP_FACTORY);
-  const router = await ethers.getContractAt("NoorSwapRouter", NOORSWAP_ROUTER);
+  const factory = await ethers.getContractAt(
+    "NorSwapFactory",
+    NOORSWAP_FACTORY
+  );
+  const router = await ethers.getContractAt("NorSwapRouter", NOORSWAP_ROUTER);
 
   // Check balances
   console.log("\n📊 Available Balances:");
@@ -43,7 +48,7 @@ async function main() {
 
   console.log("\n" + "=".repeat(70));
   console.log("💰 LIQUIDITY PLAN (Based on Available Tokens)");
-  console.log("=" .repeat(70));
+  console.log("=".repeat(70));
   console.log("1. NOR/WUSDT: Already added ✅");
   console.log("2. NOR/WETH:  7.5M NOR + 47 WETH");
   console.log("3. NOR/Dirhamat: 7.5M NOR + 277,778 DIRHAMAT");
@@ -91,8 +96,8 @@ async function main() {
     WETH,
     norAmount1,
     ethAmount1,
-    norAmount1 * 95n / 100n,
-    ethAmount1 * 95n / 100n,
+    (norAmount1 * 95n) / 100n,
+    (ethAmount1 * 95n) / 100n,
     deployer.address,
     deadline
   );
@@ -100,14 +105,14 @@ async function main() {
   console.log("  ✅ Liquidity added successfully");
 
   // Verify
-  const pair1 = await ethers.getContractAt("NoorSwapPair", pair1Address);
+  const pair1 = await ethers.getContractAt("NorSwapPair", pair1Address);
   const lpBalance1 = await pair1.balanceOf(deployer.address);
   console.log(`  🎫 LP tokens received: ${ethers.formatEther(lpBalance1)}`);
 
   pairs.push({
     name: "NOR/WETH",
     address: pair1Address,
-    lpTokens: lpBalance1.toString()
+    lpTokens: lpBalance1.toString(),
   });
 
   // ============================================================
@@ -149,8 +154,8 @@ async function main() {
     DIRHAMAT,
     norAmount2,
     dirhamatAmount2,
-    norAmount2 * 95n / 100n,
-    dirhamatAmount2 * 95n / 100n,
+    (norAmount2 * 95n) / 100n,
+    (dirhamatAmount2 * 95n) / 100n,
     deployer.address,
     deadline
   );
@@ -158,14 +163,14 @@ async function main() {
   console.log("  ✅ Liquidity added successfully");
 
   // Verify
-  const pair2 = await ethers.getContractAt("NoorSwapPair", pair2Address);
+  const pair2 = await ethers.getContractAt("NorSwapPair", pair2Address);
   const lpBalance2 = await pair2.balanceOf(deployer.address);
   console.log(`  🎫 LP tokens received: ${ethers.formatEther(lpBalance2)}`);
 
   pairs.push({
     name: "NOR/Dirhamat",
     address: pair2Address,
-    lpTokens: lpBalance2.toString()
+    lpTokens: lpBalance2.toString(),
   });
 
   // ============================================================
@@ -207,8 +212,8 @@ async function main() {
     WUSDT,
     dirhamatAmount3,
     usdtAmount3,
-    dirhamatAmount3 * 95n / 100n,
-    usdtAmount3 * 95n / 100n,
+    (dirhamatAmount3 * 95n) / 100n,
+    (usdtAmount3 * 95n) / 100n,
     deployer.address,
     deadline
   );
@@ -216,14 +221,14 @@ async function main() {
   console.log("  ✅ Liquidity added successfully");
 
   // Verify
-  const pair3 = await ethers.getContractAt("NoorSwapPair", pair3Address);
+  const pair3 = await ethers.getContractAt("NorSwapPair", pair3Address);
   const lpBalance3 = await pair3.balanceOf(deployer.address);
   console.log(`  🎫 LP tokens received: ${ethers.formatEther(lpBalance3)}`);
 
   pairs.push({
     name: "Dirhamat/WUSDT",
     address: pair3Address,
-    lpTokens: lpBalance3.toString()
+    lpTokens: lpBalance3.toString(),
   });
 
   // ============================================================
@@ -262,10 +267,10 @@ async function main() {
       {
         name: "NOR/WUSDT",
         address: await factory.getPair(NOR_TOKEN, WUSDT),
-        status: "Previously deployed"
+        status: "Previously deployed",
       },
-      ...pairs
-    ]
+      ...pairs,
+    ],
   };
 
   fs.writeFileSync(
@@ -273,7 +278,9 @@ async function main() {
     JSON.stringify(liquidityDeployment, null, 2)
   );
 
-  console.log("\n💾 Deployment data saved to: deployments/liquidity-deployment.json");
+  console.log(
+    "\n💾 Deployment data saved to: deployments/liquidity-deployment.json"
+  );
   console.log("\n🎉 NOOR CHAIN DEX NOW LIVE WITH LIQUIDITY!");
   console.log("\n🚀 Next: Lock LP tokens for 12 months");
 }

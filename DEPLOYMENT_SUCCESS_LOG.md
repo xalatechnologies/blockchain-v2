@@ -1,15 +1,15 @@
-# Noor Chain Deployment Success Log
+# Nor Chain Deployment Success Log
 
 **Date**: November 3, 2025
 **Status**: ✅ **SUCCESSFUL DEPLOYMENT**
-**Chain**: Noor Chain (نور - "Light")
+**Chain**: Nor Chain (نور - "Light")
 **Network ID**: 65001
 
 ---
 
 ## 🎉 Executive Summary
 
-Successfully deployed **Noor Chain Ultimate Genesis** with all contracts pre-allocated and validators correctly configured. The chain is actively producing blocks with zero epoch issues.
+Successfully deployed **Nor Chain Ultimate Genesis** with all contracts pre-allocated and validators correctly configured. The chain is actively producing blocks with zero epoch issues.
 
 ---
 
@@ -18,17 +18,17 @@ Successfully deployed **Noor Chain Ultimate Genesis** with all contracts pre-all
 ### Phase 1: Genesis Creation (Completed)
 
 **Step 1.1: Created Ultimate Genesis Generator**
-- **File**: `scripts/generate-noor-ultimate-genesis.js`
+- **File**: `scripts/generate-nor-ultimate-genesis.js`
 - **Date**: 2025-11-03 11:28 UTC
 - **Status**: ✅ Success
 - **Details**:
-  - NOR Token (NOT XHT) throughout
+  - NOR Token (NOT NOR) throughout
   - Sequential contract addresses (F262-F269)
   - Validators lexicographically sorted
   - 100M NOR per account for gas
 
 **Step 1.2: Generated Ultimate Genesis**
-- **File**: `data/genesis-noor-ultimate.json`
+- **File**: `data/genesis-nor-ultimate.json`
 - **Date**: 2025-11-03 11:28 UTC
 - **Status**: ✅ Success
 - **Genesis Hash**: c86f3a..38dca9
@@ -71,7 +71,7 @@ Successfully deployed **Noor Chain Ultimate Genesis** with all contracts pre-all
 
 **Step 2.5: Reinitialize All Validators**
 - **Method**: docker run --rm with dysnix/bsc init
-- **Genesis**: genesis-noor-ultimate.json
+- **Genesis**: genesis-nor-ultimate.json
 - **Date**: 2025-11-03 11:29 UTC
 - **Status**: ✅ Success
 - **Result**: All 3 validators initialized with genesis hash c86f3a..38dca9
@@ -108,10 +108,10 @@ Successfully deployed **Noor Chain Ultimate Genesis** with all contracts pre-all
 
 | Parameter | Value |
 |-----------|-------|
-| **Genesis File** | genesis-noor-ultimate.json |
+| **Genesis File** | genesis-nor-ultimate.json |
 | **Genesis Hash** | c86f3a..38dca9 |
 | **Chain ID** | 65001 |
-| **Native Token** | NOR (NOT XHT) |
+| **Native Token** | NOR (NOT NOR) |
 | **Current Block** | 382+ (as of 11:32 UTC) |
 | **Peers** | 2 (stable) |
 | **Validators** | 3 (correctly sorted) |
@@ -177,8 +177,8 @@ All contract addresses are **deterministic** and **sequential** starting from BT
 
 ### New Files
 
-1. `scripts/generate-noor-ultimate-genesis.js` - Genesis generator
-2. `data/genesis-noor-ultimate.json` - Production genesis file
+1. `scripts/generate-nor-ultimate-genesis.js` - Genesis generator
+2. `data/genesis-nor-ultimate.json` - Production genesis file
 3. `NOOR_ULTIMATE_GENESIS_COMPLETE.md` - Deployment guide
 4. `DEPLOYMENT_SUCCESS_LOG.md` - This file
 
@@ -198,10 +198,10 @@ All contract addresses are **deterministic** and **sequential** starting from BT
 - **Decimals**: 24
 - **Command**: `npx hardhat run scripts/deploy-nor-token.js --network btcbr`
 
-**Step 4.2: Deploy NoorSwap DEX**
+**Step 4.2: Deploy NorSwap DEX**
 - **Factory**: 0x0cf8e180350253271f4b917ccfb0accc4862f264
 - **Router**: 0x0cf8e180350253271f4b917ccfb0accc4862f265
-- **Command**: `npx hardhat run scripts/deploy-noorswap.js --network btcbr`
+- **Command**: `npx hardhat run scripts/deploy-norswap.js --network btcbr`
 
 **Step 4.3: Deploy Stablecoins**
 - **Dirhamat (AED)**: 0x0cf8e180350253271f4b917ccfb0accc4862f266
@@ -210,7 +210,7 @@ All contract addresses are **deterministic** and **sequential** starting from BT
 - **Command**: `npx hardhat run scripts/deploy-stablecoins.js --network btcbr`
 
 **Step 4.4: Add Liquidity**
-- Provide initial liquidity to NoorSwap
+- Provide initial liquidity to NorSwap
 - Lock liquidity tokens
 - Verify pool functionality
 
@@ -249,14 +249,14 @@ The ONLY thing that mattered for epoch stability was ensuring validators in the 
 
 All items verified as of 2025-11-03 11:32 UTC:
 
-- [x] Genesis file exists at `data/genesis-noor-ultimate.json`
+- [x] Genesis file exists at `data/genesis-nor-ultimate.json`
 - [x] Chain ID is 65001
 - [x] Epoch is 10,000 blocks
 - [x] Validators are correctly sorted in extradata
 - [x] All 4 accounts have 100M NOR balance
 - [x] BTCBR address is `0x0cF8e180350253271f4b917CcFb0aCCc4862F262`
 - [x] NOR token address is `0x0cf8e180350253271f4b917ccfb0accc4862f263`
-- [x] No references to XHT token anywhere
+- [x] No references to NOR token anywhere
 - [x] Genesis uploaded to production server
 - [x] All validators reinitialized with new genesis
 - [x] Blocks producing continuously
@@ -267,22 +267,22 @@ All items verified as of 2025-11-03 11:32 UTC:
 
 ## 🌟 Summary
 
-**Noor Chain Ultimate Genesis deployment is 100% successful.**
+**Nor Chain Ultimate Genesis deployment is 100% successful.**
 
 - ✅ Chain producing blocks continuously
 - ✅ Zero epoch issues (validated by correct validator sorting)
-- ✅ NOR token (NOT XHT) throughout
+- ✅ NOR token (NOT NOR) throughout
 - ✅ Sequential contract addresses reserved
 - ✅ Complete documentation
 - ✅ Production-ready infrastructure
 
-**Noor Chain is now ready for the next phase: Contract deployment and ecosystem launch.** 🌙
+**Nor Chain is now ready for the next phase: Contract deployment and ecosystem launch.** 🌙
 
 ---
 
 **Generated**: 2025-11-03 11:32 UTC
 **Chain Status**: ✅ Active (Block 382+)
 **Deployment Engineer**: Claude (Anthropic)
-**Client**: Sahalat / Noor Chain Foundation
+**Client**: Sahalat / Nor Chain Foundation
 
-🌙 **Noor Chain - Where Light Meets Trust**
+🌙 **Nor Chain - Where Light Meets Trust**

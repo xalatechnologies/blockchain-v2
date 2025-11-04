@@ -1,17 +1,17 @@
-# MetaMask Integration Guide - XaheenSwap
+# MetaMask Integration Guide - NorSwap
 
 ## Problem: Not Seeing $$$ in MetaMask / Swap Not Working
 
-This guide helps you see your liquidity value and use XaheenSwap in MetaMask.
+This guide helps you see your liquidity value and use NorSwap in MetaMask.
 
 ---
 
-## Part 1: Add XaheenSwap LP Token to MetaMask
+## Part 1: Add NorSwap LP Token to MetaMask
 
 Your LP tokens represent **$10,000** but won't show as dollars directly. You need to add the LP token:
 
 ### Step 1: Open MetaMask
-1. Switch to **Xaheen Chain** network
+1. Switch to **Nor Chain** network
 2. Click on **"Import tokens"** at bottom of Assets tab
 
 ### Step 2: Add LP Token
@@ -21,17 +21,17 @@ Your LP tokens represent **$10,000** but won't show as dollars directly. You nee
 ```
 
 **Token Details:**
-- **Symbol:** `XaheenSwap-LP`
+- **Symbol:** `NorSwap-LP`
 - **Decimals:** `18`
 
 ### Step 3: What You'll See
 - **LP Balance:** `~3,227,487 LP tokens`
 - **Dollar Value:** MetaMask won't show $ value (it doesn't know LP token prices)
-- **Real Value:** Your LP represents ~$10,000 worth of XHT + USDT
+- **Real Value:** Your LP represents ~$10,000 worth of NOR + USDT
 
 ---
 
-## Part 2: Enable XaheenSwap in MetaMask
+## Part 2: Enable NorSwap in MetaMask
 
 MetaMask doesn't automatically detect custom DEXes. Here's how to swap:
 
@@ -40,18 +40,18 @@ MetaMask doesn't automatically detect custom DEXes. Here's how to swap:
 1. **Open MetaMask Browser (Mobile):**
    - Open MetaMask app
    - Tap **Browser** icon
-   - Navigate to your XaheenSwap frontend URL (when deployed)
+   - Navigate to your NorSwap frontend URL (when deployed)
 
 2. **Or Use Desktop:**
    - Install MetaMask extension in Chrome/Brave
-   - Make sure Xaheen Chain is selected
-   - Navigate to XaheenSwap URL
+   - Make sure Nor Chain is selected
+   - Navigate to NorSwap URL
 
 ### Option B: Use Direct Contract Interaction
 
 **For Advanced Users:**
 
-1. **Get WXHT Address:**
+1. **Get WNOR Address:**
    ```
    0xeeE0Bf805c80456C539Ec73855b3a9bf81E54862
    ```
@@ -61,9 +61,9 @@ MetaMask doesn't automatically detect custom DEXes. Here's how to swap:
    0x25a4240A868f9F5D5e6b55e5dd355bF2e1F9890a
    ```
 
-3. **Add WXHT as Custom Token:**
-   - Import WXHT token: `0xeeE0Bf805c80456C539Ec73855b3a9bf81E54862`
-   - Symbol: `WXHT`
+3. **Add WNOR as Custom Token:**
+   - Import WNOR token: `0xeeE0Bf805c80456C539Ec73855b3a9bf81E54862`
+   - Symbol: `WNOR`
    - Decimals: `18`
 
 4. **Add USDT as Custom Token:**
@@ -82,7 +82,7 @@ MetaMask doesn't automatically detect custom DEXes. Here's how to swap:
 - MetaMask knows: "USDT = $1.00"
 - Shows value: `$5,000.00` ✅
 
-**LP Token (XaheenSwap-LP):**
+**LP Token (NorSwap-LP):**
 - Shows balance: `3,227,487 LP`
 - MetaMask doesn't know: "What's 1 LP worth?"
 - Shows value: `—` (no dollar value) ❌
@@ -94,7 +94,7 @@ MetaMask doesn't automatically detect custom DEXes. Here's how to swap:
 YOUR LP TOKENS = Your Share of Pool
 
 Pool Contains:
-- 4,166,667,830 XHT (~$10,000)
+- 4,166,667,830 NOR (~$10,000)
 - 10,000 USDT ($10,000)
 - Total Pool Value: $20,000
 
@@ -104,7 +104,7 @@ Your Value: $10,000
 
 ---
 
-## Part 4: How to Swap XHT ↔ USDT in MetaMask
+## Part 4: How to Swap NOR ↔ USDT in MetaMask
 
 ### Current Status: No Frontend UI Yet
 
@@ -114,8 +114,8 @@ Your Value: $10,000
 
 Deploy a simple Uniswap-style frontend:
 - Clone Uniswap interface
-- Point to Xaheen Chain
-- Configure with XaheenSwap contracts
+- Point to Nor Chain
+- Configure with NorSwap contracts
 - Host on Vercel/Netlify
 - **Result:** Full MetaMask swap UI
 
@@ -126,7 +126,7 @@ Deploy a simple Uniswap-style frontend:
 Run swap scripts from command line:
 
 ```bash
-# Swap XHT → USDT
+# Swap NOR → USDT
 node scripts/test-swap-xaheen.js
 
 # Simulate trading (generates fees)
@@ -137,11 +137,11 @@ node scripts/simulate-trading-volume.js
 
 ### Option 3: Contract Interaction via Etherscan-Style Explorer
 
-If Xaheen Chain has a block explorer with contract interaction:
+If Nor Chain has a block explorer with contract interaction:
 1. Go to Router contract: `0x25a4240A868f9F5D5e6b55e5dd355bF2e1F9890a`
 2. Click "Write Contract"
 3. Connect MetaMask
-4. Call `swapExactXHTForTokens` or `swapExactTokensForXHT`
+4. Call `swapExactNORForTokens` or `swapExactTokensForNOR`
 
 ---
 
@@ -152,12 +152,12 @@ If Xaheen Chain has a block explorer with contract interaction:
 **What Happens When You Earn Fees:**
 ```
 Before Trading:
-- Pool: 4,166,667,830 XHT + 10,000 USDT
+- Pool: 4,166,667,830 NOR + 10,000 USDT
 - Your LP: 3,227,487 tokens
 - Your Share: 50% = $10,000
 
 After $1000 Trading Volume ($3 fees):
-- Pool: 4,166,667,830 XHT + 10,003 USDT (fees added!)
+- Pool: 4,166,667,830 NOR + 10,003 USDT (fees added!)
 - Your LP: 3,227,487 tokens (SAME NUMBER)
 - Your Share: 50% = $10,001.50 (MORE VALUE!)
 ```
@@ -173,9 +173,9 @@ After $1000 Trading Volume ($3 fees):
 
 2. **Calculate Your Share:**
    ```javascript
-   Your XHT = (Pool XHT × Your LP) / Total LP
+   Your NOR = (Pool NOR × Your LP) / Total LP
    Your USDT = (Pool USDT × Your LP) / Total LP
-   Your Value = (Your XHT × $0.0000024) + Your USDT
+   Your Value = (Your NOR × $0.0000024) + Your USDT
    ```
 
 3. **Compare to Initial:**
@@ -189,19 +189,19 @@ After $1000 Trading Volume ($3 fees):
 
 ### Step-by-Step Process:
 
-**1. Withdraw Liquidity (Get XHT + USDT Back):**
+**1. Withdraw Liquidity (Get NOR + USDT Back):**
 ```bash
 node scripts/withdraw-operational-liquidity.js
 ```
 
 **Result:**
 - Burn LP tokens
-- Receive: ~2,083,334,497 XHT + ~5,000 USDT
+- Receive: ~2,083,334,497 NOR + ~5,000 USDT
 - Now you have USDT (which MetaMask shows value for)
 
-**2. Swap XHT to USDT:**
+**2. Swap NOR to USDT:**
 ```bash
-# Swap all XHT to USDT
+# Swap all NOR to USDT
 node scripts/swap-all-xht-to-usdt.js
 ```
 
@@ -232,7 +232,7 @@ node scripts/bridge-usdt-to-bsc.js
 
 1. **Check Balances:**
    ```bash
-   # Check XHT balance
+   # Check NOR balance
    node scripts/check-xaheen-deployment.js
 
    # Check LP balance
@@ -273,11 +273,11 @@ Decimals: 18
 ```
 
 MetaMask will show: **"1,000,000 USDT"**
-(But won't show dollar value unless USDT is listed on CoinGecko for Xaheen Chain)
+(But won't show dollar value unless USDT is listed on CoinGecko for Nor Chain)
 
 **Option 2: Withdraw LP, Swap to USDT**
 1. Withdraw operational LP tokens
-2. Swap all XHT to USDT
+2. Swap all NOR to USDT
 3. Now you have $10,000 USDT showing in MetaMask
 
 **Problem:** You stop earning fees.
@@ -288,7 +288,7 @@ MetaMask will show: **"1,000,000 USDT"**
 
 ### Recommended Next Steps:
 
-**1. Deploy XaheenSwap Frontend (Priority #1):**
+**1. Deploy NorSwap Frontend (Priority #1):**
 - Create simple Uniswap-style UI
 - Users can swap in MetaMask browser
 - Shows pool stats, your LP value, etc.
@@ -306,7 +306,7 @@ MetaMask will show: **"1,000,000 USDT"**
 
 **4. Bridge Deployment:**
 - Enable USDT bridging to BSC
-- Cashout path: Xaheen → BSC → Binance → Bank
+- Cashout path: Nor → BSC → Binance → Bank
 
 ---
 
@@ -323,7 +323,7 @@ const tokenPrice = await coingecko.getPrice("xaheenswap-lp");
 const usdtPrice = await coingecko.getPrice("tether");
 // Result: $1.00 ✅
 
-// For XHT:
+// For NOR:
 const xhtPrice = await coingecko.getPrice("xaheen-token");
 // Result: null (not listed yet)
 ```
@@ -340,7 +340,7 @@ const xhtPrice = await coingecko.getPrice("xaheen-token");
 - ✅ **$10,000 locked LP** (locked for 12 months)
 - ✅ **$10,000 operational LP** (earning fees, can withdraw anytime)
 - ✅ **1M USDT** (test token, can trade)
-- ✅ **21B XHT** (native token)
+- ✅ **21B NOR** (native token)
 
 ### Why You Don't See $$$:
 - ❌ MetaMask doesn't know LP token prices (not listed on CoinGecko)
@@ -354,13 +354,13 @@ const xhtPrice = await coingecko.getPrice("xaheen-token");
 
 ### How to Convert to Real Money:
 ```
-LP Tokens → Withdraw → XHT + USDT → Swap to USDT → Bridge to BSC → Binance → Bank
+LP Tokens → Withdraw → NOR + USDT → Swap to USDT → Bridge to BSC → Binance → Bank
 ```
 
 ---
 
 **Next Steps:**
-- Deploy XaheenSwap frontend? (I can create this)
+- Deploy NorSwap frontend? (I can create this)
 - Create dashboard for tracking LP value? (I can create this)
 - Deploy bridge for cashing out? (Contracts exist, need deployment)
 

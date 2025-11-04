@@ -21,7 +21,7 @@
 # ✅ All contract storage
 # ✅ All balances
 # ✅ All LP reserves
-# ✅ $20,000 XHT/USDT liquidity
+# ✅ $20,000 NOR/USDT liquidity
 # ✅ 352.7B BTCBR on BSC (already safe)
 #═══════════════════════════════════════════════════════════════════════════
 
@@ -192,12 +192,12 @@ echo "   ✅ Same chainId (65001)"
 echo "   ✅ Huge epoch (9,000,000) - no more stalls"
 echo "   ✅ All contracts preserved"
 echo "   ✅ All balances preserved"
-echo "   ✅ $20,000 XHT/USDT liquidity intact"
+echo "   ✅ $20,000 NOR/USDT liquidity intact"
 echo ""
 echo "📊 Verification steps:"
 echo "   1. Check block production (should be > 0)"
 echo "   2. Verify contract addresses unchanged"
-echo "   3. Check LP reserves at XHT/USDT pair"
+echo "   3. Check LP reserves at NOR/USDT pair"
 echo "   4. Test a transaction"
 echo ""
 echo "Backup location on server: $BACKUP_DIR"

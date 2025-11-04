@@ -9,9 +9,9 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 
 /**
- * @title NoorFund
+ * @title NorFund
  * @notice Shariah-compliant investment fund with multi-asset backing
- * @dev Base contract for all Noor Chain investment funds
+ * @dev Base contract for all Nor Chain investment funds
  *
  * Features:
  * - Multi-asset portfolio management (crypto, gold, real estate, sukuk, SME, cash)
@@ -21,7 +21,7 @@ import "@openzeppelin/contracts/security/Pausable.sol";
  * - IPFS proof integration for transparency
  * - Role-based access control
  */
-contract NoorFund is ERC20, AccessControl, ReentrancyGuard, Pausable {
+contract NorFund is ERC20, AccessControl, ReentrancyGuard, Pausable {
     using SafeERC20 for IERC20;
 
     bytes32 public constant FUND_MANAGER_ROLE = keccak256("FUND_MANAGER_ROLE");

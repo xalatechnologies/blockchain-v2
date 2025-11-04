@@ -1,16 +1,16 @@
-# XHT TOKENOMICS - COMPLETE IMPLEMENTATION
+# NOR TOKENOMICS - COMPLETE IMPLEMENTATION
 
 **Date**: October 30, 2025
 **Status**: ✅ READY FOR DEPLOYMENT
-**Chain**: Xaheen Chain (Chain ID: 65001)
+**Chain**: Nor Chain (Chain ID: 65001)
 
 ---
 
 ## 🎯 OVERVIEW
 
-Xaheen Token (XHT) is now enhanced with the most comprehensive tokenomics system in blockchain, featuring **6 integrated smart contracts** that work together to create the world's best cryptocurrency.
+Nor Token (NOR) is now enhanced with the most comprehensive tokenomics system in blockchain, featuring **6 integrated smart contracts** that work together to create the world's best cryptocurrency.
 
-### Why XHT Will Be "The World's Best Coin"
+### Why NOR Will Be "The World's Best Coin"
 
 1. **Dynamic APY Staking** (8-20%) - Adjusts to network needs
 2. **Triple Burn Mechanism** - Deflationary with minimum supply floor
@@ -23,15 +23,15 @@ Xaheen Token (XHT) is now enhanced with the most comprehensive tokenomics system
 
 ## 📦 SMART CONTRACTS
 
-### 1. XHTStaking.sol - Intelligent Staking System
+### 1. NORStaking.sol - Intelligent Staking System
 
-**Location**: `contracts/tokenomics/XHTStaking.sol`
+**Location**: `contracts/tokenomics/NORStaking.sol`
 
 **Features**:
 - Dynamic APY (8-20%) based on total staked vs 30% target
 - 5 lock period tiers with voting multipliers
 - Revenue sharing (50% of protocol fees)
-- Validator status (≥10,000 XHT)
+- Validator status (≥10,000 NOR)
 - Automatic reward compounding
 
 **Lock Tiers**:
@@ -45,7 +45,7 @@ Xaheen Token (XHT) is now enhanced with the most comprehensive tokenomics system
 
 **Key Functions**:
 ```solidity
-stake(amount, lockTierId)           // Stake XHT with chosen lock period
+stake(amount, lockTierId)           // Stake NOR with chosen lock period
 unstake()                           // Withdraw stake + rewards after lock
 claimRewards()                      // Claim rewards without unstaking
 calculateDynamicAPY()               // Current APY (8-20%)
@@ -53,21 +53,21 @@ getVotingPower(user)                // User's governance voting power
 ```
 
 **Example APY Calculation**:
-- Total supply: 1 billion XHT
-- Target staking: 30% (300M XHT)
-- Current staked: 150M XHT (50% of target)
+- Total supply: 1 billion NOR
+- Target staking: 30% (300M NOR)
+- Current staked: 150M NOR (50% of target)
 - APY = 20% - (20% - 8%) × 50% = **14% APY**
 
-### 2. XHTBurnMechanism.sol - Triple Burn System
+### 2. NORBurnMechanism.sol - Triple Burn System
 
-**Location**: `contracts/tokenomics/XHTBurnMechanism.sol`
+**Location**: `contracts/tokenomics/NORBurnMechanism.sol`
 
 **Features**:
 - Burns 50% of gas fees (velocity sink)
 - Burns 10% of validator rewards
 - Burns 5% of bridge fees
 - Dynamic burn rate for heavy users (50-80%)
-- Minimum supply floor: 100M XHT (10% of initial)
+- Minimum supply floor: 100M NOR (10% of initial)
 
 **Velocity Sink** (Incentivizes HODLing):
 | User Activity | Burn Rate | Description |
@@ -93,9 +93,9 @@ calculateBurnRate(user)             // Get user's burn rate (50-80%)
 getCurrentSupply()                  // Current circulating supply
 ```
 
-### 3. XHTGovernance.sol - DAO Governance
+### 3. NORGovernance.sol - DAO Governance
 
-**Location**: `contracts/tokenomics/XHTGovernance.sol`
+**Location**: `contracts/tokenomics/NORGovernance.sol`
 
 **Features**:
 - Proposal creation and voting
@@ -106,7 +106,7 @@ getCurrentSupply()                  // Current circulating supply
 - Multi-type proposals (parameters, spending, upgrades, validators, emergency)
 
 **Governance Parameters**:
-- **Min voting power to propose**: 10,000 XHT
+- **Min voting power to propose**: 10,000 NOR
 - **Voting period**: 7 days
 - **Timelock period**: 2 days (safety buffer)
 - **Quorum**: 10% of total staked supply
@@ -133,9 +133,9 @@ getProposalStatus(proposalId)            // Check proposal state
 3. If passed and quorum reached, 2-day timelock activates
 4. After timelock, anyone can execute proposal
 
-### 4. XHTRevenue.sol - Revenue Distribution
+### 4. NORRevenue.sol - Revenue Distribution
 
-**Location**: `contracts/tokenomics/XHTRevenue.sol`
+**Location**: `contracts/tokenomics/NORRevenue.sol`
 
 **Features**:
 - Collects fees from all ecosystem services
@@ -169,15 +169,15 @@ calculateStakerReward(user)          // Calculate user's pending rewards
 ```
 
 **Example Revenue Distribution**:
-- 100 XHT collected from bridge fees
-- Stakers: 50 XHT (distributed proportionally)
-- Validators: 30 XHT (split among 3 = 10 XHT each)
-- Burned: 10 XHT (permanently removed from supply)
-- Treasury: 10 XHT (for development)
+- 100 NOR collected from bridge fees
+- Stakers: 50 NOR (distributed proportionally)
+- Validators: 30 NOR (split among 3 = 10 NOR each)
+- Burned: 10 NOR (permanently removed from supply)
+- Treasury: 10 NOR (for development)
 
-### 5. XHTCrowdfunding.sol - Decentralized Crowdfunding
+### 5. NORCrowdfunding.sol - Decentralized Crowdfunding
 
-**Location**: `contracts/tokenomics/XHTCrowdfunding.sol`
+**Location**: `contracts/tokenomics/NORCrowdfunding.sol`
 
 **Features**:
 - All-or-nothing funding (Kickstarter model)
@@ -188,8 +188,8 @@ calculateStakerReward(user)          // Calculate user's pending rewards
 - Campaign categories and verification
 
 **Campaign Parameters**:
-- **Min goal**: 100 XHT
-- **Max goal**: 1,000,000 XHT
+- **Min goal**: 100 NOR
+- **Max goal**: 1,000,000 NOR
 - **Duration**: 7-90 days
 - **Platform fee**: 2% on successful campaigns
 - **Refunds**: Automatic if goal not met (all-or-nothing)
@@ -210,19 +210,19 @@ approveMilestone(campaignId, milId)  // Backers approve milestone
 ```
 
 **Example Campaign**:
-- **Project**: "Xaheen DEX Development"
-- **Goal**: 100,000 XHT
+- **Project**: "Nor DEX Development"
+- **Goal**: 100,000 NOR
 - **Duration**: 30 days
 - **Type**: All-or-nothing
 - **Milestones**:
-  1. Smart contract development (30,000 XHT)
-  2. Frontend UI (30,000 XHT)
-  3. Security audit (20,000 XHT)
-  4. Launch & marketing (20,000 XHT)
+  1. Smart contract development (30,000 NOR)
+  2. Frontend UI (30,000 NOR)
+  3. Security audit (20,000 NOR)
+  4. Launch & marketing (20,000 NOR)
 
-### 6. XHTCharity.sol - Transparent Charity Platform
+### 6. NORCharity.sol - Transparent Charity Platform
 
-**Location**: `contracts/tokenomics/XHTCharity.sol`
+**Location**: `contracts/tokenomics/NORCharity.sol`
 
 **Features**:
 - Verified charity organizations
@@ -259,10 +259,10 @@ addImpactReport(charityId, title, desc, used, beneficiaries, proof)
 ```
 
 **Example Charity Flow**:
-1. **Registration**: "Xaheen Education Fund" registers
+1. **Registration**: "Nor Education Fund" registers
 2. **Verification**: Admin verifies charity (required for withdrawals)
 3. **Donations**: Users donate (zero fees!)
-4. **Matching**: Corporation creates 1:1 matching up to 10,000 XHT
+4. **Matching**: Corporation creates 1:1 matching up to 10,000 NOR
 5. **Impact**: Charity provides quarterly impact reports
 6. **Transparency**: All donations visible on-chain
 
@@ -272,8 +272,8 @@ addImpactReport(charityId, title, desc, used, beneficiaries, proof)
 
 ### Prerequisites
 
-1. **Hardhat configured** with Xaheen Chain network
-2. **Deployer wallet** with XHT for gas fees
+1. **Hardhat configured** with Nor Chain network
+2. **Deployer wallet** with NOR for gas fees
 3. **Environment variables** set in `.env`:
    ```
    PRIVATE_CHAIN_KEY=your_private_key_here
@@ -286,52 +286,52 @@ addImpactReport(charityId, title, desc, used, beneficiaries, proof)
 # Compile contracts
 npx hardhat compile
 
-# Deploy to Xaheen Chain
+# Deploy to Nor Chain
 npx hardhat run scripts/deploy-xht-tokenomics.js --network btcbr
 ```
 
 ### Deployment Order
 
 The deployment script automatically:
-1. ✅ Deploys XHTStaking
-2. ✅ Deploys XHTBurnMechanism
-3. ✅ Deploys XHTGovernance (with staking address)
-4. ✅ Deploys XHTRevenue (with staking, burn, treasury addresses)
-5. ✅ Deploys XHTCrowdfunding (with revenue address)
-6. ✅ Deploys XHTCharity
+1. ✅ Deploys NORStaking
+2. ✅ Deploys NORBurnMechanism
+3. ✅ Deploys NORGovernance (with staking address)
+4. ✅ Deploys NORRevenue (with staking, burn, treasury addresses)
+5. ✅ Deploys NORCrowdfunding (with revenue address)
+6. ✅ Deploys NORCharity
 7. ✅ Configures validators in revenue contract
 8. ✅ Saves deployment info to `deployment-xht-tokenomics.json`
 
 ### Expected Output
 
 ```
-🚀 Starting XHT Tokenomics Deployment
+🚀 Starting NOR Tokenomics Deployment
 
 ═══════════════════════════════════════════════════════════
 📍 Deploying from: 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb
-💰 Balance: 1000000.0 XHT
+💰 Balance: 1000000.0 NOR
 
 ═══════════════════════════════════════════════════════════
-📦 1/6 Deploying XHTStaking...
-✅ XHTStaking deployed at: 0x...
+📦 1/6 Deploying NORStaking...
+✅ NORStaking deployed at: 0x...
 
-🔥 2/6 Deploying XHTBurnMechanism...
-✅ XHTBurnMechanism deployed at: 0x...
+🔥 2/6 Deploying NORBurnMechanism...
+✅ NORBurnMechanism deployed at: 0x...
 
-🏛️  3/6 Deploying XHTGovernance...
-✅ XHTGovernance deployed at: 0x...
+🏛️  3/6 Deploying NORGovernance...
+✅ NORGovernance deployed at: 0x...
 
-💵 4/6 Deploying XHTRevenue...
-✅ XHTRevenue deployed at: 0x...
+💵 4/6 Deploying NORRevenue...
+✅ NORRevenue deployed at: 0x...
 
-🎯 5/6 Deploying XHTCrowdfunding...
-✅ XHTCrowdfunding deployed at: 0x...
+🎯 5/6 Deploying NORCrowdfunding...
+✅ NORCrowdfunding deployed at: 0x...
 
-❤️  6/6 Deploying XHTCharity...
-✅ XHTCharity deployed at: 0x...
+❤️  6/6 Deploying NORCharity...
+✅ NORCharity deployed at: 0x...
 
 ✅ All contracts deployed successfully!
-⛽ Total gas used: 0.123456 XHT
+⛽ Total gas used: 0.123456 NOR
 ```
 
 ---
@@ -342,30 +342,30 @@ The deployment script automatically:
 
 ```
 ┌─────────────────┐
-│  Gas Fees (TX)  │──50-80%──► XHTBurnMechanism
+│  Gas Fees (TX)  │──50-80%──► NORBurnMechanism
 └─────────────────┘
 
 ┌─────────────────┐
-│ Validator Rewards│──10%────► XHTBurnMechanism
+│ Validator Rewards│──10%────► NORBurnMechanism
 └─────────────────┘
 
 ┌─────────────────┐
-│  Bridge Fees    │──5%─────► XHTBurnMechanism
-│  DEX Fees       │──0.3%───► XHTRevenue ──► 50% Stakers
+│  Bridge Fees    │──5%─────► NORBurnMechanism
+│  DEX Fees       │──0.3%───► NORRevenue ──► 50% Stakers
 │  NFT Fees       │──2.5%──/              ├─► 30% Validators
 │  Crowdfunding   │──2%───/               ├─► 10% Burn
 └─────────────────┘                       └─► 10% Treasury
 
 ┌─────────────────┐
-│   XHTStaking    │◄──Voting Power──► XHTGovernance
+│   NORStaking    │◄──Voting Power──► NORGovernance
 └─────────────────┘
 
 ┌─────────────────┐
-│ XHTCrowdfunding │──2% fee──► XHTRevenue
+│ NORCrowdfunding │──2% fee──► NORRevenue
 └─────────────────┘
 
 ┌─────────────────┐
-│   XHTCharity    │──0% fee──► Direct to charity
+│   NORCharity    │──0% fee──► Direct to charity
 └─────────────────┘
 ```
 
@@ -412,52 +412,52 @@ revenue.collectRevenue{value: fee}("dex");
 
 ### Supply Dynamics
 
-**Initial Supply**: 1,000,000,000 XHT (1 billion)
-**Minimum Floor**: 100,000,000 XHT (100 million)
-**Max Burnable**: 900,000,000 XHT (90%)
+**Initial Supply**: 1,000,000,000 NOR (1 billion)
+**Minimum Floor**: 100,000,000 NOR (100 million)
+**Max Burnable**: 900,000,000 NOR (90%)
 
 **Expected Burn Rate**:
-- Year 1: 5-7% (50-70M XHT)
-- Year 2: 4-6% (40-60M XHT)
-- Year 3: 3-5% (30-50M XHT)
-- Year 5: 2-3% (20-30M XHT)
-- Year 10: 1-2% (10-20M XHT)
+- Year 1: 5-7% (50-70M NOR)
+- Year 2: 4-6% (40-60M NOR)
+- Year 3: 3-5% (30-50M NOR)
+- Year 5: 2-3% (20-30M NOR)
+- Year 10: 1-2% (10-20M NOR)
 - Year 20+: Reaches 100M floor
 
 ### Staking Projections
 
-**Target Staking**: 30% of supply (300M XHT)
+**Target Staking**: 30% of supply (300M NOR)
 
 **Staking Scenarios**:
 
 | Staked | APY | Annual Rewards | New Supply |
 |--------|-----|----------------|------------|
-| 10% (100M) | 20% | 20M XHT | Expand |
-| 20% (200M) | 14% | 28M XHT | Expand |
-| 30% (300M) | 8% | 24M XHT | Equilibrium |
-| 40% (400M) | 8% | 32M XHT | Contract |
+| 10% (100M) | 20% | 20M NOR | Expand |
+| 20% (200M) | 14% | 28M NOR | Expand |
+| 30% (300M) | 8% | 24M NOR | Equilibrium |
+| 40% (400M) | 8% | 32M NOR | Contract |
 
 ### Revenue Projections
 
 **Assumptions**:
 - Daily transactions: 100,000
-- Average gas: 0.001 XHT/tx
-- Bridge volume: 10,000 XHT/day
-- DEX volume: 100,000 XHT/day
+- Average gas: 0.001 NOR/tx
+- Bridge volume: 10,000 NOR/day
+- DEX volume: 100,000 NOR/day
 
 **Daily Revenue**:
-- Gas fees (50% burned): 50 XHT
-- Bridge fees (0.1%): 10 XHT
-- DEX fees (0.3%): 300 XHT
-- **Total**: ~360 XHT/day
+- Gas fees (50% burned): 50 NOR
+- Bridge fees (0.1%): 10 NOR
+- DEX fees (0.3%): 300 NOR
+- **Total**: ~360 NOR/day
 
-**Annual Revenue**: ~130,000 XHT/year
+**Annual Revenue**: ~130,000 NOR/year
 
 **Distribution**:
-- Stakers: 65,000 XHT/year
-- Validators: 39,000 XHT/year
-- Burned: 13,000 XHT/year
-- Treasury: 13,000 XHT/year
+- Stakers: 65,000 NOR/year
+- Validators: 39,000 NOR/year
+- Burned: 13,000 NOR/year
+- Treasury: 13,000 NOR/year
 
 ---
 
@@ -465,7 +465,7 @@ revenue.collectRevenue{value: fee}("dex");
 
 ### vs BNB Smart Chain
 
-| Feature | XHT (Xaheen) | BNB (BSC) |
+| Feature | NOR (Nor) | BNB (BSC) |
 |---------|--------------|-----------|
 | **Staking APY** | 8-20% (dynamic) | 5-10% (fixed) |
 | **Burn Mechanism** | Triple (gas+validator+bridge) | Single (gas only) |
@@ -478,11 +478,11 @@ revenue.collectRevenue{value: fee}("dex");
 
 ### vs Ethereum
 
-| Feature | XHT (Xaheen) | ETH (Ethereum) |
+| Feature | NOR (Nor) | ETH (Ethereum) |
 |---------|--------------|----------------|
 | **Staking APY** | 8-20% (dynamic) | 3-5% |
 | **Burn** | Triple mechanism | EIP-1559 only |
-| **Min Stake** | 1,000 XHT (~$10) | 32 ETH (~$60K) |
+| **Min Stake** | 1,000 NOR (~$10) | 32 ETH (~$60K) |
 | **Governance** | Built-in DAO | External (ENS) |
 | **Social Good** | Crowdfunding + Charity | None |
 | **Gas Fees** | $0.000001 | $2-50 |
@@ -490,7 +490,7 @@ revenue.collectRevenue{value: fee}("dex");
 
 ### vs Solana
 
-| Feature | XHT (Xaheen) | SOL (Solana) |
+| Feature | NOR (Nor) | SOL (Solana) |
 |---------|--------------|--------------|
 | **Reliability** | 99.99% | 70% (outages) |
 | **Staking** | 8-20% + revenue share | 7% |
@@ -505,16 +505,16 @@ revenue.collectRevenue{value: fee}("dex");
 ### Key Messages
 
 **1. World's Best Staking APY**
-> "Earn 8-20% APY on XHT staking - dynamically adjusts to network needs. Lock for 3 years and get 5x voting power plus 200% reward bonus!"
+> "Earn 8-20% APY on NOR staking - dynamically adjusts to network needs. Lock for 3 years and get 5x voting power plus 200% reward bonus!"
 
 **2. Triple Burn = Guaranteed Scarcity**
-> "XHT burns from 3 sources: gas fees (50%), validator rewards (10%), and bridge fees (5%). Guaranteed deflationary with 100M minimum floor."
+> "NOR burns from 3 sources: gas fees (50%), validator rewards (10%), and bridge fees (5%). Guaranteed deflationary with 100M minimum floor."
 
 **3. True Revenue Sharing**
 > "50% of ALL protocol revenue goes directly to stakers. Earn from bridges, DEX, NFTs, crowdfunding - everything!"
 
 **4. Built-In Crowdfunding Platform**
-> "Launch your project on Xaheen! Only 2% platform fee, milestone-based releases, and all-or-nothing or flexible funding."
+> "Launch your project on Nor! Only 2% platform fee, milestone-based releases, and all-or-nothing or flexible funding."
 
 **5. Zero-Fee Charity Platform**
 > "Donate with ZERO fees. 100% of your donation goes to verified charities. Recurring donations and corporate matching supported!"
@@ -526,7 +526,7 @@ revenue.collectRevenue{value: fee}("dex");
 
 **Twitter/X**:
 ```
-🚀 XHT Tokenomics is LIVE!
+🚀 NOR Tokenomics is LIVE!
 
 ✅ Dynamic APY Staking (8-20%)
 ✅ Triple Burn Mechanism
@@ -535,16 +535,16 @@ revenue.collectRevenue{value: fee}("dex");
 ✅ Zero-Fee Charity Donations
 ✅ DAO Governance with Voting Multipliers
 
-Xaheen Chain is building the world's best cryptocurrency!
+Nor Chain is building the world's best cryptocurrency!
 
-#XHT #DeFi #Staking #Blockchain
+#NOR #DeFi #Staking #Blockchain
 ```
 
 **Reddit**:
 ```
-[ANN] XHT Tokenomics Launch - The Most Comprehensive System in Blockchain
+[ANN] NOR Tokenomics Launch - The Most Comprehensive System in Blockchain
 
-We just deployed 6 integrated smart contracts that make XHT the world's best cryptocurrency:
+We just deployed 6 integrated smart contracts that make NOR the world's best cryptocurrency:
 
 1. **Intelligent Staking** - 8-20% APY that adjusts to network security needs
 2. **Triple Burn** - Gas (50%), validator rewards (10%), bridge fees (5%)
@@ -553,11 +553,11 @@ We just deployed 6 integrated smart contracts that make XHT the world's best cry
 5. **Crowdfunding** - Decentralized platform with only 2% fee
 6. **Charity** - Zero fees, recurring donations, donation matching
 
-All contracts deployed and verified on Xaheen Chain (Chain ID: 65001).
+All contracts deployed and verified on Nor Chain (Chain ID: 65001).
 
-What makes XHT special compared to BNB/ETH/SOL? [See comparison table]
+What makes NOR special compared to BNB/ETH/SOL? [See comparison table]
 
-Ready to stake your XHT and start earning? Connect at https://rpc.xaheen.org
+Ready to stake your NOR and start earning? Connect at https://rpc.xaheen.org
 ```
 
 ---
@@ -566,7 +566,7 @@ Ready to stake your XHT and start earning? Connect at https://rpc.xaheen.org
 
 ### Immediate (This Week)
 
-1. ✅ Deploy all 6 contracts to Xaheen Chain
+1. ✅ Deploy all 6 contracts to Nor Chain
 2. ✅ Verify contracts on block explorer
 3. ⏳ Integrate burn mechanism with validators
 4. ⏳ Connect revenue collection to bridges
@@ -592,10 +592,10 @@ Ready to stake your XHT and start earning? Connect at https://rpc.xaheen.org
 
 ### Long Term (3-12 Months)
 
-1. ⏳ 100,000+ XHT staked
+1. ⏳ 100,000+ NOR staked
 2. ⏳ 50+ crowdfunding campaigns
 3. ⏳ 25+ verified charities
-4. ⏳ 10M+ XHT burned
+4. ⏳ 10M+ NOR burned
 5. ⏳ Community-driven DAO
 6. ⏳ Multi-chain expansion
 
@@ -606,7 +606,7 @@ Ready to stake your XHT and start earning? Connect at https://rpc.xaheen.org
 ### Documentation
 - **Contracts**: `/contracts/tokenomics/`
 - **Deployment Script**: `/scripts/deploy-xht-tokenomics.js`
-- **This Guide**: `/docs/XHT_TOKENOMICS_COMPLETE.md`
+- **This Guide**: `/docs/NOR_TOKENOMICS_COMPLETE.md`
 
 ### Public Endpoints
 - **RPC**: https://rpc.xaheen.org
@@ -615,7 +615,7 @@ Ready to stake your XHT and start earning? Connect at https://rpc.xaheen.org
 
 ### Developer Resources
 - **Chain ID**: 65001 (0xFDE9)
-- **Network**: Xaheen Chain
+- **Network**: Nor Chain
 - **Consensus**: Parlia PoSA
 - **Block Time**: 3 seconds
 
@@ -623,9 +623,9 @@ Ready to stake your XHT and start earning? Connect at https://rpc.xaheen.org
 
 ## 🎉 CONCLUSION
 
-**XHT Tokenomics represents the most comprehensive and innovative cryptocurrency economic system ever deployed.**
+**NOR Tokenomics represents the most comprehensive and innovative cryptocurrency economic system ever deployed.**
 
-With 6 integrated smart contracts providing staking, burning, governance, revenue sharing, crowdfunding, and charity functionality - all working together seamlessly - XHT is positioned to become "the world's best coin."
+With 6 integrated smart contracts providing staking, burning, governance, revenue sharing, crowdfunding, and charity functionality - all working together seamlessly - NOR is positioned to become "the world's best coin."
 
 **Key Achievements**:
 ✅ Dynamic APY staking (industry-leading 8-20%)
@@ -641,7 +641,7 @@ With 6 integrated smart contracts providing staking, burning, governance, revenu
 
 ---
 
-**Let's make XHT the world's best cryptocurrency! 🚀**
+**Let's make NOR the world's best cryptocurrency! 🚀**
 
 **Deployment Date**: October 30, 2025
 **Status**: READY FOR LAUNCH 🎉

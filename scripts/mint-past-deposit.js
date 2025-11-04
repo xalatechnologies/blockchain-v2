@@ -11,7 +11,7 @@ dotenvConfig();
 
 async function main() {
   console.log("\n🔨 MANUAL MINTING FOR PAST DEPOSIT\n");
-  console.log("=" .repeat(60));
+  console.log("=".repeat(60));
 
   const [validator] = await ethers.getSigners();
   console.log("💼 Validator:", validator.address);
@@ -26,8 +26,8 @@ async function main() {
   console.log("Amount:", ethers.formatEther(amount), "BNB");
   console.log("Nonce:", nonce);
 
-  const BNBBridgeXaheen = await ethers.getContractFactory("BNBBridgeXaheen");
-  const bridge = BNBBridgeXaheen.attach(process.env.BNB_BRIDGE_XAHEEN);
+  const BNBBridgeNor = await ethers.getContractFactory("BNBBridgeNor");
+  const bridge = BNBBridgeNor.attach(process.env.BNB_BRIDGE_XAHEEN);
 
   // Check if already processed
   const processed = await bridge.processedNonces(nonce);
@@ -35,7 +35,7 @@ async function main() {
     console.log("\n✅ Already processed!");
     console.log("WBNB should already be in your wallet");
     console.log("\nCheck MetaMask:");
-    console.log("1. Switch to Xaheen network");
+    console.log("1. Switch to Nor network");
     console.log("2. Import WBNB:", process.env.WBNB_TOKEN_XAHEEN);
     console.log("3. Should see 0.00998 WBNB");
     return;
@@ -58,13 +58,9 @@ async function main() {
   console.log("📡 Calling mintWBNB...");
 
   try {
-    const tx = await bridge.mintWBNB(
-      recipient,
-      amount,
-      nonce,
-      signatures,
-      { gasLimit: 500000 }
-    );
+    const tx = await bridge.mintWBNB(recipient, amount, nonce, signatures, {
+      gasLimit: 500000,
+    });
 
     console.log("Transaction sent:", tx.hash);
     console.log("⏰ Waiting for confirmation...");
@@ -78,10 +74,9 @@ async function main() {
 
     console.log("\n🎉 CHECK YOUR WALLET!");
     console.log("1. Open MetaMask");
-    console.log("2. Switch to Xaheen Chain");
+    console.log("2. Switch to Nor Chain");
     console.log("3. Import WBNB token:", process.env.WBNB_TOKEN_XAHEEN);
     console.log("4. You should see: 0.00998 WBNB");
-
   } catch (error) {
     console.error("\n❌ Error:", error.message);
     if (error.message.includes("Already processed")) {

@@ -136,7 +136,7 @@ VERIFY
     echo "║                    EPOCH RECOVERY SUCCESSFUL! ✅                          ║"
     echo "╚═══════════════════════════════════════════════════════════════════════════╝"
     echo ""
-    echo "Your Noor Chain infrastructure is safe! 🎉"
+    echo "Your Nor Chain infrastructure is safe! 🎉"
     echo "All contracts, balances, liquidity, and LP locks preserved."
     echo ""
     echo "Next epoch boundary: Block 20,000 (~8 hours from now)"

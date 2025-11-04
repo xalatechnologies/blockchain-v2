@@ -1,4 +1,4 @@
-# ⚔️ Xaheen Chain - Competing with BNB Smart Chain
+# ⚔️ Nor Chain - Competing with BNB Smart Chain
 
 **Strategic positioning and competitive advantages**
 
@@ -6,20 +6,20 @@
 
 ## 🎯 Executive Summary
 
-Xaheen Chain is not a clone — it's an **intelligent evolution** of BNB Smart Chain technology, designed to compete directly with superior governance, sovereignty, and innovation.
+Nor Chain is not a clone — it's an **intelligent evolution** of BNB Smart Chain technology, designed to compete directly with superior governance, sovereignty, and innovation.
 
 **Key Differentiators:**
 - 🧠 **Intelligent PoA/DAO Hybrid** vs Pure PoSA
 - 🔒 **Private Chain Sovereignty** vs Public Validator Set
 - ⚡ **Flash-Token Bridge** vs Traditional Pegged Tokens
 - 🌍 **GDPR & ISO 27001 Ready** vs Compliance Uncertainty
-- 💎 **Dual-Token Economics** (XHT + BTCBR) vs Single Token (BNB)
+- 💎 **Dual-Token Economics** (NOR + BTCBR) vs Single Token (BNB)
 
 ---
 
 ## 📊 Head-to-Head Comparison
 
-| Feature | Xaheen Chain (65001) | BNB Smart Chain (56) |
+| Feature | Nor Chain (65001) | BNB Smart Chain (56) |
 |---------|---------------------|----------------------|
 | **Governance** | Intelligent PoA + DAO hybrid | Pure PoSA (21 validators) |
 | **Block Time** | 3 seconds | 3 seconds |
@@ -29,7 +29,7 @@ Xaheen Chain is not a clone — it's an **intelligent evolution** of BNB Smart C
 | **Bridge System** | Flash-Token vaults (150% reserve) | Pegged tokens (synthetic) |
 | **Privacy** | Private chain option | Public only |
 | **Compliance** | GDPR, ISO 27001 ready | Limited compliance |
-| **Native Token** | XHT (gas + governance + liquidity) | BNB (gas + staking) |
+| **Native Token** | NOR (gas + governance + liquidity) | BNB (gas + staking) |
 | **Secondary Token** | BTCBR (Bitcoin-backed) | Various BEP-20 |
 | **Data Sovereignty** | Full control | Binance-controlled |
 | **Geographic Distribution** | Customizable | Binance-selected |
@@ -44,66 +44,66 @@ Xaheen Chain is not a clone — it's an **intelligent evolution** of BNB Smart C
 
 ---
 
-## 🚀 Why Developers Should Choose Xaheen Chain
+## 🚀 Why Developers Should Choose Nor Chain
 
 ### 1. **True Decentralization**
-- **Xaheen**: Community-driven validator selection
+- **Nor**: Community-driven validator selection
 - **BNB**: Binance controls validator set
 
 ### 2. **Data Sovereignty**
-- **Xaheen**: Full control over private chain deployment
+- **Nor**: Full control over private chain deployment
 - **BNB**: All data on Binance infrastructure
 
 ### 3. **Lower Costs**
-- **Xaheen**: 1 Gwei base gas price (~$0.000001 per transaction)
+- **Nor**: 1 Gwei base gas price (~$0.000001 per transaction)
 - **BNB**: 3-10 Gwei typical (~$0.10-$0.50 per transaction)
 
 ### 4. **GDPR Compliance**
-- **Xaheen**: Privacy-first architecture, right to deletion possible
+- **Nor**: Privacy-first architecture, right to deletion possible
 - **BNB**: Public ledger, immutable data retention
 
 ### 5. **Flash-Token Innovation**
-- **Xaheen**: 60-minute expiry tokens prevent speculation
+- **Nor**: 60-minute expiry tokens prevent speculation
 - **BNB**: Pegged tokens create duplicate supply
 
 ### 6. **Dual-Token Economics**
-- **Xaheen**: XHT for gas, BTCBR for value transfer
+- **Nor**: NOR for gas, BTCBR for value transfer
 - **BNB**: BNB for everything (single point of failure)
 
 ### 7. **Faster Finality**
-- **Xaheen**: Instant finality with 2-of-3 consensus
+- **Nor**: Instant finality with 2-of-3 consensus
 - **BNB**: Requires 2+ block confirmations
 
 ### 8. **Community Governance**
-- **Xaheen**: DAO voting on protocol upgrades
+- **Nor**: DAO voting on protocol upgrades
 - **BNB**: Centralized decision-making
 
 ---
 
-## 💡 Use Cases Where Xaheen Wins
+## 💡 Use Cases Where Nor Wins
 
 ### Enterprise & Private Deployments
-✅ **Xaheen**: Deploy private instances with custom rules
+✅ **Nor**: Deploy private instances with custom rules
 ❌ **BNB**: Public chain only, no privacy
 
 ### GDPR-Compliant Applications
-✅ **Xaheen**: Right to deletion, data sovereignty
+✅ **Nor**: Right to deletion, data sovereignty
 ❌ **BNB**: Immutable public ledger
 
 ### Cross-Chain Bitcoin DeFi
-✅ **Xaheen**: Native BTCBR integration with flash-token bridge
+✅ **Nor**: Native BTCBR integration with flash-token bridge
 ❌ **BNB**: BTCB is centralized pegged token
 
 ### High-Frequency Trading
-✅ **Xaheen**: Instant finality, 3-second blocks
+✅ **Nor**: Instant finality, 3-second blocks
 ❌ **BNB**: Requires 2+ confirmations for safety
 
 ### Geographic Compliance
-✅ **Xaheen**: Deploy validators in specific jurisdictions
+✅ **Nor**: Deploy validators in specific jurisdictions
 ❌ **BNB**: Validators controlled by Binance
 
 ### Open-Source Projects
-✅ **Xaheen**: Fully open-source, community forks allowed
+✅ **Nor**: Fully open-source, community forks allowed
 ❌ **BNB**: Partially open, Binance maintains control
 
 ---
@@ -121,8 +121,8 @@ Xaheen Chain is not a clone — it's an **intelligent evolution** of BNB Smart C
 - 🎯 Developer grants program ($50K initial fund)
 - 🎯 Hackathon sponsorship
 - 🎯 Video tutorials and workshops
-- 🎯 Migration tools from BSC to Xaheen
-- 🎯 Faucet for developers (free XHT for testing)
+- 🎯 Migration tools from BSC to Nor
+- 🎯 Faucet for developers (free NOR for testing)
 
 ### Phase 3: DApp Migration (Months 4-6)
 - 🎯 Target top 100 BSC DApps
@@ -132,8 +132,8 @@ Xaheen Chain is not a clone — it's an **intelligent evolution** of BNB Smart C
 - 🎯 Partnership announcements
 
 ### Phase 4: Ecosystem Expansion (Months 7-12)
-- 🎯 DEX launch (Xaheen Swap)
-- 🎯 Lending protocol (Xaheen Finance)
+- 🎯 DEX launch (Nor Swap)
+- 🎯 Lending protocol (Nor Finance)
 - 🎯 NFT marketplace
 - 🎯 Cross-chain bridges (Ethereum, Polygon, Arbitrum)
 - 🎯 Stablecoin integration (USDT, USDC)
@@ -151,31 +151,31 @@ Xaheen Chain is not a clone — it's an **intelligent evolution** of BNB Smart C
 
 ### For Users
 
-| Metric | Xaheen Chain | BNB Smart Chain |
+| Metric | Nor Chain | BNB Smart Chain |
 |--------|--------------|-----------------|
 | **Average TX Fee** | $0.000001 (1 Gwei) | $0.10-$0.50 |
 | **Token Swap Fee** | 0.1% | 0.25% (PancakeSwap) |
 | **Bridge Fee** | 0.1-0.2% | 0.5-1% |
-| **Staking APY** | 8-15% (XHT validators) | 5-10% (BNB staking) |
-| **Governance Rights** | 1 XHT = 1 vote | BNB holders limited |
+| **Staking APY** | 8-15% (NOR validators) | 5-10% (BNB staking) |
+| **Governance Rights** | 1 NOR = 1 vote | BNB holders limited |
 
 ### For Validators
 
-| Metric | Xaheen Chain | BNB Smart Chain |
+| Metric | Nor Chain | BNB Smart Chain |
 |--------|--------------|-----------------|
 | **Hardware Cost** | ~$2,000 (mid-tier server) | ~$10,000+ (high-end) |
 | **Monthly Operating Cost** | $40-100 | $500-1,000 |
-| **Minimum Stake** | 10,000 XHT (~$1,000) | 10,000 BNB (~$3M) |
+| **Minimum Stake** | 10,000 NOR (~$1,000) | 10,000 BNB (~$3M) |
 | **Validator Slots** | 21+ (expandable) | 21 (fixed, highly competitive) |
 | **Selection Process** | Merit + community vote | Pure stake amount |
-| **Annual Returns** | 8-15% on staked XHT | 5-10% on staked BNB |
+| **Annual Returns** | 8-15% on staked NOR | 5-10% on staked BNB |
 
 ### For Developers
 
-| Metric | Xaheen Chain | BNB Smart Chain |
+| Metric | Nor Chain | BNB Smart Chain |
 |--------|--------------|-----------------|
 | **Deployment Cost** | ~$0.01 | ~$1-5 |
-| **Testing** | Free faucet XHT | Buy testnet BNB |
+| **Testing** | Free faucet NOR | Buy testnet BNB |
 | **Grant Program** | Yes ($50K initial) | Yes (larger but competitive) |
 | **Documentation** | 30+ comprehensive guides | Extensive but fragmented |
 | **Community Support** | Direct DAO access | Limited Binance support |
@@ -185,22 +185,22 @@ Xaheen Chain is not a clone — it's an **intelligent evolution** of BNB Smart C
 ## 🛡️ Security Advantages
 
 ### Multi-Validator Consensus
-- **Xaheen**: 2-of-3 signatures required (Byzantine fault tolerant)
+- **Nor**: 2-of-3 signatures required (Byzantine fault tolerant)
 - **BNB**: 2/3 of 21 validators (14 validators)
 
 ### Slashing Conditions
-- **Xaheen**:
-  - Double signing: 1,000 XHT slash
-  - Downtime (>50 blocks): 100 XHT slash
-  - Invalid transactions: 500 XHT slash
+- **Nor**:
+  - Double signing: 1,000 NOR slash
+  - Downtime (>50 blocks): 100 NOR slash
+  - Invalid transactions: 500 NOR slash
 - **BNB**: Similar but higher thresholds
 
 ### Smart Contract Audits
-- **Xaheen**: All core contracts audited (available publicly)
+- **Nor**: All core contracts audited (available publicly)
 - **BNB**: Core contracts audited (some proprietary)
 
 ### Bug Bounty Program
-- **Xaheen**: $1K-$50K rewards (planned)
+- **Nor**: $1K-$50K rewards (planned)
 - **BNB**: $10K-$100K rewards (active)
 
 ---
@@ -208,11 +208,11 @@ Xaheen Chain is not a clone — it's an **intelligent evolution** of BNB Smart C
 ## 🌍 Geographic & Regulatory Advantages
 
 ### Data Sovereignty
-**Xaheen**: Deploy validators in specific jurisdictions (EU, US, Asia)
+**Nor**: Deploy validators in specific jurisdictions (EU, US, Asia)
 **BNB**: Validators controlled by Binance (geographic uncertainty)
 
 ### GDPR Compliance
-**Xaheen**:
+**Nor**:
 - Right to deletion (private chains)
 - Data minimization
 - Purpose limitation
@@ -224,7 +224,7 @@ Xaheen Chain is not a clone — it's an **intelligent evolution** of BNB Smart C
 - Limited privacy controls
 
 ### Regulatory Flexibility
-**Xaheen**: Customizable for different jurisdictions
+**Nor**: Customizable for different jurisdictions
 **BNB**: One-size-fits-all approach
 
 ---
@@ -232,7 +232,7 @@ Xaheen Chain is not a clone — it's an **intelligent evolution** of BNB Smart C
 ## 📣 Marketing & Positioning
 
 ### Brand Identity
-**Xaheen** (Arabic: ذهين - "Intelligent, Smart, Genius")
+**Nor** (Arabic: ذهين - "Intelligent, Smart, Genius")
 - Positioning: "Where Intelligence Meets Blockchain"
 - Target: Developers, enterprises, privacy-conscious users
 - Values: Sovereignty, intelligence, community
@@ -244,7 +244,7 @@ Xaheen Chain is not a clone — it's an **intelligent evolution** of BNB Smart C
 
 ### Messaging Framework
 
-| Audience | Xaheen Message | BNB Message |
+| Audience | Nor Message | BNB Message |
 |----------|----------------|-------------|
 | **Developers** | "Build with true sovereignty" | "Build on Binance infrastructure" |
 | **Enterprises** | "Your chain, your rules, GDPR-ready" | "Public chain, Binance reputation" |
@@ -258,7 +258,7 @@ Xaheen Chain is not a clone — it's an **intelligent evolution** of BNB Smart C
 
 ### 1. Developer Migration Incentives
 ```bash
-# Xaheen Migration Tool
+# Nor Migration Tool
 npm install -g xaheen-migrate
 
 # One-command migration from BSC
@@ -274,7 +274,7 @@ xaheen-migrate --from bsc --to xaheen --contract 0x...
 // Embed on xaheen.org
 <GasComparison>
   BSC: $0.50 per transaction
-  Xaheen: $0.000001 per transaction
+  Nor: $0.000001 per transaction
 
   Savings: 99.9998%!
 </GasComparison>
@@ -282,18 +282,18 @@ xaheen-migrate --from bsc --to xaheen --contract 0x...
 
 ### 3. Liquidity Mining Campaign
 ```
-Deploy on Xaheen, earn XHT rewards!
+Deploy on Nor, earn NOR rewards!
 
-Month 1-3: 2x XHT rewards for new DApps
-Month 4-6: 1.5x XHT rewards
-Month 7-12: 1x XHT rewards + governance rights
+Month 1-3: 2x NOR rewards for new DApps
+Month 4-6: 1.5x NOR rewards
+Month 7-12: 1x NOR rewards + governance rights
 ```
 
 ### 4. "Exit Binance" Campaign
 ```
 🔓 Break Free from Centralization
 
-Xaheen Chain offers:
+Nor Chain offers:
 ✅ True decentralization
 ✅ Community governance
 ✅ Lower costs
@@ -304,12 +304,12 @@ Migrate your DApp today: https://migrate.xaheen.org
 
 ### 5. Open-Source Bounties
 ```
-Contribute to Xaheen, earn XHT!
+Contribute to Nor, earn NOR!
 
-Documentation: 100 XHT per guide
-Bug fixes: 50-500 XHT
-New features: 500-5,000 XHT
-Audits: 1,000-10,000 XHT
+Documentation: 100 NOR per guide
+Bug fixes: 50-500 NOR
+New features: 500-5,000 NOR
+Audits: 1,000-10,000 NOR
 ```
 
 ---
@@ -378,34 +378,34 @@ Audits: 1,000-10,000 XHT
 
 ### 1. Flash-Token Bridge Architecture
 **Problem**: Traditional bridges create duplicate supply
-**Xaheen Solution**: 60-minute expiry tokens with vault-backed reserves
+**Nor Solution**: 60-minute expiry tokens with vault-backed reserves
 **Benefit**: Economic parity maintained, no speculation on bridge tokens
 
 ### 2. Dual-Token Economics
 **Problem**: Single token creates conflicting incentives
-**Xaheen Solution**: XHT for gas/governance, BTCBR for value transfer
+**Nor Solution**: NOR for gas/governance, BTCBR for value transfer
 **Benefit**: Optimized for both utility and store of value
 
 ### 3. Private Chain Sovereignty
 **Problem**: Public chains lack privacy and customization
-**Xaheen Solution**: Deploy private Xaheen instances with custom rules
+**Nor Solution**: Deploy private Nor instances with custom rules
 **Benefit**: GDPR compliance, enterprise adoption
 
 ### 4. Intelligent Governance
 **Problem**: Pure stake-based voting favors whales
-**Xaheen Solution**: Merit-based validator selection + DAO voting
+**Nor Solution**: Merit-based validator selection + DAO voting
 **Benefit**: True community governance, not plutocracy
 
 ### 5. Developer-First Approach
 **Problem**: Enterprise blockchains ignore developers
-**Xaheen Solution**: 30+ comprehensive guides, grants, migration tools
+**Nor Solution**: 30+ comprehensive guides, grants, migration tools
 **Benefit**: Faster ecosystem growth, higher quality DApps
 
 ---
 
 ## 🎤 Elevator Pitch
 
-> **"Xaheen Chain is BNB Smart Chain evolved — with true decentralization, data sovereignty, and intelligent governance. We offer the same 3-second blocks and EVM compatibility, but with lower fees, instant finality, and GDPR compliance. Whether you're a developer tired of centralization, an enterprise needing privacy, or a user wanting control, Xaheen Chain delivers. Join us in building the intelligent blockchain."**
+> **"Nor Chain is BNB Smart Chain evolved — with true decentralization, data sovereignty, and intelligent governance. We offer the same 3-second blocks and EVM compatibility, but with lower fees, instant finality, and GDPR compliance. Whether you're a developer tired of centralization, an enterprise needing privacy, or a user wanting control, Nor Chain delivers. Join us in building the intelligent blockchain."**
 
 ---
 
@@ -418,7 +418,7 @@ Audits: 1,000-10,000 XHT
 
 ### For Validators
 📝 **Become a Validator**: https://xaheen.org/validators
-💎 **Stake XHT**: https://stake.xaheen.org
+💎 **Stake NOR**: https://stake.xaheen.org
 📊 **Validator Dashboard**: https://validators.xaheen.org
 
 ### For Users
@@ -430,4 +430,4 @@ Audits: 1,000-10,000 XHT
 
 **Ready to compete? Let's go! 🚀**
 
-**Xaheen Chain - Where Intelligence Meets Blockchain** 🧠⚡
+**Nor Chain - Where Intelligence Meets Blockchain** 🧠⚡

@@ -1,4 +1,4 @@
-# ⚡ Xaheen Chain - Quick Connect
+# ⚡ Nor Chain - Quick Connect
 
 **Copy-paste ready connection details for your client**
 
@@ -11,7 +11,7 @@
 | **Chain ID** | `65001` (0xFDE9) |
 | **RPC URL** | `https://rpc.xaheen.org` |
 | **WebSocket** | `wss://ws.xaheen.org` |
-| **Currency Symbol** | `XHT` |
+| **Currency Symbol** | `NOR` |
 | **Block Explorer** | `https://explorer.xaheen.org` |
 | **Node Type** | Archive (full history) |
 

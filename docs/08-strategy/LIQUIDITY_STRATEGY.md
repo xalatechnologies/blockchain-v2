@@ -6,9 +6,9 @@
 
 ## YOUR CURRENT SITUATION (STRONG!)
 
-### ✅ You Already Have Liquidity on Xaheen DEX:
+### ✅ You Already Have Liquidity on Nor DEX:
 - **$800,000 TVL** on your own DEX
-- **3 trading pairs**: XHT/USDT, XHT/BNB, XHT/ETH
+- **3 trading pairs**: NOR/USDT, NOR/BNB, NOR/ETH
 - **Full control** of liquidity
 - **You earn 100% of trading fees** (not split with other platforms)
 
@@ -18,18 +18,18 @@
 
 ## TWO STRATEGIC PATHS
 
-### PATH 1: Keep Everything on Xaheen (RECOMMENDED)
+### PATH 1: Keep Everything on Nor (RECOMMENDED)
 
 **Strategy:**
 ```
 User Flow:
 Buy BNB on Binance (fiat)
     ↓
-Bridge BNB to Xaheen Chain (your bridge)
+Bridge BNB to Nor Chain (your bridge)
     ↓
-Swap BNB → XHT on Xaheen DEX (your DEX)
+Swap BNB → NOR on Nor DEX (your DEX)
     ↓
-Trade on Xaheen DEX
+Trade on Nor DEX
 ```
 
 **Advantages:**
@@ -50,17 +50,17 @@ Trade on Xaheen DEX
 
 ---
 
-### PATH 2: Deploy to PancakeSwap + Keep Xaheen
+### PATH 2: Deploy to PancakeSwap + Keep Nor
 
 **Strategy:**
 ```
-Option A: Buy XHT on PancakeSwap (BSC)
+Option A: Buy NOR on PancakeSwap (BSC)
     ↓
 Trade on BSC
 
-Option B: Bridge to Xaheen
+Option B: Bridge to Nor
     ↓
-Trade on Xaheen DEX (better prices)
+Trade on Nor DEX (better prices)
 ```
 
 **Advantages:**
@@ -71,7 +71,7 @@ Trade on Xaheen DEX (better prices)
 ✅ **Listed on CoinGecko faster** (they prefer tokens on major DEXes)
 
 **Disadvantages:**
-❌ **Splits liquidity** (e.g., $400K on Xaheen, $400K on PancakeSwap)
+❌ **Splits liquidity** (e.g., $400K on Nor, $400K on PancakeSwap)
 ❌ **Costs $5,000-10,000** to deploy bridge + add liquidity
 ❌ **Price fragmentation** (different prices on different chains)
 ❌ **Lose fee revenue** (fees go to PancakeSwap LPs, not you)
@@ -84,7 +84,7 @@ Trade on Xaheen DEX (better prices)
 
 ## COMPARISON TABLE
 
-| Factor | Xaheen Only (Path 1) | Xaheen + PancakeSwap (Path 2) |
+| Factor | Nor Only (Path 1) | Nor + PancakeSwap (Path 2) |
 |--------|---------------------|------------------------------|
 | **Cost** | $0 (use existing) | $5K-10K (new deployment) |
 | **Liquidity** | $800K concentrated | Split: $400K each |
@@ -100,7 +100,7 @@ Trade on Xaheen DEX (better prices)
 
 ## MY RECOMMENDATION: HYBRID APPROACH
 
-### PHASE 1: Start with Xaheen Only (Month 1)
+### PHASE 1: Start with Nor Only (Month 1)
 
 **Why:**
 - You already have $800K liquidity there
@@ -109,8 +109,8 @@ Trade on Xaheen DEX (better prices)
 - Proves the concept works
 
 **Focus on:**
-- Deploy BSC bridge (BNB → Xaheen)
-- Get users trading on Xaheen DEX
+- Deploy BSC bridge (BNB → Nor)
+- Get users trading on Nor DEX
 - Build community and volume
 - Apply to CoinGecko/CMC
 
@@ -122,16 +122,16 @@ Trade on Xaheen DEX (better prices)
 ### PHASE 2: Add PancakeSwap Later (Month 2-3)
 
 **When to add PancakeSwap:**
-- ✅ After you have 500+ active users on Xaheen
+- ✅ After you have 500+ active users on Nor
 - ✅ After CoinGecko/CMC listing approved
 - ✅ After you prove bridge works well
 - ✅ When you have $10K budget available
 
 **Why wait:**
-1. **Liquidity grows first** on Xaheen (easier to split later)
+1. **Liquidity grows first** on Nor (easier to split later)
 2. **Learn from users** (understand their needs first)
 3. **Cheaper** (can allocate funds when revenue grows)
-4. **Proves demand** (don't deploy to PancakeSwap if no one uses Xaheen)
+4. **Proves demand** (don't deploy to PancakeSwap if no one uses Nor)
 
 ---
 
@@ -143,8 +143,8 @@ Trade on Xaheen DEX (better prices)
    - Can afford to split liquidity
    - Can handle deployment costs
 
-2. **Xaheen DEX volume is strong** ($100K+/day)
-   - Proves people want to trade XHT
+2. **Nor DEX volume is strong** ($100K+/day)
+   - Proves people want to trade NOR
    - Splitting liquidity won't hurt prices
 
 3. **Users specifically request BSC**
@@ -166,19 +166,19 @@ Trade on Xaheen DEX (better prices)
 
 ### Scenario: $800K Total Liquidity
 
-**Concentrated on Xaheen:**
+**Concentrated on Nor:**
 ```
-XHT/USDT Pool: $800K liquidity
-User trades $10K XHT
+NOR/USDT Pool: $800K liquidity
+User trades $10K NOR
 
 Price impact: ~1.25%
 User gets: $9,875 (loses $125 to slippage)
 ```
 
-**Split (Xaheen $400K + PancakeSwap $400K):**
+**Split (Nor $400K + PancakeSwap $400K):**
 ```
-XHT/USDT Pool on Xaheen: $400K liquidity
-User trades $10K XHT
+NOR/USDT Pool on Nor: $400K liquidity
+User trades $10K NOR
 
 Price impact: ~2.5%
 User gets: $9,750 (loses $250 to slippage)
@@ -205,7 +205,7 @@ User gets: $9,750 (loses $250 to slippage)
 **Recommendation: Skip Ethereum/Uniswap entirely**
 
 Focus on:
-1. Xaheen Chain (your native chain) ✅
+1. Nor Chain (your native chain) ✅
 2. BSC via PancakeSwap (if budget allows) ⏳
 3. Maybe Polygon later (cheap like BSC) 🔮
 
@@ -232,16 +232,16 @@ Focus on:
 ┌─────────────────────────────────────────┐
 │         BSC Ecosystem (Binance)         │
 │  - Users buy BNB with fiat              │
-│  - Bridge BNB to Xaheen                 │
+│  - Bridge BNB to Nor                 │
 └──────────────┬──────────────────────────┘
                │
                │ YOUR BRIDGE ($420 to deploy)
                │
                ↓
 ┌─────────────────────────────────────────┐
-│        Xaheen Chain (Your DEX)          │
-│  - Swap BNB → XHT                       │
-│  - Trade on Xaheen DEX                  │
+│        Nor Chain (Your DEX)          │
+│  - Swap BNB → NOR                       │
+│  - Trade on Nor DEX                  │
 │  - $800K liquidity concentrated         │
 │  - Sub-cent fees                        │
 │  - You earn 100% of fees                │
@@ -250,7 +250,7 @@ Focus on:
 
 **This gives you:**
 1. ✅ Access to Binance fiat on-ramps (via BNB bridge)
-2. ✅ Concentrated liquidity on Xaheen (better prices)
+2. ✅ Concentrated liquidity on Nor (better prices)
 3. ✅ Full control and fee revenue
 4. ✅ No need to deploy token on multiple chains
 5. ✅ Low cost ($420 vs $5K-10K)
@@ -259,9 +259,9 @@ Focus on:
 
 ## PRACTICAL EXAMPLE: USER JOURNEY
 
-### Path 1: Xaheen Only (Your Current Strategy)
+### Path 1: Nor Only (Your Current Strategy)
 
-**User wants to buy $100 of XHT:**
+**User wants to buy $100 of NOR:**
 
 1. **Buy BNB on Binance** (5 min)
    - Deposit $100 USD
@@ -272,25 +272,25 @@ Focus on:
    - Send to MetaMask address
    - Cost: $0.50 withdrawal fee
 
-3. **Bridge BNB to Xaheen** (2 min)
+3. **Bridge BNB to Nor** (2 min)
    - Go to xaheen.org/bridge
-   - Bridge 0.2 BNB → 0.2 WBNB on Xaheen
+   - Bridge 0.2 BNB → 0.2 WBNB on Nor
    - Cost: $0.10 bridge fee
 
-4. **Swap WBNB → XHT** (1 min)
-   - Go to Xaheen DEX
-   - Swap 0.2 WBNB (~$80) → ~80,000 XHT
+4. **Swap WBNB → NOR** (1 min)
+   - Go to Nor DEX
+   - Swap 0.2 WBNB (~$80) → ~80,000 NOR
    - Cost: $0.24 DEX fee (0.3%)
 
 **Total time**: 13 minutes
 **Total cost**: $1.84 in fees
-**User gets**: ~80,000 XHT (~$80 value)
+**User gets**: ~80,000 NOR (~$80 value)
 
 ---
 
 ### Path 2: If You Added PancakeSwap
 
-**User wants to buy $100 of XHT:**
+**User wants to buy $100 of NOR:**
 
 1. **Buy BNB on Binance** (5 min)
    - Same as above
@@ -298,22 +298,22 @@ Focus on:
 2. **Withdraw BNB to MetaMask** (5 min)
    - Same as above
 
-3. **Swap BNB → XHT on PancakeSwap** (1 min)
+3. **Swap BNB → NOR on PancakeSwap** (1 min)
    - Go to PancakeSwap
-   - Swap 0.2 BNB → ~75,000 XHT
+   - Swap 0.2 BNB → ~75,000 NOR
    - Cost: $0.50 gas + $0.60 PancakeSwap fee
 
 **Total time**: 11 minutes (2 min faster)
 **Total cost**: $2.60 in fees (slightly higher)
-**User gets**: ~75,000 XHT (~$75 value) - WORSE due to shallow liquidity!
+**User gets**: ~75,000 NOR (~$75 value) - WORSE due to shallow liquidity!
 
-**Winner**: Path 1 (Xaheen only) gives user MORE XHT for same money!
+**Winner**: Path 1 (Nor only) gives user MORE NOR for same money!
 
 ---
 
 ## DECISION FRAMEWORK
 
-### Choose Xaheen Only If:
+### Choose Nor Only If:
 - ✅ Budget < $5,000
 - ✅ Want to maximize liquidity depth
 - ✅ Want full control
@@ -322,7 +322,7 @@ Focus on:
 
 ### Add PancakeSwap If:
 - ✅ Budget > $10,000
-- ✅ Daily volume > $100K on Xaheen
+- ✅ Daily volume > $100K on Nor
 - ✅ Want faster CMC approval
 - ✅ Need "BSC token" for partnerships
 - ✅ Can afford to split liquidity
@@ -331,11 +331,11 @@ Focus on:
 
 ## MY FINAL RECOMMENDATION
 
-### Phase 1 (Month 1): Xaheen Only ✅
+### Phase 1 (Month 1): Nor Only ✅
 
 **Deploy:**
 - BSC bridge for BNB (cost: $420)
-- Keep all $800K liquidity on Xaheen DEX
+- Keep all $800K liquidity on Nor DEX
 
 **Benefits:**
 - Best prices for users (concentrated liquidity)
@@ -345,7 +345,7 @@ Focus on:
 
 **User flow:**
 ```
-Binance (fiat) → BNB → Bridge → Xaheen DEX → Trade XHT
+Binance (fiat) → BNB → Bridge → Nor DEX → Trade NOR
 ```
 
 ---
@@ -354,7 +354,7 @@ Binance (fiat) → BNB → Bridge → Xaheen DEX → Trade XHT
 
 **Deploy if:**
 - You have 500+ daily active users
-- $50K+ daily volume on Xaheen
+- $50K+ daily volume on Nor
 - CoinGecko/CMC approved
 - Budget available ($10K)
 
@@ -365,7 +365,7 @@ Binance (fiat) → BNB → Bridge → Xaheen DEX → Trade XHT
 
 **User flow option 2:**
 ```
-Binance (fiat) → BNB → PancakeSwap → Trade XHT on BSC
+Binance (fiat) → BNB → PancakeSwap → Trade NOR on BSC
 ```
 
 ---
@@ -388,7 +388,7 @@ Binance (fiat) → BNB → PancakeSwap → Trade XHT on BSC
 
 | Strategy | Cost | Time | Risk | Reward |
 |----------|------|------|------|--------|
-| **Xaheen Only** | $420 | Week 1 | Low | Good prices, full control |
+| **Nor Only** | $420 | Week 1 | Low | Good prices, full control |
 | **+ PancakeSwap** | $5-10K | Week 2-3 | Medium | More exposure, split liquidity |
 | **+ Uniswap** | $11-21K | Week 3-4 | High | Very expensive, skip this |
 | **+ SushiSwap** | $3-5K | Week 4 | Medium | Less popular than PancakeSwap |
@@ -404,8 +404,8 @@ Binance (fiat) → BNB → PancakeSwap → Trade XHT on BSC
 **Better strategy:**
 1. ✅ Deploy BSC bridge ($420)
 2. ✅ Users buy BNB on Binance (has fiat on-ramp!)
-3. ✅ Users bridge BNB to Xaheen
-4. ✅ Users trade on Xaheen DEX (your DEX, your fees!)
+3. ✅ Users bridge BNB to Nor
+4. ✅ Users trade on Nor DEX (your DEX, your fees!)
 5. ✅ Keep $800K liquidity concentrated (better prices)
 6. ⏳ Add PancakeSwap later if demand justifies it
 

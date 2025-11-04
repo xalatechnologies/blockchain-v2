@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 /**
  * @title wBTCBR (Wrapped BTCBR for Ethereum)
  * @notice ERC-20 wrapped version of BTCBR for Ethereum mainnet
- * @dev Minted by bridge when BTCBR is locked on Xaheen Chain
+ * @dev Minted by bridge when BTCBR is locked on Nor Chain
  */
 contract wBTCBR_Ethereum is ERC20, AccessControl, Pausable {
 

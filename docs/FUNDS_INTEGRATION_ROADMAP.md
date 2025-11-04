@@ -1,4 +1,4 @@
-# 🏦 Noor Chain Funds Integration Roadmap
+# 🏦 Nor Chain Funds Integration Roadmap
 
 **Date:** November 2, 2025
 **Status:** Planning Phase
@@ -8,7 +8,7 @@
 
 ## 🎯 Executive Summary
 
-With the **DEX infrastructure and Multi-Asset Reserve Vault now complete**, we have the foundational layer needed to build Noor Chain's comprehensive fund ecosystem. This document outlines how to implement the 8 fund types defined in the playbook.
+With the **DEX infrastructure and Multi-Asset Reserve Vault now complete**, we have the foundational layer needed to build Nor Chain's comprehensive fund ecosystem. This document outlines how to implement the 8 fund types defined in the playbook.
 
 ---
 
@@ -18,7 +18,7 @@ With the **DEX infrastructure and Multi-Asset Reserve Vault now complete**, we h
 
 | Component | Status | Purpose for Funds |
 |-----------|--------|-------------------|
-| **NoorSwap DEX** | ✅ Live | Liquidity for fund subscriptions/redemptions |
+| **NorSwap DEX** | ✅ Live | Liquidity for fund subscriptions/redemptions |
 | **MultiAssetReserveVault** | ✅ Live | Template for fund asset management |
 | **LiquidityLock** | ✅ Live | Time-locked fund shares/vesting |
 | **Dirhamat (AED-backed)** | ✅ Live | Stable currency for fund denominations |
@@ -54,7 +54,7 @@ With the **DEX infrastructure and Multi-Asset Reserve Vault now complete**, we h
 
 ### Phase 1: Core Fund Infrastructure (Q1 2026)
 
-#### 1.1 NoorFund.sol - Base Fund Contract
+#### 1.1 NorFund.sol - Base Fund Contract
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -66,11 +66,11 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 
 /**
- * @title NoorFund
- * @notice Base contract for all Noor Chain investment funds
+ * @title NorFund
+ * @notice Base contract for all Nor Chain investment funds
  * @dev Extends MultiAssetReserveVault pattern with NAV tracking
  */
-contract NoorFund is ERC20, AccessControl, ReentrancyGuard, Pausable {
+contract NorFund is ERC20, AccessControl, ReentrancyGuard, Pausable {
 
     bytes32 public constant FUND_MANAGER_ROLE = keccak256("FUND_MANAGER_ROLE");
     bytes32 public constant NAV_ORACLE_ROLE = keccak256("NAV_ORACLE_ROLE");
@@ -318,20 +318,20 @@ contract NoorFund is ERC20, AccessControl, ReentrancyGuard, Pausable {
 }
 ```
 
-#### 1.2 NoorFundFactory.sol - Fund Deployment Contract
+#### 1.2 NorFundFactory.sol - Fund Deployment Contract
 
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "./NoorFund.sol";
+import "./NorFund.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
 /**
- * @title NoorFundFactory
- * @notice Factory contract for deploying new Noor Chain funds
+ * @title NorFundFactory
+ * @notice Factory contract for deploying new Nor Chain funds
  */
-contract NoorFundFactory is AccessControl {
+contract NorFundFactory is AccessControl {
 
     bytes32 public constant FUND_CREATOR_ROLE = keccak256("FUND_CREATOR_ROLE");
 
@@ -360,7 +360,7 @@ contract NoorFundFactory is AccessControl {
         uint256 _managementFee,
         uint256 _minimumInvestment
     ) external onlyRole(FUND_CREATOR_ROLE) returns (address) {
-        NoorFund fund = new NoorFund(
+        NorFund fund = new NorFund(
             _name,
             _symbol,
             _shariahStructure,
@@ -400,14 +400,14 @@ contract NoorFundFactory is AccessControl {
 ### Q1 2026: Core Infrastructure
 
 **Week 1-2: Smart Contracts**
-- [ ] Deploy NoorFund.sol base contract
-- [ ] Deploy NoorFundFactory.sol
+- [ ] Deploy NorFund.sol base contract
+- [ ] Deploy NorFundFactory.sol
 - [ ] Create NAVOracle.sol for price feeds
 - [ ] Create ShariahOracle.sol for compliance
 
 **Week 3-4: Integration**
-- [ ] Connect NoorFund to MultiAssetReserveVault pattern
-- [ ] Integrate with NoorSwap for subscriptions/redemptions
+- [ ] Connect NorFund to MultiAssetReserveVault pattern
+- [ ] Integrate with NorSwap for subscriptions/redemptions
 - [ ] Set up IPFS for NAV proof storage
 - [ ] Configure role-based access control
 
@@ -479,7 +479,7 @@ contract NoorFundFactory is AccessControl {
 
 | DEX Component | Fund Use Case |
 |---------------|---------------|
-| **NoorSwap Router** | Convert investor deposits to fund assets |
+| **NorSwap Router** | Convert investor deposits to fund assets |
 | **Liquidity Pools** | Instant redemptions via swap |
 | **Price Oracles** | NAV calculation for crypto assets |
 | **LP Tokens** | Collateral for fund borrowing |
@@ -628,7 +628,7 @@ interface InvestorPortfolio {
 
 **Step 4: Go Live**
 - Open for public subscriptions
-- Integrate with Noor Wallet
+- Integrate with Nor Wallet
 - Enable DEX redemptions
 - Start NAV updates (daily)
 
@@ -639,8 +639,8 @@ interface InvestorPortfolio {
 | **Management Fees** | 1-2% annually on AUM | $178,000/year (@$10M AUM, 2%) |
 | **Performance Fees** | 10-20% of returns | Variable |
 | **Subscription Fees** | 0.5% on deposits | $50 per $10k |
-| **DEX Swap Fees** | 0.3% on fund swaps | Integrated with NoorSwap |
-| **Protocol Revenue** | 10% of fund fees | To Noor treasury |
+| **DEX Swap Fees** | 0.3% on fund swaps | Integrated with NorSwap |
+| **Protocol Revenue** | 10% of fund fees | To Nor treasury |
 
 **Projected Revenue (Year 1):**
 - 8 funds × $5M average AUM = $40M
@@ -679,14 +679,14 @@ interface InvestorPortfolio {
 ### Immediate (This Month)
 
 1. ✅ Review playbook fund specifications
-2. ✅ Map MultiAssetReserveVault → NoorFund pattern
-3. 🔄 Draft NoorFund.sol contract
+2. ✅ Map MultiAssetReserveVault → NorFund pattern
+3. 🔄 Draft NorFund.sol contract
 4. 🔄 Design NAV oracle architecture
 5. 🔄 Plan Shariah compliance integration
 
 ### Next Month
 
-1. Deploy NoorFund + Factory to testnet
+1. Deploy NorFund + Factory to testnet
 2. Build fund dashboard UI
 3. Integrate NAV oracle (Chainlink + custom)
 4. Test Gold Savings Fund pilot
@@ -727,7 +727,7 @@ interface InvestorPortfolio {
 
 ### vs. Traditional Funds
 
-| Feature | Noor Funds | Traditional |
+| Feature | Nor Funds | Traditional |
 |---------|-----------|-------------|
 | **Settlement** | Instant (blockchain) | T+2 or T+3 |
 | **Transparency** | Full on-chain | Quarterly reports |
@@ -738,7 +738,7 @@ interface InvestorPortfolio {
 
 ### vs. Crypto Funds
 
-| Feature | Noor Funds | Typical Crypto |
+| Feature | Nor Funds | Typical Crypto |
 |---------|-----------|----------------|
 | **Regulation** | AAOIFI + local | Often none |
 | **Asset Mix** | Multi-asset (crypto + real) | Crypto only |
@@ -752,7 +752,7 @@ interface InvestorPortfolio {
 
 ### For Development Team
 
-- [ ] Review NoorFund.sol contract design
+- [ ] Review NorFund.sol contract design
 - [ ] Set up testnet deployment pipeline
 - [ ] Build NAV oracle integration
 - [ ] Create fund dashboard mockups
@@ -785,7 +785,7 @@ interface InvestorPortfolio {
 - ✅ Dirhamat stablecoin with 16.5x backing
 
 **Next Phase:**
-- 🔄 Deploy NoorFund base contracts
+- 🔄 Deploy NorFund base contracts
 - 🔄 Launch Gold Savings Fund (pilot)
 - 🔄 Onboard first institutional partners
 - 🔄 Build fund dashboard & analytics
@@ -800,7 +800,7 @@ interface InvestorPortfolio {
 ---
 
 *Document prepared: November 2, 2025*
-*Based on: Noor Chain Playbook Part 3 + Current DEX deployment*
+*Based on: Nor Chain Playbook Part 3 + Current DEX deployment*
 *Status: Ready for implementation*
 
 **🌙 From DEX to Funds - Illuminating the Path to Institutional Finance 🌙**

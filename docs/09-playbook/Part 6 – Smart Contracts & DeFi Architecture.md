@@ -1,20 +1,20 @@
 # Part 6 – Smart Contracts & DeFi Architecture
 
-**Noor Chain Ecosystem - Technical Implementation Guide**  
+**Nor Chain Ecosystem - Technical Implementation Guide**  
 **Version**: v3.1-2025-11-02  
-**Part of**: Noor Chain Playbook v3 - Public Master Edition
+**Part of**: Nor Chain Playbook v3 - Public Master Edition
 
 ---
 
 ## Table of Contents
 
 1. [Token Economics & NOR Contract](#1-token-economics--nor-contract)
-2. [NoorSwap DEX Architecture](#2-noorswap-dex-architecture)
+2. [NorSwap DEX Architecture](#2-norswap-dex-architecture)
 3. [Liquidity Pool Implementation](#3-liquidity-pool-implementation)
 4. [Bridge Contracts](#4-bridge-contracts)
 5. [Stablecoin Implementations](#5-stablecoin-implementations)
 6. [Governance & DAO](#6-governance--dao)
-7. [Noor Funds (Halal Investment)](#7-noor-funds-halal-investment)
+7. [Nor Funds (Halal Investment)](#7-nor-funds-halal-investment)
 8. [Security & Auditing](#8-security--auditing)
 
 ---
@@ -26,7 +26,7 @@
 **Contract**: `/contracts/tokens/NOR.sol`
 
 ```solidity
-// Noor Token (NOR) - Native utility token
+// Nor Token (NOR) - Native utility token
 - Symbol: NOR (نور - "Light")
 - Total Supply: 21,000,000,000 NOR (21 billion)
 - Decimals: 24 (ultra-high precision)
@@ -47,11 +47,11 @@
 
 ### NOR Use Cases
 
-1. **Gas Fees** - All transactions on Noor Chain
+1. **Gas Fees** - All transactions on Nor Chain
 2. **Staking** - Validator staking and delegated staking
 3. **Governance** - Voting on protocol changes and proposals
 4. **Liquidity Provision** - DEX LP token rewards
-5. **Fund Subscriptions** - Access to Noor Funds halal investment products
+5. **Fund Subscriptions** - Access to Nor Funds halal investment products
 6. **Cross-Chain Fees** - Bridge transaction fees
 7. **NFT Marketplace** - Trading fees and royalties
 
@@ -103,17 +103,17 @@ createVestingSchedule(
 
 ---
 
-## 2. NoorSwap DEX Architecture
+## 2. NorSwap DEX Architecture
 
 ### Overview
 
-NoorSwap is the native decentralized exchange (DEX) on Noor Chain, implementing Uniswap V2-style Automated Market Maker (AMM) with Shariah-compliant modifications.
+NorSwap is the native decentralized exchange (DEX) on Nor Chain, implementing Uniswap V2-style Automated Market Maker (AMM) with Shariah-compliant modifications.
 
 ### Core Contracts
 
-**1. NoorSwapFactory**
+**1. NorSwapFactory**
 ```solidity
-Contract: /contracts/dex/NoorSwapFactory.sol
+Contract: /contracts/dex/NorSwapFactory.sol
 
 Purpose: Creates and manages trading pairs
 - createPair(tokenA, tokenB): Create new trading pair
@@ -123,9 +123,9 @@ Purpose: Creates and manages trading pairs
 - feeToSetter: Fee configuration authority
 ```
 
-**2. NoorSwapPair**
+**2. NorSwapPair**
 ```solidity
-Contract: /contracts/dex/NoorSwapPair.sol
+Contract: /contracts/dex/NorSwapPair.sol
 
 Purpose: Individual trading pair (LP token)
 - Constant Product Formula: x * y = k
@@ -137,9 +137,9 @@ Purpose: Individual trading pair (LP token)
 - price1CumulativeLast: TWAP oracle accumulator
 ```
 
-**3. NoorSwapRouter**
+**3. NorSwapRouter**
 ```solidity
-Contract: /contracts/dex/NoorSwapRouter.sol
+Contract: /contracts/dex/NorSwapRouter.sol
 
 Purpose: User-facing interface for swaps and liquidity
 
@@ -343,18 +343,18 @@ function _update(uint112 balance0, uint112 balance1) private {
 
 ### Bridge Architecture Overview
 
-Noor Chain implements a **multi-layer bridge system** for cross-chain asset transfers.
+Nor Chain implements a **multi-layer bridge system** for cross-chain asset transfers.
 
 ### Bridge Types
 
 | Bridge Type | Chains | Assets | Status |
 |------------|--------|--------|--------|
-| **Lock & Mint** | BSC ↔ Noor | BTCBR, BNB, USDT, ETH | ✅ Production |
-| **Atomic Swap** | BSC ↔ Noor | Any ERC-20 | ✅ Production |
-| **Liquidity Pool** | BSC ↔ Noor | Major tokens | ✅ Production |
-| **NFT Bridge** | BSC ↔ Noor | ERC-721 | ✅ Production |
-| **Optimistic** | Ethereum ↔ Noor | Any ERC-20 | 🔄 Development |
-| **ZK Bridge** | Polygon ↔ Noor | Any ERC-20 | 🔄 Development |
+| **Lock & Mint** | BSC ↔ Nor | BTCBR, BNB, USDT, ETH | ✅ Production |
+| **Atomic Swap** | BSC ↔ Nor | Any ERC-20 | ✅ Production |
+| **Liquidity Pool** | BSC ↔ Nor | Major tokens | ✅ Production |
+| **NFT Bridge** | BSC ↔ Nor | ERC-721 | ✅ Production |
+| **Optimistic** | Ethereum ↔ Nor | Any ERC-20 | 🔄 Development |
+| **ZK Bridge** | Polygon ↔ Nor | Any ERC-20 | 🔄 Development |
 
 ### Lock & Mint Bridge Implementation
 
@@ -394,7 +394,7 @@ function withdraw(
 
 **Private Chain Side** (`BTCBRBridgePrivate.sol`):
 ```solidity
-// Mint wrapped tokens on Noor Chain
+// Mint wrapped tokens on Nor Chain
 function mint(
     address recipient,
     uint256 amount,
@@ -542,10 +542,10 @@ function _isFullyBacked(uint256 mintAmount) internal view returns (bool) {
 2. **Validator DAO** - All validators + delegators
 3. **Community DAO** - NOR token holders (≥10,000 NOR staked)
 
-**Governance Contract**: `/contracts/governance/NoorGovernance.sol`
+**Governance Contract**: `/contracts/governance/NorGovernance.sol`
 
 ```solidity
-contract NoorGovernance {
+contract NorGovernance {
     // Proposal structure
     struct Proposal {
         uint256 id;
@@ -587,15 +587,15 @@ contract NoorGovernance {
 
 ---
 
-## 7. Noor Funds (Halal Investment)
+## 7. Nor Funds (Halal Investment)
 
 ### Fund Architecture
 
-**Contract**: `/contracts/funds/NoorFund.sol`
+**Contract**: `/contracts/funds/NorFund.sol`
 
 ```solidity
 // Shariah-compliant investment fund
-contract NoorFund {
+contract NorFund {
     // Fund configuration
     string public name;
     address public manager;
@@ -698,14 +698,14 @@ import "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.so
 
 ---
 
-## Contract Deployment Addresses (Noor Chain Mainnet - Chain ID 65001)
+## Contract Deployment Addresses (Nor Chain Mainnet - Chain ID 65001)
 
 ### Core Infrastructure
 ```
 NOR Token (Native):        Native (gas token)
 WNOR (Wrapped NOR):        0x26c0eaF731885b14c031cc50dB79b36458E0b355
-NoorSwap Factory:          0xBE254176B4f13b02f367a9feCE599ee8887E2D34
-NoorSwap Router:           0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916
+NorSwap Factory:          0xBE254176B4f13b02f367a9feCE599ee8887E2D34
+NorSwap Router:           0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916
 ```
 
 ### External Tokens (Bridged)
@@ -725,7 +725,7 @@ Burn Mechanism:            0xA609ad73915f72a824b1bFEACd5cA3027490d5b9
 ### Bridge Contracts
 ```
 BTCBR Bridge (BSC):        0x6C46422A0f7dbbAD9BEC3BbBC1189bfAf9794B05
-BTCBR Bridge (Noor):       TBD
+BTCBR Bridge (Nor):       TBD
 NFT Bridge:                TBD
 Atomic Swap:               TBD
 ```
@@ -738,8 +738,8 @@ Digital KES:               TBD
 
 ### Governance & Funds
 ```
-Noor Governance DAO:       TBD
-Noor Funds Factory:        TBD
+Nor Governance DAO:       TBD
+Nor Funds Factory:        TBD
 ```
 
 ### Treasury
@@ -757,9 +757,9 @@ NOR/ETH Pool:              50M NOR + 2 ETH
 ```
 
 **Deployment Status**: Fully Operational (as of Block ~2200+, Oct 31, 2025)  
-**Network**: Noor Chain Mainnet  
+**Network**: Nor Chain Mainnet  
 **Chain ID**: 65001 (0xFDE9)  
-**RPC**: https://rpc.noor.org
+**RPC**: https://rpc.nor.org
 
 ---
 
@@ -776,29 +776,29 @@ npx hardhat test
 npx hardhat test --network hardhat
 ```
 
-### Deploy to Noor Chain
+### Deploy to Nor Chain
 ```bash
-npx hardhat run scripts/deploy-nor-token.js --network noorchain
-npx hardhat run scripts/deploy-noorswap.js --network noorchain
+npx hardhat run scripts/deploy-nor-token.js --network norchain
+npx hardhat run scripts/deploy-norswap.js --network norchain
 ```
 
 ### Verify Contracts
 ```bash
-npx hardhat verify --network noorchain DEPLOYED_ADDRESS "Constructor Arg1" "Arg2"
+npx hardhat verify --network norchain DEPLOYED_ADDRESS "Constructor Arg1" "Arg2"
 ```
 
 ---
 
 ## Summary
 
-Noor Chain's smart contract ecosystem provides:
+Nor Chain's smart contract ecosystem provides:
 
 ✅ **Native NOR Token** - 21B supply with vesting and governance
-✅ **NoorSwap DEX** - Uniswap V2-style AMM with 0.3% fees
+✅ **NorSwap DEX** - Uniswap V2-style AMM with 0.3% fees
 ✅ **Multi-Chain Bridges** - Lock/Mint, Atomic Swap, Liquidity Pool
 ✅ **Stablecoins** - Dirhamat (AED+Gold), Digital KES
 ✅ **Governance** - Three-layer DAO system
 ✅ **Halal Funds** - Shariah-compliant investment products
 ✅ **Security** - OpenZeppelin standards, audited contracts
 
-🌙 **Noor Chain - Illuminating DeFi with Light and Trust** 🌙
+🌙 **Nor Chain - Illuminating DeFi with Light and Trust** 🌙

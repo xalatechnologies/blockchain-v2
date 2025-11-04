@@ -1,7 +1,7 @@
 # 🚀 BTCBR Chain Public Launch Checklist
 ## $10,000 Budget - Week 1 Execution Plan
 
-**Network Name:** BTCBR Private BSC → **Xaheen Chain** (rebrand)  
+**Network Name:** BTCBR Private BSC → **Nor Chain** (rebrand)  
 **Chain ID:** 885824  
 **Budget Cap:** $10,000 USD  
 **Timeline:** 7 days to public launch  

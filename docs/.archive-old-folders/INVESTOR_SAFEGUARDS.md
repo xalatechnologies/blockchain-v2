@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-This document outlines the legal structure, fund custody, investor protections, and guarantee mechanisms for Xaheen Chain investments.
+This document outlines the legal structure, fund custody, investor protections, and guarantee mechanisms for Nor Chain investments.
 
 ---
 
@@ -18,14 +18,14 @@ This document outlines the legal structure, fund custody, investor protections, 
 ### Entity Setup ($5,000-$15,000):
 
 ```
-Xaheen Technologies Inc. (Delaware C-Corp)
+Nor Technologies Inc. (Delaware C-Corp)
 ├── Owns: IP, code, infrastructure
 ├── Employees: Development team
 ├── Revenue: Bridge fees, DEX fees, partnerships
 └── Issues: Preferred Stock to investors
 
-Xaheen Foundation (Cayman)
-├── Holds: 70% of XHT token supply
+Nor Foundation (Cayman)
+├── Holds: 70% of NOR token supply
 ├── Manages: Ecosystem grants, liquidity
 ├── Governed by: Board with investor representation
 └── Issues: Token warrants to equity holders
@@ -162,10 +162,10 @@ INVESTOR RIGHTS:
 
 ```
 TOKEN ALLOCATION:
-├── Investors receive: 10% of token supply (2.1T XHT)
+├── Investors receive: 10% of token supply (2.1T NOR)
 ├── Vesting: 2-year vest, 6-month cliff
 ├── Price: Fixed at $0.0000002 per token
-└── Upside: If XHT reaches $0.00001, warrants worth $21M
+└── Upside: If NOR reaches $0.00001, warrants worth $21M
 
 PROTECTIONS:
 ├── Registration rights for token sale
@@ -190,7 +190,7 @@ IF ACQUISITION OFFER RECEIVED:
 **Multi-Sig Smart Contract:**
 
 ```solidity
-contract XaheenTreasury {
+contract NorTreasury {
     // 3-of-5 multi-signature requirement
     address[5] public signers;
 
@@ -341,7 +341,7 @@ LIQUIDATION PREFERENCE:
 
 **Founder Token Vesting:**
 ```
-FOUNDERS RECEIVE: 15% of XHT supply (3.15T tokens)
+FOUNDERS RECEIVE: 15% of NOR supply (3.15T tokens)
 
 VESTING SCHEDULE:
 ├── Year 1: 0% (fully locked)
@@ -359,7 +359,7 @@ LOCKUP SMART CONTRACT:
 
 **Team Token Vesting:**
 ```
-TEAM RECEIVES: 10% of XHT supply (2.1T tokens)
+TEAM RECEIVES: 10% of NOR supply (2.1T tokens)
 
 VESTING SCHEDULE:
 ├── 4-year vest, 1-year cliff
@@ -453,7 +453,7 @@ LIVE METRICS:
 **Path 1: Token Appreciation (Most Likely)**
 ```
 INVESTOR RECEIVES:
-├── 2.1T XHT tokens (10% of supply)
+├── 2.1T NOR tokens (10% of supply)
 ├── 2-year vesting schedule
 
 EXIT OPTIONS:
@@ -462,9 +462,9 @@ EXIT OPTIONS:
 └── Hold for long-term appreciation
 
 EXAMPLE RETURNS:
-├── XHT at $0.000001: $2.1M (4x)
-├── XHT at $0.00001: $21M (42x)
-└── XHT at $0.0001: $210M (420x)
+├── NOR at $0.000001: $2.1M (4x)
+├── NOR at $0.00001: $21M (42x)
+└── NOR at $0.0001: $210M (420x)
 ```
 
 **Path 2: Equity Buyback**
@@ -571,7 +571,7 @@ EXAMPLE SECONDARY:
 
 ## 15. COMPARABLE INVESTMENT TERMS (MARKET BENCHMARKS)
 
-### How Xaheen Compares to Industry Standards
+### How Nor Compares to Industry Standards
 
 | **TERM** | **XAHEEN** | **TYPICAL SEED ROUND** | **NOTES** |
 |----------|------------|------------------------|-----------|
@@ -604,7 +604,7 @@ EXAMPLE SECONDARY:
 - Take below-market salaries ($60k/year Year 1)
 - Vest equity over 4 years (1-year cliff)
 - Lock tokens for 1 year (4-year vest)
-- Work full-time exclusively on Xaheen
+- Work full-time exclusively on Nor
 - Relocate if needed for business development
 
 **Founders Won't:**
@@ -652,7 +652,7 @@ MARKETING (15% - $75,000):
 ├── Influencer Partnerships ($15,000)
 │   └── 10 micro-influencers ($1,500 each)
 ├── Community Airdrops ($10,000)
-│   └── 1,000 users × 10,000 XHT
+│   └── 1,000 users × 10,000 NOR
 ├── Content Creation ($10,000)
 │   ├── Videos, graphics, articles
 │   └── Translations (multilingual)
@@ -671,7 +671,7 @@ LEGAL & COMPLIANCE (5% - $25,000):
 
 LIQUIDITY & INCENTIVES (5% - $25,000):
 ├── Initial DEX Liquidity ($15,000)
-│   └── Seed multiple pairs (XHT/USDT, XHT/BNB)
+│   └── Seed multiple pairs (NOR/USDT, NOR/BNB)
 ├── Liquidity Mining Rewards ($10,000)
 │   └── LP incentives (Year 1)
 └── Bridge Liquidity ($0)
@@ -746,7 +746,7 @@ TOTAL: $500,000
 
 **INVESTOR RELATIONS:**
 Email: investors@xaheen.org
-Telegram: @XaheenInvestors
+Telegram: @NorInvestors
 Calendar: https://calendly.com/xaheen-investors
 
 **CONFIDENTIAL INVESTOR MATERIALS:**

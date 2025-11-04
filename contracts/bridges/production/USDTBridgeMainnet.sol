@@ -9,8 +9,8 @@ import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
 /**
  * @title USDTBridgeMainnet
- * @notice Bridge USDT from BSC to Xaheen Chain (REVENUE GENERATOR!)
- * @dev Locks USDT on BSC, mints WUSDT on Xaheen
+ * @notice Bridge USDT from BSC to Nor Chain (REVENUE GENERATOR!)
+ * @dev Locks USDT on BSC, mints WUSDT on Nor
  *
  * MONETIZATION: 0.2% fee on every bridge = PURE PROFIT!
  */
@@ -73,7 +73,7 @@ contract USDTBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
     }
 
     /**
-     * @notice Lock USDT on BSC to bridge to Xaheen
+     * @notice Lock USDT on BSC to bridge to Nor
      */
     function bridgeUSDT(address recipient, uint256 amount) external whenNotPaused nonReentrant {
         require(amount >= minTransferAmount, "Amount below minimum");
@@ -114,7 +114,7 @@ contract USDTBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
     }
 
     /**
-     * @notice Release USDT back to user (Xaheen → BSC withdrawal)
+     * @notice Release USDT back to user (Nor → BSC withdrawal)
      */
     function releaseUSDT(
         uint256 amount,

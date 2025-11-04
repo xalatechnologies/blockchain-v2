@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 
 /**
  * @title WBNBToken
- * @notice Wrapped BNB token on Xaheen Chain
+ * @notice Wrapped BNB token on Nor Chain
  * @dev Minted when users bridge BNB from BSC
  */
 contract WBNBToken is ERC20, AccessControl, Pausable {

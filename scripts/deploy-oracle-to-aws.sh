@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ##
-# Deploy Noor Oracle Nodes to AWS EC2 Validators
+# Deploy Nor Oracle Nodes to AWS EC2 Validators
 # Run with: bash scripts/deploy-oracle-to-aws.sh
 ##
 
@@ -11,7 +11,7 @@ AWS_HOST="3.91.50.187"
 AWS_USER="ec2-user"
 SSH_KEY="$HOME/.ssh/bsc-validator-key.pem"
 
-echo "🌙 Deploying Noor Oracle Nodes to AWS EC2"
+echo "🌙 Deploying Nor Oracle Nodes to AWS EC2"
 echo "=========================================="
 echo ""
 echo "AWS Host: $AWS_HOST"
@@ -27,7 +27,7 @@ fi
 # Function to deploy oracle node
 deploy_oracle() {
     local NODE_ID=$1
-    local NODE_NAME="noor-oracle-node${NODE_ID}"
+    local NODE_NAME="nor-oracle-node${NODE_ID}"
 
     echo "📦 Deploying Oracle Node ${NODE_ID}..."
 
@@ -84,11 +84,11 @@ ssh -i "$SSH_KEY" "${AWS_USER}@${AWS_HOST}" << 'REMOTE_SCRIPT'
     fi
 
     # Stop existing oracle if running
-    pm2 delete noor-oracle 2>/dev/null || true
+    pm2 delete nor-oracle 2>/dev/null || true
 
     # Start oracle service
     echo "🚀 Starting oracle service with PM2..."
-    pm2 start oracle-service.js --name noor-oracle
+    pm2 start oracle-service.js --name nor-oracle
 
     # Save PM2 config
     pm2 save
@@ -100,7 +100,7 @@ ssh -i "$SSH_KEY" "${AWS_USER}@${AWS_HOST}" << 'REMOTE_SCRIPT'
     echo "✅ Oracle node deployed and running!"
     echo ""
     echo "📊 View logs:"
-    echo "   pm2 logs noor-oracle"
+    echo "   pm2 logs nor-oracle"
     echo ""
     echo "📈 View status:"
     echo "   pm2 status"
@@ -117,7 +117,7 @@ echo "1. SSH to server: ssh -i $SSH_KEY ${AWS_USER}@${AWS_HOST}"
 echo "2. Edit oracle config: nano ~/oracle-node/.env"
 echo "   - Set ORACLE_PRIVATE_KEY"
 echo "   - Set oracle contract addresses (from deployment)"
-echo "3. Restart oracle: pm2 restart noor-oracle"
-echo "4. Monitor logs: pm2 logs noor-oracle"
+echo "3. Restart oracle: pm2 restart nor-oracle"
+echo "4. Monitor logs: pm2 logs nor-oracle"
 echo ""
 echo "🌙 Oracle node is running on AWS! 🌙"

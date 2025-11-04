@@ -8,7 +8,7 @@
 
 ## 📋 EXECUTIVE SUMMARY
 
-This document outlines Xaheen Chain's **strategic buying strategy** - a systematic approach to creating sustainable price momentum, community engagement, and ecosystem growth through intelligent market participation.
+This document outlines Nor Chain's **strategic buying strategy** - a systematic approach to creating sustainable price momentum, community engagement, and ecosystem growth through intelligent market participation.
 
 **Key Principle:** Use protocol revenue to create organic demand while building trust and visibility.
 
@@ -75,7 +75,7 @@ Total Protocol Revenue (100%)
 
 **Parameters:**
 ```yaml
-Trigger: Every Friday (BuyXaheenFriday)
+Trigger: Every Friday (BuyNorFriday)
 Amount: 1-3% of weekly DEX volume
 Minimum: $500/week
 Maximum: $5,000/week
@@ -97,7 +97,7 @@ contract WeeklyBuyback {
         uint256 lpAmount = amount * 20 / 100;
 
         // Execute buyback on DEX
-        router.swapExactUSDTForXHT(...);
+        router.swapExactUSDTForNOR(...);
 
         // Burn 50%
         token.burn(burnAmount);
@@ -118,18 +118,18 @@ contract WeeklyBuyback {
 🔥 WEEKLY BUYBACK EXECUTED! 🔥
 
 📊 This Week's Stats:
-• Bought: 15,000,000,000 XHT
+• Bought: 15,000,000,000 NOR
 • Spent: $2,000 USDT
-• Burned: 7,500,000,000 XHT (50%)
-• Added to Treasury: 4,500,000,000 XHT
-• Added to LP: 3,000,000,000 XHT
+• Burned: 7,500,000,000 NOR (50%)
+• Added to Treasury: 4,500,000,000 NOR
+• Added to LP: 3,000,000,000 NOR
 
 🔗 Verify: explorer.xaheen.org/tx/0x...
 
 📈 Total Supply Reduced by 0.036%
 🔒 Proof of Commitment to Community
 
-#BuyXaheenFriday #XaheenChain #Buyback
+#BuyNorFriday #NorChain #Buyback
 ```
 
 ---
@@ -149,17 +149,17 @@ contract WeeklyBuyback {
 ```markdown
 🎉 MILESTONE UNLOCKED: 10,000 USERS! 🎉
 
-To celebrate, Xaheen Foundation is executing a:
+To celebrate, Nor Foundation is executing a:
 💰 $10,000 BUYBACK + BURN EVENT 💰
 
 🗓️ Date: [Tomorrow] at 12:00 UTC
-📊 Amount: $10,000 USDT → XHT
+📊 Amount: $10,000 USDT → NOR
 🔥 Action: 100% BURN (all tokens sent to 0xdead)
 🎁 Bonus: Random 100 buyers get NFT badge
 
 This is YOUR community. This is OUR growth! 🚀
 
-#XaheenMilestone #10kUsers
+#NorMilestone #10kUsers
 ```
 
 ---
@@ -178,7 +178,7 @@ Pays Gas Fee (1 gwei)
     ↓
 Weekly Execution
     ↓
-Buy XHT from DEX
+Buy NOR from DEX
     ↓
 80% Burn + 20% Staking Rewards
 ```
@@ -214,8 +214,8 @@ contract AutoBuyback {
 ```
 DEX Trading Fees (0.3% per swap)
 ├── 50% → LP Providers (you)
-├── 30% → Buy XHT + Add to LP
-└── 20% → Buy XHT + Burn
+├── 30% → Buy NOR + Add to LP
+└── 20% → Buy NOR + Burn
 ```
 
 **Example with $10,000 Daily Volume:**
@@ -234,25 +234,25 @@ DEX Trading Fees (0.3% per swap)
 
 **Goal:** Turn buying into viral marketing
 
-#### **#BuyXaheenFriday**
+#### **#BuyNorFriday**
 
 **Every Friday:**
 ```markdown
-📅 #BuyXaheenFriday is HERE! 📅
+📅 #BuyNorFriday is HERE! 📅
 
 🎯 Foundation Commitment:
-We will buy $2,000 of XHT today and BURN it!
+We will buy $2,000 of NOR today and BURN it!
 
 💎 Your Challenge:
-Buy ANY amount of XHT today and:
+Buy ANY amount of NOR today and:
 1. Screenshot your trade
-2. Post on Twitter with #BuyXaheenFriday
+2. Post on Twitter with #BuyNorFriday
 3. Tag 3 friends
 
 🎁 Random Rewards:
-• 10 winners: 1,000,000 XHT bonus
+• 10 winners: 1,000,000 NOR bonus
 • 5 winners: Exclusive NFT
-• 1 grand prize: 10,000,000 XHT + NFT
+• 1 grand prize: 10,000,000 NOR + NFT
 
 🔥 Let's trend! 🔥
 ```
@@ -270,11 +270,11 @@ Buy ANY amount of XHT today and:
 🚀 INFLUENCER CHALLENGE 🚀
 
 We're challenging 50 crypto influencers to:
-1. Buy $100 of XHT each
-2. Post about Xaheen
+1. Buy $100 of NOR each
+2. Post about Nor
 3. Hold for 30 days
 
-💰 Xaheen Foundation will MATCH:
+💰 Nor Foundation will MATCH:
 Total influencer buys × 2 = Our buyback + burn
 
 Example:
@@ -284,7 +284,7 @@ Example:
 
 Are you an influencer? Join here: [link]
 
-#XaheenChallenge
+#NorChallenge
 ```
 
 ---
@@ -298,9 +298,9 @@ Are you an influencer? Join here: [link]
 | Phase | Users | Liquidity | Action | Marketing |
 |-------|-------|-----------|--------|-----------|
 | **Launch** | 0-100 | $20k | ✅ Complete | Announce lock |
-| **Growth 1** | 100-1,000 | +$10k → $30k | Buy $5k XHT + Add LP | "Liquidity up 50%!" |
-| **Growth 2** | 1k-5k | +$20k → $50k | Buy $10k XHT + Add LP | "Hit $50k TVL!" |
-| **Growth 3** | 5k-10k | +$50k → $100k | Buy $25k XHT + Add LP | "6-figure liquidity!" |
+| **Growth 1** | 100-1,000 | +$10k → $30k | Buy $5k NOR + Add LP | "Liquidity up 50%!" |
+| **Growth 2** | 1k-5k | +$20k → $50k | Buy $10k NOR + Add LP | "Hit $50k TVL!" |
+| **Growth 3** | 5k-10k | +$50k → $100k | Buy $25k NOR + Add LP | "6-figure liquidity!" |
 | **Mature** | 10k+ | +$100k → $200k+ | Ongoing | CEX listing prep |
 
 **Each Addition:**
@@ -314,7 +314,7 @@ Are you an influencer? Join here: [link]
 📢 LIQUIDITY UPGRADE INCOMING! 📢
 
 ⏰ Tomorrow at 15:00 UTC
-💰 Adding $20,000 to XaheenSwap
+💰 Adding $20,000 to NorSwap
 📊 Current: $30k → New: $50k TVL (+67%)
 
 What this means:
@@ -329,7 +329,7 @@ This addition should stabilize price at current levels
 Thank you to our 2,500 users! 🙏
 This is just the beginning! 🚀
 
-#XaheenGrowth
+#NorGrowth
 ```
 
 ---
@@ -342,11 +342,11 @@ This is just the beginning! 🚀
 
 | Source | % of Source | Frequency | Annual Impact |
 |--------|-------------|-----------|---------------|
-| Weekly Buybacks | 50% | Weekly | ~10B XHT |
-| Milestone Events | 100% | Milestones | ~50B XHT |
-| Gas Buybacks | 80% | Daily | ~5B XHT |
-| DEX Buybacks | 100% | Daily | ~8B XHT |
-| **Total Burn** | - | - | **~73B XHT/year** |
+| Weekly Buybacks | 50% | Weekly | ~10B NOR |
+| Milestone Events | 100% | Milestones | ~50B NOR |
+| Gas Buybacks | 80% | Daily | ~5B NOR |
+| DEX Buybacks | 100% | Daily | ~8B NOR |
+| **Total Burn** | - | - | **~73B NOR/year** |
 
 **Supply Impact:**
 ```
@@ -368,20 +368,20 @@ Supply Reduced: Beyond initial circulating
 🔥 BURN UPDATE: WEEK 12 🔥
 
 📊 This Week:
-• Burned: 1,500,000,000 XHT
-• Total Burned: 18,000,000,000 XHT
+• Burned: 1,500,000,000 NOR
+• Total Burned: 18,000,000,000 NOR
 
 📈 Supply Stats:
-• Original Circulating: 210B XHT
-• Current Circulating: 192B XHT
+• Original Circulating: 210B NOR
+• Current Circulating: 192B NOR
 • Reduction: 8.57%
 
 🎯 Next Milestone: 10% Reduction
-Only 3B XHT away! 🚀
+Only 3B NOR away! 🚀
 
 Verify burns: explorer.xaheen.org/address/0xdead
 
-#XaheenBurn #Deflationary
+#NorBurn #Deflationary
 ```
 
 ---
@@ -396,7 +396,7 @@ Verify burns: explorer.xaheen.org/address/0xdead
 - ❌ Large sporadic buys (manipulation appearance)
 
 **Do:**
-- ✅ Regular weekly rhythm (#BuyXaheenFriday)
+- ✅ Regular weekly rhythm (#BuyNorFriday)
 - ✅ Milestone celebrations (organic timing)
 - ✅ Before major announcements (build momentum)
 - ✅ Automated from revenue (sustainable)
@@ -460,7 +460,7 @@ Once listed on centralized exchange:
 ```markdown
 🏆 PROOF OF BUY PROGRAM 🏆
 
-Every wallet that buys $100+ XHT gets:
+Every wallet that buys $100+ NOR gets:
 • Unique "Proof of Buy" NFT
 • Serial number (Buyer #1, #2, etc.)
 • Special role in Discord
@@ -474,19 +474,19 @@ Verify your buy:
 2. Mint your NFT (free)
 3. Show off your support!
 
-#ProofOfBuy #XaheenNFT
+#ProofOfBuy #NorNFT
 ```
 
 ### **2. "Buy & Refer" Bonus Program**
 
 ```
-User A buys $100 XHT
+User A buys $100 NOR
     ↓
 Gets referral link
     ↓
 User B uses link + buys $100
     ↓
-Both get 10% bonus XHT
+Both get 10% bonus NOR
     ↓
 Foundation matches total
 ```
@@ -502,7 +502,7 @@ Current: $45,283 / $100,000
 Progress: ████████░░ 45%
 
 Prize Pool:
-• 100B XHT distributed to all traders
+• 100B NOR distributed to all traders
 • Special NFT collection airdrop
 • Foundation $10k buyback + burn
 
@@ -519,7 +519,7 @@ Every swap counts!
 | Metric | Target (Month 1) | Target (Month 6) | Target (Year 1) |
 |--------|------------------|------------------|-----------------|
 | **Weekly Buyback Volume** | $500 | $2,000 | $10,000 |
-| **Total Burned** | 5B XHT | 40B XHT | 100B XHT |
+| **Total Burned** | 5B NOR | 40B NOR | 100B NOR |
 | **Buy Events Held** | 4 | 24 | 52 |
 | **Community Participants** | 50 | 500 | 5,000 |
 | **Social Impressions** | 100k | 1M | 10M |
@@ -547,7 +547,7 @@ Every swap counts!
 - [x] Add initial liquidity ✅
 - [x] Lock 50% for trust ✅
 - [ ] Deploy buyback contract
-- [ ] Announce #BuyXaheenFriday
+- [ ] Announce #BuyNorFriday
 - [ ] First weekly buyback
 
 ### **Phase 2: Automation (Weeks 5-8)**
@@ -619,8 +619,8 @@ Every swap counts!
 🔥 [EVENT NAME] BUYBACK COMPLETE! 🔥
 
 💰 Amount: [X] USDT spent
-📊 Bought: [Y] XHT
-🔥 Burned: [Z] XHT ([%]%)
+📊 Bought: [Y] NOR
+🔥 Burned: [Z] NOR ([%]%)
 📈 Price Impact: +[%]%
 
 🔗 Verify Transaction:
@@ -633,7 +633,7 @@ Total Burned: [TOTAL]
 💎 Thank you to our community!
 Together we build! 🚀
 
-#XaheenBuyback #[HashtagEvent]
+#NorBuyback #[HashtagEvent]
 ```
 
 ### **Smart Contract Snippets**
@@ -697,4 +697,4 @@ Protocol Revenue
 
 ---
 
-**"Buy smart. Burn often. Build forever." - Xaheen Foundation**
+**"Buy smart. Burn often. Build forever." - Nor Foundation**

@@ -8,7 +8,7 @@ import "./wBTCBR_Ethereum.sol";
 
 /**
  * @title BTCBRBridgeEthereum
- * @notice Bridge BTCBR between Xaheen Chain and Ethereum
+ * @notice Bridge BTCBR between Nor Chain and Ethereum
  * @dev Lock/mint mechanism with multi-sig validation
  */
 contract BTCBRBridgeEthereum is Ownable, ReentrancyGuard, Pausable {
@@ -32,7 +32,7 @@ contract BTCBRBridgeEthereum is Ownable, ReentrancyGuard, Pausable {
     uint256 public totalBridged;
     uint256 public accumulatedFees;
 
-    event TransferToXaheen(
+    event TransferToNor(
         address indexed from,
         address indexed xaheenRecipient,
         uint256 amount,
@@ -40,7 +40,7 @@ contract BTCBRBridgeEthereum is Ownable, ReentrancyGuard, Pausable {
         bytes32 indexed transferId
     );
 
-    event TransferFromXaheen(
+    event TransferFromNor(
         bytes32 indexed transferId,
         address indexed to,
         uint256 amount
@@ -55,11 +55,11 @@ contract BTCBRBridgeEthereum is Ownable, ReentrancyGuard, Pausable {
     }
 
     /**
-     * @notice Bridge wBTCBR from Ethereum to Xaheen Chain
-     * @param xaheenRecipient Address on Xaheen Chain
+     * @notice Bridge wBTCBR from Ethereum to Nor Chain
+     * @param xaheenRecipient Address on Nor Chain
      * @param amount Amount to bridge
      */
-    function bridgeToXaheen(
+    function bridgeToNor(
         address xaheenRecipient,
         uint256 amount
     ) external nonReentrant whenNotPaused returns (bytes32 transferId) {
@@ -94,7 +94,7 @@ contract BTCBRBridgeEthereum is Ownable, ReentrancyGuard, Pausable {
 
         totalBridged++;
 
-        emit TransferToXaheen(
+        emit TransferToNor(
             msg.sender,
             xaheenRecipient,
             netAmount,
@@ -106,13 +106,13 @@ contract BTCBRBridgeEthereum is Ownable, ReentrancyGuard, Pausable {
     }
 
     /**
-     * @notice Complete bridge transfer from Xaheen (validators only)
+     * @notice Complete bridge transfer from Nor (validators only)
      * @param transferId Unique transfer identifier
      * @param recipient Recipient address on Ethereum
      * @param amount Amount to mint
      * @param signatures Validator signatures
      */
-    function bridgeFromXaheen(
+    function bridgeFromNor(
         bytes32 transferId,
         address recipient,
         uint256 amount,
@@ -129,7 +129,7 @@ contract BTCBRBridgeEthereum is Ownable, ReentrancyGuard, Pausable {
         // Mint wBTCBR on Ethereum
         wBTCBR.bridgeMint(recipient, amount, transferId);
 
-        emit TransferFromXaheen(transferId, recipient, amount);
+        emit TransferFromNor(transferId, recipient, amount);
     }
 
     /**

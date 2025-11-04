@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "./XaheenDEXPair.sol";
+import "./NorDEXPair.sol";
 
 /**
- * @title XaheenDEXFactory
+ * @title NorDEXFactory
  * @notice Factory contract for creating liquidity pairs
- * @dev Creates and manages all trading pairs on Xaheen DEX
+ * @dev Creates and manages all trading pairs on Nor DEX
  */
-contract XaheenDEXFactory {
+contract NorDEXFactory {
     address public feeTo;
     address public feeToSetter;
     address public revenueContract;
@@ -33,14 +33,14 @@ contract XaheenDEXFactory {
         require(token0 != address(0), "ZERO_ADDRESS");
         require(getPair[token0][token1] == address(0), "PAIR_EXISTS");
 
-        bytes memory bytecode = type(XaheenDEXPair).creationCode;
+        bytes memory bytecode = type(NorDEXPair).creationCode;
         bytes32 salt = keccak256(abi.encodePacked(token0, token1));
 
         assembly {
             pair := create2(0, add(bytecode, 32), mload(bytecode), salt)
         }
 
-        XaheenDEXPair(pair).initialize(token0, token1, revenueContract);
+        NorDEXPair(pair).initialize(token0, token1, revenueContract);
         getPair[token0][token1] = pair;
         getPair[token1][token0] = pair;
         allPairs.push(pair);

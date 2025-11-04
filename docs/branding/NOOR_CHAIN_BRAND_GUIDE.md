@@ -1,4 +1,4 @@
-# 🌙 Noor Chain - Brand Identity Guide
+# 🌙 Nor Chain - Brand Identity Guide
 
 **Version**: 1.0
 **Date**: November 2, 2025
@@ -10,12 +10,12 @@
 
 ### Name & Meaning
 
-**Noor Chain** (نور)
+**Nor Chain** (نور)
 - **Meaning**: "Light" in Arabic
-- **Pronunciation**: /noor/
+- **Pronunciation**: /nor/
 - **Symbolism**: Illumination, transparency, guidance, clarity, divine light
 
-**Noor Token (NOR)**
+**Nor Token (NOR)**
 - **Ticker**: NOR
 - **Symbol**: 🌙 (optional in text)
 - **Decimals**: 18
@@ -34,7 +34,7 @@
 
 ### Mission Statement
 
-> **Noor Chain** illuminates the future of blockchain technology, bringing light to digital economies through compliant, decentralized, and inclusive infrastructure. We empower trust, transparency, and ethical innovation.
+> **Nor Chain** illuminates the future of blockchain technology, bringing light to digital economies through compliant, decentralized, and inclusive infrastructure. We empower trust, transparency, and ethical innovation.
 
 ### Vision
 
@@ -107,7 +107,7 @@
 
 **Symbol**: Radiant Circle with Light Rays
 - Geometric design combining:
-  - Central luminous circle (representing Noor/Light)
+  - Central luminous circle (representing Nor/Light)
   - Radiating light beams (6-8 rays)
   - Optional: Subtle crescent integration
   - Blockchain lattice pattern within rays
@@ -164,23 +164,23 @@
 
 ```json
 {
-  "chainName": "Noor Chain",
+  "chainName": "Nor Chain",
   "chainId": 65001,
   "networkId": 65001,
   "nativeCurrency": {
-    "name": "Noor Token",
+    "name": "Nor Token",
     "symbol": "NOR",
     "decimals": 18
   },
-  "rpcUrls": ["https://rpc.noorchain.org"],
-  "blockExplorerUrls": ["https://explorer.noorchain.org"],
-  "iconUrls": ["https://noorchain.org/logo.svg"]
+  "rpcUrls": ["https://rpc.norchain.org"],
+  "blockExplorerUrls": ["https://explorer.norchain.org"],
+  "iconUrls": ["https://norchain.org/logo.svg"]
 }
 ```
 
 ### Token Metadata
 
-**Name**: Noor Token
+**Name**: Nor Token
 **Symbol**: NOR
 **Type**: Native (Layer-1)
 **Standard**: BEP-20 compatible
@@ -194,17 +194,17 @@
 
 ### Domain Strategy
 
-**Primary Domain**: `noorchain.org`
+**Primary Domain**: `norchain.org`
 
 **Subdomains**:
-- `rpc.noorchain.org` - RPC endpoint
-- `ws.noorchain.org` - WebSocket endpoint
-- `explorer.noorchain.org` - Block explorer (NoorScan)
-- `wallet.noorchain.org` - Web wallet
-- `docs.noorchain.org` - Documentation
-- `developers.noorchain.org` - Developer portal
-- `faucet.noorchain.org` - Testnet faucet
-- `bridge.noorchain.org` - Cross-chain bridge
+- `rpc.norchain.org` - RPC endpoint
+- `ws.norchain.org` - WebSocket endpoint
+- `explorer.norchain.org` - Block explorer (NorScan)
+- `wallet.norchain.org` - Web wallet
+- `docs.norchain.org` - Documentation
+- `developers.norchain.org` - Developer portal
+- `faucet.norchain.org` - Testnet faucet
+- `bridge.norchain.org` - Cross-chain bridge
 
 ---
 
@@ -238,12 +238,12 @@
 ### Messaging Framework
 
 **Problem**: Traditional blockchain lacks ethical compliance and transparency
-**Solution**: Noor Chain brings light to blockchain with built-in compliance
+**Solution**: Nor Chain brings light to blockchain with built-in compliance
 **Benefit**: Trust, transparency, and ethical innovation in one platform
 
 ### Key Messages
 
-1. **For Investors**: "Invest in light - Noor Chain powers the future of ethical DeFi"
+1. **For Investors**: "Invest in light - Nor Chain powers the future of ethical DeFi"
 2. **For Developers**: "Build on a foundation of light and trust"
 3. **For Users**: "Experience blockchain illuminated by clarity and compliance"
 4. **For Validators**: "Secure the network, earn rewards, spread light"
@@ -254,38 +254,38 @@
 
 ### Hashtags
 
-**Primary**: `#NoorChain`
+**Primary**: `#NorChain`
 **Token**: `#NORtoken`
-**Movement**: `#PoweredByNoor`
-**Community**: `#NoorNation`
+**Movement**: `#PoweredByNor`
+**Community**: `#NorNation`
 **Tech**: `#LightOfWeb3`
 
 ### Social Media
 
-**Twitter/X**: @NoorChain
-**Telegram**: t.me/noorchain
-**Discord**: discord.gg/noorchain
-**GitHub**: github.com/noorchain
-**LinkedIn**: Noor Chain Foundation
+**Twitter/X**: @NorChain
+**Telegram**: t.me/norchain
+**Discord**: discord.gg/norchain
+**GitHub**: github.com/norchain
+**LinkedIn**: Nor Chain Foundation
 
 **Profile Bio**:
-> 🌙 Noor Chain - Illuminating the Future of Blockchain
+> 🌙 Nor Chain - Illuminating the Future of Blockchain
 >
 > Layer-1 PoSA blockchain built for compliance, transparency & ethical DeFi
 >
 > Native token: $NOR | Chain ID: 65001
 >
-> #NoorChain #PoweredByNoor
+> #NorChain #PoweredByNor
 
 ### Email Signatures
 
 ```
 [Name]
-[Title] | Noor Chain
+[Title] | Nor Chain
 🌙 Empowering the Future with Light and Trust
 
-🌐 noorchain.org
-📧 [email]@noorchain.org
+🌐 norchain.org
+📧 [email]@norchain.org
 🔗 Chain ID: 65001 | $NOR
 ```
 
@@ -295,27 +295,27 @@
 
 ### Core Products
 
-- **Noor Chain** - The blockchain itself
+- **Nor Chain** - The blockchain itself
 - **NOR Token** - Native currency
-- **Noor Wallet** - Official wallet (web, mobile, extension)
-- **NoorScan** - Block explorer
-- **Noor Bridge** - Cross-chain bridge
-- **Noor Faucet** - Testnet faucet
-- **Noor Validator** - Validator node software
+- **Nor Wallet** - Official wallet (web, mobile, extension)
+- **NorScan** - Block explorer
+- **Nor Bridge** - Cross-chain bridge
+- **Nor Faucet** - Testnet faucet
+- **Nor Validator** - Validator node software
 
 ### Developer Tools
 
-- **Noor CLI** - Command-line interface
-- **Noor SDK** - Software development kit
-- **Noor API** - REST/RPC APIs
-- **Noor Docs** - Documentation portal
+- **Nor CLI** - Command-line interface
+- **Nor SDK** - Software development kit
+- **Nor API** - REST/RPC APIs
+- **Nor Docs** - Documentation portal
 
 ### DeFi Ecosystem
 
-- **NoorSwap** - Decentralized exchange
-- **NoorStake** - Staking platform
-- **NoorLend** - Lending protocol
-- **NoorGov** - Governance platform
+- **NorSwap** - Decentralized exchange
+- **NorStake** - Staking platform
+- **NorLend** - Lending protocol
+- **NorGov** - Governance platform
 
 ---
 
@@ -326,7 +326,7 @@
 **Homepage Elements**:
 - Hero: Gold-to-sapphire gradient with pulsing light effect
 - Headlines: "Illuminate Your Blockchain Journey"
-- CTAs: "Start Building on Noor" / "Get NOR Tokens"
+- CTAs: "Start Building on Nor" / "Get NOR Tokens"
 - Footer: Constellation pattern (stars/light points)
 
 ### Wallet UI
@@ -336,7 +336,7 @@
 **Buttons**: Gradient (Gold → Sapphire) with subtle shine
 **Icons**: Line-based with light ray motifs
 
-### Explorer (NoorScan)
+### Explorer (NorScan)
 
 **Theme**: Clean white with gold highlights
 **Data Viz**: Gold/Sapphire charts
@@ -347,16 +347,16 @@
 
 ## Brand Evolution Notes
 
-### From Xaheen to Noor
+### From Nor to Nor
 
 **Reason for Rebrand**:
-> "Xaheen Chain evolved into Noor Chain to better represent our mission of bringing light, clarity, and ethical innovation to blockchain technology. The name 'Noor' embodies our commitment to transparency and guidance."
+> "Nor Chain evolved into Nor Chain to better represent our mission of bringing light, clarity, and ethical innovation to blockchain technology. The name 'Nor' embodies our commitment to transparency and guidance."
 
 **What Changed**:
-- Name: Xaheen Chain → Noor Chain
-- Token: XHT → NOR
+- Name: Nor Chain → Nor Chain
+- Token: NOR → NOR
 - Brand identity: New visual language
-- Domain: xaheen.org → noorchain.org
+- Domain: xaheen.org → norchain.org
 
 **What Stayed the Same**:
 - Chain ID: 65001
@@ -367,7 +367,7 @@
 
 ### Migration Message
 
-> "Welcome to Noor Chain! Previously known as Xaheen Chain, we've evolved our brand to better reflect our mission of illuminating the blockchain space with transparency, trust, and ethical innovation. All technical parameters remain unchanged - same Chain ID (65001), same validators, same security. Only our name shines brighter."
+> "Welcome to Nor Chain! Previously known as Nor Chain, we've evolved our brand to better reflect our mission of illuminating the blockchain space with transparency, trust, and ethical innovation. All technical parameters remain unchanged - same Chain ID (65001), same validators, same security. Only our name shines brighter."
 
 ---
 
@@ -375,7 +375,7 @@
 
 ### DO ✅
 
-- Use "Noor Chain" (two words, title case)
+- Use "Nor Chain" (two words, title case)
 - Use "NOR" or "$NOR" for token ticker
 - Maintain gold + sapphire color scheme
 - Use light/illumination metaphors appropriately
@@ -384,8 +384,8 @@
 
 ### DON'T ❌
 
-- Spell as "NoorChain" (one word) in formal text
-- Use old "Xaheen" or "XHT" branding
+- Spell as "NorChain" (one word) in formal text
+- Use old "Nor" or "NOR" branding
 - Change official colors
 - Use religious imagery excessively
 - Overuse light metaphors (keep it balanced)
@@ -413,10 +413,10 @@
 ```
 /branding/
   /logos/
-    noor-chain-logo-primary.svg
-    noor-chain-logo-white.svg
-    noor-chain-logo-dark.svg
-    noor-chain-icon.svg
+    nor-chain-logo-primary.svg
+    nor-chain-logo-white.svg
+    nor-chain-logo-dark.svg
+    nor-chain-icon.svg
   /colors/
     color-palette.ase
     color-swatches.png
@@ -434,17 +434,17 @@
 
 ## Contact
 
-**Brand Inquiries**: brand@noorchain.org
-**Media Kit**: noorchain.org/media
-**Partnership**: partnerships@noorchain.org
+**Brand Inquiries**: brand@norchain.org
+**Media Kit**: norchain.org/media
+**Partnership**: partnerships@norchain.org
 
 ---
 
 **Version History**:
-- v1.0 (Nov 2, 2025) - Initial brand guide after rebrand from Xaheen Chain
+- v1.0 (Nov 2, 2025) - Initial brand guide after rebrand from Nor Chain
 
 ---
 
-**© 2025 Noor Chain Foundation. All rights reserved.**
+**© 2025 Nor Chain Foundation. All rights reserved.**
 
 🌙 *Empowering the Future with Light and Trust*

@@ -187,11 +187,11 @@ display_next_steps() {
     echo ""
     
     echo -e "${YELLOW}Phase 2: DEX Infrastructure${NC}"
-    echo "  ⏺ 3. Deploy NoorSwap Factory"
-    echo "     → npx hardhat run scripts/deploy-noorswap-factory.js --network btcbr"
+    echo "  ⏺ 3. Deploy NorSwap Factory"
+    echo "     → npx hardhat run scripts/deploy-norswap-factory.js --network btcbr"
     echo ""
-    echo "  ⏺ 4. Deploy NoorSwap Router"
-    echo "     → npx hardhat run scripts/deploy-noorswap-router.js --network btcbr"
+    echo "  ⏺ 4. Deploy NorSwap Router"
+    echo "     → npx hardhat run scripts/deploy-norswap-router.js --network btcbr"
     echo ""
     echo "  ⏺ 5. Create initial liquidity pairs:"
     echo "     • NOR/BTCBR"
@@ -200,10 +200,10 @@ display_next_steps() {
     echo ""
     
     echo -e "${YELLOW}Phase 3: Bridge Deployment${NC}"
-    echo "  ⏺ 6. Deploy mainnet bridge (BSC → Noor Chain)"
+    echo "  ⏺ 6. Deploy mainnet bridge (BSC → Nor Chain)"
     echo "     → npx hardhat run scripts/hardhat-deploy-mainnet.js --network bsc"
     echo ""
-    echo "  ⏺ 7. Deploy private chain bridge (Noor Chain → BSC)"
+    echo "  ⏺ 7. Deploy private chain bridge (Nor Chain → BSC)"
     echo "     → npx hardhat run scripts/hardhat-deploy-private.js --network btcbr"
     echo ""
     echo "  ⏺ 8. Configure bridge validators"
@@ -240,7 +240,7 @@ display_next_steps() {
     echo "  ⏺ 18. Deploy Blockscout explorer"
     echo "     → cd infrastructure/ansible && ansible-playbook playbooks/deploy-explorer.yml"
     echo ""
-    echo "  ⏺ 19. Configure DNS (rpc.noorchain.org)"
+    echo "  ⏺ 19. Configure DNS (rpc.norchain.org)"
     echo "  ⏺ 20. Setup SSL/HTTPS with Let's Encrypt"
     echo "     → bash scripts/setup-nginx-ssl.sh"
     echo ""
@@ -269,7 +269,7 @@ main() {
     
     echo ""
     if [ $BLOCK_STATUS -eq 0 ]; then
-        print_success "✨ Noor Chain is operational and ready for contract deployments! ✨"
+        print_success "✨ Nor Chain is operational and ready for contract deployments! ✨"
     else
         print_warning "⚠ Chain verification completed with warnings - review above"
     fi

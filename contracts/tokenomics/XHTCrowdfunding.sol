@@ -6,8 +6,8 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 
 /**
- * @title XHTCrowdfunding
- * @notice Decentralized crowdfunding platform for Xaheen ecosystem
+ * @title NORCrowdfunding
+ * @notice Decentralized crowdfunding platform for Nor ecosystem
  * @dev Features:
  * - All-or-nothing funding (like Kickstarter)
  * - Flexible funding (keep what you raise)
@@ -16,7 +16,7 @@ import "@openzeppelin/contracts/security/Pausable.sol";
  * - Platform fee (2% on successful campaigns)
  * - KYC verification for large campaigns
  */
-contract XHTCrowdfunding is Ownable, ReentrancyGuard, Pausable {
+contract NORCrowdfunding is Ownable, ReentrancyGuard, Pausable {
 
     // ============ State Variables ============
 
@@ -72,8 +72,8 @@ contract XHTCrowdfunding is Ownable, ReentrancyGuard, Pausable {
     uint256 public constant PLATFORM_FEE_PERCENTAGE = 2; // 2% fee
     uint256 public constant MIN_CAMPAIGN_DURATION = 7 days;
     uint256 public constant MAX_CAMPAIGN_DURATION = 90 days;
-    uint256 public constant MIN_GOAL = 100 ether; // 100 XHT minimum
-    uint256 public constant MAX_GOAL = 1_000_000 ether; // 1M XHT maximum
+    uint256 public constant MIN_GOAL = 100 ether; // 100 NOR minimum
+    uint256 public constant MAX_GOAL = 1_000_000 ether; // 1M NOR maximum
 
     address public feeCollector;
     uint256 public totalFeesCollected;
@@ -113,7 +113,7 @@ contract XHTCrowdfunding is Ownable, ReentrancyGuard, Pausable {
      * @param title Campaign title
      * @param description Detailed description
      * @param category Campaign category (tech, art, charity, etc.)
-     * @param goalAmount Funding goal in XHT
+     * @param goalAmount Funding goal in NOR
      * @param duration Campaign duration in seconds
      * @param isFlexible True for flexible funding, false for all-or-nothing
      */

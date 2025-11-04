@@ -1,16 +1,16 @@
 # 💧 XAHEEN CHAIN - LIQUIDITY PREPARATION GUIDE
 
 **Date:** October 30, 2025
-**Purpose:** Complete step-by-step guide to prepare and deploy liquidity for Xaheen Chain
-**Target:** $10,000 initial liquidity (XHT/USDT pair)
+**Purpose:** Complete step-by-step guide to prepare and deploy liquidity for Nor Chain
+**Target:** $10,000 initial liquidity (NOR/USDT pair)
 
 ---
 
 ## 📊 CURRENT STATUS
 
 **Your Wallet:** `0xdD779a290C937144F80Eb75b75d814c834536B1b`
-**XHT Balance:** ~5.07 Septillion XHT (0x43dac1d671a0d729c67f7200 wei)
-**Network:** Xaheen Chain (Chain ID: 65001)
+**NOR Balance:** ~5.07 Septillion NOR (0x43dac1d671a0d729c67f7200 wei)
+**Network:** Nor Chain (Chain ID: 65001)
 **RPC:** https://rpc.xaheen.org
 
 ---
@@ -20,11 +20,11 @@
 According to your TOKEN_PRICING_AND_STRATEGY.md:
 
 ### **Initial Launch Plan:**
-- **Pair:** XHT/USDT
+- **Pair:** NOR/USDT
 - **Initial Value:** $10,000
-- **Target Price:** $0.0000024 per XHT
+- **Target Price:** $0.0000024 per NOR
 - **Required USDT:** $5,000
-- **Required XHT:** ~2.08 Billion XHT (worth $5,000)
+- **Required NOR:** ~2.08 Billion NOR (worth $5,000)
 
 ### **Liquidity Expansion Schedule:**
 
@@ -46,19 +46,19 @@ According to your TOKEN_PRICING_AND_STRATEGY.md:
 ### ✅ Already Deployed (From Previous Work):
 
 1. **DEX Infrastructure:**
-   - ✅ XaheenSwap Factory deployed
-   - ✅ XaheenSwap Router deployed
-   - ✅ WXHT (Wrapped XHT) deployed
+   - ✅ NorSwap Factory deployed
+   - ✅ NorSwap Router deployed
+   - ✅ WNOR (Wrapped NOR) deployed
 
 2. **Tokens:**
-   - ✅ XHT (native token) - You have plenty
-   - ⏳ USDT on Xaheen Chain - **NEED TO CHECK**
+   - ✅ NOR (native token) - You have plenty
+   - ⏳ USDT on Nor Chain - **NEED TO CHECK**
 
 ### ⏳ Need to Prepare:
 
-1. **USDT tokens on Xaheen Chain** (~$5,000 worth)
-2. **XHT for liquidity** (~2.08B XHT)
-3. **XHT for gas fees** (~100 XHT for transactions)
+1. **USDT tokens on Nor Chain** (~$5,000 worth)
+2. **NOR for liquidity** (~2.08B NOR)
+3. **NOR for gas fees** (~100 NOR for transactions)
 
 ---
 
@@ -67,7 +67,7 @@ According to your TOKEN_PRICING_AND_STRATEGY.md:
 Let's verify what's already deployed:
 
 ```bash
-# Check if XaheenSwap contracts exist
+# Check if NorSwap contracts exist
 node scripts/check-deployment-status.js
 
 # Check current liquidity status
@@ -77,7 +77,7 @@ node scripts/check-liquidity-status.js
 **Expected Output:**
 - Factory address
 - Router address
-- WXHT address
+- WNOR address
 - Existing pairs (if any)
 
 ---
@@ -90,25 +90,25 @@ If you have USDT on BSC mainnet:
 
 1. **Use your BTCBR Bridge** (already deployed):
    ```bash
-   # Bridge USDT from BSC to Xaheen
+   # Bridge USDT from BSC to Nor
    # Use the bridge contract at: [Your Bridge Address]
    ```
 
 2. **Or use external bridge:**
    - Transfer USDT to BSC
-   - Bridge to Xaheen Chain via multichain or similar
+   - Bridge to Nor Chain via multichain or similar
 
-### **Option B: Buy USDT with XHT on Existing DEX**
+### **Option B: Buy USDT with NOR on Existing DEX**
 
-If there's already a XHT/USDT pair with liquidity:
+If there's already a NOR/USDT pair with liquidity:
 ```bash
-# Swap some XHT for USDT
+# Swap some NOR for USDT
 node scripts/swap-xht-for-usdt.js
 ```
 
 ### **Option C: Direct Deployment (For Testing)**
 
-Deploy a test USDT contract on Xaheen:
+Deploy a test USDT contract on Nor:
 ```bash
 # Deploy mock USDT for testing
 node scripts/deploy-test-usdt.js
@@ -120,31 +120,31 @@ node scripts/deploy-test-usdt.js
 
 ## 📊 STEP 3: CALCULATE EXACT AMOUNTS
 
-### **For $10,000 Initial Liquidity at $0.0000024/XHT:**
+### **For $10,000 Initial Liquidity at $0.0000024/NOR:**
 
 ```javascript
-Target Price = $0.0000024 per XHT
+Target Price = $0.0000024 per NOR
 Total Liquidity = $10,000
 
 // Equal value on both sides
 USDT Amount = $5,000
-XHT Amount = $5,000 ÷ $0.0000024 = 2,083,333,333 XHT (~2.08 Billion)
+NOR Amount = $5,000 ÷ $0.0000024 = 2,083,333,333 NOR (~2.08 Billion)
 
 // In wei (18 decimals)
 USDT_WEI = 5000 × 10^18 = 5000000000000000000000
-XHT_WEI = 2083333333 × 10^18 = 2083333333000000000000000000
+NOR_WEI = 2083333333 × 10^18 = 2083333333000000000000000000
 ```
 
 ### **Verify You Have Enough:**
 
 ```bash
-# Check your XHT balance
+# Check your NOR balance
 curl -s -X POST https://rpc.xaheen.org \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xdD779a290C937144F80Eb75b75d814c834536B1b","latest"],"id":1}'
 
 # Current: 0x43dac1d671a0d729c67f7200 wei
-# = ~5.07 Septillion XHT
+# = ~5.07 Septillion NOR
 # ✅ MORE THAN ENOUGH for liquidity
 ```
 
@@ -172,15 +172,15 @@ I'll create a custom script for you:
 const { ethers } = require("hardhat");
 
 async function main() {
-  console.log("🚀 Adding Initial XHT/USDT Liquidity...\n");
+  console.log("🚀 Adding Initial NOR/USDT Liquidity...\n");
 
   // Configuration
-  const ROUTER_ADDRESS = "0x..."; // Your XaheenSwap Router
-  const USDT_ADDRESS = "0x...";   // Bridged USDT on Xaheen
+  const ROUTER_ADDRESS = "0x..."; // Your NorSwap Router
+  const USDT_ADDRESS = "0x...";   // Bridged USDT on Nor
   const DEPLOYER_ADDRESS = "0xdD779a290C937144F80Eb75b75d814c834536B1b";
 
-  // Amounts for $10k liquidity at $0.0000024/XHT
-  const XHT_AMOUNT = ethers.parseEther("2083333333"); // 2.08B XHT
+  // Amounts for $10k liquidity at $0.0000024/NOR
+  const NOR_AMOUNT = ethers.parseEther("2083333333"); // 2.08B NOR
   const USDT_AMOUNT = ethers.parseUnits("5000", 18); // 5000 USDT
 
   // Get signer
@@ -199,12 +199,12 @@ async function main() {
   const usdtBalance = await usdt.balanceOf(deployer.address);
 
   console.log("\n📊 Current Balances:");
-  console.log("XHT:", ethers.formatEther(xhtBalance));
+  console.log("NOR:", ethers.formatEther(xhtBalance));
   console.log("USDT:", ethers.formatUnits(usdtBalance, 18));
 
   // Verify sufficient balance
-  if (xhtBalance < XHT_AMOUNT) {
-    throw new Error("❌ Insufficient XHT balance");
+  if (xhtBalance < NOR_AMOUNT) {
+    throw new Error("❌ Insufficient NOR balance");
   }
   if (usdtBalance < USDT_AMOUNT) {
     throw new Error("❌ Insufficient USDT balance");
@@ -218,7 +218,7 @@ async function main() {
 
   // Add liquidity
   console.log("\n💧 Adding liquidity...");
-  console.log("XHT Amount:", ethers.formatEther(XHT_AMOUNT));
+  console.log("NOR Amount:", ethers.formatEther(NOR_AMOUNT));
   console.log("USDT Amount:", ethers.formatUnits(USDT_AMOUNT, 18));
 
   const deadline = Math.floor(Date.now() / 1000) + 60 * 20; // 20 minutes
@@ -227,10 +227,10 @@ async function main() {
     USDT_ADDRESS,
     USDT_AMOUNT,
     USDT_AMOUNT * 95n / 100n, // 5% slippage tolerance
-    XHT_AMOUNT * 95n / 100n,
+    NOR_AMOUNT * 95n / 100n,
     deployer.address,
     deadline,
-    { value: XHT_AMOUNT }
+    { value: NOR_AMOUNT }
   );
 
   console.log("⏳ Transaction sent:", tx.hash);
@@ -243,8 +243,8 @@ async function main() {
     "IUniswapV2Factory",
     factory
   );
-  const WXHT = await router.WETH();
-  const pairAddress = await factoryContract.getPair(WXHT, USDT_ADDRESS);
+  const WNOR = await router.WETH();
+  const pairAddress = await factoryContract.getPair(WNOR, USDT_ADDRESS);
 
   console.log("\n🎉 SUCCESS!");
   console.log("Pair Address:", pairAddress);
@@ -273,9 +273,9 @@ main()
 ### **Option A: Unicrypt (Recommended)**
 
 1. **Go to:** https://app.unicrypt.network/
-2. **Connect wallet** (MetaMask on Xaheen Chain)
+2. **Connect wallet** (MetaMask on Nor Chain)
 3. **Select:** "Lock Tokens"
-4. **Choose:** Your LP token address (XHT/USDT pair)
+4. **Choose:** Your LP token address (NOR/USDT pair)
 5. **Amount:** 30% of LP tokens ($150k worth)
 6. **Duration:** 12 months
 7. **Lock & Get Proof Link**
@@ -293,9 +293,9 @@ Create proof document:
 **File:** `/docs/current/LP_LOCK_PROOF.md`
 
 ```markdown
-# 🔒 Xaheen Chain - Liquidity Lock Proof
+# 🔒 Nor Chain - Liquidity Lock Proof
 
-**Pair:** XHT/USDT
+**Pair:** NOR/USDT
 **Total Liquidity:** $150,000
 **Locked Amount:** $150,000 (100% at launch, scaling to 30% later)
 **Lock Duration:** 12 months
@@ -331,7 +331,7 @@ async function main() {
     'IUniswapV2Factory',
     'FACTORY_ADDRESS'
   );
-  const pair = await factory.getPair('WXHT_ADDRESS', 'USDT_ADDRESS');
+  const pair = await factory.getPair('WNOR_ADDRESS', 'USDT_ADDRESS');
   console.log('Pair:', pair);
 }
 main();
@@ -348,9 +348,9 @@ node scripts/check-pair-reserves.js
 **Expected Output:**
 ```
 Pair: 0x...
-Reserve0 (XHT): 2,083,333,333 XHT
+Reserve0 (NOR): 2,083,333,333 NOR
 Reserve1 (USDT): 5,000 USDT
-Price: 1 XHT = $0.0000024
+Price: 1 NOR = $0.0000024
 Total Liquidity: $10,000
 ```
 
@@ -358,7 +358,7 @@ Total Liquidity: $10,000
 
 ```bash
 # Small test swap to verify functionality
-node scripts/test-swap.js --amount 100 --from XHT --to USDT
+node scripts/test-swap.js --amount 100 --from NOR --to USDT
 ```
 
 ---
@@ -370,18 +370,18 @@ Once liquidity is deployed and locked:
 ### **Tweet Template:**
 
 ```
-🚀 MAJOR MILESTONE: Xaheen Chain DEX is LIVE!
+🚀 MAJOR MILESTONE: Nor Chain DEX is LIVE!
 
 💧 $10,000 initial liquidity deployed
 🔒 100% locked for 12 months (anti-rug proof)
-⚡ Trade XHT/USDT now at https://dex.xaheen.org
+⚡ Trade NOR/USDT now at https://dex.xaheen.org
 
-📊 Launch Price: $0.0000024/XHT
+📊 Launch Price: $0.0000024/NOR
 🎯 Target: 1,000 users in 30 days
 
 Verify lock: [Unicrypt Link]
 
-#XaheenChain #DeFi #NewListing
+#NorChain #DeFi #NewListing
 ```
 
 ### **Update Documentation:**
@@ -468,24 +468,24 @@ node scripts/check-existing-pair.js
 
 ### **Conservative ($10k total):**
 ```
-XHT/USDT: $10,000 (100%)
+NOR/USDT: $10,000 (100%)
 - Lock: $10,000 (100% for first 30 days)
 - After 1k users: Add $20k, lock 30% total
 ```
 
 ### **Moderate ($50k total):**
 ```
-XHT/USDT: $40,000 (80%)
-XHT/BTCBR: $10,000 (20%)
+NOR/USDT: $40,000 (80%)
+NOR/BTCBR: $10,000 (20%)
 - Lock: 30% of each pair
 - Reserve: $35,000 for scaling
 ```
 
 ### **Aggressive ($150k total):**
 ```
-XHT/USDT: $100,000
-XHT/BTCBR: $30,000
-XHT/WBNB: $20,000
+NOR/USDT: $100,000
+NOR/BTCBR: $30,000
+NOR/WBNB: $20,000
 - Lock: 30% immediately
 - Scale weekly based on volume
 ```
@@ -495,11 +495,11 @@ XHT/WBNB: $20,000
 ## ✅ FINAL CHECKLIST
 
 **Before Deploying Liquidity:**
-- [ ] Verified you have sufficient XHT (~2.08B + gas)
-- [ ] Acquired USDT on Xaheen Chain (~$5,000)
+- [ ] Verified you have sufficient NOR (~2.08B + gas)
+- [ ] Acquired USDT on Nor Chain (~$5,000)
 - [ ] Confirmed DEX contracts deployed and working
 - [ ] Calculated exact amounts (no estimation)
-- [ ] Have gas for multiple transactions (~100 XHT)
+- [ ] Have gas for multiple transactions (~100 NOR)
 
 **During Deployment:**
 - [ ] Approve USDT to Router
@@ -528,7 +528,7 @@ XHT/WBNB: $20,000
    ```
 
 2. **Verify USDT availability:**
-   - Do you have USDT on Xaheen Chain?
+   - Do you have USDT on Nor Chain?
    - If not, bridge from BSC or deploy test USDT
 
 3. **Run liquidity deployment script:**
@@ -544,7 +544,7 @@ XHT/WBNB: $20,000
 
 6. Monitor trading volume
 7. Add liquidity at 1,000 users milestone
-8. Launch #BuyXaheenFriday campaign
+8. Launch #BuyNorFriday campaign
 9. Deploy airdrop contract
 10. Create faucet for gas
 
@@ -570,7 +570,7 @@ XHT/WBNB: $20,000
 
 ---
 
-**You're ready to deploy liquidity! Let's make Xaheen Chain the next big L1! 🚀**
+**You're ready to deploy liquidity! Let's make Nor Chain the next big L1! 🚀**
 
 ---
 

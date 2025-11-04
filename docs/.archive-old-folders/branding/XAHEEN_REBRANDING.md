@@ -1,26 +1,26 @@
-# Xaheen Chain Rebranding Guide
+# Nor Chain Rebranding Guide
 
-This document outlines the rebranding of the private blockchain from "BitcoinBR network" to "Xaheen Chain" with official domain `xaheen.org`.
+This document outlines the rebranding of the private blockchain from "BitcoinBR network" to "Nor Chain" with official domain `xaheen.org`.
 
 ## Overview
 
-**Xaheen Chain** is a high-performance private blockchain network based on BNB Smart Chain (BSC/Parlia-PoSA) technology, offering enterprise-grade features with full EVM compatibility.
+**Nor Chain** is a high-performance private blockchain network based on BNB Smart Chain (BSC/Parlia-PoSA) technology, offering enterprise-grade features with full EVM compatibility.
 
 ## Brand Identity
 
-- **Chain Name**: Xaheen Chain
+- **Chain Name**: Nor Chain
 - **Official Domain**: xaheen.org
 - **Primary RPC**: https://rpc.xaheen.org
 - **Chain ID**: 65001 ⚠️ **CHANGED from 885824**
 - **Network ID**: 65001 ⚠️ **CHANGED from 885824**
-- **Native Token**: XHT (Xaheen Token) ⚠️ **CHANGED from BNB**
+- **Native Token**: NOR (Nor Token) ⚠️ **CHANGED from BNB**
 - **Block Time**: 3 seconds (Parlia consensus)
 
 ## What Changed
 
 ### 1. Network References
 - **Old**: BitcoinBR network, BTCBR Private Chain
-- **New**: Xaheen Chain
+- **New**: Nor Chain
 
 ### 2. Domain and RPC Endpoints
 - **Old**: https://rpc.bitcoinbr.tech
@@ -28,7 +28,7 @@ This document outlines the rebranding of the private blockchain from "BitcoinBR 
 - **Note**: Legacy RPC URL remains functional during migration period
 
 ### 3. Branding in Documentation
-All references to "BitcoinBR network" updated to "Xaheen Chain" in:
+All references to "BitcoinBR network" updated to "Nor Chain" in:
 - CLAUDE.md
 - README.md
 - .env configuration
@@ -38,7 +38,7 @@ All references to "BitcoinBR network" updated to "Xaheen Chain" in:
 - **Old Chain ID**: 885824
 - **New Chain ID**: 65001
 - **Impact**: Requires complete blockchain reinitialization
-- **Why Changed**: 65001 is a cleaner, more recognizable chain ID for Xaheen Chain
+- **Why Changed**: 65001 is a cleaner, more recognizable chain ID for Nor Chain
 - **Action Required**: All nodes must reinitialize with new genesis.json
 
 ## What Stayed the Same
@@ -60,7 +60,7 @@ All references to "BitcoinBR network" updated to "Xaheen Chain" in:
 4. **Blockchain Data**: Must be reinitialized (old chain data incompatible)
 
 ### Why Chain ID Changed
-- **Branding**: 65001 is more memorable and cleaner for Xaheen Chain
+- **Branding**: 65001 is more memorable and cleaner for Nor Chain
 - **Uniqueness**: Avoids confusion with other chain IDs
 - **Marketing**: Better aligned with professional blockchain identity
 
@@ -68,7 +68,7 @@ All references to "BitcoinBR network" updated to "Xaheen Chain" in:
 
 ### For Developers
 
-- [x] Update CLAUDE.md with Xaheen Chain references
+- [x] Update CLAUDE.md with Nor Chain references
 - [x] Update README.md with new branding
 - [x] Update .env file with CHAIN_NAME and CHAIN_DOMAIN
 - [x] Update hardhat.config.js comments
@@ -98,10 +98,10 @@ All references to "BitcoinBR network" updated to "Xaheen Chain" in:
 Users should update their MetaMask custom network with:
 
 ```
-Network Name: Xaheen Chain
+Network Name: Nor Chain
 RPC URL: https://rpc.xaheen.org
 Chain ID: 65001
-Currency Symbol: XHT
+Currency Symbol: NOR
 Block Explorer URL: https://explorer.xaheen.org (to be configured)
 ```
 
@@ -146,7 +146,7 @@ server {
 ## Bridge Infrastructure
 
 The bridge system continues to operate with:
-- **BSC Mainnet** ↔ **Xaheen Chain** transfers
+- **BSC Mainnet** ↔ **Nor Chain** transfers
 - BTCBR token remains the primary bridged asset
 - All 22 bridge types remain functional:
   - 6 production bridges
@@ -154,14 +154,14 @@ The bridge system continues to operate with:
   - 8 theoretical bridges
 
 Bridge fees unchanged:
-- Mainnet → Xaheen: 0.1% (min 10 BTCBR)
-- Xaheen → Mainnet: 0.2% (min 20 BTCBR)
+- Mainnet → Nor: 0.1% (min 10 BTCBR)
+- Nor → Mainnet: 0.2% (min 20 BTCBR)
 
 ## Marketing and Communication
 
 ### Key Messages
 
-**Xaheen Chain** is a next-generation private blockchain built on proven BSC technology:
+**Nor Chain** is a next-generation private blockchain built on proven BSC technology:
 - ⚡ Lightning-fast 3-second blocks
 - 🔐 Multi-validator security
 - 🌉 Advanced bridge infrastructure with 22 implementations
@@ -170,7 +170,7 @@ Bridge fees unchanged:
 - 🚀 BSC mainnet integration
 
 ### Positioning
-Xaheen Chain bridges the gap between public blockchain transparency and private enterprise requirements, offering:
+Nor Chain bridges the gap between public blockchain transparency and private enterprise requirements, offering:
 - Predictable costs (low gas fees)
 - High performance (3-second finality)
 - Proven security (Parlia consensus)
@@ -215,14 +215,14 @@ btcbr: {  // Network identifier stays for compatibility
 }
 ```
 
-To deploy to Xaheen Chain:
+To deploy to Nor Chain:
 ```bash
 npx hardhat run scripts/deploy.js --network btcbr
 ```
 
 ### Environment Variables
 New optional variables added:
-- `CHAIN_NAME=Xaheen Chain`
+- `CHAIN_NAME=Nor Chain`
 - `CHAIN_DOMAIN=xaheen.org`
 
 These are informational and don't affect blockchain operation.
@@ -267,7 +267,7 @@ curl -X POST https://rpc.xaheen.org \
 ## Future Considerations
 
 ### Potential Next Steps
-1. **Native Token**: Consider launching a native Xaheen token (XHN or similar)
+1. **Native Token**: Consider launching a native Nor token (XHN or similar)
 2. **Block Explorer**: Deploy branded Blockscout at explorer.xaheen.org
 3. **Faucet**: Setup testnet faucet at faucet.xaheen.org
 4. **Documentation Site**: Create docs.xaheen.org
@@ -275,7 +275,7 @@ curl -X POST https://rpc.xaheen.org \
 6. **Governance**: Implement on-chain governance for chain parameters
 
 ### Branding Assets Needed
-- Logo design for Xaheen Chain
+- Logo design for Nor Chain
 - Brand colors and visual identity
 - Website design (xaheen.org)
 - Social media graphics
@@ -284,7 +284,7 @@ curl -X POST https://rpc.xaheen.org \
 
 ## Conclusion
 
-The rebranding to Xaheen Chain positions the network for growth while maintaining full technical compatibility. The transition is low-risk as no changes to chain ID, validators, or core blockchain infrastructure are required.
+The rebranding to Nor Chain positions the network for growth while maintaining full technical compatibility. The transition is low-risk as no changes to chain ID, validators, or core blockchain infrastructure are required.
 
 **Key Success Factors:**
 1. Clear communication to users and partners
@@ -293,4 +293,4 @@ The rebranding to Xaheen Chain positions the network for growth while maintainin
 4. Professional brand presentation
 5. Comprehensive documentation
 
-Welcome to **Xaheen Chain** - Where Innovation Meets Enterprise Blockchain! 🚀
+Welcome to **Nor Chain** - Where Innovation Meets Enterprise Blockchain! 🚀

@@ -1,16 +1,16 @@
-# Xaheen Arbitrage Bot
+# Nor Arbitrage Bot
 
-Automated arbitrage bot for maintaining XHT price consistency across all spoke chains (BSC, Polygon, Ethereum).
+Automated arbitrage bot for maintaining NOR price consistency across all spoke chains (BSC, Polygon, Ethereum).
 
 ## Purpose
 
-Maintain ±0.5% price tolerance between Xaheen DEX (canonical price) and spoke DEXs (PancakeSwap, QuickSwap, Uniswap) through automated arbitrage trading.
+Maintain ±0.5% price tolerance between Nor DEX (canonical price) and spoke DEXs (PancakeSwap, QuickSwap, Uniswap) through automated arbitrage trading.
 
 ## How It Works
 
 ```
 1. Monitor Prices (every 30 seconds)
-   ├─> Xaheen TWAP (canonical): $0.10
+   ├─> Nor TWAP (canonical): $0.10
    ├─> BSC PancakeSwap: $0.1035
    ├─> Polygon QuickSwap: $0.0998
    └─> Ethereum Uniswap: No liquidity
@@ -21,15 +21,15 @@ Maintain ±0.5% price tolerance between Xaheen DEX (canonical price) and spoke D
    └─> Ethereum: N/A
 
 3. Estimate Profit
-   └─> BSC arbitrage: Buy 10K XHT on Xaheen @ $0.10 = $1,000
-                       Sell 10K XHT on BSC @ $0.1035 = $1,035
+   └─> BSC arbitrage: Buy 10K NOR on Nor @ $0.10 = $1,000
+                       Sell 10K NOR on BSC @ $0.1035 = $1,035
                        Gross profit: $35
                        Gas cost: -$2
                        DEX fees (0.65%): -$6.50
                        Net profit: $26.50 ✅
 
 4. Execute if Profitable (profit > $5)
-   ├─> Buy XHT on Xaheen
+   ├─> Buy NOR on Nor
    ├─> Bridge to BSC
    ├─> Sell on PancakeSwap
    └─> Result: Prices converge to ±0.5%
@@ -40,25 +40,25 @@ Maintain ±0.5% price tolerance between Xaheen DEX (canonical price) and spoke D
 ### Environment Variables (.env)
 
 ```bash
-# Xaheen Chain
+# Nor Chain
 PRIVATE_CHAIN_RPC=https://rpc.xaheen.org
 PRICE_AUTHORITY_ADDRESS=0x[HUB_PRICE_AUTHORITY]
-XAHEEN_PAIR_ADDRESS=0x[XHT_USDT_PAIR]
-XHT_TOKEN_ADDRESS=0x[XHT_TOKEN]
+XAHEEN_PAIR_ADDRESS=0x[NOR_USDT_PAIR]
+NOR_TOKEN_ADDRESS=0x[NOR_TOKEN]
 
 # BSC
 BSC_MAINNET_RPC=https://bsc.publicnode.com
-XHT_BSC_ADDRESS=0x[WRAPPED_XHT_BSC]
+NOR_BSC_ADDRESS=0x[WRAPPED_NOR_BSC]
 XAHEEN_ROUTER_BSC_ADDRESS=0x[BSC_ROUTER]
 
 # Polygon
 POLYGON_RPC=https://polygon-rpc.com
-XHT_POLYGON_ADDRESS=0x[WRAPPED_XHT_POLYGON]
+NOR_POLYGON_ADDRESS=0x[WRAPPED_NOR_POLYGON]
 XAHEEN_ROUTER_POLYGON_ADDRESS=0x[POLYGON_ROUTER]
 
 # Ethereum
 ETH_RPC=https://eth.llamarpc.com
-XHT_ETH_ADDRESS=0x[WRAPPED_XHT_ETH]
+NOR_ETH_ADDRESS=0x[WRAPPED_NOR_ETH]
 XAHEEN_ROUTER_ETH_ADDRESS=0x[ETH_ROUTER]
 
 # Bot Wallet
@@ -95,7 +95,7 @@ npm start
 
 **Output:**
 ```
-🤖 Xaheen Arbitrage Bot Starting...
+🤖 Nor Arbitrage Bot Starting...
 
 ✅ Bot initialized successfully
 📊 Monitoring 3 spoke chains
@@ -103,19 +103,19 @@ npm start
 💰 Minimum profit: $5
 
 [2025-01-15T10:30:00.000Z] Monitoring prices...
-   Xaheen TWAP: $0.100000
+   Nor TWAP: $0.100000
    BSC: $0.103500 (+3.50%)
    ⚠️  Deviation above threshold!
    💰 Estimated profit: $26.50
    🚀 Executing arbitrage...
-   📥 Buy 10000 XHT on Xaheen
-   📤 Sell 10000 XHT on BSC
+   📥 Buy 10000 NOR on Nor
+   📤 Sell 10000 NOR on BSC
    ✅ Arbitrage successful!
    💵 Actual profit: $25.18
    📈 New deviation: 0.10%
 
 [2025-01-15T10:30:30.000Z] Monitoring prices...
-   Xaheen TWAP: $0.100000
+   Nor TWAP: $0.100000
    BSC: $0.100100 (+0.10%)
    Polygon: $0.099800 (-0.20%)
    Ethereum: No liquidity
@@ -132,7 +132,7 @@ npm run dev
 ### Components
 
 **1. PriceMonitor.js**
-- Connects to Xaheen PriceAuthority
+- Connects to Nor PriceAuthority
 - Queries spoke DEX prices via routers
 - Calculates price deviations
 - Determines arbitrage direction
@@ -162,7 +162,7 @@ npm run dev
 │               Arbitrage Execution Flow                   │
 ├─────────────────────────────────────────────────────────┤
 │ 1. Detect Price Deviation >0.3%                         │
-│    └─> BSC: $0.1035 vs Xaheen: $0.10 = 3.5% deviation  │
+│    └─> BSC: $0.1035 vs Nor: $0.10 = 3.5% deviation  │
 │                                                          │
 │ 2. Calculate Profit                                     │
 │    ├─> Gross: $35                                       │
@@ -170,17 +170,17 @@ npm run dev
 │    ├─> Fees: -$6.50                                     │
 │    └─> Net: $26.50 ✅                                   │
 │                                                          │
-│ 3. Execute Buy on Xaheen                                │
-│    ├─> Swap 1,000 USDT → 10,000 XHT                    │
+│ 3. Execute Buy on Nor                                │
+│    ├─> Swap 1,000 USDT → 10,000 NOR                    │
 │    └─> TxHash: 0xabc...                                 │
 │                                                          │
-│ 4. Bridge XHT to BSC                                    │
+│ 4. Bridge NOR to BSC                                    │
 │    ├─> Use existing WBNB bridge                         │
 │    └─> Wait for finality (15 blocks)                    │
 │                                                          │
 │ 5. Execute Sell on BSC                                  │
 │    ├─> Approve PancakeSwap                              │
-│    ├─> Swap 10,000 XHT → 1,035 USDT                    │
+│    ├─> Swap 10,000 NOR → 1,035 USDT                    │
 │    └─> TxHash: 0xdef...                                 │
 │                                                          │
 │ 6. Result                                               │
@@ -287,7 +287,7 @@ dryRun: true  // Simulates trades without execution
 - Set `ARBITRAGE_BOT_PRIVATE_KEY` in `.env`
 
 **Issue: "Insufficient liquidity"**
-- No XHT/USDT pair exists on spoke DEX
+- No NOR/USDT pair exists on spoke DEX
 - Wait for public LP to be created or use hot inventory
 
 **Issue: "Transaction reverted"**
@@ -310,7 +310,7 @@ dryRun: true  // Simulates trades without execution
    - Rotate keys periodically
 
 2. **Capital Limits**
-   - Bot trades max 10,000 XHT per operation
+   - Bot trades max 10,000 NOR per operation
    - Keep hot wallet balance modest ($10-20K)
    - Withdraw profits regularly
 

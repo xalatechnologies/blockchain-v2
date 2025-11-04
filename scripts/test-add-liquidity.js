@@ -6,25 +6,26 @@ dotenvConfig();
 
 async function main() {
   console.log("🧪 Testing Simple Liquidity Addition\n");
-  console.log("=" .repeat(70));
+  console.log("=".repeat(70));
 
   const [deployer] = await ethers.getSigners();
   console.log("📋 Deployer:", deployer.address);
 
   // Load deployment info
-  const deployment = JSON.parse(fs.readFileSync("./deployments/dex-infrastructure.json", "utf8"));
-  const {
-    NOR_TOKEN,
-    WUSDT,
-    NOORSWAP_FACTORY,
-    NOORSWAP_ROUTER
-  } = deployment.contracts;
+  const deployment = JSON.parse(
+    fs.readFileSync("./deployments/dex-infrastructure.json", "utf8")
+  );
+  const { NOR_TOKEN, WUSDT, NOORSWAP_FACTORY, NOORSWAP_ROUTER } =
+    deployment.contracts;
 
   // Get contract instances
   const norToken = await ethers.getContractAt("NOR", NOR_TOKEN);
   const wusdt = await ethers.getContractAt("WUSDTToken", WUSDT);
-  const factory = await ethers.getContractAt("NoorSwapFactory", NOORSWAP_FACTORY);
-  const router = await ethers.getContractAt("NoorSwapRouter", NOORSWAP_ROUTER);
+  const factory = await ethers.getContractAt(
+    "NorSwapFactory",
+    NOORSWAP_FACTORY
+  );
+  const router = await ethers.getContractAt("NorSwapRouter", NOORSWAP_ROUTER);
 
   // Check balances
   const norBalance = await norToken.balanceOf(deployer.address);
@@ -55,8 +56,14 @@ async function main() {
   console.log("  ✅ WUSDT approved");
 
   // Check allowances
-  const norAllowance = await norToken.allowance(deployer.address, NOORSWAP_ROUTER);
-  const usdtAllowance = await wusdt.allowance(deployer.address, NOORSWAP_ROUTER);
+  const norAllowance = await norToken.allowance(
+    deployer.address,
+    NOORSWAP_ROUTER
+  );
+  const usdtAllowance = await wusdt.allowance(
+    deployer.address,
+    NOORSWAP_ROUTER
+  );
   console.log("\n✅ Allowances:");
   console.log("  NOR:", ethers.formatUnits(norAllowance, 24));
   console.log("  WUSDT:", ethers.formatEther(usdtAllowance));
@@ -67,16 +74,17 @@ async function main() {
 
   try {
     // First, let's check if we're using the right token order
-    const pair = await ethers.getContractAt("NoorSwapPair", pairAddress);
+    const pair = await ethers.getContractAt("NorSwapPair", pairAddress);
     const token0 = await pair.token0();
     const token1 = await pair.token1();
     console.log("  Token0:", token0, token0 === WUSDT ? "(WUSDT)" : "(NOR)");
     console.log("  Token1:", token1, token1 === WUSDT ? "(WUSDT)" : "(NOR)");
 
     // Let's use the correct token order
-    const [tokenA, tokenB, amountA, amountB] = token0 === WUSDT
-      ? [WUSDT, NOR_TOKEN, usdtAmount, norAmount]
-      : [NOR_TOKEN, WUSDT, norAmount, usdtAmount];
+    const [tokenA, tokenB, amountA, amountB] =
+      token0 === WUSDT
+        ? [WUSDT, NOR_TOKEN, usdtAmount, norAmount]
+        : [NOR_TOKEN, WUSDT, norAmount, usdtAmount];
 
     console.log("\n  Using token order:");
     console.log("    TokenA:", tokenA === WUSDT ? "WUSDT" : "NOR");
@@ -107,7 +115,6 @@ async function main() {
     // Check LP balance
     const lpBalance = await pair.balanceOf(deployer.address);
     console.log("  LP tokens received:", ethers.formatEther(lpBalance));
-
   } catch (error) {
     console.error("\n❌ Error adding liquidity:");
     console.error("  Message:", error.message);

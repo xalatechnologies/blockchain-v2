@@ -41,8 +41,8 @@ MAIN_WALLET=0xdD779a290C937144F80Eb75b75d814c834536B1b
 **Includes:**
 - CREATE2Factory (NEW)
 - WBNB
-- XaheenDEXFactory
-- XaheenDEXRouter
+- NorDEXFactory
+- NorDEXRouter
 - BTCBR Token
 - XHN Token
 - All 22 bridge types
@@ -324,7 +324,7 @@ Ecosystem:
 
 ### After CREATE2 Deployment
 
-| Contract | Xaheen Chain | BSC Mainnet | Tron | Ethereum |
+| Contract | Nor Chain | BSC Mainnet | Tron | Ethereum |
 |----------|--------------|-------------|------|----------|
 | CREATE2Factory | 0xABCD... | 0xABCD... | 0xABCD... | 0xABCD... |
 | WBNB/WTRX/WETH | Different | 0x1234... | 0x1234... | 0x1234... |
@@ -337,7 +337,7 @@ Ecosystem:
 - ✅ XHN: SAME address on BSC, Tron, Ethereum
 - ⚠️ BTCBR: Different on BSC (collision), same on Tron + Ethereum
 - ✅ Infrastructure: SAME addresses on all PUBLIC chains
-- 💡 Xaheen Chain: Different addresses (deployed before CREATE2)
+- 💡 Nor Chain: Different addresses (deployed before CREATE2)
 
 ---
 

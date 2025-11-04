@@ -45,7 +45,7 @@
 
 ## Critical Info
 
-**At Risk**: $20,000 XHT/USDT liquidity
+**At Risk**: $20,000 NOR/USDT liquidity
 **Safe**: 352.7B BTCBR on BSC Mainnet ✅
 
 **Server**: `ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@3.91.50.187`
@@ -93,7 +93,7 @@ curl https://rpc.xaheen.org -X POST \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}'
 
-# LP reserves (XHT/USDT pair: 0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8)
+# LP reserves (NOR/USDT pair: 0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8)
 curl https://rpc.xaheen.org -X POST \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8","data":"0x0902f1ac"},"latest"],"id":1}'

@@ -3,7 +3,7 @@
 ################################################################################
 # NOOR CHAIN - COMPLETE NEXT STEPS ACTION PLAN
 #
-# This document outlines ALL next steps for Noor Chain deployment
+# This document outlines ALL next steps for Nor Chain deployment
 ################################################################################
 
 cat << 'EOF'
@@ -49,7 +49,7 @@ Tests:
   ✓ BTCBR balance verification
   ✓ RPC endpoint responsiveness
 
-Script: ./scripts/verify-noor-deployment.sh
+Script: ./scripts/verify-nor-deployment.sh
 Time: 5 minutes
 
 ═══════════════════════════════════════════════════════════════════════════
@@ -64,7 +64,7 @@ Supply: 21 billion NOR (24 decimals)
 
 Tasks:
   ☐ Create NorToken.sol contract
-  ☐ Deploy to Noor Chain
+  ☐ Deploy to Nor Chain
   ☐ Verify deployment
   ☐ Distribute initial allocations:
     - Public Sale & Liquidity: 30%
@@ -84,7 +84,7 @@ Address: 0x0cf8e180350253271f4b917ccfb0accc4862f269 (reserved)
 
 Tasks:
   ☐ Create WNOR.sol (WETH-style wrapper)
-  ☐ Deploy to Noor Chain
+  ☐ Deploy to Nor Chain
   ☐ Test wrap/unwrap functionality
 
 Command: npx hardhat run scripts/deploy-wnor.js --network btcbr
@@ -94,30 +94,30 @@ Time: 1 hour
                         PHASE 2: DEX INFRASTRUCTURE (Week 1-2)
 ═══════════════════════════════════════════════════════════════════════════
 
-📝 2.1 NoorSwap Factory Deployment
+📝 2.1 NorSwap Factory Deployment
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Contract: NoorSwapFactory.sol (UniswapV2 fork)
+Contract: NorSwapFactory.sol (UniswapV2 fork)
 Address: 0x0cf8e180350253271f4b917ccfb0accc4862f264 (reserved)
 
 Tasks:
-  ☐ Deploy NoorSwapFactory
+  ☐ Deploy NorSwapFactory
   ☐ Set fee receiver
   ☐ Verify factory initialization
 
-Command: npx hardhat run scripts/deploy-noorswap-factory.js --network btcbr
+Command: npx hardhat run scripts/deploy-norswap-factory.js --network btcbr
 Time: 2 hours
 
-📝 2.2 NoorSwap Router Deployment
+📝 2.2 NorSwap Router Deployment
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Contract: NoorSwapRouter.sol
+Contract: NorSwapRouter.sol
 Address: 0x0cf8e180350253271f4b917ccfb0accc4862f265 (reserved)
 
 Tasks:
-  ☐ Deploy NoorSwapRouter (linked to Factory + WNOR)
+  ☐ Deploy NorSwapRouter (linked to Factory + WNOR)
   ☐ Test swap routes
   ☐ Verify liquidity functions
 
-Command: npx hardhat run scripts/deploy-noorswap-router.js --network btcbr
+Command: npx hardhat run scripts/deploy-norswap-router.js --network btcbr
 Time: 2 hours
 
 📝 2.3 Initial Liquidity Provision
@@ -174,7 +174,7 @@ Time: 1 hour
                         PHASE 4: BRIDGE DEPLOYMENT (Week 2-3)
 ═══════════════════════════════════════════════════════════════════════════
 
-📝 4.1 Mainnet Bridge (BSC → Noor Chain)
+📝 4.1 Mainnet Bridge (BSC → Nor Chain)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Contract: BTCBRBridgeMainnet.sol
 Network: BSC Mainnet (ChainID: 56)
@@ -189,13 +189,13 @@ Tasks:
 Command: npx hardhat run scripts/hardhat-deploy-mainnet.js --network bsc
 Time: 3 hours
 
-📝 4.2 Private Chain Bridge (Noor Chain → BSC)
+📝 4.2 Private Chain Bridge (Nor Chain → BSC)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Contract: BTCBRBridgePrivate.sol
-Network: Noor Chain (ChainID: 885824)
+Network: Nor Chain (ChainID: 885824)
 
 Tasks:
-  ☐ Deploy BTCBRBridgePrivate on Noor Chain
+  ☐ Deploy BTCBRBridgePrivate on Nor Chain
   ☐ Grant MINTER_ROLE to bridge
   ☐ Configure validator addresses (match mainnet)
   ☐ Set fees (0.2% private → mainnet)
@@ -207,9 +207,9 @@ Time: 3 hours
 📝 4.3 Bridge Testing & Activation
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Test scenarios:
-  1. Small deposit (100 BTCBR) BSC → Noor
-  2. Medium deposit (1,000 BTCBR) BSC → Noor
-  3. Withdrawal (500 BTCBR) Noor → BSC
+  1. Small deposit (100 BTCBR) BSC → Nor
+  2. Medium deposit (1,000 BTCBR) BSC → Nor
+  3. Withdrawal (500 BTCBR) Nor → BSC
   4. Fee calculation verification
   5. Multi-sig validation (2-of-3 validators)
 
@@ -282,13 +282,13 @@ Time: 1 day
 📝 6.1 Block Explorer Deployment
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Tool: Blockscout
-Theme: Noor Chain Explorer
-URL: explorer.noorchain.org
+Theme: Nor Chain Explorer
+URL: explorer.norchain.org
 
 Tasks:
   ☐ Deploy Blockscout on server
   ☐ Configure RPC connection
-  ☐ Customize branding (Noor theme)
+  ☐ Customize branding (Nor theme)
   ☐ Verify contract verification works
   ☐ Setup SSL/HTTPS
 
@@ -298,9 +298,9 @@ Time: 1 day
 📝 6.2 DNS & SSL Configuration
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Domains:
-  - rpc.noorchain.org → 3.91.50.187:8545
-  - ws.noorchain.org → 3.91.50.187:8546
-  - explorer.noorchain.org → Blockscout instance
+  - rpc.norchain.org → 3.91.50.187:8545
+  - ws.norchain.org → 3.91.50.187:8546
+  - explorer.norchain.org → Blockscout instance
 
 Tasks:
   ☐ Update DNS A records
@@ -333,7 +333,7 @@ Time: 1 day (if needed)
 Scope:
   - NOR Token
   - WNOR
-  - NoorSwap Factory & Router
+  - NorSwap Factory & Router
   - Bridge contracts (mainnet + private)
   - Liquidity Lock
   - All stablecoins
@@ -393,12 +393,12 @@ Timeline: 4-8 weeks
 Wallets:
   - MetaMask (Chainlist submission)
   - Trust Wallet
-  - Noor Wallet (custom wallet)
+  - Nor Wallet (custom wallet)
 
 Tasks:
   ☐ Submit to Chainlist
   ☐ Integrate with Trust Wallet
-  ☐ Deploy Noor Wallet extension
+  ☐ Deploy Nor Wallet extension
   ☐ Create setup guides
 
 Time: 2 weeks
@@ -406,13 +406,13 @@ Time: 2 weeks
 📝 8.3 Marketing & Community
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Channels:
-  - Twitter/X (@NoorChain)
+  - Twitter/X (@NorChain)
   - Telegram community
   - Discord server
   - Medium blog
 
 Tasks:
-  ☐ Launch website (noorchain.org)
+  ☐ Launch website (norchain.org)
   ☐ Create social media accounts
   ☐ Publish technical whitepaper
   ☐ Start content marketing
@@ -427,7 +427,7 @@ Time: Ongoing
 
 Week 1:  ✓ Fix P2P networking
          ✓ Deploy NOR token & WNOR
-         ✓ Deploy NoorSwap Factory & Router
+         ✓ Deploy NorSwap Factory & Router
 
 Week 2:  ✓ Add initial liquidity
          ✓ Deploy & test liquidity lock
@@ -504,7 +504,7 @@ Community:
    Time: 10 minutes
 
 2. ⏺ Verify block production
-   Command: bash scripts/verify-noor-deployment.sh
+   Command: bash scripts/verify-nor-deployment.sh
    Time: 5 minutes
 
 3. ⏺ Create NOR token contract
@@ -517,10 +517,10 @@ Community:
 
 ═══════════════════════════════════════════════════════════════════════════
 
-🌙 Noor Chain - Illuminating the Future of Compliant Finance 🌙
+🌙 Nor Chain - Illuminating the Future of Compliant Finance 🌙
 
-Contact: dev@noorchain.org
-Website: noorchain.org (migrating from xaheen.org)
+Contact: dev@norchain.org
+Website: norchain.org (migrating from xaheen.org)
 RPC: http://3.91.50.187:8545
 Chain ID: 885824
 

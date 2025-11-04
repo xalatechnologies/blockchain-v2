@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ###############################################################################
-# Xaheen Chain - Production Public Deployment Script
+# Nor Chain - Production Public Deployment Script
 #
-# Deploys Xaheen Chain to production with public RPC access
+# Deploys Nor Chain to production with public RPC access
 # Competes directly with BNB Smart Chain
 #
 # Usage: ./scripts/deploy-production-public.sh [SERVER_IP] [DOMAIN]
@@ -104,7 +104,7 @@ BLUE='\033[0;34m'
 NC='\033[0m'
 
 echo -e "${BLUE}═══════════════════════════════════════════════════════════${NC}"
-echo -e "${BLUE}  Xaheen Chain Production Deployment (Remote)${NC}"
+echo -e "${BLUE}  Nor Chain Production Deployment (Remote)${NC}"
 echo -e "${BLUE}═══════════════════════════════════════════════════════════${NC}"
 
 # Update system
@@ -216,7 +216,7 @@ ssh $SSH_USER@$SERVER_IP "bash /tmp/xaheen-deploy/remote-deploy.sh"
 echo -e "${GREEN}✓ Remote deployment complete${NC}"
 
 # Initialize validators
-echo -e "${YELLOW}→ Initializing Xaheen validators...${NC}"
+echo -e "${YELLOW}→ Initializing Nor validators...${NC}"
 ssh $SSH_USER@$SERVER_IP << 'EOF'
 cd /opt/xaheen
 
@@ -251,7 +251,7 @@ ssh $SSH_USER@$SERVER_IP << 'EOF'
 # Validator 1 service (RPC + P2P)
 cat > /etc/systemd/system/xaheen-validator-1.service << 'SERVICE1'
 [Unit]
-Description=Xaheen Chain Validator 1 (RPC)
+Description=Nor Chain Validator 1 (RPC)
 After=docker.service
 Requires=docker.service
 
@@ -290,7 +290,7 @@ SERVICE1
 # Validator 2 service (P2P only)
 cat > /etc/systemd/system/xaheen-validator-2.service << 'SERVICE2'
 [Unit]
-Description=Xaheen Chain Validator 2
+Description=Nor Chain Validator 2
 After=docker.service
 Requires=docker.service
 
@@ -322,7 +322,7 @@ SERVICE2
 # Validator 3 service (P2P only)
 cat > /etc/systemd/system/xaheen-validator-3.service << 'SERVICE3'
 [Unit]
-Description=Xaheen Chain Validator 3
+Description=Nor Chain Validator 3
 After=docker.service
 Requires=docker.service
 
@@ -525,7 +525,7 @@ EOF
 echo -e "${GREEN}✓ Nginx configured${NC}"
 
 # Start validators
-echo -e "${YELLOW}→ Starting Xaheen validators...${NC}"
+echo -e "${YELLOW}→ Starting Nor validators...${NC}"
 ssh $SSH_USER@$SERVER_IP << 'EOF'
 systemctl start xaheen-validator-1
 systemctl start xaheen-validator-2
@@ -587,7 +587,7 @@ echo ""
 echo "4. Add to MetaMask:"
 echo "   Chain ID: 65001"
 echo "   RPC URL: https://rpc.$DOMAIN"
-echo "   Currency: XHT"
+echo "   Currency: NOR"
 echo ""
-echo -e "${GREEN}Xaheen Chain is ready to compete with BNB Smart Chain! 🚀${NC}"
+echo -e "${GREEN}Nor Chain is ready to compete with BNB Smart Chain! 🚀${NC}"
 echo ""

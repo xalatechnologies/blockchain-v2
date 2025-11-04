@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ##############################################################################
-# Xaheen Chain - Provision 4 Additional Validators (4-7)
+# Nor Chain - Provision 4 Additional Validators (4-7)
 #
 # This script provisions 4 new EC2 t3.large instances across multiple regions
 # for validators 4-7 as part of the 7-validator setup
@@ -72,7 +72,7 @@ create_security_group() {
         sg_id=$(aws ec2 create-security-group \
             --region $region \
             --group-name $SECURITY_GROUP \
-            --description "Xaheen Chain Validators" \
+            --description "Nor Chain Validators" \
             --query 'GroupId' \
             --output text)
 
@@ -130,9 +130,9 @@ launch_instance() {
         --tag-specifications "ResourceType=instance,Tags=[
             {Key=Name,Value=$name},
             {Key=Validator,Value=$validator_num},
-            {Key=Project,Value=XaheenChain}
+            {Key=Project,Value=NorChain}
         ]" \
-        --iam-instance-profile Name=XaheenChainBackupRole \
+        --iam-instance-profile Name=NorChainBackupRole \
         --query 'Instances[0].InstanceId' \
         --output text)
 

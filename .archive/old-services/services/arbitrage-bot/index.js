@@ -1,10 +1,10 @@
 /**
- * Xaheen Cross-Chain Arbitrage Bot
+ * Nor Cross-Chain Arbitrage Bot
  *
  * Purpose: Maintain ±0.5% price tolerance across all spoke chains
  *
  * How it works:
- * 1. Monitor TWAP price from Xaheen DEX (canonical price)
+ * 1. Monitor TWAP price from Nor DEX (canonical price)
  * 2. Monitor spoke prices from BSC/Polygon/ETH DEXs
  * 3. When deviation >0.3%, execute arbitrage
  * 4. Only execute if profit >$5 (covers gas)
@@ -28,7 +28,7 @@ class ArbitrageBot {
   }
 
   async start() {
-    console.log("🤖 Xaheen Arbitrage Bot Starting...\n");
+    console.log("🤖 Nor Arbitrage Bot Starting...\n");
 
     // Initialize connections
     await this.priceMonitor.initialize();
@@ -57,9 +57,9 @@ class ArbitrageBot {
     try {
       console.log(`[${new Date().toISOString()}] Monitoring prices...`);
 
-      // 1. Get canonical price from Xaheen
-      const xaheenPrice = await this.priceMonitor.getXaheenPrice();
-      console.log(`   Xaheen TWAP: $${xaheenPrice.toFixed(6)}`);
+      // 1. Get canonical price from Nor
+      const xaheenPrice = await this.priceMonitor.getNorPrice();
+      console.log(`   Nor TWAP: $${xaheenPrice.toFixed(6)}`);
 
       // 2. Check each spoke chain
       for (const spoke of config.spokes) {
@@ -82,7 +82,7 @@ class ArbitrageBot {
           console.log(`   ⚠️  Deviation above threshold!`);
 
           // Calculate potential profit
-          const arbitrageAmount = config.arbitrageAmountXHT;
+          const arbitrageAmount = config.arbitrageAmountNOR;
           const profit = await this.arbitrageExecutor.calculateProfit(
             xaheenPrice,
             spokePrice,

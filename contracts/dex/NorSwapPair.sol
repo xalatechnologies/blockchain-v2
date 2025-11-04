@@ -6,8 +6,8 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/utils/math/Math.sol";
 
 /**
- * @title NoorSwapPair
- * @notice Liquidity pool pair contract for NoorSwap DEX
+ * @title NorSwapPair
+ * @notice Liquidity pool pair contract for NorSwap DEX
  * @dev Implements Uniswap V2 constant product AMM: x * y = k
  *
  * Key Features:
@@ -19,9 +19,9 @@ import "@openzeppelin/contracts/utils/math/Math.sol";
  *
  * Fees:
  * - 0.25% LP fee (goes to liquidity providers)
- * - 0.05% protocol fee (goes to Noor Chain treasury)
+ * - 0.05% protocol fee (goes to Nor Chain treasury)
  */
-contract NoorSwapPair is ERC20 {
+contract NorSwapPair is ERC20 {
     using Math for uint256;
 
     // Minimum liquidity locked forever
@@ -63,13 +63,13 @@ contract NoorSwapPair is ERC20 {
     uint256 private unlocked = 1;
 
     modifier lock() {
-        require(unlocked == 1, "NoorSwapPair: LOCKED");
+        require(unlocked == 1, "NorSwapPair: LOCKED");
         unlocked = 0;
         _;
         unlocked = 1;
     }
 
-    constructor() ERC20("NoorSwap LP", "NOOR-LP") {
+    constructor() ERC20("NorSwap LP", "NOOR-LP") {
         factory = msg.sender;
     }
 
@@ -78,8 +78,8 @@ contract NoorSwapPair is ERC20 {
      * @dev Called once by the factory at time of deployment
      */
     function initialize(address _token0, address _token1) external {
-        require(msg.sender == factory, "NoorSwapPair: FORBIDDEN");
-        require(token0 == address(0) && token1 == address(0), "NoorSwapPair: ALREADY_INITIALIZED");
+        require(msg.sender == factory, "NorSwapPair: FORBIDDEN");
+        require(token0 == address(0) && token1 == address(0), "NorSwapPair: ALREADY_INITIALIZED");
         token0 = _token0;
         token1 = _token1;
     }
@@ -98,7 +98,7 @@ contract NoorSwapPair is ERC20 {
      * @dev Called on every liquidity change
      */
     function _update(uint256 balance0, uint256 balance1, uint112 _reserve0, uint112 _reserve1) private {
-        require(balance0 <= type(uint112).max && balance1 <= type(uint112).max, "NoorSwapPair: OVERFLOW");
+        require(balance0 <= type(uint112).max && balance1 <= type(uint112).max, "NorSwapPair: OVERFLOW");
 
         uint32 blockTimestamp = uint32(block.timestamp % 2**32);
         uint32 timeElapsed = blockTimestamp - blockTimestampLast;
@@ -123,7 +123,7 @@ contract NoorSwapPair is ERC20 {
      * @dev Called before any liquidity change
      */
     function _mintFee(uint112 _reserve0, uint112 _reserve1) private returns (bool feeOn) {
-        address feeTo = INoorSwapFactory(factory).feeTo();
+        address feeTo = INorSwapFactory(factory).feeTo();
         feeOn = feeTo != address(0);
         uint256 _kLast = kLast;
 
@@ -174,7 +174,7 @@ contract NoorSwapPair is ERC20 {
             );
         }
 
-        require(liquidity > 0, "NoorSwapPair: INSUFFICIENT_LIQUIDITY_MINTED");
+        require(liquidity > 0, "NorSwapPair: INSUFFICIENT_LIQUIDITY_MINTED");
         _mint(to, liquidity);
 
         _update(balance0, balance1, _reserve0, _reserve1);
@@ -204,7 +204,7 @@ contract NoorSwapPair is ERC20 {
         amount0 = (liquidity * balance0) / _totalSupply;
         amount1 = (liquidity * balance1) / _totalSupply;
 
-        require(amount0 > 0 && amount1 > 0, "NoorSwapPair: INSUFFICIENT_LIQUIDITY_BURNED");
+        require(amount0 > 0 && amount1 > 0, "NorSwapPair: INSUFFICIENT_LIQUIDITY_BURNED");
 
         _burn(address(this), liquidity);
 
@@ -228,9 +228,9 @@ contract NoorSwapPair is ERC20 {
      * @param data Callback data for flash swaps
      */
     function swap(uint256 amount0Out, uint256 amount1Out, address to, bytes calldata data) external lock {
-        require(amount0Out > 0 || amount1Out > 0, "NoorSwapPair: INSUFFICIENT_OUTPUT_AMOUNT");
+        require(amount0Out > 0 || amount1Out > 0, "NorSwapPair: INSUFFICIENT_OUTPUT_AMOUNT");
         (uint112 _reserve0, uint112 _reserve1,) = getReserves();
-        require(amount0Out < _reserve0 && amount1Out < _reserve1, "NoorSwapPair: INSUFFICIENT_LIQUIDITY");
+        require(amount0Out < _reserve0 && amount1Out < _reserve1, "NorSwapPair: INSUFFICIENT_LIQUIDITY");
 
         uint256 balance0;
         uint256 balance1;
@@ -238,7 +238,7 @@ contract NoorSwapPair is ERC20 {
         {
             address _token0 = token0;
             address _token1 = token1;
-            require(to != _token0 && to != _token1, "NoorSwapPair: INVALID_TO");
+            require(to != _token0 && to != _token1, "NorSwapPair: INVALID_TO");
 
             // Transfer output tokens
             if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out);
@@ -246,7 +246,7 @@ contract NoorSwapPair is ERC20 {
 
             // Flash swap callback
             if (data.length > 0) {
-                INoorSwapCallee(to).noorSwapCall(msg.sender, amount0Out, amount1Out, data);
+                INorSwapCallee(to).norSwapCall(msg.sender, amount0Out, amount1Out, data);
             }
 
             balance0 = IERC20(_token0).balanceOf(address(this));
@@ -257,7 +257,7 @@ contract NoorSwapPair is ERC20 {
         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;
         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;
 
-        require(amount0In > 0 || amount1In > 0, "NoorSwapPair: INSUFFICIENT_INPUT_AMOUNT");
+        require(amount0In > 0 || amount1In > 0, "NorSwapPair: INSUFFICIENT_INPUT_AMOUNT");
 
         {
             // Verify constant product with 0.30% fee (997/1000)
@@ -265,7 +265,7 @@ contract NoorSwapPair is ERC20 {
             uint256 balance1Adjusted = (balance1 * 1000) - (amount1In * 3);
             require(
                 balance0Adjusted * balance1Adjusted >= uint256(_reserve0) * uint256(_reserve1) * (1000**2),
-                "NoorSwapPair: K"
+                "NorSwapPair: K"
             );
         }
 
@@ -303,22 +303,22 @@ contract NoorSwapPair is ERC20 {
         (bool success, bytes memory data) = token.call(
             abi.encodeWithSelector(IERC20.transfer.selector, to, value)
         );
-        require(success && (data.length == 0 || abi.decode(data, (bool))), "NoorSwapPair: TRANSFER_FAILED");
+        require(success && (data.length == 0 || abi.decode(data, (bool))), "NorSwapPair: TRANSFER_FAILED");
     }
 }
 
 /**
- * @title INoorSwapFactory
+ * @title INorSwapFactory
  * @notice Factory interface for fee management
  */
-interface INoorSwapFactory {
+interface INorSwapFactory {
     function feeTo() external view returns (address);
 }
 
 /**
- * @title INoorSwapCallee
+ * @title INorSwapCallee
  * @notice Interface for flash swap callbacks
  */
-interface INoorSwapCallee {
-    function noorSwapCall(address sender, uint256 amount0, uint256 amount1, bytes calldata data) external;
+interface INorSwapCallee {
+    function norSwapCall(address sender, uint256 amount0, uint256 amount1, bytes calldata data) external;
 }

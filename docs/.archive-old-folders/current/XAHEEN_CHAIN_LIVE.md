@@ -17,7 +17,7 @@ Explorer: https://explorer.xaheen.org
 ### Connection Parameters
 ```
 Chain ID:     65001 (0xFDE9)
-Currency:     XHT (Xaheen Token)
+Currency:     NOR (Nor Token)
 Decimals:     18
 Block Time:   3 seconds
 Consensus:    Parlia PoSA
@@ -67,10 +67,10 @@ Visit: **https://explorer.xaheen.org** and click "Add to MetaMask"
 3. Enter the following:
 
 ```
-Network Name:    Xaheen Chain
+Network Name:    Nor Chain
 RPC URL:         https://rpc.xaheen.org
 Chain ID:        65001
-Currency Symbol: XHT
+Currency Symbol: NOR
 Block Explorer:  https://explorer.xaheen.org
 ```
 
@@ -79,15 +79,15 @@ Block Explorer:  https://explorer.xaheen.org
 ### JavaScript Integration
 
 ```javascript
-async function addXaheenChain() {
+async function addNorChain() {
   await window.ethereum.request({
     method: 'wallet_addEthereumChain',
     params: [{
       chainId: '0xFDE9',
-      chainName: 'Xaheen Chain',
+      chainName: 'Nor Chain',
       nativeCurrency: {
-        name: 'Xaheen Token',
-        symbol: 'XHT',
+        name: 'Nor Token',
+        symbol: 'NOR',
         decimals: 18
       },
       rpcUrls: ['https://rpc.xaheen.org'],
@@ -117,7 +117,7 @@ The intelligent blockchain competing with BNB Smart Chain is LIVE!
 
 Add to MetaMask: https://explorer.xaheen.org
 
-Join the revolution: #XaheenChain #DeFi #Blockchain #Web3
+Join the revolution: #NorChain #DeFi #Blockchain #Web3
 
 Where Intelligence Meets Blockchain 🧠⚡
 ```
@@ -125,9 +125,9 @@ Where Intelligence Meets Blockchain 🧠⚡
 ### Reddit Post (r/cryptocurrency, r/ethdev)
 
 ```
-[ANNOUNCEMENT] Xaheen Chain - Public Launch | Chain ID 65001
+[ANNOUNCEMENT] Nor Chain - Public Launch | Chain ID 65001
 
-We're excited to announce the public launch of Xaheen Chain, an EVM-compatible
+We're excited to announce the public launch of Nor Chain, an EVM-compatible
 blockchain designed to compete directly with BNB Smart Chain.
 
 🌐 Public RPC: https://rpc.xaheen.org
@@ -151,16 +151,16 @@ Competitive Advantages vs BNB Smart Chain:
 
 Technical Specifications:
 • Network ID: 65001
-• Native Token: XHT (Xaheen Token)
+• Native Token: NOR (Nor Token)
 • Archive Node: Full historical state
 • Security: SSL/TLS encrypted endpoints
 • Infrastructure: AWS EC2 with multi-validator redundancy
 
 Developer Resources:
 • Documentation: Coming soon
-• Faucet: Free XHT for testing (launching next week)
+• Faucet: Free NOR for testing (launching next week)
 • Developer Grants: $50K fund available
-• Migration Tools: BSC → Xaheen one-command migration
+• Migration Tools: BSC → Nor one-command migration
 
 Add to MetaMask:
 Visit https://explorer.xaheen.org and click "Add to MetaMask"
@@ -168,7 +168,7 @@ Visit https://explorer.xaheen.org and click "Add to MetaMask"
 Or manually:
 Chain ID: 65001
 RPC: https://rpc.xaheen.org
-Symbol: XHT
+Symbol: NOR
 
 We're not just another fork - we're BNB Smart Chain evolved with better
 governance, lower costs, and true decentralization.
@@ -181,9 +181,9 @@ Feedback, questions, and developer interest welcome!
 ### LinkedIn Post
 
 ```
-🚀 Excited to announce the public launch of Xaheen Chain!
+🚀 Excited to announce the public launch of Nor Chain!
 
-Xaheen Chain is a new EVM-compatible blockchain designed for enterprise
+Nor Chain is a new EVM-compatible blockchain designed for enterprise
 and DeFi applications, now publicly accessible.
 
 Key Differentiators:
@@ -227,7 +227,7 @@ XAHEEN CHAIN IS NOW PUBLIC!
 🔍 Explorer: https://explorer.xaheen.org
 🆔 Chain ID: 65001
 
-🎯 What makes Xaheen special:
+🎯 What makes Nor special:
 ✅ 99.99% lower fees than BSC
 ✅ Instant finality (faster than BSC)
 ✅ Community DAO governance
@@ -244,7 +244,7 @@ Visit https://explorer.xaheen.org
 
 Join our community:
 💬 Telegram: t.me/xaheen_chain
-🐦 Twitter: @XaheenChain
+🐦 Twitter: @NorChain
 📖 Docs: docs.xaheen.org (coming soon)
 
 Where Intelligence Meets Blockchain! 🧠⚡
@@ -263,7 +263,7 @@ Where Intelligence Meets Blockchain! 🧠⚡
 
 ### Migration Completed
 - **From**: BitcoinBR (Chain ID 885824)
-- **To**: Xaheen Chain (Chain ID 65001)
+- **To**: Nor Chain (Chain ID 65001)
 - **Date**: October 30, 2025
 - **Downtime**: ~15 minutes
 
@@ -335,7 +335,7 @@ Where Intelligence Meets Blockchain! 🧠⚡
 
 ### Timeline
 - **Started**: October 28, 2025 (BitcoinBR)
-- **Migrated**: October 30, 2025 (to Xaheen)
+- **Migrated**: October 30, 2025 (to Nor)
 - **Public**: October 30, 2025 (HTTPS live)
 - **Total Time**: 2 days from start to public!
 
@@ -358,7 +358,7 @@ Where Intelligence Meets Blockchain! 🧠⚡
 
 ## 🎊 WE DID IT!
 
-**Xaheen Chain is now:**
+**Nor Chain is now:**
 - ✅ Public
 - ✅ Secure (HTTPS)
 - ✅ Fast (3-second blocks)
@@ -372,6 +372,6 @@ Where Intelligence Meets Blockchain! 🧠⚡
 
 **Thank you for making this happen! 🙏**
 
-**Xaheen Chain - Where Intelligence Meets Blockchain** 🧠⚡
+**Nor Chain - Where Intelligence Meets Blockchain** 🧠⚡
 
 **Let's build the future together! 🚀**

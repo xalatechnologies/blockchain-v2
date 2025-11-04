@@ -8,7 +8,7 @@
 ## Current Situation
 
 **Chain Status**: Still stuck at block 29,999
-**Risk**: $20,000 XHT/USDT liquidity
+**Risk**: $20,000 NOR/USDT liquidity
 
 **Recovery Attempts**:
 1. ✅ Fast recovery (single-sealer nudge) - FAILED (expected)
@@ -82,11 +82,11 @@
 ## What Will Be Preserved
 
 **100% Preserved**:
-- ✅ All contract code (WXHT, Factory, Router, Pair, BTCBR, USDT)
+- ✅ All contract code (WNOR, Factory, Router, Pair, BTCBR, USDT)
 - ✅ All contract storage (LP reserves, allowances, etc.)
 - ✅ All account balances
 - ✅ All nonces
-- ✅ $20,000 XHT/USDT liquidity
+- ✅ $20,000 NOR/USDT liquidity
 - ✅ Same contract addresses
 - ✅ Same chainId (65001)
 

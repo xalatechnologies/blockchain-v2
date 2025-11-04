@@ -3,10 +3,10 @@
 ## ✅ WHAT WE ACCOMPLISHED TODAY
 
 ### 1. Complete DEX Infrastructure Deployed ✅
-- WXHT (Wrapped XHT): 0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651
+- WNOR (Wrapped NOR): 0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651
 - DEX Factory: 0x502ec2Ce7cd266Eff9e147d66Df3e4D4fcB9e812
 - DEX Router: 0x0D8e7Ed1B328302bbAA0249CeFD6ca52E050F86e
-- XHT/BTCBR Pair: 0x96BEFeb7cE1a6545f0288F62b314f26852999A9B
+- NOR/BTCBR Pair: 0x96BEFeb7cE1a6545f0288F62b314f26852999A9B
 
 ### 2. Cross-Chain Bridges Deployed ✅
 - USDT Bridge (BSC): 0x68EF664d975c0fda0BbD994433e9651cBED2B38f
@@ -32,12 +32,12 @@
 ### Pair Contract Bug
 **Problem**: The DEX pair contract has a bug where MINIMUM_LIQUIDITY is minted to address(0), which OpenZeppelin v4 doesn't allow.
 
-**Impact**: Cannot add liquidity to any new pairs (including XHT/XHN)
+**Impact**: Cannot add liquidity to any new pairs (including NOR/XHN)
 
 **Solution Options**:
 
 #### Option 1: Fix and Redeploy (Recommended) ⭐
-1. Fix XaheenDEXPair.sol (change address(0) to address(this))
+1. Fix NorDEXPair.sol (change address(0) to address(this))
 2. Redeploy Factory with fixed pair bytecode
 3. Redeploy Router pointing to new factory
 4. Add liquidity
@@ -50,7 +50,7 @@
 1. Deploy to PancakeSwap on BSC
 2. Create XHN/BNB pair
 3. Add liquidity there
-4. Launch on BSC first, then migrate to Xaheen
+4. Launch on BSC first, then migrate to Nor
 
 **Time**: 5 minutes
 **Cost**: ~$5 gas (BSC mainnet)
@@ -72,8 +72,8 @@
 - Total: $0.05 in gas fees
 
 ### Still Ready to Deploy: $1,000
-- XHT/XHN liquidity: $1,000 (1000 XHT + 100K XHN)
-- Launch script buys: $4 (38 XHT)
+- NOR/XHN liquidity: $1,000 (1000 NOR + 100K XHN)
+- Launch script buys: $4 (38 NOR)
 - Gas buffer: $50
 
 **Total Capital Required**: $1,054
@@ -83,7 +83,7 @@
 ## 🎯 RECOMMENDED NEXT STEPS
 
 ### Immediate (5 minutes):
-1. **Fix the pair contract** - Change line 123 in XaheenDEXPair.sol:
+1. **Fix the pair contract** - Change line 123 in NorDEXPair.sol:
    ```solidity
    // From:
    _mint(address(0), MINIMUM_LIQUIDITY);
@@ -97,7 +97,7 @@
    npx hardhat run scripts/deploy-fixed-dex.js --network btcbr
    ```
 
-3. **Add XHT/XHN liquidity** - Run:
+3. **Add NOR/XHN liquidity** - Run:
    ```bash
    npx hardhat run scripts/add-xhn-liquidity-v3.js --network btcbr
    ```
@@ -140,7 +140,7 @@
 **What's Working:**
 - ✅ All contracts developed
 - ✅ Most contracts deployed
-- ✅ XHN token on Xaheen Chain
+- ✅ XHN token on Nor Chain
 - ✅ Complete documentation
 - ✅ Proven launch strategy
 - ✅ $1,000 ready to deploy
@@ -154,11 +154,11 @@
 
 **Total Time to Launch**: 27 minutes
 
-## 💎 KEY CONTRACTS (Xaheen Chain)
+## 💎 KEY CONTRACTS (Nor Chain)
 
 ### Working Now:
 ```
-WXHT:           0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651
+WNOR:           0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651
 XHN:            0xD4567cD447068aaD470431746592f261Fae92bAa
 BTCBR:          0x0cF8e180350253271f4b917CcFb0aCCc4862F262
 ```
@@ -167,7 +167,7 @@ BTCBR:          0x0cF8e180350253271f4b917CcFb0aCCc4862F262
 ```
 Factory:        Will get new address
 Router:         Will get new address
-XHT/XHN Pair:   Will be created fresh
+NOR/XHN Pair:   Will be created fresh
 ```
 
 ### Bridges (Ready for External Deployment):
@@ -179,11 +179,11 @@ BTCBR-TRC20 (Tron):      0xFDE8f93aC81D55E0E23Bec1bC6c79F10111bCBDC
 ## 🚀 LAUNCH CHECKLIST
 
 ### Pre-Launch:
-- [ ] Fix XaheenDEXPair.sol line 123
+- [ ] Fix NorDEXPair.sol line 123
 - [ ] Redeploy Factory
 - [ ] Redeploy Router
-- [ ] Create XHT/XHN pair
-- [ ] Add 1000 XHT + 100K XHN liquidity
+- [ ] Create NOR/XHN pair
+- [ ] Add 1000 NOR + 100K XHN liquidity
 - [ ] Verify liquidity exists
 
 ### Launch:

@@ -1,7 +1,7 @@
 {
   "timestamp": "2025-11-03T14:31:23Z",
   "chainId": 65001,
-  "network": "Noor Chain",
+  "network": "Nor Chain",
   "wrapped_tokens": {
     "WBNB": "0x4664836683f62eB96388461f79602fC1Aeb6A78E",
     "WETH": "0x381Acd8Ab92811094D0b8F73411C24F0b2122359",

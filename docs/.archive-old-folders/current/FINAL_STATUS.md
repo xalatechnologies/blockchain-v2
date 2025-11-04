@@ -42,16 +42,16 @@
 - **P2P**: Ports 30303, 30304, 30305 ✅
 
 ### Token Supplies
-- **XHT (native)**: 21,000,000,000 ✅
+- **NOR (native)**: 21,000,000,000 ✅
 - **BTCBR (contract)**: 21,000,000,000,000,000,000,000,000 ✅
 
 ### Smart Contracts (All Deployed)
-1. **XHTStaking**: 0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c ✅
-2. **XHTBurnMechanism**: 0xe97D574A2e1B62f4d32C5cfeaFa8e6B99Da020fa ✅
-3. **XHTGovernance**: 0x4A82C98A950125F17943F56273efae39dDe81763 ✅
-4. **XHTRevenue**: 0xA37C1f80Bd02D9d70ce0188831A85c65fdFBeEDe ✅
-5. **XHTCrowdfunding**: 0x1495fCf5F09D53203EE1CD1fF974591dc101df0b ✅
-6. **XHTCharity**: 0x26c0eaF731885b14c031cc50dB79b36458E0b355 ✅
+1. **NORStaking**: 0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c ✅
+2. **NORBurnMechanism**: 0xe97D574A2e1B62f4d32C5cfeaFa8e6B99Da020fa ✅
+3. **NORGovernance**: 0x4A82C98A950125F17943F56273efae39dDe81763 ✅
+4. **NORRevenue**: 0xA37C1f80Bd02D9d70ce0188831A85c65fdFBeEDe ✅
+5. **NORCrowdfunding**: 0x1495fCf5F09D53203EE1CD1fF974591dc101df0b ✅
+6. **NORCharity**: 0x26c0eaF731885b14c031cc50dB79b36458E0b355 ✅
 
 ### Security
 - **Score**: 95/100 ⭐⭐⭐⭐⭐
@@ -159,10 +159,10 @@ iconUrls: [
 
 ### Add to MetaMask:
 ```
-Network Name: Xaheen Chain
+Network Name: Nor Chain
 RPC URL: https://rpc.xaheen.org (or http://3.91.50.187:8545)
 Chain ID: 65001
-Currency Symbol: XHT
+Currency Symbol: NOR
 Block Explorer: https://explorer.xaheen.org
 ```
 
@@ -197,7 +197,7 @@ Block Explorer: https://explorer.xaheen.org
 - **Block Height**: Continuously increasing
 - **Validator Count**: 3/3 active
 - **Peer Connections**: 3/3 connected
-- **Gas Used (deployment)**: 0.033256539 XHT
+- **Gas Used (deployment)**: 0.033256539 NOR
 - **Security Score**: 95/100
 
 ---
@@ -211,7 +211,7 @@ Block Explorer: https://explorer.xaheen.org
 4. **POST_LAUNCH_SETUP.md** - Complete setup guide
 
 ### Security:
-5. **docs/XHT_SECURITY_AUDIT.md** - Security audit (95/100)
+5. **docs/NOR_SECURITY_AUDIT.md** - Security audit (95/100)
 
 ### Scripts:
 - **scripts/check-xaheen-status.sh** - Status check

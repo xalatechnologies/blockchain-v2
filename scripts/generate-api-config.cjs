@@ -18,13 +18,19 @@ async function main() {
 
   // Load deployment info
   if (!fs.existsSync("deployment-mainnet.json")) {
-    throw new Error("deployment-mainnet.json not found. Deploy contracts first!");
+    throw new Error(
+      "deployment-mainnet.json not found. Deploy contracts first!"
+    );
   }
 
-  const deploymentInfo = JSON.parse(fs.readFileSync("deployment-mainnet.json", "utf8"));
+  const deploymentInfo = JSON.parse(
+    fs.readFileSync("deployment-mainnet.json", "utf8")
+  );
 
   if (!deploymentInfo.hub || !deploymentInfo.spoke) {
-    throw new Error("Incomplete deployment info. Both hub and spoke must be deployed!");
+    throw new Error(
+      "Incomplete deployment info. Both hub and spoke must be deployed!"
+    );
   }
 
   console.log("✅ Loaded deployment info\n");
@@ -41,27 +47,29 @@ async function main() {
 RELAYER_PRIVATE_KEY=YOUR_RELAYER_PRIVATE_KEY_HERE
 
 # ============================================
-# HUB CHAIN (Xaheen Chain - Chain ID: 65001)
+# HUB CHAIN (Nor Chain - Chain ID: 65001)
 # ============================================
 
-XAHEEN_CHAIN_RPC=${process.env.XAHEEN_CHAIN_RPC || 'https://rpc.xaheen.org'}
+XAHEEN_CHAIN_RPC=${process.env.XAHEEN_CHAIN_RPC || "https://rpc.xaheen.org"}
 
 # Hub Contracts
 HUB_SETTLEMENT_HUB=${deploymentInfo.hub.hub.settlementHub}
 HUB_SUPPLY_CONTROLLER=${deploymentInfo.hub.hub.supplyController}
 HUB_PRICE_AUTHORITY=${deploymentInfo.hub.hub.priceAuthority}
-HUB_XHT_TOKEN=${deploymentInfo.hub.hub.xhtToken}
+HUB_NOR_TOKEN=${deploymentInfo.hub.hub.xhtToken}
 
 # ============================================
 # SPOKE CHAINS - BSC MAINNET (Chain ID: 56)
 # ============================================
 
-BSC_MAINNET_RPC=${process.env.BSC_MAINNET_RPC || 'https://bsc-dataseed.binance.org'}
+BSC_MAINNET_RPC=${
+    process.env.BSC_MAINNET_RPC || "https://bsc-dataseed.binance.org"
+  }
 
 # BSC Spoke Contracts
 SPOKE_BSC_SETTLEMENT_INBOX=${deploymentInfo.spoke.contracts.settlementInbox}
 SPOKE_BSC_XAHEEN_ROUTER=${deploymentInfo.spoke.contracts.xaheenRouter}
-SPOKE_BSC_WRAPPED_XHT=${deploymentInfo.spoke.contracts.wrappedXHT}
+SPOKE_BSC_WRAPPED_NOR=${deploymentInfo.spoke.contracts.wrappedNOR}
 
 # ============================================
 # RELAYER SETTINGS
@@ -106,7 +114,7 @@ SPOKE_CHAIN_IDS=56
 # 1. Update RELAYER_PRIVATE_KEY with a dedicated wallet
 # 2. Fund relayer wallet with gas on both chains:
 #    - BSC: ~0.1 BNB for ongoing operations
-#    - Xaheen: ~10 XHT for ongoing operations
+#    - Nor: ~10 NOR for ongoing operations
 # 3. Copy this file to xaheen-sdk/apps/api/.env
 # 4. Run database migration: npm run db:generate && npm run db:migrate
 # 5. Start API: npm run dev
@@ -128,17 +136,20 @@ SPOKE_CHAIN_IDS=56
   console.log("📄 Configuration file: api-config.env");
   console.log("");
 
-  console.log("🏦 HUB CONTRACTS (Xaheen Chain):");
+  console.log("🏦 HUB CONTRACTS (Nor Chain):");
   console.log("   SettlementHub:", deploymentInfo.hub.hub.settlementHub);
   console.log("   SupplyController:", deploymentInfo.hub.hub.supplyController);
   console.log("   PriceAuthority:", deploymentInfo.hub.hub.priceAuthority);
-  console.log("   XHT Token:", deploymentInfo.hub.hub.xhtToken);
+  console.log("   NOR Token:", deploymentInfo.hub.hub.xhtToken);
   console.log("");
 
   console.log("🌐 SPOKE CONTRACTS (BSC Mainnet):");
-  console.log("   SettlementInbox:", deploymentInfo.spoke.contracts.settlementInbox);
-  console.log("   XaheenRouter:", deploymentInfo.spoke.contracts.xaheenRouter);
-  console.log("   Wrapped XHT:", deploymentInfo.spoke.contracts.wrappedXHT);
+  console.log(
+    "   SettlementInbox:",
+    deploymentInfo.spoke.contracts.settlementInbox
+  );
+  console.log("   NorRouter:", deploymentInfo.spoke.contracts.xaheenRouter);
+  console.log("   Wrapped NOR:", deploymentInfo.spoke.contracts.wrappedNOR);
   console.log("");
 
   console.log("═══════════════════════════════════════════════════════\n");
@@ -150,13 +161,17 @@ SPOKE_CHAIN_IDS=56
 
   console.log("2. Fund relayer wallet:");
   console.log("   - BSC Mainnet: ~0.1 BNB for gas");
-  console.log("   - Xaheen Chain: ~10 XHT for gas\n");
+  console.log("   - Nor Chain: ~10 NOR for gas\n");
 
   console.log("3. Copy configuration to xaheen-sdk API:");
-  console.log("   cat api-config.env >> /Volumes/Development/sahalat/private\\ server/xaheen-sdk/apps/api/.env\n");
+  console.log(
+    "   cat api-config.env >> /Volumes/Development/sahalat/private\\ server/xaheen-sdk/apps/api/.env\n"
+  );
 
   console.log("4. Follow BRIDGE_INTEGRATION.md steps:\n");
-  console.log("   cd /Volumes/Development/sahalat/private\\ server/xaheen-sdk/apps/api");
+  console.log(
+    "   cd /Volumes/Development/sahalat/private\\ server/xaheen-sdk/apps/api"
+  );
   console.log("");
   console.log("   # Export schema");
   console.log("   # Add to src/db/schema/index.ts:");
@@ -169,7 +184,9 @@ SPOKE_CHAIN_IDS=56
   console.log("   # Register routes");
   console.log("   # Add to src/index.ts:");
   console.log("   import bridgeRoutes from './routes/bridge';");
-  console.log("   import { startRelayer, stopRelayer } from './services/relayer.init';");
+  console.log(
+    "   import { startRelayer, stopRelayer } from './services/relayer.init';"
+  );
   console.log("   app.use('/api/bridge', bridgeRoutes);");
   console.log("   await startRelayer();");
   console.log("");

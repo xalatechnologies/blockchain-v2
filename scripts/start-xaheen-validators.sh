@@ -1,10 +1,10 @@
 #!/bin/bash
 
 ##############################################################################
-# Start Xaheen Chain Validators
+# Start Nor Chain Validators
 ##############################################################################
 #
-# This script starts 3 validators for Xaheen Chain (Chain ID 65001)
+# This script starts 3 validators for Nor Chain (Chain ID 65001)
 #
 # Prerequisites:
 #   - Validators initialized with ./scripts/init-xaheen-validators.sh
@@ -27,9 +27,9 @@ PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 echo -e "${BLUE}"
 echo "╔════════════════════════════════════════════════════════════╗"
 echo "║                                                            ║"
-echo "║            Starting Xaheen Chain Validators                ║"
+echo "║            Starting Nor Chain Validators                ║"
 echo "║                                                            ║"
-echo "║  Chain ID: 65001 | Network ID: 65001 | Native Token: XHT  ║"
+echo "║  Chain ID: 65001 | Network ID: 65001 | Native Token: NOR  ║"
 echo "║                                                            ║"
 echo "╚════════════════════════════════════════════════════════════╝"
 echo -e "${NC}"
@@ -148,7 +148,7 @@ echo "   curl -s http://localhost:8545 -X POST -H 'Content-Type: application/jso
 echo "     --data '{\"jsonrpc\":\"2.0\",\"method\":\"eth_getCode\",\"params\":[\"0x0cF8e180350253271f4b917CcFb0aCCc4862F262\",\"latest\"],\"id\":1}'"
 echo ""
 echo -e "${BLUE}═══════════════════════════════════════════════════════════${NC}"
-echo -e "${BLUE}║  Xaheen Chain - Where Intelligence Meets Blockchain  🧠⚡ ║${NC}"
+echo -e "${BLUE}║  Nor Chain - Where Intelligence Meets Blockchain  🧠⚡ ║${NC}"
 echo -e "${BLUE}═══════════════════════════════════════════════════════════${NC}"
 echo ""
 echo -e "${YELLOW}✅ All validators started successfully!${NC}"

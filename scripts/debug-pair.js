@@ -6,27 +6,28 @@ dotenvConfig();
 
 async function main() {
   console.log("🔍 Debugging Pair Contract\n");
-  console.log("=" .repeat(70));
+  console.log("=".repeat(70));
 
   const [deployer] = await ethers.getSigners();
   console.log("📋 Deployer:", deployer.address);
 
   // Load deployment info
-  const deployment = JSON.parse(fs.readFileSync("./deployments/dex-infrastructure.json", "utf8"));
-  const {
-    NOR_TOKEN,
-    WUSDT,
-    NOORSWAP_FACTORY,
-    NOORSWAP_ROUTER
-  } = deployment.contracts;
+  const deployment = JSON.parse(
+    fs.readFileSync("./deployments/dex-infrastructure.json", "utf8")
+  );
+  const { NOR_TOKEN, WUSDT, NOORSWAP_FACTORY, NOORSWAP_ROUTER } =
+    deployment.contracts;
 
   // Get pair address
-  const factory = await ethers.getContractAt("NoorSwapFactory", NOORSWAP_FACTORY);
+  const factory = await ethers.getContractAt(
+    "NorSwapFactory",
+    NOORSWAP_FACTORY
+  );
   const pairAddress = await factory.getPair(NOR_TOKEN, WUSDT);
   console.log("📍 Pair Address:", pairAddress);
 
   // Get pair contract
-  const pair = await ethers.getContractAt("NoorSwapPair", pairAddress);
+  const pair = await ethers.getContractAt("NorSwapPair", pairAddress);
 
   // Check pair state
   console.log("\n📊 Pair State:");
@@ -70,13 +71,15 @@ async function main() {
     console.log("  Transferring tokens to pair...");
 
     // Determine which amount goes where based on token order
-    const [amount0, amount1] = token0.toLowerCase() === WUSDT.toLowerCase()
-      ? [usdtAmount, norAmount]
-      : [norAmount, usdtAmount];
+    const [amount0, amount1] =
+      token0.toLowerCase() === WUSDT.toLowerCase()
+        ? [usdtAmount, norAmount]
+        : [norAmount, usdtAmount];
 
-    const [tokenContract0, tokenContract1] = token0.toLowerCase() === WUSDT.toLowerCase()
-      ? [wusdt, norToken]
-      : [norToken, wusdt];
+    const [tokenContract0, tokenContract1] =
+      token0.toLowerCase() === WUSDT.toLowerCase()
+        ? [wusdt, norToken]
+        : [norToken, wusdt];
 
     // Transfer token0
     const transfer0Tx = await tokenContract0.transfer(pairAddress, amount0);
@@ -110,7 +113,6 @@ async function main() {
     console.log("\n📊 New Reserves:");
     console.log("  Reserve0:", ethers.formatEther(newReserves[0]));
     console.log("  Reserve1:", ethers.formatEther(newReserves[1]));
-
   } catch (error) {
     console.error("\n❌ Error in manual test:");
     console.error("  Message:", error.message);

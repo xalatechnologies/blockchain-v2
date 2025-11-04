@@ -1,24 +1,24 @@
 # 🚀 XAHEENSWAP DEX - OFFICIAL LAUNCH ANNOUNCEMENT
 
 **Date:** October 30, 2025
-**Network:** Xaheen Chain (Chain ID: 65001)
+**Network:** Nor Chain (Chain ID: 65001)
 **Status:** ✅ LIVE
 
 ---
 
-## 🎉 XaheenSwap is Now LIVE!
+## 🎉 NorSwap is Now LIVE!
 
-We're excited to announce the official launch of **XaheenSwap**, the first decentralized exchange (DEX) on Xaheen Chain! Built on battle-tested Uniswap V2 architecture with near-zero gas fees and lightning-fast 3-second confirmations.
+We're excited to announce the official launch of **NorSwap**, the first decentralized exchange (DEX) on Nor Chain! Built on battle-tested Uniswap V2 architecture with near-zero gas fees and lightning-fast 3-second confirmations.
 
 ---
 
 ## 💧 INITIAL LIQUIDITY: $10,000
 
-**XHT/USDT Trading Pair**
-- **XHT Reserve:** 2,083,333,333 XHT (2.08 Billion)
+**NOR/USDT Trading Pair**
+- **NOR Reserve:** 2,083,333,333 NOR (2.08 Billion)
 - **USDT Reserve:** 5,000 USDT
 - **Total Value Locked (TVL):** $10,000 USD
-- **Launch Price:** $0.0000024 per XHT ✅ EXACT TARGET
+- **Launch Price:** $0.0000024 per NOR ✅ EXACT TARGET
 
 ---
 
@@ -27,14 +27,14 @@ We're excited to announce the official launch of **XaheenSwap**, the first decen
 ### **Core DEX Contracts**
 | Contract | Address | Verified |
 |----------|---------|----------|
-| **XaheenSwap Router** | `0x25a4240A868f9F5D5e6b55e5dd355bF2e1F9890a` | ✅ |
+| **NorSwap Router** | `0x25a4240A868f9F5D5e6b55e5dd355bF2e1F9890a` | ✅ |
 | **Factory** | `0x3652Da488FeF83C3327760f43B01Bad02FFfA13D` | ✅ |
-| **WXHT (Wrapped XHT)** | `0xeeE0Bf805c80456C539Ec73855b3a9bf81E54862` | ✅ |
+| **WNOR (Wrapped NOR)** | `0xeeE0Bf805c80456C539Ec73855b3a9bf81E54862` | ✅ |
 
 ### **Trading Pair**
 | Pair | Address | Liquidity |
 |------|---------|-----------|
-| **XHT/USDT** | `0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8` | $10,000 |
+| **NOR/USDT** | `0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8` | $10,000 |
 
 ### **Test Token** (Temporary)
 | Token | Address | Note |
@@ -73,17 +73,17 @@ We're excited to announce the official launch of **XaheenSwap**, the first decen
 
 **Swap Tests Completed Successfully:**
 
-### Test 1: XHT → USDT
-- **Input:** 1,000 XHT
+### Test 1: NOR → USDT
+- **Input:** 1,000 NOR
 - **Output:** 0.002392 USDT
-- **Actual Price:** $0.0000023928/XHT
+- **Actual Price:** $0.0000023928/NOR
 - **Price Impact:** <1%
 - **Status:** ✅ SUCCESS
 
-### Test 2: USDT → XHT
+### Test 2: USDT → NOR
 - **Input:** 0.001 USDT
-- **Output:** 415.42 XHT
-- **Actual Price:** $0.0000024072/XHT
+- **Output:** 415.42 NOR
+- **Actual Price:** $0.0000024072/NOR
 - **Price Impact:** <1%
 - **Status:** ✅ SUCCESS
 
@@ -109,48 +109,48 @@ We're excited to announce the official launch of **XaheenSwap**, the first decen
 
 ## 💰 HOW TO SWAP
 
-### **Step 1: Add Xaheen Chain to MetaMask**
+### **Step 1: Add Nor Chain to MetaMask**
 
 ```
-Network Name: Xaheen Chain
+Network Name: Nor Chain
 RPC URL: https://rpc.xaheen.org
 Chain ID: 65001
-Currency Symbol: XHT
+Currency Symbol: NOR
 Block Explorer: https://explorer.xaheen.org
 ```
 
-### **Step 2: Get XHT for Gas**
+### **Step 2: Get NOR for Gas**
 
-Options to get XHT:
-1. **Faucet** (coming soon): Free 10 XHT daily
-2. **Airdrop** (coming soon): 1,000 XHT for first 1,000 users
+Options to get NOR:
+1. **Faucet** (coming soon): Free 10 NOR daily
+2. **Airdrop** (coming soon): 1,000 NOR for first 1,000 users
 3. **Contact us:** Discord/Telegram for testing allocation
 
-### **Step 3: Access XaheenSwap**
+### **Step 3: Access NorSwap**
 
 **Coming Soon:**
 - Web interface: https://swap.xaheen.org
-- Integrated into Xaheen Chain landing page
+- Integrated into Nor Chain landing page
 
 **For Now - Use Contract Directly:**
 
 Import Router contract in MetaMask or use Hardhat scripts:
 
 ```javascript
-// Swap XHT for USDT
-await router.swapExactXHTForTokens(
+// Swap NOR for USDT
+await router.swapExactNORForTokens(
   minOutputAmount,
-  [WXHT_ADDRESS, USDT_ADDRESS],
+  [WNOR_ADDRESS, USDT_ADDRESS],
   yourAddress,
   deadline,
   { value: xhtAmount }
 );
 
-// Swap USDT for XHT
-await router.swapExactTokensForXHT(
+// Swap USDT for NOR
+await router.swapExactTokensForNOR(
   usdtAmount,
   minOutputAmount,
-  [USDT_ADDRESS, WXHT_ADDRESS],
+  [USDT_ADDRESS, WNOR_ADDRESS],
   yourAddress,
   deadline
 );
@@ -173,7 +173,7 @@ Liquidity providers (LPs) earn 0.3% of all trades proportional to their share of
 await usdt.approve(ROUTER_ADDRESS, usdtAmount);
 
 // Add liquidity
-await router.addLiquidityXHT(
+await router.addLiquidityNOR(
   USDT_ADDRESS,
   usdtAmount,
   minUsdtAmount,
@@ -211,7 +211,7 @@ await router.addLiquidityXHT(
 - **Full Proof:** See `/docs/current/LP_LOCK_PROOF.md`
 
 **Why Custom Timelock?**
-- Unicrypt doesn't support Xaheen Chain (Chain ID: 65001) yet
+- Unicrypt doesn't support Nor Chain (Chain ID: 65001) yet
 - Custom solution provides same security guarantees
 - Fully transparent and verifiable on-chain
 - Zero platform fees (saved ~$100-500)
@@ -250,16 +250,16 @@ await router.addLiquidityXHT(
 - ⏳ Smart contract audits (CertiK/Quantstamp)
 - ⏳ Deploy web interface
 - ⏳ Add more trading pairs
-- ⏳ Contact Unicrypt about Xaheen Chain support
+- ⏳ Contact Unicrypt about Nor Chain support
 
 ---
 
 ## 📈 TOKENOMICS RECAP
 
-**XHT Token:**
-- **Total Supply:** 21,000,000,000,000 XHT (21 Trillion)
-- **Circulating Supply:** 210,000,000,000 XHT (210 Billion, 1%)
-- **Launch Price:** $0.0000024 per XHT
+**NOR Token:**
+- **Total Supply:** 21,000,000,000,000 NOR (21 Trillion)
+- **Circulating Supply:** 210,000,000,000 NOR (210 Billion, 1%)
+- **Launch Price:** $0.0000024 per NOR
 - **Target Market Cap:** $500,000 USD (at $0.0000024)
 - **Initial Liquidity:** $10,000 (2% of target market cap)
 
@@ -277,10 +277,10 @@ await router.addLiquidityXHT(
 ### **Phase 1: Early Adopter Rewards (Week 1)**
 - First 100 swappers: Special NFT badge
 - First 50 LPs: Bonus LP rewards
-- Trading competition: Top 10 traders win XHT prizes
+- Trading competition: Top 10 traders win NOR prizes
 
 ### **Phase 2: Airdrop Campaign (Week 2)**
-- 1,000 XHT per address
+- 1,000 NOR per address
 - First 1,000 users
 - Simple social media tasks required
 
@@ -297,11 +297,11 @@ await router.addLiquidityXHT(
 - ✅ DEX deployed and tested
 - ✅ **LP tokens LOCKED** (100% for 12 months via custom timelock)
 - ⏳ Deploy web interface (swap.xaheen.org)
-- ⏳ Launch faucet (10 XHT/day)
+- ⏳ Launch faucet (10 NOR/day)
 - ⏳ Social media announcements (include lock proof)
 
 ### **Short-term (This Month)**
-- Add more trading pairs (XHT/BTCBR, XHT/BNB)
+- Add more trading pairs (NOR/BTCBR, NOR/BNB)
 - Deploy airdrop campaign (1,000 users)
 - Reach $20,000 TVL
 - 1,000+ swaps completed
@@ -325,7 +325,7 @@ await router.addLiquidityXHT(
 
 ## 📊 COMPARISON WITH COMPETITORS
 
-| Feature | Ethereum | BSC | Polygon | **Xaheen** |
+| Feature | Ethereum | BSC | Polygon | **Nor** |
 |---------|----------|-----|---------|------------|
 | **Swap Cost** | $50-$200 | $0.20-$2 | $0.01-$0.10 | **<$0.001** ✅ |
 | **Block Time** | 15s | 3s | 2s | **3s** ✅ |
@@ -333,7 +333,7 @@ await router.addLiquidityXHT(
 | **Architecture** | Uniswap V3 | PancakeSwap V2 | QuickSwap | **Uniswap V2** ✅ |
 | **Security** | High | Medium | Medium | **High** ✅ |
 
-**Xaheen Advantage:** Near-zero costs + battle-tested security + lightning speed!
+**Nor Advantage:** Near-zero costs + battle-tested security + lightning speed!
 
 ---
 
@@ -345,8 +345,8 @@ await router.addLiquidityXHT(
 - **Chain ID:** 65001
 
 ### **Social Media** (Coming Soon):
-- **Twitter:** @XaheenChain
-- **Telegram:** @XaheenOfficial
+- **Twitter:** @NorChain
+- **Telegram:** @NorOfficial
 - **Discord:** discord.gg/xaheen
 - **GitHub:** github.com/xaheen
 
@@ -361,7 +361,7 @@ await router.addLiquidityXHT(
 
 ### **Get Help:**
 - Documentation: github.com/xaheen/blockchain-v2/docs
-- Telegram Support: @XaheenOfficial
+- Telegram Support: @NorOfficial
 - Discord: discord.gg/xaheen
 - Email: support@xaheen.org
 
@@ -377,7 +377,7 @@ await router.addLiquidityXHT(
 
 ## 💡 FOR DEVELOPERS
 
-### **Integrate XaheenSwap:**
+### **Integrate NorSwap:**
 
 ```javascript
 import { ethers } from 'ethers';
@@ -432,7 +432,7 @@ await router.swapExactTokensForTokens(
 
 ## ✨ JOIN THE REVOLUTION
 
-Xaheen Chain is building the **future of ultra-low-cost DeFi**. XaheenSwap is just the beginning.
+Nor Chain is building the **future of ultra-low-cost DeFi**. NorSwap is just the beginning.
 
 **Be part of history:**
 - First 1,000 users get exclusive airdrop
@@ -446,8 +446,8 @@ Xaheen Chain is building the **future of ultra-low-cost DeFi**. XaheenSwap is ju
 ## 🔥 CALL TO ACTION
 
 ### **For Traders:**
-1. Add Xaheen Chain to MetaMask
-2. Get test XHT from faucet (coming soon)
+1. Add Nor Chain to MetaMask
+2. Get test NOR from faucet (coming soon)
 3. Make your first swap
 4. Share your experience!
 
@@ -459,8 +459,8 @@ Xaheen Chain is building the **future of ultra-low-cost DeFi**. XaheenSwap is ju
 
 ### **For Developers:**
 1. Read integration docs: /docs/liquidity/
-2. Test XaheenSwap on testnet
-3. Build your DApp with XaheenSwap
+2. Test NorSwap on testnet
+3. Build your DApp with NorSwap
 4. Apply for grant/partnership
 
 ### **For Investors:**
@@ -473,19 +473,19 @@ Xaheen Chain is building the **future of ultra-low-cost DeFi**. XaheenSwap is ju
 
 **Status:** ✅ LIVE
 **Date:** October 30, 2025
-**Network:** Xaheen Chain
+**Network:** Nor Chain
 **TVL:** $10,000
 **Ready for Users:** YES
 
 ---
 
-**🌟 "From zero to DEX in 2 hours. Welcome to Xaheen Chain." 🌟**
+**🌟 "From zero to DEX in 2 hours. Welcome to Nor Chain." 🌟**
 
 ---
 
 **Follow us for updates:**
-- Twitter: @XaheenChain (coming soon)
-- Telegram: @XaheenOfficial (coming soon)
+- Twitter: @NorChain (coming soon)
+- Telegram: @NorOfficial (coming soon)
 - Discord: discord.gg/xaheen (coming soon)
 
 **Let's build the future of DeFi together! 🚀**

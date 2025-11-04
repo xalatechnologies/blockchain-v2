@@ -1,22 +1,22 @@
-# ✅ Xaheen Chain Rebranding Complete
+# ✅ Nor Chain Rebranding Complete
 
 ## 🎉 Summary
 
-The complete rebranding from "BitcoinBR network" to **Xaheen Chain** has been successfully completed! This document confirms all changes and provides next steps.
+The complete rebranding from "BitcoinBR network" to **Nor Chain** has been successfully completed! This document confirms all changes and provides next steps.
 
 ---
 
 ## ✅ Completed Tasks
 
 ### 1. Network Identity ✅
-- [x] Chain name changed to **Xaheen Chain**
+- [x] Chain name changed to **Nor Chain**
 - [x] Domain established: **xaheen.org**
 - [x] Chain ID changed: 885824 → **65001**
 - [x] Network ID changed: 885824 → **65001**
-- [x] Native token: BNB → **XHT (Xaheen Token)**
+- [x] Native token: BNB → **NOR (Nor Token)**
 
 ### 2. Configuration Files ✅
-- [x] **CLAUDE.md** - Updated with Xaheen Chain, chain ID 65001, XHT
+- [x] **CLAUDE.md** - Updated with Nor Chain, chain ID 65001, NOR
 - [x] **README.md** - Rebranded, added documentation links
 - [x] **.env** - CHAIN_ID=65001, CHAIN_NAME, CHAIN_DOMAIN
 - [x] **hardhat.config.js** - chainId: 65001 for all networks
@@ -52,15 +52,15 @@ The complete rebranding from "BitcoinBR network" to **Xaheen Chain** has been su
 ## 📁 New Documentation Structure
 
 ```
-blockchain-v2/ (Xaheen Chain)
+blockchain-v2/ (Nor Chain)
 │
 ├── Root Files (Clean)
 │   ├── README.md                       ✅ Updated with links
 │   ├── CLAUDE.md                       ✅ Technical guide
 │   ├── DOCUMENTATION_STRUCTURE.md      ✅ Complete file map
-│   ├── package.json                    ✅ Xaheen branding
+│   ├── package.json                    ✅ Nor branding
 │   ├── hardhat.config.js               ✅ Chain ID 65001
-│   └── .env                            ✅ Chain ID 65001, XHT
+│   └── .env                            ✅ Chain ID 65001, NOR
 │
 └── docs/ (Organized)
     ├── README.md                       ✅ Master index
@@ -106,9 +106,9 @@ blockchain-v2/ (Xaheen Chain)
 - **Body**: Inter / IBM Plex Sans
 - **Code**: JetBrains Mono
 
-### XHT Token
-- **Name**: Xaheen Token
-- **Symbol**: XHT
+### NOR Token
+- **Name**: Nor Token
+- **Symbol**: NOR
 - **Type**: Native gas token
 - **Decimals**: 18
 
@@ -121,7 +121,7 @@ blockchain-v2/ (Xaheen Chain)
 // .env
 CHAIN_ID=65001
 NETWORK_ID=65001
-CHAIN_NAME=Xaheen Chain
+CHAIN_NAME=Nor Chain
 CHAIN_DOMAIN=xaheen.org
 
 // hardhat.config.js
@@ -133,7 +133,7 @@ btcbr: {
 // package.json
 {
   "name": "xaheen-chain",
-  "description": "Xaheen Chain - Intelligent blockchain..."
+  "description": "Nor Chain - Intelligent blockchain..."
 }
 ```
 
@@ -141,7 +141,7 @@ btcbr: {
 ```bash
 npm run compile              # Compile contracts
 npm run deploy:mainnet       # Deploy to BSC mainnet
-npm run deploy:xaheen        # Deploy to Xaheen Chain
+npm run deploy:xaheen        # Deploy to Nor Chain
 npm run deploy:testnet       # Deploy to BSC testnet
 npm run deploy:bridges       # Deploy all bridges
 ```
@@ -202,14 +202,14 @@ npm run deploy:bridges       # Deploy all bridges
 
 5. **Block Explorer**
    - [ ] Deploy Blockscout at explorer.xaheen.org
-   - [ ] Apply Xaheen branding
+   - [ ] Apply Nor branding
    - [ ] Test functionality
 
 ### Branding (Recommended)
 
 1. **Logo Design**
    - [ ] Design Intelligent Hexagon logo
-   - [ ] Create XHT token logo
+   - [ ] Create NOR token logo
    - [ ] Generate SVG/PNG variations
    - [ ] Create favicon set
 
@@ -278,7 +278,7 @@ npm run deploy:bridges       # Deploy all bridges
 ## 🎯 Success Criteria
 
 ### Phase 1: Documentation ✅ COMPLETE
-- [x] All files updated with Xaheen branding
+- [x] All files updated with Nor branding
 - [x] Documentation organized and indexed
 - [x] Brand guide created
 - [x] Migration guide written
@@ -314,7 +314,7 @@ npm run deploy:bridges       # Deploy all bridges
 - https://bridge.xaheen.org
 
 ### Social Media (To Be Created)
-- Twitter: @XaheenChain
+- Twitter: @NorChain
 - GitHub: github.com/xaheen-chain
 - Discord: discord.gg/xaheen
 - Telegram: t.me/xaheen_chain
@@ -325,10 +325,10 @@ npm run deploy:bridges       # Deploy all bridges
 
 ### Network Configuration for MetaMask
 ```
-Network Name: Xaheen Chain
+Network Name: Nor Chain
 RPC URL: https://rpc.xaheen.org
 Chain ID: 65001
-Currency Symbol: XHT
+Currency Symbol: NOR
 Block Explorer: https://explorer.xaheen.org
 ```
 
@@ -344,9 +344,9 @@ Block Explorer: https://explorer.xaheen.org
 
 ---
 
-## 🎓 What "Xaheen" Means
+## 🎓 What "Nor" Means
 
-**Xaheen** (ذهين) - Arabic word meaning:
+**Nor** (ذهين) - Arabic word meaning:
 - **Smart** - Intelligent by design
 - **Genius** - Innovative technology
 - **Undoubtedly Intelligent** - Clear superiority
@@ -357,7 +357,7 @@ This perfectly embodies our vision: an intelligent blockchain network that combi
 
 ## 🎉 Conclusion
 
-The Xaheen Chain rebranding is **documentation complete**! All files have been updated, organized, and documented. The technical foundation is in place.
+The Nor Chain rebranding is **documentation complete**! All files have been updated, organized, and documented. The technical foundation is in place.
 
 ### What's Done ✅
 - Network identity established
@@ -376,11 +376,11 @@ The Xaheen Chain rebranding is **documentation complete**! All files have been u
 
 ---
 
-**Welcome to Xaheen Chain - Where Intelligence Meets Blockchain!** 🧠⚡
+**Welcome to Nor Chain - Where Intelligence Meets Blockchain!** 🧠⚡
 
 **Repository**: blockchain-v2 (xaheen-chain)
 **Chain ID**: 65001
-**Native Token**: XHT
+**Native Token**: NOR
 **Status**: Documentation Complete, Ready for Infrastructure Deployment
 
 ---

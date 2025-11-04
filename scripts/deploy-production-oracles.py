@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Deploy production-grade OracleAggregator contracts for Noor Chain
+Deploy production-grade OracleAggregator contracts for Nor Chain
 """
 
 from web3 import Web3
@@ -69,7 +69,7 @@ def deploy_oracle(name, price_feed):
 results = {
     "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ"),
     "chainId": 65001,
-    "network": "Noor Chain",
+    "network": "Nor Chain",
     "deployer": account.address,
     "oracleNodes": ORACLE_NODES,
     "oracles": {}
@@ -96,7 +96,7 @@ results['oracles']['BTCBR_USD'] = btcbr_oracle
 print()
 
 # Save deployment
-with open('deployments/noor-production-oracles.json', 'w') as f:
+with open('deployments/nor-production-oracles.json', 'w') as f:
     json.dump(results, f, indent=2)
 
 print("═══════════════════════════════════════════════════════════════════════════")
@@ -113,7 +113,7 @@ print("📊 Oracle Nodes (3):")
 for i, node in enumerate(ORACLE_NODES, 1):
     print(f"   Node {i}: {node}")
 print()
-print("💾 Deployment saved to: deployments/noor-production-oracles.json")
+print("💾 Deployment saved to: deployments/nor-production-oracles.json")
 print()
 print("📝 Features:")
 print("   ✅ Multi-source consensus (3 validators as oracle nodes)")

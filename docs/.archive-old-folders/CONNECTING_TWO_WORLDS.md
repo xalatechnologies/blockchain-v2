@@ -3,13 +3,13 @@
 ## The Concept (Simple!)
 
 ```
-Your World (Xaheen)          The Bridge          Public World (BSC)
+Your World (Nor)          The Bridge          Public World (BSC)
 ═══════════════════          ═══════════         ════════════════════
 
-20 billion XHT        ←──────────────────────────→   10M XHT listed
+20 billion NOR        ←──────────────────────────→   10M NOR listed
 600M liquidity                                        $5K liquidity
 YOU control price                                     Market decides
-$0.001 per XHT                                        $0.0005 per XHT
+$0.001 per NOR                                        $0.0005 per NOR
 
                               ↕️
                          Arbitrage Bots
@@ -18,12 +18,12 @@ $0.001 per XHT                                        $0.0005 per XHT
 
 ## How It Works (Magic!)
 
-### World 1: Your Xaheen Chain
+### World 1: Your Nor Chain
 ```
 Your Kingdom:
-├─ 20 billion XHT (you own it)
-├─ 600M WXHT in liquidity (you control it)
-├─ Price: $0.001 per XHT (you set it)
+├─ 20 billion NOR (you own it)
+├─ 600M WNOR in liquidity (you control it)
+├─ Price: $0.001 per NOR (you set it)
 └─ Users buy with fiat via MoonPay
 
 Your Role: King of this world! 👑
@@ -32,7 +32,7 @@ Your Role: King of this world! 👑
 ### World 2: BSC PancakeSwap
 ```
 The Public Market:
-├─ 10M XHT (bridged from your world)
+├─ 10M NOR (bridged from your world)
 ├─ $5K USDT liquidity (minimal)
 ├─ Price: Free market decides
 └─ Users can buy with USDT/BNB
@@ -44,58 +44,58 @@ Your Role: Just watching! 👀
 ```
 Simple Lock & Mint Bridge:
 
-User sends XHT from Xaheen:
-1. Lock XHT on Xaheen side
+User sends NOR from Nor:
+1. Lock NOR on Nor side
 2. Mint same amount on BSC side
-3. User receives BSC-XHT
+3. User receives BSC-NOR
 
-User sends XHT from BSC:
-1. Burn XHT on BSC side
-2. Unlock same amount on Xaheen side
-3. User receives Xaheen-XHT
+User sends NOR from BSC:
+1. Burn NOR on BSC side
+2. Unlock same amount on Nor side
+3. User receives Nor-NOR
 
 That's it! Simple! 🌉
 ```
 
 ## The Genius: Bots Balance Everything!
 
-### Scenario 1: Xaheen Cheaper
+### Scenario 1: Nor Cheaper
 ```
-Your Xaheen: $0.001 per XHT
-BSC Market:  $0.002 per XHT
+Your Nor: $0.001 per NOR
+BSC Market:  $0.002 per NOR
 
 Bot Brain: "I can buy cheap and sell expensive!"
 
 Bot Action:
-1. Buy 1M XHT on Xaheen at $0.001 = $1,000
+1. Buy 1M NOR on Nor at $0.001 = $1,000
 2. Bridge to BSC (costs $10 fee)
-3. Sell 1M XHT on BSC at $0.002 = $2,000
+3. Sell 1M NOR on BSC at $0.002 = $2,000
 4. Bot profit: $990! 🤖💰
 
 Result for YOU:
 ✅ Bot bought from you ($1,000)
 ✅ You earned $10 bridge fee
-✅ You earned $3 trading fee on Xaheen
-✅ Your remaining 19.999B XHT now worth more ($0.002)
+✅ You earned $3 trading fee on Nor
+✅ Your remaining 19.999B NOR now worth more ($0.002)
 ✅ Treasury value increased by $20M!
 💎 YOU WON BIG!
 ```
 
 ### Scenario 2: BSC Cheaper
 ```
-Your Xaheen: $0.001 per XHT
-BSC Market:  $0.0005 per XHT
+Your Nor: $0.001 per NOR
+BSC Market:  $0.0005 per NOR
 
-Bot Brain: "Buy cheap BSC, sell expensive Xaheen!"
+Bot Brain: "Buy cheap BSC, sell expensive Nor!"
 
 Bot Action:
-1. Buy 1M XHT on BSC at $0.0005 = $500
-2. Bridge to Xaheen (costs $10 fee)
-3. Sell 1M XHT on Xaheen at $0.001 = $1,000
+1. Buy 1M NOR on BSC at $0.0005 = $500
+2. Bridge to Nor (costs $10 fee)
+3. Sell 1M NOR on Nor at $0.001 = $1,000
 4. Bot profit: $490! 🤖💰
 
 Result for YOU:
-✅ Bot brings XHT to your chain
+✅ Bot brings NOR to your chain
 ✅ You can buy it back cheap ($500 vs $1,000)
 ✅ You earned $10 bridge fee
 ✅ Prices equalize automatically
@@ -107,7 +107,7 @@ Result for YOU:
 ### What You Need to Deploy:
 
 ```
-WORLD 1 (Xaheen):
+WORLD 1 (Nor):
 └─ $0 - Already done! ✅
 
 THE BRIDGE:
@@ -115,8 +115,8 @@ THE BRIDGE:
 └─ Bridge operators: $0 (you run it)
 
 WORLD 2 (BSC):
-├─ Deploy XHT token: $50 (gas)
-├─ Add liquidity: $5,000 (10M XHT + $5K USDT)
+├─ Deploy NOR token: $50 (gas)
+├─ Add liquidity: $5,000 (10M NOR + $5K USDT)
 └─ List on PancakeSwap: $0 (free)
 
 TOTAL INVESTMENT: $5,150
@@ -145,8 +145,8 @@ cd /Volumes/Development/sahalat/blockchain-v2
 # Deploy to BSC
 npx hardhat run scripts/deploy-xht-bsc.js --network bsc
 
-# Output: XHT token at 0x...
-# This is BSC-XHT (bridged version)
+# Output: NOR token at 0x...
+# This is BSC-NOR (bridged version)
 ```
 
 ### Step 2: Add Liquidity on PancakeSwap (10 minutes)
@@ -154,11 +154,11 @@ npx hardhat run scripts/deploy-xht-bsc.js --network bsc
 1. Go to: https://pancakeswap.finance/add
 
 2. Add liquidity:
-   - Token A: XHT (your deployed address)
+   - Token A: NOR (your deployed address)
    - Token B: USDT (0x55d398326f99059fF775485246999027B3197955)
-   - Amount A: 10,000,000 XHT
+   - Amount A: 10,000,000 NOR
    - Amount B: 5,000 USDT
-   - Price: $0.0005 per XHT
+   - Price: $0.0005 per NOR
 
 3. Approve and confirm
 
@@ -172,7 +172,7 @@ node scripts/setup-bridge-validators.js
 
 # Test bridge
 node scripts/test-bridge-transfer.js
-# Send 1000 XHT: Xaheen → BSC → Back
+# Send 1000 NOR: Nor → BSC → Back
 
 # If successful: ✅ Bridge operational!
 ```
@@ -182,16 +182,16 @@ node scripts/test-bridge-transfer.js
 ### Day 1: Bridge Goes Live
 ```
 You announce:
-"XHT now available on PancakeSwap!"
+"NOR now available on PancakeSwap!"
 
 Traders discover:
-- Xaheen: $0.001
+- Nor: $0.001
 - BSC: $0.0005
 
 First bot arrives:
 - Buys on BSC ($500)
-- Bridges to Xaheen
-- Sells on Xaheen ($1,000)
+- Bridges to Nor
+- Sells on Nor ($1,000)
 - Profit: $490
 
 Result: Prices converge to $0.00075
@@ -223,7 +223,7 @@ Plus:
 
 ## The Two Worlds Strategy
 
-### Your Xaheen World (Control Center)
+### Your Nor World (Control Center)
 ```
 What You Do:
 ✅ Control the price (set liquidity ratios)
@@ -232,7 +232,7 @@ What You Do:
 ✅ Adjust supply/demand
 
 Your Strategy:
-- Keep majority liquidity here (600M WXHT)
+- Keep majority liquidity here (600M WNOR)
 - This is your stable base
 - You set the "floor price"
 - Fiat purchases happen HERE
@@ -247,7 +247,7 @@ What Happens:
 ✅ Brings visibility
 
 Your Strategy:
-- Keep minimal liquidity (10M XHT)
+- Keep minimal liquidity (10M NOR)
 - Let market do its thing
 - Don't interfere
 - Just collect fees!
@@ -256,7 +256,7 @@ Your Strategy:
 ### The Bridge (Connector)
 ```
 What It Does:
-✅ Allows XHT to flow between worlds
+✅ Allows NOR to flow between worlds
 ✅ Charges fees (you earn)
 ✅ Maintains 1:1 peg
 ✅ Enables arbitrage
@@ -281,7 +281,7 @@ Your Strategy:
 
 ### Your Approach (Two Worlds):
 ```
-✅ Control your world (Xaheen)
+✅ Control your world (Nor)
 ✅ Participate in public world (BSC)
 ✅ Bots balance for free
 ✅ Earn from both sides
@@ -310,12 +310,12 @@ Your job: Count the money! 💰
 Scenario: BSC dumps to $0.0001
 
 Your Response:
-1. Lower Xaheen price to $0.00015
-2. Buy cheap XHT on BSC
+1. Lower Nor price to $0.00015
+2. Buy cheap NOR on BSC
 3. Add to treasury reserves
 4. Control remains yours!
 
-Worst case: You bought XHT cheap!
+Worst case: You bought NOR cheap!
 ```
 
 ### What if BSC price moons?
@@ -323,8 +323,8 @@ Worst case: You bought XHT cheap!
 Scenario: BSC pumps to $0.01
 
 Your Response:
-1. Raise Xaheen price to $0.009
-2. Sell some treasury XHT
+1. Raise Nor price to $0.009
+2. Sell some treasury NOR
 3. Take profits in USDT
 4. Rebuy when price drops
 
@@ -340,7 +340,7 @@ Best case: You sold high!
 ║                   YOUR ECOSYSTEM                        ║
 ╠════════════════════════════════════════════════════════╣
 ║                                                         ║
-║  [Xaheen World]  ←──── BRIDGE ────→  [BSC World]      ║
+║  [Nor World]  ←──── BRIDGE ────→  [BSC World]      ║
 ║                                                         ║
 ║   YOU Control         Bots Work      Market Discovers  ║
 ║   600M liquidity      For FREE!      Price for FREE!   ║
@@ -356,7 +356,7 @@ Best case: You sold high!
 ## Immediate Next Steps
 
 ### Today:
-1. Deploy XHT on BSC (~$50 gas)
+1. Deploy NOR on BSC (~$50 gas)
 2. Add $5K liquidity on PancakeSwap
 3. Configure bridge operators
 

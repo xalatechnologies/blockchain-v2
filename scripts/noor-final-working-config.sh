@@ -44,9 +44,9 @@ echo ""
 # Create genesis with epoch 10,000
 node -e "
 const fs = require('fs');
-const noorGenesis = JSON.parse(fs.readFileSync('data/genesis-clean.json', 'utf8'));
-noorGenesis.config.parlia.epoch = 10000;
-fs.writeFileSync('data/genesis-epoch-10k.json', JSON.stringify(noorGenesis, null, 2));
+const norGenesis = JSON.parse(fs.readFileSync('data/genesis-clean.json', 'utf8'));
+norGenesis.config.parlia.epoch = 10000;
+fs.writeFileSync('data/genesis-epoch-10k.json', JSON.stringify(norGenesis, null, 2));
 console.log('✅ Genesis with epoch 10,000 created');
 "
 
@@ -55,7 +55,7 @@ scp -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no \
   data/genesis-epoch-10k.json \
   ec2-user@$SERVER_IP:/home/ec2-user/genesis-epoch-10k.json
 
-cat << 'REMOTE_SCRIPT' > /tmp/noor-final-config.sh
+cat << 'REMOTE_SCRIPT' > /tmp/nor-final-config.sh
 #!/bin/bash
 
 VALIDATOR1="0xbb64F4050fC21A2eC3506245A1Ad63cB0256b6dE"
@@ -206,7 +206,7 @@ for i in {1..30}; do
 
     if [ "$DEC_BLOCK" -gt "10" ]; then
       echo ""
-      echo "🎉 SUCCESS! Noor Chain producing blocks with epoch 10,000!"
+      echo "🎉 SUCCESS! Nor Chain producing blocks with epoch 10,000!"
       break
     fi
   fi
@@ -233,14 +233,14 @@ fi
 REMOTE_SCRIPT
 
 scp -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no \
-  /tmp/noor-final-config.sh \
-  ec2-user@$SERVER_IP:/home/ec2-user/noor-final-config.sh
+  /tmp/nor-final-config.sh \
+  ec2-user@$SERVER_IP:/home/ec2-user/nor-final-config.sh
 
 echo "🚀 Executing final working configuration..."
 ssh -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no \
   ec2-user@$SERVER_IP \
-  'bash /home/ec2-user/noor-final-config.sh'
+  'bash /home/ec2-user/nor-final-config.sh'
 
 echo ""
 echo "✅ Configuration complete!"
-echo "🌙 Noor Chain - Empowering the Future with Light and Trust"
+echo "🌙 Nor Chain - Empowering the Future with Light and Trust"

@@ -16,16 +16,16 @@ STATUS: ✅ FULLY OPERATIONAL AND PRODUCTION READY
    • HTTPS RPC endpoint: https://rpc.xaheen.org
    • Chain ID: 65001
 
-✅ WRAPPED XHT (600M Total)
-   • 500M WXHT for XHT/USDT liquidity pool ✓
-   • 50M WXHT for XHT/BNB liquidity pool ✓
-   • 50M WXHT for XHT/ETH liquidity pool ✓
+✅ WRAPPED NOR (600M Total)
+   • 500M WNOR for NOR/USDT liquidity pool ✓
+   • 50M WNOR for NOR/BNB liquidity pool ✓
+   • 50M WNOR for NOR/ETH liquidity pool ✓
    • All wrapping completed in 500 batches
 
 ✅ DEX INFRASTRUCTURE (Uniswap V2 Fork)
    • Factory: 0xBE254176B4f13b02f367a9feCE599ee8887E2D34
    • Router:  0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916
-   • WXHT:    0x26c0eaF731885b14c031cc50dB79b36458E0b355
+   • WNOR:    0x26c0eaF731885b14c031cc50dB79b36458E0b355
 
 ✅ TEST TOKENS DEPLOYED
    • USDT: 0xB8fa87a1dAC07e077a51999F5cE79BD236f06acf (1M minted)
@@ -33,18 +33,18 @@ STATUS: ✅ FULLY OPERATIONAL AND PRODUCTION READY
    • ETH:  0xc6E0cD72723C9409ba221197e06830EB928a7A76 (1M minted)
 
 ✅ LIQUIDITY POOLS (All Active & Trading)
-   • XHT/USDT: 500,000,000 XHT + $1,200 USDT (~$0.0000024/XHT)
-   • XHT/BNB:   50,000,000 XHT + 100 BNB
-   • XHT/ETH:   50,000,000 XHT + 2 ETH
+   • NOR/USDT: 500,000,000 NOR + $1,200 USDT (~$0.0000024/NOR)
+   • NOR/BNB:   50,000,000 NOR + 100 BNB
+   • NOR/ETH:   50,000,000 NOR + 2 ETH
 
 ✅ TOKENOMICS SUITE (Complete Deflationary System)
-   • XHTStaking:     0xbA554577De2d3eE1AdE77737Dc32717527E0cA86
+   • NORStaking:     0xbA554577De2d3eE1AdE77737Dc32717527E0cA86
      → 5 lock tiers: 0, 3, 6, 12, 36 months
      → Voting power: 1x to 5x multiplier
      → Bonus rewards: Up to 200% for 36-month lock
    
    • WeeklyBuyback:  0xa8ee927a73BED490A5F1CE36A788A7DF1E556542
-     → Weekly XHT buybacks from fees
+     → Weekly NOR buybacks from fees
      → 50% burned permanently
      → 25% added to liquidity
      → 25% distributed to stakers
@@ -52,7 +52,7 @@ STATUS: ✅ FULLY OPERATIONAL AND PRODUCTION READY
    • BurnMechanism:  0xA609ad73915f72a824b1bFEACd5cA3027490d5b9
      → Triple burn: 50% gas fees, 10% validator rewards, 5% bridge fees
      → Velocity sink: Higher burn for power users
-     → Minimum supply floor: 100M XHT (10% of 1B)
+     → Minimum supply floor: 100M NOR (10% of 1B)
 
 ================================================================================
                            🌐 NETWORK INFORMATION
@@ -61,7 +61,7 @@ STATUS: ✅ FULLY OPERATIONAL AND PRODUCTION READY
 RPC Endpoint:    https://rpc.xaheen.org
 Chain ID:        65001
 Network ID:      65001
-Symbol:          XHT
+Symbol:          NOR
 Block Time:      3 seconds
 Consensus:       Parlia PoSA (Proof of Staked Authority)
 Current Block:   2200+
@@ -73,8 +73,8 @@ Current Block:   2200+
 Treasury Address: 0xdD779a290C937144F80Eb75b75d814c834536B1b
 
 Holdings:
-  • Native XHT:  ~20.4 billion XHT (available for future operations)
-  • WXHT:        600,000,000 WXHT (distributed across 3 pools)
+  • Native NOR:  ~20.4 billion NOR (available for future operations)
+  • WNOR:        600,000,000 WNOR (distributed across 3 pools)
   • USDT:        ~998,800 USDT (1M minted - 1,200 in pool)
   • BNB:         ~999,900 BNB (1M minted - 100 in pool)
   • ETH:         ~999,998 ETH (1M minted - 2 in pool)
@@ -84,8 +84,8 @@ Holdings:
 ================================================================================
 
 ✅ Trading:
-   • Wrap/unwrap native XHT ↔ WXHT
-   • Trade XHT/WXHT for USDT, BNB, or ETH
+   • Wrap/unwrap native NOR ↔ WNOR
+   • Trade NOR/WNOR for USDT, BNB, or ETH
    • Swap between any token pairs via the router
 
 ✅ Liquidity Provision:
@@ -94,7 +94,7 @@ Holdings:
    • Remove liquidity at any time
 
 ✅ Staking:
-   • Stake XHT for rewards
+   • Stake NOR for rewards
    • Choose lock period (0-36 months)
    • Earn bonus rewards for longer locks
    • Gain voting power in governance
@@ -105,7 +105,7 @@ Holdings:
    • Earn staking rewards from buyback distribution
 
 ✅ Building:
-   • Deploy smart contracts on Xaheen Chain
+   • Deploy smart contracts on Nor Chain
    • Build dApps using familiar Ethereum tools
    • Use Web3 libraries (ethers.js, web3.js)
    • Deploy NFT projects, DeFi protocols, DAOs
@@ -114,16 +114,16 @@ Holdings:
                       🔧 METAMASK CONFIGURATION
 ================================================================================
 
-Add Xaheen Chain to MetaMask:
+Add Nor Chain to MetaMask:
 
-Network Name:     Xaheen Chain
+Network Name:     Nor Chain
 RPC URL:          https://rpc.xaheen.org
 Chain ID:         65001
-Currency Symbol:  XHT
+Currency Symbol:  NOR
 Block Explorer:   (Coming soon)
 
 Add Tokens:
-  • WXHT:  0x26c0eaF731885b14c031cc50dB79b36458E0b355
+  • WNOR:  0x26c0eaF731885b14c031cc50dB79b36458E0b355
   • USDT:  0xB8fa87a1dAC07e077a51999F5cE79BD236f06acf
   • BNB:   0xa4cBBcbd8146482E5618c833faFf5fA4C29B78a6
   • ETH:   0xc6E0cD72723C9409ba221197e06830EB928a7A76
@@ -149,7 +149,7 @@ Logs:
 Total Contracts Deployed:    9 contracts
 Total Gas Used:             ~50M+ gas
 Deployment Time:            ~4 hours
-Batches Processed:          500 WXHT wrapping batches
+Batches Processed:          500 WNOR wrapping batches
 Liquidity Pools Created:    3 pairs
 Transaction Count:          500+ transactions
 Final Block Height:         2200+
@@ -184,18 +184,18 @@ Long-term:
 ================================================================================
 
 [✓] Genesis blockchain deployed
-[✓] WXHT contract deployed
-[✓] 500M WXHT wrapped (500/500 batches)
+[✓] WNOR contract deployed
+[✓] 500M WNOR wrapped (500/500 batches)
 [✓] DEX Factory deployed
 [✓] DEX Router deployed
 [✓] Test tokens deployed (USDT, BNB, ETH)
-[✓] XHT/USDT liquidity pool created & funded
-[✓] XHT/BNB liquidity pool created & funded
-[✓] XHT/ETH liquidity pool created & funded
+[✓] NOR/USDT liquidity pool created & funded
+[✓] NOR/BNB liquidity pool created & funded
+[✓] NOR/ETH liquidity pool created & funded
 [✓] HTTPS RPC endpoint configured & verified
-[✓] XHTStaking contract deployed
+[✓] NORStaking contract deployed
 [✓] WeeklyBuyback contract deployed
-[✓] XHTBurnMechanism contract deployed
+[✓] NORBurnMechanism contract deployed
 [ ] Block explorer (pending)
 [ ] DEX frontend UI (pending)
 
@@ -203,7 +203,7 @@ Long-term:
            🎉🎉🎉 XAHEEN CHAIN IS FULLY OPERATIONAL! 🎉🎉🎉
 ================================================================================
 
-The Xaheen Chain is now LIVE with:
+The Nor Chain is now LIVE with:
   • Complete DEX infrastructure
   • Three active trading pairs
   • Full tokenomics suite (staking, buyback, burn)
@@ -213,10 +213,10 @@ The Xaheen Chain is now LIVE with:
 STATUS: ✅ READY FOR PUBLIC USE
 
 Users can now:
-  ✓ Add Xaheen Chain to MetaMask
+  ✓ Add Nor Chain to MetaMask
   ✓ Start trading on the DEX
   ✓ Provide liquidity and earn fees
-  ✓ Stake XHT for rewards
+  ✓ Stake NOR for rewards
   ✓ Build dApps on the chain
 
 ================================================================================
@@ -226,7 +226,7 @@ Users can now:
 RPC:        https://rpc.xaheen.org
 Chain ID:   65001
 DEX Router: 0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916
-WXHT:       0x26c0eaF731885b14c031cc50dB79b36458E0b355
+WNOR:       0x26c0eaF731885b14c031cc50dB79b36458E0b355
 Treasury:   0xdD779a290C937144F80Eb75b75d814c834536B1b
 
 Documentation:

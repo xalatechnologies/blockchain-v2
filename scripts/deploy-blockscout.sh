@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🔍 Deploying Blockscout Explorer for Xaheen Chain"
+echo "🔍 Deploying Blockscout Explorer for Nor Chain"
 echo ""
 
 SERVER_IP="3.91.50.187"
@@ -54,9 +54,9 @@ services:
 
       # Chain
       CHAIN_ID: 65001
-      COIN: XHT
-      SUBNETWORK: Xaheen Chain
-      NETWORK: Xaheen
+      COIN: NOR
+      SUBNETWORK: Nor Chain
+      NETWORK: Nor
 
       # URLs
       BLOCKSCOUT_HOST: 3.91.50.187

@@ -1,6 +1,6 @@
 # 💳 Fiat On-Ramp Integration Guide
 
-**Enable users to buy XHT with credit cards, bank transfers, and fiat payments**
+**Enable users to buy NOR with credit cards, bank transfers, and fiat payments**
 
 ---
 
@@ -38,9 +38,9 @@
 ```
 1. Email: currencies@moonpay.com
 2. Provide:
-   - Token name: Xaheen Token (XHT)
+   - Token name: Nor Token (NOR)
    - Contract address: 0x...
-   - Chain: Xaheen Chain (or BSC if deployed there)
+   - Chain: Nor Chain (or BSC if deployed there)
    - Logo (PNG, 200x200px)
    - CoinGecko/CMC listing link
    - Daily volume data
@@ -58,13 +58,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Buy XHT with MoonPay</title>
+    <title>Buy NOR with MoonPay</title>
 </head>
 <body>
-    <button id="buyXHT">Buy XHT with Card</button>
+    <button id="buyNOR">Buy NOR with Card</button>
 
     <script>
-        document.getElementById('buyXHT').addEventListener('click', function() {
+        document.getElementById('buyNOR').addEventListener('click', function() {
             const moonpayUrl = new URL('https://buy.moonpay.com');
 
             moonpayUrl.searchParams.append('apiKey', 'YOUR_PUBLISHABLE_KEY');
@@ -84,10 +84,10 @@
 **React Integration:**
 
 ```javascript
-// src/components/BuyXHT.jsx
+// src/components/BuyNOR.jsx
 import React from 'react';
 
-const BuyXHT = ({ userWalletAddress }) => {
+const BuyNOR = ({ userWalletAddress }) => {
   const openMoonPay = () => {
     const moonpayUrl = new URL('https://buy.moonpay.com');
 
@@ -123,12 +123,12 @@ const BuyXHT = ({ userWalletAddress }) => {
       onClick={openMoonPay}
       className="buy-xht-button"
     >
-      💳 Buy XHT with Card
+      💳 Buy NOR with Card
     </button>
   );
 };
 
-export default BuyXHT;
+export default BuyNOR;
 ```
 
 **Backend Webhook (Node.js/Express):**
@@ -168,7 +168,7 @@ app.post('/webhooks/moonpay', (req, res) => {
       if (data.status === 'completed') {
         console.log('Purchase completed!');
         console.log('User:', data.walletAddress);
-        console.log('Amount:', data.cryptoAmount, 'XHT');
+        console.log('Amount:', data.cryptoAmount, 'NOR');
 
         // Send notification, update database, etc.
       }
@@ -201,7 +201,7 @@ const openTransak = (walletAddress) => {
   const transak = new transakSDK({
     apiKey: 'YOUR_API_KEY',
     environment: 'PRODUCTION', // or 'STAGING'
-    defaultCryptoCurrency: 'XHT',
+    defaultCryptoCurrency: 'NOR',
     walletAddress: walletAddress,
     themeColor: '1a73e8',
     fiatCurrency: 'USD',
@@ -322,7 +322,7 @@ Jurisdiction Considerations:
 
 ---
 
-## 🚀 Quick Launch Plan (No XHT Listing Required Initially)
+## 🚀 Quick Launch Plan (No NOR Listing Required Initially)
 
 ### Phase 1: Soft Launch (Weeks 1-2)
 
@@ -331,7 +331,7 @@ Jurisdiction Considerations:
 Process:
 1. User buys USDT/BNB via MoonPay/Transak
 2. User receives USDT/BNB on BSC
-3. User manually swaps for XHT on your DEX
+3. User manually swaps for NOR on your DEX
 4. You guide users through process
 
 Setup Time: 1 day
@@ -346,18 +346,18 @@ Use existing on-ramp aggregators:
 - Onramper (multi-provider support)
 - Mercuryo (fast approval)
 
-These can list XHT faster than MoonPay
+These can list NOR faster than MoonPay
 ```
 
 ### Phase 2: Full Integration (Months 1-3)
 
 ```
-1. Get XHT listed on CoinGecko/CMC
+1. Get NOR listed on CoinGecko/CMC
 2. Build trading volume ($10K+/day)
 3. Apply to MoonPay/Transak
 4. Wait for approval (1-2 weeks)
 5. Deploy full integration
-6. Users buy XHT directly with fiat ✅
+6. Users buy NOR directly with fiat ✅
 ```
 
 ---
@@ -377,7 +377,7 @@ const openKado = () => {
   const kadoUrl = `https://app.kado.money/?` +
     `apiKey=${KADO_API_KEY}&` +
     `onPayCurrency=USD&` +
-    `onRevCurrency=XHT&` +
+    `onRevCurrency=NOR&` +
     `onToAddress=${userAddress}&` +
     `network=XAHEEN`;
 
@@ -393,14 +393,14 @@ const openKado = () => {
 
 ```
 User Journey (2-5 minutes):
-1. Click "Buy XHT" on your website
+1. Click "Buy NOR" on your website
 2. MoonPay widget opens
 3. Enter amount ($100)
 4. Enter card details
 5. Complete KYC (first time only)
 6. Confirm purchase
-7. Receive XHT in wallet (instant)
-✅ Done! Ready to trade on Xaheen DEX
+7. Receive NOR in wallet (instant)
+✅ Done! Ready to trade on Nor DEX
 ```
 
 ### Without Fiat On-Ramp
@@ -412,8 +412,8 @@ User Journey (10-30 minutes):
 3. Deposit fiat money
 4. Buy USDT/BNB
 5. Withdraw to MetaMask
-6. Connect to Xaheen Chain
-7. Swap for XHT on your DEX
+6. Connect to Nor Chain
+7. Swap for NOR on your DEX
 ❌ Too complicated for normies
 ```
 
@@ -423,7 +423,7 @@ User Journey (10-30 minutes):
 
 ### Immediate Action (This Week)
 
-**Deploy XHT on BSC Mainnet:**
+**Deploy NOR on BSC Mainnet:**
 ```bash
 # Enables future on-ramp integration
 node scripts/deploy-xht-bsc-mainnet.js
@@ -437,14 +437,14 @@ node scripts/deploy-xht-bsc-mainnet.js
 
 **Soft Launch:**
 - Integrate MoonPay for USDT purchases
-- Users buy USDT → swap for XHT
+- Users buy USDT → swap for NOR
 - Begin on-ramp application process
 
 ### Mid-term (Months 2-3)
 
 **Full Integration:**
-- Get XHT approved by MoonPay
-- Deploy direct XHT purchase widget
+- Get NOR approved by MoonPay
+- Deploy direct NOR purchase widget
 - Launch marketing campaign
 
 ---

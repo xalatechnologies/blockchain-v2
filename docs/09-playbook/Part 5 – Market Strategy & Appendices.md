@@ -1,15 +1,15 @@
 # Part 5 – Market Strategy & Appendices  
 **Version**: v3.1-2025-11-02  
-**Part of**: Noor Chain Playbook v3 - Public Master Edition  
+**Part of**: Nor Chain Playbook v3 - Public Master Edition  
 ---
-#ai:module noor-chain-market
+#ai:module nor-chain-market
 #ai:topic launch, liquidity, listings, community, appendices
 #ai:audience developer, investor, public, ai-agent
 ---
 
 ## 36 Public Trading & Launch Plan
-Noor Chain enters the market through a **dual-launch path**:  
-1️⃣ native DEX (NoorSwap) for instant liquidity;  
+Nor Chain enters the market through a **dual-launch path**:  
+1️⃣ native DEX (NorSwap) for instant liquidity;  
 2️⃣ centralized exchange (CEX) listings for mass visibility.
 
 ### Launch Timeline (Indicative)
@@ -48,7 +48,7 @@ Noor Chain enters the market through a **dual-launch path**:
 
 ### Channels
 - **Social:** X (Twitter), LinkedIn, Telegram, Discord.  
-- **Education:** Noor Academy tutorials + video courses.  
+- **Education:** Nor Academy tutorials + video courses.  
 - **Partnerships:** universities (Nairobi, Dubai Tech Hub), Islamic finance institutes.  
 - **Events:** Gitex, Africa Fintech Summit, World Islamic Banking Conf.  
 - **Content:** bi-weekly blog, monthly AI-authored analytics report.
@@ -56,7 +56,7 @@ Noor Chain enters the market through a **dual-launch path**:
 ### Community DAO Fund
 - 5 % of initial supply earmarked for grants.  
 - Focus areas: DeFi, RWA tokenization, AI tools, UX modules.  
-- Grant tiers (5 000 → 100 000 XHT).  
+- Grant tiers (5 000 → 100 000 NOR).  
 - Quarterly governance vote for allocations.
 
 ---
@@ -84,8 +84,8 @@ Noor Chain enters the market through a **dual-launch path**:
 ### Technical Stack
 - Languages: Solidity, TypeScript, Rust (optional agents).  
 - Frameworks: Hardhat, Foundry, Next.js, Supabase.  
-- AI SDK: Noor-AI Python/TS bindings.  
-- Packages: `@noor/contracts`, `@noor/ai-agents`, `@noor/sdk`.
+- AI SDK: Nor-AI Python/TS bindings.  
+- Packages: `@nor/contracts`, `@nor/ai-agents`, `@nor/sdk`.
 
 ### Developer Portal Structure
 | Section | Purpose |
@@ -137,7 +137,7 @@ Noor Chain enters the market through a **dual-launch path**:
 - Governance Workflow  
 
 ### 42.3 Compliance References
-| Standard | Noor Mapping |
+| Standard | Nor Mapping |
 | -- | -- |
 | GDPR Art. 17 (Right to erasure) | Key revocation in XCC |
 | ISO 27001 | Validator ops certification |
@@ -148,7 +148,7 @@ Noor Chain enters the market through a **dual-launch path**:
 ---
 
 ## 43 Public Summary
-**Noor Chain** is a compliant, AI-enhanced Layer-1 network bridging Islamic finance, real-world assets, and digital innovation.  
+**Nor Chain** is a compliant, AI-enhanced Layer-1 network bridging Islamic finance, real-world assets, and digital innovation.  
 Its mission is to deliver secure, transparent, and ethical financial infrastructure for emerging economies and global investors.  
 
 - **Native Token:** NOR  
@@ -159,17 +159,17 @@ Its mission is to deliver secure, transparent, and ethical financial infrastruct
 - **Launch Goal:** Public availability Q1 2025, CEX listings by Q3 2025  
 
 For developers, investors, and the public:  
-👉 **Website:** [noor.io](https://noor.io)  
-👉 **Explorer:** [explorer.noor.io](https://explorer.noor.io)  
-👉 **Docs:** [docs.noor.io](https://docs.noor.io)  
-👉 **Contact:** hello@noor.io  
+👉 **Website:** [nor.io](https://nor.io)  
+👉 **Explorer:** [explorer.nor.io](https://explorer.nor.io)  
+👉 **Docs:** [docs.nor.io](https://docs.nor.io)  
+👉 **Contact:** hello@nor.io  
 
 ---
 
 ## License
-© 2025 Noor Technologies (formerly Xaheen Technologies AS) | All Rights Reserved  
+© 2025 Nor Technologies (formerly Nor Technologies AS) | All Rights Reserved  
 This document is provided for educational and development purposes.  
 
 ---
 
-[End of Noor Chain Playbook v3 – Public Master Edition]
+[End of Nor Chain Playbook v3 – Public Master Edition]

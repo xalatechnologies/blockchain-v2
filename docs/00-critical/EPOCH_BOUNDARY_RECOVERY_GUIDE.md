@@ -2,7 +2,7 @@
 
 **Status**: Chain stuck at block 29,999
 **Issue**: Epoch boundary at 30,000 - validators can't agree on epoch block header
-**Risk**: $20,000 XHT/USDT liquidity at risk
+**Risk**: $20,000 NOR/USDT liquidity at risk
 **Solution**: Fast recovery (preferred) or state-preserving regenesis
 
 ---
@@ -21,7 +21,7 @@
 
 ### What Happened
 
-The Xaheen Chain hit the **epoch boundary** at block 30,000. On Parlia/Clique-style PoSA (BNB Smart Chain consensus), validators must agree on the epoch block header, which includes a canonical validator list in the `extraData` field.
+The Nor Chain hit the **epoch boundary** at block 30,000. On Parlia/Clique-style PoSA (BNB Smart Chain consensus), validators must agree on the epoch block header, which includes a canonical validator list in the `extraData` field.
 
 **The stall occurs because**:
 - Block 30,000 must embed the sorted validator list
@@ -32,7 +32,7 @@ The Xaheen Chain hit the **epoch boundary** at block 30,000. On Parlia/Clique-st
 ### What's at Risk
 
 **At Risk**:
-- $20,000 XHT/USDT liquidity on Xaheen Chain
+- $20,000 NOR/USDT liquidity on Nor Chain
   - $10,000 in timelock (until Oct 30, 2026)
   - $10,000 operational liquidity
 
@@ -110,7 +110,7 @@ docker ps
 - ✅ All contract storage
 - ✅ All balances
 - ✅ All LP reserves
-- ✅ $20,000 XHT/USDT liquidity
+- ✅ $20,000 NOR/USDT liquidity
 - ✅ All nonces
 
 **Changes**:
@@ -358,7 +358,7 @@ curl -s -X POST https://rpc.xaheen.org \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}'
 
-# Verify liquidity pool reserves (XHT/USDT pair)
+# Verify liquidity pool reserves (NOR/USDT pair)
 # Address: 0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8
 curl -s -X POST https://rpc.xaheen.org \
   -H "Content-Type: application/json" \
@@ -373,7 +373,7 @@ curl -s -X POST https://rpc.xaheen.org \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
 
-# 2. Verify contract exists (WXHT)
+# 2. Verify contract exists (WNOR)
 curl -s -X POST https://rpc.xaheen.org \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_getCode","params":["0x26c0eaF731885b14c031cc50dB79b36458E0b355","latest"],"id":1}'
@@ -384,7 +384,7 @@ curl -s -X POST https://rpc.xaheen.org \
   --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8","data":"0x0902f1ac"},"latest"],"id":1}'
 
 # 4. Test a transaction
-# Send small amount of XHT to verify chain is functional
+# Send small amount of NOR to verify chain is functional
 ```
 
 ---

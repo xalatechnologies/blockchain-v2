@@ -12,12 +12,12 @@
 ┌─────────────────────────────────────┐
 │         MetaMask Wallet             │
 ├─────────────────────────────────────┤
-│ Network: Xaheen Chain               │
+│ Network: Nor Chain               │
 ├─────────────────────────────────────┤
 │ Assets:                             │
 │                                     │
-│ XHT                                 │
-│ 21,000,000,000 XHT                  │
+│ NOR                                 │
+│ 21,000,000,000 NOR                  │
 │ —                                   │  ❌ No dollar value
 │                                     │
 │ (Need to add LP token manually)     │
@@ -31,15 +31,15 @@
 ┌─────────────────────────────────────┐
 │         MetaMask Wallet             │
 ├─────────────────────────────────────┤
-│ Network: Xaheen Chain               │
+│ Network: Nor Chain               │
 ├─────────────────────────────────────┤
 │ Assets:                             │
 │                                     │
-│ XHT                                 │
-│ 21,000,000,000 XHT                  │
+│ NOR                                 │
+│ 21,000,000,000 NOR                  │
 │ —                                   │  ❌ No dollar value
 │                                     │
-│ XLP (XaheenSwap LP Token)           │
+│ XLP (NorSwap LP Token)           │
 │ 3,227,487 XLP                       │
 │ —                                   │  ❌ No dollar value
 │                                     │
@@ -59,7 +59,7 @@
 │      Real Value (On-Chain)          │
 ├─────────────────────────────────────┤
 │                                     │
-│ 💰 XaheenSwap LP Tokens             │
+│ 💰 NorSwap LP Tokens             │
 │ ├─ 3,227,487 XLP (unlocked)         │
 │ │  └─ Worth: $10,000.00 ✅          │
 │ │                                   │
@@ -67,7 +67,7 @@
 │    └─ Worth: $10,000.00 ✅          │
 │                                     │
 │ Breakdown:                          │
-│ ├─ 2,083,349,112 XHT = $5,000.04    │
+│ ├─ 2,083,349,112 NOR = $5,000.04    │
 │ └─ 4,999.97 USDT = $4,999.97        │
 │                                     │
 │ 📈 Fees Earned:                     │
@@ -104,7 +104,7 @@ Step 3: MetaMask calculates
 
 **Works because:** USDT is listed on CoinGecko.
 
-### LP Token (XLP on Xaheen):
+### LP Token (XLP on Nor):
 
 ```
 Step 1: You add XLP to MetaMask
@@ -140,16 +140,16 @@ LP Token (XLP):
 ├─ Dynamic supply (minted/burned with deposits/withdrawals)
 ├─ No direct price
 ├─ Represents share of pool
-│  ├─ Pool contains: XHT + USDT
-│  ├─ XHT price changes
+│  ├─ Pool contains: NOR + USDT
+│  ├─ NOR price changes
 │  ├─ USDT price = $1.00
 │  └─ Fees compound into pool
 └─ Complex to value ❌
 
 To calculate XLP value:
-1. Get pool reserves (XHT + USDT)
-2. Calculate XHT price
-3. Multiply XHT amount × XHT price
+1. Get pool reserves (NOR + USDT)
+2. Calculate NOR price
+3. Multiply NOR amount × NOR price
 4. Add USDT amount
 5. Divide by total LP supply
 6. Multiply by your LP balance
@@ -163,15 +163,15 @@ MetaMask can't do this automatically.
 MetaMask Price Sources:
 ├─ CoinGecko API (free)
 │  └─ Lists: 10,000+ tokens
-│     └─ Xaheen XLP: ❌ Not listed
+│     └─ Nor XLP: ❌ Not listed
 │
 ├─ CoinMarketCap API (paid)
 │  └─ Lists: 20,000+ tokens
-│     └─ Xaheen XLP: ❌ Not listed
+│     └─ Nor XLP: ❌ Not listed
 │
 └─ Built-in oracle (major tokens only)
    └─ ETH, USDT, USDC, DAI, etc.
-      └─ Xaheen XLP: ❌ Not supported
+      └─ Nor XLP: ❌ Not supported
 ```
 
 **Result:** MetaMask has no way to know XLP price.
@@ -193,7 +193,7 @@ $ node scripts/check-lp-balance.js
   Your Share: 50.00%
 
 💵 USD VALUE:
-  XHT Value: $5,000.04
+  NOR Value: $5,000.04
   USDT Value: $4,999.97
   Total Value: $10,000.00  ✅ REAL VALUE
 
@@ -224,11 +224,11 @@ Visit: https://explorer.xaheen.org/address/0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb
 
 ### Option 3: Deploy Frontend (BEST SOLUTION)
 
-Deploy XaheenSwap frontend with price calculation:
+Deploy NorSwap frontend with price calculation:
 
 ```
 ┌─────────────────────────────────────┐
-│      XaheenSwap Dashboard           │
+│      NorSwap Dashboard           │
 ├─────────────────────────────────────┤
 │                                     │
 │ 💰 Your Liquidity Position          │
@@ -237,7 +237,7 @@ Deploy XaheenSwap frontend with price calculation:
 │ Share of Pool: 50%                  │
 │                                     │
 │ Underlying Assets:                  │
-│ ├─ 2,083,349,112 XHT ($5,000.04)    │
+│ ├─ 2,083,349,112 NOR ($5,000.04)    │
 │ └─ 4,999.97 USDT ($4,999.97)        │
 │                                     │
 │ Total Value: $10,000.00 ✅          │
@@ -252,7 +252,7 @@ Deploy XaheenSwap frontend with price calculation:
 **This shows dollar values because:**
 - Frontend calculates manually
 - Queries pool reserves directly
-- Uses hardcoded/oracle XHT price
+- Uses hardcoded/oracle NOR price
 - Does the math and displays result
 
 ---
@@ -265,9 +265,9 @@ Deploy XaheenSwap frontend with price calculation:
 User opens MetaMask:
 └─ Clicks "Swap" tab
    ├─ MetaMask shows: ETH, USDT, USDC, etc. (Ethereum tokens)
-   ├─ Doesn't know about Xaheen Chain
-   ├─ Doesn't know about XaheenSwap DEX
-   └─ Can't swap XHT ↔ USDT ❌
+   ├─ Doesn't know about Nor Chain
+   ├─ Doesn't know about NorSwap DEX
+   └─ Can't swap NOR ↔ USDT ❌
 ```
 
 **Why:** MetaMask Swap only works with supported DEXs (Uniswap, PancakeSwap, etc.).
@@ -279,7 +279,7 @@ Developer runs:
 $ node scripts/test-swap-xaheen.js
 
 Result:
-├─ Swaps 1000 XHT → 0.00239 USDT ✅
+├─ Swaps 1000 NOR → 0.00239 USDT ✅
 └─ Reverse swap works ✅
 
 But:
@@ -294,7 +294,7 @@ User opens browser:
    ├─ Connects MetaMask
    ├─ Sees swap interface:
    │  ┌────────────────────┐
-   │  │ From: 1000 XHT     │
+   │  │ From: 1000 NOR     │
    │  │ To: 0.00239 USDT   │
    │  │ [Swap] ✅          │
    │  └────────────────────┘
@@ -320,11 +320,11 @@ User opens browser:
 
 2. **Liquidity:**
    - $20k total ($10k locked + $10k operational) ✅
-   - Perfect price: $0.0000024/XHT ✅
+   - Perfect price: $0.0000024/NOR ✅
 
 3. **Swapping:**
-   - XHT → USDT works ✅
-   - USDT → XHT works ✅
+   - NOR → USDT works ✅
+   - USDT → NOR works ✅
    - Via scripts (not UI yet)
 
 4. **Fee Earning:**
@@ -482,7 +482,7 @@ Solution:
 
 ### What I Can Deploy for You:
 
-1. **XaheenSwap Frontend** (swap + add/remove liquidity)
+1. **NorSwap Frontend** (swap + add/remove liquidity)
 2. **LP Dashboard** (portfolio tracking)
 3. **Bridge UI** (convert LP → cash out)
 

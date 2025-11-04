@@ -5,7 +5,7 @@
 #═══════════════════════════════════════════════════════════════════════════════
 # Empowering the Future with Light and Trust
 #
-# This script sets up all 3 Noor Chain validators with:
+# This script sets up all 3 Nor Chain validators with:
 # - Mining enabled
 # - Accounts unlocked
 # - Proper peer connectivity
@@ -28,7 +28,7 @@ VALIDATOR3="0x15f0f5B738BC2b1ab8cD68E4674769a89bF5390a"
 # Server IP
 SERVER_IP="3.91.50.187"
 
-echo "📋 Noor Chain Configuration:"
+echo "📋 Nor Chain Configuration:"
 echo "   Chain ID: 65001"
 echo "   Epoch: 9,000,000 blocks (~1.5 years)"
 echo "   Block Time: 3 seconds"
@@ -41,7 +41,7 @@ echo "   Validator 3: $VALIDATOR3"
 echo ""
 
 # Copy this script to server and execute there
-cat << 'REMOTE_SCRIPT' > /tmp/noor-remote-setup.sh
+cat << 'REMOTE_SCRIPT' > /tmp/nor-remote-setup.sh
 #!/bin/bash
 
 VALIDATOR1="0xbb64F4050fC21A2eC3506245A1Ad63cB0256b6dE"
@@ -198,7 +198,7 @@ for i in {1..10}; do
 
     if [ "$DEC" -gt "10" ]; then
       echo ""
-      echo "🎉 SUCCESS! Noor Chain is producing blocks!"
+      echo "🎉 SUCCESS! Nor Chain is producing blocks!"
       break
     fi
   else
@@ -242,18 +242,18 @@ echo "   View logs: docker logs -f xaheen-rpc"
 echo "   Check blocks: curl -s -X POST http://localhost:8545 -H 'Content-Type: application/json' --data '{\"jsonrpc\":\"2.0\",\"method\":\"eth_blockNumber\",\"params\":[],\"id\":1}'"
 echo "   Check peers: curl -s -X POST http://localhost:8545 -H 'Content-Type: application/json' --data '{\"jsonrpc\":\"2.0\",\"method\":\"net_peerCount\",\"params\":[],\"id\":1}'"
 echo ""
-echo "🌙 Noor Chain - Empowering the Future with Light and Trust"
+echo "🌙 Nor Chain - Empowering the Future with Light and Trust"
 
 REMOTE_SCRIPT
 
-chmod +x /tmp/noor-remote-setup.sh
+chmod +x /tmp/nor-remote-setup.sh
 
 echo "📤 Uploading setup script to server..."
-scp -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no /tmp/noor-remote-setup.sh ec2-user@$SERVER_IP:/home/ec2-user/noor-setup.sh
+scp -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no /tmp/nor-remote-setup.sh ec2-user@$SERVER_IP:/home/ec2-user/nor-setup.sh
 
 echo ""
 echo "🚀 Executing setup on server..."
-ssh -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no ec2-user@$SERVER_IP 'bash /home/ec2-user/noor-setup.sh'
+ssh -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no ec2-user@$SERVER_IP 'bash /home/ec2-user/nor-setup.sh'
 
 echo ""
 echo "✅ Setup complete!"
@@ -273,4 +273,4 @@ for i in {1..20}; do
 done
 
 echo ""
-echo "🌙 Noor Chain monitoring complete!"
+echo "🌙 Nor Chain monitoring complete!"

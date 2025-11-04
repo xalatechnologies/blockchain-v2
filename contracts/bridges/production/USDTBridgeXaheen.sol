@@ -12,11 +12,11 @@ interface IWUSDTToken {
 }
 
 /**
- * @title USDTBridgeXaheen
- * @notice Mints WUSDT on Xaheen when USDT locked on BSC
+ * @title USDTBridgeNor
+ * @notice Mints WUSDT on Nor when USDT locked on BSC
  * @dev Receives validator signatures and mints wrapped tokens
  */
-contract USDTBridgeXaheen is Ownable, Pausable, ReentrancyGuard {
+contract USDTBridgeNor is Ownable, Pausable, ReentrancyGuard {
     using ECDSA for bytes32;
 
     IWUSDTToken public immutable wusdt;
@@ -47,7 +47,7 @@ contract USDTBridgeXaheen is Ownable, Pausable, ReentrancyGuard {
     }
 
     /**
-     * @notice Mint WUSDT on Xaheen with validator signatures
+     * @notice Mint WUSDT on Nor with validator signatures
      */
     function mintWUSDT(
         address recipient,

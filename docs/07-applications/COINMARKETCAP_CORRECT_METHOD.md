@@ -33,10 +33,10 @@ https://support.coinmarketcap.com/hc/en-us/requests/new?ticket_form_id=360000692
    ☑ Team Member / Project Owner
 
 2. Project Name:
-   Xaheen Chain
+   Nor Chain
 
 3. Token/Coin Symbol:
-   XHT
+   NOR
 
 4. Project Website:
    https://xaheen.org
@@ -51,7 +51,7 @@ https://support.coinmarketcap.com/hc/en-us/requests/new?ticket_form_id=360000692
    0x26c0eaF731885b14c031cc50dB79b36458E0b355
 
 8. Platform/Blockchain:
-   Xaheen Chain (Custom EVM-compatible Layer 1)
+   Nor Chain (Custom EVM-compatible Layer 1)
 
 9. Chain ID:
    65001
@@ -66,19 +66,19 @@ https://support.coinmarketcap.com/hc/en-us/requests/new?ticket_form_id=360000692
     1,000,000,000
 
 13. Is your project listed on any exchanges?
-    Yes - Xaheen DEX (Native Decentralized Exchange)
+    Yes - Nor DEX (Native Decentralized Exchange)
 
 14. Exchange Name:
-    Xaheen DEX
+    Nor DEX
 
 15. Trading Pairs:
-    XHT/USDT, XHT/BNB, XHT/ETH
+    NOR/USDT, NOR/BNB, NOR/ETH
 
 16. 24h Trading Volume:
     [Enter current volume, or say "Growing - recent launch"]
 
 17. Social Media Links:
-    Twitter: https://twitter.com/XaheenChain (if available)
+    Twitter: https://twitter.com/NorChain (if available)
     Telegram: https://t.me/xaheenchain (if available)
 
 18. Additional Information:
@@ -114,7 +114,7 @@ They'll guide you to the right form
 ### Twitter:
 ```
 Tweet: @CoinMarketCap
-Message: "Hi, I'd like to list XHT (Xaheen Token) on CMC.
+Message: "Hi, I'd like to list NOR (Nor Token) on CMC.
          What's the current process? The listings@ email bounced."
 ```
 
@@ -129,8 +129,8 @@ Message: "Hi, I'd like to list XHT (Xaheen Token) on CMC.
 PROJECT INFORMATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Project Name: Xaheen Chain
-Token Symbol: XHT
+Project Name: Nor Chain
+Token Symbol: NOR
 Token Type: Native Blockchain Token / Utility Token
 Website: https://xaheen.org
 
@@ -138,7 +138,7 @@ Website: https://xaheen.org
 BLOCKCHAIN DETAILS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Platform: Xaheen Chain (Custom EVM-compatible Layer 1)
+Platform: Nor Chain (Custom EVM-compatible Layer 1)
 Chain ID: 65001
 Consensus: Parlia PoSA
 Block Time: 3 seconds
@@ -151,8 +151,8 @@ TOKEN CONTRACT
 
 Contract Address: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
 Decimals: 18
-Total Supply: 21,000,000,000 XHT
-Circulating Supply: 1,000,000,000 XHT (initial)
+Total Supply: 21,000,000,000 NOR
+Circulating Supply: 1,000,000,000 NOR (initial)
 
 Contract Explorer Link:
 https://explorer.xaheen.org/address/0x26c0eaF731885b14c031cc50dB79b36458E0b355
@@ -161,14 +161,14 @@ https://explorer.xaheen.org/address/0x26c0eaF731885b14c031cc50dB79b36458E0b355
 MARKET DATA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Primary Exchange: Xaheen DEX (Native)
+Primary Exchange: Nor DEX (Native)
 Exchange Type: Decentralized Exchange (DEX)
 DEX Protocol: Uniswap V2 Fork
 
 Trading Pairs:
-- XHT/USDT (600M XHT liquidity)
-- XHT/BNB (100M XHT liquidity)
-- XHT/ETH (100M XHT liquidity)
+- NOR/USDT (600M NOR liquidity)
+- NOR/BNB (100M NOR liquidity)
+- NOR/ETH (100M NOR liquidity)
 
 Total Liquidity: $800,000 USD
 Current Price: ~$0.001 USD (indicative)
@@ -181,16 +181,16 @@ DEX Factory: 0xBE254176B4f13b02f367a9feCE599ee8887E2D34
 PROJECT DESCRIPTION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Xaheen Chain is a high-performance EVM-compatible blockchain
+Nor Chain is a high-performance EVM-compatible blockchain
 designed for DeFi applications with:
 
 • 3-second block finality (10x faster than Ethereum)
 • Ultra-low fees (< $0.01 per transaction)
-• Native decentralized exchange (Xaheen DEX)
+• Native decentralized exchange (Nor DEX)
 • Parlia PoSA consensus (same as BNB Chain)
 • Full EVM compatibility
 
-XHT is the native utility token used for:
+NOR is the native utility token used for:
 • Network gas fees
 • DEX trading
 • Staking rewards
@@ -206,7 +206,7 @@ Explorer: https://explorer.xaheen.org
 Documentation: https://docs.xaheen.org
 
 Social Media:
-Twitter: https://twitter.com/XaheenChain (if available)
+Twitter: https://twitter.com/NorChain (if available)
 Telegram: https://t.me/xaheenchain (if available)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -221,11 +221,11 @@ curl -X POST https://rpc.xaheen.org \
 MetaMask Network Config:
 {
   "chainId": 65001,
-  "chainName": "Xaheen Chain",
+  "chainName": "Nor Chain",
   "rpcUrls": ["https://rpc.xaheen.org"],
   "nativeCurrency": {
-    "name": "XHT",
-    "symbol": "XHT",
+    "name": "NOR",
+    "symbol": "NOR",
     "decimals": 18
   },
   "blockExplorerUrls": ["https://explorer.xaheen.org"]
@@ -301,7 +301,7 @@ support@coinmarketcap.com
 
 **Subject:**
 ```
-Request: List New Cryptocurrency - Xaheen Token (XHT)
+Request: List New Cryptocurrency - Nor Token (NOR)
 ```
 
 **Body:**
@@ -309,7 +309,7 @@ Request: List New Cryptocurrency - Xaheen Token (XHT)
 Hello CoinMarketCap Support Team,
 
 I attempted to use the self-listing form but encountered issues.
-I would like to request a listing for Xaheen Token (XHT).
+I would like to request a listing for Nor Token (NOR).
 
 [Paste all the project information from above]
 
@@ -320,7 +320,7 @@ Thank you!
 
 Best regards,
 Ibrahim Rahmany
-Xaheen Chain
+Nor Chain
 ibrahim@xala.no
 ```
 

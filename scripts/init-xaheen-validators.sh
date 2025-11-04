@@ -1,10 +1,10 @@
 #!/bin/bash
 
 ##############################################################################
-# Xaheen Chain Validator Initialization Script
+# Nor Chain Validator Initialization Script
 ##############################################################################
 #
-# This script initializes Xaheen Chain validators with the new Chain ID 65001
+# This script initializes Nor Chain validators with the new Chain ID 65001
 #
 # Usage:
 #   ./scripts/init-xaheen-validators.sh
@@ -34,9 +34,9 @@ NETWORK_ID=65001
 echo -e "${BLUE}"
 echo "╔════════════════════════════════════════════════════════════╗"
 echo "║                                                            ║"
-echo "║           Xaheen Chain Validator Initialization           ║"
+echo "║           Nor Chain Validator Initialization           ║"
 echo "║                                                            ║"
-echo "║  Chain ID: 65001 | Network ID: 65001 | Native Token: XHT  ║"
+echo "║  Chain ID: 65001 | Network ID: 65001 | Native Token: NOR  ║"
 echo "║                                                            ║"
 echo "╚════════════════════════════════════════════════════════════╝"
 echo -e "${NC}"
@@ -116,7 +116,7 @@ echo -e "${GREEN}✓ Old blockchain data removed${NC}"
 # Step 5: Initialize Validators with New Genesis
 ##############################################################################
 
-echo -e "${YELLOW}[Step 5/8] Initializing validators with Xaheen Chain genesis...${NC}"
+echo -e "${YELLOW}[Step 5/8] Initializing validators with Nor Chain genesis...${NC}"
 
 # Initialize Validator 1
 echo "Initializing validator-1..."
@@ -194,15 +194,15 @@ echo -e "${BLUE}╔════════════════════�
 echo -e "${BLUE}║                    Initialization Summary                  ║${NC}"
 echo -e "${BLUE}╚════════════════════════════════════════════════════════════╝${NC}"
 echo ""
-echo -e "${GREEN}✓ Chain ID:${NC}       $CHAIN_ID (Xaheen Chain)"
+echo -e "${GREEN}✓ Chain ID:${NC}       $CHAIN_ID (Nor Chain)"
 echo -e "${GREEN}✓ Network ID:${NC}     $NETWORK_ID"
-echo -e "${GREEN}✓ Native Token:${NC}   XHT (Xaheen Token)"
+echo -e "${GREEN}✓ Native Token:${NC}   NOR (Nor Token)"
 echo -e "${GREEN}✓ Block Time:${NC}     3 seconds"
 echo -e "${GREEN}✓ Validators:${NC}     3 validators initialized"
 echo -e "${GREEN}✓ Genesis File:${NC}   $GENESIS_FILE"
 echo ""
 echo -e "${BLUE}═══════════════════════════════════════════════════════════${NC}"
-echo -e "${BLUE}║  Xaheen Chain - Where Intelligence Meets Blockchain  🧠⚡ ║${NC}"
+echo -e "${BLUE}║  Nor Chain - Where Intelligence Meets Blockchain  🧠⚡ ║${NC}"
 echo -e "${BLUE}═══════════════════════════════════════════════════════════${NC}"
 echo ""
 echo -e "${YELLOW}For documentation, visit: docs/README.md${NC}"

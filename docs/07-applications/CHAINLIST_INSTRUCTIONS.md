@@ -9,7 +9,7 @@ Visit: https://github.com/ethereum-lists/chains
 - Click "Fork" button (top right)
 - This creates a copy in your GitHub account
 
-### 3. Add Xaheen Chain File
+### 3. Add Nor Chain File
 Navigate to: `_data/chains/`
 
 Create new file: `eip155-65001.json`
@@ -41,14 +41,14 @@ Create new file: `xaheen.json`
 **Alternative (simpler):** You can skip the icon initially and add it later after the chain is accepted.
 
 ### 5. Commit Changes
-Commit message: "Add Xaheen Chain (Chain ID: 65001)"
+Commit message: "Add Nor Chain (Chain ID: 65001)"
 
 ### 6. Create Pull Request
 - Click "Contribute" → "Open Pull Request"
-- Title: "Add Xaheen Chain (Chain ID: 65001)"
+- Title: "Add Nor Chain (Chain ID: 65001)"
 - Description:
 ```
-Adding Xaheen Chain - Fast EVM-compatible Layer 1 blockchain
+Adding Nor Chain - Fast EVM-compatible Layer 1 blockchain
 
 **Chain Details:**
 - Chain ID: 65001
@@ -71,12 +71,12 @@ Adding Xaheen Chain - Fast EVM-compatible Layer 1 blockchain
 ### 7. Wait for Approval
 - Usually takes 24-48 hours
 - Maintainers will review
-- Once merged, Xaheen appears on chainlist.org
+- Once merged, Nor appears on chainlist.org
 
 ### 8. After Approval
-Users can add Xaheen to MetaMask by:
+Users can add Nor to MetaMask by:
 1. Visit https://chainlist.org
-2. Search "Xaheen" or "65001"
+2. Search "Nor" or "65001"
 3. Click "Add to MetaMask"
 4. Done! ✅
 
@@ -89,10 +89,10 @@ Until Chainlist approval, users can add manually:
 **MetaMask → Settings → Networks → Add Network:**
 
 ```
-Network Name: Xaheen Chain
+Network Name: Nor Chain
 RPC URL: https://rpc.xaheen.org
 Chain ID: 65001
-Currency Symbol: XHT
+Currency Symbol: NOR
 Block Explorer: https://explorer.xaheen.org
 ```
 
@@ -100,7 +100,7 @@ Block Explorer: https://explorer.xaheen.org
 
 ## What This Achieves:
 
-✅ Anyone can add Xaheen to MetaMask with 1 click
+✅ Anyone can add Nor to MetaMask with 1 click
 ✅ Appears in major wallet providers
 ✅ Legitimacy and discoverability
 ✅ No cost, pure visibility
@@ -115,4 +115,4 @@ Block Explorer: https://explorer.xaheen.org
 4. Developer outreach
 5. Validator recruitment
 
-**This is the first step to making Xaheen a public blockchain!** 🚀
+**This is the first step to making Nor a public blockchain!** 🚀

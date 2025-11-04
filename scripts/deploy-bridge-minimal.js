@@ -3,7 +3,7 @@
 /**
  * Minimal Bridge Deployment with Small BSC Liquidity
  *
- * This deploys a simple lock/mint bridge between Xaheen Chain and BSC
+ * This deploys a simple lock/mint bridge between Nor Chain and BSC
  * with minimal liquidity on PancakeSwap for arbitrage opportunities.
  *
  * Investment Required:
@@ -12,7 +12,7 @@
  * - Total: ~$5,100
  *
  * What This Enables:
- * - Users can bridge XHT between Xaheen ↔ BSC
+ * - Users can bridge NOR between Nor ↔ BSC
  * - Arbitrage bots can trade between both DEXs
  * - Price discovery on public BSC market
  * - Listed on PancakeSwap (visibility)
@@ -27,13 +27,14 @@ console.log("=====================================================\n");
 
 // Configuration
 const XAHEEN_RPC = process.env.PRIVATE_CHAIN_RPC || "http://3.91.50.187:8545";
-const BSC_RPC = process.env.BSC_MAINNET_RPC || "https://bsc-dataseed1.binance.org";
+const BSC_RPC =
+  process.env.BSC_MAINNET_RPC || "https://bsc-dataseed1.binance.org";
 
 const XAHEEN_DEPLOYER_KEY = process.env.MAINNET_PRIVATE_KEY;
 const BSC_DEPLOYER_KEY = process.env.MAINNET_PRIVATE_KEY; // Same key or different
 
-// Xaheen Chain contracts (already deployed)
-const XAHEEN_XHT = "0x26c0eaF731885b14c031cc50dB79b36458E0b355"; // WXHT
+// Nor Chain contracts (already deployed)
+const XAHEEN_NOR = "0x26c0eaF731885b14c031cc50dB79b36458E0b355"; // WNOR
 const XAHEEN_ROUTER = "0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916";
 const XAHEEN_FACTORY = "0xBE254176B4f13b02f367a9feCE599ee8887E2D34";
 
@@ -51,7 +52,7 @@ const xaheenDeployer = new ethers.Wallet(XAHEEN_DEPLOYER_KEY, xaheenProvider);
 const bscDeployer = new ethers.Wallet(BSC_DEPLOYER_KEY, bscProvider);
 
 console.log("📍 Deployers:");
-console.log(`   Xaheen: ${xaheenDeployer.address}`);
+console.log(`   Nor: ${xaheenDeployer.address}`);
 console.log(`   BSC:    ${bscDeployer.address}`);
 console.log("");
 
@@ -63,7 +64,7 @@ async function checkBalances() {
   const xaheenBal = await xaheenProvider.getBalance(xaheenDeployer.address);
   const bscBal = await bscProvider.getBalance(bscDeployer.address);
 
-  console.log(`   Xaheen: ${ethers.formatEther(xaheenBal)} XHT`);
+  console.log(`   Nor: ${ethers.formatEther(xaheenBal)} NOR`);
   console.log(`   BSC:    ${ethers.formatEther(bscBal)} BNB`);
   console.log("");
 
@@ -84,13 +85,13 @@ pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract XHTBridgeToken is ERC20, Ownable {
+contract NORBridgeToken is ERC20, Ownable {
     mapping(address => bool) public bridges;
 
     event BridgeDeposit(address indexed from, uint256 amount, string destinationChain);
     event BridgeWithdrawal(address indexed to, uint256 amount, string sourceChain);
 
-    constructor() ERC20("Xaheen Token", "XHT") Ownable(msg.sender) {}
+    constructor() ERC20("Nor Token", "NOR") Ownable(msg.sender) {}
 
     function addBridge(address bridge) external onlyOwner {
         bridges[bridge] = true;
@@ -127,7 +128,7 @@ contract XHTBridgeToken is ERC20, Ownable {
 async function main() {
   console.log("📋 DEPLOYMENT PLAN:");
   console.log("=====================================================");
-  console.log("1. Deploy XHT token on BSC (bridged version)");
+  console.log("1. Deploy NOR token on BSC (bridged version)");
   console.log("2. Add minimal liquidity on PancakeSwap");
   console.log("3. Configure bridge operators");
   console.log("4. Enable arbitrage trading");
@@ -142,8 +143,8 @@ async function main() {
   console.log("🚀 Starting Deployment...");
   console.log("=====================================================\n");
 
-  // STEP 1: Deploy XHT on BSC
-  console.log("📦 Step 1: Deploy XHT Token on BSC");
+  // STEP 1: Deploy NOR on BSC
+  console.log("📦 Step 1: Deploy NOR Token on BSC");
   console.log("-----------------------------------------------------");
   console.log("⏳ Compiling and deploying...");
   console.log("");
@@ -153,7 +154,7 @@ async function main() {
   console.log("Since we need OpenZeppelin contracts, deploy via Hardhat:");
   console.log("");
   console.log("1. Create contract file:");
-  console.log("   contracts/XHTBridgeToken.sol");
+  console.log("   contracts/NORBridgeToken.sol");
   console.log("");
   console.log("2. Add to hardhat.config.js networks:");
   console.log("   bscMainnet: {");
@@ -163,7 +164,9 @@ async function main() {
   console.log("   }");
   console.log("");
   console.log("3. Deploy:");
-  console.log("   npx hardhat run scripts/deploy-xht-bsc.js --network bscMainnet");
+  console.log(
+    "   npx hardhat run scripts/deploy-xht-bsc.js --network bscMainnet"
+  );
   console.log("");
 
   // For now, let's create the necessary files
@@ -172,11 +175,11 @@ async function main() {
   return {
     message: "Files created. Deploy manually with Hardhat.",
     nextSteps: [
-      "1. Deploy XHT token on BSC via Hardhat",
+      "1. Deploy NOR token on BSC via Hardhat",
       "2. Add liquidity to PancakeSwap",
       "3. Configure bridge operators",
-      "4. Test bridge transfers"
-    ]
+      "4. Test bridge transfers",
+    ],
   };
 }
 
@@ -186,8 +189,8 @@ async function setupPancakeSwapLiquidity() {
   console.log("=====================================================\n");
 
   console.log("📋 Requirements:");
-  console.log("  - XHT token deployed on BSC");
-  console.log("  - 10,000,000 XHT bridged to BSC");
+  console.log("  - NOR token deployed on BSC");
+  console.log("  - 10,000,000 NOR bridged to BSC");
   console.log("  - 5,000 USDT on BSC");
   console.log("");
 
@@ -200,13 +203,13 @@ async function setupPancakeSwapLiquidity() {
   console.log("1. Go to: https://pancakeswap.finance/add");
   console.log("");
   console.log("2. Select tokens:");
-  console.log("   - Token A: XHT (your deployed address)");
+  console.log("   - Token A: NOR (your deployed address)");
   console.log("   - Token B: USDT (" + BSC_USDT + ")");
   console.log("");
   console.log("3. Enter amounts:");
-  console.log("   - XHT: 10,000,000");
+  console.log("   - NOR: 10,000,000");
   console.log("   - USDT: 5,000");
-  console.log("   - Initial price: $0.0005 per XHT");
+  console.log("   - Initial price: $0.0005 per NOR");
   console.log("");
   console.log("4. Approve and add liquidity");
   console.log("");

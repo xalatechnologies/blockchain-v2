@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buy XHT with Transak</title>
+    <title>Buy NOR with Transak</title>
     <script src="https://global.transak.com/sdk/v1.2/transak-sdk.js"></script>
     <style>
         * {
@@ -253,11 +253,11 @@
 </head>
 <body>
     <div class="container">
-        <h1>⚡ Buy XHT with Transak</h1>
+        <h1>⚡ Buy NOR with Transak</h1>
         <p class="subtitle">Fast, secure, and compliant fiat on-ramp</p>
 
         <div class="tabs">
-            <button class="tab active" data-tab="buy">Buy XHT</button>
+            <button class="tab active" data-tab="buy">Buy NOR</button>
             <button class="tab" data-tab="info">How it Works</button>
             <button class="tab" data-tab="features">Features</button>
         </div>
@@ -272,7 +272,7 @@
                     placeholder="0x..."
                     value=""
                 >
-                <small style="color: #718096; font-size: 13px;">XHT will be sent to this address</small>
+                <small style="color: #718096; font-size: 13px;">NOR will be sent to this address</small>
             </div>
 
             <div class="form-group">
@@ -309,7 +309,7 @@
             </div>
 
             <button class="buy-button" id="buyBtn">
-                💳 Buy XHT Now
+                💳 Buy NOR Now
             </button>
 
             <div class="payment-methods">
@@ -324,13 +324,13 @@
         <!-- Info Tab -->
         <div class="tab-content" id="info-tab">
             <div class="info-box">
-                <h3>How to Buy XHT</h3>
+                <h3>How to Buy NOR</h3>
                 <ul>
-                    <li><strong>Step 1:</strong> Enter your Xaheen wallet address</li>
+                    <li><strong>Step 1:</strong> Enter your Nor wallet address</li>
                     <li><strong>Step 2:</strong> Choose amount and payment method</li>
                     <li><strong>Step 3:</strong> Complete KYC verification (first time only)</li>
                     <li><strong>Step 4:</strong> Confirm payment</li>
-                    <li><strong>Step 5:</strong> Receive XHT in 2-10 minutes</li>
+                    <li><strong>Step 5:</strong> Receive NOR in 2-10 minutes</li>
                 </ul>
             </div>
 
@@ -365,7 +365,7 @@
                     <div class="feature-icon">⚡</div>
                     <div class="feature-text">
                         <strong>Instant Delivery</strong><br>
-                        Receive XHT in 2-10 minutes
+                        Receive NOR in 2-10 minutes
                     </div>
                 </div>
                 <div class="feature">
@@ -439,9 +439,9 @@
         const CONFIG = {
             apiKey: 'YOUR_TRANSAK_API_KEY_HERE', // Get from https://transak.com
             environment: 'STAGING', // Change to 'PRODUCTION' for live
-            defaultCryptoCurrency: 'XHT',
+            defaultCryptoCurrency: 'NOR',
             networks: 'xaheen',
-            cryptoCurrencyList: 'XHT',
+            cryptoCurrencyList: 'NOR',
             themeColor: '3a47d5',
             hideMenu: true,
             isFeeCalculationHidden: false,
@@ -536,7 +536,7 @@
 
             transak.on(transak.EVENTS.TRANSAK_ORDER_SUCCESSFUL, (orderData) => {
                 console.log('Order successful:', orderData);
-                showStatus('Purchase successful! XHT will arrive in 2-10 minutes.', 'success');
+                showStatus('Purchase successful! NOR will arrive in 2-10 minutes.', 'success');
                 transak.close();
             });
 
@@ -586,10 +586,10 @@
         console.log('1. Sign up at https://transak.com');
         console.log('2. Complete KYB verification');
         console.log('3. Get your API key');
-        console.log('4. Apply to list XHT token');
+        console.log('4. Apply to list NOR token');
         console.log('5. Replace API key in this code');
         console.log('\nCurrent status: DEMO MODE');
-        console.log('Requires XHT token listing approval from Transak');
+        console.log('Requires NOR token listing approval from Transak');
     </script>
 </body>
 </html>

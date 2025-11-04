@@ -4,25 +4,25 @@ pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-interface IXHTStaking {
+interface INORStaking {
     function getVotingPower(address user) external view returns (uint256);
 }
 
 /**
- * @title XHTGovernance
- * @notice Decentralized governance for Xaheen Chain with voting power from staking
+ * @title NORGovernance
+ * @notice Decentralized governance for Nor Chain with voting power from staking
  * @dev Features:
  * - Proposal creation and voting
- * - Voting power based on staked XHT (from XHTStaking)
+ * - Voting power based on staked NOR (from NORStaking)
  * - Timelock for executed proposals (48 hours)
  * - Treasury management
  * - Parameter updates (fees, limits, etc.)
  */
-contract XHTGovernance is Ownable, ReentrancyGuard {
+contract NORGovernance is Ownable, ReentrancyGuard {
 
     // ============ State Variables ============
 
-    IXHTStaking public stakingContract;
+    INORStaking public stakingContract;
 
     struct Proposal {
         uint256 id;
@@ -60,7 +60,7 @@ contract XHTGovernance is Ownable, ReentrancyGuard {
     uint256 public proposalCount;
     uint256 public constant VOTING_PERIOD = 7 days;
     uint256 public constant TIMELOCK_PERIOD = 2 days;
-    uint256 public constant MIN_VOTING_POWER = 10_000 ether; // 10,000 XHT to propose
+    uint256 public constant MIN_VOTING_POWER = 10_000 ether; // 10,000 NOR to propose
     uint256 public constant QUORUM_PERCENTAGE = 10; // 10% of total staking
     uint256 public treasury;
 
@@ -85,7 +85,7 @@ contract XHTGovernance is Ownable, ReentrancyGuard {
     // ============ Constructor ============
 
     constructor(address _stakingContract) {
-        stakingContract = IXHTStaking(_stakingContract);
+        stakingContract = INORStaking(_stakingContract);
     }
 
     // ============ Core Functions ============
@@ -207,7 +207,7 @@ contract XHTGovernance is Ownable, ReentrancyGuard {
 
         // For simplicity, using a fixed quorum threshold
         // In production, this should check against total staked supply
-        return totalVotes >= 100_000 ether; // 100,000 XHT voting power
+        return totalVotes >= 100_000 ether; // 100,000 NOR voting power
     }
 
     /**
@@ -327,7 +327,7 @@ contract XHTGovernance is Ownable, ReentrancyGuard {
      * @notice Update staking contract address
      */
     function updateStakingContract(address _stakingContract) external onlyOwner {
-        stakingContract = IXHTStaking(_stakingContract);
+        stakingContract = INORStaking(_stakingContract);
     }
 
     /**

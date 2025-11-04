@@ -8,7 +8,7 @@
 ## Problem Summary
 
 **Initial Issue:**
-- Xaheen Chain RPC (`https://rpc.xaheen.org`) was returning 502 Bad Gateway
+- Nor Chain RPC (`https://rpc.xaheen.org`) was returning 502 Bad Gateway
 - All blockchain operations blocked
 - Cannot deploy contracts, execute swaps, or access $20k liquidity
 
@@ -133,7 +133,7 @@ CONTAINER ID   NAME              STATUS
 - ❌ Cannot add liquidity
 - ❌ Cannot test swaps
 - ❌ Cannot deploy frontend
-- ❌ Users cannot buy XHT
+- ❌ Users cannot buy NOR
 - ❌ $20,000 liquidity inaccessible
 
 **After Fix:**
@@ -141,7 +141,7 @@ CONTAINER ID   NAME              STATUS
 - ✅ Can add liquidity
 - ✅ Can test swaps
 - ✅ Can deploy frontend
-- ✅ Users can buy XHT (once frontend deployed)
+- ✅ Users can buy NOR (once frontend deployed)
 - ✅ $20,000 liquidity accessible
 
 ---
@@ -320,11 +320,11 @@ Ports:
 
 ### Blockchain Configuration:
 ```
-Network: Xaheen Chain
+Network: Nor Chain
 Chain ID: 65001
 Consensus: Parlia PoSA (BSC fork)
 Block Time: 3 seconds
-Native Token: XHT
+Native Token: NOR
 ```
 
 ---

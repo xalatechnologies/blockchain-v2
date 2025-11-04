@@ -18,7 +18,7 @@ Before deploying, verify you have:
   - Withdraw from Binance to BSC
   - Or bridge from another chain
 
-- [ ] **10M XHT ready** (you have 20B, so this is easy!)
+- [ ] **10M NOR ready** (you have 20B, so this is easy!)
 
 - [ ] **Private key in .env** (already set)
 
@@ -40,7 +40,7 @@ npx hardhat compile
 
 ---
 
-### STEP 2: Deploy XHT on BSC (5 minutes)
+### STEP 2: Deploy NOR on BSC (5 minutes)
 
 ```bash
 # Deploy to BSC mainnet
@@ -49,8 +49,8 @@ npx hardhat run scripts/deploy-xht-bsc.js --network bsc
 # Wait for transaction confirmation...
 
 # You'll see:
-# ✅ XHT Bridge Token deployed: 0x...
-# ✅ Minted 10,000,000 XHT for liquidity
+# ✅ NOR Bridge Token deployed: 0x...
+# ✅ Minted 10,000,000 NOR for liquidity
 
 # SAVE THIS ADDRESS! You'll need it for PancakeSwap
 ```
@@ -70,23 +70,23 @@ npx hardhat run scripts/deploy-xht-bsc.js --network bsc
 **3B. Select Tokens**
 
 1. Click "Select a currency"
-2. Paste your XHT token address from Step 2
+2. Paste your NOR token address from Step 2
 3. For second token, select USDT:
    `0x55d398326f99059fF775485246999027B3197955`
 
 **3C. Enter Amounts**
 
 ```
-XHT Amount: 10,000,000
+NOR Amount: 10,000,000
 USDT Amount: 5,000
 
-Initial Price: $0.0005 per XHT
+Initial Price: $0.0005 per NOR
 (PancakeSwap will calculate this automatically)
 ```
 
 **3D. Approve and Add**
 
-1. Click "Approve XHT" → Confirm in MetaMask
+1. Click "Approve NOR" → Confirm in MetaMask
 2. Wait for approval transaction
 3. Click "Approve USDT" → Confirm in MetaMask
 4. Wait for approval transaction
@@ -138,20 +138,20 @@ node scripts/setup-bridge-operator.js
 ### STEP 5: Test Bridge (10 minutes)
 
 ```bash
-# Test bridging 1000 XHT from Xaheen → BSC
+# Test bridging 1000 NOR from Nor → BSC
 node scripts/test-bridge-xaheen-to-bsc.js
 
 # Should see:
-# ✅ Locked 1000 XHT on Xaheen
-# ✅ Minted 1000 XHT on BSC
+# ✅ Locked 1000 NOR on Nor
+# ✅ Minted 1000 NOR on BSC
 # ✅ Bridge working!
 
-# Test reverse: BSC → Xaheen
+# Test reverse: BSC → Nor
 node scripts/test-bridge-bsc-to-xaheen.js
 
 # Should see:
-# ✅ Burned 1000 XHT on BSC
-# ✅ Unlocked 1000 XHT on Xaheen
+# ✅ Burned 1000 NOR on BSC
+# ✅ Unlocked 1000 NOR on Nor
 # ✅ Bridge working both ways!
 ```
 
@@ -162,13 +162,13 @@ node scripts/test-bridge-bsc-to-xaheen.js
 ### What You Just Built:
 
 ```
-Xaheen Chain                    BSC Chain
+Nor Chain                    BSC Chain
 ═══════════════════            ═══════════════════
 
-20B XHT total           ←→     10M XHT bridged
-600M WXHT liquidity            $5K USDT liquidity
+20B NOR total           ←→     10M NOR bridged
+600M WNOR liquidity            $5K USDT liquidity
 Your DEX (controlled)          PancakeSwap (public)
-$0.001 per XHT                 $0.0005 per XHT
+$0.001 per NOR                 $0.0005 per NOR
 
             ↕️
        Bridge Active
@@ -185,9 +185,9 @@ $0.001 per XHT                 $0.0005 per XHT
 node scripts/bridge-stats.js
 
 # Output:
-# Total Bridged: 10,000,000 XHT
-# Xaheen → BSC: 10,000,000 XHT
-# BSC → Xaheen: 0 XHT
+# Total Bridged: 10,000,000 NOR
+# Nor → BSC: 10,000,000 NOR
+# BSC → Nor: 0 NOR
 # Bridge Fees Earned: 0 (no activity yet)
 ```
 
@@ -197,8 +197,8 @@ node scripts/bridge-stats.js
 node scripts/check-prices.js
 
 # Output:
-# Xaheen DEX: $0.001 per XHT
-# PancakeSwap: $0.0005 per XHT
+# Nor DEX: $0.001 per NOR
+# PancakeSwap: $0.0005 per NOR
 # Arbitrage Opportunity: 100% profit! 🤖
 ```
 
@@ -210,7 +210,7 @@ node scripts/check-prices.js
 
 **Hour 1:**
 ```
-- You announce: "XHT now on PancakeSwap!"
+- You announce: "NOR now on PancakeSwap!"
 - Traders discover the listing
 - Price discovery begins
 ```
@@ -218,7 +218,7 @@ node scripts/check-prices.js
 **Hour 6:**
 ```
 - First arbitrage bot notices price difference
-- Bot tests small trade (1000 XHT)
+- Bot tests small trade (1000 NOR)
 - Bot realizes: Easy profit!
 ```
 
@@ -255,7 +255,7 @@ node scripts/daily-bridge-report.js >> bridge-tracking.csv
 ```
 Arbitrage volume: $300K
 ├─ Bridge fees (1%): $3,000
-├─ Xaheen trading fees: $900
+├─ Nor trading fees: $900
 └─ Total: $3,900 direct profit
 
 Plus:
@@ -272,7 +272,7 @@ Plus:
 ```
 🌉 MAJOR UPDATE! 🌉
 
-$XHT is now live on @PancakeSwap!
+$NOR is now live on @PancakeSwap!
 
 ✅ Trade on BSC
 ✅ Bridge between chains
@@ -283,16 +283,16 @@ Bridge: [link]
 
 The two worlds are connected! 🌍↔️🌍
 
-#XHT #PancakeSwap #BSC #DeFi
+#NOR #PancakeSwap #BSC #DeFi
 ```
 
 **Telegram:**
 ```
-🔥 XHT on PancakeSwap! 🔥
+🔥 NOR on PancakeSwap! 🔥
 
 You can now:
-- Buy XHT with BNB/USDT on PancakeSwap
-- Bridge between Xaheen ↔ BSC
+- Buy NOR with BNB/USDT on PancakeSwap
+- Bridge between Nor ↔ BSC
 - Arbitrage between both markets
 
 Links:
@@ -311,7 +311,7 @@ Happy trading! 🚀
 **Fix:** Add more BNB to your wallet (need 0.1 BNB)
 
 ### Issue: "Token not found on PancakeSwap"
-**Fix:** Use custom token import with your XHT address
+**Fix:** Use custom token import with your NOR address
 
 ### Issue: "Price impact too high"
 **Fix:** This is normal with low liquidity, try smaller amounts
@@ -327,12 +327,12 @@ Save these for reference:
 
 ```
 XAHEEN CHAIN:
-├─ XHT (WXHT): 0x26c0eaF731885b14c031cc50dB79b36458E0b355
+├─ NOR (WNOR): 0x26c0eaF731885b14c031cc50dB79b36458E0b355
 ├─ Router: 0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916
 └─ Factory: 0xBE254176B4f13b02f367a9feCE599ee8887E2D34
 
 BSC CHAIN:
-├─ XHT (Bridge): 0x_YOUR_ADDRESS_FROM_STEP_2
+├─ NOR (Bridge): 0x_YOUR_ADDRESS_FROM_STEP_2
 ├─ PancakeSwap Router: 0x10ED43C718714eb63d5aA57B78B54704E256024E
 ├─ USDT: 0x55d398326f99059fF775485246999027B3197955
 └─ Your LP Tokens: (check your wallet after Step 3)
@@ -347,7 +347,7 @@ BRIDGE:
 
 After deployment, verify:
 
-- [ ] XHT token deployed on BSC ✅
+- [ ] NOR token deployed on BSC ✅
 - [ ] Liquidity added on PancakeSwap ✅
 - [ ] Bridge configured ✅
 - [ ] Test transfers work ✅
@@ -364,9 +364,9 @@ After deployment, verify:
 - Monitor first week carefully
 
 ### Tip 2: Take Profits
-- Bridge fees earned in both XHT and USDT
+- Bridge fees earned in both NOR and USDT
 - Withdraw USDT weekly
-- Reinvest XHT in treasury
+- Reinvest NOR in treasury
 
 ### Tip 3: Gradual Expansion
 - Month 1: Minimal liquidity ($5K)

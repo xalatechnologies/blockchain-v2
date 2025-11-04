@@ -1,15 +1,15 @@
-# 🌙 Noor Chain Status Summary
+# 🌙 Nor Chain Status Summary
 
 **Date**: November 2, 2025, 9:23 PM
 **Status**: ✅ **PRODUCTION-READY** - All systems operational
-**Chain**: Noor Chain (نور - "Light"), Chain ID 65001
+**Chain**: Nor Chain (نور - "Light"), Chain ID 65001
 **Milestone**: 🎉 **BLOCK 100+ REACHED** - Epoch revalidation monitoring active
 
 ---
 
 ## Executive Summary
 
-**SUCCESS**: Noor Chain is live and producing blocks with 3 validators and stable peer connectivity!
+**SUCCESS**: Nor Chain is live and producing blocks with 3 validators and stable peer connectivity!
 
 ###Current Status
 
@@ -28,17 +28,17 @@
 
 ## Completed Milestones
 
-### 1. Noor Chain Rebrand ✅ (100% Complete)
+### 1. Nor Chain Rebrand ✅ (100% Complete)
 
-**Scope**: Complete rebrand from "Xaheen Chain" → "Noor Chain"
+**Scope**: Complete rebrand from "Nor Chain" → "Nor Chain"
 
 **Deliverables**:
 - ✅ Updated all project documentation (CLAUDE.md, README, etc.)
 - ✅ Updated network configurations (hardhat.config.js, package.json)
 - ✅ Created brand identity guidelines
 - ✅ Generated press announcements and migration guide
-- ✅ Updated all code references from "Xaheen" → "Noor"
-- ✅ Configured new genesis with Noor Chain branding
+- ✅ Updated all code references from "Nor" → "Nor"
+- ✅ Configured new genesis with Nor Chain branding
 
 **Result**: Seamless brand transition with zero technical debt
 
@@ -74,7 +74,7 @@
 **Monitoring**:
 - Standard mode: Checks every 60 seconds
 - Intensive mode: Checks every 3 seconds when within 10 blocks of epoch
-- Logs saved to: `/tmp/noor-epoch-monitor-*.log`
+- Logs saved to: `/tmp/nor-epoch-monitor-*.log`
 
 **Expected Outcomes**:
 - Block production continues smoothly through block 10,000
@@ -140,11 +140,11 @@ docker run -d --name bsc-validator-2 --network host \
 
 ### Network Details
 
-- **Chain Name**: Noor Chain
+- **Chain Name**: Nor Chain
 - **Symbol**: NOR
 - **Chain ID**: 65001 (0xFDE9)
 - **Network ID**: 65001
-- **RPC Endpoint**: https://rpc.noorchain.org (currently https://rpc.xaheen.org during migration)
+- **RPC Endpoint**: https://rpc.norchain.org (currently https://rpc.xaheen.org during migration)
 - **JSON-RPC Port**: 8545
 - **WebSocket Port**: 8546
 - **P2P Ports**: 30303, 30304, 30305
@@ -216,14 +216,14 @@ bash scripts/monitor-epoch-revalidation.sh
 
 ### Short Term (Pending)
 
-- [ ] Setup SSL certificates for noorchain.org domain
-- [ ] Migrate RPC endpoint from rpc.xaheen.org → rpc.noorchain.org
+- [ ] Setup SSL certificates for norchain.org domain
+- [ ] Migrate RPC endpoint from rpc.xaheen.org → rpc.norchain.org
 - [ ] Update DNS records for new domain
 - [ ] Configure production epoch (9,000,000 blocks)
 
 ### Long Term (Planned)
 
-- [ ] Deploy Blockscout explorer for Noor Chain
+- [ ] Deploy Blockscout explorer for Nor Chain
 - [ ] Setup monitoring dashboards (Grafana/Prometheus)
 - [ ] Configure automated backups and disaster recovery
 - [ ] Deploy additional validator nodes for increased redundancy
@@ -236,7 +236,7 @@ bash scripts/monitor-epoch-revalidation.sh
 
 | Script | Purpose |
 |--------|---------|
-| `/scripts/noor-apply-documented-fix.sh` | Apply exact working validator configuration |
+| `/scripts/nor-apply-documented-fix.sh` | Apply exact working validator configuration |
 | `/scripts/monitor-epoch-revalidation.sh` | Monitor epoch boundary revalidation |
 | `/scripts/deploy-3-validators-fixed.sh` | Original documented working setup |
 
@@ -309,7 +309,7 @@ bash scripts/monitor-epoch-revalidation.sh
 
 ## Conclusion
 
-**Noor Chain is production-ready!** All critical systems are operational and performing as expected. The working validator configuration has been thoroughly documented and verified.
+**Nor Chain is production-ready!** All critical systems are operational and performing as expected. The working validator configuration has been thoroughly documented and verified.
 
 **Next critical milestone**: Epoch revalidation at block 10,000 (approximately 8 hours from now).
 
@@ -320,4 +320,4 @@ bash scripts/monitor-epoch-revalidation.sh
 **Last Updated**: November 2, 2025, 9:23 PM
 **Next Review**: After epoch revalidation completes (~8 hours from 9:00 PM = ~5:00 AM Nov 3)
 
-🌙 **Noor Chain - Empowering the Future with Light and Trust** 🌙
+🌙 **Nor Chain - Empowering the Future with Light and Trust** 🌙

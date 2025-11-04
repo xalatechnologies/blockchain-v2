@@ -36,15 +36,15 @@
   "alloc": {
     "0x81bDAf1ac2094D5133937B3361A38a4976E55acc": {
       "balance": "0x3635c9adc5dea00000",
-      "comment": "Pre-funded account for gas (1000 XHT)"
+      "comment": "Pre-funded account for gas (1000 NOR)"
     },
     "0xdd779a290c937144f80eb75b75d814c834536b1b": {
       "balance": "0x3635c9adc5dea00000",
-      "comment": "Main wallet pre-funded (1000 XHT for gas)"
+      "comment": "Main wallet pre-funded (1000 NOR for gas)"
     },
     "0xfaa5aa97651c2e2b6860219bb8f9902d416db5dd": {
       "balance": "0x3635c9adc5dea00000",
-      "comment": "Validator 1 pre-funded (1000 XHT)"
+      "comment": "Validator 1 pre-funded (1000 NOR)"
     },
     "0x0cF8e180350253271f4b917CcFb0aCCc4862F262": {
       "balance": "0x0",
@@ -72,5 +72,5 @@
   "number": "0x0",
   "gasUsed": "0x0",
   "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "_comment": "Xaheen Chain Genesis - Chain ID: 65001, Native Token: XHT, 3-second blocks, Validators: 0xFAA5..., 0xfd63..., 0xb753..."
+  "_comment": "Nor Chain Genesis - Chain ID: 65001, Native Token: NOR, 3-second blocks, Validators: 0xFAA5..., 0xfd63..., 0xb753..."
 }

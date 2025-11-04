@@ -3,7 +3,7 @@ pragma solidity ^0.8.20;
 
 /**
  * @title WNOR (Wrapped NOR)
- * @notice ERC-20 wrapper for native NOR token on Noor Chain
+ * @notice ERC-20 wrapper for native NOR token on Nor Chain
  * @dev Standard WETH9 implementation adapted for NOR
  *
  * WNOR enables native NOR tokens to be used in DEX pairs and DeFi protocols

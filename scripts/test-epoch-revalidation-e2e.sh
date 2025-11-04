@@ -42,9 +42,9 @@ echo ""
 echo "🔧 Step 1: Creating test genesis with epoch $TEST_EPOCH..."
 node -e "
 const fs = require('fs');
-const noorGenesis = JSON.parse(fs.readFileSync('data/genesis-clean.json', 'utf8'));
-noorGenesis.config.parlia.epoch = $TEST_EPOCH;
-fs.writeFileSync('data/genesis-epoch-test.json', JSON.stringify(noorGenesis, null, 2));
+const norGenesis = JSON.parse(fs.readFileSync('data/genesis-clean.json', 'utf8'));
+norGenesis.config.parlia.epoch = $TEST_EPOCH;
+fs.writeFileSync('data/genesis-epoch-test.json', JSON.stringify(norGenesis, null, 2));
 console.log('✅ Test genesis with epoch $TEST_EPOCH created');
 "
 
@@ -246,10 +246,10 @@ if [ $TEST_RESULT -eq 0 ]; then
   echo
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "🔄 Restoring production configuration..."
-    bash scripts/noor-apply-documented-fix.sh
+    bash scripts/nor-apply-documented-fix.sh
   else
     echo "⚠️  Production configuration NOT restored. Run manually:"
-    echo "   bash scripts/noor-apply-documented-fix.sh"
+    echo "   bash scripts/nor-apply-documented-fix.sh"
   fi
 else
   echo "╔═══════════════════════════════════════════════════════════════════════════╗"

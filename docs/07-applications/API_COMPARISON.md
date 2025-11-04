@@ -50,11 +50,11 @@ const router = new ethers.Contract(
   signer
 );
 
-// Swap USDT → XHT
+// Swap USDT → NOR
 await router.swapExactTokensForTokens(
   amountIn,
   minAmountOut,
-  [USDT_ADDRESS, XHT_ADDRESS],
+  [USDT_ADDRESS, NOR_ADDRESS],
   userAddress,
   deadline
 );
@@ -77,11 +77,11 @@ await router.swapExactTokensForTokens(
 ### 2. CoinGecko API (FREE!)
 
 ```javascript
-// Get XHT price data
+// Get NOR price data
 fetch('https://api.coingecko.com/api/v3/simple/price?ids=xaheen-token&vs_currencies=usd')
   .then(res => res.json())
   .then(data => {
-    console.log('XHT Price:', data['xaheen-token'].usd);
+    console.log('NOR Price:', data['xaheen-token'].usd);
   });
 
 // Get market data
@@ -111,15 +111,15 @@ fetch('https://api.coingecko.com/api/v3/coins/xaheen-token')
 ### 3. CoinMarketCap API (FREE Tier Available)
 
 ```javascript
-// Get XHT listing data
-fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=XHT', {
+// Get NOR listing data
+fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=NOR', {
   headers: {
     'X-CMC_PRO_API_KEY': 'your-api-key'
   }
 })
   .then(res => res.json())
   .then(data => {
-    console.log('XHT Data:', data.data.XHT);
+    console.log('NOR Data:', data.data.NOR);
   });
 ```
 
@@ -147,7 +147,7 @@ const provider = new ethers.JsonRpcProvider('https://rpc.xaheen.org');
 const balance = await provider.getBalance(address);
 
 // Get token balance
-const xht = new ethers.Contract(XHT_ADDRESS, erc20ABI, provider);
+const xht = new ethers.Contract(NOR_ADDRESS, erc20ABI, provider);
 const balance = await xht.balanceOf(address);
 
 // Get block info
@@ -190,13 +190,13 @@ const tx = await signer.sendTransaction({...});
 ```javascript
 // Complete trading API using what you have:
 
-class XaheenAPI {
+class NorAPI {
   constructor() {
     this.provider = new ethers.JsonRpcProvider('https://rpc.xaheen.org');
     this.router = new ethers.Contract(ROUTER_ADDRESS, routerABI, this.provider);
   }
 
-  // Get XHT price
+  // Get NOR price
   async getPrice() {
     const reserves = await this.getPairReserves();
     return reserves.usdt / reserves.xht;
@@ -222,9 +222,9 @@ class XaheenAPI {
     return await tx.wait();
   }
 
-  // Get user's XHT balance
+  // Get user's NOR balance
   async getBalance(address) {
-    const xht = new ethers.Contract(XHT_ADDRESS, erc20ABI, this.provider);
+    const xht = new ethers.Contract(NOR_ADDRESS, erc20ABI, this.provider);
     return await xht.balanceOf(address);
   }
 
@@ -236,18 +236,18 @@ class XaheenAPI {
 }
 
 // Usage
-const api = new XaheenAPI();
+const api = new NorAPI();
 
 // Get current price
 const price = await api.getPrice();
-console.log('XHT Price:', price);
+console.log('NOR Price:', price);
 
 // Get swap quote
-const quote = await api.getQuote(USDT, XHT, ethers.parseEther('100'));
-console.log('100 USDT =', ethers.formatEther(quote), 'XHT');
+const quote = await api.getQuote(USDT, NOR, ethers.parseEther('100'));
+console.log('100 USDT =', ethers.formatEther(quote), 'NOR');
 
 // Execute swap
-const tx = await api.swap(USDT, XHT, amount, minOut, signer);
+const tx = await api.swap(USDT, NOR, amount, minOut, signer);
 console.log('Swap complete!', tx.hash);
 ```
 
@@ -259,7 +259,7 @@ console.log('Swap complete!', tx.hash);
 
 ### MoonPay Approach:
 ```
-User clicks "Buy XHT"
+User clicks "Buy NOR"
   ↓
 MoonPay API loads
   ↓
@@ -269,9 +269,9 @@ MoonPay charges card
   ↓
 MoonPay converts fiat → USDT
   ↓
-MoonPay calls YOUR API to swap USDT → XHT
+MoonPay calls YOUR API to swap USDT → NOR
   ↓
-User receives XHT
+User receives NOR
 
 APIs involved:
 1. MoonPay Payment API (their side, $$$)
@@ -282,7 +282,7 @@ APIs involved:
 ```
 User buys USDT on Binance (Binance API)
   ↓
-User withdraws to Xaheen Chain
+User withdraws to Nor Chain
   ↓
 User visits your DEX
   ↓
@@ -292,7 +292,7 @@ User confirms swap
   ↓
 Your smart contract executes
   ↓
-User receives XHT
+User receives NOR
 
 APIs involved:
 1. Binance API (not your problem!)
@@ -309,7 +309,7 @@ APIs involved:
 
 ```javascript
 // xaheen-buy-widget.js
-class XaheenBuyWidget {
+class NorBuyWidget {
   constructor(config) {
     this.provider = new ethers.JsonRpcProvider(config.rpc);
     this.router = config.routerAddress;
@@ -347,17 +347,17 @@ class XaheenBuyWidget {
   renderWidget() {
     return `
       <div class="xaheen-widget">
-        <h3>Buy XHT</h3>
+        <h3>Buy NOR</h3>
         <input type="number" id="amount" placeholder="Amount (USDT)">
         <div id="quote">Price: Loading...</div>
-        <button onclick="widget.buy()">Swap USDT → XHT</button>
+        <button onclick="widget.buy()">Swap USDT → NOR</button>
       </div>
     `;
   }
 }
 
 // Usage on any website:
-const widget = new XaheenBuyWidget({
+const widget = new NorBuyWidget({
   rpc: 'https://rpc.xaheen.org',
   routerAddress: '0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916'
 });
@@ -448,9 +448,9 @@ Instead of paying for MoonPay API, build your own:
 // Endpoint: https://api.xaheen.org/v1/
 
 GET /price
-// Returns current XHT price
+// Returns current NOR price
 
-GET /quote?from=USDT&to=XHT&amount=100
+GET /quote?from=USDT&to=NOR&amount=100
 // Returns swap quote
 
 POST /swap

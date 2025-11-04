@@ -1,7 +1,7 @@
 # Parlia Consensus Deadlock - Root Cause Analysis & Fix
 
 **Date**: October 31, 2025
-**Chain**: Xaheen Chain (Chain ID: 65001)
+**Chain**: Nor Chain (Chain ID: 65001)
 **Issue**: Blockchain stuck at block 1 with all 3 validators showing "Signed recently, must wait for others"
 
 ## Problem Summary

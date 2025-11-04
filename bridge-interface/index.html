@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noor Chain Cross-Chain Bridge</title>
+    <title>Nor Chain Cross-Chain Bridge</title>
     <script src="https://cdn.ethers.io/lib/ethers-5.7.umd.min.js"></script>
     <style>
         * {
@@ -214,7 +214,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>🌉 Noor Chain Bridge</h1>
+        <h1>🌉 Nor Chain Bridge</h1>
         <p class="subtitle">Seamlessly transfer BTCBR, NOR & Dirhamat across chains</p>
 
         <div class="wallet-section">
@@ -232,8 +232,8 @@
             <div class="form-group">
                 <label>From Chain</label>
                 <div class="chain-selector">
-                    <button class="chain-btn active" data-chain="noor" onclick="selectSourceChain('noor')">
-                        Noor Chain
+                    <button class="chain-btn active" data-chain="nor" onclick="selectSourceChain('nor')">
+                        Nor Chain
                     </button>
                     <button class="chain-btn" data-chain="ethereum" onclick="selectSourceChain('ethereum')">
                         Ethereum
@@ -266,8 +266,8 @@
             <div class="form-group">
                 <label>To Chain</label>
                 <div class="chain-selector">
-                    <button class="chain-btn" data-chain="noor" onclick="selectTargetChain('noor')">
-                        Noor Chain
+                    <button class="chain-btn" data-chain="nor" onclick="selectTargetChain('nor')">
+                        Nor Chain
                     </button>
                     <button class="chain-btn" data-chain="ethereum" onclick="selectTargetChain('ethereum')">
                         Ethereum
@@ -309,8 +309,8 @@
 
     <script>
         const CHAINS = {
-            noor: {
-                name: 'Noor Chain',
+            nor: {
+                name: 'Nor Chain',
                 chainId: 65001,
                 rpc: 'http://3.91.50.187:8545',
                 bridge: '0xC808e1962bD8fE5d0fBc41D76B7909B80C442D84',
@@ -353,7 +353,7 @@
         };
 
         let provider, signer, userAddress;
-        let sourceChain = 'noor';
+        let sourceChain = 'nor';
         let targetChain = null;
 
         async function connectWallet() {
@@ -490,13 +490,13 @@
 
         async function loadBridgeStats() {
             try {
-                const config = CHAINS.noor;
+                const config = CHAINS.nor;
                 const bridgeABI = [
                     "function totalLocked(address token) view returns (uint256)"
                 ];
 
-                const noorProvider = new ethers.providers.JsonRpcProvider(config.rpc);
-                const bridgeContract = new ethers.Contract(config.bridge, bridgeABI, noorProvider);
+                const norProvider = new ethers.providers.JsonRpcProvider(config.rpc);
+                const bridgeContract = new ethers.Contract(config.bridge, bridgeABI, norProvider);
 
                 const btcbrLocked = await bridgeContract.totalLocked(config.tokens.btcbr);
                 const totalBridged = ethers.utils.formatEther(btcbrLocked);

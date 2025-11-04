@@ -11,23 +11,23 @@
 ### Send Email To:
 ```
 To: hello@coingecko.com
-Subject: Token Listing Request - Xaheen Token (XHT)
+Subject: Token Listing Request - Nor Token (NOR)
 ```
 
 ### Email Template:
 ```
 Dear CoinGecko Team,
 
-I would like to request a listing for Xaheen Token (XHT).
+I would like to request a listing for Nor Token (NOR).
 
 📋 PROJECT INFORMATION:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Token Name: Xaheen Token
-Token Symbol: XHT
+Token Name: Nor Token
+Token Symbol: NOR
 Token Type: Native Blockchain Token / ERC-20 Compatible
 
-Blockchain: Xaheen Chain (Custom EVM-compatible blockchain)
+Blockchain: Nor Chain (Custom EVM-compatible blockchain)
 Chain ID: 65001
 Consensus: Parlia PoSA (Proof of Staked Authority)
 Block Time: 3 seconds
@@ -37,7 +37,7 @@ Block Time: 3 seconds
 
 Contract Address: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
 Decimals: 18
-Total Supply: 21,000,000,000 XHT
+Total Supply: 21,000,000,000 NOR
 
 RPC Endpoint: https://rpc.xaheen.org
 Alternative RPC: http://3.91.50.187:8545
@@ -51,7 +51,7 @@ Block Explorer: https://explorer.xaheen.org
 Documentation: https://docs.xaheen.org (if available)
 
 Social Media:
-- Twitter: https://twitter.com/XaheenChain (if available)
+- Twitter: https://twitter.com/NorChain (if available)
 - Telegram: https://t.me/xaheenchain (if available)
 - Discord: https://discord.gg/xaheenchain (if available)
 - GitHub: https://github.com/xaheen (if available)
@@ -59,29 +59,29 @@ Social Media:
 💱 TRADING INFORMATION:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Native DEX: Xaheen DEX (live and operational)
+Native DEX: Nor DEX (live and operational)
 DEX Router: 0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916
 Factory: 0xBE254176B4f13b02f367a9feCE599ee8887E2D34
 
 Trading Pairs:
-- XHT/USDT (600M XHT liquidity)
-- XHT/BNB (100M XHT liquidity)
-- XHT/ETH (100M XHT liquidity)
+- NOR/USDT (600M NOR liquidity)
+- NOR/BNB (100M NOR liquidity)
+- NOR/ETH (100M NOR liquidity)
 
-Current Price: ~$0.001 per XHT (approximate)
+Current Price: ~$0.001 per NOR (approximate)
 24h Volume: [Will grow with listings]
 
 🎯 PROJECT DESCRIPTION:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Xaheen Chain is a high-performance EVM-compatible blockchain with:
+Nor Chain is a high-performance EVM-compatible blockchain with:
 - 3-second block finality
 - Native DeFi infrastructure
 - Built-in decentralized exchange
 - Low transaction fees
 - Parlia consensus (same as BNB Chain)
 
-XHT is the native utility token used for:
+NOR is the native utility token used for:
 - Network gas fees
 - DEX trading
 - Staking rewards
@@ -91,11 +91,11 @@ XHT is the native utility token used for:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 You can verify the token by:
-1. Adding Xaheen Chain to MetaMask:
-   - Network Name: Xaheen Chain
+1. Adding Nor Chain to MetaMask:
+   - Network Name: Nor Chain
    - RPC: https://rpc.xaheen.org
    - Chain ID: 65001
-   - Symbol: XHT
+   - Symbol: NOR
    - Explorer: https://explorer.xaheen.org
 
 2. Import token: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
@@ -113,12 +113,12 @@ You can verify the token by:
 Email: contact@xaheen.org (or your actual email)
 Website: https://xaheen.org
 
-Thank you for considering Xaheen Token for listing on CoinGecko!
+Thank you for considering Nor Token for listing on CoinGecko!
 
 Best regards,
 [Your Name]
 [Your Title/Role]
-Xaheen Chain Team
+Nor Chain Team
 ```
 
 ---
@@ -132,7 +132,7 @@ https://support.coingecko.com/hc/en-us/requests/new
 ```
 
 ### Form Fields:
-1. **Subject:** Token Listing Request - Xaheen Token (XHT)
+1. **Subject:** Token Listing Request - Nor Token (NOR)
 2. **Description:** Copy the email template above
 3. **Category:** Token Listing
 4. **Attachments:** Add logo if you have one
@@ -150,11 +150,11 @@ Twitter: @coingecko (DM them)
 
 **Message:**
 ```
-Hi! I'd like to list XHT (Xaheen Token) on CoinGecko.
+Hi! I'd like to list NOR (Nor Token) on CoinGecko.
 
-Token: XHT
+Token: NOR
 Contract: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
-Chain: Xaheen Chain (EVM)
+Chain: Nor Chain (EVM)
 Website: https://xaheen.org
 
 Who should I contact for listing applications?
@@ -166,9 +166,9 @@ Who should I contact for listing applications?
 
 Before applying, make sure you have:
 
-- [x] Token name and symbol: Xaheen Token (XHT)
+- [x] Token name and symbol: Nor Token (NOR)
 - [x] Contract address: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
-- [x] Blockchain name: Xaheen Chain
+- [x] Blockchain name: Nor Chain
 - [x] RPC endpoint: https://rpc.xaheen.org
 - [x] Block explorer: https://explorer.xaheen.org
 - [x] Website: https://xaheen.org
@@ -276,11 +276,11 @@ If no response after 7 days:
 
 ```
 To: hello@coingecko.com
-Subject: Re: Token Listing Request - Xaheen Token (XHT)
+Subject: Re: Token Listing Request - Nor Token (NOR)
 
 Dear CoinGecko Team,
 
-I submitted a listing request for Xaheen Token (XHT) on [DATE].
+I submitted a listing request for Nor Token (NOR) on [DATE].
 
 I wanted to follow up and provide any additional information needed:
 
@@ -289,7 +289,7 @@ Website: https://xaheen.org
 Explorer: https://explorer.xaheen.org
 
 Current Status:
-- Live trading on Xaheen DEX
+- Live trading on Nor DEX
 - [X] transactions completed
 - [Y] active users
 - $[Z] total volume

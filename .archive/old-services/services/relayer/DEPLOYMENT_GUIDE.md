@@ -1,6 +1,6 @@
 # Relayer Service Deployment Guide
 
-Complete guide to deploying and running the Xaheen Bridge relayer service.
+Complete guide to deploying and running the Nor Bridge relayer service.
 
 ---
 
@@ -22,12 +22,12 @@ Complete guide to deploying and running the Xaheen Bridge relayer service.
 
 ### What is the Relayer?
 
-The relayer is a critical component of the Xaheen Bridge that:
+The relayer is a critical component of the Nor Bridge that:
 
 1. **Monitors spoke chains** (BSC, Polygon, Ethereum) for Fill events
 2. **Waits for confirmations** (15 blocks to prevent reorgs)
 3. **Signs receipts** with relayer private key
-4. **Forwards to SettlementHub** on Xaheen Chain for settlement
+4. **Forwards to SettlementHub** on Nor Chain for settlement
 5. **Tracks status** and logs all activity
 
 **Without the relayer, cross-chain settlements won't complete!**
@@ -35,7 +35,7 @@ The relayer is a critical component of the Xaheen Bridge that:
 ### Architecture
 
 ```
-[BSC] → Fill Event → [Relayer] → Receipt → [Xaheen Chain]
+[BSC] → Fill Event → [Relayer] → Receipt → [Nor Chain]
                          ↓
                     Monitors
                     Validates
@@ -74,7 +74,7 @@ The relayer is a critical component of the Xaheen Bridge that:
 **Relayer Wallet**:
 - Funded with gas on **all chains**:
   - BSC Mainnet: ~0.1 BNB (for 1,000+ settlements)
-  - Xaheen Chain: ~10 XHT (for gas)
+  - Nor Chain: ~10 NOR (for gas)
   - Polygon: ~5 MATIC (if deployed)
 
 **Security**:
@@ -147,7 +147,7 @@ HUB_PRICE_AUTHORITY=0x...
 
 SPOKE_BSC_SETTLEMENT_INBOX=0x...
 SPOKE_BSC_XAHEEN_ROUTER=0x...
-SPOKE_BSC_WRAPPED_XHT=0x...
+SPOKE_BSC_WRAPPED_NOR=0x...
 ```
 
 ### Step 3: Monitoring Settings
@@ -238,10 +238,10 @@ npm start
 ```
 [INFO] Relayer starting...
 [INFO] Connected to BSC Testnet
-[INFO] Connected to Xaheen Chain
+[INFO] Connected to Nor Chain
 [INFO] Relayer address: 0x...
 [INFO] BSC balance: 0.05 BNB
-[INFO] Xaheen balance: 10.5 XHT
+[INFO] Nor balance: 10.5 NOR
 [INFO] Monitoring SettlementInbox at 0x...
 [INFO] Starting event listener...
 [INFO] Relayer is running (DRY RUN MODE)
@@ -256,7 +256,7 @@ npm start
 [INFO] New Fill event detected
 [INFO] FillID: 0xabc...
 [INFO] Trader: 0x...
-[INFO] Amount: +1000 XHT
+[INFO] Amount: +1000 NOR
 [INFO] Cash: 100 USDT
 [INFO] Waiting for 15 confirmations...
 [INFO] Confirmation 1/15
@@ -296,7 +296,7 @@ npm start
 
 ### Step 4: Verify Settlement
 
-Check on Xaheen Chain explorer:
+Check on Nor Chain explorer:
 - Transaction should show in SettlementHub
 - Event: `FillAcknowledged`
 - Status: Success
@@ -360,7 +360,7 @@ pm2 startup           # Auto-start on boot
 
 ```ini
 [Unit]
-Description=Xaheen Bridge Relayer
+Description=Nor Bridge Relayer
 After=network.target
 
 [Service]
@@ -437,7 +437,7 @@ http://localhost:9090/metrics
 - `relayer_settlements_failed`: Failed settlements
 - `relayer_gas_used_total`: Total gas consumed
 - `relayer_balance_bnb`: Current BNB balance
-- `relayer_balance_xht`: Current XHT balance
+- `relayer_balance_xht`: Current NOR balance
 
 ### API Endpoints
 
@@ -523,7 +523,7 @@ tail -f logs/relayer.log | grep "Low balance"
 
 2. **Fund relayer wallet**:
    - BSC: Send BNB to relayer address
-   - Xaheen: Send XHT to relayer address
+   - Nor: Send NOR to relayer address
 
 3. **Increase MIN_BALANCE_ALERT** in `.env`
 
@@ -604,7 +604,7 @@ curl http://localhost:3000/stats
 
 # Or check on explorer
 # BSC: https://bscscan.com/address/[RELAYER_ADDRESS]
-# Xaheen: https://explorer.xaheen.org/address/[RELAYER_ADDRESS]
+# Nor: https://explorer.xaheen.org/address/[RELAYER_ADDRESS]
 ```
 
 **Review settlements**:
@@ -615,7 +615,7 @@ curl http://localhost:3000/events?limit=20
 ### Weekly Tasks
 
 **Refill gas if needed**:
-- Target: Keep >0.05 BNB, >5 XHT
+- Target: Keep >0.05 BNB, >5 NOR
 - Set reminders for refills
 
 **Review error logs**:

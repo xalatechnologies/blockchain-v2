@@ -1,4 +1,4 @@
-# Noor Chain Implementation Tracker
+# Nor Chain Implementation Tracker
 
 **Version**: 1.0  
 **Last Updated**: 2025-11-02  
@@ -21,8 +21,8 @@
 |---------|--------|---------------|------------------|-------|
 | **Native Token (NOR)** | ✅ | Native gas token | Native | 21B supply, 24 decimals |
 | **Wrapped NOR (WNOR)** | ✅ | WNOR.sol | `0x26c0eaF...355` | ERC-20 wrapped version |
-| **NoorSwap Factory** | ✅ | NoorSwapFactory.sol | `0xBE2541...D34` | DEX pair creation |
-| **NoorSwap Router** | ✅ | NoorSwapRouter.sol | `0x50BbB1...916` | DEX trading interface |
+| **NorSwap Factory** | ✅ | NorSwapFactory.sol | `0xBE2541...D34` | DEX pair creation |
+| **NorSwap Router** | ✅ | NorSwapRouter.sol | `0x50BbB1...916` | DEX trading interface |
 | **Genesis Configuration** | ✅ | data/genesis*.json | Multiple files | Chain ID 65001 |
 | **Validator Framework** | ✅ | config/validators/ | Config files | 3 active + 2 standby |
 
@@ -32,7 +32,7 @@
 
 | Feature | Status | Contract/File | Address/Location | Notes |
 |---------|--------|---------------|------------------|-------|
-| **NOR Staking** | ✅ | tokenomics/XHTStaking.sol | `0xbA5545...c86` | Validator delegation |
+| **NOR Staking** | ✅ | tokenomics/NORStaking.sol | `0xbA5545...c86` | Validator delegation |
 | **Weekly Buyback** | ✅ | tokenomics/WeeklyBuyback.sol | `0xa8ee92...542` | Auto-buyback mechanism |
 | **Burn Mechanism** | ✅ | tokenomics/BurnMechanism.sol | `0xA609ad...d5b9` | Deflationary supply |
 | **Vesting Contracts** | 🔄 | tokenomics/Vesting.sol | TBD | Team/advisor vesting |
@@ -46,7 +46,7 @@
 | Feature | Status | Contract/File | Address/Location | Notes |
 |---------|--------|---------------|------------------|-------|
 | **BTCBR Bridge (BSC)** | ✅ | bridges/BTCBRBridgeMainnet.sol | `0x6C4642...B05` | Lock & Mint model |
-| **BTCBR Bridge (Noor)** | 🔄 | bridges/BTCBRBridgePrivate.sol | Testing | Private chain side |
+| **BTCBR Bridge (Nor)** | 🔄 | bridges/BTCBRBridgePrivate.sol | Testing | Private chain side |
 | **Generic Token Bridge** | 🔄 | bridges/GenericBridge.sol | Development | Multi-asset support |
 | **NFT Bridge** | 📋 | bridges/NFTBridge.sol | Planned | ERC-721 cross-chain |
 | **Atomic Swap** | 📋 | crosschain/AtomicSwap.sol | Planned | Trustless swaps |
@@ -68,7 +68,7 @@
 
 | Feature | Status | Contract/File | Address/Location | Notes |
 |---------|--------|---------------|------------------|-------|
-| **AMM Pairs** | ✅ | dex/NoorSwapPair.sol | Dynamic | Uniswap V2 fork |
+| **AMM Pairs** | ✅ | dex/NorSwapPair.sol | Dynamic | Uniswap V2 fork |
 | **Liquidity Pools** | ✅ | Multiple pairs | Live | NOR/USDT, NOR/BNB, NOR/ETH |
 | **Liquidity Mining** | 🔄 | tokenomics/LiquidityMining.sol | Testing | Reward distribution |
 | **TWAP Oracle** | ✅ | Built into Pair | Live | Price oracle |
@@ -77,11 +77,11 @@
 
 ---
 
-## 6. Noor Funds (Halal Finance)
+## 6. Nor Funds (Halal Finance)
 
 | Feature | Status | Contract/File | Address/Location | Notes |
 |---------|--------|---------------|------------------|-------|
-| **Fund Factory** | 🔄 | funds/NoorFundFactory.sol | Development | Create fund instances |
+| **Fund Factory** | 🔄 | funds/NorFundFactory.sol | Development | Create fund instances |
 | **Fund Unit Token** | 🔄 | funds/FundUnitToken.sol | Development | Shariah-compliant shares |
 | **NAV Oracle** | 📋 | funds/NAVOracle.sol | Specification | AI-driven valuations |
 | **Shariah Oracle** | 📋 | funds/ShariahOracle.sol | Specification | Fatwa registry |
@@ -133,8 +133,8 @@
 
 | Component | Status | Location | Notes |
 |-----------|--------|----------|-------|
-| **RPC Endpoints** | ✅ | https://rpc.noor.org | Public access |
-| **Block Explorer** | ✅ | https://explorer.noor.org | Blockscout fork |
+| **RPC Endpoints** | ✅ | https://rpc.nor.org | Public access |
+| **Block Explorer** | ✅ | https://explorer.nor.org | Blockscout fork |
 | **Ansible Playbooks** | ✅ | infrastructure/ansible/ | Node deployment |
 | **Docker Configs** | ✅ | config/docker/ | Container setup |
 | **Monitoring Stack** | 🔄 | Grafana + Prometheus | In setup |
@@ -149,9 +149,9 @@
 | **Hardhat Config** | ✅ | hardhat.config.js | Contract development |
 | **Deployment Scripts** | ✅ | scripts/ | 17 scripts available |
 | **Test Suite** | 🔄 | test/ | Partial coverage |
-| **SDK** | 📋 | `@noor/sdk` | Planned |
-| **AI Agent SDK** | 📋 | `@noor/ai-agents` | Planned |
-| **Developer Docs** | 📋 | docs.noor.io | In progress |
+| **SDK** | 📋 | `@nor/sdk` | Planned |
+| **AI Agent SDK** | 📋 | `@nor/ai-agents` | Planned |
+| **Developer Docs** | 📋 | docs.nor.io | In progress |
 
 ---
 
@@ -186,7 +186,7 @@ blockchain-v2/
 
 ### Q4 2024 - Q1 2025 (Foundation) ✅
 - [x] Mainnet launch (Chain ID 65001)
-- [x] NoorSwap DEX deployment
+- [x] NorSwap DEX deployment
 - [x] Initial liquidity pools
 - [x] BTCBR bridge (BSC)
 - [x] Treasury setup
@@ -201,7 +201,7 @@ blockchain-v2/
 - [ ] Polygon bridge
 
 ### Q3 2025 (DeFi & Funds) 📋
-- [ ] Noor Funds beta
+- [ ] Nor Funds beta
 - [ ] Gold Savings Fund
 - [ ] Sukuk Portfolio Fund
 - [ ] Compliance Core (XCC) v1
@@ -228,7 +228,7 @@ blockchain-v2/
 
 | Component | Unit Tests | Integration Tests | Audit Status |
 |-----------|------------|-------------------|--------------|
-| **NoorSwap DEX** | ✅ Partial | 🔄 In progress | 📋 Scheduled Q2 |
+| **NorSwap DEX** | ✅ Partial | 🔄 In progress | 📋 Scheduled Q2 |
 | **Bridge Contracts** | ✅ Complete | 🔄 In progress | 📋 Scheduled Q1 |
 | **Tokenomics** | 🔄 In progress | 📋 Pending | 📋 Scheduled Q2 |
 | **Stablecoins** | 🔄 In progress | 📋 Pending | 📋 Scheduled Q2 |
@@ -244,7 +244,7 @@ blockchain-v2/
 cat data/contracts/CONTRACT_ADDRESSES.json
 
 # Check on explorer
-open https://explorer.noor.org/address/0xBE254176B4f13b02f367a9feCE599ee8887E2D34
+open https://explorer.nor.org/address/0xBE254176B4f13b02f367a9feCE599ee8887E2D34
 ```
 
 ### Development Commands
@@ -255,18 +255,18 @@ npx hardhat compile
 # Run tests
 npx hardhat test
 
-# Deploy to Noor Chain
-npx hardhat run scripts/deploy-noorswap.js --network noorchain
+# Deploy to Nor Chain
+npx hardhat run scripts/deploy-norswap.js --network norchain
 
 # Verify contract
-npx hardhat verify --network noorchain <ADDRESS> <ARGS>
+npx hardhat verify --network norchain <ADDRESS> <ARGS>
 ```
 
 ### Useful Links
-- **Mainnet RPC**: https://rpc.noor.org
-- **Explorer**: https://explorer.noor.org
-- **GitHub**: https://github.com/noor-chain/blockchain-v2
-- **Documentation**: https://docs.noor.org (planned)
+- **Mainnet RPC**: https://rpc.nor.org
+- **Explorer**: https://explorer.nor.org
+- **GitHub**: https://github.com/nor-chain/blockchain-v2
+- **Documentation**: https://docs.nor.org (planned)
 
 ---
 
@@ -280,6 +280,6 @@ To update this tracker:
 
 ---
 
-**Maintained by**: Noor Technologies Development Team  
-**Contact**: dev@noor.io  
+**Maintained by**: Nor Technologies Development Team  
+**Contact**: dev@nor.io  
 **Last Review**: 2025-11-02

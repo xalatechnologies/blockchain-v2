@@ -1,4 +1,4 @@
-# Xaheen Chain Genesis V2 - Deployment Plan
+# Nor Chain Genesis V2 - Deployment Plan
 
 **Date**: 2025-10-31
 **Status**: Ready for Staging Test
@@ -25,10 +25,10 @@ All tokens embedded at genesis with deployer receiving full supply:
 | **Little Rabbit (LTRBT)** | `0x6C46422A0f7dbbAD9BEC3BbBC1189bfAf9794B05` | 18 | 21 septillion | Mirrored from BSC |
 | **Bnb Tiger (BNBTiger)** | `0xAC68931B666E086E9de380CFDb0Fb5704a35dc2D` | 24 | 21 septillion | Mirrored from BSC |
 | **BTCBR** | `0x0cF8e180350253271f4b917CcFb0aCCc4862F262` | 24 | 21 septillion | Mirrored from BSC |
-| **USDT.z** | `0x4BE35Ec329343d7d9F548d42B0F8c17FFfe07db4` | 18 | 21 septillion | BSC USDT → Xaheen |
+| **USDT.z** | `0x4BE35Ec329343d7d9F548d42B0F8c17FFfe07db4` | 18 | 21 septillion | BSC USDT → Nor |
 
 **Deployer Address**: `0xdD779a290C937144F80Eb75b75d814c834536B1b`
-**Native XHT Balance**: 21 billion XHT
+**Native NOR Balance**: 21 billion NOR
 
 ---
 
@@ -46,7 +46,7 @@ All tokens embedded at genesis with deployer receiving full supply:
 | 6 | `0x726bA3b10c9d57df9DED1b40B93e97A6D6206235` | Ireland | eu-west-1 | Mining |
 | 7 | `0x76D4dE9f9324F3A6f411ca56aAB022c5856E24d9` | Singapore | ap-southeast-1 | Mining |
 
-**Initial Balance**: 1,000 XHT each
+**Initial Balance**: 1,000 NOR each
 **Fault Tolerance**: 2 validators can fail without network disruption
 **Finality**: 21 seconds (7 validators × 3s blocks)
 
@@ -54,7 +54,7 @@ All tokens embedded at genesis with deployer receiving full supply:
 
 ## ⚙️ Blockchain Configuration
 
-- **Chain ID**: 65001 (Xaheen Chain)
+- **Chain ID**: 65001 (Nor Chain)
 - **Network ID**: 65001
 - **Consensus**: Parlia PoSA (Proof of Staked Authority)
 - **Block Time**: 3 seconds

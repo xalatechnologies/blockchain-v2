@@ -1,7 +1,7 @@
 {
   "timestamp": "2025-11-03T14:12:50Z",
   "chainId": 65001,
-  "network": "Noor Chain",
+  "network": "Nor Chain",
   "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
   "oracle": {
     "MockOracle": "0xEd511294b4Fa418458B2abD577F26104cdB3D4af"

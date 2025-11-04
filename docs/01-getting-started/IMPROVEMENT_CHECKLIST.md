@@ -55,7 +55,7 @@ mv docs/INVESTOR_GUARANTEES_SUMMARY.md docs/investor/
 **Issue:** No ultra-concise document for quick sharing
 
 **Need:** Single-page PDF with:
-- What is Xaheen (2 sentences)
+- What is Nor (2 sentences)
 - Key metrics (blocks, DEX, bridges)
 - Token price + market cap
 - Investment ask ($500k at $5M)
@@ -76,7 +76,7 @@ mv docs/INVESTOR_GUARANTEES_SUMMARY.md docs/investor/
 **Issue:** No centralized list of all deployed contract addresses
 
 **Need:** `/docs/DEPLOYED_CONTRACTS.md` with:
-- Native token (XHT) address
+- Native token (NOR) address
 - DEX Factory address
 - DEX Router address
 - BTCBR token address
@@ -99,7 +99,7 @@ mv docs/INVESTOR_GUARANTEES_SUMMARY.md docs/investor/
 **Issue:** No frequently asked questions document
 
 **Need:** `/docs/investor/FAQ.md` covering:
-- Why invest in Xaheen vs. Polygon/Avalanche?
+- Why invest in Nor vs. Polygon/Avalanche?
 - How is the $500k used?
 - What if you don't hit milestones?
 - How do I verify the blockchain is real?
@@ -153,7 +153,7 @@ mv docs/INVESTOR_GUARANTEES_SUMMARY.md docs/investor/
 
 **Need:** `/docs/investor/COMPETITIVE_ANALYSIS.md` with table:
 
-| Feature | Ethereum | Polygon | Avalanche | BSC | **Xaheen** |
+| Feature | Ethereum | Polygon | Avalanche | BSC | **Nor** |
 |---------|----------|---------|-----------|-----|------------|
 | Block Time | 15s | 2s | 2s | 3s | **3s** |
 | Gas Fees | $5-50 | $0.01-0.1 | $0.1-1 | $0.1-0.5 | **<$0.001** |
@@ -254,7 +254,7 @@ mv docs/INVESTOR_GUARANTEES_SUMMARY.md docs/investor/
 
 ### **14. Add Developer Documentation**
 
-**Issue:** No guide for developers wanting to build on Xaheen
+**Issue:** No guide for developers wanting to build on Nor
 
 **Need:** `/docs/technical/DEVELOPER_GUIDE.md` with:
 - How to connect to RPC
@@ -299,7 +299,7 @@ mv docs/INVESTOR_GUARANTEES_SUMMARY.md docs/investor/
 
 ### **17. Add Case Studies/Use Cases**
 
-**Need:** Examples of what can be built on Xaheen
+**Need:** Examples of what can be built on Nor
 - DeFi lending platform
 - NFT marketplace
 - GameFi application
@@ -313,7 +313,7 @@ mv docs/INVESTOR_GUARANTEES_SUMMARY.md docs/investor/
 
 ### **18. Create Explainer Animation**
 
-**Need:** Animated video explaining how Xaheen works
+**Need:** Animated video explaining how Nor works
 
 **Impact:** Medium - Great for virality
 **Effort:** 8 hours (or outsource)
@@ -333,7 +333,7 @@ mv docs/INVESTOR_GUARANTEES_SUMMARY.md docs/investor/
 
 ### **20. Create Partner/Integration Docs**
 
-**Need:** Guide for companies wanting to integrate Xaheen
+**Need:** Guide for companies wanting to integrate Nor
 - Payment processors
 - Wallets
 - Exchanges
@@ -444,7 +444,7 @@ mv docs/INVESTOR_GUARANTEES_SUMMARY.md docs/investor/
 
 **Need:** Simple page where users:
 - Connect wallet
-- Claim 1,000 XHT
+- Claim 1,000 NOR
 - Share on social media (bonus)
 
 **Impact:** High - User acquisition
@@ -457,7 +457,7 @@ mv docs/INVESTOR_GUARANTEES_SUMMARY.md docs/investor/
 
 **Need:** Simple page where users:
 - Connect wallet
-- Request 10 XHT (for gas)
+- Request 10 NOR (for gas)
 - Wait 24 hours for next request
 
 **Impact:** High - User onboarding

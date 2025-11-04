@@ -1,4 +1,4 @@
-# 🚀 Xaheen Chain - Deployment Status Dashboard
+# 🚀 Nor Chain - Deployment Status Dashboard
 
 **Last Updated**: October 30, 2025
 **Chain ID**: 65001 (0xFDE9)
@@ -18,7 +18,7 @@
 | **WebSocket** | ✅ Active | ws://localhost:8546 available |
 | **BTCBR Contract** | ✅ Deployed | 0x0cF8e180350253271f4b917CcFb0aCCc4862F262 (genesis) |
 | **Genesis Hash** | ✅ Verified | 0x677806..842d4a |
-| **Native Token** | ✅ Configured | XHT (Xaheen Token, 18 decimals) |
+| **Native Token** | ✅ Configured | NOR (Nor Token, 18 decimals) |
 | **Block Time** | ✅ Set | 3 seconds (Parlia PoSA) |
 | **Consensus** | ✅ Active | 2-of-3 multi-validator |
 
@@ -58,7 +58,7 @@
 Chain ID: 65001 (0xFDE9)
 RPC URL: https://rpc.xaheen.org (pending DNS)
 WebSocket: wss://ws.xaheen.org (pending DNS)
-Currency: XHT (Xaheen Token)
+Currency: NOR (Nor Token)
 Decimals: 18
 Explorer: https://explorer.xaheen.org (pending deployment)
 ```
@@ -68,10 +68,10 @@ Explorer: https://explorer.xaheen.org (pending deployment)
 ```json
 {
   "chainId": "0xFDE9",
-  "chainName": "Xaheen Chain",
+  "chainName": "Nor Chain",
   "nativeCurrency": {
-    "name": "Xaheen Token",
-    "symbol": "XHT",
+    "name": "Nor Token",
+    "symbol": "NOR",
     "decimals": 18
   },
   "rpcUrls": ["https://rpc.xaheen.org"],
@@ -249,7 +249,7 @@ Date: __________________
 - [x] BTCBR contract deployed at genesis (0x0cF8e180350253271f4b917CcFb0aCCc4862F262)
 - [x] Local RPC responding correctly
 - [x] WebSocket endpoint functional
-- [x] Native token (XHT) configured
+- [x] Native token (NOR) configured
 - [x] Multi-validator consensus (2-of-3) working
 - [x] Documentation complete (30+ guides)
 - [x] MetaMask integration ready
@@ -279,7 +279,7 @@ While awaiting deployment approval, we've prepared:
    - Press release ready
    - Social media content (15+ posts)
    - Validator recruitment materials
-   - Competitive analysis (Xaheen vs BNB)
+   - Competitive analysis (Nor vs BNB)
 
 3. **MetaMask Integration**
    - One-click add network page
@@ -325,7 +325,7 @@ While awaiting deployment approval, we've prepared:
 | **Genesis Timestamp** | Epoch 0 (January 1, 1970) |
 | **Genesis Hash** | 0x677806..842d4a |
 | **Max Gas Limit** | 30,000,000 |
-| **Min Gas Price** | 1 Gwei (in XHT) |
+| **Min Gas Price** | 1 Gwei (in NOR) |
 | **EVM Version** | London (EIP-1559 compatible) |
 | **Node Type** | Archive (full history) |
 
@@ -384,5 +384,5 @@ We've already completed 95% of the work:
 
 ---
 
-**© 2025 Xaheen Technologies**
+**© 2025 Nor Technologies**
 **Where Intelligence Meets Blockchain** 🧠⚡

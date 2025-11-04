@@ -13,16 +13,16 @@ export const config = {
     maxDeviation: 0.03, // 3% max deviation (circuit breaker)
   },
 
-  // Arbitrage amount (10,000 XHT per trade)
-  arbitrageAmountXHT: 10000,
+  // Arbitrage amount (10,000 NOR per trade)
+  arbitrageAmountNOR: 10000,
 
-  // Xaheen Chain (Hub)
+  // Nor Chain (Hub)
   xaheenChain: {
     rpc: process.env.PRIVATE_CHAIN_RPC || "https://rpc.xaheen.org",
     chainId: 65001,
     priceAuthorityAddress: process.env.PRICE_AUTHORITY_ADDRESS || "",
     xaheenPairAddress: process.env.XAHEEN_PAIR_ADDRESS || "",
-    xhtTokenAddress: process.env.XHT_TOKEN_ADDRESS || "",
+    xhtTokenAddress: process.env.NOR_TOKEN_ADDRESS || "",
   },
 
   // Spoke chains
@@ -33,7 +33,7 @@ export const config = {
       rpc: process.env.BSC_MAINNET_RPC || "https://bsc.publicnode.com",
       dexRouter: "0x10ED43C718714eb63d5aA57B78B54704E256024E", // PancakeSwap V2
       dexName: "PancakeSwap",
-      xhtAddress: process.env.XHT_BSC_ADDRESS || "",
+      xhtAddress: process.env.NOR_BSC_ADDRESS || "",
       usdtAddress: "0x55d398326f99059fF775485246999027B3197955",
       xaheenRouterAddress: process.env.XAHEEN_ROUTER_BSC_ADDRESS || "",
       gasPrice: ethers.parseUnits("3", "gwei"), // 3 gwei
@@ -44,7 +44,7 @@ export const config = {
       rpc: process.env.POLYGON_RPC || "https://polygon-rpc.com",
       dexRouter: "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff", // QuickSwap
       dexName: "QuickSwap",
-      xhtAddress: process.env.XHT_POLYGON_ADDRESS || "",
+      xhtAddress: process.env.NOR_POLYGON_ADDRESS || "",
       usdtAddress: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
       xaheenRouterAddress: process.env.XAHEEN_ROUTER_POLYGON_ADDRESS || "",
       gasPrice: ethers.parseUnits("50", "gwei"), // 50 gwei
@@ -55,7 +55,7 @@ export const config = {
       rpc: process.env.ETH_RPC || "https://eth.llamarpc.com",
       dexRouter: "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D", // Uniswap V2
       dexName: "Uniswap",
-      xhtAddress: process.env.XHT_ETH_ADDRESS || "",
+      xhtAddress: process.env.NOR_ETH_ADDRESS || "",
       usdtAddress: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
       xaheenRouterAddress: process.env.XAHEEN_ROUTER_ETH_ADDRESS || "",
       gasPrice: ethers.parseUnits("20", "gwei"), // 20 gwei
@@ -64,7 +64,9 @@ export const config = {
 
   // Wallet configuration
   wallet: {
-    privateKey: process.env.ARBITRAGE_BOT_PRIVATE_KEY || process.env.MAIN_WALLET_PRIVATE_KEY,
+    privateKey:
+      process.env.ARBITRAGE_BOT_PRIVATE_KEY ||
+      process.env.MAIN_WALLET_PRIVATE_KEY,
   },
 
   // Flashbots (MEV protection)
@@ -93,7 +95,7 @@ function validateConfig() {
 
   config.spokes.forEach((spoke) => {
     if (!spoke.xhtAddress) {
-      errors.push(`Missing XHT_${spoke.name.toUpperCase()}_ADDRESS`);
+      errors.push(`Missing NOR_${spoke.name.toUpperCase()}_ADDRESS`);
     }
     if (!spoke.xaheenRouterAddress) {
       errors.push(`Missing XAHEEN_ROUTER_${spoke.name.toUpperCase()}_ADDRESS`);

@@ -9,13 +9,13 @@ async function main() {
   console.log("💼 Deployer:", deployer.address);
 
   const xaheenBalance = await ethers.provider.getBalance(deployer.address);
-  console.log("💰 Balance:", ethers.formatEther(xaheenBalance), "XHT\n");
+  console.log("💰 Balance:", ethers.formatEther(xaheenBalance), "NOR\n");
 
   // Validator addresses (your existing validators)
   const validators = [
     "0xFAA5AA97651c2e2b6860219bb8f9902d416dB5DD",
     "0xfd634d55ce9b99058dc06cdda1f866b39579a9f3",
-    "0xb753b892551d1c374fda6fd7f6e9b787688c4ea5"
+    "0xb753b892551d1c374fda6fd7f6e9b787688c4ea5",
   ];
 
   console.log("═".repeat(60));
@@ -33,12 +33,12 @@ async function main() {
   console.log("STEP 2: DEPLOY BRIDGE CONTRACT");
   console.log("═".repeat(60) + "\n");
 
-  const BNBBridgeXaheen = await ethers.getContractFactory("BNBBridgeXaheen");
-  const bridge = await BNBBridgeXaheen.deploy(wbnbAddress, 2); // 2-of-3 multisig
+  const BNBBridgeNor = await ethers.getContractFactory("BNBBridgeNor");
+  const bridge = await BNBBridgeNor.deploy(wbnbAddress, 2); // 2-of-3 multisig
   await bridge.waitForDeployment();
 
   const bridgeAddress = await bridge.getAddress();
-  console.log("✅ BNBBridgeXaheen deployed:", bridgeAddress);
+  console.log("✅ BNBBridgeNor deployed:", bridgeAddress);
 
   console.log("\n═".repeat(60));
   console.log("STEP 3: GRANT MINTER ROLE TO BRIDGE");
@@ -70,7 +70,7 @@ async function main() {
   console.log("\n📊 NEXT STEPS:");
   console.log("1. Save contract addresses to .env");
   console.log("2. Test bridge with 0.01 BNB");
-  console.log("3. (Optional) Add WBNB/XHT liquidity to DEX");
+  console.log("3. (Optional) Add WBNB/NOR liquidity to DEX");
   console.log("4. Market to users!");
 
   console.log("\n💰 REVENUE STARTS NOW!");

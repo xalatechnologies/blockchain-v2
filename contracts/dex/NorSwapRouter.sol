@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "./NoorSwapFactory.sol";
-import "./NoorSwapPair.sol";
+import "./NorSwapFactory.sol";
+import "./NorSwapPair.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 /**
- * @title NoorSwapRouter
- * @notice Router contract for NoorSwap DEX user interactions
+ * @title NorSwapRouter
+ * @notice Router contract for NorSwap DEX user interactions
  * @dev Provides safe, user-friendly interfaces for swaps and liquidity operations
  *
  * Key Features:
@@ -24,12 +24,12 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
  * - Transaction deadlines
  * - Safe token transfers
  */
-contract NoorSwapRouter is ReentrancyGuard {
+contract NorSwapRouter is ReentrancyGuard {
     address public immutable factory;
     address public immutable WNOR; // Wrapped NOR token
 
     modifier ensure(uint256 deadline) {
-        require(deadline >= block.timestamp, "NoorSwapRouter: EXPIRED");
+        require(deadline >= block.timestamp, "NorSwapRouter: EXPIRED");
         _;
     }
 
@@ -39,7 +39,7 @@ contract NoorSwapRouter is ReentrancyGuard {
     }
 
     receive() external payable {
-        require(msg.sender == WNOR, "NoorSwapRouter: INVALID_SENDER");
+        require(msg.sender == WNOR, "NorSwapRouter: INVALID_SENDER");
     }
 
     // ==================== LIQUIDITY FUNCTIONS ====================
@@ -70,11 +70,11 @@ contract NoorSwapRouter is ReentrancyGuard {
     ) external nonReentrant ensure(deadline) returns (uint256 amountA, uint256 amountB, uint256 liquidity) {
         (amountA, amountB) = _addLiquidity(tokenA, tokenB, amountADesired, amountBDesired, amountAMin, amountBMin);
 
-        address pair = NoorSwapFactory(factory).getPair(tokenA, tokenB);
+        address pair = NorSwapFactory(factory).getPair(tokenA, tokenB);
         _safeTransferFrom(tokenA, msg.sender, pair, amountA);
         _safeTransferFrom(tokenB, msg.sender, pair, amountB);
 
-        liquidity = NoorSwapPair(pair).mint(to);
+        liquidity = NorSwapPair(pair).mint(to);
     }
 
     /**
@@ -98,21 +98,21 @@ contract NoorSwapRouter is ReentrancyGuard {
         address to,
         uint256 deadline
     ) external nonReentrant ensure(deadline) returns (uint256 amountA, uint256 amountB) {
-        address pair = NoorSwapFactory(factory).getPair(tokenA, tokenB);
+        address pair = NorSwapFactory(factory).getPair(tokenA, tokenB);
 
         // Transfer LP tokens to pair
         IERC20(pair).transferFrom(msg.sender, pair, liquidity);
 
         // Burn LP tokens and receive underlying tokens
-        (uint256 amount0, uint256 amount1) = NoorSwapPair(pair).burn(to);
+        (uint256 amount0, uint256 amount1) = NorSwapPair(pair).burn(to);
 
         // Sort amounts to match tokenA/tokenB
         (address token0,) = _sortTokens(tokenA, tokenB);
         (amountA, amountB) = tokenA == token0 ? (amount0, amount1) : (amount1, amount0);
 
         // Check slippage limits
-        require(amountA >= amountAMin, "NoorSwapRouter: INSUFFICIENT_A_AMOUNT");
-        require(amountB >= amountBMin, "NoorSwapRouter: INSUFFICIENT_B_AMOUNT");
+        require(amountA >= amountAMin, "NorSwapRouter: INSUFFICIENT_A_AMOUNT");
+        require(amountB >= amountBMin, "NorSwapRouter: INSUFFICIENT_B_AMOUNT");
     }
 
     // ==================== SWAP FUNCTIONS ====================
@@ -133,12 +133,12 @@ contract NoorSwapRouter is ReentrancyGuard {
         address to,
         uint256 deadline
     ) external nonReentrant ensure(deadline) returns (uint256[] memory amounts) {
-        require(path.length >= 2, "NoorSwapRouter: INVALID_PATH");
+        require(path.length >= 2, "NorSwapRouter: INVALID_PATH");
 
         amounts = getAmountsOut(amountIn, path);
-        require(amounts[amounts.length - 1] >= amountOutMin, "NoorSwapRouter: INSUFFICIENT_OUTPUT_AMOUNT");
+        require(amounts[amounts.length - 1] >= amountOutMin, "NorSwapRouter: INSUFFICIENT_OUTPUT_AMOUNT");
 
-        address pair = NoorSwapFactory(factory).getPair(path[0], path[1]);
+        address pair = NorSwapFactory(factory).getPair(path[0], path[1]);
         _safeTransferFrom(path[0], msg.sender, pair, amounts[0]);
 
         _swap(amounts, path, to);
@@ -160,12 +160,12 @@ contract NoorSwapRouter is ReentrancyGuard {
         address to,
         uint256 deadline
     ) external nonReentrant ensure(deadline) returns (uint256[] memory amounts) {
-        require(path.length >= 2, "NoorSwapRouter: INVALID_PATH");
+        require(path.length >= 2, "NorSwapRouter: INVALID_PATH");
 
         amounts = getAmountsIn(amountOut, path);
-        require(amounts[0] <= amountInMax, "NoorSwapRouter: EXCESSIVE_INPUT_AMOUNT");
+        require(amounts[0] <= amountInMax, "NorSwapRouter: EXCESSIVE_INPUT_AMOUNT");
 
-        address pair = NoorSwapFactory(factory).getPair(path[0], path[1]);
+        address pair = NorSwapFactory(factory).getPair(path[0], path[1]);
         _safeTransferFrom(path[0], msg.sender, pair, amounts[0]);
 
         _swap(amounts, path, to);
@@ -185,9 +185,9 @@ contract NoorSwapRouter is ReentrancyGuard {
         uint256 amountBMin
     ) internal returns (uint256 amountA, uint256 amountB) {
         // Create pair if it doesn't exist
-        address pair = NoorSwapFactory(factory).getPair(tokenA, tokenB);
+        address pair = NorSwapFactory(factory).getPair(tokenA, tokenB);
         if (pair == address(0)) {
-            NoorSwapFactory(factory).createPair(tokenA, tokenB);
+            NorSwapFactory(factory).createPair(tokenA, tokenB);
         }
 
         (uint256 reserveA, uint256 reserveB) = getReserves(tokenA, tokenB);
@@ -200,11 +200,11 @@ contract NoorSwapRouter is ReentrancyGuard {
             uint256 amountBOptimal = quote(amountADesired, reserveA, reserveB);
 
             if (amountBOptimal <= amountBDesired) {
-                require(amountBOptimal >= amountBMin, "NoorSwapRouter: INSUFFICIENT_B_AMOUNT");
+                require(amountBOptimal >= amountBMin, "NorSwapRouter: INSUFFICIENT_B_AMOUNT");
                 (amountA, amountB) = (amountADesired, amountBOptimal);
             } else {
                 uint256 amountAOptimal = quote(amountBDesired, reserveB, reserveA);
-                require(amountAOptimal <= amountADesired && amountAOptimal >= amountAMin, "NoorSwapRouter: INSUFFICIENT_A_AMOUNT");
+                require(amountAOptimal <= amountADesired && amountAOptimal >= amountAMin, "NorSwapRouter: INSUFFICIENT_A_AMOUNT");
                 (amountA, amountB) = (amountAOptimal, amountBDesired);
             }
         }
@@ -224,11 +224,11 @@ contract NoorSwapRouter is ReentrancyGuard {
                 : (amountOut, uint256(0));
 
             address to = i < path.length - 2
-                ? NoorSwapFactory(factory).getPair(output, path[i + 2])
+                ? NorSwapFactory(factory).getPair(output, path[i + 2])
                 : _to;
 
-            address pair = NoorSwapFactory(factory).getPair(input, output);
-            NoorSwapPair(pair).swap(amount0Out, amount1Out, to, new bytes(0));
+            address pair = NorSwapFactory(factory).getPair(input, output);
+            NorSwapPair(pair).swap(amount0Out, amount1Out, to, new bytes(0));
         }
     }
 
@@ -238,8 +238,8 @@ contract NoorSwapRouter is ReentrancyGuard {
      * @notice Given some amount of an asset and pair reserves, returns equivalent amount of other asset
      */
     function quote(uint256 amountA, uint256 reserveA, uint256 reserveB) public pure returns (uint256 amountB) {
-        require(amountA > 0, "NoorSwapRouter: INSUFFICIENT_AMOUNT");
-        require(reserveA > 0 && reserveB > 0, "NoorSwapRouter: INSUFFICIENT_LIQUIDITY");
+        require(amountA > 0, "NorSwapRouter: INSUFFICIENT_AMOUNT");
+        require(reserveA > 0 && reserveB > 0, "NorSwapRouter: INSUFFICIENT_LIQUIDITY");
         amountB = (amountA * reserveB) / reserveA;
     }
 
@@ -247,8 +247,8 @@ contract NoorSwapRouter is ReentrancyGuard {
      * @notice Given input amount and reserves, returns output amount with 0.3% fee
      */
     function getAmountOut(uint256 amountIn, uint256 reserveIn, uint256 reserveOut) public pure returns (uint256 amountOut) {
-        require(amountIn > 0, "NoorSwapRouter: INSUFFICIENT_INPUT_AMOUNT");
-        require(reserveIn > 0 && reserveOut > 0, "NoorSwapRouter: INSUFFICIENT_LIQUIDITY");
+        require(amountIn > 0, "NorSwapRouter: INSUFFICIENT_INPUT_AMOUNT");
+        require(reserveIn > 0 && reserveOut > 0, "NorSwapRouter: INSUFFICIENT_LIQUIDITY");
 
         uint256 amountInWithFee = amountIn * 997; // 0.3% fee
         uint256 numerator = amountInWithFee * reserveOut;
@@ -260,8 +260,8 @@ contract NoorSwapRouter is ReentrancyGuard {
      * @notice Given output amount and reserves, returns required input amount
      */
     function getAmountIn(uint256 amountOut, uint256 reserveIn, uint256 reserveOut) public pure returns (uint256 amountIn) {
-        require(amountOut > 0, "NoorSwapRouter: INSUFFICIENT_OUTPUT_AMOUNT");
-        require(reserveIn > 0 && reserveOut > 0, "NoorSwapRouter: INSUFFICIENT_LIQUIDITY");
+        require(amountOut > 0, "NorSwapRouter: INSUFFICIENT_OUTPUT_AMOUNT");
+        require(reserveIn > 0 && reserveOut > 0, "NorSwapRouter: INSUFFICIENT_LIQUIDITY");
 
         uint256 numerator = reserveIn * amountOut * 1000;
         uint256 denominator = (reserveOut - amountOut) * 997;
@@ -272,7 +272,7 @@ contract NoorSwapRouter is ReentrancyGuard {
      * @notice Returns amounts out for a multi-hop swap path
      */
     function getAmountsOut(uint256 amountIn, address[] memory path) public view returns (uint256[] memory amounts) {
-        require(path.length >= 2, "NoorSwapRouter: INVALID_PATH");
+        require(path.length >= 2, "NorSwapRouter: INVALID_PATH");
         amounts = new uint256[](path.length);
         amounts[0] = amountIn;
 
@@ -286,7 +286,7 @@ contract NoorSwapRouter is ReentrancyGuard {
      * @notice Returns amounts in for a multi-hop swap path
      */
     function getAmountsIn(uint256 amountOut, address[] memory path) public view returns (uint256[] memory amounts) {
-        require(path.length >= 2, "NoorSwapRouter: INVALID_PATH");
+        require(path.length >= 2, "NorSwapRouter: INVALID_PATH");
         amounts = new uint256[](path.length);
         amounts[amounts.length - 1] = amountOut;
 
@@ -303,13 +303,13 @@ contract NoorSwapRouter is ReentrancyGuard {
      */
     function getReserves(address tokenA, address tokenB) public view returns (uint256 reserveA, uint256 reserveB) {
         (address token0,) = _sortTokens(tokenA, tokenB);
-        address pair = NoorSwapFactory(factory).getPair(tokenA, tokenB);
+        address pair = NorSwapFactory(factory).getPair(tokenA, tokenB);
 
         if (pair == address(0)) {
             return (0, 0);
         }
 
-        (uint256 reserve0, uint256 reserve1,) = NoorSwapPair(pair).getReserves();
+        (uint256 reserve0, uint256 reserve1,) = NorSwapPair(pair).getReserves();
         (reserveA, reserveB) = tokenA == token0 ? (reserve0, reserve1) : (reserve1, reserve0);
     }
 
@@ -317,9 +317,9 @@ contract NoorSwapRouter is ReentrancyGuard {
      * @notice Sorts two tokens
      */
     function _sortTokens(address tokenA, address tokenB) internal pure returns (address token0, address token1) {
-        require(tokenA != tokenB, "NoorSwapRouter: IDENTICAL_ADDRESSES");
+        require(tokenA != tokenB, "NorSwapRouter: IDENTICAL_ADDRESSES");
         (token0, token1) = tokenA < tokenB ? (tokenA, tokenB) : (tokenB, tokenA);
-        require(token0 != address(0), "NoorSwapRouter: ZERO_ADDRESS");
+        require(token0 != address(0), "NorSwapRouter: ZERO_ADDRESS");
     }
 
     /**
@@ -329,6 +329,6 @@ contract NoorSwapRouter is ReentrancyGuard {
         (bool success, bytes memory data) = token.call(
             abi.encodeWithSelector(IERC20.transferFrom.selector, from, to, value)
         );
-        require(success && (data.length == 0 || abi.decode(data, (bool))), "NoorSwapRouter: TRANSFER_FROM_FAILED");
+        require(success && (data.length == 0 || abi.decode(data, (bool))), "NorSwapRouter: TRANSFER_FROM_FAILED");
     }
 }

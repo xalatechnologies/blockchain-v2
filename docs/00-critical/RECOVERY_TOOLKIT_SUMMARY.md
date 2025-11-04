@@ -2,19 +2,19 @@
 
 **Created**: November 2, 2025
 **Status**: Ready for deployment
-**Purpose**: Recover Xaheen Chain from block 29,999 epoch boundary stall
+**Purpose**: Recover Nor Chain from block 29,999 epoch boundary stall
 
 ---
 
 ## Executive Summary
 
-The Xaheen Chain is stuck at block 29,999 due to an **epoch boundary issue**. Validators cannot agree on the epoch block (30,000) header because of validator list ordering in `extraData`.
+The Nor Chain is stuck at block 29,999 due to an **epoch boundary issue**. Validators cannot agree on the epoch block (30,000) header because of validator list ordering in `extraData`.
 
 **This toolkit provides TWO recovery methods**:
 1. **Fast Recovery** (5-10 min) - Single-sealer nudge, no state changes
 2. **State-Preserving Regenesis** (30-60 min) - New genesis with preserved state
 
-**Both methods preserve the $20,000 XHT/USDT liquidity** currently at risk.
+**Both methods preserve the $20,000 NOR/USDT liquidity** currently at risk.
 
 ---
 
@@ -62,7 +62,7 @@ The Xaheen Chain is stuck at block 29,999 due to an **epoch boundary issue**. Va
 - ✅ All contract storage
 - ✅ All balances
 - ✅ All LP reserves
-- ✅ $20,000 XHT/USDT liquidity
+- ✅ $20,000 NOR/USDT liquidity
 
 **Usage**:
 ```bash
@@ -250,10 +250,10 @@ Chain stuck at block 29,999?
 
 ### At Risk (on stuck chain)
 
-**$20,000 XHT/USDT liquidity**:
+**$20,000 NOR/USDT liquidity**:
 - $10,000 locked in timelock (until Oct 30, 2026)
 - $10,000 operational liquidity
-- XHT/USDT Pair: 0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8
+- NOR/USDT Pair: 0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8
 
 **Recovery guarantee**: Both methods preserve 100% of this liquidity
 
@@ -264,7 +264,7 @@ Chain stuck at block 29,999?
 **352.7 billion BTCBR on BSC Mainnet** ✅
 - Contract: 0x0cF8e180350253271f4b917CcFb0aCCc4862F262
 - Network: BSC Mainnet (Chain ID: 56)
-- Status: Fully functional, independent of Xaheen Chain
+- Status: Fully functional, independent of Nor Chain
 
 ---
 
@@ -362,14 +362,14 @@ Chain stuck at block 29,999?
 - ✅ Block production continuing
 - ✅ All 3 validators running
 - ✅ Peer count ≥ 2
-- ✅ XHT/USDT LP reserves: ~$20K
+- ✅ NOR/USDT LP reserves: ~$20K
 
 ### Regenesis Success
 - ✅ Block number > 0 and increasing
-- ✅ WXHT code at 0x26c0eaF731885b14c031cc50dB79b36458E0b355
+- ✅ WNOR code at 0x26c0eaF731885b14c031cc50dB79b36458E0b355
 - ✅ Factory code at 0x5DAB997112119BeCf715607CaA0A94f020AE2Da3
 - ✅ Router code at 0xbe0d0ec34A93a2Ec08492715a51C613B7E530D80
-- ✅ XHT/USDT pair reserves: ~$20K
+- ✅ NOR/USDT pair reserves: ~$20K
 - ✅ All validators running
 - ✅ Peer count ≥ 2
 

@@ -1,10 +1,10 @@
-# How Users Will Buy XHT - Complete Guide
+# How Users Will Buy NOR - Complete Guide
 
 ## The Problem: Users Can't Buy Yet
 
 You're absolutely right to ask this question. Currently:
 
-**❌ Users CANNOT buy XHT easily**
+**❌ Users CANNOT buy NOR easily**
 
 Why:
 1. No frontend UI deployed
@@ -20,14 +20,14 @@ We need to deploy several user-friendly buying methods:
 
 ---
 
-## Path 1: XaheenSwap Frontend (PRIMARY METHOD)
+## Path 1: NorSwap Frontend (PRIMARY METHOD)
 
 ### What We Need to Deploy:
 
 **1. Simple Swap Interface**
 ```
 ┌─────────────────────────────────────┐
-│        Buy XHT on XaheenSwap        │
+│        Buy NOR on NorSwap        │
 ├─────────────────────────────────────┤
 │                                     │
 │ You Pay:                            │
@@ -37,10 +37,10 @@ We need to deploy several user-friendly buying methods:
 │              ↓↓↓                    │
 │ You Receive (estimated):            │
 │ ┌─────────────────────────────────┐ │
-│ │ 41,666,666   [XHT ▼]            │ │
+│ │ 41,666,666   [NOR ▼]            │ │
 │ └─────────────────────────────────┘ │
 │                                     │
-│ Price: 1 XHT = $0.0000024          │
+│ Price: 1 NOR = $0.0000024          │
 │ Fee: 0.3%                           │
 │                                     │
 │ [Connect Wallet] or [Swap Now]      │
@@ -50,7 +50,7 @@ We need to deploy several user-friendly buying methods:
 
 ### User Journey:
 
-**Step 1: Get to Xaheen Chain**
+**Step 1: Get to Nor Chain**
 ```
 User has funds on:
 ├─ BSC (Binance Smart Chain)
@@ -58,30 +58,30 @@ User has funds on:
 └─ Centralized Exchange (Binance, OKX, etc.)
 
 User needs:
-└─ Bridge to Xaheen Chain (we need to deploy bridge UI)
+└─ Bridge to Nor Chain (we need to deploy bridge UI)
 ```
 
-**Step 2: Get USDT on Xaheen**
+**Step 2: Get USDT on Nor**
 ```
 Option A: Bridge USDT from BSC
 ├─ Use bridge UI (we'll deploy)
 ├─ Lock USDT on BSC
-└─ Mint USDT on Xaheen
+└─ Mint USDT on Nor
 
 Option B: Bridge Native Tokens → Swap to USDT
-├─ Bridge BNB/ETH to Xaheen
-├─ Swap to USDT on XaheenSwap
-└─ Then swap USDT to XHT
+├─ Bridge BNB/ETH to Nor
+├─ Swap to USDT on NorSwap
+└─ Then swap USDT to NOR
 ```
 
-**Step 3: Swap USDT → XHT**
+**Step 3: Swap USDT → NOR**
 ```
 1. User visits: swap.xaheen.org
 2. Connects MetaMask
 3. Enters amount: "100 USDT"
 4. Clicks "Swap"
 5. MetaMask popup: "Confirm"
-6. Receives: ~41,666,666 XHT ✅
+6. Receives: ~41,666,666 NOR ✅
 ```
 
 ### Implementation Time: **1-2 hours**
@@ -92,21 +92,21 @@ Option B: Bridge Native Tokens → Swap to USDT
 
 ### What We Need to Deploy:
 
-**Buy XHT Landing Page** (like Uniswap's "buy crypto" page)
+**Buy NOR Landing Page** (like Uniswap's "buy crypto" page)
 
 ```
 ┌─────────────────────────────────────────────┐
-│           Buy XHT with Card/Bank            │
+│           Buy NOR with Card/Bank            │
 ├─────────────────────────────────────────────┤
 │                                             │
-│ 💳 Buy XHT with Credit Card                 │
+│ 💳 Buy NOR with Credit Card                 │
 │                                             │
 │ Amount:                                     │
 │ ┌─────────────────────────────────────────┐ │
 │ │ $100                                    │ │
 │ └─────────────────────────────────────────┘ │
 │                                             │
-│ You'll receive: ~41,666,666 XHT             │
+│ You'll receive: ~41,666,666 NOR             │
 │                                             │
 │ Payment Method:                             │
 │ ┌─────────────────────────────────────────┐ │
@@ -132,11 +132,11 @@ Option B: Bridge Native Tokens → Swap to USDT
 
 2. **Automatic conversion**
    - Fiat → USDT (or native token)
-   - Bridge to Xaheen Chain
-   - Swap to XHT
+   - Bridge to Nor Chain
+   - Swap to NOR
    - All automatic!
 
-3. **User receives XHT**
+3. **User receives NOR**
    - Directly in their wallet
    - No technical knowledge needed
 
@@ -168,7 +168,7 @@ import { MoonpayBuyWidget } from '@moonpay/moonpay-react';
 
 <MoonpayBuyWidget
   apiKey="YOUR_API_KEY"
-  currencyCode="XHT"
+  currencyCode="NOR"
   walletAddress={userWalletAddress}
   defaultCurrencyCode="USD"
   colorCode="#0066FF"
@@ -202,9 +202,9 @@ import { MoonpayBuyWidget } from '@moonpay/moonpay-react';
 ```
 1. User creates account on MEXC
 2. Deposits USDT
-3. Searches "XHT"
-4. Buys XHT/USDT pair
-5. Withdraws to Xaheen Chain wallet
+3. Searches "NOR"
+4. Buys NOR/USDT pair
+5. Withdraws to Nor Chain wallet
 ```
 
 **Timeline:** 1-3 months
@@ -216,8 +216,8 @@ import { MoonpayBuyWidget } from '@moonpay/moonpay-react';
 ### List on Aggregators:
 
 **A. 1inch (DEX Aggregator)**
-- Users search for "best XHT price"
-- 1inch finds XaheenSwap
+- Users search for "best NOR price"
+- 1inch finds NorSwap
 - Routes trade through our DEX
 
 **Requirements:**
@@ -228,7 +228,7 @@ import { MoonpayBuyWidget } from '@moonpay/moonpay-react';
 **B. DexScreener / DexTools**
 - Automatic price tracking
 - Trading charts
-- Community can discover XHT
+- Community can discover NOR
 
 **Requirements:**
 - Automatic detection (if volume exists)
@@ -238,7 +238,7 @@ import { MoonpayBuyWidget } from '@moonpay/moonpay-react';
 **C. CoinGecko / CoinMarketCap**
 - Price tracking
 - Volume tracking
-- Links to XaheenSwap
+- Links to NorSwap
 
 **Requirements:**
 - Trading volume
@@ -255,10 +255,10 @@ import { MoonpayBuyWidget } from '@moonpay/moonpay-react';
 **Setup OTC Desk:**
 ```
 ┌─────────────────────────────────────┐
-│       XHT OTC Desk                  │
+│       NOR OTC Desk                  │
 ├─────────────────────────────────────┤
 │                                     │
-│ Buy large amounts of XHT            │
+│ Buy large amounts of NOR            │
 │                                     │
 │ Minimum: $10,000                    │
 │ Maximum: $1,000,000+                │
@@ -297,11 +297,11 @@ User clicks:
 ├─ Lands on buy page
 ├─ Amount pre-filled: $100
 ├─ Connects wallet
-└─ Buys XHT instantly
+└─ Buys NOR instantly
 ```
 
 **Use Cases:**
-- Twitter/X posts: "Buy XHT: buy.xaheen.org"
+- Twitter/X posts: "Buy NOR: buy.xaheen.org"
 - Referral program: "buy.xaheen.org?ref=INFLUENCER"
 - QR codes at events
 - Email campaigns
@@ -313,29 +313,29 @@ User clicks:
 ### For Regular Users (Small Amounts: $10-$1000):
 
 ```
-Step 1: Get Funds on Xaheen Chain
+Step 1: Get Funds on Nor Chain
 ├─ Option A: Bridge from BSC/Ethereum
 │  ├─ Visit: bridge.xaheen.org
 │  ├─ Connect wallet
-│  ├─ Bridge USDT from BSC → Xaheen
+│  ├─ Bridge USDT from BSC → Nor
 │  └─ Takes 5-10 minutes
 │
 ├─ Option B: Buy with Card (via Moonpay)
 │  ├─ Visit: buy.xaheen.org
 │  ├─ Enter credit card
-│  ├─ Automatically get XHT
+│  ├─ Automatically get NOR
 │  └─ Takes 10-30 minutes
 │
 └─ Option C: Buy on CEX, Withdraw
    ├─ Buy on MEXC/Gate.io
-   ├─ Withdraw to Xaheen wallet
+   ├─ Withdraw to Nor wallet
    └─ Takes 5-15 minutes
 
-Step 2: Swap to XHT
+Step 2: Swap to NOR
 ├─ Visit: swap.xaheen.org
 ├─ Connect MetaMask
-├─ Swap USDT → XHT
-└─ Receive XHT in seconds ✅
+├─ Swap USDT → NOR
+└─ Receive NOR in seconds ✅
 
 Total Time: 15-45 minutes
 ```
@@ -346,7 +346,7 @@ Total Time: 15-45 minutes
 1. Contact OTC desk: otc@xaheen.org
 2. Negotiate price and amount
 3. Wire transfer / crypto settlement
-4. Receive XHT directly
+4. Receive NOR directly
 5. Total time: 24-48 hours
 ```
 
@@ -369,12 +369,12 @@ Total Time: 15-45 minutes
 
 ### Priority 2: Bridge UI (Critical - Users Need USDT)
 
-**Users need to get USDT onto Xaheen Chain.**
+**Users need to get USDT onto Nor Chain.**
 
 **Deploy:**
-- Bridge interface (BSC ↔ Xaheen)
-- Lock on BSC, mint on Xaheen
-- Withdraw: Burn on Xaheen, unlock on BSC
+- Bridge interface (BSC ↔ Nor)
+- Lock on BSC, mint on Nor
+- Withdraw: Burn on Nor, unlock on BSC
 
 **Time:** 2-3 hours (contracts exist, just need UI)
 **Domain:** bridge.xaheen.org
@@ -384,7 +384,7 @@ Total Time: 15-45 minutes
 **Simple page explaining how to buy.**
 
 **Deploy:**
-- "How to Buy XHT" page
+- "How to Buy NOR" page
 - Step-by-step guide
 - Links to swap, bridge, exchanges
 - Video tutorial
@@ -411,11 +411,11 @@ Total Time: 15-45 minutes
 **1. Social Media Campaigns:**
 ```
 Twitter Post:
-"🚀 Buy XHT in 3 Easy Steps:
+"🚀 Buy NOR in 3 Easy Steps:
 
-1️⃣ Bridge USDT to Xaheen Chain
+1️⃣ Bridge USDT to Nor Chain
 2️⃣ Visit swap.xaheen.org
-3️⃣ Swap USDT → XHT
+3️⃣ Swap USDT → NOR
 
 Current Price: $0.0000024
 No registration required ✅
@@ -425,9 +425,9 @@ Low fees ✅
 ```
 
 **2. Tutorial Videos:**
-- "How to Buy XHT for Beginners"
-- "How to Add Xaheen Chain to MetaMask"
-- "How to Bridge USDT to Xaheen"
+- "How to Buy NOR for Beginners"
+- "How to Add Nor Chain to MetaMask"
+- "How to Bridge USDT to Nor"
 
 **3. Influencer Partnerships:**
 - Crypto YouTubers
@@ -435,7 +435,7 @@ Low fees ✅
 - Referral links: swap.xaheen.org?ref=INFLUENCER
 
 **4. Airdrops/Giveaways:**
-- "Try XaheenSwap - Get 100 XHT free"
+- "Try NorSwap - Get 100 NOR free"
 - Users must bridge and swap to qualify
 - Drives volume and users
 
@@ -445,7 +445,7 @@ Low fees ✅
 
 ### Current Situation:
 ```
-Users wanting to buy XHT:
+Users wanting to buy NOR:
 └─ "How do I buy?"
    ├─ No frontend ❌
    ├─ No exchange listing ❌
@@ -457,11 +457,11 @@ Result: ZERO users can buy
 
 ### After Deploying Frontend:
 ```
-Users wanting to buy XHT:
+Users wanting to buy NOR:
 └─ "How do I buy?"
    ├─ Visit: swap.xaheen.org ✅
    ├─ Connect MetaMask ✅
-   ├─ Swap USDT → XHT ✅
+   ├─ Swap USDT → NOR ✅
    └─ Done in 30 seconds ✅
 
 Result: ANY user can buy
@@ -469,7 +469,7 @@ Result: ANY user can buy
 
 ### After Full Deployment:
 ```
-Users wanting to buy XHT:
+Users wanting to buy NOR:
 └─ Choose buying method:
    ├─ Bridge USDT → Swap (swap.xaheen.org) ✅
    ├─ Buy with Card (buy.xaheen.org via Moonpay) ✅
@@ -487,11 +487,11 @@ Result: Multiple easy buying paths
 
 **Day 1-2:**
 1. ✅ Deploy Swap Frontend
-   - Users can swap USDT → XHT
+   - Users can swap USDT → NOR
    - Critical blocker removed
 
 2. ✅ Deploy Bridge UI
-   - Users can get USDT on Xaheen
+   - Users can get USDT on Nor
    - Enables buying flow
 
 3. ✅ Create "How to Buy" Guide
@@ -529,12 +529,12 @@ Result: Multiple easy buying paths
 
 **Question 1: Deploy Frontend NOW?**
 - Time: 1-2 hours
-- Enables: Users can swap USDT → XHT
+- Enables: Users can swap USDT → NOR
 - **This is critical - blocks everything**
 
 **Question 2: Deploy Bridge UI?**
 - Time: 2-3 hours
-- Enables: Users can get USDT on Xaheen
+- Enables: Users can get USDT on Nor
 - **Also critical - users need USDT**
 
 **Question 3: Apply to Exchanges?**
@@ -577,7 +577,7 @@ Result: Multiple easy buying paths
 ## Summary
 
 ### Current Problem:
-**❌ Users CANNOT buy XHT** (no frontend, no exchange, too technical)
+**❌ Users CANNOT buy NOR** (no frontend, no exchange, too technical)
 
 ### Solution:
 **Deploy in this order:**
@@ -589,7 +589,7 @@ Result: Multiple easy buying paths
 6. **Fiat On-Ramp** (2-4 weeks)
 
 ### After Deployment:
-**✅ Users CAN buy XHT** (simple, fast, no technical knowledge needed)
+**✅ Users CAN buy NOR** (simple, fast, no technical knowledge needed)
 
 ---
 
@@ -597,14 +597,14 @@ Result: Multiple easy buying paths
 
 **I can start RIGHT NOW with:**
 
-1. **Swap Frontend** (XaheenSwap UI)
+1. **Swap Frontend** (NorSwap UI)
    - Uniswap-style interface
    - Connect MetaMask
    - Swap any token pairs
    - Add/remove liquidity
    - Pool stats
 
-2. **Bridge UI** (BSC ↔ Xaheen)
+2. **Bridge UI** (BSC ↔ Nor)
    - Simple bridge interface
    - Lock/mint mechanism
    - Transaction tracking

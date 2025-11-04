@@ -1,15 +1,15 @@
-# 🌙 Noor Chain DEX - Complete Deployment Report
+# 🌙 Nor Chain DEX - Complete Deployment Report
 
 **Date:** November 2, 2025
 **Status:** ✅ PRODUCTION READY
-**Network:** Noor Chain (Chain ID 65001)
+**Network:** Nor Chain (Chain ID 65001)
 **Total Value Locked:** $800,000 + $1,782,000 reserves
 
 ---
 
 ## Executive Summary
 
-Successfully deployed and secured a complete DeFi ecosystem on Noor Chain featuring:
+Successfully deployed and secured a complete DeFi ecosystem on Nor Chain featuring:
 - **4 Active Trading Pairs** with $800k liquidity
 - **36-Month LP Token Lock** (industry-leading security)
 - **Multi-Asset Reserve Vault** with $1.78M backing Dirhamat
@@ -24,8 +24,8 @@ Successfully deployed and secured a complete DeFi ecosystem on Noor Chain featur
 
 | Contract | Address | Status |
 |----------|---------|--------|
-| **NoorSwapFactory** | `0xA92d4a495d6c9D90e9d80D78a1b9d74c39aA7dab` | ✅ Active |
-| **NoorSwapRouter** | `0xD4567cD447068aaD470431746592f261Fae92bAa` | ✅ Active |
+| **NorSwapFactory** | `0xA92d4a495d6c9D90e9d80D78a1b9d74c39aA7dab` | ✅ Active |
+| **NorSwapRouter** | `0xD4567cD447068aaD470431746592f261Fae92bAa` | ✅ Active |
 | **LiquidityLock** | `0xFB50672F7c4240e43d07A6eb7B51641B05bA30C6` | ✅ Active |
 | **MultiAssetReserveVault** | `0xc55D9f8cA17f27d99463f392e190d5d8C55d7cFa` | ✅ Active |
 
@@ -150,7 +150,7 @@ Successfully deployed and secured a complete DeFi ecosystem on Noor Chain featur
 
 ### Critical Bug Fixes
 
-1. **NoorSwapPair Contract Fix**
+1. **NorSwapPair Contract Fix**
    - **Issue:** `_mint(address(0), MINIMUM_LIQUIDITY)` failed
    - **Fix:** Changed to `_mint(address(0xdEaD), MINIMUM_LIQUIDITY)`
    - **Impact:** Enabled all pair deployments
@@ -167,8 +167,8 @@ Successfully deployed and secured a complete DeFi ecosystem on Noor Chain featur
 
 ### Infrastructure Upgrades
 
-- ✅ Redeployed NoorSwapFactory with fixed pair bytecode
-- ✅ Redeployed NoorSwapRouter pointing to new factory
+- ✅ Redeployed NorSwapFactory with fixed pair bytecode
+- ✅ Redeployed NorSwapRouter pointing to new factory
 - ✅ Created comprehensive multi-asset reserve vault
 - ✅ Implemented 36-month LP token locking system
 
@@ -210,7 +210,7 @@ Successfully deployed and secured a complete DeFi ecosystem on Noor Chain featur
 
 ### Short-term (Month 1-3)
 1. Launch public DEX interface
-2. Integrate with Noor Wallet
+2. Integrate with Nor Wallet
 3. Deploy additional trading pairs
 4. Implement governance voting for fee adjustments
 5. Set up automated reserve audits
@@ -286,7 +286,7 @@ Successfully deployed and secured a complete DeFi ecosystem on Noor Chain featur
 
 ### vs. Major Stablecoins
 
-| Feature | Noor Dirhamat | USDT | USDC | DAI |
+| Feature | Nor Dirhamat | USDT | USDC | DAI |
 |---------|---------------|------|------|-----|
 | **Backing** | Multi-asset | Fiat only | Fiat only | Crypto only |
 | **Transparency** | Full on-chain | Limited | Limited | Good |
@@ -301,12 +301,12 @@ Successfully deployed and secured a complete DeFi ecosystem on Noor Chain featur
 ### Verify Factory & Router
 ```bash
 # Check factory
-curl -X POST https://rpc.noorchain.org \
+curl -X POST https://rpc.norchain.org \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0xA92d4a495d6c9D90e9d80D78a1b9d74c39aA7dab","data":"0x017e7e58"},"latest"],"id":1}'
 
 # Check router
-curl -X POST https://rpc.noorchain.org \
+curl -X POST https://rpc.norchain.org \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0xD4567cD447068aaD470431746592f261Fae92bAa","data":"0xc45a0155"},"latest"],"id":1}'
 ```
@@ -320,7 +320,7 @@ npx hardhat run scripts/verify-lp-locks.js --network btcbr
 ### Verify Reserve Vault
 ```bash
 # Check total reserves
-curl -X POST https://rpc.noorchain.org \
+curl -X POST https://rpc.norchain.org \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0xc55D9f8cA17f27d99463f392e190d5d8C55d7cFa","data":"0x2c4e722e"},"latest"],"id":1}'
 ```
@@ -330,20 +330,20 @@ curl -X POST https://rpc.noorchain.org \
 ## 📢 Marketing Messages
 
 ### For Social Media
-> "🌙 Noor Chain DEX is LIVE with $800K locked liquidity for 36 MONTHS!
+> "🌙 Nor Chain DEX is LIVE with $800K locked liquidity for 36 MONTHS!
 >
 > ✅ 16.5x overcollateralized Dirhamat stablecoin
 > ✅ Multi-asset reserves (crypto + gold + mining)
 > ✅ Zero rug pull risk - longest lock in DeFi
 > ✅ Shariah-compliant & transparent
 >
-> Trade with confidence at noorchain.org 🚀"
+> Trade with confidence at norchain.org 🚀"
 
 ### For Partnerships
-> "Noor Chain DEX offers institutional-grade security with $1.78M in diversified reserves backing our Dirhamat stablecoin. Our 36-month liquidity lock demonstrates long-term commitment and eliminates rug pull risk entirely. Join the future of compliant DeFi."
+> "Nor Chain DEX offers institutional-grade security with $1.78M in diversified reserves backing our Dirhamat stablecoin. Our 36-month liquidity lock demonstrates long-term commitment and eliminates rug pull risk entirely. Join the future of compliant DeFi."
 
 ### For Investors
-> "Noor Chain combines the best of traditional finance and DeFi:
+> "Nor Chain combines the best of traditional finance and DeFi:
 > - Physical gold reserves
 > - Mining revenue streams
 > - 16.5x overcollateralization
@@ -378,29 +378,29 @@ curl -X POST https://rpc.noorchain.org \
 
 ## 📞 Contact & Support
 
-**Website:** https://noorchain.org
-**Documentation:** https://docs.noorchain.org
-**RPC Endpoint:** https://rpc.noorchain.org
-**Block Explorer:** https://explorer.noorchain.org
+**Website:** https://norchain.org
+**Documentation:** https://docs.norchain.org
+**RPC Endpoint:** https://rpc.norchain.org
+**Block Explorer:** https://explorer.norchain.org
 
 **Email:**
-- Technical Support: dev@noorchain.org
-- Partnerships: partners@noorchain.org
-- Reserves: reserves@noorchain.org
-- Audits: audits@noorchain.org
+- Technical Support: dev@norchain.org
+- Partnerships: partners@norchain.org
+- Reserves: reserves@norchain.org
+- Audits: audits@norchain.org
 
 **Social:**
-- Twitter: @NoorChain
-- Telegram: t.me/noorchain
-- Discord: discord.gg/noorchain
+- Twitter: @NorChain
+- Telegram: t.me/norchain
+- Discord: discord.gg/norchain
 
 ---
 
 ## ✅ Final Checklist
 
 ### Deployment Complete
-- ✅ NoorSwapFactory deployed with fixed pair contract
-- ✅ NoorSwapRouter deployed and configured
+- ✅ NorSwapFactory deployed with fixed pair contract
+- ✅ NorSwapRouter deployed and configured
 - ✅ LiquidityLock contract deployed
 - ✅ MultiAssetReserveVault deployed with $1.78M reserves
 - ✅ 4 trading pairs deployed with $800k liquidity
@@ -432,7 +432,7 @@ curl -X POST https://rpc.noorchain.org \
 
 ## 🎉 Conclusion
 
-Noor Chain DEX represents a new standard in DeFi security and transparency:
+Nor Chain DEX represents a new standard in DeFi security and transparency:
 
 1. **$800,000 locked liquidity** across 4 trading pairs
 2. **36-month LP token lock** - industry's longest
@@ -447,13 +447,13 @@ This deployment sets a new benchmark for:
 - **Innovation** - Multi-asset reserves with gold + mining
 - **Trust** - Demonstrable long-term commitment
 
-**Noor Chain DEX is now production-ready and fully operational.**
+**Nor Chain DEX is now production-ready and fully operational.**
 
 ---
 
 *Report Generated: November 2, 2025*
-*Network: Noor Chain (Chain ID 65001)*
-*Deployment Team: Noor Chain Foundation*
+*Network: Nor Chain (Chain ID 65001)*
+*Deployment Team: Nor Chain Foundation*
 *Status: ✅ COMPLETE & VERIFIED*
 
 **🌙 Illuminating Finance with Light, Trust, and Innovation 🌙**

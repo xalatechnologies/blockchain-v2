@@ -47,7 +47,7 @@
 
 **Price:** $0.0000024 at launch
 **Market Cap:** $500,000
-**Supply:** 21 Trillion XHT
+**Supply:** 21 Trillion NOR
 
 **Liquidity:** 30% locked ($150k), 70% treasury ($350k)
 **Revenue:** $1M+ Year 1 (gas + DEX + bridge)
@@ -58,7 +58,7 @@
 
 ## Charity (Built-In)
 
-**5% of all fees** → Xaheen Global Impact Fund
+**5% of all fees** → Nor Global Impact Fund
 **$164,000/year** donated automatically
 **500 students** trained in blockchain
 **2 solar validators** (carbon reduction)
@@ -86,8 +86,8 @@
 
 **THIS WEEK:**
 4. Launch social media
-5. Deploy airdrop (1k XHT × 1k users)
-6. Deploy faucet (10 XHT/day)
+5. Deploy airdrop (1k NOR × 1k users)
+6. Deploy faucet (10 NOR/day)
 7. Create landing page
 
 ---
@@ -119,7 +119,7 @@ curl -X POST https://rpc.xaheen.org \
 - Profit-focused
 - No charity
 
-**Xaheen:**
+**Nor:**
 - Complete ecosystem
 - Revenue + burns + buybacks
 - **$164k/year charity (built-in)** ❤️

@@ -33,7 +33,7 @@ Open: https://bscscan.com/address/0x9bEFFFa3b43D34a2B470DA21aab3CA3263D0e8C0#wri
 
 1. Find function **"4. bridgeBNB"**
 2. Fill in:
-   - `recipient`: Your wallet address (same address or different Xaheen address)
+   - `recipient`: Your wallet address (same address or different Nor address)
    - `payableAmount (ether)`: **0.01**
 3. Click "Write"
 4. Confirm transaction in MetaMask
@@ -93,7 +93,7 @@ Open: https://bscscan.com/address/0x7E1c4448A9d87d5C5478B86085AF4e3715a06f48#wri
 1. Connect MetaMask (if not already)
 2. Find **"1. bridgeUSDT"**
 3. Fill in:
-   - `recipient`: Your Xaheen address
+   - `recipient`: Your Nor address
    - `amount`: `10000000000000000000` (10 USDT)
 4. Click "Write"
 5. Confirm in MetaMask
@@ -140,17 +140,17 @@ Open: https://bscscan.com/address/0x7E1c4448A9d87d5C5478B86085AF4e3715a06f48#wri
 
 ## VERIFYING BRIDGE ON XAHEEN SIDE
 
-### Add Xaheen Network to MetaMask
+### Add Nor Network to MetaMask
 
 **Option 1: Manual**
 1. Open MetaMask
 2. Click network dropdown
 3. Click "Add Network"
 4. Fill in:
-   - Network Name: **Xaheen Chain**
+   - Network Name: **Nor Chain**
    - RPC URL: **https://rpc.xaheen.org**
    - Chain ID: **65001**
-   - Currency Symbol: **XHT**
+   - Currency Symbol: **NOR**
    - Block Explorer: **https://explorer.xaheen.org**
 5. Click "Save"
 
@@ -160,7 +160,7 @@ Click "Add Network" button
 
 ### Check WBNB Balance
 
-1. Switch to Xaheen network in MetaMask
+1. Switch to Nor network in MetaMask
 2. Click "Import tokens"
 3. Add WBNB token:
    - Address: **0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B**
@@ -209,8 +209,8 @@ npx hardhat run scripts/test-all-bridges.js --network bsc
 - USDT: Max $500K per day
 - ETH: Max 50 ETH per day
 
-### "I don't see tokens on Xaheen"
-- Make sure you added Xaheen network to MetaMask
+### "I don't see tokens on Nor"
+- Make sure you added Nor network to MetaMask
 - Make sure you imported the token addresses
 - Wait 30-60 seconds for validators to process
 
@@ -256,8 +256,8 @@ After testing, you should have:
 - [ ] BNB bridge transaction confirmed
 - [ ] USDT bridge transaction confirmed (if tested)
 - [ ] ETH bridge transaction confirmed (if tested)
-- [ ] 0.0098 WBNB on Xaheen Chain
-- [ ] 9.98 WUSDT on Xaheen Chain (if tested)
+- [ ] 0.0098 WBNB on Nor Chain
+- [ ] 9.98 WUSDT on Nor Chain (if tested)
 - [ ] Total fees showing in contracts
 - [ ] No errors in transactions
 
@@ -266,9 +266,9 @@ After testing, you should have:
 ## WHAT'S NEXT AFTER TESTING?
 
 1. **Add liquidity to DEX** (optional)
-   - WBNB/XHT pair
-   - WUSDT/XHT pair
-   - WETH/XHT pair
+   - WBNB/NOR pair
+   - WUSDT/NOR pair
+   - WETH/NOR pair
 
 2. **Market to users**
    - Share bridge links
@@ -296,14 +296,14 @@ USDT: 0x7E1c4448A9d87d5C5478B86085AF4e3715a06f48
 ETH:  0x99883F508F41Ad3750695E68B456A50909f0F3Fe
 ```
 
-**Wrapped Tokens (Xaheen):**
+**Wrapped Tokens (Nor):**
 ```
 WBNB:  0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B
 WUSDT: 0xA0de216D0bF10E9a40C0666FB3De458e3AEB70F5
 WETH:  0xF1C1dc0263686093389Fbd66c2951122B2133aEA
 ```
 
-**Bridge Contracts (Xaheen):**
+**Bridge Contracts (Nor):**
 ```
 BNB:  0xB1347E378CE63475b282fCC4E9037D51F189758A
 USDT: 0x1d24C3c51855d5320d7459E03F2d1a13F7cB6334
@@ -312,10 +312,10 @@ ETH:  0x4Ce2954074a2cD465a05dE8518143Cb478A0c913
 
 **Network Details:**
 ```
-Xaheen Chain
+Nor Chain
 RPC: https://rpc.xaheen.org
 Chain ID: 65001
-Symbol: XHT
+Symbol: NOR
 Explorer: https://explorer.xaheen.org
 ```
 

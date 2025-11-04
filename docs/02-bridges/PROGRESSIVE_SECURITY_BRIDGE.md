@@ -66,7 +66,7 @@ if (amount < INSTANT_THRESHOLD && relayerCollateral[msg.sender] >= amount * 2) {
 
 **User Experience:**
 ```
-User clicks "Bridge $50 XHT" → Receives tokens in 15 seconds → Done
+User clicks "Bridge $50 NOR" → Receives tokens in 15 seconds → Done
 ```
 
 ---
@@ -95,7 +95,7 @@ if (amount < FAST_THRESHOLD && validator.reputation > MIN_REPUTATION) {
 
 **User Experience:**
 ```
-User clicks "Bridge $1,000 XHT" → 6 block wait → Validator signs → Receives tokens → Done
+User clicks "Bridge $1,000 NOR" → 6 block wait → Validator signs → Receives tokens → Done
 ```
 
 ---
@@ -125,7 +125,7 @@ if (amount >= SECURE_THRESHOLD) {
 
 **User Experience:**
 ```
-User clicks "Bridge $50,000 XHT" → 20 block wait → 3 validators sign → Receives tokens → Done
+User clicks "Bridge $50,000 NOR" → 20 block wait → 3 validators sign → Receives tokens → Done
 (~10 minutes, clearly explained)
 ```
 
@@ -335,7 +335,7 @@ Scenario: Relayer with $100K collateral
 ```
 1. User visits bridge UI
 2. Connects wallet, sees "First time bridger? Start with Instant Lane!"
-3. Enters $50 XHT
+3. Enters $50 NOR
 4. Sees: "Instant Lane - 30 seconds - 0.05% fee ($0.025)"
 5. Clicks "Bridge Now"
 6. Token arrives in 15 seconds
@@ -348,7 +348,7 @@ Scenario: Relayer with $100K collateral
 
 ```
 1. Gold tier user (150 transfers completed)
-2. Enters $20,000 XHT
+2. Enters $20,000 NOR
 3. Sees: "Secure Lane required - 10 minutes - 0.25% fee ($50)"
 4. Also sees: "Gold Tier Discount: -20% = $40 final fee"
 5. Clicks "Bridge Securely"
@@ -362,7 +362,7 @@ Scenario: Relayer with $100K collateral
 
 ```
 1. Platinum tier user (300 transfers completed)
-2. Enters $15,000 XHT
+2. Enters $15,000 NOR
 3. Normally requires Secure Lane, but Platinum gets Fast Lane up to $50K
 4. Sees: "Fast Lane (Platinum) - 3 minutes - 0.15% fee - 30% discount = $15.75"
 5. Clicks "Bridge Fast"
@@ -420,7 +420,7 @@ PSBBridge (Main Contract)
 ### Phase 1: Testnet Launch (Week 1-2)
 
 **Goals:**
-- Deploy to BSC Testnet + Xaheen Chain
+- Deploy to BSC Testnet + Nor Chain
 - Test all three lanes with real transactions
 - Simulate fraud scenarios
 - Verify reputation system
@@ -573,7 +573,7 @@ Ready to build this? Here's the plan:
    - Security audit preparation
 
 2. ✅ **Testnet Deployment** (1 week)
-   - Deploy to BSC Testnet + Xaheen
+   - Deploy to BSC Testnet + Nor
    - Run 1000 test transfers
    - Verify all lanes work
 

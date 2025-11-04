@@ -1,0 +1,55 @@
+{
+  "timestamp": 1762250116,
+  "block": 9999,
+  "chain_id": 65001,
+  "dex": {
+    "factory": "0x9f37c0fCc07741C7bF452390F4415820f0E605B7",
+    "router": "0x51321281AB0644aed5555b3A306C7AbfFf13c4C2",
+    "pair_count": 10,
+    "status": "operational"
+  },
+  "liquidity": {
+    "pairs": [],
+    "total_pairs": 10,
+    "total_usd": 0
+  },
+  "locks": {},
+  "bridge": {
+    "contract": "0xC808e1962bD8fE5d0fBc41D76B7909B80C442D84",
+    "supported_tokens": ["BTCBR", "BTCBR (wrong)", "NOR (wrong)", "Dirhamat"],
+    "supported_chains": ["Ethereum", "BSC", "Polygon"],
+    "status": "full"
+  },
+  "governance": {
+    "CrossChainBridge": {
+      "address": "0xC808e1962bD8fE5d0fBc41D76B7909B80C442D84",
+      "deployed": true,
+      "balance": 0.0
+    },
+    "NorGovernance": {
+      "address": "0x563559e9B62246054DCdC459dD43A6430565e13e",
+      "deployed": true,
+      "balance": 0.0
+    },
+    "NorStaking": {
+      "address": "0xed09Cf03c86648a21Df809e92492185BABb51B0a",
+      "deployed": true,
+      "balance": 0.0
+    },
+    "NorFarming": {
+      "address": "0xD31f1D176c01E89d379Bb0f5288E5e5746E8bf07",
+      "deployed": true,
+      "balance": 0.0
+    },
+    "PriceOracle": {
+      "address": "0x2c0941eD0d2fbe8fF6Ade30c8e50819DaA548d29",
+      "deployed": true,
+      "balance": 0.0
+    }
+  },
+  "issues": ["No liquidity lock deployment record"],
+  "web_interface": {
+    "url": "http://localhost:8080/index.html",
+    "status": "available"
+  }
+}

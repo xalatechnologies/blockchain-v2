@@ -5,14 +5,14 @@ import fs from "fs";
 
 dotenvConfig();
 
-const WXHT_ABI = [
+const WNOR_ABI = [
   "function deposit() public payable",
   "function withdraw(uint wad) public",
   "function totalSupply() public view returns (uint)",
   "function approve(address guy, uint wad) public returns (bool)",
   "function transfer(address dst, uint wad) public returns (bool)",
   "function transferFrom(address src, address dst, uint wad) public returns (bool)",
-  "function balanceOf(address) public view returns (uint)"
+  "function balanceOf(address) public view returns (uint)",
 ];
 
 async function main() {
@@ -23,7 +23,7 @@ async function main() {
   const balance = await ethers.provider.getBalance(deployer.address);
 
   console.log(`\n📍 Deployer: ${deployer.address}`);
-  console.log(`💰 XHT Balance: ${ethers.formatEther(balance)} XHT\n`);
+  console.log(`💰 NOR Balance: ${ethers.formatEther(balance)} NOR\n`);
 
   const deploymentLog = {
     timestamp: new Date().toISOString(),
@@ -31,7 +31,7 @@ async function main() {
     chainId: 65001,
     contracts: {},
     liquidity: {},
-    tokenomics: {}
+    tokenomics: {},
   };
 
   // Use already deployed contracts from previous deployment
@@ -43,7 +43,7 @@ async function main() {
   const ethAddress = "0xe447647577cc340B0D853F9A8F052E9BF5D673c1";
 
   console.log("✅ Using existing DEX contracts:");
-  console.log(`  WXHT: ${wxhtAddress}`);
+  console.log(`  WNOR: ${wxhtAddress}`);
   console.log(`  Factory: ${factoryAddress}`);
   console.log(`  Router: ${routerAddress}`);
   console.log(`  USDT: ${usdtAddress}`);
@@ -51,70 +51,94 @@ async function main() {
   console.log(`  ETH: ${ethAddress}\n`);
 
   deploymentLog.contracts = {
-    WXHT: wxhtAddress,
+    WNOR: wxhtAddress,
     Factory: factoryAddress,
     Router: routerAddress,
     TestUSDT: usdtAddress,
     TestBNB: bnbAddress,
-    TestETH: ethAddress
+    TestETH: ethAddress,
   };
 
   // Get contract instances
-  const factory = await ethers.getContractAt("XaheenDEXFactory", factoryAddress);
-  const router = await ethers.getContractAt("XaheenDEXRouter", routerAddress);
-  const wxhtContract = new ethers.Contract(wxhtAddress, WXHT_ABI, deployer);
+  const factory = await ethers.getContractAt("NorDEXFactory", factoryAddress);
+  const router = await ethers.getContractAt("NorDEXRouter", routerAddress);
+  const wxhtContract = new ethers.Contract(wxhtAddress, WNOR_ABI, deployer);
   const usdt = await ethers.getContractAt("SimpleERC20", usdtAddress);
   const bnb = await ethers.getContractAt("SimpleERC20", bnbAddress);
   const eth = await ethers.getContractAt("SimpleERC20", ethAddress);
 
-  // STEP 1: Add XHT/USDT Liquidity with batch wrapping
-  console.log("📝 STEP 1/5: Adding XHT/USDT Liquidity (MAIN PAIR)...");
-  console.log("Target: $10,000 USDT + 4.17B XHT @ $0.0000024/XHT");
+  // STEP 1: Add NOR/USDT Liquidity with batch wrapping
+  console.log("📝 STEP 1/5: Adding NOR/USDT Liquidity (MAIN PAIR)...");
+  console.log("Target: $10,000 USDT + 4.17B NOR @ $0.0000024/NOR");
 
   const liquidityUSDT = ethers.parseEther("10000"); // 10,000 USDT
 
   // Due to transaction value limits, we need to use a realistic liquidity amount
-  // Using 500M XHT (~12% of 4.17B target) with proportional USDT
-  const totalLiquidityXHT = ethers.parseEther("500000000"); // 500M XHT
+  // Using 500M NOR (~12% of 4.17B target) with proportional USDT
+  const totalLiquidityNOR = ethers.parseEther("500000000"); // 500M NOR
   const proportionalUSDT = ethers.parseEther("1200"); // $1,200 USDT (500M/4.17B * $10K)
 
-  const batchSize = ethers.parseEther("1000000"); // 1M XHT per batch (safe limit)
-  const numBatches = Math.ceil(Number(ethers.formatEther(totalLiquidityXHT)) / Number(ethers.formatEther(batchSize))); // 500 batches
+  const batchSize = ethers.parseEther("1000000"); // 1M NOR per batch (safe limit)
+  const numBatches = Math.ceil(
+    Number(ethers.formatEther(totalLiquidityNOR)) /
+      Number(ethers.formatEther(batchSize))
+  ); // 500 batches
 
-  console.log(`Adding ${ethers.formatEther(totalLiquidityXHT)} XHT + ${ethers.formatEther(proportionalUSDT)} USDT`);
-  console.log(`Effective price: $${(Number(ethers.formatEther(proportionalUSDT)) / Number(ethers.formatEther(totalLiquidityXHT))).toFixed(10)}/XHT`);
-  console.log(`Wrapping XHT in ${numBatches} batches of ${ethers.formatEther(batchSize)} XHT each...`);
-  console.log(`This will take approximately ${Math.ceil(numBatches / 20)} minutes...`);
+  console.log(
+    `Adding ${ethers.formatEther(totalLiquidityNOR)} NOR + ${ethers.formatEther(
+      proportionalUSDT
+    )} USDT`
+  );
+  console.log(
+    `Effective price: $${(
+      Number(ethers.formatEther(proportionalUSDT)) /
+      Number(ethers.formatEther(totalLiquidityNOR))
+    ).toFixed(10)}/NOR`
+  );
+  console.log(
+    `Wrapping NOR in ${numBatches} batches of ${ethers.formatEther(
+      batchSize
+    )} NOR each...`
+  );
+  console.log(
+    `This will take approximately ${Math.ceil(numBatches / 20)} minutes...`
+  );
 
-  // Wrap XHT in batches
+  // Wrap NOR in batches
   let wrapped = BigInt(0);
   for (let i = 0; i < numBatches; i++) {
-    const remaining = totalLiquidityXHT - wrapped;
+    const remaining = totalLiquidityNOR - wrapped;
     const batchAmount = remaining < batchSize ? remaining : batchSize;
 
-    process.stdout.write(`  Batch ${i + 1}/${numBatches}: Wrapping ${ethers.formatEther(batchAmount)} XHT... `);
+    process.stdout.write(
+      `  Batch ${i + 1}/${numBatches}: Wrapping ${ethers.formatEther(
+        batchAmount
+      )} NOR... `
+    );
     const tx = await wxhtContract.deposit({ value: batchAmount });
     await tx.wait();
     wrapped += batchAmount;
     console.log("✅");
   }
 
-  console.log(`\n✅ Wrapped ${ethers.formatEther(totalLiquidityXHT)} XHT to WXHT\n`);
+  console.log(
+    `\n✅ Wrapped ${ethers.formatEther(totalLiquidityNOR)} NOR to WNOR\n`
+  );
 
   // Approve tokens
   console.log("Approving tokens for router...");
   await (await usdt.approve(routerAddress, proportionalUSDT)).wait();
-  await (await wxhtContract.approve(routerAddress, totalLiquidityXHT)).wait();
+  await (await wxhtContract.approve(routerAddress, totalLiquidityNOR)).wait();
   console.log("✅ Tokens approved\n");
 
   // Add liquidity
-  console.log("Adding liquidity to XHT/USDT pair...");
+  console.log("Adding liquidity to NOR/USDT pair...");
   const deadline = Math.floor(Date.now() / 1000) + 60 * 20; // 20 minutes
 
   const addLiquidityTx = await router.addLiquidity(
     wxhtAddress,
     usdtAddress,
-    totalLiquidityXHT,
+    totalLiquidityNOR,
     proportionalUSDT,
     0, // Min amounts (accept any for initial pool)
     0,
@@ -124,118 +148,130 @@ async function main() {
   await addLiquidityTx.wait();
 
   const xhtUsdtPair = await factory.getPair(wxhtAddress, usdtAddress);
-  const effectivePrice = Number(ethers.formatEther(proportionalUSDT)) / Number(ethers.formatEther(totalLiquidityXHT));
-  console.log(`✅ XHT/USDT Pair: ${xhtUsdtPair}`);
-  console.log(`✅ Liquidity: ${ethers.formatEther(totalLiquidityXHT)} XHT + $${ethers.formatEther(proportionalUSDT)} USDT`);
-  console.log(`✅ Price: $${effectivePrice.toFixed(10)}/XHT\n`);
+  const effectivePrice =
+    Number(ethers.formatEther(proportionalUSDT)) /
+    Number(ethers.formatEther(totalLiquidityNOR));
+  console.log(`✅ NOR/USDT Pair: ${xhtUsdtPair}`);
+  console.log(
+    `✅ Liquidity: ${ethers.formatEther(
+      totalLiquidityNOR
+    )} NOR + $${ethers.formatEther(proportionalUSDT)} USDT`
+  );
+  console.log(`✅ Price: $${effectivePrice.toFixed(10)}/NOR\n`);
 
-  deploymentLog.liquidity.XHT_USDT = {
+  deploymentLog.liquidity.NOR_USDT = {
     pair: xhtUsdtPair,
-    xht: ethers.formatEther(totalLiquidityXHT),
+    xht: ethers.formatEther(totalLiquidityNOR),
     usdt: ethers.formatEther(proportionalUSDT),
-    price: `$${effectivePrice.toFixed(10)}`
+    price: `$${effectivePrice.toFixed(10)}`,
   };
 
-  // STEP 2: Add XHT/BNB Liquidity
-  console.log("📝 STEP 2/5: Adding XHT/BNB Liquidity...");
-  const bnbLiquidityXHT = ethers.parseEther("50000000"); // 50M XHT (under transaction limit)
+  // STEP 2: Add NOR/BNB Liquidity
+  console.log("📝 STEP 2/5: Adding NOR/BNB Liquidity...");
+  const bnbLiquidityNOR = ethers.parseEther("50000000"); // 50M NOR (under transaction limit)
   const bnbLiquidityBNB = ethers.parseEther("250"); // 250 BNB (proportional)
 
   // Wrap in batches
-  const bnbBatches = 50; // 50 batches of 1M XHT
+  const bnbBatches = 50; // 50 batches of 1M NOR
   for (let i = 0; i < bnbBatches; i++) {
-    await (await wxhtContract.deposit({ value: ethers.parseEther("1000000") })).wait();
+    await (
+      await wxhtContract.deposit({ value: ethers.parseEther("1000000") })
+    ).wait();
   }
   await (await bnb.approve(routerAddress, bnbLiquidityBNB)).wait();
-  await (await wxhtContract.approve(routerAddress, bnbLiquidityXHT)).wait();
+  await (await wxhtContract.approve(routerAddress, bnbLiquidityNOR)).wait();
 
   const addBnbLiqTx = await router.addLiquidity(
     wxhtAddress,
     bnbAddress,
-    bnbLiquidityXHT,
+    bnbLiquidityNOR,
     bnbLiquidityBNB,
-    0, 0,
+    0,
+    0,
     deployer.address,
     deadline
   );
   await addBnbLiqTx.wait();
 
   const xhtBnbPair = await factory.getPair(wxhtAddress, bnbAddress);
-  console.log(`✅ XHT/BNB Pair: ${xhtBnbPair}\n`);
+  console.log(`✅ NOR/BNB Pair: ${xhtBnbPair}\n`);
 
-  deploymentLog.liquidity.XHT_BNB = {
+  deploymentLog.liquidity.NOR_BNB = {
     pair: xhtBnbPair,
     xht: "100000000",
-    bnb: "500"
+    bnb: "500",
   };
 
-  // STEP 3: Add XHT/ETH Liquidity
-  console.log("📝 STEP 3/5: Adding XHT/ETH Liquidity...");
-  const ethLiquidityXHT = ethers.parseEther("50000000"); // 50M XHT (under transaction limit)
+  // STEP 3: Add NOR/ETH Liquidity
+  console.log("📝 STEP 3/5: Adding NOR/ETH Liquidity...");
+  const ethLiquidityNOR = ethers.parseEther("50000000"); // 50M NOR (under transaction limit)
   const ethLiquidityETH = ethers.parseEther("2.5"); // 2.5 ETH (proportional)
 
   // Wrap in batches
-  const ethBatches = 50; // 50 batches of 1M XHT
+  const ethBatches = 50; // 50 batches of 1M NOR
   for (let i = 0; i < ethBatches; i++) {
-    await (await wxhtContract.deposit({ value: ethers.parseEther("1000000") })).wait();
+    await (
+      await wxhtContract.deposit({ value: ethers.parseEther("1000000") })
+    ).wait();
   }
   await (await eth.approve(routerAddress, ethLiquidityETH)).wait();
-  await (await wxhtContract.approve(routerAddress, ethLiquidityXHT)).wait();
+  await (await wxhtContract.approve(routerAddress, ethLiquidityNOR)).wait();
 
   const addEthLiqTx = await router.addLiquidity(
     wxhtAddress,
     ethAddress,
-    ethLiquidityXHT,
+    ethLiquidityNOR,
     ethLiquidityETH,
-    0, 0,
+    0,
+    0,
     deployer.address,
     deadline
   );
   await addEthLiqTx.wait();
 
   const xhtEthPair = await factory.getPair(wxhtAddress, ethAddress);
-  console.log(`✅ XHT/ETH Pair: ${xhtEthPair}\n`);
+  console.log(`✅ NOR/ETH Pair: ${xhtEthPair}\n`);
 
-  deploymentLog.liquidity.XHT_ETH = {
+  deploymentLog.liquidity.NOR_ETH = {
     pair: xhtEthPair,
     xht: "100000000",
-    eth: "5"
+    eth: "5",
   };
 
   // STEP 4: Deploy Tokenomics Contracts
   console.log("📝 STEP 4/5: Deploying Tokenomics Contracts...");
 
   // Staking
-  const Staking = await ethers.getContractFactory("XHTStaking");
+  const Staking = await ethers.getContractFactory("NORStaking");
   const staking = await Staking.deploy(wxhtAddress);
   await staking.waitForDeployment();
   const stakingAddress = await staking.getAddress();
-  console.log(`✅ XHTStaking: ${stakingAddress}`);
+  console.log(`✅ NORStaking: ${stakingAddress}`);
 
   // Buyback
-  const Buyback = await ethers.getContractFactory("XHTBuyback");
+  const Buyback = await ethers.getContractFactory("NORBuyback");
   const buyback = await Buyback.deploy(
     routerAddress,
     wxhtAddress,
     usdtAddress,
     deployer.address, // treasury
-    deployer.address  // owner
+    deployer.address // owner
   );
   await buyback.waitForDeployment();
   const buybackAddress = await buyback.getAddress();
-  console.log(`✅ XHTBuyback: ${buybackAddress}`);
+  console.log(`✅ NORBuyback: ${buybackAddress}`);
 
   // Burn
-  const Burn = await ethers.getContractFactory("XHTBurn");
+  const Burn = await ethers.getContractFactory("NORBurn");
   const burn = await Burn.deploy(wxhtAddress);
   await burn.waitForDeployment();
   const burnAddress = await burn.getAddress();
-  console.log(`✅ XHTBurn: ${burnAddress}\n`);
+  console.log(`✅ NORBurn: ${burnAddress}\n`);
 
   deploymentLog.tokenomics = {
-    XHTStaking: stakingAddress,
-    XHTBuyback: buybackAddress,
-    XHTBurn: burnAddress
+    NORStaking: stakingAddress,
+    NORBuyback: buybackAddress,
+    NORBurn: burnAddress,
   };
 
   // STEP 5: Summary
@@ -245,7 +281,7 @@ async function main() {
   console.log("\n📋 DEPLOYED CONTRACTS:\n");
 
   console.log("DEX INFRASTRUCTURE:");
-  console.log(`  WXHT:           ${wxhtAddress}`);
+  console.log(`  WNOR:           ${wxhtAddress}`);
   console.log(`  Factory:        ${factoryAddress}`);
   console.log(`  Router:         ${routerAddress}`);
 
@@ -255,9 +291,9 @@ async function main() {
   console.log(`  ETH:            ${ethAddress}`);
 
   console.log("\nLIQUIDITY PAIRS:");
-  console.log(`  XHT/USDT:       ${xhtUsdtPair} (4.17B XHT + $10K USDT)`);
-  console.log(`  XHT/BNB:        ${xhtBnbPair} (100M XHT + 500 BNB)`);
-  console.log(`  XHT/ETH:        ${xhtEthPair} (100M XHT + 5 ETH)`);
+  console.log(`  NOR/USDT:       ${xhtUsdtPair} (4.17B NOR + $10K USDT)`);
+  console.log(`  NOR/BNB:        ${xhtBnbPair} (100M NOR + 500 BNB)`);
+  console.log(`  NOR/ETH:        ${xhtEthPair} (100M NOR + 5 ETH)`);
 
   console.log("\nTOKENOMICS:");
   console.log(`  Staking:        ${stakingAddress}`);
@@ -265,9 +301,9 @@ async function main() {
   console.log(`  Burn:           ${burnAddress}`);
 
   console.log("\n📊 TOKENOMICS METRICS:");
-  console.log(`  Initial Price:  $0.0000024/XHT`);
-  console.log(`  Total Supply:   21B XHT`);
-  console.log(`  Liquidity:      4.37B XHT (~20.8% of supply)`);
+  console.log(`  Initial Price:  $0.0000024/NOR`);
+  console.log(`  Total Supply:   21B NOR`);
+  console.log(`  Liquidity:      4.37B NOR (~20.8% of supply)`);
   console.log(`  Market Cap:     $50,400 @ launch price`);
 
   // Save deployment log

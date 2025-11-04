@@ -4,7 +4,7 @@
 # FRESH START - Clean Genesis Deployment
 #═══════════════════════════════════════════════════════════════════════════
 #
-# This script performs a COMPLETE FRESH START of Xaheen Chain:
+# This script performs a COMPLETE FRESH START of Nor Chain:
 # - Stops all validators
 # - Cleans all blockchain data
 # - Deploys clean genesis with epoch 9,000,000
@@ -265,7 +265,7 @@ echo "   3. All validators should show 'Up' status"
 echo ""
 echo "📋 Next steps (Phase 1 of Master Plan):"
 echo "   1. Deploy BTCBR token"
-echo "   2. Deploy WXHT wrapper"
+echo "   2. Deploy WNOR wrapper"
 echo "   3. Deploy DEX (Factory, Router)"
 echo "   4. Deploy FundUnit token standard"
 echo "   5. Deploy Shariah Oracle"

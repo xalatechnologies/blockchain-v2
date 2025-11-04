@@ -10,11 +10,11 @@
 1. BTCBR on PancakeSwap with $106 liquidity
 2. Both tokens deployed to BSC mainnet
 3. Bridge contracts already deployed (22 types!)
-4. Xaheen chain operational
+4. Nor chain operational
 
 ### ❌ **What's Missing:**
 1. **XHN liquidity on PancakeSwap** (needs $10 more BNB)
-2. **Bridge activation** between Xaheen ↔ BSC
+2. **Bridge activation** between Nor ↔ BSC
 3. **Bridge testing** to verify it works
 
 ---
@@ -54,7 +54,7 @@ You already have bridge contracts deployed! We just need to activate them.
 
 **Production Bridges** (in `contracts/bridges/production/`):
 1. `BTCBRBridgeMainnet.sol` - BSC mainnet side
-2. `BTCBRBridgePrivate.sol` - Xaheen chain side
+2. `BTCBRBridgePrivate.sol` - Nor chain side
 3. `AtomicSwap.sol` - Trustless HTLC bridge
 4. `LiquidityPoolBridge.sol` - Fast liquidity-based
 5. `TimelockBridge.sol` - Vesting/scheduled releases
@@ -92,17 +92,17 @@ I'll create a script to:
 ### Phase 2: Bridge Deployment (Next - 1 hour)
 
 - [ ] Deploy BTCBRBridgeMainnet to BSC (or verify existing)
-- [ ] Deploy BTCBRBridgePrivate to Xaheen (or verify existing)
+- [ ] Deploy BTCBRBridgePrivate to Nor (or verify existing)
 - [ ] Configure validator addresses (3 validators, 2-of-3 multisig)
 - [ ] Set transfer limits (100 - 100,000 BTCBR)
-- [ ] Set fees (0.1% BSC→Xaheen, 0.2% Xaheen→BSC)
+- [ ] Set fees (0.1% BSC→Nor, 0.2% Nor→BSC)
 
 ### Phase 3: Bridge Testing (Next - 30 minutes)
 
-- [ ] Test bridge Xaheen → BSC (100 BTCBR)
+- [ ] Test bridge Nor → BSC (100 BTCBR)
 - [ ] Verify tokens appear on BSC
-- [ ] Test bridge BSC → Xaheen (50 BTCBR)
-- [ ] Verify tokens appear on Xaheen
+- [ ] Test bridge BSC → Nor (50 BTCBR)
+- [ ] Verify tokens appear on Nor
 - [ ] Confirm fees working correctly
 
 ### Phase 4: Bridge UI (Next - 2 hours)
@@ -141,7 +141,7 @@ To get **monetization working end-to-end**, this is the exact order:
    ↓
 7. Test complete user flow                   [US - 30 minutes]
    ↓
-8. LIVE! Users can monetize Xaheen tokens   [DONE]
+8. LIVE! Users can monetize Nor tokens   [DONE]
 ```
 
 **Total Time**: ~4 hours after you add BNB
@@ -152,7 +152,7 @@ To get **monetization working end-to-end**, this is the exact order:
 
 ### User Experience:
 
-1. **User earns 1000 BTCBR on Xaheen**
+1. **User earns 1000 BTCBR on Nor**
    - Gaming, staking, trading on your DEX
    - Low fees, fast transactions
 
@@ -164,7 +164,7 @@ To get **monetization working end-to-end**, this is the exact order:
    - Clicks "Bridge"
 
 3. **Bridge processes transaction**
-   - Locks 1000 BTCBR on Xaheen
+   - Locks 1000 BTCBR on Nor
    - Validators verify (2 of 3 signatures)
    - Mints 998 BTCBR on BSC mainnet
    - Takes ~30 seconds
@@ -193,8 +193,8 @@ I'll create:
    - Tests automatically
 
 2. **`scripts/test-bridge-transfer.js`**
-   - Tests Xaheen → BSC transfer
-   - Tests BSC → Xaheen transfer
+   - Tests Nor → BSC transfer
+   - Tests BSC → Nor transfer
    - Verifies fees and limits
 
 3. **`bridge-ui/`** (Simple React app)
@@ -217,7 +217,7 @@ Then I can:
 5. Go live!
 
 ### Option B: Activate Bridges First
-I can activate bridges now (free, uses Xaheen chain gas)
+I can activate bridges now (free, uses Nor chain gas)
 Then add liquidity later when you have BNB
 
 **Which do you prefer?**
@@ -261,7 +261,7 @@ Tell me:
 Once you add BNB, we can have **everything working in 4 hours**!
 
 Your users will be able to:
-- Earn on Xaheen (fast, cheap)
+- Earn on Nor (fast, cheap)
 - Bridge to BSC (automated)
 - Trade on PancakeSwap (liquid)
 - Cash out to fiat (real money)

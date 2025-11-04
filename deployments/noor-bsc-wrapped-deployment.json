@@ -1,13 +1,13 @@
 {
   "timestamp": "2025-11-03T14:21:17Z",
   "chainId": 65001,
-  "network": "Noor Chain (PRIVATE)",
+  "network": "Nor Chain (PRIVATE)",
   "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
   "wrapped_tokens": {
     "WBNB": "0x4664836683f62eB96388461f79602fC1Aeb6A78E"
   },
   "bridges": {
-    "BNB_NoorChain": "0x4942014731522796c6E102628e41ABF5c7e5327d",
+    "BNB_NorChain": "0x4942014731522796c6E102628e41ABF5c7e5327d",
     "BTCBR_BSC": "0x0180A21609cBca7ccf128784F802fa9a2693aaf9"
   }
 }

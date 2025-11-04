@@ -4,16 +4,16 @@ pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-interface IXHTRevenue {
+interface INORRevenue {
     function addRevenue() external payable;
 }
 
 /**
- * @title XaheenDEXPair
- * @notice Liquidity pair for Xaheen DEX (Uniswap V2 style)
+ * @title NorDEXPair
+ * @notice Liquidity pair for Nor DEX (Uniswap V2 style)
  * @dev Automated Market Maker with constant product formula (x * y = k)
  */
-contract XaheenDEXPair is ERC20, ReentrancyGuard {
+contract NorDEXPair is ERC20, ReentrancyGuard {
 
     address public token0;
     address public token1;
@@ -50,7 +50,7 @@ contract XaheenDEXPair is ERC20, ReentrancyGuard {
         unlocked = 1;
     }
 
-    constructor() ERC20("Xaheen LP Token", "XLP") {
+    constructor() ERC20("Nor LP Token", "XLP") {
         factory = msg.sender;
     }
 
@@ -202,13 +202,13 @@ contract XaheenDEXPair is ERC20, ReentrancyGuard {
             uint256 balance1Adjusted = (balance1 * 1000) - (amount1In * 3);
             require(balance0Adjusted * balance1Adjusted >= _reserve0 * _reserve1 * (1000**2), "K");
 
-            // Send 2% of fees to XHTRevenue
+            // Send 2% of fees to NORRevenue
             if (revenueContract != address(0)) {
                 uint256 fee0 = (amount0In * 3) / 1000;
                 uint256 fee1 = (amount1In * 3) / 1000;
                 uint256 revenueFee = (fee0 + fee1) / 50; // 2% of 0.3% = 0.006%
                 if (revenueFee > 0 && address(this).balance >= revenueFee) {
-                    try IXHTRevenue(revenueContract).addRevenue{value: revenueFee}() {} catch {}
+                    try INORRevenue(revenueContract).addRevenue{value: revenueFee}() {} catch {}
                 }
             }
         }

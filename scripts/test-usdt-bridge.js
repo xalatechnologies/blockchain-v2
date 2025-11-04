@@ -16,13 +16,15 @@ async function main() {
   const usdtAbi = [
     "function balanceOf(address) view returns (uint256)",
     "function approve(address spender, uint256 amount) returns (bool)",
-    "function allowance(address owner, address spender) view returns (uint256)"
+    "function allowance(address owner, address spender) view returns (uint256)",
   ];
   const usdt = new ethers.Contract(usdtAddress, usdtAbi, wallet);
 
   // Check USDT balance
   const usdtBalance = await usdt.balanceOf(wallet.address);
-  console.log(`Current USDT Balance: ${ethers.formatEther(usdtBalance)} USDT\n`);
+  console.log(
+    `Current USDT Balance: ${ethers.formatEther(usdtBalance)} USDT\n`
+  );
 
   if (parseFloat(ethers.formatEther(usdtBalance)) < 10) {
     console.log("❌ Not enough USDT! Need at least 10 USDT.");
@@ -37,7 +39,7 @@ async function main() {
     "function minTransferAmount() view returns (uint256)",
     "function bridgeFeePercent() view returns (uint256)",
     "function currentNonce() view returns (uint256)",
-    "event BridgeDeposit(address indexed user, address indexed recipient, uint256 amount, uint256 fee, uint256 indexed nonce, uint256 timestamp)"
+    "event BridgeDeposit(address indexed user, address indexed recipient, uint256 amount, uint256 fee, uint256 indexed nonce, uint256 timestamp)",
   ];
   const bridge = new ethers.Contract(bridgeAddress, bridgeAbi, wallet);
 
@@ -45,7 +47,9 @@ async function main() {
 
   // Check fee
   const feePercent = await bridge.bridgeFeePercent();
-  console.log(`Bridge Fee: ${Number(feePercent) / 100}% (${feePercent} basis points)\n`);
+  console.log(
+    `Bridge Fee: ${Number(feePercent) / 100}% (${feePercent} basis points)\n`
+  );
 
   // Test amount: 10 USDT
   const testAmount = ethers.parseEther("10");
@@ -71,14 +75,14 @@ async function main() {
   }
 
   // Step 2: Bridge USDT
-  console.log("🌉 Step 2: Bridging USDT to Xaheen Chain...");
-  const recipient = wallet.address; // Same address on Xaheen
+  console.log("🌉 Step 2: Bridging USDT to Nor Chain...");
+  const recipient = wallet.address; // Same address on Nor
 
   const nonceBefore = await bridge.currentNonce();
   console.log(`Current nonce: ${nonceBefore}`);
 
   const bridgeTx = await bridge.bridgeUSDT(recipient, testAmount, {
-    gasLimit: 500000
+    gasLimit: 500000,
   });
 
   console.log(`Bridge TX: ${bridgeTx.hash}`);
@@ -90,14 +94,14 @@ async function main() {
 
   // Parse event
   const event = receipt.logs
-    .map(log => {
+    .map((log) => {
       try {
         return bridge.interface.parseLog(log);
       } catch (e) {
         return null;
       }
     })
-    .find(e => e && e.name === "BridgeDeposit");
+    .find((e) => e && e.name === "BridgeDeposit");
 
   if (event) {
     console.log("📋 BRIDGE DEPOSIT EVENT:");
@@ -106,14 +110,22 @@ async function main() {
     console.log(`   Amount: ${ethers.formatEther(event.args.amount)} USDT`);
     console.log(`   Fee: ${ethers.formatEther(event.args.fee)} USDT`);
     console.log(`   Nonce: ${event.args.nonce}`);
-    console.log(`   Timestamp: ${new Date(Number(event.args.timestamp) * 1000).toISOString()}\n`);
+    console.log(
+      `   Timestamp: ${new Date(
+        Number(event.args.timestamp) * 1000
+      ).toISOString()}\n`
+    );
   }
 
   console.log("═".repeat(60));
   console.log("\n✅ USDT BRIDGE TEST SUCCESSFUL!\n");
 
   console.log("💰 REVENUE EARNED:");
-  console.log(`   Fee collected: ${ethers.formatEther(fee)} USDT (~$${ethers.formatEther(fee)})`);
+  console.log(
+    `   Fee collected: ${ethers.formatEther(fee)} USDT (~$${ethers.formatEther(
+      fee
+    )})`
+  );
   console.log(`   Your cut: 100% = $${ethers.formatEther(fee)}\n`);
 
   console.log("🎯 NEXT STEPS:");

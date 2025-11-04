@@ -1,6 +1,6 @@
-# Noor Chain Cross-Chain Bridge Summary
+# Nor Chain Cross-Chain Bridge Summary
 
-## Deployment Status: ✅ COMPLETE (Noor Chain Side)
+## Deployment Status: ✅ COMPLETE (Nor Chain Side)
 
 ### Date: November 3, 2025
 
@@ -10,12 +10,12 @@
 
 A comprehensive cross-chain bridge system that enables users on **Ethereum**, **BSC**, and **Polygon** to purchase and trade:
 - **BTCBR** (Bitcoin BR)
-- **NOR** (Noor Chain native token)
+- **NOR** (Nor Chain native token)
 - **Dirhamat** (AED-pegged stablecoin)
 
 ---
 
-## 📦 Deployed Contracts (Noor Chain)
+## 📦 Deployed Contracts (Nor Chain)
 
 ### CrossChainBridge
 - **Address**: `0xC808e1962bD8fE5d0fBc41D76B7909B80C442D84`
@@ -29,7 +29,7 @@ A comprehensive cross-chain bridge system that enables users on **Ethereum**, **
 2. `0x632b5aCF4FfbBE8dAe81df89754Fb1b217924788`
 3. `0xB3B4f4fb663d9C8c6AD57e30631Ae1BB0E60c62B`
 
-### Supported Tokens (Noor Chain)
+### Supported Tokens (Nor Chain)
 - **BTCBR**: `0x0cF8e180350253271f4b917CcFb0aCCc4862F262`
 - **WNOR**: `0x0f8498072DB1611497e2068f9896aeFfcf173583`
 - **Dirhamat**: `0xd1a00bb0f0af75c20D58ABcF11590780003133D7`
@@ -38,10 +38,10 @@ A comprehensive cross-chain bridge system that enables users on **Ethereum**, **
 
 ## 🔗 How It Works
 
-### Lock & Mint (Noor → External Chain)
+### Lock & Mint (Nor → External Chain)
 
 ```
-User on Noor Chain
+User on Nor Chain
     ↓
 1. Lock BTCBR/NOR/Dirhamat in CrossChainBridge
     ↓
@@ -52,7 +52,7 @@ User on Noor Chain
 User receives wBTCBR/wNOR/wDIRHAMAT on external chain
 ```
 
-### Burn & Release (External Chain → Noor)
+### Burn & Release (External Chain → Nor)
 
 ```
 User on Ethereum/BSC/Polygon
@@ -61,9 +61,9 @@ User on Ethereum/BSC/Polygon
     ↓
 2. Validators observe burn event
     ↓
-3. Approve transfer on Noor Chain (2/3 signatures)
+3. Approve transfer on Nor Chain (2/3 signatures)
     ↓
-Original tokens released to user on Noor Chain
+Original tokens released to user on Nor Chain
 ```
 
 ---
@@ -146,27 +146,27 @@ await bridge.addToken(wrappedBTCBR.address);
 await bridge.addToken(wrappedNOR.address);
 await bridge.addToken(wrappedDirhamat.address);
 
-// Connect to Noor Chain
+// Connect to Nor Chain
 await bridge.addBridge(
   65001,
-  "Noor Chain",
+  "Nor Chain",
   "0xC808e1962bD8fE5d0fBc41D76B7909B80C442D84"
 );
 ```
 
-### Step 5: Update Noor Chain Bridge
+### Step 5: Update Nor Chain Bridge
 
-After external deployment, update Noor bridge with actual addresses:
+After external deployment, update Nor bridge with actual addresses:
 
 ```python
 # Update Ethereum bridge
-tx = noor_bridge.functions.updateBridge(1, ethereum_bridge_address)
+tx = nor_bridge.functions.updateBridge(1, ethereum_bridge_address)
 
 # Update BSC bridge
-tx = noor_bridge.functions.updateBridge(56, bsc_bridge_address)
+tx = nor_bridge.functions.updateBridge(56, bsc_bridge_address)
 
 # Update Polygon bridge
-tx = noor_bridge.functions.updateBridge(137, polygon_bridge_address)
+tx = nor_bridge.functions.updateBridge(137, polygon_bridge_address)
 ```
 
 ---
@@ -220,7 +220,7 @@ tx = noor_bridge.functions.updateBridge(137, polygon_bridge_address)
 2. **Connect Wallet**: Click "Connect Wallet" button
 
 3. **Select Chains**: 
-   - Source: Noor Chain (or external chain if bridging back)
+   - Source: Nor Chain (or external chain if bridging back)
    - Target: Ethereum/BSC/Polygon
 
 4. **Enter Details**:
@@ -262,7 +262,7 @@ tx = noor_bridge.functions.updateBridge(137, polygon_bridge_address)
 
 ## 📊 Bridge Statistics
 
-### Current Metrics (Noor Chain)
+### Current Metrics (Nor Chain)
 - **Total Validators**: 3
 - **Required Signatures**: 2
 - **Supported Tokens**: 3 (BTCBR, NOR, Dirhamat)
@@ -283,15 +283,15 @@ tx = noor_bridge.functions.updateBridge(137, polygon_bridge_address)
 ```
 User on Ethereum:
 1. Swap ETH → wBTCBR on Uniswap
-2. Hold wBTCBR or bridge to Noor Chain
-3. Trade on NoorSwap DEX
+2. Hold wBTCBR or bridge to Nor Chain
+3. Trade on NorSwap DEX
 ```
 
 ### 2. Buy NOR from BSC
 ```
 User on BSC:
 1. Swap BNB → wNOR on PancakeSwap
-2. Bridge wNOR to Noor Chain
+2. Bridge wNOR to Nor Chain
 3. Use NOR for gas/staking
 ```
 
@@ -300,15 +300,15 @@ User on BSC:
 User on Polygon:
 1. Swap USDC → wDIRHAMAT on QuickSwap
 2. Hold for AED-pegged stability
-3. Bridge to Noor for Shariah-compliant DeFi
+3. Bridge to Nor for Shariah-compliant DeFi
 ```
 
 ### 4. Arbitrage Opportunities
 ```
 Price difference detected:
 1. Buy BTCBR on BSC (cheaper)
-2. Bridge to Noor Chain
-3. Sell on NoorSwap (higher price)
+2. Bridge to Nor Chain
+3. Sell on NorSwap (higher price)
 4. Profit from price spread
 ```
 
@@ -329,7 +329,7 @@ blockchain-v2/
 ├── scripts/
 │   └── deploy-cross-chain-bridges.py ✅
 ├── deployments/
-│   └── noor-cross-chain-bridges.json ✅
+│   └── nor-cross-chain-bridges.json ✅
 ├── bridge-interface/
 │   └── index.html ✅
 └── docs/
@@ -401,11 +401,11 @@ blockchain-v2/
 - **This Summary**: `docs/BRIDGE_SUMMARY.md`
 
 ### Contracts
-- **Noor Bridge**: `0xC808e1962bD8fE5d0fBc41D76B7909B80C442D84`
+- **Nor Bridge**: `0xC808e1962bD8fE5d0fBc41D76B7909B80C442D84`
 - **Wrapped Contracts**: `contracts/wrapped/`
 
 ### Deployment Data
-- **JSON**: `deployments/noor-cross-chain-bridges.json`
+- **JSON**: `deployments/nor-cross-chain-bridges.json`
 
 ### Interface
 - **HTML**: `bridge-interface/index.html`
@@ -414,7 +414,7 @@ blockchain-v2/
 
 ## ✅ Checklist
 
-### Noor Chain (COMPLETE)
+### Nor Chain (COMPLETE)
 - [x] CrossChainBridge deployed
 - [x] Validators added (3 nodes)
 - [x] Tokens configured (BTCBR, NOR, Dirhamat)
@@ -426,7 +426,7 @@ blockchain-v2/
 - [ ] BSC: Deploy wrapped tokens + bridge
 - [ ] Polygon: Deploy wrapped tokens + bridge
 - [ ] Configure validators on all chains
-- [ ] Update Noor bridge with external addresses
+- [ ] Update Nor bridge with external addresses
 
 ### Liquidity (PENDING)
 - [ ] Ethereum: $200K across 3 pairs
@@ -434,8 +434,8 @@ blockchain-v2/
 - [ ] Polygon: $150K across 3 pairs
 
 ### Testing (PENDING)
-- [ ] Noor → Ethereum transfer
-- [ ] Ethereum → Noor transfer
+- [ ] Nor → Ethereum transfer
+- [ ] Ethereum → Nor transfer
 - [ ] BSC bidirectional transfer
 - [ ] Polygon bidirectional transfer
 - [ ] Validator approval workflow
@@ -452,7 +452,7 @@ blockchain-v2/
 
 ## 🎉 Conclusion
 
-The Noor Chain cross-chain bridge infrastructure is **fully deployed on Noor Chain** and ready for external chain deployment. Users will be able to seamlessly purchase and trade BTCBR, NOR, and Dirhamat from Ethereum, BSC, and Polygon, bringing massive liquidity and adoption to the Noor ecosystem.
+The Nor Chain cross-chain bridge infrastructure is **fully deployed on Nor Chain** and ready for external chain deployment. Users will be able to seamlessly purchase and trade BTCBR, NOR, and Dirhamat from Ethereum, BSC, and Polygon, bringing massive liquidity and adoption to the Nor ecosystem.
 
 **Total Investment Required**: ~$402 (gas fees) + $650K (liquidity)
 **Expected ROI**: 10x within 6 months through increased trading volume and ecosystem growth
@@ -461,4 +461,4 @@ The Noor Chain cross-chain bridge infrastructure is **fully deployed on Noor Cha
 
 **Deployed by**: 0xdD779a290C937144F80Eb75b75d814c834536B1b  
 **Date**: November 3, 2025  
-**Status**: ✅ Phase 1 Complete (Noor Chain)
+**Status**: ✅ Phase 1 Complete (Nor Chain)

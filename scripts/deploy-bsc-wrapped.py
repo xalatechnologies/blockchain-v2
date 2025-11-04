@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Deploy BSC Bridge and Wrapped Tokens on Noor Chain
+Deploy BSC Bridge and Wrapped Tokens on Nor Chain
 """
 
 from web3 import Web3
@@ -20,7 +20,7 @@ print("════════════════════════�
 print("         🌉 BSC BRIDGE & WRAPPED TOKENS DEPLOYMENT 🌉")
 print("═══════════════════════════════════════════════════════════════════════════")
 print()
-print(f"🔗 Network: Noor Chain (PRIVATE - Chain ID 65001)")
+print(f"🔗 Network: Nor Chain (PRIVATE - Chain ID 65001)")
 print(f"📍 Server: 3.91.50.187 (AWS)")
 print(f"👤 Deployer: {account.address}")
 print(f"💰 Balance: {w3.from_wei(w3.eth.get_balance(account.address), 'ether'):,.2f} NOR")
@@ -64,7 +64,7 @@ def deploy_contract(name, path, *args):
 results = {
     "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ"),
     "chainId": 65001,
-    "network": "Noor Chain (PRIVATE)",
+    "network": "Nor Chain (PRIVATE)",
     "deployer": account.address,
     "wrapped_tokens": {},
     "bridges": {}
@@ -79,14 +79,14 @@ wbnb_address = deploy_contract(
 results['wrapped_tokens']['WBNB'] = wbnb_address
 print()
 
-# Deploy BNB Bridge (Noor Chain side)
-print("📦 Step 2: Deploying BNB Bridge (Noor Chain)...")
-bnb_bridge_noor = deploy_contract(
-    'BNBBridgeXaheen',
-    '.build/artifacts/contracts/bridges/production/BNBBridgeXaheen.sol/BNBBridgeXaheen.json',
+# Deploy BNB Bridge (Nor Chain side)
+print("📦 Step 2: Deploying BNB Bridge (Nor Chain)...")
+bnb_bridge_nor = deploy_contract(
+    'BNBBridgeNor',
+    '.build/artifacts/contracts/bridges/production/BNBBridgeNor.sol/BNBBridgeNor.json',
     wbnb_address
 )
-results['bridges']['BNB_NoorChain'] = bnb_bridge_noor
+results['bridges']['BNB_NorChain'] = bnb_bridge_nor
 print()
 
 # Deploy BSC Bridge for BTCBR
@@ -101,7 +101,7 @@ results['bridges']['BTCBR_BSC'] = btcbr_bsc_bridge
 print()
 
 # Save deployment
-with open('deployments/noor-bsc-wrapped-deployment.json', 'w') as f:
+with open('deployments/nor-bsc-wrapped-deployment.json', 'w') as f:
     json.dump(results, f, indent=2)
 
 print("═══════════════════════════════════════════════════════════════════════════")
@@ -112,13 +112,13 @@ print("💎 Wrapped Tokens:")
 print(f"   WBNB: {wbnb_address}")
 print()
 print("🌉 BSC Bridges:")
-print(f"   BNB Bridge (Noor Chain):  {bnb_bridge_noor}")
+print(f"   BNB Bridge (Nor Chain):  {bnb_bridge_nor}")
 print(f"   BTCBR Bridge (BSC):       {btcbr_bsc_bridge}")
 print()
-print("💾 Deployment saved to: deployments/noor-bsc-wrapped-deployment.json")
+print("💾 Deployment saved to: deployments/nor-bsc-wrapped-deployment.json")
 print()
 print("⚠️  IMPORTANT - YOUR NETWORK STATUS:")
-print("   🔒 PRIVATE CHAIN (Noor Chain)")
+print("   🔒 PRIVATE CHAIN (Nor Chain)")
 print("   📍 Running on AWS server 3.91.50.187")
 print("   🔢 Chain ID: 65001 (NOT public BSC mainnet)")
 print("   💰 Native token: NOR")
@@ -130,7 +130,7 @@ print("   3. Configure validators for cross-chain transfers")
 print("   4. Fund bridge contracts on both chains")
 print()
 print("✅ Current DEX status:")
-print("   - Trading LIVE on Noor Chain (private)")
+print("   - Trading LIVE on Nor Chain (private)")
 print("   - BTCBR/WNOR pair active with liquidity")
 print("   - Ready for internal testing")
 print()

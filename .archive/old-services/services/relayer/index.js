@@ -1,12 +1,12 @@
 /**
- * Xaheen Cross-Chain Relayer Service
+ * Nor Cross-Chain Relayer Service
  *
  * Purpose: Monitor Fill events from spoke chains and forward to SettlementHub
  *
  * Flow:
  * 1. Listen to Fill events from SettlementInbox on each spoke
  * 2. Wait for N confirmations (finality)
- * 3. Sign receipt and forward to SettlementHub on Xaheen
+ * 3. Sign receipt and forward to SettlementHub on Nor
  * 4. Retry on failure with exponential backoff
  */
 
@@ -26,7 +26,7 @@ class RelayerService {
   }
 
   async start() {
-    console.log("🔗 Xaheen Cross-Chain Relayer Starting...\n");
+    console.log("🔗 Nor Cross-Chain Relayer Starting...\n");
 
     // Initialize receipt forwarder (sends to SettlementHub)
     this.receiptForwarder = new ReceiptForwarder(config);

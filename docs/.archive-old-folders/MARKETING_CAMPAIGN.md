@@ -1,6 +1,6 @@
-# Xaheen Bridge Marketing Campaign
+# Nor Bridge Marketing Campaign
 
-Complete marketing strategy to launch and monetize the Xaheen Bridge.
+Complete marketing strategy to launch and monetize the Nor Bridge.
 
 **Goal**: Generate $200K+ daily volume within 3 months
 
@@ -60,9 +60,9 @@ Complete marketing strategy to launch and monetize the Xaheen Bridge.
 
 **Day 1: Account Setup**
 ```
-🚀 Introducing Xaheen Bridge 🌉
+🚀 Introducing Nor Bridge 🌉
 
-Seamless cross-chain BTCBR transfers between @BNBCHAIN and Xaheen Chain
+Seamless cross-chain BTCBR transfers between @BNBCHAIN and Nor Chain
 
 ✅ 0.1% fees
 ✅ 2-minute settlement
@@ -82,14 +82,14 @@ RT to get early access! 👇
 ❌ Risky (bridge hacks)
 ❌ Complex (10+ steps)
 
-Xaheen Bridge fixes ALL of this.
+Nor Bridge fixes ALL of this.
 
 Thread 🧵👇
 ```
 
 **Day 3: Solution Overview**
 ```
-✅ BTCBR on BSC → Xaheen in 2 minutes
+✅ BTCBR on BSC → Nor in 2 minutes
 ✅ Only 0.1-0.2% fee (10x cheaper)
 ✅ Multi-sig validation (2-of-3)
 ✅ Audited smart contracts
@@ -103,7 +103,7 @@ Learn more: [link]
 ```
 🔒 Security is NOT optional.
 
-Xaheen Bridge:
+Nor Bridge:
 ✅ Multi-signature validation
 ✅ Transfer limits ($500K/day)
 ✅ Smart contract audit
@@ -136,7 +136,7 @@ Full guide: [link]
 📢 Who wants EARLY ACCESS?
 
 First 100 to:
-✅ Follow @XaheenBridge
+✅ Follow @NorBridge
 ✅ RT this tweet
 ✅ Join our Telegram: [link]
 
@@ -156,7 +156,7 @@ Launch in 24 hours! ⏰
 
 The fastest, cheapest way to bridge BTCBR is NOW AVAILABLE.
 
-✅ BSC Mainnet ↔ Xaheen Chain
+✅ BSC Mainnet ↔ Nor Chain
 ✅ 0.1% fees (usually 5%+)
 ✅ 2-minute settlement
 ✅ Multi-sig security
@@ -170,7 +170,7 @@ RT to spread the word! 🔥
 ```
 🎉 FIRST TRANSFER COMPLETE! 🎉
 
-1,000 BTCBR bridged from BSC → Xaheen
+1,000 BTCBR bridged from BSC → Nor
 
 ⏱ Settlement time: 1 min 47 sec
 💰 Fee: 1 BTCBR (0.1%)
@@ -183,7 +183,7 @@ Try it yourself: [link]
 
 **12:00 PM UTC: How It Works**
 ```
-🤔 How does Xaheen Bridge work?
+🤔 How does Nor Bridge work?
 
 SIMPLE:
 1. Lock BTCBR on source chain
@@ -231,7 +231,7 @@ Bridge now: [link]
 
 **Launch Message**:
 ```
-🎉 Welcome to Xaheen Bridge! 🌉
+🎉 Welcome to Nor Bridge! 🌉
 
 This is your hub for:
 ✅ Bridge support
@@ -305,25 +305,25 @@ Get your link: [dashboard]
 ### Blog Posts (Medium)
 
 **Post 1: Launch Announcement**
-- Title: "Xaheen Bridge: Revolutionizing Cross-Chain BTCBR Transfers"
+- Title: "Nor Bridge: Revolutionizing Cross-Chain BTCBR Transfers"
 - Length: 1,500 words
 - Topics: Problem, solution, features, roadmap
 - CTA: Try the bridge
 
 **Post 2: Technical Deep Dive**
-- Title: "How Xaheen Bridge Achieves 2-Minute Settlement"
+- Title: "How Nor Bridge Achieves 2-Minute Settlement"
 - Length: 2,000 words
 - Topics: Architecture, security, validators, relayers
 - CTA: Read security audit
 
 **Post 3: Comparison Article**
-- Title: "Xaheen Bridge vs. Traditional Bridges: Cost & Speed Analysis"
+- Title: "Nor Bridge vs. Traditional Bridges: Cost & Speed Analysis"
 - Length: 1,200 words
 - Include table comparing fees and speed
 - CTA: Start saving on fees
 
 **Post 4: Case Study**
-- Title: "How Traders Save $500+ Monthly with Xaheen Bridge"
+- Title: "How Traders Save $500+ Monthly with Nor Bridge"
 - Length: 1,000 words
 - Real user examples
 - CTA: Join the community
@@ -331,7 +331,7 @@ Get your link: [dashboard]
 ### Video Content (YouTube)
 
 **Video 1: Introduction (2 min)**
-- What is Xaheen Bridge?
+- What is Nor Bridge?
 - Key benefits
 - Quick demo
 
@@ -378,7 +378,7 @@ Get your link: [dashboard]
 ```
 Hi [Name],
 
-We're launching Xaheen Bridge - the fastest, cheapest way to bridge BTCBR.
+We're launching Nor Bridge - the fastest, cheapest way to bridge BTCBR.
 
 Stats:
 ✅ 0.1% fees (10x cheaper than competitors)
@@ -397,7 +397,7 @@ Offer:
 Interested? Let me know!
 
 Best,
-Xaheen Team
+Nor Team
 ```
 
 ---
@@ -455,7 +455,7 @@ May the best bridger win! 🚀
 
 ### Target Partners
 
-**1. DEXs on Xaheen Chain**
+**1. DEXs on Nor Chain**
 - Offer liquidity
 - Co-marketing
 - Integrated bridge widget
@@ -478,11 +478,11 @@ May the best bridger win! 🚀
 ### Partnership Outreach
 
 ```email
-Subject: Partnership Opportunity: Xaheen Bridge
+Subject: Partnership Opportunity: Nor Bridge
 
 Hi [Name],
 
-Xaheen Bridge just launched - processing $XXX daily in BTCBR transfers.
+Nor Bridge just launched - processing $XXX daily in BTCBR transfers.
 
 Partnership Benefits:
 ✅ Shared user base
@@ -495,7 +495,7 @@ Let's schedule a call to discuss?
 [Calendar link]
 
 Best,
-Xaheen Team
+Nor Team
 ```
 
 ---

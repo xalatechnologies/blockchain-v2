@@ -1,15 +1,15 @@
-# Noor Chain - Compliance & Regulatory Framework
+# Nor Chain - Compliance & Regulatory Framework
 
 **Version**: 1.1  
 **Date**: 2025-11-02  
 **Status**: Active Implementation
-**Rebrand Notice**: Updated from Xaheen Chain to Noor Chain
+**Rebrand Notice**: Updated from Nor Chain to Nor Chain
 
 ---
 
 ## 🎯 Overview
 
-Noor Chain compliance framework addressing:
+Nor Chain compliance framework addressing:
 - **GDPR** (General Data Protection Regulation) - EU data privacy
 - **ISO 27001** - Information security management
 - **ISO 27701** - Privacy information management
@@ -31,7 +31,7 @@ Noor Chain compliance framework addressing:
 
 #### GDPR Requirements vs Blockchain:
 
-| Requirement | Blockchain Conflict | Xaheen Solution |
+| Requirement | Blockchain Conflict | Nor Solution |
 |-------------|---------------------|-----------------|
 | **Right to Erasure (Art. 17)** | Cannot delete from chain | Off-chain personal data storage |
 | **Data Minimization (Art. 5)** | All data public | Encrypted metadata layer (XLEP-001) |
@@ -39,7 +39,7 @@ Noor Chain compliance framework addressing:
 | **Data Portability (Art. 20)** | Chain-locked data | Export APIs + standardized formats |
 | **Privacy by Design (Art. 25)** | Transparent ledger | Zero-knowledge proofs for sensitive data |
 
-#### Noor GDPR Strategy:
+#### Nor GDPR Strategy:
 
 **1. Data Classification**
 
@@ -63,7 +63,7 @@ Private Ledger (Off-chain - XLEP-001):
 
 ```solidity
 // On-chain: Only pseudonymous data
-contract NoorTransfer {
+contract NorTransfer {
     mapping(address => uint256) public balances;  // Address = pseudonymous
     // NO personal data on-chain
 }
@@ -162,12 +162,12 @@ Create comprehensive privacy policy covering:
 
 **Purpose**: Systematic approach to managing sensitive data
 
-#### ISO 27001 Implementation for Xaheen Chain:
+#### ISO 27001 Implementation for Nor Chain:
 
 **1. Information Security Policy**
 
 ```markdown
-# Noor Chain Information Security Policy
+# Nor Chain Information Security Policy
 
 ## Scope
 All blockchain infrastructure, smart contracts, validator nodes,
@@ -293,7 +293,7 @@ Code Quality:
 
 **Extension of ISO 27001** specifically for privacy
 
-#### ISO 27701 for Xaheen Chain:
+#### ISO 27701 for Nor Chain:
 
 **Additional Controls Beyond ISO 27001**:
 
@@ -370,7 +370,7 @@ What We DON'T Collect:
 
 **Standard**: Service Organization Control 2 (AICPA)
 
-**Applies to**: Service providers (Xaheen Chain as infrastructure provider)
+**Applies to**: Service providers (Nor Chain as infrastructure provider)
 
 #### SOC 2 Trust Service Criteria:
 

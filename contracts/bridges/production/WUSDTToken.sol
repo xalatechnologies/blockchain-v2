@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 
 /**
  * @title WUSDTToken
- * @notice Wrapped USDT on Xaheen Chain
+ * @notice Wrapped USDT on Nor Chain
  * @dev Minted when USDT is locked on BSC, burned when withdrawn
  */
 contract WUSDTToken is ERC20, AccessControl, Pausable {

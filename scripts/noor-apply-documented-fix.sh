@@ -39,9 +39,9 @@ echo ""
 echo "📝 Creating genesis with epoch 10,000..."
 node -e "
 const fs = require('fs');
-const noorGenesis = JSON.parse(fs.readFileSync('data/genesis-clean.json', 'utf8'));
-noorGenesis.config.parlia.epoch = 10000;
-fs.writeFileSync('data/genesis-epoch-10k.json', JSON.stringify(noorGenesis, null, 2));
+const norGenesis = JSON.parse(fs.readFileSync('data/genesis-clean.json', 'utf8'));
+norGenesis.config.parlia.epoch = 10000;
+fs.writeFileSync('data/genesis-epoch-10k.json', JSON.stringify(norGenesis, null, 2));
 console.log('✅ Genesis with epoch 10,000 created');
 "
 
@@ -50,7 +50,7 @@ scp -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no \
   data/genesis-epoch-10k.json \
   ec2-user@$SERVER_IP:/home/ec2-user/genesis-epoch-10k.json
 
-cat << 'REMOTE_SCRIPT' > /tmp/noor-documented-fix.sh
+cat << 'REMOTE_SCRIPT' > /tmp/nor-documented-fix.sh
 #!/bin/bash
 
 set -e
@@ -208,13 +208,13 @@ fi
 REMOTE_SCRIPT
 
 scp -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no \
-  /tmp/noor-documented-fix.sh \
-  ec2-user@$SERVER_IP:/home/ec2-user/noor-documented-fix.sh
+  /tmp/nor-documented-fix.sh \
+  ec2-user@$SERVER_IP:/home/ec2-user/nor-documented-fix.sh
 
 echo "🚀 Executing EXACT documented configuration..."
 ssh -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no \
   ec2-user@$SERVER_IP \
-  'bash /home/ec2-user/noor-documented-fix.sh'
+  'bash /home/ec2-user/nor-documented-fix.sh'
 
 echo ""
 echo "✅ Documented configuration applied!"

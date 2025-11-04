@@ -1,13 +1,13 @@
-# Xaheen Chain to BSC Mainnet Monetization Architecture
+# Nor Chain to BSC Mainnet Monetization Architecture
 
-**Complete documentation of bridging Xaheen private blockchain to public BSC for monetization**
+**Complete documentation of bridging Nor private blockchain to public BSC for monetization**
 
 ---
 
 ## 🎯 **Business Goal**
 
-**Monetize the Xaheen private blockchain by connecting it to public BSC mainnet**, allowing:
-- Users to earn tokens on Xaheen chain (low fees, fast)
+**Monetize the Nor private blockchain by connecting it to public BSC mainnet**, allowing:
+- Users to earn tokens on Nor chain (low fees, fast)
 - Bridge tokens to BSC mainnet
 - Trade on PancakeSwap for real USD value
 - Cash out to fiat currency
@@ -16,16 +16,16 @@
 
 ## 🏗️ **Three-Layer Architecture**
 
-### Layer 1: Xaheen Private Chain (rpc.xaheen.org)
+### Layer 1: Nor Private Chain (rpc.xaheen.org)
 
 **Chain ID**: 885824
 **Network**: Private Parlia PoSA consensus
 **Purpose**: Fast, low-fee blockchain for users
 
 **Deployed Contracts**:
-- BTCBR Token: Native token on Xaheen
+- BTCBR Token: Native token on Nor
 - XHN Token: Governance/utility token
-- XaheenDEX: Internal DEX for trading
+- NorDEX: Internal DEX for trading
 - 22 Bridge contracts: For cross-chain transfers
 
 **Advantages**:
@@ -36,7 +36,7 @@
 
 ### Layer 2: Bridge Infrastructure
 
-**Purpose**: Connect Xaheen chain <-> BSC mainnet
+**Purpose**: Connect Nor chain <-> BSC mainnet
 
 **Bridge Types** (You have 22 implementations!):
 
@@ -63,9 +63,9 @@
 
 **How Bridges Work**:
 ```
-User Action: Bridge 1000 BTCBR from Xaheen to BSC
+User Action: Bridge 1000 BTCBR from Nor to BSC
 ↓
-1. Lock 1000 BTCBR on Xaheen chain
+1. Lock 1000 BTCBR on Nor chain
 ↓
 2. Validators verify lock transaction (2 of 3 signatures)
 ↓
@@ -103,7 +103,7 @@ User Action: Bridge 1000 BTCBR from Xaheen to BSC
 
 ```
 1. USER EARNS ON XAHEEN
-   User earns 1000 BTCBR on Xaheen chain
+   User earns 1000 BTCBR on Nor chain
    (gaming, staking, trading, etc.)
 
 2. BRIDGE TO BSC
@@ -130,7 +130,7 @@ User Action: Bridge 1000 BTCBR from Xaheen to BSC
 
 ### 💵 **Value Flow**:
 ```
-Xaheen Chain Value → Bridge → BSC Value → PancakeSwap → BNB → Fiat
+Nor Chain Value → Bridge → BSC Value → PancakeSwap → BNB → Fiat
 ```
 
 ---
@@ -139,7 +139,7 @@ Xaheen Chain Value → Bridge → BSC Value → PancakeSwap → BNB → Fiat
 
 ### ✅ **COMPLETED**
 
-**Xaheen Chain**:
+**Nor Chain**:
 - ✅ Private blockchain running (rpc.xaheen.org)
 - ✅ Validators operational
 - ✅ BTCBR and XHN deployed
@@ -161,7 +161,7 @@ Xaheen Chain Value → Bridge → BSC Value → PancakeSwap → BNB → Fiat
 ### 📋 **TODO**
 
 1. **Add XHN to PancakeSwap** (needs 0.015 BNB)
-2. **Activate bridges** between Xaheen and BSC
+2. **Activate bridges** between Nor and BSC
 3. **Build bridge UI** for users
 4. **Test complete flow** end-to-end
 5. **Documentation** for users
@@ -174,7 +174,7 @@ Xaheen Chain Value → Bridge → BSC Value → PancakeSwap → BNB → Fiat
 
 **What we'll activate**:
 - BTCBRBridgeMainnet.sol (BSC side)
-- BTCBRBridgePrivate.sol (Xaheen side)
+- BTCBRBridgePrivate.sol (Nor side)
 
 **Steps**:
 1. Deploy bridge contracts (already done)
@@ -194,7 +194,7 @@ Xaheen Chain Value → Bridge → BSC Value → PancakeSwap → BNB → Fiat
 
 **Frontend Components**:
 1. **Connect Wallet** (MetaMask)
-2. **Select Network** (Xaheen or BSC)
+2. **Select Network** (Nor or BSC)
 3. **Enter Amount** to bridge
 4. **Preview Bridge** (fees, time, etc.)
 5. **Confirm Transaction**
@@ -222,8 +222,8 @@ Once basic bridge is proven:
 
 | Direction | Fee | Minimum |
 |-----------|-----|---------|
-| Xaheen → BSC | 0.2% | 20 BTCBR |
-| BSC → Xaheen | 0.1% | 10 BTCBR |
+| Nor → BSC | 0.2% | 20 BTCBR |
+| BSC → Nor | 0.1% | 10 BTCBR |
 
 ### Transfer Limits:
 
@@ -270,11 +270,11 @@ Once trading begins:
 
 ### Contract Addresses:
 
-**Xaheen Chain (Chain ID 885824)**:
+**Nor Chain (Chain ID 885824)**:
 - Factory: Your deployed factory
 - Router: Your deployed router
-- BTCBR: Xaheen chain address
-- XHN: Xaheen chain address
+- BTCBR: Nor chain address
+- XHN: Nor chain address
 
 **BSC Mainnet (Chain ID 56)**:
 - BTCBR: `0x03FC6dA7C9E48201b8FEC1Ca53EA62eA6514d48f`
@@ -310,8 +310,8 @@ Multi-sig requirement: **2 of 3** signatures needed
 **Solution**: Careful gas estimation, sequential execution
 
 ### Problem 4: Token Naming
-**Issue**: "Xaheen Network Token" too long
-**Solution**: Shortened to just "Xaheen" (more professional)
+**Issue**: "Nor Network Token" too long
+**Solution**: Shortened to just "Nor" (more professional)
 
 ---
 
@@ -346,7 +346,7 @@ Multi-sig requirement: **2 of 3** signatures needed
    - Track status
 
 6. **End-to-End Testing**
-   - Earn tokens on Xaheen
+   - Earn tokens on Nor
    - Bridge to BSC
    - Trade on PancakeSwap
    - Verify entire flow
@@ -416,7 +416,7 @@ Multi-sig requirement: **2 of 3** signatures needed
 - ⏳ Bridge UI functional
 
 ### Phase 3 Success (Monetization):
-- ⏳ Users earning on Xaheen
+- ⏳ Users earning on Nor
 - ⏳ Users bridging to BSC
 - ⏳ Users cashing out via PancakeSwap
 - ⏳ Sustainable validator revenue from fees
@@ -431,7 +431,7 @@ Multi-sig requirement: **2 of 3** signatures needed
 - **BTCBR Contract**: https://bscscan.com/address/0x03FC6dA7C9E48201b8FEC1Ca53EA62eA6514d48f
 - **XHN Contract**: https://bscscan.com/address/0x1777C32Da09d4FD65a74B6C9AFca17862423Fd1C
 
-### Xaheen Chain:
+### Nor Chain:
 - **RPC**: rpc.xaheen.org
 - **Chain ID**: 885824
 - **Explorer**: (if available)
@@ -465,7 +465,7 @@ A: Liquidity is low ($106), trade smaller amounts (0.001-0.002 BNB)
 
 **You have successfully created a complete monetization infrastructure** that:
 
-1. ✅ Connects private Xaheen blockchain to public BSC mainnet
+1. ✅ Connects private Nor blockchain to public BSC mainnet
 2. ✅ Enables trading on PancakeSwap (BTCBR live)
 3. ⏳ Provides path for users to cash out (bridge pending)
 4. ⏳ Creates sustainable revenue from bridge fees

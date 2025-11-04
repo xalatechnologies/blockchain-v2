@@ -1,7 +1,7 @@
 /**
- * @title Noor Chain Ecosystem Deployment Script
- * @notice Deploys all core Noor Chain contracts in proper order
- * @dev Run with: npx hardhat run scripts/deploy-noor-ecosystem.js --network btcbr
+ * @title Nor Chain Ecosystem Deployment Script
+ * @notice Deploys all core Nor Chain contracts in proper order
+ * @dev Run with: npx hardhat run scripts/deploy-nor-ecosystem.js --network btcbr
  *
  * Deployment Order:
  * 1. NOR Token (native token)
@@ -20,17 +20,17 @@ import fs from "fs";
  *
  * Deploys complete DeFi infrastructure:
  * 1. Wrapped NOR (WNOR) - Native token wrapper
- * 2. NoorSwap Factory - DEX factory
- * 3. NoorSwap Router - DEX router
+ * 2. NorSwap Factory - DEX factory
+ * 3. NorSwap Router - DEX router
  * 4. Oracle contracts
  * 5. Bridge contracts
  *
- * Network: Noor Chain (Chain ID 65001)
+ * Network: Nor Chain (Chain ID 65001)
  * RPC: http://3.91.50.187:8545
  */
 
 const DEPLOYMENT_CONFIG = {
-  network: "noor",
+  network: "nor",
   rpc: "http://3.91.50.187:8545",
   chainId: 65001,
   btcbrAddress: "0x0cF8e180350253271f4b917CcFb0aCCc4862F262",
@@ -83,28 +83,28 @@ async function main() {
   deploymentResults.contracts.WNOR = wnorAddress;
   console.log("");
 
-  // Step 2: Deploy NoorSwap Factory
-  console.log("📦 Step 2: Deploying NoorSwap Factory...");
-  const NoorSwapFactory = await ethers.getContractFactory("NoorSwapFactory");
-  const factory = await NoorSwapFactory.deploy(deployer.address); // feeToSetter
+  // Step 2: Deploy NorSwap Factory
+  console.log("📦 Step 2: Deploying NorSwap Factory...");
+  const NorSwapFactory = await ethers.getContractFactory("NorSwapFactory");
+  const factory = await NorSwapFactory.deploy(deployer.address); // feeToSetter
   await factory.waitForDeployment();
   const factoryAddress = await factory.getAddress();
   console.log("   ✅ Factory deployed at:", factoryAddress);
-  deploymentResults.contracts.NoorSwapFactory = factoryAddress;
+  deploymentResults.contracts.NorSwapFactory = factoryAddress;
 
   const initCodeHash = await factory.INIT_CODE_PAIR_HASH();
   console.log("   📋 INIT_CODE_PAIR_HASH:", initCodeHash);
   deploymentResults.contracts.initCodeHash = initCodeHash;
   console.log("");
 
-  // Step 3: Deploy NoorSwap Router
-  console.log("📦 Step 3: Deploying NoorSwap Router...");
-  const NoorSwapRouter = await ethers.getContractFactory("NoorSwapRouter");
-  const router = await NoorSwapRouter.deploy(factoryAddress, wnorAddress);
+  // Step 3: Deploy NorSwap Router
+  console.log("📦 Step 3: Deploying NorSwap Router...");
+  const NorSwapRouter = await ethers.getContractFactory("NorSwapRouter");
+  const router = await NorSwapRouter.deploy(factoryAddress, wnorAddress);
   await router.waitForDeployment();
   const routerAddress = await router.getAddress();
   console.log("   ✅ Router deployed at:", routerAddress);
-  deploymentResults.contracts.NoorSwapRouter = routerAddress;
+  deploymentResults.contracts.NorSwapRouter = routerAddress;
   console.log("");
 
   // Step 4: Create BTCBR/WNOR Pair
@@ -153,7 +153,7 @@ async function main() {
 
   // Step 6: Save deployment info
   console.log("📦 Step 6: Saving deployment information...");
-  const deploymentPath = "deployments/noor-ecosystem-deployment.json";
+  const deploymentPath = "deployments/nor-ecosystem-deployment.json";
   fs.mkdirSync("deployments", { recursive: true });
   fs.writeFileSync(deploymentPath, JSON.stringify(deploymentResults, null, 2));
   console.log("   ✅ Deployment info saved to:", deploymentPath);
@@ -171,12 +171,12 @@ async function main() {
   console.log("📋 Deployed Contracts:");
   console.log("   BTCBR Token:      ", DEPLOYMENT_CONFIG.btcbrAddress);
   console.log("   WNOR:             ", wnorAddress);
-  console.log("   NoorSwap Factory: ", factoryAddress);
-  console.log("   NoorSwap Router:  ", routerAddress);
+  console.log("   NorSwap Factory: ", factoryAddress);
+  console.log("   NorSwap Router:  ", routerAddress);
   console.log("   BTCBR/WNOR Pair:  ", btcbrWnorPair);
   console.log("");
   console.log(
-    "🔗 Network: Noor Chain (Chain ID",
+    "🔗 Network: Nor Chain (Chain ID",
     DEPLOYMENT_CONFIG.chainId + ")"
   );
   console.log("🌐 RPC:", DEPLOYMENT_CONFIG.rpc);

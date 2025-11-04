@@ -5,8 +5,8 @@ import fs from "fs";
 dotenvConfig();
 
 async function main() {
-  console.log("🔐 Noor Chain DEX - LP Token Locking (36 Months)\n");
-  console.log("=" .repeat(70));
+  console.log("🔐 Nor Chain DEX - LP Token Locking (36 Months)\n");
+  console.log("=".repeat(70));
 
   const [deployer] = await ethers.getSigners();
   console.log("📋 Deployer:", deployer.address);
@@ -14,8 +14,12 @@ async function main() {
   console.log("💰 Balance:", ethers.formatEther(balance), "NOR\n");
 
   // Load deployment info
-  const deployment = JSON.parse(fs.readFileSync("./deployments/dex-infrastructure.json", "utf8"));
-  const liquidityDeployment = JSON.parse(fs.readFileSync("./deployments/liquidity-deployment.json", "utf8"));
+  const deployment = JSON.parse(
+    fs.readFileSync("./deployments/dex-infrastructure.json", "utf8")
+  );
+  const liquidityDeployment = JSON.parse(
+    fs.readFileSync("./deployments/liquidity-deployment.json", "utf8")
+  );
 
   const { LIQUIDITY_LOCK } = deployment.contracts;
   const { pairs } = liquidityDeployment;
@@ -24,7 +28,10 @@ async function main() {
   console.log(`📋 Total Pairs to Lock: ${pairs.length}\n`);
 
   // Get LiquidityLock contract instance
-  const liquidityLock = await ethers.getContractAt("LiquidityLock", LIQUIDITY_LOCK);
+  const liquidityLock = await ethers.getContractAt(
+    "LiquidityLock",
+    LIQUIDITY_LOCK
+  );
 
   // Lock duration: 36 months (1095 days)
   const lockDuration = 1095 * 24 * 60 * 60; // 36 months = 3 years in seconds
@@ -45,7 +52,7 @@ async function main() {
     console.log(`🔒 LOCKING ${i + 1}/${pairs.length}: ${pair.name} LP Tokens`);
     console.log("=".repeat(70));
 
-    const lpToken = await ethers.getContractAt("NoorSwapPair", pair.address);
+    const lpToken = await ethers.getContractAt("NorSwapPair", pair.address);
     const lpBalance = await lpToken.balanceOf(deployer.address);
     console.log(`  LP Token Address: ${pair.address}`);
     console.log(`  LP Balance: ${ethers.formatEther(lpBalance)}`);
@@ -73,7 +80,7 @@ async function main() {
     const receipt = await lockTx.wait();
 
     const lockEvent = receipt.logs.find(
-      log => log.fragment && log.fragment.name === "LiquidityLocked"
+      (log) => log.fragment && log.fragment.name === "LiquidityLocked"
     );
     const lockId = lockEvent ? lockEvent.args[0] : i;
 
@@ -85,7 +92,11 @@ async function main() {
     console.log(`    LP Token: ${lockInfo.lpToken}`);
     console.log(`    Amount: ${ethers.formatEther(lockInfo.amount)}`);
     console.log(`    Beneficiary: ${lockInfo.beneficiary}`);
-    console.log(`    Unlock Time: ${new Date(Number(lockInfo.unlockTime) * 1000).toISOString()}`);
+    console.log(
+      `    Unlock Time: ${new Date(
+        Number(lockInfo.unlockTime) * 1000
+      ).toISOString()}`
+    );
     console.log(`    Description: ${lockInfo.description}`);
 
     locks.push({
@@ -98,7 +109,7 @@ async function main() {
       unlockTime: unlockTime,
       unlockDate: unlockDate,
       description: description,
-      liquidity: pair.liquidity
+      liquidity: pair.liquidity,
     });
 
     console.log("");
@@ -137,7 +148,7 @@ async function main() {
     lockDuration: "36 months (3 years)",
     unlockDate: unlockDate,
     totalLiquidity: "$800,000",
-    locks: locks
+    locks: locks,
   };
 
   fs.writeFileSync(
@@ -155,7 +166,9 @@ async function main() {
   console.log("  2. ✅ All LP tokens locked for 36 months (3 years)");
   console.log("  3. ✅ Public verification available on-chain");
   console.log("\n🚀 DEX is now live and ready for trading!");
-  console.log("🌙 Noor Chain - Illuminating DeFi with $800K Locked Liquidity 🌙\n");
+  console.log(
+    "🌙 Nor Chain - Illuminating DeFi with $800K Locked Liquidity 🌙\n"
+  );
 
   return lockDeployment;
 }

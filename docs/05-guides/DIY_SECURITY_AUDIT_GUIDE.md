@@ -61,7 +61,7 @@ Analyzing contracts...
 ✓ PriceAuthority.sol
 ✓ SupplyController.sol
 ✓ SettlementHub.sol
-✓ XaheenRouter.sol
+✓ NorRouter.sol
 ✓ SettlementInbox.sol
 
 Issues found: [see report]
@@ -137,7 +137,7 @@ function criticalFunction() external {
 - [x] PriceAuthority: `updateCheckpoint()`, `publishQuote()`
 - [x] SupplyController: `addChain()`, `queueCapChange()`
 - [x] SettlementHub: `pauseChain()`, `globalPause()`
-- [x] XaheenRouter: `replenishInventory()`, `registerPublicLP()`
+- [x] NorRouter: `replenishInventory()`, `registerPublicLP()`
 
 ### 2.2 Reentrancy Protection
 
@@ -168,8 +168,8 @@ function withdraw() external nonReentrant {
 ```
 
 **Review:**
-- [x] XaheenRouter.buyXHT() - Uses `nonReentrant` ✅
-- [x] XaheenRouter.sellXHT() - Uses `nonReentrant` ✅
+- [x] NorRouter.buyNOR() - Uses `nonReentrant` ✅
+- [x] NorRouter.sellNOR() - Uses `nonReentrant` ✅
 - [x] SupplyController.settleFill() - Uses `nonReentrant` ✅
 
 ### 2.3 Integer Overflow/Underflow
@@ -209,7 +209,7 @@ function transfer(address recipient, uint256 amount) external {
 **Review These Functions:**
 - [ ] PriceAuthority.updateQuoteSigner(address) - Zero address check ✅
 - [ ] SupplyController.addChain() - Cap validation ✅
-- [ ] XaheenRouter.buyXHT() - Amount and deadline checks ✅
+- [ ] NorRouter.buyNOR() - Amount and deadline checks ✅
 
 ### 2.5 External Call Safety
 
@@ -283,7 +283,7 @@ function distribute(address[] memory recipients) external {
 - [ ] MEV protection (Flashbots for arbitrage bot)
 
 **Review:**
-- [x] XaheenRouter.buyXHT() - Has `minXHTOut` parameter ✅
+- [x] NorRouter.buyNOR() - Has `minNOROut` parameter ✅
 - [x] PriceAuthority - 60-second quote freshness ✅
 
 ### 2.9 Signature Verification
@@ -400,7 +400,7 @@ it("Should auto-pause on >3% price deviation");
 it("Should reject already-processed fills");
 ```
 
-### XaheenRouter.sol
+### NorRouter.sol
 
 **Critical Checks:**
 
@@ -436,7 +436,7 @@ npx hardhat run scripts/deploy-crosschain-spoke.js --network bscTestnet
 # 2. Execute trade
 const quote = await priceAuthority.currentQuote();
 const signedQuote = await signQuote(quote);
-await xaheenRouter.buyXHT(USDT, 1000e6, 9900e18, signedQuote, deadline);
+await xaheenRouter.buyNOR(USDT, 1000e6, 9900e18, signedQuote, deadline);
 
 # 3. Verify Fill event emitted
 const events = await settlementInbox.queryFilter("Fill");
@@ -462,7 +462,7 @@ assert(inventory.balance decreased by 9900e18);
 
 # 2. Attempt trade
 await expect(
-  xaheenRouter.buyXHT(...)
+  xaheenRouter.buyNOR(...)
 ).to.be.revertedWith("Chain paused");
 
 # 3. Verify hub auto-paused
@@ -492,7 +492,7 @@ await sleep(61000);
 
 # 3. Attempt trade with stale quote
 await expect(
-  xaheenRouter.buyXHT(..., staleQuote, ...)
+  xaheenRouter.buyNOR(..., staleQuote, ...)
 ).to.be.revertedWith("Quote expired");
 ```
 
@@ -550,7 +550,7 @@ await expect(
 
 ### Executive Summary
 
-**Project:** Xaheen Cross-Chain DEX
+**Project:** Nor Cross-Chain DEX
 **Audit Date:** [DATE]
 **Auditor:** [YOUR NAME/TEAM]
 **Scope:** 5 smart contracts (1,410 LOC)
@@ -567,7 +567,7 @@ await expect(
 1. PriceAuthority.sol (220 LOC)
 2. SupplyController.sol (320 LOC)
 3. SettlementHub.sol (350 LOC)
-4. XaheenRouter.sol (400 LOC)
+4. NorRouter.sol (400 LOC)
 5. SettlementInbox.sol (120 LOC)
 
 ### Tools Used
@@ -588,7 +588,7 @@ await expect(
 #### Low Issues: [List any]
 
 Example:
-- **L-01: Missing event emission** - XaheenRouter doesn't emit event on pause
+- **L-01: Missing event emission** - NorRouter doesn't emit event on pause
   - **Severity:** Low
   - **Impact:** Reduced transparency
   - **Recommendation:** Add `emit Paused()` event
@@ -602,7 +602,7 @@ Example:
 
 ### Conclusion
 
-The Xaheen Cross-Chain DEX smart contracts have been thoroughly reviewed and found to be **secure for mainnet deployment** with the following recommendations addressed:
+The Nor Cross-Chain DEX smart contracts have been thoroughly reviewed and found to be **secure for mainnet deployment** with the following recommendations addressed:
 
 1. [Recommendation 1]
 2. [Recommendation 2]

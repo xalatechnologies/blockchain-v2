@@ -31,7 +31,7 @@
 ### **3. Cross-Chain Bridge Infrastructure ✅**
 - **22 bridge types** designed
 - **4 production bridges** deployed and tested:
-  - Lock & Mint Bridge (BSC ↔ Xaheen)
+  - Lock & Mint Bridge (BSC ↔ Nor)
   - Atomic Swap Bridge (trustless P2P)
   - Liquidity Pool Bridge (instant transfers)
   - NFT Bridge (ERC721 wrapper)
@@ -138,14 +138,14 @@ cd docs/investor && ./create-investor-pdf.sh
 ### **SHORT-TERM (Next 2 Weeks):**
 
 **4. Launch Social Media**
-- Twitter/X: @XaheenChain
-- Telegram: @XaheenOfficial
+- Twitter/X: @NorChain
+- Telegram: @NorOfficial
 - Reddit: r/xaheen
 - Content ready in: `docs/launch/SOCIAL_MEDIA_LAUNCH.md`
 
 **5. Build User Acquisition Tools**
-- Airdrop contract: 1,000 XHT for first 1,000 users
-- Faucet contract: 10 XHT per user per day
+- Airdrop contract: 1,000 NOR for first 1,000 users
+- Faucet contract: 10 NOR per user per day
 - Simple, effective user onboarding
 
 **6. Create Landing Page**
@@ -177,7 +177,7 @@ cd docs/investor && ./create-investor-pdf.sh
 ### **LONG-TERM (Next 90 Days):**
 
 **10. Achieve 10,000 Users**
-- Metric: MetaMask installs with Xaheen
+- Metric: MetaMask installs with Nor
 - Liquidity mining incentives
 - Partnerships with dApps
 - Developer grants program
@@ -200,15 +200,15 @@ cd docs/investor && ./create-investor-pdf.sh
 **Valuation:** $5M pre-money
 **Investor Gets:**
 - 10% equity (standard terms)
-- 10% of XHT token supply (2.1T tokens)
+- 10% of NOR token supply (2.1T tokens)
 - Board seat for lead investor
 - Multi-sig treasury control
 - Liquidation preference (paid first)
 
 **Return Potential:**
-- Conservative (4x): $2.1M (XHT at $0.000001)
-- Moderate (42x): $21M (XHT at $0.00001)
-- Aggressive (420x): $210M (XHT at $0.0001)
+- Conservative (4x): $2.1M (NOR at $0.000001)
+- Moderate (42x): $21M (NOR at $0.00001)
+- Aggressive (420x): $210M (NOR at $0.0001)
 
 **Protection:**
 - Multi-sig treasury (investor is a signer)
@@ -222,7 +222,7 @@ cd docs/investor && ./create-investor-pdf.sh
 - Polygon: $450M → $19B (42x)
 - Avalanche: $290M → $30B (103x)
 - Fantom: $40M → $4B (100x)
-- **Xaheen: $500k → $??? (ground floor)**
+- **Nor: $500k → $??? (ground floor)**
 
 ---
 
@@ -272,7 +272,7 @@ cd docs/investor && ./create-investor-pdf.sh
    - Share on social media
    - Post in crypto communities
    - Tell your crypto-interested friends
-   - Add Xaheen to your MetaMask (be user #1!)
+   - Add Nor to your MetaMask (be user #1!)
 
 3. **Feedback**
    - Review investor pitch

@@ -11,7 +11,7 @@ dotenvConfig();
 
 async function main() {
   console.log("\n🧪 TESTING ALL 3 BRIDGES\n");
-  console.log("=" .repeat(60));
+  console.log("=".repeat(60));
 
   const [tester] = await ethers.getSigners();
   console.log("💼 Tester:", tester.address);
@@ -25,7 +25,7 @@ async function main() {
     process.exit(1);
   }
 
-  console.log("\n=" .repeat(60));
+  console.log("\n=".repeat(60));
 
   // Test BNB Bridge
   await testBNBBridge(tester);
@@ -36,7 +36,7 @@ async function main() {
   // Test ETH Bridge (if has ETH)
   await testETHBridge(tester);
 
-  console.log("\n=" .repeat(60));
+  console.log("\n=".repeat(60));
   console.log("✅ ALL TESTS COMPLETE!\n");
 }
 
@@ -51,13 +51,21 @@ async function testBNBBridge(tester) {
 
   // Test with 0.01 BNB
   const amount = ethers.parseEther("0.01");
-  const recipient = tester.address; // Bridge to same address on Xaheen
+  const recipient = tester.address; // Bridge to same address on Nor
 
   console.log("\n📊 Test Details:");
   console.log("Amount:", ethers.formatEther(amount), "BNB");
   console.log("Recipient:", recipient);
-  console.log("Expected fee:", ethers.formatEther(amount * BigInt(20) / BigInt(10000)), "BNB (0.2%)");
-  console.log("Expected net:", ethers.formatEther(amount * BigInt(9980) / BigInt(10000)), "BNB");
+  console.log(
+    "Expected fee:",
+    ethers.formatEther((amount * BigInt(20)) / BigInt(10000)),
+    "BNB (0.2%)"
+  );
+  console.log(
+    "Expected net:",
+    ethers.formatEther((amount * BigInt(9980)) / BigInt(10000)),
+    "BNB"
+  );
 
   console.log("\n⏳ Bridging BNB...");
 
@@ -77,10 +85,9 @@ async function testBNBBridge(tester) {
     console.log("Total fees in bridge:", ethers.formatEther(totalFees), "BNB");
 
     console.log("\n📋 Next steps:");
-    console.log("1. Add Xaheen network to MetaMask");
+    console.log("1. Add Nor network to MetaMask");
     console.log("2. Check WBNB balance at:", recipient);
     console.log("3. Expected: 0.0098 WBNB");
-
   } catch (error) {
     console.error("❌ BNB Bridge Failed:", error.message);
   }
@@ -97,7 +104,10 @@ async function testUSDTBridge(tester) {
   console.log("Bridge:", USDT_BRIDGE_BSC);
 
   const usdt = await ethers.getContractAt("IERC20", USDT_BSC);
-  const bridge = await ethers.getContractAt("USDTBridgeMainnet", USDT_BRIDGE_BSC);
+  const bridge = await ethers.getContractAt(
+    "USDTBridgeMainnet",
+    USDT_BRIDGE_BSC
+  );
 
   // Check USDT balance
   const usdtBalance = await usdt.balanceOf(tester.address);
@@ -117,13 +127,28 @@ async function testUSDTBridge(tester) {
   console.log("\n📊 Test Details:");
   console.log("Amount:", ethers.formatEther(amount), "USDT");
   console.log("Recipient:", recipient);
-  console.log("Expected fee:", ethers.formatEther(amount * BigInt(20) / BigInt(10000)), "USDT (0.2%)");
-  console.log("Expected net:", ethers.formatEther(amount * BigInt(9980) / BigInt(10000)), "USDT");
+  console.log(
+    "Expected fee:",
+    ethers.formatEther((amount * BigInt(20)) / BigInt(10000)),
+    "USDT (0.2%)"
+  );
+  console.log(
+    "Expected net:",
+    ethers.formatEther((amount * BigInt(9980)) / BigInt(10000)),
+    "USDT"
+  );
 
   try {
     // Check allowance
-    const currentAllowance = await usdt.allowance(tester.address, USDT_BRIDGE_BSC);
-    console.log("\n⏳ Current allowance:", ethers.formatEther(currentAllowance), "USDT");
+    const currentAllowance = await usdt.allowance(
+      tester.address,
+      USDT_BRIDGE_BSC
+    );
+    console.log(
+      "\n⏳ Current allowance:",
+      ethers.formatEther(currentAllowance),
+      "USDT"
+    );
 
     if (currentAllowance < amount) {
       console.log("Approving USDT...");
@@ -148,9 +173,8 @@ async function testUSDTBridge(tester) {
     console.log("Total fees in bridge:", ethers.formatEther(totalFees), "USDT");
 
     console.log("\n📋 Next steps:");
-    console.log("1. Check WUSDT balance on Xaheen at:", recipient);
+    console.log("1. Check WUSDT balance on Nor at:", recipient);
     console.log("2. Expected: 9.98 WUSDT");
-
   } catch (error) {
     console.error("❌ USDT Bridge Failed:", error.message);
   }

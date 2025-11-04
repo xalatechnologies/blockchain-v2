@@ -1,6 +1,6 @@
-# Xaheen Bridge User Guide
+# Nor Bridge User Guide
 
-Complete guide to using the Xaheen Bridge for cross-chain BTCBR transfers between BSC Mainnet and Xaheen Chain.
+Complete guide to using the Nor Bridge for cross-chain BTCBR transfers between BSC Mainnet and Nor Chain.
 
 ---
 
@@ -26,11 +26,11 @@ Complete guide to using the Xaheen Bridge for cross-chain BTCBR transfers betwee
    - See [MetaMask Setup Guide](METAMASK_SETUP.md)
 
 2. **BTCBR Tokens**
-   - You need BTCBR on either BSC Mainnet or Xaheen Chain
+   - You need BTCBR on either BSC Mainnet or Nor Chain
 
 3. **Gas Fees**
    - **BSC Mainnet**: ~0.001 BNB (about $0.30)
-   - **Xaheen Chain**: ~0.0001 XHT (negligible)
+   - **Nor Chain**: ~0.0001 NOR (negligible)
 
 ### Quick Start
 
@@ -51,13 +51,13 @@ Complete guide to using the Xaheen Bridge for cross-chain BTCBR transfers betwee
 
 ### Step 2: Select Direction
 
-**From BSC Mainnet to Xaheen Chain:**
+**From BSC Mainnet to Nor Chain:**
 - **From**: BSC Mainnet
-- **To**: Xaheen Chain
+- **To**: Nor Chain
 - **Fee**: 0.1%
 
-**From Xaheen Chain to BSC Mainnet:**
-- **From**: Xaheen Chain
+**From Nor Chain to BSC Mainnet:**
+- **From**: Nor Chain
 - **To**: BSC Mainnet
 - **Fee**: 0.2%
 
@@ -74,7 +74,7 @@ Use the **🔄 swap button** to quickly reverse direction.
 
 **Example:**
 ```
-Sending: 1,000 BTCBR (BSC → Xaheen)
+Sending: 1,000 BTCBR (BSC → Nor)
 Fee (0.1%): 1 BTCBR
 You Receive: 999 BTCBR
 ```
@@ -132,13 +132,13 @@ Double-check everything before proceeding!
 
 | Direction | Fee | Minimum Fee |
 |-----------|-----|-------------|
-| BSC → Xaheen | **0.1%** | 0.1 BTCBR |
-| Xaheen → BSC | **0.2%** | 0.2 BTCBR |
+| BSC → Nor | **0.1%** | 0.1 BTCBR |
+| Nor → BSC | **0.2%** | 0.2 BTCBR |
 
 ### Why Different Fees?
 
-- **BSC → Xaheen (0.1%)**: Lower fee for bringing liquidity to Xaheen Chain
-- **Xaheen → BSC (0.2%)**: Slightly higher fee for withdrawals to BSC
+- **BSC → Nor (0.1%)**: Lower fee for bringing liquidity to Nor Chain
+- **Nor → BSC (0.2%)**: Slightly higher fee for withdrawals to BSC
 
 ### Gas Fees (Separate)
 
@@ -147,9 +147,9 @@ Bridge fees are separate from gas fees:
 | Network | Gas Fee | USD Value |
 |---------|---------|-----------|
 | BSC Mainnet | ~0.001 BNB | ~$0.30 |
-| Xaheen Chain | ~0.0001 XHT | Negligible |
+| Nor Chain | ~0.0001 NOR | Negligible |
 
-**Total Cost Example (1,000 BTCBR transfer BSC → Xaheen):**
+**Total Cost Example (1,000 BTCBR transfer BSC → Nor):**
 - Bridge Fee: 1 BTCBR (0.1%)
 - Gas Fee: 0.001 BNB (~$0.30)
 - **Total: 1 BTCBR + $0.30 in gas**
@@ -207,7 +207,7 @@ Limits protect the bridge from:
 
 2. **On Block Explorer**
    - **BSC Mainnet**: https://bscscan.com
-   - **Xaheen Chain**: https://explorer.xaheen.org
+   - **Nor Chain**: https://explorer.xaheen.org
    - Search by transaction hash
 
 ### What if Transfer is Stuck?
@@ -230,11 +230,11 @@ Validators and relayers monitor 24/7, so stuck transfers are rare.
 
 ### "Insufficient funds for gas"
 
-**Problem**: Not enough BNB/XHT for gas fees
+**Problem**: Not enough BNB/NOR for gas fees
 
 **Solution**:
 - **BSC**: Get more BNB (need ~0.001 BNB)
-- **Xaheen**: Get XHT from faucet or exchange
+- **Nor**: Get NOR from faucet or exchange
 
 ### "Amount below minimum"
 
@@ -359,7 +359,7 @@ Currently, only BTCBR is supported. Other tokens may be added in the future.
 
 Daily limit: 500,000 BTCBR per address. No total withdrawal limit.
 
-### How do I add Xaheen Chain to MetaMask?
+### How do I add Nor Chain to MetaMask?
 
 See [MetaMask Setup Guide](METAMASK_SETUP.md) for step-by-step instructions.
 
@@ -373,7 +373,7 @@ See [MetaMask Setup Guide](METAMASK_SETUP.md) for step-by-step instructions.
 
 ## Next Steps
 
-1. **Add Xaheen Chain to MetaMask**: [Setup Guide](METAMASK_SETUP.md)
+1. **Add Nor Chain to MetaMask**: [Setup Guide](METAMASK_SETUP.md)
 2. **Execute your first transfer**: Start with 100 BTCBR to test
 3. **Monitor your transaction**: Check status in "Recent Transfers"
 4. **Join the community**: [Telegram](https://t.me/xaheenchain)

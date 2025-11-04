@@ -12,7 +12,7 @@
 - **Validators**: All 3 validators connected and mining
 - **RPC**: http://3.91.50.187:8545 ✅
 - **Token Supplies**:
-  - XHT: 21 billion ✅
+  - NOR: 21 billion ✅
   - BTCBR: 21 septillion ✅
 - **Smart Contracts**: All 6 tokenomics contracts deployed ✅
 
@@ -236,10 +236,10 @@ await window.ethereum.request({
   method: 'wallet_addEthereumChain',
   params: [{
     chainId: '0xFDE9',
-    chainName: 'Xaheen Chain',
+    chainName: 'Nor Chain',
     nativeCurrency: {
-      name: 'Xaheen Token',
-      symbol: 'XHT',
+      name: 'Nor Token',
+      symbol: 'NOR',
       decimals: 18
     },
     rpcUrls: ['https://rpc.xaheen.org'],
@@ -305,7 +305,7 @@ ansible-playbook -i inventory/xaheen-hosts playbooks/deploy-explorer.yml
 ## 📞 NEED HELP?
 
 - **Documentation**: See `docs/POST_LAUNCH_SETUP.md`
-- **Security**: See `docs/XHT_SECURITY_AUDIT.md`
+- **Security**: See `docs/NOR_SECURITY_AUDIT.md`
 - **Issues**: https://github.com/sahalat/blockchain-v2/issues
 
 ---

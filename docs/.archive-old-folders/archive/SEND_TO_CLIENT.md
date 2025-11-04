@@ -1,4 +1,4 @@
-# 🚀 Xaheen Chain - Client Information Package
+# 🚀 Nor Chain - Client Information Package
 
 **Status**: ✅ Ready for Public Deployment
 
@@ -11,10 +11,10 @@
 | Parameter | Value |
 |-----------|-------|
 | **Chain ID** | `65001` (0xFDE9) |
-| **Network Name** | Xaheen Chain |
+| **Network Name** | Nor Chain |
 | **RPC URL** | `https://rpc.xaheen.org` |
 | **WebSocket** | `wss://ws.xaheen.org` |
-| **Native Token** | XHT (18 decimals) |
+| **Native Token** | NOR (18 decimals) |
 | **Block Time** | 3 seconds |
 | **Block Explorer** | `https://explorer.xaheen.org` |
 | **Documentation** | `https://docs.xaheen.org` |
@@ -238,10 +238,10 @@ Response: {"jsonrpc":"2.0","id":1,"result":"0xfde9"}
 wscat -c wss://ws.xaheen.org
 
 # MetaMask Configuration
-Network: Xaheen Chain
+Network: Nor Chain
 Chain ID: 65001
 RPC: https://rpc.xaheen.org
-Symbol: XHT
+Symbol: NOR
 ```
 
 **Status**: 🟢 Operational and public!
@@ -299,9 +299,9 @@ We've already done 95% of the work:
 
 **Ready to Go Public?**
 
-Reply with your choice and we'll have Xaheen Chain public in 2-3 hours! 🚀
+Reply with your choice and we'll have Nor Chain public in 2-3 hours! 🚀
 
 ---
 
-**© 2025 Xaheen Technologies**
+**© 2025 Nor Technologies**
 **Where Intelligence Meets Blockchain** 🧠⚡

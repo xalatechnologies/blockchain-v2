@@ -40,7 +40,7 @@ echo "   - Time to epoch: ~8.3 hours"
 echo "   - Can test epoch boundaries within a day"
 echo ""
 
-cat << 'REMOTE_SCRIPT' > /tmp/noor-parlia-fix.sh
+cat << 'REMOTE_SCRIPT' > /tmp/nor-parlia-fix.sh
 #!/bin/bash
 
 VALIDATOR1="0xbb64F4050fC21A2eC3506245A1Ad63cB0256b6dE"
@@ -261,7 +261,7 @@ for i in {1..20}; do
 
     if [ "$DEC" -gt "10" ]; then
       echo ""
-      echo "🎉🎉🎉 SUCCESS! Noor Chain is producing blocks! 🎉🎉🎉"
+      echo "🎉🎉🎉 SUCCESS! Nor Chain is producing blocks! 🎉🎉🎉"
       SUCCESS=true
       break
     fi
@@ -299,11 +299,11 @@ echo "📊 Final Status:"
 docker ps --format "table {{.Names}}\t{{.Status}}" | grep -E "(NAMES|validator|xaheen)"
 
 echo ""
-echo "🌙 Noor Chain - Empowering the Future with Light and Trust"
+echo "🌙 Nor Chain - Empowering the Future with Light and Trust"
 
 REMOTE_SCRIPT
 
-chmod +x /tmp/noor-parlia-fix.sh
+chmod +x /tmp/nor-parlia-fix.sh
 
 echo "📤 Uploading FIXED genesis to server..."
 scp -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no \
@@ -312,8 +312,8 @@ scp -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no \
 
 echo "📤 Uploading fix script to server..."
 scp -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no \
-  /tmp/noor-parlia-fix.sh \
-  ec2-user@$SERVER_IP:/home/ec2-user/noor-parlia-fix.sh
+  /tmp/nor-parlia-fix.sh \
+  ec2-user@$SERVER_IP:/home/ec2-user/nor-parlia-fix.sh
 
 echo ""
 echo "🚀 Executing Parlia Deadlock Fix on server..."
@@ -322,9 +322,9 @@ echo ""
 
 ssh -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no \
   ec2-user@$SERVER_IP \
-  'bash /home/ec2-user/noor-parlia-fix.sh'
+  'bash /home/ec2-user/nor-parlia-fix.sh'
 
 echo ""
 echo "✅ Parlia Deadlock Fix Complete!"
 echo ""
-echo "🌙 Noor Chain - Empowering the Future with Light and Trust"
+echo "🌙 Nor Chain - Empowering the Future with Light and Trust"

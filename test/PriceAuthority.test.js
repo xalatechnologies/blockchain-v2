@@ -7,8 +7,8 @@ describe("PriceAuthority", function () {
   async function deployPriceAuthorityFixture() {
     const [owner, quoteSigner, unauthorized] = await ethers.getSigners();
 
-    // Deploy Mock XaheenDEXPair
-    const MockDEXPair = await ethers.getContractFactory("MockXaheenDEXPair");
+    // Deploy Mock NorDEXPair
+    const MockDEXPair = await ethers.getContractFactory("MockNorDEXPair");
     const mockPair = await MockDEXPair.deploy();
     await mockPair.waitForDeployment();
 
@@ -29,13 +29,19 @@ describe("PriceAuthority", function () {
   }
 
   describe("Deployment", function () {
-    it("Should set the correct Xaheen pair address", async function () {
-      const { priceAuthority, mockPair } = await loadFixture(deployPriceAuthorityFixture);
-      expect(await priceAuthority.xaheenPair()).to.equal(await mockPair.getAddress());
+    it("Should set the correct Nor pair address", async function () {
+      const { priceAuthority, mockPair } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
+      expect(await priceAuthority.xaheenPair()).to.equal(
+        await mockPair.getAddress()
+      );
     });
 
     it("Should set the correct quote signer", async function () {
-      const { priceAuthority, quoteSigner } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, quoteSigner } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
       expect(await priceAuthority.quoteSigner()).to.equal(quoteSigner.address);
     });
 
@@ -72,7 +78,9 @@ describe("PriceAuthority", function () {
 
   describe("TWAP Calculation", function () {
     it("Should calculate TWAP correctly after time passes", async function () {
-      const { priceAuthority, mockPair } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, mockPair } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
 
       // Wait 5 minutes (minimum required)
       await time.increase(300);
@@ -96,13 +104,15 @@ describe("PriceAuthority", function () {
       // Only wait 1 minute (less than 5 minute minimum)
       await time.increase(60);
 
-      await expect(
-        priceAuthority.currentQuote()
-      ).to.be.revertedWith("Insufficient time elapsed");
+      await expect(priceAuthority.currentQuote()).to.be.revertedWith(
+        "Insufficient time elapsed"
+      );
     });
 
     it("Should apply policy spread to TWAP", async function () {
-      const { priceAuthority, mockPair } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, mockPair } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
 
       // Wait minimum time
       await time.increase(300);
@@ -126,25 +136,33 @@ describe("PriceAuthority", function () {
 
   describe("Checkpoint Management", function () {
     it("Should allow owner to update checkpoint", async function () {
-      const { priceAuthority, owner } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, owner } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
 
       await time.increase(300);
 
-      await expect(
-        priceAuthority.connect(owner).updateCheckpoint()
-      ).to.not.be.reverted;
+      await expect(priceAuthority.connect(owner).updateCheckpoint()).to.not.be
+        .reverted;
     });
 
     it("Should prevent non-owner from updating checkpoint", async function () {
-      const { priceAuthority, unauthorized } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, unauthorized } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
 
       await expect(
         priceAuthority.connect(unauthorized).updateCheckpoint()
-      ).to.be.revertedWithCustomError(priceAuthority, "OwnableUnauthorizedAccount");
+      ).to.be.revertedWithCustomError(
+        priceAuthority,
+        "OwnableUnauthorizedAccount"
+      );
     });
 
     it("Should emit CheckpointUpdated event", async function () {
-      const { priceAuthority, mockPair } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, mockPair } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
 
       await time.increase(300);
 
@@ -154,11 +172,13 @@ describe("PriceAuthority", function () {
 
       await expect(priceAuthority.updateCheckpoint())
         .to.emit(priceAuthority, "CheckpointUpdated")
-        .withArgs(newPrice0, newPrice1, await time.latest() + 1);
+        .withArgs(newPrice0, newPrice1, (await time.latest()) + 1);
     });
 
     it("Should update both price0 and price1 checkpoints", async function () {
-      const { priceAuthority, mockPair } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, mockPair } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
 
       await time.increase(300);
 
@@ -178,21 +198,27 @@ describe("PriceAuthority", function () {
 
   describe("Quote Publishing", function () {
     it("Should allow owner to publish quote", async function () {
-      const { priceAuthority, owner } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, owner } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
 
       await time.increase(300);
 
-      await expect(
-        priceAuthority.connect(owner).publishQuote()
-      ).to.not.be.reverted;
+      await expect(priceAuthority.connect(owner).publishQuote()).to.not.be
+        .reverted;
     });
 
     it("Should prevent non-owner from publishing quote", async function () {
-      const { priceAuthority, unauthorized } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, unauthorized } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
 
       await expect(
         priceAuthority.connect(unauthorized).publishQuote()
-      ).to.be.revertedWithCustomError(priceAuthority, "OwnableUnauthorizedAccount");
+      ).to.be.revertedWithCustomError(
+        priceAuthority,
+        "OwnableUnauthorizedAccount"
+      );
     });
 
     it("Should increment quote nonce", async function () {
@@ -212,8 +238,10 @@ describe("PriceAuthority", function () {
 
       await time.increase(300);
 
-      await expect(priceAuthority.publishQuote())
-        .to.emit(priceAuthority, "QuotePublished");
+      await expect(priceAuthority.publishQuote()).to.emit(
+        priceAuthority,
+        "QuotePublished"
+      );
     });
 
     it("Should store last quote", async function () {
@@ -232,11 +260,13 @@ describe("PriceAuthority", function () {
 
   describe("Quote Verification", function () {
     it("Should verify valid signed quote", async function () {
-      const { priceAuthority, quoteSigner } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, quoteSigner } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
 
       await time.increase(300);
 
-      const price = ethers.parseEther("0.10"); // $0.10 per XHT
+      const price = ethers.parseEther("0.10"); // $0.10 per NOR
       const timestamp = await time.latest();
       const nonce = 1;
 
@@ -245,7 +275,9 @@ describe("PriceAuthority", function () {
         ["uint256", "uint256", "uint256"],
         [price, timestamp, nonce]
       );
-      const signature = await quoteSigner.signMessage(ethers.getBytes(messageHash));
+      const signature = await quoteSigner.signMessage(
+        ethers.getBytes(messageHash)
+      );
 
       // Encode quote
       const signedQuote = ethers.AbiCoder.defaultAbiCoder().encode(
@@ -257,7 +289,9 @@ describe("PriceAuthority", function () {
     });
 
     it("Should reject quote with invalid signature", async function () {
-      const { priceAuthority, unauthorized } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, unauthorized } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
 
       const price = ethers.parseEther("0.10");
       const timestamp = await time.latest();
@@ -268,7 +302,9 @@ describe("PriceAuthority", function () {
         ["uint256", "uint256", "uint256"],
         [price, timestamp, nonce]
       );
-      const signature = await unauthorized.signMessage(ethers.getBytes(messageHash));
+      const signature = await unauthorized.signMessage(
+        ethers.getBytes(messageHash)
+      );
 
       const signedQuote = ethers.AbiCoder.defaultAbiCoder().encode(
         ["uint256", "uint256", "uint256", "bytes"],
@@ -279,7 +315,9 @@ describe("PriceAuthority", function () {
     });
 
     it("Should reject expired quote (>60 seconds old)", async function () {
-      const { priceAuthority, quoteSigner } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, quoteSigner } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
 
       const price = ethers.parseEther("0.10");
       const oldTimestamp = await time.latest();
@@ -289,7 +327,9 @@ describe("PriceAuthority", function () {
         ["uint256", "uint256", "uint256"],
         [price, oldTimestamp, nonce]
       );
-      const signature = await quoteSigner.signMessage(ethers.getBytes(messageHash));
+      const signature = await quoteSigner.signMessage(
+        ethers.getBytes(messageHash)
+      );
 
       const signedQuote = ethers.AbiCoder.defaultAbiCoder().encode(
         ["uint256", "uint256", "uint256", "bytes"],
@@ -303,7 +343,9 @@ describe("PriceAuthority", function () {
     });
 
     it("Should reject quote with old nonce", async function () {
-      const { priceAuthority, quoteSigner } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, quoteSigner } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
 
       await time.increase(300);
 
@@ -320,7 +362,9 @@ describe("PriceAuthority", function () {
         ["uint256", "uint256", "uint256"],
         [price, timestamp, oldNonce]
       );
-      const signature = await quoteSigner.signMessage(ethers.getBytes(messageHash));
+      const signature = await quoteSigner.signMessage(
+        ethers.getBytes(messageHash)
+      );
 
       const signedQuote = ethers.AbiCoder.defaultAbiCoder().encode(
         ["uint256", "uint256", "uint256", "bytes"],
@@ -333,7 +377,9 @@ describe("PriceAuthority", function () {
 
   describe("Signer Management", function () {
     it("Should allow owner to update quote signer", async function () {
-      const { priceAuthority, owner } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, owner } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
       const [, , newSigner] = await ethers.getSigners();
 
       await priceAuthority.connect(owner).updateQuoteSigner(newSigner.address);
@@ -341,12 +387,19 @@ describe("PriceAuthority", function () {
     });
 
     it("Should prevent non-owner from updating signer", async function () {
-      const { priceAuthority, unauthorized } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, unauthorized } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
       const [, , newSigner] = await ethers.getSigners();
 
       await expect(
-        priceAuthority.connect(unauthorized).updateQuoteSigner(newSigner.address)
-      ).to.be.revertedWithCustomError(priceAuthority, "OwnableUnauthorizedAccount");
+        priceAuthority
+          .connect(unauthorized)
+          .updateQuoteSigner(newSigner.address)
+      ).to.be.revertedWithCustomError(
+        priceAuthority,
+        "OwnableUnauthorizedAccount"
+      );
     });
 
     it("Should reject zero address for new signer", async function () {
@@ -358,7 +411,9 @@ describe("PriceAuthority", function () {
     });
 
     it("Should emit QuoteSignerUpdated event", async function () {
-      const { priceAuthority, quoteSigner } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, quoteSigner } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
       const [, , newSigner] = await ethers.getSigners();
 
       await expect(priceAuthority.updateQuoteSigner(newSigner.address))
@@ -377,19 +432,24 @@ describe("PriceAuthority", function () {
     });
 
     it("Should prevent non-owner from updating spread", async function () {
-      const { priceAuthority, unauthorized } = await loadFixture(deployPriceAuthorityFixture);
+      const { priceAuthority, unauthorized } = await loadFixture(
+        deployPriceAuthorityFixture
+      );
 
       await expect(
         priceAuthority.connect(unauthorized).updatePolicySpread(50)
-      ).to.be.revertedWithCustomError(priceAuthority, "OwnableUnauthorizedAccount");
+      ).to.be.revertedWithCustomError(
+        priceAuthority,
+        "OwnableUnauthorizedAccount"
+      );
     });
 
     it("Should reject spread higher than 100 bps (1%)", async function () {
       const { priceAuthority } = await loadFixture(deployPriceAuthorityFixture);
 
-      await expect(
-        priceAuthority.updatePolicySpread(101)
-      ).to.be.revertedWith("Spread too high");
+      await expect(priceAuthority.updatePolicySpread(101)).to.be.revertedWith(
+        "Spread too high"
+      );
     });
 
     it("Should emit PolicySpreadUpdated event", async function () {
@@ -417,5 +477,5 @@ describe("PriceAuthority", function () {
   });
 });
 
-// Mock XaheenDEXPair contract for testing
-// This would normally be in contracts/test/MockXaheenDEXPair.sol
+// Mock NorDEXPair contract for testing
+// This would normally be in contracts/test/MockNorDEXPair.sol

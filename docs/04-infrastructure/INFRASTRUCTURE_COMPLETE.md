@@ -71,12 +71,12 @@ Your validator: 0xdD779a290C937144F80Eb75b75d814c834536B1b
 | BNB Bridge (BSC) | ✅ Deployed | 0x9bEFFFa3...e8C0 |
 | USDT Bridge (BSC) | ✅ Deployed | 0x7E1c444...f48 |
 | ETH Bridge (BSC) | ✅ Deployed | 0x99883F5...3Fe |
-| WBNB Token (Xaheen) | ✅ Deployed | 0x5E2A669...1B |
-| WUSDT Token (Xaheen) | ✅ Deployed | 0xA0de216...F5 |
-| WETH Token (Xaheen) | ✅ Deployed | 0xF1C1dc0...EA |
-| BNB Bridge (Xaheen) | ✅ Deployed | 0xB1347E3...8A |
-| USDT Bridge (Xaheen) | ✅ Deployed | 0x1d24C3c...34 |
-| ETH Bridge (Xaheen) | ✅ Deployed | 0x4Ce2954...13 |
+| WBNB Token (Nor) | ✅ Deployed | 0x5E2A669...1B |
+| WUSDT Token (Nor) | ✅ Deployed | 0xA0de216...F5 |
+| WETH Token (Nor) | ✅ Deployed | 0xF1C1dc0...EA |
+| BNB Bridge (Nor) | ✅ Deployed | 0xB1347E3...8A |
+| USDT Bridge (Nor) | ✅ Deployed | 0x1d24C3c...34 |
+| ETH Bridge (Nor) | ✅ Deployed | 0x4Ce2954...13 |
 | Validator Service | ✅ Running | PM2 managed |
 | Auto-restart | ✅ Enabled | PM2 |
 | Auto-boot | ✅ Configured | PM2 startup |
@@ -188,7 +188,7 @@ Or manually via BSCScan:
 2. Approve USDT first
 3. Call `bridgeUSDT(recipient, amount)`
 4. Watch PM2 logs: `pm2 logs bridge-validator`
-5. Check WUSDT on Xaheen!
+5. Check WUSDT on Nor!
 
 ---
 

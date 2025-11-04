@@ -1,7 +1,7 @@
 {
   "timestamp": "2025-11-03T13:38:53.224161Z",
   "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
-  "noor_chain": {
+  "nor_chain": {
     "chain_id": 65001,
     "bridge": "0xC808e1962bD8fE5d0fBc41D76B7909B80C442D84",
     "validators": [
@@ -46,6 +46,6 @@
     "ethereum": "Deploy WrappedBTCBR, WrappedNOR, WrappedDirhamat, and CrossChainBridge on Ethereum mainnet",
     "bsc": "Deploy WrappedBTCBR, WrappedNOR, WrappedDirhamat, and CrossChainBridge on BSC mainnet",
     "polygon": "Deploy WrappedBTCBR, WrappedNOR, WrappedDirhamat, and CrossChainBridge on Polygon mainnet",
-    "update_bridges": "After deploying on external chains, call updateBridge() on Noor Chain bridge with actual addresses"
+    "update_bridges": "After deploying on external chains, call updateBridge() on Nor Chain bridge with actual addresses"
   }
 }

@@ -1,10 +1,10 @@
-# Xaheen Chain Brand Identity Guide
+# Nor Chain Brand Identity Guide
 
 ## Brand Essence
 
-**Xaheen** (ذهين) - Arabic for "Smart, Genius, Undoubtedly Intelligent"
+**Nor** (ذهين) - Arabic for "Smart, Genius, Undoubtedly Intelligent"
 
-Xaheen Chain represents the pinnacle of intelligent blockchain design—a network that embodies wisdom, innovation, and computational brilliance.
+Nor Chain represents the pinnacle of intelligent blockchain design—a network that embodies wisdom, innovation, and computational brilliance.
 
 ---
 
@@ -173,12 +173,12 @@ font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', monospace;
 
 ---
 
-## Native Token: XHT (Xaheen Token)
+## Native Token: NOR (Nor Token)
 
 ### Token Identity
 
-**Name**: Xaheen Token
-**Symbol**: XHT
+**Name**: Nor Token
+**Symbol**: NOR
 **Type**: Native gas token
 **Decimals**: 18
 **Total Supply**: Configurable in genesis
@@ -186,16 +186,16 @@ font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', monospace;
 
 ### Token Logo Design
 
-#### Concept: "The XHT Emblem"
+#### Concept: "The NOR Emblem"
 
 ```
-Circular emblem with "XHT" monogram in the center,
+Circular emblem with "NOR" monogram in the center,
 surrounded by orbital rings representing network activity.
 
      ╭─────────────╮
     ╱               ╲
    │    ─────────    │
-   │   │   XHT   │   │
+   │   │   NOR   │   │
    │    ─────────    │
     ╲               ╱
      ╰─────────────╯
@@ -217,16 +217,16 @@ Format: SVG for scalability
 
 ```
 Genesis Allocation:
-- Pre-funded Accounts: 1,000 XHT each (for gas)
-- Main Wallet: 1,000,000 XHT (development/operations)
-- Validator Rewards: Block rewards of 2 XHT per block
-- Bridge Reserve: 100,000 XHT (for liquidity)
+- Pre-funded Accounts: 1,000 NOR each (for gas)
+- Main Wallet: 1,000,000 NOR (development/operations)
+- Validator Rewards: Block rewards of 2 NOR per block
+- Bridge Reserve: 100,000 NOR (for liquidity)
 
 Block Rewards:
-- Validators earn 2 XHT per block mined
+- Validators earn 2 NOR per block mined
 - ~28,800 blocks per day (3-second blocks)
-- ~57,600 XHT daily inflation
-- ~21M XHT annual inflation (adjustable)
+- ~57,600 NOR daily inflation
+- ~21M NOR annual inflation (adjustable)
 ```
 
 ---
@@ -238,7 +238,7 @@ Block Rewards:
 **Hero Section:**
 ```
 Background: Neural Network Gradient
-Headline: "Xaheen Chain: Where Intelligence Meets Blockchain"
+Headline: "Nor Chain: Where Intelligence Meets Blockchain"
 Subheadline: "Experience lightning-fast 3-second finality on the most
               intelligent EVM-compatible network"
 CTA Buttons: [Get Started] [View Docs] [Add to MetaMask]
@@ -257,11 +257,11 @@ CTA Buttons: [Get Started] [View Docs] [Add to MetaMask]
 ### 2. Block Explorer Branding
 
 **URL**: explorer.xaheen.org
-**Name**: Xaheen Explorer (powered by Blockscout)
+**Name**: Nor Explorer (powered by Blockscout)
 **Theme**: Dark mode with Intelligence Blue accents
 **Features**:
 - Real-time block visualization with neural network animation
-- XHT price ticker (when available)
+- NOR price ticker (when available)
 - Validator performance dashboard
 - Bridge activity monitor
 
@@ -274,13 +274,13 @@ CTA Buttons: [Get Started] [View Docs] [Add to MetaMask]
 - Network Information
 - Developer Guides
 - Bridge Documentation
-- XHT Token Guide
+- NOR Token Guide
 - API Reference
 - Validator Setup
 
 ### 4. Social Media Assets
 
-**Twitter/X**: @XaheenChain
+**Twitter/X**: @NorChain
 **Profile Image**: Hexagon Icon logo
 **Banner**: Gradient background with "Intelligent Blockchain" tagline
 **Bio**: "⚡ 3-sec finality | 🧠 Intelligent by design | 🔗 22+ bridges | Chain ID: 65001"
@@ -349,8 +349,8 @@ X │             │ X
 │   └── xaheen-wordmark-black.svg           # Text only, black
 │
 ├── xht-token/
-│   ├── xht-token-logo-color.svg            # XHT token logo
-│   ├── xht-token-logo-white.svg            # XHT white
+│   ├── xht-token-logo-color.svg            # NOR token logo
+│   ├── xht-token-logo-white.svg            # NOR white
 │   ├── xht-token-icon-64.png               # 64x64 PNG
 │   ├── xht-token-icon-128.png              # 128x128 PNG
 │   └── xht-token-icon-256.png              # 256x256 PNG
@@ -372,10 +372,10 @@ X │             │ X
 ```javascript
 {
   chainId: '0xFDE9',  // 65001 in hex
-  chainName: 'Xaheen Chain',
+  chainName: 'Nor Chain',
   nativeCurrency: {
-    name: 'Xaheen Token',
-    symbol: 'XHT',
+    name: 'Nor Token',
+    symbol: 'NOR',
     decimals: 18
   },
   rpcUrls: ['https://rpc.xaheen.org'],
@@ -393,11 +393,11 @@ Update the genesis file comments and documentation:
 {
   "config": {
     "chainId": 65001,
-    "comment": "Xaheen Chain - Intelligent Blockchain Network"
+    "comment": "Nor Chain - Intelligent Blockchain Network"
   },
   "nativeCurrency": {
-    "name": "Xaheen Token",
-    "symbol": "XHT",
+    "name": "Nor Token",
+    "symbol": "NOR",
     "decimals": 18
   }
 }
@@ -416,14 +416,14 @@ Update the genesis file comments and documentation:
 
 ### Elevator Pitch (30 seconds)
 
-"Xaheen Chain is an intelligent, high-performance blockchain network built on proven BSC technology. With 3-second block finality, multi-validator security, and 22+ innovative bridge implementations, Xaheen delivers enterprise-grade reliability with developer-friendly EVM compatibility. Powered by XHT, our native token, Xaheen Chain is designed for the next generation of decentralized applications."
+"Nor Chain is an intelligent, high-performance blockchain network built on proven BSC technology. With 3-second block finality, multi-validator security, and 22+ innovative bridge implementations, Nor delivers enterprise-grade reliability with developer-friendly EVM compatibility. Powered by NOR, our native token, Nor Chain is designed for the next generation of decentralized applications."
 
 ### Key Differentiators
 
 1. **⚡ Speed**: 3-second finality vs. 12-15 seconds on Ethereum
 2. **🧠 Innovation**: 22+ bridge types (production to experimental)
 3. **🔐 Security**: Multi-validator Parlia consensus
-4. **💰 Economics**: Low gas fees with XHT token
+4. **💰 Economics**: Low gas fees with NOR token
 5. **🛠️ Compatibility**: Full EVM compatibility, easy migration
 6. **🌍 Accessibility**: Enterprise-ready with developer-friendly tools
 
@@ -453,7 +453,7 @@ Update the genesis file comments and documentation:
 
 ### Phase 1: Core Identity
 - [ ] Design hexagon logo with neural network elements
-- [ ] Create XHT token logo
+- [ ] Create NOR token logo
 - [ ] Develop color palette swatches
 - [ ] Select and license fonts
 - [ ] Create logo variations (SVG, PNG)
@@ -485,19 +485,19 @@ Update the genesis file comments and documentation:
 
 ### Potential Sub-Brands
 
-1. **Xaheen Labs** - Research and development division
-2. **Xaheen Foundation** - Governance and grants
-3. **Xaheen Academy** - Developer education platform
-4. **Xaheen Studio** - DApp development toolkit
-5. **Xaheen Bridge** - Cross-chain infrastructure brand
+1. **Nor Labs** - Research and development division
+2. **Nor Foundation** - Governance and grants
+3. **Nor Academy** - Developer education platform
+4. **Nor Studio** - DApp development toolkit
+5. **Nor Bridge** - Cross-chain infrastructure brand
 
 ### Product Line Potential
 
-- Xaheen Wallet (official wallet)
-- Xaheen SDK (development kit)
-- Xaheen API (RPC services)
-- Xaheen Nodes (infrastructure as a service)
-- Xaheen Grants (funding program)
+- Nor Wallet (official wallet)
+- Nor SDK (development kit)
+- Nor API (RPC services)
+- Nor Nodes (infrastructure as a service)
+- Nor Grants (funding program)
 
 ---
 
@@ -505,8 +505,8 @@ Update the genesis file comments and documentation:
 
 ### Trademark Strategy
 
-1. **Register**: "Xaheen Chain" name
-2. **Register**: XHT token symbol
+1. **Register**: "Nor Chain" name
+2. **Register**: NOR token symbol
 3. **Register**: Hexagon logo design
 4. **Protect**: Domain names (.org, .com, .io, .xyz)
 5. **Monitor**: Brand usage across social media
@@ -528,7 +528,7 @@ Update the genesis file comments and documentation:
 
 ## Summary
 
-**Xaheen Chain** embodies intelligence, innovation, and performance. The brand identity reflects:
+**Nor Chain** embodies intelligence, innovation, and performance. The brand identity reflects:
 
 ✨ **Intelligence** through clean, technical design
 ⚡ **Speed** via dynamic gradients and sharp angles
@@ -536,6 +536,6 @@ Update the genesis file comments and documentation:
 🚀 **Innovation** showcased in 22+ bridge implementations
 💎 **Premium** quality with refined visual elements
 
-The **XHT token** serves as the lifeblood of this intelligent ecosystem, enabling fast, secure, and economical transactions on a network built for the future.
+The **NOR token** serves as the lifeblood of this intelligent ecosystem, enabling fast, secure, and economical transactions on a network built for the future.
 
-**Welcome to Xaheen Chain - Where Intelligence Meets Blockchain** 🧠⚡
+**Welcome to Nor Chain - Where Intelligence Meets Blockchain** 🧠⚡

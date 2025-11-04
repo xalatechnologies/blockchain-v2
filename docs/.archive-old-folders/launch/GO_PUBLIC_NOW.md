@@ -1,4 +1,4 @@
-# 🚀 Xaheen Chain - GO PUBLIC NOW!
+# 🚀 Nor Chain - GO PUBLIC NOW!
 
 **Immediate Action Plan to Compete with BNB Smart Chain**
 
@@ -19,7 +19,7 @@ All systems are prepared and tested. Here's what we have:
 ### Documentation ✅
 - ✅ 30+ comprehensive guides
 - ✅ Public launch strategy
-- ✅ Competitive analysis (Xaheen vs BNB)
+- ✅ Competitive analysis (Nor vs BNB)
 - ✅ DNS setup guide
 - ✅ RPC connection parameters
 - ✅ MetaMask integration
@@ -231,7 +231,7 @@ cat > /var/www/html/add-to-metamask.html << 'HTML'
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Xaheen Chain to MetaMask</title>
+    <title>Add Nor Chain to MetaMask</title>
     <style>
         body { font-family: Arial; text-align: center; padding: 50px; }
         button { padding: 20px 40px; font-size: 18px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
@@ -239,8 +239,8 @@ cat > /var/www/html/add-to-metamask.html << 'HTML'
     </style>
 </head>
 <body>
-    <h1>🧠 Xaheen Chain</h1>
-    <p>Click below to add Xaheen Chain to MetaMask</p>
+    <h1>🧠 Nor Chain</h1>
+    <p>Click below to add Nor Chain to MetaMask</p>
     <button onclick="addNetwork()">Add to MetaMask</button>
 
     <script>
@@ -250,13 +250,13 @@ cat > /var/www/html/add-to-metamask.html << 'HTML'
                 method: 'wallet_addEthereumChain',
                 params: [{
                     chainId: '0xFDE9',
-                    chainName: 'Xaheen Chain',
-                    nativeCurrency: { name: 'Xaheen Token', symbol: 'XHT', decimals: 18 },
+                    chainName: 'Nor Chain',
+                    nativeCurrency: { name: 'Nor Token', symbol: 'NOR', decimals: 18 },
                     rpcUrls: ['https://rpc.xaheen.org'],
                     blockExplorerUrls: ['https://explorer.xaheen.org']
                 }]
             });
-            alert('Xaheen Chain added successfully!');
+            alert('Nor Chain added successfully!');
         } catch (error) {
             alert('Error: ' + error.message);
         }
@@ -274,20 +274,20 @@ HTML
 ```bash
 # Create announcement document
 cat > /tmp/launch-announcement.md << 'ANNOUNCE'
-# 🚀 Xaheen Chain is LIVE!
+# 🚀 Nor Chain is LIVE!
 
-We're thrilled to announce the public launch of **Xaheen Chain** - the intelligent blockchain built to compete with BNB Smart Chain.
+We're thrilled to announce the public launch of **Nor Chain** - the intelligent blockchain built to compete with BNB Smart Chain.
 
 ## 🌐 Connect Now
 
 **Chain ID**: 65001 (0xFDE9)
 **RPC URL**: https://rpc.xaheen.org
 **WebSocket**: wss://ws.xaheen.org
-**Currency**: XHT (Xaheen Token)
+**Currency**: NOR (Nor Token)
 
 **Add to MetaMask**: https://xaheen.org/add-to-metamask.html
 
-## ⚡ Why Xaheen Chain?
+## ⚡ Why Nor Chain?
 
 ✅ **3-Second Blocks** - Same speed as BSC
 ✅ **Instant Finality** - Faster than BSC
@@ -298,7 +298,7 @@ We're thrilled to announce the public launch of **Xaheen Chain** - the intellige
 
 ## 🎯 Competing with BNB Smart Chain
 
-| Feature | Xaheen | BNB |
+| Feature | Nor | BNB |
 |---------|--------|-----|
 | Block Time | 3s | 3s |
 | Finality | Instant | ~6s |
@@ -325,14 +325,14 @@ Flash-Token Technology: 60-minute expiry, vault-backed
 
 ## 📞 Join the Community
 
-Twitter: @XaheenChain
+Twitter: @NorChain
 Telegram: t.me/xaheen_chain
 Discord: discord.gg/xaheen
 GitHub: github.com/xaheen-chain
 
 **Where Intelligence Meets Blockchain** 🧠⚡
 
-#XaheenChain #Blockchain #DeFi #Web3
+#NorChain #Blockchain #DeFi #Web3
 ANNOUNCE
 ```
 
@@ -340,7 +340,7 @@ ANNOUNCE
 
 Post on all platforms:
 
-**Twitter/X** (@XaheenChain):
+**Twitter/X** (@NorChain):
 ```
 🚀 XAHEEN CHAIN IS LIVE! 🧠⚡
 
@@ -356,12 +356,12 @@ Add to MetaMask: https://xaheen.org/add-to-metamask.html
 
 Join us: https://xaheen.org
 
-#XaheenChain #BSC #DeFi #Blockchain
+#NorChain #BSC #DeFi #Blockchain
 ```
 
 **LinkedIn** (Professional network):
 ```
-Excited to announce the public launch of Xaheen Chain - an intelligent,
+Excited to announce the public launch of Nor Chain - an intelligent,
 EVM-compatible blockchain designed for enterprise and DeFi applications.
 
 Key Features:
@@ -381,9 +381,9 @@ Documentation: https://docs.xaheen.org
 
 **Reddit** (r/cryptocurrency, r/ethdev, r/defi):
 ```
-[ANN] Xaheen Chain - Competing with BNB Smart Chain
+[ANN] Nor Chain - Competing with BNB Smart Chain
 
-After months of development, we're launching Xaheen Chain (Chain ID 65001),
+After months of development, we're launching Nor Chain (Chain ID 65001),
 an EVM-compatible blockchain focused on:
 
 🎯 Lower fees ($0.000001 vs BSC's $0.50)
@@ -405,13 +405,13 @@ Feedback welcome!
 ```
 🎉 MAJOR ANNOUNCEMENT 🎉
 
-Xaheen Chain is now PUBLIC!
+Nor Chain is now PUBLIC!
 
 🌐 RPC: https://rpc.xaheen.org
 🔌 Add to MetaMask: https://xaheen.org/add-to-metamask.html
 📚 Docs: https://docs.xaheen.org
 
-First 100 developers get free XHT for testing!
+First 100 developers get free NOR for testing!
 First 21 validators get 2x rewards!
 
 Let's compete with BNB Smart Chain! 🚀
@@ -424,11 +424,11 @@ Join: t.me/xaheen_chain
 Email to blockchain developer communities:
 
 ```
-Subject: [New Network] Xaheen Chain - EVM-Compatible, GDPR-Compliant
+Subject: [New Network] Nor Chain - EVM-Compatible, GDPR-Compliant
 
 Hi [Community],
 
-We've just launched Xaheen Chain, a new EVM-compatible blockchain designed
+We've just launched Nor Chain, a new EVM-compatible blockchain designed
 for developers who want:
 
 ✅ Lower fees (99.99% cheaper than BSC)
@@ -445,14 +445,14 @@ $ npm install -g xaheen-migrate
 $ xaheen-migrate --from bsc --to xaheen --contract 0x...
 
 We're offering:
-• Free XHT for testing (developer faucet)
+• Free NOR for testing (developer faucet)
 • $5,000 grants for first 10 DApps
 • Technical support and promotion
 
 Interested? Reply or visit https://xaheen.org/developers
 
 Best,
-Xaheen Technologies Team
+Nor Technologies Team
 ```
 
 ---
@@ -588,6 +588,6 @@ Run this command to deploy:
 
 ---
 
-**Xaheen Chain - Where Intelligence Meets Blockchain** 🧠⚡
+**Nor Chain - Where Intelligence Meets Blockchain** 🧠⚡
 
 **Let's compete with BNB Smart Chain and WIN! 🏆**

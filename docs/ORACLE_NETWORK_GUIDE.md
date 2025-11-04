@@ -1,8 +1,8 @@
-# Noor Chain Oracle Network Setup Guide
+# Nor Chain Oracle Network Setup Guide
 
 ## Overview
 
-The Noor Chain Oracle Network is a decentralized price feed system that provides reliable, multi-source price data for stablecoins and DeFi applications.
+The Nor Chain Oracle Network is a decentralized price feed system that provides reliable, multi-source price data for stablecoins and DeFi applications.
 
 ### Architecture
 
@@ -115,7 +115,7 @@ This will deploy 6 OracleAggregator contracts (one for each price feed):
 
    **Required Settings:**
    ```env
-   ORACLE_RPC_URL=https://rpc.noorchain.org
+   ORACLE_RPC_URL=https://rpc.norchain.org
    ORACLE_PRIVATE_KEY=<your_oracle_wallet_private_key>
 
    # Contract addresses (auto-filled from deployment)
@@ -145,14 +145,14 @@ npm start
 **Or use PM2 for production**:
 ```bash
 npm install -g pm2
-pm2 start oracle-service.js --name noor-oracle
+pm2 start oracle-service.js --name nor-oracle
 pm2 save
 pm2 startup  # Auto-start on server reboot
 ```
 
 **Monitor Logs:**
 ```bash
-pm2 logs noor-oracle
+pm2 logs nor-oracle
 ```
 
 ## Oracle Node Operation
@@ -176,8 +176,8 @@ Every 5 minutes (configurable), each oracle node:
 ### Example Output
 
 ```
-🌙 Noor Chain Oracle Node Initializing...
-📡 Connected to: https://rpc.noorchain.org
+🌙 Nor Chain Oracle Node Initializing...
+📡 Connected to: https://rpc.norchain.org
 🔑 Oracle Address: 0xFAA5AA97651c2e2b6860219bb8f9902d416dB5DD
 
 📝 Initializing Oracle Contracts...
@@ -260,19 +260,19 @@ console.log({
 **1. Price Freshness:**
 ```bash
 # Check last update time
-cast call $ORACLE_ADDRESS "lastUpdateTimestamp()(uint256)" --rpc-url https://rpc.noorchain.org
+cast call $ORACLE_ADDRESS "lastUpdateTimestamp()(uint256)" --rpc-url https://rpc.norchain.org
 ```
 
 **2. Reputation Scores:**
 ```bash
 # Check oracle reputation
-cast call $ORACLE_ADDRESS "oracles(address)(bool,uint256,uint256,uint256)" $ORACLE_NODE_ADDRESS --rpc-url https://rpc.noorchain.org
+cast call $ORACLE_ADDRESS "oracles(address)(bool,uint256,uint256,uint256)" $ORACLE_NODE_ADDRESS --rpc-url https://rpc.norchain.org
 ```
 
 **3. Active Oracles:**
 ```bash
 # Get active oracle count
-cast call $ORACLE_ADDRESS "getActiveOracles()(address[])" --rpc-url https://rpc.noorchain.org
+cast call $ORACLE_ADDRESS "getActiveOracles()(address[])" --rpc-url https://rpc.norchain.org
 ```
 
 ### Troubleshooting
@@ -280,7 +280,7 @@ cast call $ORACLE_ADDRESS "getActiveOracles()(address[])" --rpc-url https://rpc.
 **Oracle Not Submitting:**
 1. Check oracle wallet has NOR for gas
 2. Verify private key in .env is correct
-3. Check RPC connection: `curl https://rpc.noorchain.org`
+3. Check RPC connection: `curl https://rpc.norchain.org`
 4. Review oracle logs for errors
 
 **"ALREADY_SUBMITTED" Error:**
@@ -462,4 +462,4 @@ Track these metrics:
 
 **Version:** 1.0
 
-🌙 **Noor Chain - Illuminating Finance with Decentralized Price Feeds** 🌙
+🌙 **Nor Chain - Illuminating Finance with Decentralized Price Feeds** 🌙

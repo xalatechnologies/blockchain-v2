@@ -1,4 +1,4 @@
-# 🌐 Xaheen Chain - DNS Setup Guide
+# 🌐 Nor Chain - DNS Setup Guide
 
 **Quick DNS configuration for public launch**
 

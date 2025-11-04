@@ -1,7 +1,7 @@
 {
   "timestamp": "2025-11-03T14:15:51Z",
   "chainId": 65001,
-  "network": "Noor Chain",
+  "network": "Nor Chain",
   "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
   "oracleNodes": [
     "0xa3aaC90d6505c2a57141EaFDA973222DF91BBe1C",

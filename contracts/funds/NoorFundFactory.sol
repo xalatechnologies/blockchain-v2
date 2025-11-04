@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "./NoorFund.sol";
+import "./NorFund.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
 /**
- * @title NoorFundFactory
- * @notice Factory contract for deploying new Noor Chain investment funds
+ * @title NorFundFactory
+ * @notice Factory contract for deploying new Nor Chain investment funds
  * @dev Manages fund creation, tracking, and verification
  */
-contract NoorFundFactory is AccessControl {
+contract NorFundFactory is AccessControl {
 
     bytes32 public constant FUND_CREATOR_ROLE = keccak256("FUND_CREATOR_ROLE");
     bytes32 public constant REGULATOR_ROLE = keccak256("REGULATOR_ROLE");
@@ -64,7 +64,7 @@ contract NoorFundFactory is AccessControl {
 
     /**
      * @notice Deploy a new fund contract
-     * @param _name ERC20 token name (e.g., "Noor Gold Savings Fund Shares")
+     * @param _name ERC20 token name (e.g., "Nor Gold Savings Fund Shares")
      * @param _symbol ERC20 token symbol (e.g., "NGSF")
      * @param _fundName Display name (e.g., "Gold Savings Fund")
      * @param _shariahStructure Shariah structure (e.g., "Mudarabah", "Musharakah")
@@ -84,7 +84,7 @@ contract NoorFundFactory is AccessControl {
         require(_minimumInvestment > 0, "Minimum investment must be positive");
 
         // Deploy new fund
-        NoorFund fund = new NoorFund(
+        NorFund fund = new NorFund(
             _name,
             _symbol,
             _fundName,
@@ -240,7 +240,7 @@ contract NoorFundFactory is AccessControl {
      * @param _address Address to check
      * @return True if address is a fund
      */
-    function isNoorFund(address _address) external view returns (bool) {
+    function isNorFund(address _address) external view returns (bool) {
         return isFund[_address];
     }
 

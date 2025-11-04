@@ -2,7 +2,7 @@
  * Initialize Inventory on Mainnet
  *
  * This script initializes the inventory on BSC Mainnet spoke:
- * 1. Mints wrapped XHT to XaheenRouter for initial liquidity
+ * 1. Mints wrapped NOR to NorRouter for initial liquidity
  * 2. Authorizes topup on SupplyController (hub)
  *
  * Prerequisites:
@@ -22,51 +22,72 @@ async function main() {
 
   // Load deployment info
   if (!fs.existsSync("deployment-mainnet.json")) {
-    throw new Error("deployment-mainnet.json not found. Deploy contracts first!");
+    throw new Error(
+      "deployment-mainnet.json not found. Deploy contracts first!"
+    );
   }
 
-  const deploymentInfo = JSON.parse(fs.readFileSync("deployment-mainnet.json", "utf8"));
+  const deploymentInfo = JSON.parse(
+    fs.readFileSync("deployment-mainnet.json", "utf8")
+  );
 
   if (!deploymentInfo.hub || !deploymentInfo.spoke) {
-    throw new Error("Incomplete deployment info. Both hub and spoke must be deployed!");
+    throw new Error(
+      "Incomplete deployment info. Both hub and spoke must be deployed!"
+    );
   }
 
   console.log("✅ Loaded deployment info\n");
 
-  // Initial inventory amount (100K XHT)
+  // Initial inventory amount (100K NOR)
   const INITIAL_INVENTORY = ethers.parseEther("100000");
   const BSC_CHAIN_ID = 56;
 
-  console.log("Initial inventory:", ethers.formatEther(INITIAL_INVENTORY), "XHT\n");
+  console.log(
+    "Initial inventory:",
+    ethers.formatEther(INITIAL_INVENTORY),
+    "NOR\n"
+  );
 
-  // ========== STEP 1: Mint Wrapped XHT on Spoke ==========
-  console.log("📍 STEP 1: Minting wrapped XHT on BSC Mainnet...\n");
+  // ========== STEP 1: Mint Wrapped NOR on Spoke ==========
+  console.log("📍 STEP 1: Minting wrapped NOR on BSC Mainnet...\n");
 
   // Connect to BSC Mainnet
   const bscProvider = new ethers.JsonRpcProvider(process.env.BSC_MAINNET_RPC);
-  const bscWallet = new ethers.Wallet(process.env.MAINNET_PRIVATE_KEY, bscProvider);
+  const bscWallet = new ethers.Wallet(
+    process.env.MAINNET_PRIVATE_KEY,
+    bscProvider
+  );
 
   console.log("Connected to BSC Mainnet");
   console.log("Wallet:", bscWallet.address);
-  console.log("Balance:", ethers.formatEther(await bscProvider.getBalance(bscWallet.address)), "BNB\n");
+  console.log(
+    "Balance:",
+    ethers.formatEther(await bscProvider.getBalance(bscWallet.address)),
+    "BNB\n"
+  );
 
-  // Load Wrapped XHT contract
-  const wrappedXHTAbi = [
+  // Load Wrapped NOR contract
+  const wrappedNORAbi = [
     "function mint(address to, uint256 amount) external",
     "function balanceOf(address account) view returns (uint256)",
     "function grantRole(bytes32 role, address account) external",
     "function MINTER_ROLE() view returns (bytes32)",
   ];
 
-  const wrappedXHT = new ethers.Contract(
-    deploymentInfo.spoke.contracts.wrappedXHT,
-    wrappedXHTAbi,
+  const wrappedNOR = new ethers.Contract(
+    deploymentInfo.spoke.contracts.wrappedNOR,
+    wrappedNORAbi,
     bscWallet
   );
 
-  // Mint wrapped XHT to XaheenRouter
-  console.log("Minting", ethers.formatEther(INITIAL_INVENTORY), "wrapped XHT to XaheenRouter...");
-  const mintTx = await wrappedXHT.mint(
+  // Mint wrapped NOR to NorRouter
+  console.log(
+    "Minting",
+    ethers.formatEther(INITIAL_INVENTORY),
+    "wrapped NOR to NorRouter..."
+  );
+  const mintTx = await wrappedNOR.mint(
     deploymentInfo.spoke.contracts.xaheenRouter,
     INITIAL_INVENTORY
   );
@@ -75,19 +96,34 @@ async function main() {
   console.log("   TX:", mintTx.hash);
 
   // Verify balance
-  const routerBalance = await wrappedXHT.balanceOf(deploymentInfo.spoke.contracts.xaheenRouter);
-  console.log("   XaheenRouter balance:", ethers.formatEther(routerBalance), "wrapped XHT\n");
+  const routerBalance = await wrappedNOR.balanceOf(
+    deploymentInfo.spoke.contracts.xaheenRouter
+  );
+  console.log(
+    "   NorRouter balance:",
+    ethers.formatEther(routerBalance),
+    "wrapped NOR\n"
+  );
 
   // ========== STEP 2: Authorize Topup on Hub ==========
-  console.log("📍 STEP 2: Authorizing topup on Xaheen Chain...\n");
+  console.log("📍 STEP 2: Authorizing topup on Nor Chain...\n");
 
-  // Connect to Xaheen Chain
-  const xaheenProvider = new ethers.JsonRpcProvider(process.env.XAHEEN_CHAIN_RPC);
-  const xaheenWallet = new ethers.Wallet(process.env.MAINNET_PRIVATE_KEY, xaheenProvider);
+  // Connect to Nor Chain
+  const xaheenProvider = new ethers.JsonRpcProvider(
+    process.env.XAHEEN_CHAIN_RPC
+  );
+  const xaheenWallet = new ethers.Wallet(
+    process.env.MAINNET_PRIVATE_KEY,
+    xaheenProvider
+  );
 
-  console.log("Connected to Xaheen Chain");
+  console.log("Connected to Nor Chain");
   console.log("Wallet:", xaheenWallet.address);
-  console.log("Balance:", ethers.formatEther(await xaheenProvider.getBalance(xaheenWallet.address)), "XHT\n");
+  console.log(
+    "Balance:",
+    ethers.formatEther(await xaheenProvider.getBalance(xaheenWallet.address)),
+    "NOR\n"
+  );
 
   // Load SupplyController contract
   const supplyControllerAbi = [
@@ -102,15 +138,22 @@ async function main() {
   );
 
   // Authorize topup
-  console.log("Authorizing", ethers.formatEther(INITIAL_INVENTORY), "XHT topup for BSC...");
-  const topupTx = await supplyController.authorizeTopup(BSC_CHAIN_ID, INITIAL_INVENTORY);
+  console.log(
+    "Authorizing",
+    ethers.formatEther(INITIAL_INVENTORY),
+    "NOR topup for BSC..."
+  );
+  const topupTx = await supplyController.authorizeTopup(
+    BSC_CHAIN_ID,
+    INITIAL_INVENTORY
+  );
   await topupTx.wait();
   console.log("   ✅ Authorized successfully");
   console.log("   TX:", topupTx.hash);
 
   // Verify inventory
   const inventory = await supplyController.getInventory(BSC_CHAIN_ID);
-  console.log("   BSC inventory:", ethers.formatEther(inventory), "XHT\n");
+  console.log("   BSC inventory:", ethers.formatEther(inventory), "NOR\n");
 
   // ========== SUMMARY ==========
   console.log("═══════════════════════════════════════════════════════");
@@ -119,8 +162,16 @@ async function main() {
 
   console.log("📊 INVENTORY STATUS:");
   console.log("   Chain: BSC Mainnet (56)");
-  console.log("   XaheenRouter balance:", ethers.formatEther(routerBalance), "wrapped XHT");
-  console.log("   SupplyController inventory:", ethers.formatEther(inventory), "XHT");
+  console.log(
+    "   NorRouter balance:",
+    ethers.formatEther(routerBalance),
+    "wrapped NOR"
+  );
+  console.log(
+    "   SupplyController inventory:",
+    ethers.formatEther(inventory),
+    "NOR"
+  );
   console.log("   Status: ✅ Ready for trading\n");
 
   console.log("═══════════════════════════════════════════════════════\n");

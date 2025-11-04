@@ -2,7 +2,7 @@
 
 ## Summary
 
-The Xaheen Chain project has been fully organized with a clean structure, professional documentation, and investor-ready materials.
+The Nor Chain project has been fully organized with a clean structure, professional documentation, and investor-ready materials.
 
 ---
 
@@ -195,11 +195,11 @@ blockchain-v2/
 **THIS WEEK:**
 4. ⏳ Start investor outreach with complete package
 5. ⏳ Launch social media (Twitter, Telegram, Reddit)
-6. ⏳ Build airdrop contract (1,000 XHT for 1,000 users)
-7. ⏳ Build faucet contract (10 XHT per user per day)
+6. ⏳ Build airdrop contract (1,000 NOR for 1,000 users)
+7. ⏳ Build faucet contract (10 NOR per user per day)
 
 **THIS MONTH:**
-8. ⏳ Get 1,000 users to add Xaheen to MetaMask
+8. ⏳ Get 1,000 users to add Nor to MetaMask
 9. ⏳ Deploy additional DeFi protocols
 10. ⏳ List on first CEX (Gate.io/MEXC)
 

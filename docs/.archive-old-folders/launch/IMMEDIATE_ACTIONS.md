@@ -1,4 +1,4 @@
-# ⚡ Xaheen Chain - IMMEDIATE ACTIONS TO GO PUBLIC
+# ⚡ Nor Chain - IMMEDIATE ACTIONS TO GO PUBLIC
 
 **Status**: Ready to deploy | **Time to Public**: 3 hours
 
@@ -6,7 +6,7 @@
 
 ## 🎯 CONFIRMED: YOU WANT TO GO PUBLIC
 
-Perfect! Here's your immediate action plan to launch Xaheen Chain and compete with BNB Smart Chain.
+Perfect! Here's your immediate action plan to launch Nor Chain and compete with BNB Smart Chain.
 
 ---
 
@@ -23,7 +23,7 @@ Perfect! Here's your immediate action plan to launch Xaheen Chain and compete wi
 - **All guides ready**: 30+ comprehensive documents
 - **Deployment script**: Tested and ready
 - **Marketing materials**: Press release, social posts
-- **Competitive analysis**: Xaheen vs BNB complete
+- **Competitive analysis**: Nor vs BNB complete
 
 ### Ready to Execute ✅
 - **Production script**: `deploy-production-public.sh`
@@ -86,7 +86,7 @@ curl https://rpc.xaheen.org -X POST -H "Content-Type: application/json" \
 
 **2. Create Server** (5 minutes)
 ```
-1. Click "New Project" → Name: "Xaheen Chain"
+1. Click "New Project" → Name: "Nor Chain"
 2. Click "Add Server"
 3. Location: Nuremberg, Germany (or your choice)
 4. Image: Ubuntu 22.04
@@ -379,7 +379,7 @@ cat > /var/www/html/add-to-metamask.html << 'HTML'
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Xaheen Chain to MetaMask</title>
+    <title>Add Nor Chain to MetaMask</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -463,7 +463,7 @@ cat > /var/www/html/add-to-metamask.html << 'HTML'
 <body>
     <div class="container">
         <div class="logo">🧠⚡</div>
-        <h1>Xaheen Chain</h1>
+        <h1>Nor Chain</h1>
         <p class="subtitle">Where Intelligence Meets Blockchain</p>
 
         <div class="info-box">
@@ -473,7 +473,7 @@ cat > /var/www/html/add-to-metamask.html << 'HTML'
             </div>
             <div class="info-row">
                 <span class="label">Currency:</span>
-                <span class="value">XHT</span>
+                <span class="value">NOR</span>
             </div>
             <div class="info-row">
                 <span class="label">Block Time:</span>
@@ -505,10 +505,10 @@ cat > /var/www/html/add-to-metamask.html << 'HTML'
                 method: 'wallet_addEthereumChain',
                 params: [{
                     chainId: '0xFDE9',
-                    chainName: 'Xaheen Chain',
+                    chainName: 'Nor Chain',
                     nativeCurrency: {
-                        name: 'Xaheen Token',
-                        symbol: 'XHT',
+                        name: 'Nor Token',
+                        symbol: 'NOR',
                         decimals: 18
                     },
                     rpcUrls: ['https://rpc.xaheen.org'],
@@ -517,7 +517,7 @@ cat > /var/www/html/add-to-metamask.html << 'HTML'
             });
 
             statusDiv.className = 'status success';
-            statusDiv.textContent = '✅ Xaheen Chain added successfully! Check MetaMask.';
+            statusDiv.textContent = '✅ Nor Chain added successfully! Check MetaMask.';
         } catch (error) {
             statusDiv.className = 'status error';
             statusDiv.textContent = '❌ Error: ' + error.message;
@@ -555,14 +555,14 @@ Add to MetaMask: https://xaheen.org/add-to-metamask
 
 Join us: https://t.me/xaheen_chain
 
-#XaheenChain #BSC #DeFi #Blockchain #Web3
+#NorChain #BSC #DeFi #Blockchain #Web3
 ```
 
 ### Reddit (r/cryptocurrency, r/CryptoCurrency):
 ```
-[ANN] Xaheen Chain - Public Launch | Competing with BNB Smart Chain
+[ANN] Nor Chain - Public Launch | Competing with BNB Smart Chain
 
-We've just launched Xaheen Chain (Chain ID 65001), an EVM-compatible blockchain
+We've just launched Nor Chain (Chain ID 65001), an EVM-compatible blockchain
 designed to compete directly with BNB Smart Chain.
 
 Key Advantages:
@@ -586,7 +586,7 @@ Public Endpoints:
 
 Developer Resources:
 • Docs: https://docs.xaheen.org
-• Faucet: Free XHT for testing
+• Faucet: Free NOR for testing
 • Grants: $50K developer fund
 
 Add to MetaMask: https://xaheen.org/add-to-metamask
@@ -599,9 +599,9 @@ Feedback and questions welcome!
 
 ### LinkedIn:
 ```
-🚀 Excited to announce the public launch of Xaheen Chain!
+🚀 Excited to announce the public launch of Nor Chain!
 
-Xaheen Chain is an EVM-compatible blockchain designed for enterprise and DeFi
+Nor Chain is an EVM-compatible blockchain designed for enterprise and DeFi
 applications, competing directly with BNB Smart Chain.
 
 Key Differentiators:
@@ -723,10 +723,10 @@ Join us in building the future of intelligent blockchain.
 - ✅ Domain name
 - ✅ Your "GO" signal
 
-**Then Xaheen Chain goes public in 3 hours! 🎉**
+**Then Nor Chain goes public in 3 hours! 🎉**
 
 ---
 
-**Xaheen Chain - Where Intelligence Meets Blockchain** 🧠⚡
+**Nor Chain - Where Intelligence Meets Blockchain** 🧠⚡
 
 **Let's compete with BNB Smart Chain and WIN! 🏆**

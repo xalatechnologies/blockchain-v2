@@ -44,7 +44,7 @@ async function main() {
 
   // Save to .env format
   const envContent = `
-# Noor Chain Configuration
+# Nor Chain Configuration
 PRIVATE_CHAIN_RPC=http://3.91.50.187:8545
 CHAIN_ID=65001
 
@@ -81,7 +81,7 @@ BTCBR_ADDRESS=0x0cF8e180350253271f4b917CcFb0aCCc4862F262
   console.log("💡 To use validator for deployment:");
   console.log("   cp .env.validator .env");
   console.log(
-    "   npx hardhat run scripts/deploy-noor-ecosystem.js --network btcbr"
+    "   npx hardhat run scripts/deploy-nor-ecosystem.js --network btcbr"
   );
   console.log("");
 }

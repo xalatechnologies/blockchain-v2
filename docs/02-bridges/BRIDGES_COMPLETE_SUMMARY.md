@@ -14,7 +14,7 @@
 - USDT Bridge: `0x7E1c4448A9d87d5C5478B86085AF4e3715a06f48` ✅
 - ETH Bridge: `0x99883F508F41Ad3750695E68B456A50909f0F3Fe` ✅
 
-**Xaheen Chain:**
+**Nor Chain:**
 - WBNB Token: `0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B` ✅
 - BNB Bridge: `0xB1347E378CE63475b282fCC4E9037D51F189758A` ✅
 - WUSDT Token: `0xA0de216D0bF10E9a40C0666FB3De458e3AEB70F5` ✅
@@ -47,7 +47,7 @@
 - ✅ Locked 0.01 BNB on BSC
 - ✅ Fee collected: 0.00002 BNB
 - ✅ Net amount: 0.00998 BNB
-- ✅ WBNB minted on Xaheen: 0.00998 WBNB
+- ✅ WBNB minted on Nor: 0.00998 WBNB
 - ✅ Transaction confirmed: `0xd2a17...`
 - ✅ **FIRST REVENUE EARNED!** 💰
 
@@ -60,8 +60,8 @@
 - **Total: $0.008**
 
 **Next revenue when user:**
-1. Swaps WBNB → XHT (you earn 0.3%)
-2. Trades XHT (you earn 0.3% per trade)
+1. Swaps WBNB → NOR (you earn 0.3%)
+2. Trades NOR (you earn 0.3% per trade)
 
 ---
 
@@ -75,11 +75,11 @@
 3. Call `bridgeBNB` with desired amount
 4. Wait 30 seconds
 
-**Step 2: Add Xaheen to MetaMask**
-- Network: Xaheen Chain
+**Step 2: Add Nor to MetaMask**
+- Network: Nor Chain
 - RPC: https://rpc.xaheen.org
 - Chain ID: 65001
-- Symbol: XHT
+- Symbol: NOR
 
 **Step 3: Import WBNB Token**
 - Address: `0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B`
@@ -87,7 +87,7 @@
 - Decimals: 18
 
 **Step 4: Swap on DEX**
-- Swap WBNB → XHT
+- Swap WBNB → NOR
 - Start trading!
 
 ---
@@ -220,7 +220,7 @@ Twitter/Telegram:
 ```
 🌉 BNB/USDT/ETH Bridges LIVE!
 
-Bridge to Xaheen Chain:
+Bridge to Nor Chain:
 ✅ 0.2% fee (cheaper than CEX)
 ✅ 30-second transfers
 ✅ Trade with <$0.01 fees
@@ -230,12 +230,12 @@ Bridge: https://bscscan.com/address/0x9bE...
 
 Reddit:
 ```
-[Guide] Bridge BNB to Xaheen Chain
+[Guide] Bridge BNB to Nor Chain
 
-Easy steps to get XHT:
+Easy steps to get NOR:
 1. Buy BNB on Binance
-2. Bridge to Xaheen (0.2% fee)
-3. Swap for XHT
+2. Bridge to Nor (0.2% fee)
+3. Swap for NOR
 4. Trade fast & cheap!
 ```
 
@@ -249,9 +249,9 @@ Easy steps to get XHT:
 ### Option 3: Add Liquidity (Optional)
 
 ```bash
-# WBNB/XHT pair
-# WUSDT/XHT pair
-# WETH/XHT pair
+# WBNB/NOR pair
+# WUSDT/NOR pair
+# WETH/NOR pair
 
 Cost: ~$1,200 total
 Benefit: Users can swap immediately
@@ -322,7 +322,7 @@ USDT: 0x7E1c4448A9d87d5C5478B86085AF4e3715a06f48
 ETH:  0x99883F508F41Ad3750695E68B456A50909f0F3Fe
 ```
 
-**Xaheen Tokens:**
+**Nor Tokens:**
 ```
 WBNB:  0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B
 WUSDT: 0xA0de216D0bF10E9a40C0666FB3De458e3AEB70F5
@@ -331,7 +331,7 @@ WETH:  0xF1C1dc0263686093389Fbd66c2951122B2133aEA
 
 **Network:**
 ```
-Name: Xaheen Chain
+Name: Nor Chain
 RPC: https://rpc.xaheen.org
 Chain ID: 65001
 ```

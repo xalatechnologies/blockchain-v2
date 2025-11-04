@@ -1,6 +1,6 @@
-# Xaheen Chain Documentation
+# Nor Chain Documentation
 
-Welcome to the Xaheen Chain documentation repository. This directory contains comprehensive guides, references, and resources for developers, validators, and users.
+Welcome to the Nor Chain documentation repository. This directory contains comprehensive guides, references, and resources for developers, validators, and users.
 
 ---
 
@@ -13,7 +13,7 @@ Visual identity, brand guidelines, and rebranding information.
   - Logo design concepts (Intelligent Hexagon)
   - Color palette (Intelligence Blue, Innovation Cyan, Wisdom Purple)
   - Typography specifications
-  - XHT token branding
+  - NOR token branding
   - Marketing guidelines
 
 - **[XAHEEN_REBRANDING.md](./branding/XAHEEN_REBRANDING.md)** - Rebranding overview
@@ -207,7 +207,7 @@ Complete investment package for raising seed funding.
 ---
 
 ### 🔗 [Chainlist Submission](./)
-Submit Xaheen to Chainlist.org for easy MetaMask integration.
+Submit Nor to Chainlist.org for easy MetaMask integration.
 
 - **[eip155-65001-MINIMAL.json](./eip155-65001-MINIMAL.json)** - Chain data (recommended) ⭐
   - Honest version without fake URLs
@@ -303,11 +303,11 @@ Real-time status and deployment tracking.
 ## 🔑 Key Information
 
 ### Network Details
-- **Chain Name**: Xaheen Chain
+- **Chain Name**: Nor Chain
 - **Domain**: xaheen.org
 - **Chain ID**: 65001
 - **Network ID**: 65001
-- **Native Token**: XHT (Xaheen Token)
+- **Native Token**: NOR (Nor Token)
 - **Block Time**: 3 seconds
 - **Consensus**: Parlia PoSA
 - **RPC**: https://rpc.xaheen.org
@@ -434,7 +434,7 @@ When adding new documentation:
 - Bridge Interface: https://bridge.xaheen.org
 
 ### Social Media (To Be Created)
-- Twitter/X: @XaheenChain
+- Twitter/X: @NorChain
 - GitHub: github.com/xaheen-chain
 - Discord: discord.gg/xaheen
 - Telegram: t.me/xaheen_chain
@@ -465,10 +465,10 @@ When adding new documentation:
 ---
 
 **Last Updated**: 2024
-**Version**: 1.0 (Xaheen Chain Rebranding)
+**Version**: 1.0 (Nor Chain Rebranding)
 
 ---
 
-**Welcome to Xaheen Chain - Where Intelligence Meets Blockchain** 🧠⚡
+**Welcome to Nor Chain - Where Intelligence Meets Blockchain** 🧠⚡
 
 For the main project README, see [../README.md](../README.md)

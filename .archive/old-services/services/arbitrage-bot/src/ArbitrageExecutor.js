@@ -2,8 +2,8 @@
  * Arbitrage Executor
  *
  * Executes arbitrage trades:
- * 1. Buy XHT where it's cheap
- * 2. Sell XHT where it's expensive
+ * 1. Buy NOR where it's cheap
+ * 2. Sell NOR where it's expensive
  * 3. Calculate and verify profit
  */
 
@@ -35,9 +35,14 @@ export class ArbitrageExecutor {
       throw new Error("No private key configured");
     }
 
-    // Create wallet for Xaheen
-    const xaheenProvider = new ethers.JsonRpcProvider(this.config.xaheenChain.rpc);
-    this.xaheenWallet = new ethers.Wallet(this.config.wallet.privateKey, xaheenProvider);
+    // Create wallet for Nor
+    const xaheenProvider = new ethers.JsonRpcProvider(
+      this.config.xaheenChain.rpc
+    );
+    this.xaheenWallet = new ethers.Wallet(
+      this.config.wallet.privateKey,
+      xaheenProvider
+    );
 
     // Create wallets for each spoke
     for (const spoke of this.config.spokes) {
@@ -46,14 +51,16 @@ export class ArbitrageExecutor {
       this.spokeWallets.set(spoke.chainId, wallet);
     }
 
-    console.log(`✅ Arbitrage Executor initialized (address: ${this.xaheenWallet.address})`);
+    console.log(
+      `✅ Arbitrage Executor initialized (address: ${this.xaheenWallet.address})`
+    );
   }
 
   /**
    * Calculate arbitrage profit
-   * @param {number} xaheenPrice - Price on Xaheen
+   * @param {number} xaheenPrice - Price on Nor
    * @param {number} spokePrice - Price on spoke
-   * @param {number} amount - Amount of XHT to arbitrage
+   * @param {number} amount - Amount of NOR to arbitrage
    * @param {number} spokeCh ainId - Spoke chain ID
    * @returns {Promise<number>} Estimated profit in USD
    */
@@ -61,17 +68,20 @@ export class ArbitrageExecutor {
     // Simple profit calculation
     // Real implementation would include gas costs, slippage, etc.
 
-    const direction = spokePrice > xaheenPrice ? "buy_xaheen_sell_spoke" : "buy_spoke_sell_xaheen";
+    const direction =
+      spokePrice > xaheenPrice
+        ? "buy_xaheen_sell_spoke"
+        : "buy_spoke_sell_xaheen";
 
     let grossProfit = 0;
 
     if (direction === "buy_xaheen_sell_spoke") {
-      // Buy on Xaheen at lower price, sell on spoke at higher price
+      // Buy on Nor at lower price, sell on spoke at higher price
       const buyValue = amount * xaheenPrice;
       const sellValue = amount * spokePrice;
       grossProfit = sellValue - buyValue;
     } else {
-      // Buy on spoke at lower price, sell on Xaheen at higher price
+      // Buy on spoke at lower price, sell on Nor at higher price
       const buyValue = amount * spokePrice;
       const sellValue = amount * xaheenPrice;
       grossProfit = sellValue - buyValue;
@@ -80,8 +90,8 @@ export class ArbitrageExecutor {
     // Estimate gas costs
     const gasEstimate = await this.estimateGasCosts(spokeChainId);
 
-    // Subtract fees (0.3% on DEX + 0.35% on XaheenRouter)
-    const totalFees = (amount * xaheenPrice * 0.0065); // 0.65% total
+    // Subtract fees (0.3% on DEX + 0.35% on NorRouter)
+    const totalFees = amount * xaheenPrice * 0.0065; // 0.65% total
     const netProfit = grossProfit - gasEstimate - totalFees;
 
     return netProfit;
@@ -113,26 +123,36 @@ export class ArbitrageExecutor {
    * @returns {Promise<Object>} Result object
    */
   async execute(params) {
-    const { xaheenPrice, spokePrice, spokeChainId, spokeName, amount, expectedProfit } = params;
+    const {
+      xaheenPrice,
+      spokePrice,
+      spokeChainId,
+      spokeName,
+      amount,
+      expectedProfit,
+    } = params;
 
     console.log(`\n💼 Executing arbitrage on ${spokeName}:`);
-    console.log(`   Xaheen: $${xaheenPrice.toFixed(6)}`);
+    console.log(`   Nor: $${xaheenPrice.toFixed(6)}`);
     console.log(`   ${spokeName}: $${spokePrice.toFixed(6)}`);
-    console.log(`   Amount: ${amount} XHT`);
+    console.log(`   Amount: ${amount} NOR`);
     console.log(`   Expected profit: $${expectedProfit.toFixed(2)}`);
 
     try {
-      const direction = spokePrice > xaheenPrice ? "buy_xaheen_sell_spoke" : "buy_spoke_sell_xaheen";
+      const direction =
+        spokePrice > xaheenPrice
+          ? "buy_xaheen_sell_spoke"
+          : "buy_spoke_sell_xaheen";
 
       if (direction === "buy_xaheen_sell_spoke") {
-        // Buy XHT on Xaheen, sell on spoke
-        console.log(`   📥 Buy ${amount} XHT on Xaheen`);
-        console.log(`   📤 Sell ${amount} XHT on ${spokeName}`);
+        // Buy NOR on Nor, sell on spoke
+        console.log(`   📥 Buy ${amount} NOR on Nor`);
+        console.log(`   📤 Sell ${amount} NOR on ${spokeName}`);
 
         // In production, this would:
-        // 1. Swap USDT -> XHT on Xaheen DEX
-        // 2. Bridge XHT to spoke (via existing bridge)
-        // 3. Swap XHT -> USDT on spoke DEX
+        // 1. Swap USDT -> NOR on Nor DEX
+        // 2. Bridge NOR to spoke (via existing bridge)
+        // 3. Swap NOR -> USDT on spoke DEX
 
         // For now, return simulated result
         return {
@@ -145,14 +165,14 @@ export class ArbitrageExecutor {
           },
         };
       } else {
-        // Buy XHT on spoke, sell on Xaheen
-        console.log(`   📥 Buy ${amount} XHT on ${spokeName}`);
-        console.log(`   📤 Sell ${amount} XHT on Xaheen`);
+        // Buy NOR on spoke, sell on Nor
+        console.log(`   📥 Buy ${amount} NOR on ${spokeName}`);
+        console.log(`   📤 Sell ${amount} NOR on Nor`);
 
         // In production, this would:
-        // 1. Swap USDT -> XHT on spoke DEX
-        // 2. Bridge XHT to Xaheen (via existing bridge)
-        // 3. Swap XHT -> USDT on Xaheen DEX
+        // 1. Swap USDT -> NOR on spoke DEX
+        // 2. Bridge NOR to Nor (via existing bridge)
+        // 3. Swap NOR -> USDT on Nor DEX
 
         return {
           success: true,
@@ -191,11 +211,17 @@ export class ArbitrageExecutor {
 
     // Check and approve if needed
     const tokenContract = new ethers.Contract(tokenIn, ERC20_ABI, wallet);
-    const allowance = await tokenContract.allowance(wallet.address, spoke.dexRouter);
+    const allowance = await tokenContract.allowance(
+      wallet.address,
+      spoke.dexRouter
+    );
 
     if (allowance < amountIn) {
       console.log(`   🔐 Approving ${spoke.dexName}...`);
-      const approveTx = await tokenContract.approve(spoke.dexRouter, ethers.MaxUint256);
+      const approveTx = await tokenContract.approve(
+        spoke.dexRouter,
+        ethers.MaxUint256
+      );
       await approveTx.wait();
     }
 
@@ -229,19 +255,19 @@ export class ArbitrageExecutor {
   }
 
   /**
-   * Execute swap on Xaheen DEX
+   * Execute swap on Nor DEX
    * @param {string} tokenIn
    * @param {string} tokenOut
    * @param {BigInt} amountIn
    * @returns {Promise<Object>}
    */
-  async executeSwapOnXaheen(tokenIn, tokenOut, amountIn) {
-    // Similar to executeSwapOnSpoke but for Xaheen DEX
-    // Implementation depends on XaheenDEXRouter interface
+  async executeSwapOnNor(tokenIn, tokenOut, amountIn) {
+    // Similar to executeSwapOnSpoke but for Nor DEX
+    // Implementation depends on NorDEXRouter interface
 
-    console.log(`   🔄 Swapping on Xaheen DEX...`);
+    console.log(`   🔄 Swapping on Nor DEX...`);
 
-    // Placeholder - implement with actual XaheenDEXRouter
+    // Placeholder - implement with actual NorDEXRouter
     return {
       txHash: "0x...",
       amountOut: 0n,

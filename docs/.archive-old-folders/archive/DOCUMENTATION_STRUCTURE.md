@@ -1,8 +1,8 @@
-# Xaheen Chain Documentation Structure
+# Nor Chain Documentation Structure
 
 ## 📁 Complete File Organization
 
-This document provides a visual map of the entire Xaheen Chain repository structure.
+This document provides a visual map of the entire Nor Chain repository structure.
 
 ---
 
@@ -10,7 +10,7 @@ This document provides a visual map of the entire Xaheen Chain repository struct
 
 ```
 blockchain-v2/
-├── README.md                       # Main project overview (Xaheen Chain)
+├── README.md                       # Main project overview (Nor Chain)
 ├── CLAUDE.md                       # Technical guide for Claude Code
 ├── README_BRIDGE.md                # Bridge overview (legacy)
 ├── MANUAL_DEPLOYMENT.md            # Manual deployment guide (legacy)
@@ -107,7 +107,7 @@ blockchain-v2/
    - Complete visual identity system
    - Logo concepts and specifications
    - Color palette and typography
-   - XHT token branding
+   - NOR token branding
    - Marketing guidelines
 
 2. **XAHEEN_REBRANDING.md** (13 KB)
@@ -224,7 +224,7 @@ Smart Contracts:
 Deployment:
 - /scripts/deploy-bridge-complete.sh            # Complete deployment
 - /scripts/hardhat-deploy-mainnet.js            # BSC mainnet
-- /scripts/hardhat-deploy-private.js            # Xaheen Chain
+- /scripts/hardhat-deploy-private.js            # Nor Chain
 ```
 
 ### 🔧 DevOps/Validators
@@ -255,7 +255,7 @@ Brand Assets:
 - Logo concepts (in brand guide)
 - Color palette: #0066FF, #00D9FF, #8B00FF
 - Typography: Orbitron, Inter, JetBrains Mono
-- XHT token branding
+- NOR token branding
 ```
 
 ### 🚀 Product/Launch Team
@@ -365,7 +365,7 @@ Total Scripts: 34
 - ✅ Organized into 5 main categories
 - ✅ Updated all cross-references
 - ✅ Created this structure map
-- ✅ Updated package.json with Xaheen branding
+- ✅ Updated package.json with Nor branding
 
 **Before**:
 ```
@@ -395,7 +395,7 @@ blockchain-v2/
 
 ## 🎓 Learning Path
 
-### Week 1: Understanding Xaheen
+### Week 1: Understanding Nor
 1. Read `/README.md` (project overview)
 2. Read `/CLAUDE.md` (technical details)
 3. Review `/docs/branding/REBRANDING_SUMMARY.md`
@@ -431,7 +431,7 @@ blockchain-v2/
 - https://bridge.xaheen.org - Bridge interface
 
 **Social Media** (To Be Created):
-- Twitter: @XaheenChain
+- Twitter: @NorChain
 - GitHub: github.com/xaheen-chain
 - Discord: discord.gg/xaheen
 - Telegram: t.me/xaheen_chain
@@ -445,7 +445,7 @@ blockchain-v2/
 - [ ] Read CLAUDE.md
 - [ ] Review docs/README.md
 - [ ] Understand Chain ID (65001)
-- [ ] Learn about XHT token
+- [ ] Learn about NOR token
 - [ ] Review brand guidelines
 
 ### For Code Changes
@@ -458,9 +458,9 @@ blockchain-v2/
 ---
 
 **Last Updated**: 2024
-**Repository**: blockchain-v2 (Xaheen Chain)
+**Repository**: blockchain-v2 (Nor Chain)
 **Chain ID**: 65001
-**Native Token**: XHT
+**Native Token**: NOR
 
 ---
 

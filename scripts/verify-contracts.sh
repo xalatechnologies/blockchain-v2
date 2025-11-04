@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🔍 Verifying Contracts on Xaheen Chain"
+echo "🔍 Verifying Contracts on Nor Chain"
 echo ""
 
 # Contract addresses
@@ -52,18 +52,18 @@ echo "Checking all deployed contracts..."
 echo ""
 
 check_contract "1. BTCBR Token (Genesis)" "$BTCBR"
-check_contract "2. XHTStaking" "$STAKING"
-check_contract "3. XHTBurnMechanism" "$BURN"
-check_contract "4. XHTGovernance" "$GOVERNANCE"
-check_contract "5. XHTRevenue" "$REVENUE"
-check_contract "6. XHTCrowdfunding" "$CROWDFUNDING"
-check_contract "7. XHTCharity" "$CHARITY"
+check_contract "2. NORStaking" "$STAKING"
+check_contract "3. NORBurnMechanism" "$BURN"
+check_contract "4. NORGovernance" "$GOVERNANCE"
+check_contract "5. NORRevenue" "$REVENUE"
+check_contract "6. NORCrowdfunding" "$CROWDFUNDING"
+check_contract "7. NORCharity" "$CHARITY"
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "📊 SUMMARY"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
-echo "Total contracts on Xaheen Chain: 7"
+echo "Total contracts on Nor Chain: 7"
 echo ""
 echo "✅ All contracts verified and operational!"
 echo ""

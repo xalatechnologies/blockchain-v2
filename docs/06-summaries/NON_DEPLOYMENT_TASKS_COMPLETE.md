@@ -23,7 +23,7 @@ All tasks that don't require testnet BNB have been completed! Here's what's read
 
 - `docs/METAMASK_SETUP.md` (1,500+ lines)
   - MetaMask installation guide
-  - Xaheen Chain network setup (automatic & manual)
+  - Nor Chain network setup (automatic & manual)
   - BTCBR token import guide
   - Network switching guide
   - Common issues & solutions
@@ -60,7 +60,7 @@ All tasks that don't require testnet BNB have been completed! Here's what's read
 
 **Files Created**:
 - `services/relayer/.env.example` (300+ lines)
-  - Network configuration (BSC, Polygon, Ethereum, Xaheen)
+  - Network configuration (BSC, Polygon, Ethereum, Nor)
   - Contract addresses templates
   - Monitoring & performance settings
   - Database configuration (MongoDB, Redis)
@@ -142,10 +142,10 @@ All tasks that don't require testnet BNB have been completed! Here's what's read
 
 **Files**:
 - `scripts/deploy-dex-testnet.cjs` (350+ lines)
-  - Deploys all hub contracts (XHT Token, PriceAuthority, SupplyController, SettlementHub)
-  - Deploys all spoke contracts (Wrapped XHT, SettlementInbox, XaheenRouter)
+  - Deploys all hub contracts (NOR Token, PriceAuthority, SupplyController, SettlementHub)
+  - Deploys all spoke contracts (Wrapped NOR, SettlementInbox, NorRouter)
   - Configures roles and permissions
-  - Initializes inventory (10K XHT)
+  - Initializes inventory (10K NOR)
   - Saves deployment addresses to JSON
 
 **Test Contracts**:
@@ -170,7 +170,7 @@ All tasks that don't require testnet BNB have been completed! Here's what's read
 **Progress**: 60% of contracts deployed (7 of 10)
 
 **Already Deployed** (on previous attempt):
-1. ✅ XHT Token: `0x4CFc151663109E559669fE23B58a0F1FEa35aa9E`
+1. ✅ NOR Token: `0x4CFc151663109E559669fE23B58a0F1FEa35aa9E`
 2. ✅ Mock DEX Router: `0x4266f5ca67a695efB185ae5c59f5B66FE39ad9A4`
 3. ✅ USDT Token: `0x32cAb42a1279F42b41e7dFfa31cF0009fF995406`
 4. ✅ Mock DEX Pair: `0x970400b0ccD64Aa54603E060fe648800ED12464a`
@@ -179,9 +179,9 @@ All tasks that don't require testnet BNB have been completed! Here's what's read
 **Still Need to Deploy**:
 6. ❌ SupplyController
 7. ❌ SettlementHub
-8. ❌ Wrapped XHT
+8. ❌ Wrapped NOR
 9. ❌ SettlementInbox
-10. ❌ XaheenRouter
+10. ❌ NorRouter
 
 **How to Get Testnet BNB**:
 1. **BSC Testnet Faucet**: https://testnet.binance.org/faucet-smart (0.5 BNB/day)
@@ -222,7 +222,7 @@ npm run dev  # Relayer starts automatically
 1. Use bridge landing page (apps/landing)
 2. Execute 5-10 test transfers
 3. Monitor relayer logs
-4. Verify settlements on Xaheen Chain
+4. Verify settlements on Nor Chain
 5. Check database for transfer records
 
 **Step 5: Launch Marketing** (~1 week)

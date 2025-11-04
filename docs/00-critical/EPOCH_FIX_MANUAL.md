@@ -1,4 +1,4 @@
-# 🔧 Xaheen Chain Epoch Fix - Manual Steps
+# 🔧 Nor Chain Epoch Fix - Manual Steps
 
 **Chain Status**: Stuck at block 29,999 (epoch boundary at 30,000)
 

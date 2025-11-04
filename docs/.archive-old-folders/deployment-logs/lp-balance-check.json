@@ -25,6 +25,6 @@
     "operationalValue": "$0.00"
   },
   "unicryptCompatible": false,
-  "reason": "Xaheen Chain (65001) not yet supported by Unicrypt",
+  "reason": "Nor Chain (65001) not yet supported by Unicrypt",
   "recommendedAlternative": "Deploy custom timelock contract"
 }

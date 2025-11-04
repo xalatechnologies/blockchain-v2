@@ -8,7 +8,7 @@
 
 You already have EVERYTHING you need:
 
-1. **✅ Xaheen Chain Running**
+1. **✅ Nor Chain Running**
    - Block time: 3 seconds
    - RPC: https://rpc.xaheen.org
    - HTTPS working perfectly
@@ -19,17 +19,17 @@ You already have EVERYTHING you need:
    - Trading tested and confirmed working
 
 3. **✅ Treasury Liquidity Deployed**
-   - 600M WXHT in liquidity pool
+   - 600M WNOR in liquidity pool
    - Treasury owns 99.99% of pool
    - YOU control the entire market!
 
 4. **✅ Trading Proven**
-   - Test 1: ✅ 1,000 WXHT → USDT (SUCCESS)
-   - Test 2: ✅ USDT → WXHT (SUCCESS)
+   - Test 1: ✅ 1,000 WNOR → USDT (SUCCESS)
+   - Test 2: ✅ USDT → WNOR (SUCCESS)
    - Gas costs: ~119k per swap (~$0.01)
 
 5. **✅ Fiat Widget Built**
-   - MoonPay integration: `frontend/BuyXHT.html`
+   - MoonPay integration: `frontend/BuyNOR.html`
    - Transak integration: `frontend/transak-integration.html`
    - Ready to deploy!
 
@@ -54,7 +54,7 @@ You already have EVERYTHING you need:
 **Action:**
 ```bash
 # Edit the widget file
-nano frontend/BuyXHT.html
+nano frontend/BuyNOR.html
 
 # Find this line:
 apiKey: 'pk_test_YOUR_KEY_HERE'
@@ -73,8 +73,8 @@ apiKey: 'pk_live_YOUR_ACTUAL_KEY'
 
 **Option A: Standalone Page**
 ```bash
-# Upload BuyXHT.html to your website
-scp frontend/BuyXHT.html user@yourserver:/var/www/html/buy.html
+# Upload BuyNOR.html to your website
+scp frontend/BuyNOR.html user@yourserver:/var/www/html/buy.html
 
 # Now accessible at: https://yourwebsite.com/buy.html
 ```
@@ -98,7 +98,7 @@ scp frontend/BuyXHT.html user@yourserver:/var/www/html/buy.html
 
 **Social Media Announcement:**
 ```
-🚀 BREAKING: Buy XHT directly with credit card!
+🚀 BREAKING: Buy NOR directly with credit card!
 
 No exchange account needed
 Instant delivery (30 seconds)
@@ -106,7 +106,7 @@ Low fees (0.3%)
 
 Try it now: [your-website.com/buy]
 
-#XHT #XaheenChain #CryptoOnRamp
+#NOR #NorChain #CryptoOnRamp
 ```
 
 **Post on:**
@@ -121,7 +121,7 @@ Try it now: [your-website.com/buy]
 
 ## 💰 The Money Flow (How You Earn)
 
-### Every Time Someone Buys $100 XHT:
+### Every Time Someone Buys $100 NOR:
 
 ```
 User Pays: $100
@@ -130,14 +130,14 @@ MoonPay Fee: -$3.50 (3.5%, user pays)
     ↓
 MoonPay Buys: $96.50 USDT
     ↓
-Swaps on YOUR DEX: USDT → XHT
+Swaps on YOUR DEX: USDT → NOR
     ↓
 YOU Earn:
 ├─ Trading fee: $0.29 (0.3%)
 ├─ Spread profit: $1.93 (2%)
 └─ Total: $2.22 profit
 
-Plus: Your 20B XHT appreciates!
+Plus: Your 20B NOR appreciates!
 ```
 
 **Monthly Projections:**
@@ -148,7 +148,7 @@ Plus: Your 20B XHT appreciates!
 | **Moderate** | 1,000 | $100K | $2,220 + appreciation | $100K → $500K |
 | **Aggressive** | 10,000 | $1M | $22,200 + appreciation | $100K → $5M |
 
-**The Real Money**: Your 20 billion XHT treasury appreciates as demand grows!
+**The Real Money**: Your 20 billion NOR treasury appreciates as demand grows!
 
 ---
 
@@ -183,14 +183,14 @@ Deploy your own DEX (✅ done)
 
 ### If Price Too Low:
 ```bash
-# Treasury buys XHT with USDT reserves
+# Treasury buys NOR with USDT reserves
 node scripts/treasury-market-maker.js add 0 50000
 # Adds buying pressure, price goes up
 ```
 
 ### If Price Too High:
 ```bash
-# Treasury sells XHT for USDT
+# Treasury sells NOR for USDT
 node scripts/treasury-market-maker.js add 50000000 0
 # Adds selling pressure, price stabilizes
 ```
@@ -217,7 +217,7 @@ node scripts/treasury-market-maker.js add 50000000 0
 
 ### **Day 4**: Soft Launch
 - [ ] Invite 10 friends to test
-- [ ] Each buys $100 XHT
+- [ ] Each buys $100 NOR
 - [ ] Verify everything works
 - [ ] Collect feedback
 
@@ -250,7 +250,7 @@ node scripts/treasury-market-maker.js add 50000000 0
 
 ### 3. **Viral Growth Loop**
 ```
-User buys XHT
+User buys NOR
 → Price goes up slightly
 → Early buyers see gains
 → They tell friends
@@ -275,7 +275,7 @@ User buys XHT
 **A**: You already have proven demand (trading operational, community exists). Worst case: You spent $5K. Best case: You make $1M+. Risk/reward is perfect.
 
 ### Q: "How do I control price if it dumps?"
-**A**: Treasury buyback! You have 20B XHT + USDT reserves. Can support price anytime.
+**A**: Treasury buyback! You have 20B NOR + USDT reserves. Can support price anytime.
 
 ### Q: "What about regulations?"
 **A**: MoonPay/Transak handle ALL KYC/AML. You're just providing liquidity on your DEX. Same model as Uniswap.
@@ -298,7 +298,7 @@ User buys XHT
 
 While waiting:
 6. **Review** `docs/GENIUS_STRATEGY_UNIFIED_MARKET.md` (full strategy)
-7. **Test** your widget locally (`frontend/BuyXHT.html`)
+7. **Test** your widget locally (`frontend/BuyNOR.html`)
 8. **Prepare** social media accounts
 9. **Draft** launch announcement
 
@@ -313,7 +313,7 @@ While waiting:
 
 ### Technical Implementation:
 - **Treasury Manager**: `scripts/treasury-market-maker.js`
-- **MoonPay Widget**: `frontend/BuyXHT.html`
+- **MoonPay Widget**: `frontend/BuyNOR.html`
 - **Transak Widget**: `frontend/transak-integration.html`
 - **Trading Guide**: `docs/TRADING_GUIDE.md`
 
@@ -348,8 +348,8 @@ Imagine:
 - 50,000 investors
 - $100M fiat inflow
 - $1M+ annual profit from fees
-- XHT at $0.50 (from $0.01)
-- Your 20B XHT treasury worth: **$10 BILLION** 💎
+- NOR at $0.50 (from $0.01)
+- Your 20B NOR treasury worth: **$10 BILLION** 💎
 
 **All from a $5K investment and 2 weeks of work.**
 

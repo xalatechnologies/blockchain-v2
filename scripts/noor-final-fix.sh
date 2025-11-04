@@ -21,7 +21,7 @@ echo "  4. Start validators with MINING and UNLOCKED accounts"
 echo "  5. Verify block production"
 echo ""
 
-cat << 'REMOTE_SCRIPT' > /tmp/noor-final-fix.sh
+cat << 'REMOTE_SCRIPT' > /tmp/nor-final-fix.sh
 #!/bin/bash
 
 VALIDATOR1="0xbb64F4050fC21A2eC3506245A1Ad63cB0256b6dE"
@@ -205,7 +205,7 @@ for i in {1..20}; do
 
     if [ "$DEC" -gt "15" ]; then
       echo ""
-      echo "🎉🎉🎉 SUCCESS! Noor Chain is producing blocks! 🎉🎉🎉"
+      echo "🎉🎉🎉 SUCCESS! Nor Chain is producing blocks! 🎉🎉🎉"
       SUCCESS=true
       break
     fi
@@ -236,23 +236,23 @@ echo "📊 Final Status:"
 docker ps --format "table {{.Names}}\t{{.Status}}" | grep -E "(NAMES|validator|xaheen)"
 
 echo ""
-echo "🌙 Noor Chain - Empowering the Future with Light and Trust"
+echo "🌙 Nor Chain - Empowering the Future with Light and Trust"
 
 REMOTE_SCRIPT
 
-chmod +x /tmp/noor-final-fix.sh
+chmod +x /tmp/nor-final-fix.sh
 
 echo "📤 Uploading script to server..."
-scp -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no /tmp/noor-final-fix.sh ec2-user@$SERVER_IP:/home/ec2-user/noor-final-fix.sh
+scp -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no /tmp/nor-final-fix.sh ec2-user@$SERVER_IP:/home/ec2-user/nor-final-fix.sh
 
 echo ""
 echo "🚀 Executing final fix on server..."
 echo "   This will take about 90 seconds..."
 echo ""
 
-ssh -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no ec2-user@$SERVER_IP 'bash /home/ec2-user/noor-final-fix.sh'
+ssh -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no ec2-user@$SERVER_IP 'bash /home/ec2-user/nor-final-fix.sh'
 
 echo ""
 echo "✅ Script execution complete!"
 echo ""
-echo "🌙 Noor Chain - Empowering the Future with Light and Trust"
+echo "🌙 Nor Chain - Empowering the Future with Light and Trust"

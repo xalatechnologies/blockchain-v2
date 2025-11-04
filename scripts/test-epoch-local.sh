@@ -48,23 +48,23 @@ fi
 
 echo ""
 echo "📦 Step 1: Creating local testnet directories..."
-rm -rf /tmp/noor-testnet
-mkdir -p /tmp/noor-testnet/{validator-1,validator-2,validator-3,scripts,logs}
+rm -rf /tmp/nor-testnet
+mkdir -p /tmp/nor-testnet/{validator-1,validator-2,validator-3,scripts,logs}
 
 echo "   ✅ Directories created"
 
 # Copy genesis
-cp data/genesis-testnet-with-contracts.json /tmp/noor-testnet/genesis.json
+cp data/genesis-testnet-with-contracts.json /tmp/nor-testnet/genesis.json
 echo "   ✅ Genesis copied (18 contracts, epoch 1000)"
 
 # Copy validator keystores (from production)
 if [ -d "$HOME/validator-1/keystore" ]; then
-  cp -r "$HOME/validator-1/keystore" /tmp/noor-testnet/validator-1/
-  cp -r "$HOME/validator-2/keystore" /tmp/noor-testnet/validator-2/
-  cp -r "$HOME/validator-3/keystore" /tmp/noor-testnet/validator-3/
-  echo "test123" > /tmp/noor-testnet/validator-1/password.txt
-  echo "test123" > /tmp/noor-testnet/validator-2/password.txt
-  echo "test123" > /tmp/noor-testnet/validator-3/password.txt
+  cp -r "$HOME/validator-1/keystore" /tmp/nor-testnet/validator-1/
+  cp -r "$HOME/validator-2/keystore" /tmp/nor-testnet/validator-2/
+  cp -r "$HOME/validator-3/keystore" /tmp/nor-testnet/validator-3/
+  echo "test123" > /tmp/nor-testnet/validator-1/password.txt
+  echo "test123" > /tmp/nor-testnet/validator-2/password.txt
+  echo "test123" > /tmp/nor-testnet/validator-3/password.txt
   echo "   ✅ Keystores copied"
 else
   echo "   ⚠️  No keystores found, will use default addresses"
@@ -76,22 +76,22 @@ echo ""
 echo "🔧 Step 2: Initializing validators with testnet genesis..."
 
 docker run --rm \
-  -v /tmp/noor-testnet/validator-1:/bsc \
-  -v /tmp/noor-testnet/genesis.json:/genesis.json \
+  -v /tmp/nor-testnet/validator-1:/bsc \
+  -v /tmp/nor-testnet/genesis.json:/genesis.json \
   dysnix/bsc init --datadir /bsc /genesis.json > /dev/null 2>&1
 
 echo "   ✅ Validator 1 initialized"
 
 docker run --rm \
-  -v /tmp/noor-testnet/validator-2:/bsc \
-  -v /tmp/noor-testnet/genesis.json:/genesis.json \
+  -v /tmp/nor-testnet/validator-2:/bsc \
+  -v /tmp/nor-testnet/genesis.json:/genesis.json \
   dysnix/bsc init --datadir /bsc /genesis.json > /dev/null 2>&1
 
 echo "   ✅ Validator 2 initialized"
 
 docker run --rm \
-  -v /tmp/noor-testnet/validator-3:/bsc \
-  -v /tmp/noor-testnet/genesis.json:/genesis.json \
+  -v /tmp/nor-testnet/validator-3:/bsc \
+  -v /tmp/nor-testnet/genesis.json:/genesis.json \
   dysnix/bsc init --datadir /bsc /genesis.json > /dev/null 2>&1
 
 echo "   ✅ Validator 3 initialized"
@@ -101,11 +101,11 @@ echo "   ✅ Validator 3 initialized"
 echo ""
 echo "⚙️  Step 3: Creating auto-sealer for epoch protection..."
 
-cat > /tmp/noor-testnet/scripts/auto-sealer.sh << 'AUTOSEALER'
+cat > /tmp/nor-testnet/scripts/auto-sealer.sh << 'AUTOSEALER'
 #!/bin/bash
 EPOCH=1000
 RPC_PORT=18545
-LOG_FILE="/tmp/noor-testnet/logs/auto-sealer.log"
+LOG_FILE="/tmp/nor-testnet/logs/auto-sealer.log"
 
 CURRENT_BLOCK=$(curl -s http://localhost:$RPC_PORT -X POST \
   -H "Content-Type: application/json" \
@@ -120,7 +120,7 @@ echo "[$(date '+%H:%M:%S')] Block: $BLOCK_DEC | Until epoch: $BLOCKS_UNTIL_EPOCH
 if [ "$BLOCKS_UNTIL_EPOCH" -le 5 ] && [ "$BLOCKS_UNTIL_EPOCH" -gt 0 ]; then
   echo "[$(date '+%H:%M:%S')] ⚠️  EPOCH IN $BLOCKS_UNTIL_EPOCH BLOCKS - ACTIVATING SINGLE-SEALER" >> "$LOG_FILE"
 
-  docker stop noor-testnet-validator-2 noor-testnet-validator-3 >> "$LOG_FILE" 2>&1
+  docker stop nor-testnet-validator-2 nor-testnet-validator-3 >> "$LOG_FILE" 2>&1
   sleep 30
 
   NEW_BLOCK=$(curl -s http://localhost:$RPC_PORT -X POST \
@@ -132,12 +132,12 @@ if [ "$BLOCKS_UNTIL_EPOCH" -le 5 ] && [ "$BLOCKS_UNTIL_EPOCH" -gt 0 ]; then
 
   if [ "$NEW_BLOCK_DEC" -gt "$BLOCK_DEC" ]; then
     echo "[$(date '+%H:%M:%S')] ✅ Passed epoch! $BLOCK_DEC → $NEW_BLOCK_DEC" >> "$LOG_FILE"
-    docker start noor-testnet-validator-2 noor-testnet-validator-3 >> "$LOG_FILE" 2>&1
+    docker start nor-testnet-validator-2 nor-testnet-validator-3 >> "$LOG_FILE" 2>&1
   fi
 fi
 AUTOSEALER
 
-chmod +x /tmp/noor-testnet/scripts/auto-sealer.sh
+chmod +x /tmp/nor-testnet/scripts/auto-sealer.sh
 echo "   ✅ Auto-sealer created"
 
 # === START VALIDATORS ===
@@ -146,9 +146,9 @@ echo ""
 echo "🚀 Step 4: Starting testnet validators..."
 
 # Validator 1 (RPC + Mining on port 18545)
-docker run -d --name noor-testnet-validator-1 \
+docker run -d --name nor-testnet-validator-1 \
   --network host \
-  -v /tmp/noor-testnet/validator-1:/bsc \
+  -v /tmp/nor-testnet/validator-1:/bsc \
   dysnix/bsc \
   --datadir /bsc \
   --networkid 65002 \
@@ -165,9 +165,9 @@ echo "   ✅ Validator 1 started (RPC: 18545, P2P: 20303)"
 sleep 3
 
 # Validator 2 (Mining only on port 20304)
-docker run -d --name noor-testnet-validator-2 \
+docker run -d --name nor-testnet-validator-2 \
   --network host \
-  -v /tmp/noor-testnet/validator-2:/bsc \
+  -v /tmp/nor-testnet/validator-2:/bsc \
   dysnix/bsc \
   --datadir /bsc \
   --networkid 65002 \
@@ -182,9 +182,9 @@ echo "   ✅ Validator 2 started (P2P: 20304)"
 sleep 3
 
 # Validator 3 (Mining only on port 20305)
-docker run -d --name noor-testnet-validator-3 \
+docker run -d --name nor-testnet-validator-3 \
   --network host \
-  -v /tmp/noor-testnet/validator-3:/bsc \
+  -v /tmp/nor-testnet/validator-3:/bsc \
   dysnix/bsc \
   --datadir /bsc \
   --networkid 65002 \
@@ -226,13 +226,13 @@ echo ""
 echo "🔐 Step 5: Starting auto-sealer (runs every 10 seconds)..."
 (
   while true; do
-    /tmp/noor-testnet/scripts/auto-sealer.sh
+    /tmp/nor-testnet/scripts/auto-sealer.sh
     sleep 10
   done
 ) > /dev/null 2>&1 &
 
 AUTO_SEALER_PID=$!
-echo $AUTO_SEALER_PID > /tmp/noor-testnet/auto-sealer.pid
+echo $AUTO_SEALER_PID > /tmp/nor-testnet/auto-sealer.pid
 echo "   ✅ Auto-sealer started (PID: $AUTO_SEALER_PID)"
 
 # === SUCCESS ===
@@ -250,7 +250,7 @@ echo "   • Contracts: 18 pre-deployed"
 echo "   • Validators: 3 running"
 echo "   • Auto-sealer: Active"
 echo ""
-echo "📁 Testnet Location: /tmp/noor-testnet/"
+echo "📁 Testnet Location: /tmp/nor-testnet/"
 echo ""
 echo "📊 Monitor Progress:"
 echo "   • Current block:"
@@ -258,10 +258,10 @@ echo "     curl -s http://localhost:18545 -X POST -H 'Content-Type: application/
 echo "       --data '{\"jsonrpc\":\"2.0\",\"method\":\"eth_blockNumber\",\"params\":[],\"id\":1}'"
 echo ""
 echo "   • Auto-sealer log:"
-echo "     tail -f /tmp/noor-testnet/logs/auto-sealer.log"
+echo "     tail -f /tmp/nor-testnet/logs/auto-sealer.log"
 echo ""
 echo "   • Validator logs:"
-echo "     docker logs -f noor-testnet-validator-1"
+echo "     docker logs -f nor-testnet-validator-1"
 echo ""
 echo "⏰ Test Timeline:"
 echo "   • Block 995-1000: First epoch (in ~49 minutes)"
@@ -276,9 +276,9 @@ echo "   4. Auto-sealer restarts validators 2 & 3"
 echo "   5. Chain continues smoothly to 2000, 3000, etc."
 echo ""
 echo "🛑 Stop Testnet:"
-echo "   docker stop noor-testnet-validator-{1,2,3}"
+echo "   docker stop nor-testnet-validator-{1,2,3}"
 echo "   kill $AUTO_SEALER_PID"
-echo "   rm -rf /tmp/noor-testnet"
+echo "   rm -rf /tmp/nor-testnet"
 echo ""
 echo "✅ Once 3-5 epochs pass successfully, apply fix to production!"
 echo ""

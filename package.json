@@ -1,7 +1,7 @@
 {
-  "name": "noor-chain",
+  "name": "nor-chain",
   "version": "1.0.0",
-  "description": "Noor Chain (formerly Xaheen Chain) - Illuminating the future of blockchain with light and trust. An intelligent, ethical, high-performance private blockchain network based on BNB Smart Chain (BSC/Parlia-PoSA) technology with comprehensive bridge infrastructure. Chain ID: 65001, Native Token: NOR",
+  "description": "Nor Chain (formerly Nor Chain) - Illuminating the future of blockchain with light and trust. An intelligent, ethical, high-performance private blockchain network based on BNB Smart Chain (BSC/Parlia-PoSA) technology with comprehensive bridge infrastructure. Chain ID: 65001, Native Token: NOR",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -10,15 +10,15 @@
     "test": "npx hardhat test",
     "compile": "npx hardhat compile",
     "deploy:mainnet": "npx hardhat run scripts/hardhat-deploy-mainnet.js --network bsc",
-    "deploy:noor": "npx hardhat run scripts/hardhat-deploy-private.js --network btcbr",
+    "deploy:nor": "npx hardhat run scripts/hardhat-deploy-private.js --network btcbr",
     "deploy:testnet": "npx hardhat run scripts/hardhat-deploy-mainnet.js --network bscTestnet",
     "deploy:bridges": "./scripts/deploy-bridge-complete.sh"
   },
   "keywords": [
-    "noor",
-    "noor-chain",
     "nor",
-    "noor-token",
+    "nor-chain",
+    "nor",
+    "nor-token",
     "blockchain",
     "bsc",
     "parlia",
@@ -32,15 +32,15 @@
     "shariah-compliant",
     "ethical-blockchain"
   ],
-  "author": "Noor Chain Team",
+  "author": "Nor Chain Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/noor-chain/blockchain-v2"
+    "url": "https://github.com/nor-chain/blockchain-v2"
   },
-  "homepage": "https://noorchain.org",
+  "homepage": "https://norchain.org",
   "bugs": {
-    "url": "https://github.com/noor-chain/blockchain-v2/issues"
+    "url": "https://github.com/nor-chain/blockchain-v2/issues"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.9.6",

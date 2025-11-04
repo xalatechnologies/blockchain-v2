@@ -3,7 +3,7 @@
 ## Option 1: Minimal (Just Chain Data)
 
 ```
-Adding Xaheen Chain - Fast EVM-compatible Layer 1 blockchain
+Adding Nor Chain - Fast EVM-compatible Layer 1 blockchain
 
 **Chain Details:**
 - Chain ID: 65001
@@ -28,15 +28,15 @@ Update the JSON file to remove the infoURL:
 
 ```json
 {
-  "name": "Xaheen Chain",
-  "chain": "Xaheen",
+  "name": "Nor Chain",
+  "chain": "Nor",
   "rpc": [
     "https://rpc.xaheen.org"
   ],
   "faucets": [],
   "nativeCurrency": {
-    "name": "Xaheen Token",
-    "symbol": "XHT",
+    "name": "Nor Token",
+    "symbol": "NOR",
     "decimals": 18
   },
   "shortName": "xaheen",
@@ -54,7 +54,7 @@ Note: Removed "infoURL" and "explorers" fields since they're not ready yet.
 If you want to include links, use what you DO have:
 
 ```
-Adding Xaheen Chain - Fast EVM-compatible Layer 1 blockchain
+Adding Nor Chain - Fast EVM-compatible Layer 1 blockchain
 
 **Chain Details:**
 - Chain ID: 65001
@@ -87,15 +87,15 @@ The JSON file should be:
 
 ```json
 {
-  "name": "Xaheen Chain",
-  "chain": "Xaheen",
+  "name": "Nor Chain",
+  "chain": "Nor",
   "rpc": [
     "https://rpc.xaheen.org"
   ],
   "faucets": [],
   "nativeCurrency": {
-    "name": "Xaheen Token",
-    "symbol": "XHT",
+    "name": "Nor Token",
+    "symbol": "NOR",
     "decimals": 18
   },
   "shortName": "xaheen",

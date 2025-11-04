@@ -3,8 +3,8 @@
 **Current Status:** ✅ READY TO LAUNCH!
 
 **Your Position:**
-- ✅ 20 billion XHT in treasury
-- ✅ 600M WXHT liquidity deployed
+- ✅ 20 billion NOR in treasury
+- ✅ 600M WNOR liquidity deployed
 - ✅ You own 99.99% of the market
 - ✅ DEX operational and tested
 - ✅ Fiat widgets built
@@ -25,7 +25,7 @@
 
 3. **Fill out business info:**
    ```
-   Business Name: Xaheen Chain / Your Company Name
+   Business Name: Nor Chain / Your Company Name
    Email: your-email@domain.com
    Business Type: Blockchain Infrastructure
    Website: yourwebsite.com
@@ -58,7 +58,7 @@
 ### Hour 2: Deploy BSC Bridge (Enable Arbitrage)
 
 **Why This Matters:**
-- Allows bots to arbitrage between Xaheen ↔ BSC
+- Allows bots to arbitrage between Nor ↔ BSC
 - Bots buy from you, establish higher prices
 - You earn fees + treasury appreciates
 - FREE price discovery!
@@ -75,7 +75,7 @@ cd /Volumes/Development/sahalat/blockchain-v2
 # Deploy bridge to BSC mainnet
 npx hardhat run scripts/deploy-bridge-mainnet.js --network bsc
 
-# Deploy bridge to Xaheen Chain
+# Deploy bridge to Nor Chain
 npx hardhat run scripts/deploy-bridge-private.js --network btcbr
 
 # This creates two-way bridge for arbitrage
@@ -84,7 +84,7 @@ npx hardhat run scripts/deploy-bridge-private.js --network btcbr
 **Expected Output:**
 ```
 ✅ Bridge deployed on BSC: 0x...
-✅ Bridge deployed on Xaheen: 0x...
+✅ Bridge deployed on Nor: 0x...
 ✅ Validators configured
 ✅ Transfer limits set
 Ready for arbitrage! 🤖
@@ -105,12 +105,12 @@ node scripts/list-on-pancakeswap.js
 
 **Recommended Initial Liquidity:**
 ```
-10M XHT + $5,000 USDT on PancakeSwap
-(Keep your 600M XHT + $1.4M USDT on Xaheen!)
+10M NOR + $5,000 USDT on PancakeSwap
+(Keep your 600M NOR + $1.4M USDT on Nor!)
 
 This creates arbitrage opportunity:
 - Small BSC pool = higher volatility
-- Your big Xaheen pool = stable base
+- Your big Nor pool = stable base
 - Bots arbitrage between them
 - You profit from both sides! 💰
 ```
@@ -121,10 +121,10 @@ This creates arbitrage opportunity:
 
 **Create Social Media Accounts:**
 
-1. **Twitter:** @XaheenChain
+1. **Twitter:** @NorChain
    ```
    Bio:
-   Buy XHT with credit card | No exchange needed
+   Buy NOR with credit card | No exchange needed
    Fast, secure, simple ⚡
 
    Link: yourwebsite.com/buy
@@ -133,8 +133,8 @@ This creates arbitrage opportunity:
 2. **Telegram:** t.me/xaheenchain
    ```
    Description:
-   Official Xaheen Chain community
-   Buy XHT: [link]
+   Official Nor Chain community
+   Buy NOR: [link]
    Support: admin@xaheen.org
    ```
 
@@ -144,7 +144,7 @@ This creates arbitrage opportunity:
 ```
 🚀 MAJOR ANNOUNCEMENT 🚀
 
-Buy $XHT directly with credit card!
+Buy $NOR directly with credit card!
 
 ✅ No exchange account needed
 ✅ Instant delivery (30 seconds)
@@ -155,7 +155,7 @@ First 100 buyers get 10% bonus!
 
 Try now: [your-site.com/buy]
 
-#XHT #XaheenChain #DeFi #CryptoOnRamp
+#NOR #NorChain #DeFi #CryptoOnRamp
 ```
 
 ---
@@ -166,7 +166,7 @@ Try now: [your-site.com/buy]
 
 ```bash
 # Edit the widget
-nano frontend/BuyXHT.html
+nano frontend/BuyNOR.html
 
 # Update line 300:
 apiKey: 'pk_live_YOUR_ACTUAL_KEY_HERE',
@@ -182,7 +182,7 @@ baseUrl: 'https://buy.moonpay.com',
 **Option A: Standalone Page**
 ```bash
 # Upload to your server
-scp frontend/BuyXHT.html user@yourserver:/var/www/html/buy.html
+scp frontend/BuyNOR.html user@yourserver:/var/www/html/buy.html
 
 # Test it
 curl https://yourwebsite.com/buy.html
@@ -193,7 +193,7 @@ curl https://yourwebsite.com/buy.html
 ```html
 <!-- Add to your main page -->
 <section id="buy-xht">
-  <h2>Buy XHT with Credit Card</h2>
+  <h2>Buy NOR with Credit Card</h2>
   <iframe
     src="/buy.html"
     width="100%"
@@ -211,7 +211,7 @@ curl https://yourwebsite.com/buy.html
 3. Select $10 (minimum test)
 4. Complete MoonPay flow
 5. Wait 30 seconds
-6. Check your wallet - XHT arrived! 🎉
+6. Check your wallet - NOR arrived! 🎉
 
 Congratulations! You just made your first $0.22 profit!
 (Plus your treasury appreciated!)
@@ -223,12 +223,12 @@ Congratulations! You just made your first $0.22 profit!
 ```
 The moment is here! 🎉
 
-You can now buy $XHT with credit card!
+You can now buy $NOR with credit card!
 
 No registration, no KYC (MoonPay handles it)
 Direct to your wallet in 30 seconds
 
-First 100 buyers: 10% bonus XHT!
+First 100 buyers: 10% bonus NOR!
 
 Buy now: [link]
 
@@ -241,7 +241,7 @@ RT to spread the word! 🚀
 
 Fiat on-ramp is active!
 
-Buy XHT with:
+Buy NOR with:
 💳 Credit card
 🏦 Bank transfer
 📱 Apple Pay / Google Pay
@@ -253,10 +253,10 @@ Questions? Ask in chat! 👇
 
 **Post on Reddit (r/CryptoMoonShots):**
 ```
-Title: [NEW] Buy XHT directly with credit card - No exchange needed!
+Title: [NEW] Buy NOR directly with credit card - No exchange needed!
 
 Body:
-We just launched fiat on-ramp for Xaheen Chain (XHT)!
+We just launched fiat on-ramp for Nor Chain (NOR)!
 
 What makes us different:
 - Buy directly with card (no CEX account needed)
@@ -264,7 +264,7 @@ What makes us different:
 - Low fees (0.3%)
 - Full DeFi integration
 
-Launch bonus: First 100 buyers get 10% extra XHT!
+Launch bonus: First 100 buyers get 10% extra NOR!
 
 Link: [yoursite.com/buy]
 
@@ -292,7 +292,7 @@ node scripts/treasury-market-maker.js status
 ```javascript
 // If too much demand (price spiking):
 node scripts/treasury-market-maker.js add 50000000 50000
-// Adds 50M XHT + $50K USDT liquidity
+// Adds 50M NOR + $50K USDT liquidity
 
 // If too little demand (price dropping):
 // Just wait, or add marketing budget
@@ -341,7 +341,7 @@ echo "2025-11-01,12,$1234,$3.70,$150000" >> tracking.csv
 ```javascript
 // MoonPay fetches price from your DEX
 // Make sure liquidity pool has reasonable ratio
-// Should be: 100M XHT : $100K USDT = $0.001/XHT
+// Should be: 100M NOR : $100K USDT = $0.001/NOR
 ```
 
 ### Issue: "Tokens not arriving after purchase"
@@ -380,13 +380,13 @@ echo "2025-11-01,12,$1234,$3.70,$150000" >> tracking.csv
 ```
 Offer:
 - Referrer gets 5% of purchase
-- Referee gets 5% bonus XHT
+- Referee gets 5% bonus NOR
 
 Example:
-- Alice buys $1,000 XHT
+- Alice buys $1,000 NOR
 - Bob referred Alice
-- Bob gets $50 worth of XHT
-- Alice gets $50 extra XHT
+- Bob gets $50 worth of NOR
+- Alice gets $50 extra NOR
 - You still profit $2.22 + appreciation!
 ```
 
@@ -431,10 +431,10 @@ Month 3 (exponential):
 
 ### Tip 1: Gradual Price Increases
 ```
-Month 1: $0.001 per XHT
-Month 2: $0.005 per XHT (5x)
-Month 3: $0.025 per XHT (5x again)
-Month 4: $0.125 per XHT (5x again)
+Month 1: $0.001 per NOR
+Month 2: $0.005 per NOR (5x)
+Month 3: $0.025 per NOR (5x again)
+Month 4: $0.125 per NOR (5x again)
 
 Total: 125x price increase in 4 months!
 Your 20B treasury: $2.5 BILLION value! 💎
@@ -442,9 +442,9 @@ Your 20B treasury: $2.5 BILLION value! 💎
 
 ### Tip 2: Take Profits on the Way
 ```
-When XHT hits $0.01:
-- Sell 100M XHT = $1M
-- Keep 19.9B XHT
+When NOR hits $0.01:
+- Sell 100M NOR = $1M
+- Keep 19.9B NOR
 - Secure $1M profit
 - Let the rest ride!
 ```

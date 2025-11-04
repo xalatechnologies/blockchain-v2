@@ -131,7 +131,7 @@ function unpause() external onlyOwner
 
 ## 2. SupplyController.sol (340 lines)
 
-**Purpose:** Manages XHT supply and inventory across chains
+**Purpose:** Manages NOR supply and inventory across chains
 
 ### ✅ 2.1 Access Control
 ```solidity
@@ -395,7 +395,7 @@ function acknowledgeFill(FillReceipt memory receipt) external onlyRelayer nonRee
 require(receipt.fillId != bytes32(0), "Invalid fill ID");
 require(receipt.chainId > 0, "Invalid chain ID");
 require(receipt.trader != address(0), "Invalid trader");
-require(receipt.xhtDelta != 0, "Invalid XHT delta");
+require(receipt.xhtDelta != 0, "Invalid NOR delta");
 require(receipt.proceeds > 0, "Invalid proceeds");
 require(receipt.timestamp >= block.timestamp - 300, "Receipt too old"); // 5 min max
 ```
@@ -431,7 +431,7 @@ function pause() external onlyAdmin
 
 ---
 
-## 4. XaheenRouter.sol (Spoke - 320 lines)
+## 4. NorRouter.sol (Spoke - 320 lines)
 
 **Purpose:** Execute trades on spoke chains (BSC, Polygon, ETH)
 
@@ -452,10 +452,10 @@ function replenishInventory(uint256 amount) external onlyOwner
 
 ### ✅ 4.2 Reentrancy Protection
 ```solidity
-function buyXHT(
+function buyNOR(
     address stablecoin,
     uint256 amountIn,
-    uint256 minXHTOut,
+    uint256 minNOROut,
     bytes memory signedQuote,
     uint256 deadline
 ) external nonReentrant returns (uint256 xhtOut) {
@@ -464,7 +464,7 @@ function buyXHT(
     require(verifyQuote(...), "Invalid quote");
 
     // 2. EFFECTS
-    wrappedXHT.burn(address(this), xhtOut);
+    wrappedNOR.burn(address(this), xhtOut);
 
     // 3. INTERACTIONS
     IERC20(stablecoin).safeTransferFrom(msg.sender, address(this), amountIn);
@@ -506,17 +506,17 @@ function verifyQuote(
 
 ### ✅ 4.4 Slippage Protection
 ```solidity
-function buyXHT(
+function buyNOR(
     address stablecoin,
     uint256 amountIn,
-    uint256 minXHTOut,  // ← Slippage protection
+    uint256 minNOROut,  // ← Slippage protection
     bytes memory signedQuote,
     uint256 deadline
 ) external nonReentrant returns (uint256 xhtOut) {
-    // Calculate XHT out
+    // Calculate NOR out
     xhtOut = (amountIn * 1e18) / price;
 
-    require(xhtOut >= minXHTOut, "Slippage too high");
+    require(xhtOut >= minNOROut, "Slippage too high");
 }
 ```
 **Status:** ✅ SECURE
@@ -526,7 +526,7 @@ function buyXHT(
 
 ### ✅ 4.5 Deadline Protection
 ```solidity
-function buyXHT(..., uint256 deadline) external nonReentrant {
+function buyNOR(..., uint256 deadline) external nonReentrant {
     require(block.timestamp <= deadline, "Transaction expired");
     // ...
 }
@@ -538,15 +538,15 @@ function buyXHT(..., uint256 deadline) external nonReentrant {
 
 ### ✅ 4.6 Inventory Check
 ```solidity
-function buyXHT(...) external nonReentrant returns (uint256 xhtOut) {
+function buyNOR(...) external nonReentrant returns (uint256 xhtOut) {
     // Calculate output
     xhtOut = (amountIn * 1e18) / price;
 
     // Check inventory
-    require(wrappedXHT.balanceOf(address(this)) >= xhtOut, "Insufficient inventory");
+    require(wrappedNOR.balanceOf(address(this)) >= xhtOut, "Insufficient inventory");
 
-    // Burn XHT (reduce inventory)
-    wrappedXHT.burn(address(this), xhtOut);
+    // Burn NOR (reduce inventory)
+    wrappedNOR.burn(address(this), xhtOut);
 }
 ```
 **Status:** ✅ SECURE
@@ -579,7 +579,7 @@ function emergencyWithdraw(address token, uint256 amount) external onlyOwner
 - Emergency pause available
 - Funds recovery possible
 
-**XaheenRouter.sol Overall: ✅ PRODUCTION-READY**
+**NorRouter.sol Overall: ✅ PRODUCTION-READY**
 
 ---
 
@@ -598,7 +598,7 @@ modifier onlyRouter() {
 function recordFill(...) external onlyRouter
 ```
 **Status:** ✅ SECURE
-- Only XaheenRouter can record fills
+- Only NorRouter can record fills
 - Simple, effective access control
 - No unauthorized events
 
@@ -694,7 +694,7 @@ function generateFillId(
 | PriceAuthority | 230 | 0 | 0 | 0 | ✅ READY |
 | SupplyController | 340 | 0 | 0 | 0 | ✅ READY |
 | SettlementHub | 400 | 0 | 0 | 0 | ✅ READY |
-| XaheenRouter | 320 | 0 | 0 | 0 | ✅ READY |
+| NorRouter | 320 | 0 | 0 | 0 | ✅ READY |
 | SettlementInbox | 180 | 0 | 0 | 0 | ✅ READY |
 | **TOTAL** | **1,470** | **0** | **0** | **0** | **✅ READY** |
 
@@ -702,7 +702,7 @@ function generateFillId(
 
 ## Security Features Matrix
 
-| Feature | PriceAuthority | SupplyController | SettlementHub | XaheenRouter | SettlementInbox |
+| Feature | PriceAuthority | SupplyController | SettlementHub | NorRouter | SettlementInbox |
 |---------|----------------|------------------|---------------|--------------|-----------------|
 | Access Control | ✅ Owner | ✅ RBAC | ✅ RBAC | ✅ Owner | ✅ Router-only |
 | Reentrancy Protection | ✅ N/A | ✅ Yes | ✅ Yes | ✅ Yes | ✅ N/A |

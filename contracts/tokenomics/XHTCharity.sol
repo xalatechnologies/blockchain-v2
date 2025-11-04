@@ -6,8 +6,8 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 
 /**
- * @title XHTCharity
- * @notice Transparent charity and donation platform for Xaheen ecosystem
+ * @title NORCharity
+ * @notice Transparent charity and donation platform for Nor ecosystem
  * @dev Features:
  * - Verified charity organizations
  * - Transparent fund tracking
@@ -17,7 +17,7 @@ import "@openzeppelin/contracts/security/Pausable.sol";
  * - Tax receipt generation (metadata)
  * - Zero platform fees for verified charities
  */
-contract XHTCharity is Ownable, ReentrancyGuard, Pausable {
+contract NORCharity is Ownable, ReentrancyGuard, Pausable {
 
     // ============ State Variables ============
 

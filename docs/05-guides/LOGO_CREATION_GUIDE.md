@@ -1,4 +1,4 @@
-# 🎨 Xaheen Chain Logo - Quick Creation Guide
+# 🎨 Nor Chain Logo - Quick Creation Guide
 
 ## OPTION 1: AI Logo Generator (Fastest - 2 minutes)
 
@@ -6,7 +6,7 @@
 1. Go to: https://www.canva.com/create/logos/
 2. Search template: "blockchain logo" or "tech logo"
 3. Customize:
-   - Text: "XHT" or "XAHEEN"
+   - Text: "NOR" or "XAHEEN"
    - Colors: Blue/Purple/Cyan (tech colors)
    - Add: Hexagon, chain links, or network nodes
 4. Download: PNG, transparent background, 200x200px
@@ -17,7 +17,7 @@
 
 ### Method B: Looka AI (Free Trial)
 1. Go to: https://looka.com
-2. Enter: "Xaheen Chain"
+2. Enter: "Nor Chain"
 3. Select style: Tech, Modern, Blockchain
 4. AI generates 100+ options
 5. Pick one, download PNG
@@ -35,8 +35,8 @@
 3. Find seller $5-$20 range
 4. Provide brief:
    ```
-   Project: Xaheen Chain (blockchain/crypto)
-   Symbol: XHT
+   Project: Nor Chain (blockchain/crypto)
+   Symbol: NOR
    Style: Modern, tech, blockchain-themed
    Colors: Blue, cyan, purple gradient
    Format: PNG transparent, 200x200px minimum
@@ -55,14 +55,14 @@
 1. Go to: https://logomakr.com
 2. Click "Create Logo"
 3. Add elements:
-   - Text: "XHT" or "XAHEEN"
+   - Text: "NOR" or "XAHEEN"
    - Icon: Search "blockchain", "chain", "hexagon", "network"
    - Color: Blue gradient
 4. Download PNG (free)
 
 ### Namecheap Logo Maker (Free)
 1. Go to: https://www.namecheap.com/logo-maker/
-2. Enter: "Xaheen"
+2. Enter: "Nor"
 3. Select: Technology category
 4. Generate logos (AI-powered)
 5. Download free version
@@ -76,7 +76,7 @@ If you need something RIGHT NOW:
 ### Create Simple Text Logo:
 1. Open any design tool (PowerPoint, Google Slides, Photoshop)
 2. Create 400x400px canvas
-3. Add text: "XHT" or "Xaheen"
+3. Add text: "NOR" or "Nor"
 4. Font: Bold, modern (Arial Black, Montserrat, Roboto)
 5. Color: Blue gradient or solid cyan
 6. Export PNG transparent
@@ -105,7 +105,7 @@ Based on your blockchain's identity:
 
 ### Design Elements:
 - **Symbol**: Hexagon (represents network nodes)
-- **Letter**: Stylized "X" or "XHT"
+- **Letter**: Stylized "X" or "NOR"
 - **Style**: Modern, geometric, tech-forward
 - **Colors**:
   - Primary: #0066FF (Electric Blue)
@@ -116,9 +116,9 @@ Based on your blockchain's identity:
 
 ### Logo Ideas:
 1. **Hexagonal X**: Letter X inside hexagon with gradient
-2. **Chain Links**: Three connected circles forming "XHT"
+2. **Chain Links**: Three connected circles forming "NOR"
 3. **Network Nodes**: Connected dots forming X shape
-4. **Blockchain Blocks**: Three 3D cubes with XHT text
+4. **Blockchain Blocks**: Three 3D cubes with NOR text
 
 ---
 
@@ -130,7 +130,7 @@ Based on your blockchain's identity:
 2. **Sign up** (free account)
 3. **Search template**: "crypto logo" or "tech logo"
 4. **Pick template** with hexagon or geometric shape
-5. **Edit text**: Change to "XHT" or "XAHEEN"
+5. **Edit text**: Change to "NOR" or "XAHEEN"
 6. **Change colors**:
    - Click element
    - Change to blue (#0066FF) or cyan (#00FFFF)
@@ -179,7 +179,7 @@ Based on your blockchain's identity:
 **Use this generic blockchain icon temporarily:**
 
 1. Download free blockchain icon from Flaticon
-2. Or use text-only logo (just "XHT" text)
+2. Or use text-only logo (just "NOR" text)
 3. Submit CMC form with temporary logo
 4. CMC allows logo updates later
 
@@ -217,7 +217,7 @@ Based on your blockchain's identity:
 
 **For RIGHT NOW (submit form today):**
 1. Use Canva free account (2 minutes)
-2. Pick simple hexagon + "XHT" text design
+2. Pick simple hexagon + "NOR" text design
 3. Blue/cyan colors
 4. Download PNG transparent
 5. Upload to Imgur
@@ -264,6 +264,6 @@ If you want me to:
 3. Write a detailed Fiverr brief for designer
 4. Design ASCII art logo concept
 
-Just ask! But honestly, Canva with a simple hexagon + "XHT" text will work great for now.
+Just ask! But honestly, Canva with a simple hexagon + "NOR" text will work great for now.
 
 **Bottom line**: Spend 2 minutes on Canva, get logo, upload to Imgur, paste link in CMC form. Done! ✅

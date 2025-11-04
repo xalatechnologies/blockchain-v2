@@ -1,0 +1,15 @@
+{
+  "network": "Nor Chain",
+  "chainId": 65001,
+  "timestamp": "2025-11-03 20:23:59",
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "contracts": {
+    "governance": "0x563559e9B62246054DCdC459dD43A6430565e13e",
+    "staking": "0xed09Cf03c86648a21Df809e92492185BABb51B0a",
+    "farming": "0xD31f1D176c01E89d379Bb0f5288E5e5746E8bf07",
+    "oracle": "0x2c0941eD0d2fbe8fF6Ade30c8e50819DaA548d29",
+    "btcbrFeed": "0xc1f3dC5DAdD4250F1a3A939D9d8F450993CFC8a0",
+    "norFeed": "0x12F24F5EA37e18913c35bC34529D71830AEcF712",
+    "dirhamatFeed": "0xa95727E0384874ace04808460b286De82a877447"
+  }
+}

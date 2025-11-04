@@ -1,4 +1,4 @@
-# Noor Chain DEX - Final $800K Liquidity Plan
+# Nor Chain DEX - Final $800K Liquidity Plan
 
 **Date:** November 2, 2025
 **Status:** Ready for Deployment
@@ -116,4 +116,4 @@ Locks all LP tokens for 36 months (3 years)
 **Status:** Infrastructure deployed, ready for bridge tokens and liquidity
 **Next Action:** Deploy WBNB & WETH, then add liquidity
 
-🌙 **Noor Chain - Illuminating DeFi** 🌙
+🌙 **Nor Chain - Illuminating DeFi** 🌙

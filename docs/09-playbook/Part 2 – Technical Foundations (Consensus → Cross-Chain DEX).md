@@ -1,15 +1,15 @@
 Perfect 🔧
 # Part 2 – Technical Foundations  
 **Version**: v3.1-2025-11-02  
-**Part of**: Noor Chain Playbook v3 - Public Master Edition  
+**Part of**: Nor Chain Playbook v3 - Public Master Edition  
 ---
-#ai:module noor-chain-core
+#ai:module nor-chain-core
 #ai:topic consensus, validators, bridge, liquidity
 #ai:audience developer, ai-agent, infrastructure-engineer
 ---
 
 ## 9 Consensus & Validator Framework
-Noor Chain uses a refined **Parlia Proof-of-Staked Authority (PoSA)** model—optimized for predictable performance, regulatory transparency, and AI-assisted monitoring.
+Nor Chain uses a refined **Parlia Proof-of-Staked Authority (PoSA)** model—optimized for predictable performance, regulatory transparency, and AI-assisted monitoring.
 
 ### Parameters
 | Field | Value |
@@ -81,7 +81,7 @@ Sample (Excerpt)
 Bootstrap Checklist
 	1.	Generate validator keys → import to Ansible automation.
 	2.	Distribute pre-funded accounts (1000 NOR each for testing).
-	3.	Run init --genesis noor.json on all nodes.
+	3.	Run init --genesis nor.json on all nodes.
 	4.	Start with --networkid 65001 --syncmode full.
 	5.	Confirm via RPC: eth_chainId = 0xFDE9.
 	6.	Deploy system contracts (NOR, DEX, Bridge).
@@ -93,7 +93,7 @@ Bootstrap Checklist
 
 Contract	Purpose
 NORToken	Native governance + gas token.
-NoorSwapFactory/Router	AMM DEX core for spot and liquidity pools.
+NorSwapFactory/Router	AMM DEX core for spot and liquidity pools.
 BridgeVault	Cross-chain asset locking and minting.
 EpochManager	Validator rotation and epoch state.
 ComplianceCore (XCC)	AML/KYC/GDPR rule enforcer.
@@ -109,21 +109,21 @@ Each contract has OpenZeppelin-style upgrade patterns with multi-sig governance 
 
 Concept
 
-Xaheen Bridge = hybrid vault + router network linking Noor ↔ BSC ↔ Polygon ↔ Ethereum.
-Main liquidity resides on Noor; external routers expose mirror tokens for visibility.
+Nor Bridge = hybrid vault + router network linking Nor ↔ BSC ↔ Polygon ↔ Ethereum.
+Main liquidity resides on Nor; external routers expose mirror tokens for visibility.
 
 Workflow
-	1.	User locks token in BridgeVault on Noor.
+	1.	User locks token in BridgeVault on Nor.
 	2.	AI-verified relayers confirm event → mint mirror token on destination chain.
-	3.	Reverse burn on destination chain → unlock original in Noor vault.
+	3.	Reverse burn on destination chain → unlock original in Nor vault.
 	4.	Oracle syncs prices and volumes across DEXes.
 
 Mermaid – Bridge Flow
 
 sequenceDiagram
-  participant Noor
+  participant Nor
   participant BSC
-  Noor->>BridgeVault: Lock BTCBR
+  Nor->>BridgeVault: Lock BTCBR
   BridgeVault->>AI_Relayer: Emit LockEvent
   AI_Relayer->>BSC_Router: Mint Mirror BTCBR
   BSC_Router->>User: Receive fBTCBR
@@ -133,7 +133,7 @@ sequenceDiagram
 Deterministic Deployment (CREATE2)
 
 To preserve branding and reduce confusion, routers use CREATE2 salted deployments for predictable addresses across chains.
-If address already taken, use versioned mirror BTCBR(Noor v2) with verified symbol and logo.
+If address already taken, use versioned mirror BTCBR(Nor v2) with verified symbol and logo.
 
 ⸻
 

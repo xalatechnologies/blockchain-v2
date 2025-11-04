@@ -15,10 +15,10 @@
 - Network: BSC Mainnet (Chain ID: 56)
 - Status: ✅ DEPLOYED (BSC chain working)
 
-**Xaheen Chain Side:**
+**Nor Chain Side:**
 - Wrapped BNB Token: `0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B`
 - Bridge Contract: `0xB1347E378CE63475b282fCC4E9037D51F189758A`
-- Network: Xaheen Chain (Chain ID: 65001)
+- Network: Nor Chain (Chain ID: 65001)
 - Status: ⚠️ STUCK (chain frozen)
 
 ---
@@ -30,10 +30,10 @@
 - Network: BSC Mainnet (Chain ID: 56)
 - Status: ✅ DEPLOYED (BSC chain working)
 
-**Xaheen Chain Side:**
+**Nor Chain Side:**
 - Wrapped USDT Token: `0xA0de216D0bF10E9a40C0666FB3De458e3AEB70F5`
 - Bridge Contract: `0x1d24C3c51855d5320d7459E03F2d1a13F7cB6334`
-- Network: Xaheen Chain (Chain ID: 65001)
+- Network: Nor Chain (Chain ID: 65001)
 - Status: ⚠️ STUCK (chain frozen)
 
 ---
@@ -45,10 +45,10 @@
 - Network: BSC Mainnet (Chain ID: 56)
 - Status: ✅ DEPLOYED (BSC chain working)
 
-**Xaheen Chain Side:**
+**Nor Chain Side:**
 - Wrapped ETH Token: `0xF1C1dc0263686093389Fbd66c2951122B2133aEA`
 - Bridge Contract: `0x4Ce2954074a2cD465a05dE8518143Cb478A0c913`
-- Network: Xaheen Chain (Chain ID: 65001)
+- Network: Nor Chain (Chain ID: 65001)
 - Status: ⚠️ STUCK (chain frozen)
 
 ---
@@ -56,14 +56,14 @@
 ### 4. BTCBR Token (Genesis Contract)
 
 **Contract**: `0x0cF8e180350253271f4b917CcFb0aCCc4862F262`
-- Network: Xaheen Chain (Chain ID: 65001)
+- Network: Nor Chain (Chain ID: 65001)
 - Type: ERC20 Token (deployed in genesis)
 - Total Supply: 21 septillion BTCBR
 - Status: ⚠️ STUCK (chain frozen)
 
 **Your Holdings**:
 - BSC Mainnet: **352,772,609,892.888 BTCBR** ✅ (SAFE - on working chain)
-- Xaheen Chain: Unknown (chain stuck, can't query)
+- Nor Chain: Unknown (chain stuck, can't query)
 
 ---
 
@@ -90,8 +90,8 @@
 - BNB: 0.082505 BNB (~$50)
 - BTCBR: 352,772,609,892.888 BTCBR
 
-**Xaheen Chain** (⚠️ STUCK):
-- Native XHT: 20,189,999,999.861 XHT (from genesis)
+**Nor Chain** (⚠️ STUCK):
+- Native NOR: 20,189,999,999.861 NOR (from genesis)
 - BTCBR: Unknown (need to query when chain resumes)
 - Wrapped tokens: Unknown
 
@@ -106,7 +106,7 @@
 - Chain ID: 65001
 - Epoch: 30,000 blocks (⚠️ THE PROBLEM)
 - Validators: 3 addresses
-- Pre-allocated XHT and BTCBR
+- Pre-allocated NOR and BTCBR
 
 **Environment Configuration**:
 - `.env` - Contains all contract addresses
@@ -120,7 +120,7 @@
 
 ## 🔄 WHAT HAPPENS IF WE RESET?
 
-### ✅ WHAT WE KEEP (Not on Xaheen Chain)
+### ✅ WHAT WE KEEP (Not on Nor Chain)
 
 1. **BSC Mainnet Bridges** (These still work!):
    - BNB Bridge: `0x9bEFFFa3b43D34a2B470DA21aab3CA3263D0e8C0`
@@ -132,18 +132,18 @@
    - ✅ 0.082 BNB on BSC Mainnet
    - ✅ All source code and deployment scripts
 
-### ⚠️ WHAT WE LOSE (On Xaheen Chain)
+### ⚠️ WHAT WE LOSE (On Nor Chain)
 
-1. **Xaheen-side Bridge Contracts**:
+1. **Nor-side Bridge Contracts**:
    - Wrapped BNB: `0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B`
    - Wrapped USDT: `0xA0de216D0bF10E9a40C0666FB3De458e3AEB70F5`
    - Wrapped ETH: `0xF1C1dc0263686093389Fbd66c2951122B2133aEA`
-   - Bridge Contracts (Xaheen side)
+   - Bridge Contracts (Nor side)
 
-2. **Native XHT**:
+2. **Native NOR**:
    - Will be reset to genesis allocation (21B to your wallet)
 
-3. **Any Liquidity on Xaheen** (if added):
+3. **Any Liquidity on Nor** (if added):
    - Need to check if any exists
 
 4. **Transaction History**:
@@ -189,8 +189,8 @@ Before making ANY changes, we MUST verify:
 **Steps**:
 1. Create backup of current state
 2. Generate new genesis with epoch=200,000
-3. Redeploy Xaheen-side contracts
-4. Update BSC bridge contracts with new Xaheen addresses
+3. Redeploy Nor-side contracts
+4. Update BSC bridge contracts with new Nor addresses
 5. Add auto-restart monitoring
 
 **Time**: 2-3 hours
@@ -201,10 +201,10 @@ Before making ANY changes, we MUST verify:
 - All BSC mainnet bridges (working)
 - Your 352.7B BTCBR
 - All source code
-- Fresh XHT allocation
+- Fresh NOR allocation
 
 **YOU LOSE**:
-- Only Xaheen-side contracts (can redeploy)
+- Only Nor-side contracts (can redeploy)
 - Transaction history (can archive)
 
 ---
@@ -253,7 +253,7 @@ Only after completing Phase 1 & 2!
 1. **BSC Bridges are SAFE** - They're on BSC Mainnet (working chain)
 2. **Your BTCBR is SAFE** - It's on BSC Mainnet
 3. **Source code is SAFE** - Can redeploy anytime
-4. **Only Xaheen-side affected** - The stuck chain
+4. **Only Nor-side affected** - The stuck chain
 
 **BEFORE ANY ACTION**:
 - ✅ Complete liquidity check

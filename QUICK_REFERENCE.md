@@ -1,8 +1,8 @@
-# Noor Chain Quick Reference Guide
+# Nor Chain Quick Reference Guide
 
 **Last Updated**: 2025-11-03 11:55 UTC
 **Chain Status**: ✅ Active (Block 28+) with BTCBR Contract
-**Genesis**: genesis-noor-ultimate.json (hash: 589252..3d11c9)
+**Genesis**: genesis-nor-ultimate.json (hash: 589252..3d11c9)
 
 ---
 
@@ -34,8 +34,8 @@ ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@3.91.50.187 \
 |-----------|-------|
 | **Chain ID** | 65001 |
 | **Network ID** | 65001 |
-| **Native Token** | NOR (NOT XHT) |
-| **RPC URL** | https://rpc.xaheen.org (migrate to noorchain.org) |
+| **Native Token** | NOR (NOT NOR) |
+| **RPC URL** | https://rpc.xaheen.org (migrate to norchain.org) |
 | **RPC Port** | 8545 |
 | **WebSocket Port** | 8546 |
 | **Block Time** | ~3 seconds |
@@ -80,19 +80,19 @@ npx hardhat run scripts/deploy-nor-token.js --network btcbr
 ```
 
 **Token Specs**:
-- Name: Noor Token
+- Name: Nor Token
 - Symbol: NOR
 - Supply: 21 billion
 - Decimals: 24
 
-### 2. Deploy NoorSwap DEX
+### 2. Deploy NorSwap DEX
 
 **Factory**: `0x0cf8e180350253271f4b917ccfb0accc4862f264`
 **Router**: `0x0cf8e180350253271f4b917ccfb0accc4862f265`
 
 ```bash
 # Deploy DEX contracts
-npx hardhat run scripts/deploy-noorswap.js --network btcbr
+npx hardhat run scripts/deploy-norswap.js --network btcbr
 ```
 
 ### 3. Deploy Stablecoins
@@ -145,9 +145,9 @@ ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@3.91.50.187 \
 ## 📁 Important Files
 
 ### Genesis Files
-- `data/genesis-noor-ultimate.json` - Production genesis (CURRENT)
+- `data/genesis-nor-ultimate.json` - Production genesis (CURRENT)
 - `data/genesis-clean.json` - Previous clean genesis
-- `scripts/generate-noor-ultimate-genesis.js` - Genesis generator
+- `scripts/generate-nor-ultimate-genesis.js` - Genesis generator
 
 ### Documentation
 - `DEPLOYMENT_SUCCESS_LOG.md` - Complete deployment log
@@ -156,7 +156,7 @@ ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@3.91.50.187 \
 - `QUICK_REFERENCE.md` - This file
 
 ### Scripts
-- `scripts/generate-noor-ultimate-genesis.js` - Generate genesis
+- `scripts/generate-nor-ultimate-genesis.js` - Generate genesis
 - `scripts/fix-static-nodes-properly.sh` - Validator configuration
 
 ---
@@ -266,8 +266,8 @@ This prevents ALL epoch revalidation issues forever.
 
 ## 🔗 Useful Links
 
-- **GitHub**: https://github.com/[your-org]/noor-chain
-- **RPC Endpoint**: https://rpc.xaheen.org (soon: noorchain.org)
+- **GitHub**: https://github.com/[your-org]/nor-chain
+- **RPC Endpoint**: https://rpc.xaheen.org (soon: norchain.org)
 - **Block Explorer**: (to be deployed)
 - **Documentation**: See `docs/` folder
 
@@ -288,4 +288,4 @@ This prevents ALL epoch revalidation issues forever.
 **Status**: ✅ Healthy and producing blocks continuously
 **BTCBR Contract**: ✅ DEPLOYED and fully operational
 
-🌙 **Noor Chain - Where Light Meets Trust**
+🌙 **Nor Chain - Where Light Meets Trust**

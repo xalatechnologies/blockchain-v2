@@ -50,11 +50,11 @@ Successfully resolved critical blockchain issues and deployed a production-grade
 
 **Problem**: Cannot wrap >100M tokens in single transaction
 **Error**: `must be >= 0 and < 100M eth, not [value]`
-**Impact**: Initial plan to add 4.17B XHT liquidity in one transaction was impossible
+**Impact**: Initial plan to add 4.17B NOR liquidity in one transaction was impossible
 
 **Solution Implemented**:
-- Batch wrapping: 1M XHT per transaction
-- 500M XHT initial liquidity (instead of 4.17B)
+- Batch wrapping: 1M NOR per transaction
+- 500M NOR initial liquidity (instead of 4.17B)
 - Proportional USDT amount: $1,200 (maintains target price)
 - Can expand liquidity later without redeployment
 
@@ -68,7 +68,7 @@ Successfully resolved critical blockchain issues and deployed a production-grade
 
 | Component | Value |
 |-----------|-------|
-| **Chain Name** | Xaheen Chain |
+| **Chain Name** | Nor Chain |
 | **Chain ID** | 65001 |
 | **RPC** | https://rpc.xaheen.org (http://3.91.50.187:8545) |
 | **Block Time** | 3 seconds (Parlia PoSA) |
@@ -77,13 +77,13 @@ Successfully resolved critical blockchain issues and deployed a production-grade
 | **Consensus** | Parlia (BSC fork) |
 | **Epoch** | 30000 blocks |
 
-### DEX Contracts (XaheenDEX)
+### DEX Contracts (NorDEX)
 
 | Contract | Address |
 |----------|---------|
-| **WXHT** | `0x26c0eaF731885b14c031cc50dB79b36458E0b355` |
-| **XaheenDEXFactory** | `0x5DAB997112119BeCf715607CaA0A94f020AE2Da3` |
-| **XaheenDEXRouter** | `0xbe0d0ec34A93a2Ec08492715a51C613B7E530D80` |
+| **WNOR** | `0x26c0eaF731885b14c031cc50dB79b36458E0b355` |
+| **NorDEXFactory** | `0x5DAB997112119BeCf715607CaA0A94f020AE2Da3` |
+| **NorDEXRouter** | `0xbe0d0ec34A93a2Ec08492715a51C613B7E530D80` |
 
 ### Test Tokens (ERC20)
 
@@ -95,17 +95,17 @@ Successfully resolved critical blockchain issues and deployed a production-grade
 
 ### Liquidity Pools (DEPLOYING)
 
-| Pair | XHT Amount | Quote Amount | Target Price |
+| Pair | NOR Amount | Quote Amount | Target Price |
 |------|------------|--------------|--------------|
-| **XHT/USDT** | 500M XHT | $1,200 USDT | $0.0000024/XHT |
-| **XHT/BNB** | 50M XHT | 250 BNB | Market rate |
-| **XHT/ETH** | 50M XHT | 2.5 ETH | Market rate |
+| **NOR/USDT** | 500M NOR | $1,200 USDT | $0.0000024/NOR |
+| **NOR/BNB** | 50M NOR | 250 BNB | Market rate |
+| **NOR/ETH** | 50M NOR | 2.5 ETH | Market rate |
 
 ### Tokenomics Contracts (DEPLOYING)
 
-- **XHTStaking**: Stake XHT to earn rewards
-- **XHTBuyback**: Automated buyback mechanism
-- **XHTBurn**: Token burning for deflationary pressure
+- **NORStaking**: Stake NOR to earn rewards
+- **NORBuyback**: Automated buyback mechanism
+- **NORBurn**: Token burning for deflationary pressure
 
 ---
 
@@ -115,7 +115,7 @@ Successfully resolved critical blockchain issues and deployed a production-grade
 
 1. ✅ **Context Continuation** - Reviewed previous session state
 2. ✅ **Epoch Boundary Fix** - Changed epoch from 200 to 30000
-3. ✅ **DEX Deployment** - Factory, Router, WXHT
+3. ✅ **DEX Deployment** - Factory, Router, WNOR
 4. ✅ **Token Deployment** - USDT, BNB, ETH test tokens
 5. 🔄 **Liquidity Pools** - IN PROGRESS (batch wrapping)
 6. ⏳ **Tokenomics** - PENDING (after liquidity completes)
@@ -123,8 +123,8 @@ Successfully resolved critical blockchain issues and deployed a production-grade
 ### Challenges Overcome
 
 1. **Contract Name Mismatches**:
-   - Fixed "XaheenFactory" → "XaheenDEXFactory"
-   - Fixed "XaheenRouter" → "XaheenDEXRouter"
+   - Fixed "NorFactory" → "NorDEXFactory"
+   - Fixed "NorRouter" → "NorDEXRouter"
    - Fixed Factory constructor to accept 2 parameters
 
 2. **Missing Contracts**:
@@ -132,7 +132,7 @@ Successfully resolved critical blockchain issues and deployed a production-grade
    - Updated deployment scripts accordingly
 
 3. **Transaction Limits**:
-   - Implemented batch wrapping (500 batches × 1M XHT each)
+   - Implemented batch wrapping (500 batches × 1M NOR each)
    - Adjusted liquidity amounts to fit constraints
    - Maintained target price while reducing initial depth
 
@@ -143,19 +143,19 @@ Successfully resolved critical blockchain issues and deployed a production-grade
 ### Network Setup
 
 ```
-Network Name: Xaheen Chain
+Network Name: Nor Chain
 RPC URL: https://rpc.xaheen.org
 Chain ID: 65001
-Currency Symbol: XHT
+Currency Symbol: NOR
 Block Explorer: (Coming Soon)
 ```
 
 ### Token Import
 
-**WXHT (Wrapped XHT)**:
+**WNOR (Wrapped NOR)**:
 ```
 Address: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
-Symbol: WXHT
+Symbol: WNOR
 Decimals: 18
 ```
 
@@ -188,20 +188,20 @@ Decimals: 18
 
 | Category | Amount | Percentage |
 |----------|--------|------------|
-| **Total Supply** | 21B XHT | 100% |
-| **Initial Liquidity** | 600M XHT | 2.9% |
-| **Deployer Balance** | ~20.4B XHT | ~97.1% |
+| **Total Supply** | 21B NOR | 100% |
+| **Initial Liquidity** | 600M NOR | 2.9% |
+| **Deployer Balance** | ~20.4B NOR | ~97.1% |
 
 ### Initial Liquidity Breakdown
 
-- **XHT/USDT**: 500M XHT + $1,200 USDT
-- **XHT/BNB**: 50M XHT + 250 BNB
-- **XHT/ETH**: 50M XHT + 2.5 ETH
-- **Total**: 600M XHT (~$1,440 value @ target price)
+- **NOR/USDT**: 500M NOR + $1,200 USDT
+- **NOR/BNB**: 50M NOR + 250 BNB
+- **NOR/ETH**: 50M NOR + 2.5 ETH
+- **Total**: 600M NOR (~$1,440 value @ target price)
 
 ### Launch Metrics
 
-- **Launch Price**: $0.0000024/XHT
+- **Launch Price**: $0.0000024/NOR
 - **Initial Market Cap**: $50,400 (@ target price)
 - **Liquidity Depth**: $1,440 across 3 pairs
 - **Liquidity/MCap Ratio**: 2.86% (healthy for launch)
@@ -214,7 +214,7 @@ Decimals: 18
 
 1. **`deploy-complete-ecosystem.js`**:
    - Uses existing DEX contracts
-   - Batch wraps XHT (500 batches of 1M each)
+   - Batch wraps NOR (500 batches of 1M each)
    - Adds liquidity to 3 pairs
    - Deploys tokenomics contracts
    - Full production deployment
@@ -266,8 +266,8 @@ Decimals: 18
 ### Short-Term
 
 1. **Add More Liquidity**:
-   - Can add liquidity incrementally (1M XHT batches)
-   - Target final depth: 4.17B XHT as originally planned
+   - Can add liquidity incrementally (1M NOR batches)
+   - Target final depth: 4.17B NOR as originally planned
    - No contract redeployment needed
 
 2. **Deploy Bridge Contracts**:
@@ -300,7 +300,7 @@ Decimals: 18
 
 ### Best Practices Applied
 
-1. **Pragmatic Solutions**: 500M XHT initial liquidity > 4.17B attempted in one shot
+1. **Pragmatic Solutions**: 500M NOR initial liquidity > 4.17B attempted in one shot
 2. **Expandable Architecture**: Can add more liquidity later
 3. **Proper Documentation**: Track all issues and solutions
 4. **User Collaboration**: User correctly identified epoch boundary issue
@@ -350,15 +350,15 @@ docker exec xaheen-rpc geth attach /bsc/geth.ipc --exec "eth.mining"
 - [x] Genesis v2 with 4 embedded tokens
 - [x] 3 validators producing blocks
 - [x] Epoch boundary fix (epoch=30000)
-- [x] DEX contracts (WXHT, Factory, Router)
+- [x] DEX contracts (WNOR, Factory, Router)
 - [x] Test tokens (USDT, BNB, ETH)
 - [x] Comprehensive documentation
 
 ### 🔄 In Progress
 
-- [ ] XHT/USDT liquidity pool (500 batches wrapping)
-- [ ] XHT/BNB liquidity pool (50 batches)
-- [ ] XHT/ETH liquidity pool (50 batches)
+- [ ] NOR/USDT liquidity pool (500 batches wrapping)
+- [ ] NOR/BNB liquidity pool (50 batches)
+- [ ] NOR/ETH liquidity pool (50 batches)
 - [ ] Tokenomics deployment (Staking, Buyback, Burn)
 
 ### ⏳ Pending
@@ -379,7 +379,7 @@ docker exec xaheen-rpc geth attach /bsc/geth.ipc --exec "eth.mining"
 ### What We Delivered
 
 ✅ **Layer 1 Blockchain**: Private BSC/Parlia network, 3 validators, 3-second blocks
-✅ **DEX**: Complete Uniswap V2 fork (XaheenDEX)
+✅ **DEX**: Complete Uniswap V2 fork (NorDEX)
 ✅ **Liquidity**: 3 trading pairs with substantial initial depth
 ✅ **Tokenomics**: Staking, buyback, burn mechanisms
 ✅ **Production Grade**: Proper error handling, batch processing, expandable architecture
@@ -389,8 +389,8 @@ docker exec xaheen-rpc geth attach /bsc/geth.ipc --exec "eth.mining"
 
 - **Blocks Produced**: 200+ and counting
 - **Contracts Deployed**: 9 (DEX + tokens + tokenomics)
-- **Liquidity Pairs**: 3 (XHT/USDT, XHT/BNB, XHT/ETH)
-- **Initial Liquidity**: 600M XHT (~$1,440)
+- **Liquidity Pairs**: 3 (NOR/USDT, NOR/BNB, NOR/ETH)
+- **Initial Liquidity**: 600M NOR (~$1,440)
 - **Transaction Processing**: ~600 wrapping transactions in progress
 - **Time to Production**: 1 session (with context recovery)
 
@@ -414,12 +414,12 @@ docker exec xaheen-rpc geth attach /bsc/geth.ipc --exec "eth.mining"
 ### Contract Verification
 
 ```javascript
-// Check WXHT balance
-const wxht = await ethers.getContractAt("WXHT", "0x26c0eaF731885b14c031cc50dB79b36458E0b355");
+// Check WNOR balance
+const wxht = await ethers.getContractAt("WNOR", "0x26c0eaF731885b14c031cc50dB79b36458E0b355");
 const balance = await wxht.balanceOf(deployer.address);
 
 // Check pair exists
-const factory = await ethers.getContractAt("XaheenDEXFactory", "0x5DAB997112119BeCf715607CaA0A94f020AE2Da3");
+const factory = await ethers.getContractAt("NorDEXFactory", "0x5DAB997112119BeCf715607CaA0A94f020AE2Da3");
 const pairAddress = await factory.getPair(wxhtAddress, usdtAddress);
 ```
 

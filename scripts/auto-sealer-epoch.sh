@@ -16,7 +16,7 @@
 #
 # INSTALL:
 #   crontab -e
-#   * * * * * /opt/noor-chain/scripts/auto-sealer-epoch.sh >> /var/log/auto-sealer.log 2>&1
+#   * * * * * /opt/nor-chain/scripts/auto-sealer-epoch.sh >> /var/log/auto-sealer.log 2>&1
 #
 #═══════════════════════════════════════════════════════════════════════════
 

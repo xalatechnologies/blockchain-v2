@@ -22,41 +22,41 @@ Cost = 3,000,000 × 3 gwei = 0.009 BNB
 
 ---
 
-### Xaheen Chain Deployment:
+### Nor Chain Deployment:
 
 **Contracts to Deploy:**
 1. WBNB Token contract (ERC-20)
-2. BNBBridgeXaheen contract (minting side)
+2. BNBBridgeNor contract (minting side)
 
-**Gas costs on Xaheen:**
+**Gas costs on Nor:**
 - WBNB deployment: ~2,000,000 gas
 - Bridge deployment: ~3,000,000 gas
 - Grant minter role: ~50,000 gas
 - Total: ~5,050,000 gas
 
-**Xaheen gas price: 1 gwei**
-**XHT price: ~$0.001**
+**Nor gas price: 1 gwei**
+**NOR price: ~$0.001**
 
 ```
 Cost = 5,050,000 × 1 gwei × $0.001 = $0.005
 ```
 
-**Total Xaheen Deployment: ~$0.01** (negligible!)
+**Total Nor Deployment: ~$0.01** (negligible!)
 
 ---
 
 ### Initial Liquidity (OPTIONAL):
 
-**WBNB/XHT Trading Pair:**
-If you want users to swap WBNB → XHT on your DEX, you need liquidity:
+**WBNB/NOR Trading Pair:**
+If you want users to swap WBNB → NOR on your DEX, you need liquidity:
 
 ```
 Option A: Minimal liquidity
-- 1 BNB + 1,000 XHT
+- 1 BNB + 1,000 NOR
 - Cost: ~$400 + $1 = $401
 
 Option B: Better liquidity
-- 10 BNB + 10,000 XHT
+- 10 BNB + 10,000 NOR
 - Cost: ~$4,000 + $10 = $4,010
 
 Option C: No liquidity yet
@@ -72,7 +72,7 @@ Option C: No liquidity yet
 ### Minimum (Bridge Only):
 ```
 BSC deployment: $4
-Xaheen deployment: $0.01
+Nor deployment: $0.01
 Initial liquidity: $0 (add later)
 
 TOTAL: ~$4
@@ -85,8 +85,8 @@ TOTAL: ~$4
 ### With Minimal Liquidity:
 ```
 BSC deployment: $4
-Xaheen deployment: $0.01
-Initial liquidity: $401 (1 BNB + 1K XHT)
+Nor deployment: $0.01
+Initial liquidity: $401 (1 BNB + 1K NOR)
 
 TOTAL: ~$405
 ```
@@ -96,8 +96,8 @@ TOTAL: ~$405
 ### With Good Liquidity:
 ```
 BSC deployment: $4
-Xaheen deployment: $0.01
-Initial liquidity: $4,010 (10 BNB + 10K XHT)
+Nor deployment: $0.01
+Initial liquidity: $4,010 (10 BNB + 10K NOR)
 
 TOTAL: ~$4,014
 ```
@@ -120,7 +120,7 @@ But actual BSC gas is MUCH cheaper now (~$4)!
 
 **Deploy contracts:**
 1. BNBBridgeMainnet on BSC
-2. WBNB + BNBBridgeXaheen on Xaheen
+2. WBNB + BNBBridgeNor on Nor
 
 **DON'T add liquidity yet!**
 
@@ -138,8 +138,8 @@ But actual BSC gas is MUCH cheaper now (~$4)!
 **After first 10 users bridge:**
 ```
 They bridge: 5 BNB average = 50 BNB total
-You add: 10 BNB + 10,000 XHT liquidity
-Users can now swap WBNB → XHT
+You add: 10 BNB + 10,000 NOR liquidity
+Users can now swap WBNB → NOR
 ```
 
 **Cost: $4,000 when you're ready**
@@ -151,7 +151,7 @@ Users can now swap WBNB → XHT
 ### What if you don't deploy bridge yet?
 
 **User flow WITHOUT bridge:**
-1. You manually send them XHT
+1. You manually send them NOR
 2. They send you BNB/USDT
 3. P2P exchange (like OTC desk)
 
@@ -192,24 +192,24 @@ Cost: 0.000855 BNB (~$0.34)
 TOTAL BSC: ~$3.76
 ```
 
-**Xaheen Chain:**
+**Nor Chain:**
 ```
 $ npx hardhat run scripts/deploy-bnb-bridge.js --network btcbr
 
 Deploying WBNB Token...
 Gas used: 1,982,445
 Gas price: 1 gwei
-Cost: 0.001982 XHT (~$0.002)
+Cost: 0.001982 NOR (~$0.002)
 
-Deploying BNBBridgeXaheen...
+Deploying BNBBridgeNor...
 Gas used: 2,912,384
 Gas price: 1 gwei
-Cost: 0.002912 XHT (~$0.003)
+Cost: 0.002912 NOR (~$0.003)
 
 Granting minter role...
 Gas used: 45,822
 Gas price: 1 gwei
-Cost: 0.000046 XHT (~$0.00005)
+Cost: 0.000046 NOR (~$0.00005)
 
 TOTAL XAHEEN: ~$0.005
 ```
@@ -252,8 +252,8 @@ ROI = $3,000 / $4 = 750X return!
 | **TOTAL DEPLOYMENT** | **$4** |
 | | |
 | **Optional: Initial Liquidity** | |
-| 1 BNB + 1K XHT | $401 |
-| 10 BNB + 10K XHT | $4,010 |
+| 1 BNB + 1K NOR | $401 |
+| 10 BNB + 10K NOR | $4,010 |
 | **Start with no liquidity** | **$0** |
 | | |
 | **RECOMMENDED TOTAL** | **$4 - $405** |
@@ -271,7 +271,7 @@ ROI = $3,000 / $4 = 750X return!
 ### Add Liquidity Later ($400-4000):
 1. Wait for users to bridge
 2. See actual demand
-3. Then add WBNB/XHT liquidity
+3. Then add WBNB/NOR liquidity
 4. Based on volume
 
 **Start with just $4!**

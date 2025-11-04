@@ -4,20 +4,20 @@ import { config as dotenvConfig } from "dotenv";
 dotenvConfig();
 
 /**
- * Add validator to all bridge contracts on Xaheen
+ * Add validator to all bridge contracts on Nor
  */
 
 async function main() {
   console.log("\n🔧 ADDING VALIDATOR TO ALL BRIDGES\n");
-  console.log("=" .repeat(60));
+  console.log("=".repeat(60));
 
   const [signer] = await ethers.getSigners();
   console.log("💼 Validator to add:", signer.address);
 
   // BNB Bridge
   console.log("\n1️⃣ BNB Bridge...");
-  const BNBBridgeXaheen = await ethers.getContractFactory("BNBBridgeXaheen");
-  const bnbBridge = BNBBridgeXaheen.attach(process.env.BNB_BRIDGE_XAHEEN);
+  const BNBBridgeNor = await ethers.getContractFactory("BNBBridgeNor");
+  const bnbBridge = BNBBridgeNor.attach(process.env.BNB_BRIDGE_XAHEEN);
 
   try {
     const isValidator = await bnbBridge.validators(signer.address);
@@ -34,8 +34,8 @@ async function main() {
 
   // USDT Bridge
   console.log("\n2️⃣ USDT Bridge...");
-  const USDTBridgeXaheen = await ethers.getContractFactory("USDTBridgeXaheen");
-  const usdtBridge = USDTBridgeXaheen.attach(process.env.USDT_BRIDGE_XAHEEN);
+  const USDTBridgeNor = await ethers.getContractFactory("USDTBridgeNor");
+  const usdtBridge = USDTBridgeNor.attach(process.env.USDT_BRIDGE_XAHEEN);
 
   try {
     const isValidator = await usdtBridge.validators(signer.address);
@@ -52,8 +52,8 @@ async function main() {
 
   // ETH Bridge
   console.log("\n3️⃣ ETH Bridge...");
-  const ETHBridgeXaheen = await ethers.getContractFactory("ETHBridgeXaheen");
-  const ethBridge = ETHBridgeXaheen.attach(process.env.ETH_BRIDGE_XAHEEN);
+  const ETHBridgeNor = await ethers.getContractFactory("ETHBridgeNor");
+  const ethBridge = ETHBridgeNor.attach(process.env.ETH_BRIDGE_XAHEEN);
 
   try {
     const isValidator = await ethBridge.validators(signer.address);
@@ -68,7 +68,7 @@ async function main() {
     console.log("   ⚠️  Error:", error.message);
   }
 
-  console.log("\n=" .repeat(60));
+  console.log("\n=".repeat(60));
   console.log("✅ ALL BRIDGES UPDATED!\n");
 
   // Check status

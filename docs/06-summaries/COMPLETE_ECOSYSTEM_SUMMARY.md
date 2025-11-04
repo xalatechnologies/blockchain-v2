@@ -1,15 +1,15 @@
-# 🚀 Xaheen Complete Ecosystem Summary
+# 🚀 Nor Complete Ecosystem Summary
 
 **Status**: FULLY OPERATIONAL ✅
 **Date**: October 30, 2025
-**Chain ID**: 65001 (Xaheen Chain)
+**Chain ID**: 65001 (Nor Chain)
 
 ---
 
 ## 🎯 Executive Summary
 
 You now have a **complete three-token DeFi ecosystem** with:
-- ✅ Native blockchain (Xaheen Chain)
+- ✅ Native blockchain (Nor Chain)
 - ✅ DEX with liquidity pools
 - ✅ Cross-chain bridges (BSC, Ethereum, Tron)
 - ✅ Governance and revenue sharing
@@ -23,24 +23,24 @@ You now have a **complete three-token DeFi ecosystem** with:
 
 ## 💎 The Three-Token System
 
-### **1. XHT (Xaheen Token)** ⚡ - The Engine
+### **1. NOR (Nor Token)** ⚡ - The Engine
 
 **Type**: Native gas token (like ETH on Ethereum)
 
-**Your Holdings**: 20,999,999,899 XHT (~21 billion)
+**Your Holdings**: 20,999,999,899 NOR (~21 billion)
 
 **Purpose**:
-- Powers ALL transactions on Xaheen Chain
+- Powers ALL transactions on Nor Chain
 - Required for gas fees
 - Deflationary through burns
 
 **Monetization**:
 ```
 Every user transaction:
-→ Costs gas in XHT
+→ Costs gas in NOR
 → You collect the fees
-→ 2% of swap fees burn XHT (deflationary)
-→ XHT price increases over time
+→ 2% of swap fees burn NOR (deflationary)
+→ NOR price increases over time
 ```
 
 **Contract**: Native blockchain token (no contract address)
@@ -71,7 +71,7 @@ Trading volume generates:
 
 ---
 
-### **3. XHN (Xaheen Network Token)** 💎 - The Value Capture
+### **3. XHN (Nor Network Token)** 💎 - The Value Capture
 
 **Type**: Governance and revenue-sharing token
 
@@ -100,17 +100,17 @@ Plus: Voting power over ecosystem
 
 ## 📊 Current Liquidity Pools
 
-### **Pool 1: XHT/BTCBR** 🔵
+### **Pool 1: NOR/BTCBR** 🔵
 
 **Status**: ✅ LIVE
 **Pair Address**: `0x07ff8522f5f3D4F989b064204D5f1Ef2da967AAD`
 
 **Liquidity**:
-- 100 XHT
+- 100 NOR
 - 100,000 BTCBR
 - **Your Share**: 99.99%
 
-**Initial Price**: 1 XHT = 1,000 BTCBR
+**Initial Price**: 1 NOR = 1,000 BTCBR
 
 **Your Earnings**:
 - 0.3% fee on every swap
@@ -119,17 +119,17 @@ Plus: Voting power over ecosystem
 
 ---
 
-### **Pool 2: XHT/XHN** 💎
+### **Pool 2: NOR/XHN** 💎
 
 **Status**: ✅ LIVE
 **Pair Address**: `0x845912Cacdc6537EE88cd5b77AFD0A6820c9673f`
 
 **Liquidity**:
-- 1,000 XHT
+- 1,000 NOR
 - 100,000 XHN
 - **Your Share**: 99.99%
 
-**Initial Price**: 1 XHT = 100 XHN (or 1 XHN = 0.01 XHT)
+**Initial Price**: 1 NOR = 100 XHN (or 1 XHN = 0.01 NOR)
 
 **Your Earnings**:
 - 0.3% fee on every swap
@@ -144,20 +144,20 @@ Plus: Voting power over ecosystem
 
 | Contract | Address | Purpose |
 |----------|---------|---------|
-| WXHT | `0x4942014731522796c6E102628e41ABF5c7e5327d` | Wrapped XHT for trading |
+| WNOR | `0x4942014731522796c6E102628e41ABF5c7e5327d` | Wrapped NOR for trading |
 | DEX Factory | `0x0180A21609cBca7ccf128784F802fa9a2693aaf9` | Creates trading pairs |
 | DEX Router | `0x704cf9Fd1977365426Bd15A1aD348B17B401877B` | Main trading interface |
-| XHTRevenue | `0xE4bC805e5ED3eB8715A27D4CBAdDF510764aAF53` | Fee collection & burns |
+| NORRevenue | `0xE4bC805e5ED3eB8715A27D4CBAdDF510764aAF53` | Fee collection & burns |
 
 ### **Fee Structure**
 
 **Trading Fees**: 0.3% per swap
 - 0.25% to liquidity providers (YOU!)
-- 0.05% to XHTRevenue (buyback & burn)
+- 0.05% to NORRevenue (buyback & burn)
 
 **Your Current Position**:
-- XHT/BTCBR pool: 99.99% ownership → You get 99.99% of LP fees
-- XHT/XHN pool: 99.99% ownership → You get 99.99% of LP fees
+- NOR/BTCBR pool: 99.99% ownership → You get 99.99% of LP fees
+- NOR/XHN pool: 99.99% ownership → You get 99.99% of LP fees
 
 ---
 
@@ -166,7 +166,7 @@ Plus: Voting power over ecosystem
 ### **BSC Bridge**
 
 **USDT Bridge**: `0xA78b497A66Be5fb48E91E9252dB0cd39a9d50419`
-- Bridge USDT from BSC to Xaheen
+- Bridge USDT from BSC to Nor
 - Fee: 0.1%
 - Min: 10 USDT, Max: 100,000 USDT
 
@@ -180,7 +180,7 @@ Plus: Voting power over ecosystem
 - Fee: 0.3%
 - Min: 100 BTCBR, Max: 100,000 BTCBR
 
-**Status**: Deployed on Xaheen, ready for Ethereum deployment
+**Status**: Deployed on Nor, ready for Ethereum deployment
 
 ---
 
@@ -192,7 +192,7 @@ Plus: Voting power over ecosystem
 - Fee: 0.1%
 - Min: 10 BTCBR, Max: 100,000 BTCBR
 
-**Status**: Deployed on Xaheen, ready for Tron deployment
+**Status**: Deployed on Nor, ready for Tron deployment
 
 **Why Tron is Critical**:
 - 50%+ of global USDT is TRC20
@@ -204,25 +204,25 @@ Plus: Voting power over ecosystem
 
 ## 💰 Your Revenue Streams
 
-### **Stream 1: Gas Fees** ⚡ (XHT)
+### **Stream 1: Gas Fees** ⚡ (NOR)
 
 ```
-Every transaction on Xaheen Chain:
-→ Costs gas in XHT
+Every transaction on Nor Chain:
+→ Costs gas in NOR
 → You collect fees
-→ Users MUST buy XHT
+→ Users MUST buy NOR
 
 Example:
-1,000 daily transactions × 0.001 XHT = 1 XHT/day
-1 XHT/day × $0.0001 = $0.10/day = $3/month = $36/year
+1,000 daily transactions × 0.001 NOR = 1 NOR/day
+1 NOR/day × $0.0001 = $0.10/day = $3/month = $36/year
 
 At scale (10,000 tx/day):
-10 XHT/day = $1/day = $365/year
+10 NOR/day = $1/day = $365/year
 ```
 
 ---
 
-### **Stream 2: LP Fees** 💧 (XHT/BTCBR, XHT/XHN)
+### **Stream 2: LP Fees** 💧 (NOR/BTCBR, NOR/XHN)
 
 ```
 Trading volume generates 0.3% fees:
@@ -274,7 +274,7 @@ At scale ($10M monthly):
 ```
 All three tokens are deflationary:
 
-XHT:
+NOR:
 → 2% of swap fees burned
 → Reduces supply
 → Price increases
@@ -343,9 +343,9 @@ BTCBR:
 
 ### **Phase 1: Foundation** (Current - Week 4) ✅
 
-- ✅ Deploy Xaheen Chain
+- ✅ Deploy Nor Chain
 - ✅ Create DEX with liquidity pools
-- ✅ Deploy XHT tokenomics
+- ✅ Deploy NOR tokenomics
 - ✅ Deploy BTCBR utility token
 - ✅ Deploy XHN governance token
 - ✅ Add initial liquidity ($11K)
@@ -475,7 +475,7 @@ BTCBR:
 
 ### **Token Metrics**
 
-**XHT**:
+**NOR**:
 - Gas fee revenue
 - Burn rate
 - Circulating supply reduction
@@ -545,7 +545,7 @@ BTCBR:
 
 ## 🚀 The Vision
 
-**Short-term**: Establish as go-to DEX for Xaheen Chain
+**Short-term**: Establish as go-to DEX for Nor Chain
 **Medium-term**: Become top cross-chain bridge for BTCBR
 **Long-term**: Build complete DeFi ecosystem with $100M+ TVL
 

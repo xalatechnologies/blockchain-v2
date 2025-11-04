@@ -9,14 +9,14 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 /**
  * @title WrappedDirhamat
  * @dev Wrapped Dirhamat stablecoin for deployment on external chains (Ethereum, BSC, Polygon)
- * Minted 1:1 when Dirhamat is locked on Noor Chain
+ * Minted 1:1 when Dirhamat is locked on Nor Chain
  * Maintains AED peg and Shariah compliance across chains
  */
 contract WrappedDirhamat is ERC20, ERC20Burnable, AccessControl, Pausable {
     bytes32 public constant BRIDGE_ROLE = keccak256("BRIDGE_ROLE");
     bytes32 public constant COMPLIANCE_ROLE = keccak256("COMPLIANCE_ROLE");
     
-    address public noorChainBridge;
+    address public norChainBridge;
     address public complianceContract;
     
     uint256 public totalBridged;
@@ -24,8 +24,8 @@ contract WrappedDirhamat is ERC20, ERC20Burnable, AccessControl, Pausable {
     
     mapping(address => bool) public blacklisted;
     
-    event Bridged(address indexed user, uint256 amount, bytes32 noorTxHash);
-    event Redeemed(address indexed user, uint256 amount, address noorAddress);
+    event Bridged(address indexed user, uint256 amount, bytes32 norTxHash);
+    event Redeemed(address indexed user, uint256 amount, address norAddress);
     event BridgeUpdated(address indexed oldBridge, address indexed newBridge);
     event Blacklisted(address indexed account);
     event Unblacklisted(address indexed account);
@@ -38,15 +38,15 @@ contract WrappedDirhamat is ERC20, ERC20Burnable, AccessControl, Pausable {
         _grantRole(BRIDGE_ROLE, _bridge);
         _grantRole(COMPLIANCE_ROLE, _compliance);
         
-        noorChainBridge = _bridge;
+        norChainBridge = _bridge;
         complianceContract = _compliance;
     }
     
     /**
-     * @dev Mint wrapped Dirhamat when tokens are locked on Noor Chain
+     * @dev Mint wrapped Dirhamat when tokens are locked on Nor Chain
      * Only callable by authorized bridge contract
      */
-    function mint(address to, uint256 amount, bytes32 noorTxHash) external onlyRole(BRIDGE_ROLE) whenNotPaused {
+    function mint(address to, uint256 amount, bytes32 norTxHash) external onlyRole(BRIDGE_ROLE) whenNotPaused {
         require(to != address(0), "WrappedDirhamat: ZERO_ADDRESS");
         require(amount > 0, "WrappedDirhamat: ZERO_AMOUNT");
         require(!blacklisted[to], "WrappedDirhamat: BLACKLISTED");
@@ -54,21 +54,21 @@ contract WrappedDirhamat is ERC20, ERC20Burnable, AccessControl, Pausable {
         _mint(to, amount);
         totalBridged += amount;
         
-        emit Bridged(to, amount, noorTxHash);
+        emit Bridged(to, amount, norTxHash);
     }
     
     /**
-     * @dev Burn wrapped Dirhamat to redeem on Noor Chain
+     * @dev Burn wrapped Dirhamat to redeem on Nor Chain
      */
-    function redeem(uint256 amount, address noorAddress) external whenNotPaused {
+    function redeem(uint256 amount, address norAddress) external whenNotPaused {
         require(amount > 0, "WrappedDirhamat: ZERO_AMOUNT");
-        require(noorAddress != address(0), "WrappedDirhamat: ZERO_ADDRESS");
+        require(norAddress != address(0), "WrappedDirhamat: ZERO_ADDRESS");
         require(!blacklisted[msg.sender], "WrappedDirhamat: BLACKLISTED");
         
         _burn(msg.sender, amount);
         totalRedeemed += amount;
         
-        emit Redeemed(msg.sender, amount, noorAddress);
+        emit Redeemed(msg.sender, amount, norAddress);
     }
     
     /**
@@ -94,11 +94,11 @@ contract WrappedDirhamat is ERC20, ERC20Burnable, AccessControl, Pausable {
     function updateBridge(address newBridge) external onlyRole(DEFAULT_ADMIN_ROLE) {
         require(newBridge != address(0), "WrappedDirhamat: ZERO_ADDRESS");
         
-        address oldBridge = noorChainBridge;
+        address oldBridge = norChainBridge;
         _revokeRole(BRIDGE_ROLE, oldBridge);
         _grantRole(BRIDGE_ROLE, newBridge);
         
-        noorChainBridge = newBridge;
+        norChainBridge = newBridge;
         
         emit BridgeUpdated(oldBridge, newBridge);
     }

@@ -9,11 +9,11 @@ async function main() {
   const [signer] = await ethers.getSigners();
   console.log(`Signer: ${signer.address}\n`);
 
-  // Get ETH Bridge contract on Xaheen
-  const ETHBridgeXaheen = await ethers.getContractFactory("ETHBridgeXaheen");
-  const bridge = ETHBridgeXaheen.attach(process.env.ETH_BRIDGE_XAHEEN);
+  // Get ETH Bridge contract on Nor
+  const ETHBridgeNor = await ethers.getContractFactory("ETHBridgeNor");
+  const bridge = ETHBridgeNor.attach(process.env.ETH_BRIDGE_XAHEEN);
 
-  console.log(`ETH Bridge (Xaheen): ${process.env.ETH_BRIDGE_XAHEEN}\n`);
+  console.log(`ETH Bridge (Nor): ${process.env.ETH_BRIDGE_XAHEEN}\n`);
 
   // Check current config
   const reqSigs = await bridge.requiredSignatures();

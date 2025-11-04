@@ -1,11 +1,11 @@
-# ✅ Xaheen Chain - Deployment Ready
+# ✅ Nor Chain - Deployment Ready
 
 ## 🎯 Deployment Status: READY FOR PRODUCTION
 
 **Date**: 2025-10-30
 **Chain ID**: 65001
-**Network Name**: Xaheen Chain
-**Native Token**: XHT (Xaheen Token)
+**Network Name**: Nor Chain
+**Native Token**: NOR (Nor Token)
 **Domain**: xaheen.org
 
 ---
@@ -17,9 +17,9 @@
 | File | Status | Description |
 |------|--------|-------------|
 | **data/genesis-xaheen-65001.json** | ✅ Ready | Genesis file with Chain ID 65001 |
-| **.env** | ✅ Updated | Chain ID 65001, XHT token |
+| **.env** | ✅ Updated | Chain ID 65001, NOR token |
 | **hardhat.config.js** | ✅ Updated | chainId: 65001 for all networks |
-| **package.json** | ✅ Updated | Xaheen Chain branding |
+| **package.json** | ✅ Updated | Nor Chain branding |
 | **CLAUDE.md** | ✅ Updated | Complete technical guide |
 
 ### Smart Contract Deployment ✅
@@ -39,15 +39,15 @@
 
 ### Pre-Funded Accounts ✅
 
-The genesis file pre-funds these accounts with XHT for gas:
+The genesis file pre-funds these accounts with NOR for gas:
 
 | Account | Balance | Purpose |
 |---------|---------|---------|
-| 0x81bDAf1ac2094D5133937B3361A38a4976E55acc | 1000 XHT | Pre-funded EOA for gas |
-| 0xdd779a290c937144f80eb75b75d814c834536b1b | 1000 XHT | Main wallet |
-| 0xFAA5AA97651c2e2b6860219bb8f9902d416dB5DD | 1000 XHT | Validator 1 |
-| 0xfd634d55ce9b99058dc06cdda1f866b39579a9f3 | 1000 XHT | Validator 2 |
-| 0xb753b892551d1c374fda6fd7f6e9b787688c4ea5 | 1000 XHT | Validator 3 |
+| 0x81bDAf1ac2094D5133937B3361A38a4976E55acc | 1000 NOR | Pre-funded EOA for gas |
+| 0xdd779a290c937144f80eb75b75d814c834536b1b | 1000 NOR | Main wallet |
+| 0xFAA5AA97651c2e2b6860219bb8f9902d416dB5DD | 1000 NOR | Validator 1 |
+| 0xfd634d55ce9b99058dc06cdda1f866b39579a9f3 | 1000 NOR | Validator 2 |
+| 0xb753b892551d1c374fda6fd7f6e9b787688c4ea5 | 1000 NOR | Validator 3 |
 
 ### Validator Configuration ✅
 
@@ -102,7 +102,7 @@ mkdir -p backups/chain-$(date +%Y%m%d-%H%M%S)
 rm -rf validator-1/geth validator-2/geth validator-3/geth
 rm -f validator-1/static-nodes.json validator-2/static-nodes.json validator-3/static-nodes.json
 
-# 4. Initialize validators with Xaheen Chain genesis
+# 4. Initialize validators with Nor Chain genesis
 ./scripts/init-xaheen-validators.sh
 ```
 
@@ -175,7 +175,7 @@ curl -s http://localhost:8545 -X POST -H 'Content-Type: application/json' \
 ### Phase 5: Verify Pre-Funded Accounts
 
 ```bash
-# Check main wallet XHT balance (should be 1000 XHT = 0x3635c9adc5dea00000 wei)
+# Check main wallet NOR balance (should be 1000 NOR = 0x3635c9adc5dea00000 wei)
 curl -s http://localhost:8545 -X POST -H 'Content-Type: application/json' \
   --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x81bDAf1ac2094D5133937B3361A38a4976E55acc","latest"],"id":1}'
 
@@ -199,11 +199,11 @@ curl -s http://localhost:8545 -X POST -H 'Content-Type: application/json' \
 ### Before Going Live
 
 - [ ] **Chain ID**: Verified as 65001 (0xFDE9)
-- [ ] **Native Token**: XHT displayed in wallets
+- [ ] **Native Token**: NOR displayed in wallets
 - [ ] **Block Production**: Blocks being produced every 3 seconds
 - [ ] **Peer Connections**: All 3 validators connected (2 peers each)
 - [ ] **BTCBR Contract**: Code deployed at 0x0cF8e180350253271f4b917CcFb0aCCc4862F262
-- [ ] **Pre-Funded Accounts**: All accounts have 1000 XHT
+- [ ] **Pre-Funded Accounts**: All accounts have 1000 NOR
 - [ ] **RPC Endpoint**: Responding at rpc.xaheen.org (or localhost:8545)
 - [ ] **WebSocket**: Responding at ws.xaheen.org (or localhost:8546)
 - [ ] **Block Explorer**: Accessible at explorer.xaheen.org
@@ -230,14 +230,14 @@ curl -s http://localhost:8545 -X POST -H 'Content-Type: application/json' \
 
 **Automated Addition**:
 - Visit: `https://xaheen.org/add-to-metamask.html`
-- Click: "Add Xaheen Chain to MetaMask"
+- Click: "Add Nor Chain to MetaMask"
 
 **Manual Configuration**:
 ```
-Network Name:      Xaheen Chain
+Network Name:      Nor Chain
 RPC URL:           https://rpc.xaheen.org
 Chain ID:          65001
-Currency Symbol:   XHT
+Currency Symbol:   NOR
 Block Explorer:    https://explorer.xaheen.org
 ```
 
@@ -307,7 +307,7 @@ Block Explorer:    https://explorer.xaheen.org
 
 | Token | Supply | Decimals | Contract |
 |-------|--------|----------|----------|
-| XHT (Native) | Genesis allocated | 18 | Native token |
+| NOR (Native) | Genesis allocated | 18 | Native token |
 | BTCBR (ERC20) | Variable (mintable) | 18 | 0x0cF8e180350253271f4b917CcFb0aCCc4862F262 |
 
 ---
@@ -394,7 +394,7 @@ npm run compile
 # Deploy to BSC mainnet
 npm run deploy:mainnet
 
-# Deploy to Xaheen Chain
+# Deploy to Nor Chain
 npm run deploy:xaheen
 
 # Deploy all bridges
@@ -442,20 +442,20 @@ npm run deploy:bridges
 
 ## 🎉 Summary
 
-**Xaheen Chain is technically ready for deployment!**
+**Nor Chain is technically ready for deployment!**
 
 ### What's Complete ✅
 
 1. **Genesis Configuration**
    - Chain ID: 65001 ✅
    - BTCBR contract embedded at 0x0cF8e180350253271f4b917CcFb0aCCc4862F262 ✅
-   - Pre-funded accounts with XHT for gas ✅
+   - Pre-funded accounts with NOR for gas ✅
    - 3-validator Parlia configuration ✅
 
 2. **Code & Configuration**
    - All configuration files updated ✅
    - hardhat.config.js with Chain ID 65001 ✅
-   - .env with Xaheen Chain branding ✅
+   - .env with Nor Chain branding ✅
    - package.json with npm scripts ✅
 
 3. **Documentation**
@@ -483,11 +483,11 @@ npm run deploy:bridges
 
 ---
 
-**Xaheen Chain - Where Intelligence Meets Blockchain** 🧠⚡
+**Nor Chain - Where Intelligence Meets Blockchain** 🧠⚡
 
 **Repository**: blockchain-v2 (xaheen-chain)
 **Chain ID**: 65001 (0xFDE9)
-**Native Token**: XHT (Xaheen Token)
+**Native Token**: NOR (Nor Token)
 **Block Time**: 3 seconds
 **Consensus**: Parlia PoSA
 **Status**: ✅ Ready for Production Deployment

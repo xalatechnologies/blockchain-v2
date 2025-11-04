@@ -158,7 +158,7 @@ Password: xaheen2025 (known) ✅
 Now that the blockchain is running successfully, we can begin Phase 1 implementation:
 
 1. **Deploy BTCBR token**
-2. **Deploy WXHT wrapper**
+2. **Deploy WNOR wrapper**
 3. **Deploy DEX infrastructure** (Factory, Router)
 4. **Deploy FundUnit token standard** - ERC-20 with KYC, NAV, and Zakat features
 5. **Implement Shariah Oracle** - Asset verification contract

@@ -5,7 +5,7 @@ import fs from "fs";
 dotenvConfig();
 
 async function main() {
-  console.log("🏭 Deploying NEW NoorSwap Factory with Fixed Pair Contract...\n");
+  console.log("🏭 Deploying NEW NorSwap Factory with Fixed Pair Contract...\n");
 
   const [deployer] = await ethers.getSigners();
   console.log("📋 Deployer:", deployer.address);
@@ -13,26 +13,28 @@ async function main() {
   console.log("💰 Balance:", ethers.formatEther(balance), "NOR\n");
 
   // Deploy new factory
-  console.log("1️⃣ Deploying NoorSwapFactory...");
-  const NoorSwapFactory = await ethers.getContractFactory("NoorSwapFactory");
-  const factory = await NoorSwapFactory.deploy(deployer.address);
+  console.log("1️⃣ Deploying NorSwapFactory...");
+  const NorSwapFactory = await ethers.getContractFactory("NorSwapFactory");
+  const factory = await NorSwapFactory.deploy(deployer.address);
   await factory.waitForDeployment();
   const factoryAddress = await factory.getAddress();
-  console.log("✅ NoorSwapFactory deployed to:", factoryAddress);
+  console.log("✅ NorSwapFactory deployed to:", factoryAddress);
   console.log("   Fee To Setter:", deployer.address);
 
   // Deploy new router for the new factory
-  console.log("\n2️⃣ Deploying NoorSwapRouter for new factory...");
+  console.log("\n2️⃣ Deploying NorSwapRouter for new factory...");
 
   // Load existing deployment for WNOR
-  const deployment = JSON.parse(fs.readFileSync("./deployments/dex-infrastructure.json", "utf8"));
+  const deployment = JSON.parse(
+    fs.readFileSync("./deployments/dex-infrastructure.json", "utf8")
+  );
   const WNOR = deployment.contracts.WNOR;
 
-  const NoorSwapRouter = await ethers.getContractFactory("NoorSwapRouter");
-  const router = await NoorSwapRouter.deploy(factoryAddress, WNOR);
+  const NorSwapRouter = await ethers.getContractFactory("NorSwapRouter");
+  const router = await NorSwapRouter.deploy(factoryAddress, WNOR);
   await router.waitForDeployment();
   const routerAddress = await router.getAddress();
-  console.log("✅ NoorSwapRouter deployed to:", routerAddress);
+  console.log("✅ NorSwapRouter deployed to:", routerAddress);
   console.log("   Factory:", factoryAddress);
   console.log("   WNOR:", WNOR);
 
@@ -52,8 +54,8 @@ async function main() {
       WETH: deployment.contracts.WETH,
       NOORSWAP_ROUTER: routerAddress,
       LIQUIDITY_LOCK: deployment.contracts.LIQUIDITY_LOCK,
-      MULTI_ASSET_VAULT: deployment.contracts.MULTI_ASSET_VAULT
-    }
+      MULTI_ASSET_VAULT: deployment.contracts.MULTI_ASSET_VAULT,
+    },
   };
 
   fs.writeFileSync(
@@ -65,9 +67,11 @@ async function main() {
   console.log("✅ NEW DEX INFRASTRUCTURE DEPLOYED WITH FIXED PAIR CONTRACT");
   console.log("=".repeat(70));
   console.log("\n📋 New Contract Addresses:");
-  console.log("  NoorSwapFactory:", factoryAddress, "⭐ NEW");
-  console.log("  NoorSwapRouter:", routerAddress, "⭐ NEW");
-  console.log("\n💾 Updated deployment file: ./deployments/dex-infrastructure.json");
+  console.log("  NorSwapFactory:", factoryAddress, "⭐ NEW");
+  console.log("  NorSwapRouter:", routerAddress, "⭐ NEW");
+  console.log(
+    "\n💾 Updated deployment file: ./deployments/dex-infrastructure.json"
+  );
   console.log("\n🚀 Next: Run liquidity deployment script");
 }
 

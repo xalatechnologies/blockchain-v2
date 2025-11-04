@@ -1,7 +1,7 @@
 {
   "timestamp": "2025-11-03T14:27:05Z",
   "chainId": 65001,
-  "network": "Noor Chain",
+  "network": "Nor Chain",
   "liquidityLock": {
     "contract": "0x704cf9Fd1977365426Bd15A1aD348B17B401877B",
     "lpToken": "0x6509341929d0dC8376d2158d920287EF94594c53",

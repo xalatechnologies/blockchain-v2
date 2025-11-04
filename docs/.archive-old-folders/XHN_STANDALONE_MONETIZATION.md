@@ -1,6 +1,6 @@
 # 💎 XHN Standalone Monetization Guide
 
-**XHN (Xaheen Network Token)** - The governance and value capture token of the Xaheen ecosystem.
+**XHN (Nor Network Token)** - The governance and value capture token of the Nor ecosystem.
 
 ---
 
@@ -8,7 +8,7 @@
 
 | Token | Purpose | Monetization Model |
 |-------|---------|-------------------|
-| **XHT** | Native gas token (like ETH) | Gas fees, deflationary burns |
+| **NOR** | Native gas token (like ETH) | Gas fees, deflationary burns |
 | **BTCBR** | Utility & trading token | Trading volume, multi-chain presence |
 | **XHN** | **Governance & value capture** | **Revenue sharing, staking, buyback** |
 
@@ -166,7 +166,7 @@ Total: $67,650 (676% cumulative ROI!)
 
 **Approach:**
 1. Buy XHN at launch
-2. Trade XHN/XHT pair
+2. Trade XHN/NOR pair
 3. Provide XHN liquidity
 4. Earn LP fees + staking
 
@@ -174,7 +174,7 @@ Total: $67,650 (676% cumulative ROI!)
 ```
 Capital: $5,000
 
-LP Position (XHN/XHT): $2,500
+LP Position (XHN/NOR): $2,500
 - Trading volume: $100K/day
 - Your share: 2.5%
 - Daily fees: $75 (0.3% × $100K × 2.5%)
@@ -217,7 +217,7 @@ Indirect Returns: Hard to quantify, but significant!
 ### Strategy 4: **Ecosystem Builder**
 
 **Approach:**
-1. Build dApps on Xaheen
+1. Build dApps on Nor
 2. Integrate XHN for payments
 3. Earn grants from ecosystem fund
 4. Receive XHN incentives
@@ -322,7 +322,7 @@ Total Annual Value: $100,800+ (1,008% ROI!)
 
 **Options:**
 1. **Public Sale** (when launched) - Best price
-2. **DEX Trading** - Buy XHN/XHT or XHN/BTCBR pair
+2. **DEX Trading** - Buy XHN/NOR or XHN/BTCBR pair
 3. **Liquidity Mining** - Provide liquidity, earn XHN
 4. **Airdrop** - Qualify for early supporter airdrop
 5. **Ecosystem Participation** - Build dApps, earn grants
@@ -340,7 +340,7 @@ Total Annual Value: $100,800+ (1,008% ROI!)
 - Participate in governance (influence growth)
 
 **For Maximum Impact:**
-- Build on Xaheen ecosystem
+- Build on Nor ecosystem
 - Earn grants and incentives
 - Accumulate XHN position
 - Become major stakeholder
@@ -348,7 +348,7 @@ Total Annual Value: $100,800+ (1,008% ROI!)
 ### Step 3: Stake Your XHN
 
 ```solidity
-// Connect wallet to Xaheen Chain
+// Connect wallet to Nor Chain
 // Navigate to staking interface
 
 // Choose amount and lock period
@@ -381,8 +381,8 @@ stake(amount, lockPeriod)
 
 ### Comparison with Other Tokens
 
-**XHN vs. XHT:**
-- XHT: Gas token (utility, mandatory for transactions)
+**XHN vs. NOR:**
+- NOR: Gas token (utility, mandatory for transactions)
 - XHN: Value capture (revenue share, governance)
 - **Both needed, different purposes**
 
@@ -487,12 +487,12 @@ stake(amount, lockPeriod)
 **Community:**
 - Discord: [discord.gg/xaheen](https://discord.gg/xaheen)
 - Telegram: [t.me/xaheen](https://t.me/xaheen)
-- Twitter: [@XaheenNetwork](https://twitter.com/XaheenNetwork)
+- Twitter: [@NorNetwork](https://twitter.com/NorNetwork)
 
 **Contract Addresses:**
 - XHN Token: `[DEPLOY FIRST]`
 - XHN Staking: `[DEPLOY FIRST]`
-- XHT/XHN Pair: `[CREATE AFTER DEPLOYMENT]`
+- NOR/XHN Pair: `[CREATE AFTER DEPLOYMENT]`
 
 ---
 
@@ -500,7 +500,7 @@ stake(amount, lockPeriod)
 
 **Phase 1: Token Launch** (Week 1-2)
 - ✅ Deploy XHN contract
-- ✅ Create XHT/XHN liquidity pair
+- ✅ Create NOR/XHN liquidity pair
 - ✅ Enable staking interface
 - ✅ Conduct security audit
 
@@ -530,4 +530,4 @@ stake(amount, lockPeriod)
 
 ---
 
-💎 **XHN: Your Stake in the Xaheen Ecosystem's Success** 💎
+💎 **XHN: Your Stake in the Nor Ecosystem's Success** 💎

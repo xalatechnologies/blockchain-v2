@@ -7,7 +7,7 @@
 
 ## Overview
 
-Integrated enhanced business-focused content from Playbook v2 files into CLAUDE.md to provide AI assistants with comprehensive context about Xaheen's strategic positioning, partnership opportunities, and institutional focus.
+Integrated enhanced business-focused content from Playbook v2 files into CLAUDE.md to provide AI assistants with comprehensive context about Nor's strategic positioning, partnership opportunities, and institutional focus.
 
 ---
 
@@ -29,14 +29,14 @@ Integrated enhanced business-focused content from Playbook v2 files into CLAUDE.
 
 ### 1. Strategic Positioning (New Introduction)
 
-Added positioning statement for Xaheen Chain as **financial backbone** for:
+Added positioning statement for Nor Chain as **financial backbone** for:
 - UAE & GCC Islamic banks seeking Shariah-compliant tokenization
 - Fintechs needing ready-made halal-compliant infrastructure
 - Real-estate developers issuing tokenized ijārah or sukuk
 - Zakat & Charity organizations tracking transparent distribution
 - Global investors seeking ethical ESG-aligned returns
 
-**Vision quote added**: "Xaheen connects capital with conscience — turning finance into impact."
+**Vision quote added**: "Nor connects capital with conscience — turning finance into impact."
 
 ---
 
@@ -57,7 +57,7 @@ Added 4-step institutional onboarding process:
 
 **Step 2 – Fund Deployment**: Each partner receives a Fund Router smart contract with branding & fee configuration
 
-**Step 3 – Investor Access**: Xaheen Wallet & APIs expose subscription, NAV, and redemption flows
+**Step 3 – Investor Access**: Nor Wallet & APIs expose subscription, NAV, and redemption flows
 
 **Step 4 – Reporting & Governance**: Daily NAV + fatwa hashes published on-chain → regulator & auditor dashboards
 
@@ -67,9 +67,9 @@ Added 4-step institutional onboarding process:
 
 Added challenges and solutions for 5 industries:
 
-| Industry | Challenge | Xaheen Solution |
+| Industry | Challenge | Nor Solution |
 |-----------|------------|----------------|
-| **Banks** | Legacy core systems, lack of blockchain integration | Plug-and-play tokenization via Xaheen API |
+| **Banks** | Legacy core systems, lack of blockchain integration | Plug-and-play tokenization via Nor API |
 | **Real Estate** | Liquidity lock-in & fractional ownership barriers | On-chain Ijārah tokens + DEX liquidity |
 | **Fintechs** | Compliance burden & slow licensing | Built-in AAOIFI & GDPR modules |
 | **Charities** | Opaque fund flows & trust deficit | Transparent zakat & waqf tracking |
@@ -102,7 +102,7 @@ Added partnership focus with:
 - Zakat and charity foundations
 - ESG and impact investment funds
 
-**Why Partner with Xaheen**:
+**Why Partner with Nor**:
 - Shariah compliance & regulatory readiness out-of-the-box
 - Rapid market entry with minimal technical overhead
 - Global liquidity and transparent fund governance
@@ -143,14 +143,14 @@ The v2 integration provides AI assistants (Claude Code, etc.) with:
 - Compliance and regulatory readiness messaging
 
 ### Strategic Positioning
-- Xaheen as financial infrastructure, not just blockchain
+- Nor as financial infrastructure, not just blockchain
 - Bridge between traditional finance and Web3
 - Social impact and ESG alignment emphasis
 
 ### Partnership Development
 - Clear ideal partner profiles
 - Contact information for partnership inquiries
-- Benefits of partnering with Xaheen
+- Benefits of partnering with Nor
 
 ---
 
@@ -258,7 +258,7 @@ With v2 integration, AI assistants can now:
 **Integration completed by**: Claude Code
 **Total additions**: 80+ lines of strategic content
 **Focus**: Business positioning, partnerships, institutional onboarding
-**Benefit**: AI assistants now understand both technical and business aspects of Xaheen ecosystem
+**Benefit**: AI assistants now understand both technical and business aspects of Nor ecosystem
 
 ---
 

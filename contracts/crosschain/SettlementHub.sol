@@ -15,7 +15,7 @@ interface IPriceAuthority {
 
 /**
  * @title SettlementHub
- * @notice Cross-chain receipt processing and settlement for Xaheen DEX
+ * @notice Cross-chain receipt processing and settlement for Nor DEX
  * @dev Validates spoke fills and triggers net settlement via SupplyController
  *
  * Architecture:
@@ -46,7 +46,7 @@ contract SettlementHub is AccessControl, ReentrancyGuard {
         bytes32 fillId;
         uint64 chainId;
         address trader;
-        int256 xhtDelta; // Positive = user bought XHT, negative = user sold XHT
+        int256 xhtDelta; // Positive = user bought NOR, negative = user sold NOR
         uint256 proceeds; // Payment in USD (18 decimals)
         uint256 timestamp;
         uint256 nonce;
@@ -367,10 +367,10 @@ contract SettlementHub is AccessControl, ReentrancyGuard {
         // Calculate actual price from receipt
         uint256 actualPrice;
         if (receipt.xhtDelta > 0) {
-            // User bought XHT: actualPrice = proceeds / xhtDelta
+            // User bought NOR: actualPrice = proceeds / xhtDelta
             actualPrice = (receipt.proceeds * 1e18) / uint256(receipt.xhtDelta);
         } else if (receipt.xhtDelta < 0) {
-            // User sold XHT: actualPrice = proceeds / abs(xhtDelta)
+            // User sold NOR: actualPrice = proceeds / abs(xhtDelta)
             actualPrice = (receipt.proceeds * 1e18) / uint256(-receipt.xhtDelta);
         } else {
             return; // No trade, skip check

@@ -4,7 +4,7 @@ pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
-interface IXaheenDEXPair {
+interface INorDEXPair {
     function getReserves() external view returns (uint256 reserve0, uint256 reserve1, uint256 blockTimestampLast);
     function price0CumulativeLast() external view returns (uint256);
     function price1CumulativeLast() external view returns (uint256);
@@ -14,12 +14,12 @@ interface IXaheenDEXPair {
 
 /**
  * @title PriceAuthority
- * @notice Canonical price oracle for Xaheen cross-chain DEX
- * @dev Calculates TWAP from Xaheen DEX and signs quotes for spoke chains
+ * @notice Canonical price oracle for Nor cross-chain DEX
+ * @dev Calculates TWAP from Nor DEX and signs quotes for spoke chains
  *
  * Architecture:
- * - Xaheen Chain is the "price authority" (central bank model)
- * - This contract reads TWAP from XaheenDEXPair
+ * - Nor Chain is the "price authority" (central bank model)
+ * - This contract reads TWAP from NorDEXPair
  * - Applies policy spread (±0.25% for maker fees)
  * - Signs quotes with authorized key
  * - Spokes verify quote signatures before executing trades
@@ -29,8 +29,8 @@ contract PriceAuthority is Ownable {
 
     // ============ State Variables ============
 
-    /// @notice XaheenDEXPair contract for TWAP calculations
-    IXaheenDEXPair public immutable xaheenPair;
+    /// @notice NorDEXPair contract for TWAP calculations
+    INorDEXPair public immutable xaheenPair;
 
     /// @notice TWAP window (30 minutes = 1800 seconds)
     uint256 public constant TWAP_WINDOW = 1800;
@@ -50,8 +50,8 @@ contract PriceAuthority is Ownable {
         uint256 timestamp;
     }
 
-    Checkpoint public checkpoint0; // XHT/USDT checkpoint
-    Checkpoint public checkpoint1; // USDT/XHT checkpoint
+    Checkpoint public checkpoint0; // NOR/USDT checkpoint
+    Checkpoint public checkpoint1; // USDT/NOR checkpoint
 
     /// @notice Last published quote
     struct Quote {
@@ -78,7 +78,7 @@ contract PriceAuthority is Ownable {
         require(_xaheenPair != address(0), "Invalid pair address");
         require(_quoteSigner != address(0), "Invalid signer address");
 
-        xaheenPair = IXaheenDEXPair(_xaheenPair);
+        xaheenPair = INorDEXPair(_xaheenPair);
         quoteSigner = _quoteSigner;
 
         // Initialize first checkpoint
@@ -127,7 +127,7 @@ contract PriceAuthority is Ownable {
     }
 
     /**
-     * @notice Calculate current TWAP from Xaheen DEX
+     * @notice Calculate current TWAP from Nor DEX
      * @return twap Time-weighted average price in 18 decimals
      */
     function _calculateTWAP() internal view returns (uint256 twap) {

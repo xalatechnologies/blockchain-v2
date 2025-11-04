@@ -2,7 +2,7 @@
  * Price Monitor
  *
  * Monitors prices from:
- * 1. Xaheen DEX (canonical TWAP)
+ * 1. Nor DEX (canonical TWAP)
  * 2. Spoke DEXs (PancakeSwap, QuickSwap, Uniswap)
  */
 
@@ -37,8 +37,10 @@ export class PriceMonitor {
   async initialize() {
     console.log("📊 Initializing Price Monitor...");
 
-    // Connect to Xaheen
-    this.xaheenProvider = new ethers.JsonRpcProvider(this.config.xaheenChain.rpc);
+    // Connect to Nor
+    this.xaheenProvider = new ethers.JsonRpcProvider(
+      this.config.xaheenChain.rpc
+    );
     this.priceAuthority = new ethers.Contract(
       this.config.xaheenChain.priceAuthorityAddress,
       PRICE_AUTHORITY_ABI,
@@ -50,7 +52,11 @@ export class PriceMonitor {
       const provider = new ethers.JsonRpcProvider(spoke.rpc);
       this.spokeProviders.set(spoke.chainId, provider);
 
-      const dexRouter = new ethers.Contract(spoke.dexRouter, ROUTER_ABI, provider);
+      const dexRouter = new ethers.Contract(
+        spoke.dexRouter,
+        ROUTER_ABI,
+        provider
+      );
       this.spokeDexRouters.set(spoke.chainId, dexRouter);
     }
 
@@ -58,10 +64,10 @@ export class PriceMonitor {
   }
 
   /**
-   * Get canonical price from Xaheen PriceAuthority
+   * Get canonical price from Nor PriceAuthority
    * @returns {Promise<number>} Price in USD
    */
-  async getXaheenPrice() {
+  async getNorPrice() {
     try {
       const [priceWei, timestamp] = await this.priceAuthority.currentQuote();
 
@@ -70,7 +76,7 @@ export class PriceMonitor {
 
       return priceUSD;
     } catch (error) {
-      console.error("Error getting Xaheen price:", error.message);
+      console.error("Error getting Nor price:", error.message);
       throw error;
     }
   }
@@ -89,8 +95,8 @@ export class PriceMonitor {
 
       const router = this.spokeDexRouters.get(chainId);
 
-      // Get price by querying DEX router for 1 XHT -> USDT
-      const amountIn = ethers.parseEther("1"); // 1 XHT
+      // Get price by querying DEX router for 1 NOR -> USDT
+      const amountIn = ethers.parseEther("1"); // 1 NOR
       const path = [spoke.xhtAddress, spoke.usdtAddress];
 
       try {
@@ -136,7 +142,7 @@ export class PriceMonitor {
 
   /**
    * Calculate price deviation
-   * @param {number} xaheenPrice - Canonical price from Xaheen
+   * @param {number} xaheenPrice - Canonical price from Nor
    * @param {number} spokePrice - Price on spoke chain
    * @returns {number} Deviation as decimal (0.03 = 3%)
    */
@@ -152,10 +158,10 @@ export class PriceMonitor {
    */
   getArbitrageDirection(xaheenPrice, spokePrice) {
     if (spokePrice > xaheenPrice) {
-      // Spoke is more expensive → buy on Xaheen, sell on spoke
+      // Spoke is more expensive → buy on Nor, sell on spoke
       return "buy_xaheen_sell_spoke";
     } else {
-      // Xaheen is more expensive → buy on spoke, sell on Xaheen
+      // Nor is more expensive → buy on spoke, sell on Nor
       return "buy_spoke_sell_xaheen";
     }
   }

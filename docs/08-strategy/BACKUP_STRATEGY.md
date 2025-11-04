@@ -1,4 +1,4 @@
-# Xaheen Chain Backup & Disaster Recovery Strategy
+# Nor Chain Backup & Disaster Recovery Strategy
 
 **Created:** October 31, 2025
 **Status:** CRITICAL - Implement Immediately
@@ -164,7 +164,7 @@ ssh -i bsc-validator-key.pem ec2-user@3.91.50.187
 cat > /home/ec2-user/backup-blockchain.sh << 'EOF'
 #!/bin/bash
 
-# Xaheen Chain Backup Script
+# Nor Chain Backup Script
 # Backs up blockchain data to AWS S3
 
 set -euo pipefail
@@ -223,7 +223,7 @@ BACKUP_SIZE=$(aws s3 ls "${BUCKET}/${BACKUP_TYPE}/${TIMESTAMP}/" --recursive --s
 echo "$(date): Backup complete - ${BACKUP_SIZE} bytes uploaded to ${BUCKET}/${BACKUP_TYPE}/${TIMESTAMP}/"
 
 # Log to syslog
-logger "Xaheen Chain ${BACKUP_TYPE} backup completed: ${BACKUP_SIZE} bytes"
+logger "Nor Chain ${BACKUP_TYPE} backup completed: ${BACKUP_SIZE} bytes"
 EOF
 
 chmod +x /home/ec2-user/backup-blockchain.sh
@@ -357,7 +357,7 @@ aws cloudwatch put-metric-alarm \
   --alarm-name xaheen-backup-failed \
   --alarm-description "Alert when backup fails" \
   --metric-name BackupFailure \
-  --namespace Custom/XaheenChain \
+  --namespace Custom/NorChain \
   --statistic Sum \
   --period 3600 \
   --threshold 1 \
@@ -377,7 +377,7 @@ if ! curl -s -X POST https://rpc.xaheen.org \
   -d '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' | grep -q result; then
   echo "$(date): RPC FAILED" | tee -a /var/log/xaheen-health.log
   # Send alert
-  # aws sns publish --topic-arn arn:aws:sns:... --message "Xaheen RPC DOWN"
+  # aws sns publish --topic-arn arn:aws:sns:... --message "Nor RPC DOWN"
 fi
 
 # Check disk space

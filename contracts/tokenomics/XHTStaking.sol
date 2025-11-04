@@ -6,15 +6,15 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 
 /**
- * @title XHTStaking
- * @notice Intelligent staking contract for XHT (Xaheen Token)
+ * @title NORStaking
+ * @notice Intelligent staking contract for NOR (Nor Token)
  * @dev Features:
  * - Dynamic APY (8-20%) based on network security needs
  * - Lock period multipliers (up to 3x voting power)
  * - Revenue sharing (50% of protocol revenue)
  * - Automatic compounding
  */
-contract XHTStaking is ReentrancyGuard, Ownable, Pausable {
+contract NORStaking is ReentrancyGuard, Ownable, Pausable {
 
     // ============ State Variables ============
 
@@ -37,12 +37,12 @@ contract XHTStaking is ReentrancyGuard, Ownable, Pausable {
     mapping(uint256 => LockTier) public lockTiers;
 
     uint256 public totalStaked;
-    uint256 public totalSupply = 1_000_000_000 ether; // 1 billion XHT
+    uint256 public totalSupply = 1_000_000_000 ether; // 1 billion NOR
     uint256 public targetStakePercentage = 30; // 30% of supply
     uint256 public revenuePool; // Protocol revenue for distribution
 
-    uint256 public constant MIN_STAKE = 1000 ether; // 1,000 XHT minimum
-    uint256 public constant VALIDATOR_STAKE = 10_000 ether; // 10,000 XHT for validator
+    uint256 public constant MIN_STAKE = 1000 ether; // 1,000 NOR minimum
+    uint256 public constant VALIDATOR_STAKE = 10_000 ether; // 10,000 NOR for validator
     uint256 public constant BASE_APY_MIN = 8; // 8% minimum APY
     uint256 public constant BASE_APY_MAX = 20; // 20% maximum APY
 
@@ -68,7 +68,7 @@ contract XHTStaking is ReentrancyGuard, Ownable, Pausable {
     // ============ Core Functions ============
 
     /**
-     * @notice Stake XHT tokens
+     * @notice Stake NOR tokens
      * @param amount Amount to stake (must be >= MIN_STAKE)
      * @param lockTierId Lock tier (0-4)
      */
@@ -99,7 +99,7 @@ contract XHTStaking is ReentrancyGuard, Ownable, Pausable {
     }
 
     /**
-     * @notice Unstake XHT tokens and claim rewards
+     * @notice Unstake NOR tokens and claim rewards
      */
     function unstake() external nonReentrant {
         StakeInfo storage stakeInfo = stakes[msg.sender];

@@ -1,6 +1,6 @@
 # POST-LAUNCH SETUP GUIDE
 
-**Status**: Xaheen Chain is LIVE! Now we need to complete post-launch setup.
+**Status**: Nor Chain is LIVE! Now we need to complete post-launch setup.
 
 ---
 
@@ -59,7 +59,7 @@ nslookup ws.xaheen.org
 #!/bin/bash
 # File: setup-https-ssl.sh
 
-echo "🔒 Setting up HTTPS/SSL for Xaheen Chain"
+echo "🔒 Setting up HTTPS/SSL for Nor Chain"
 
 # Install Nginx and Certbot
 sudo yum install -y nginx certbot python3-certbot-nginx
@@ -165,18 +165,18 @@ Option 4: Host on your domain (https://xaheen.org/images/)
 
 #### Update MetaMask Configuration
 
-**When users add Xaheen Chain to MetaMask, use these parameters:**
+**When users add Nor Chain to MetaMask, use these parameters:**
 
 ```javascript
-// Add Xaheen Chain to MetaMask
+// Add Nor Chain to MetaMask
 await window.ethereum.request({
   method: 'wallet_addEthereumChain',
   params: [{
     chainId: '0xFDE9', // 65001 in hex
-    chainName: 'Xaheen Chain',
+    chainName: 'Nor Chain',
     nativeCurrency: {
-      name: 'Xaheen Token',
-      symbol: 'XHT',
+      name: 'Nor Token',
+      symbol: 'NOR',
       decimals: 18
     },
     rpcUrls: ['https://rpc.xaheen.org'], // Use HTTPS after setup
@@ -217,25 +217,25 @@ await window.ethereum.request({
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Xaheen Chain to MetaMask</title>
+    <title>Add Nor Chain to MetaMask</title>
 </head>
 <body>
-    <h1>Add Xaheen Chain</h1>
+    <h1>Add Nor Chain</h1>
 
-    <button onclick="addXaheenChain()">Add Xaheen Chain to MetaMask</button>
+    <button onclick="addNorChain()">Add Nor Chain to MetaMask</button>
     <button onclick="addBTCBRToken()">Add BTCBR Token</button>
 
     <script>
-        async function addXaheenChain() {
+        async function addNorChain() {
             try {
                 await window.ethereum.request({
                     method: 'wallet_addEthereumChain',
                     params: [{
                         chainId: '0xFDE9',
-                        chainName: 'Xaheen Chain',
+                        chainName: 'Nor Chain',
                         nativeCurrency: {
-                            name: 'Xaheen Token',
-                            symbol: 'XHT',
+                            name: 'Nor Token',
+                            symbol: 'NOR',
                             decimals: 18
                         },
                         rpcUrls: ['https://rpc.xaheen.org'],
@@ -246,7 +246,7 @@ await window.ethereum.request({
                         ]
                     }]
                 });
-                alert('Xaheen Chain added successfully!');
+                alert('Nor Chain added successfully!');
             } catch (error) {
                 console.error(error);
                 alert('Error adding chain: ' + error.message);
@@ -286,7 +286,7 @@ await window.ethereum.request({
 
 #### A. Setup Multi-Sig Wallet (Gnosis Safe)
 
-**Deploy Gnosis Safe on Xaheen Chain:**
+**Deploy Gnosis Safe on Nor Chain:**
 
 ```bash
 # 1. Install Gnosis Safe contracts

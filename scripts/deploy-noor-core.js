@@ -1,7 +1,7 @@
 /**
- * @title Noor Chain Core Deployment Script (Without Governance)
- * @notice Deploys core Noor Chain contracts (9 production-ready contracts)
- * @dev Run with: npx hardhat run scripts/deploy-noor-core.js --network btcbr
+ * @title Nor Chain Core Deployment Script (Without Governance)
+ * @notice Deploys core Nor Chain contracts (9 production-ready contracts)
+ * @dev Run with: npx hardhat run scripts/deploy-nor-core.js --network btcbr
  *
  * Deployment Order:
  * 1. NOR Token
@@ -17,7 +17,7 @@ import fs from "fs";
 const { ethers } = hre;
 
 async function main() {
-  console.log("🌙 Noor Chain Core Deployment Started\n");
+  console.log("🌙 Nor Chain Core Deployment Started\n");
   console.log("=".repeat(60));
 
   const [deployer] = await ethers.getSigners();
@@ -27,11 +27,11 @@ async function main() {
   console.log("💰 Balance:", ethers.formatEther(balance), "NOR\n");
 
   const deployedContracts = {
-    network: "Noor Chain Mainnet",
+    network: "Nor Chain Mainnet",
     chainId: 65001,
     deployer: deployer.address,
     timestamp: new Date().toISOString(),
-    contracts: {}
+    contracts: {},
   };
 
   try {
@@ -90,7 +90,7 @@ async function main() {
       kesUsdOracle: kesUsdOracleAddress,
       nokUsdOracle: nokUsdOracleAddress,
       sekUsdOracle: sekUsdOracleAddress,
-      dkkUsdOracle: dkkUsdOracleAddress
+      dkkUsdOracle: dkkUsdOracleAddress,
     };
 
     console.log("✅ Mock Oracles deployed:");
@@ -113,18 +113,18 @@ async function main() {
 
     // ==================== 3. DEX ====================
     console.log("\n" + "=".repeat(60));
-    console.log("3️⃣  Deploying NoorSwap DEX...");
+    console.log("3️⃣  Deploying NorSwap DEX...");
     console.log("=".repeat(60));
 
     // Deploy Factory
-    const Factory = await ethers.getContractFactory("NoorSwapFactory");
+    const Factory = await ethers.getContractFactory("NorSwapFactory");
     const factory = await Factory.deploy(deployer.address);
     await factory.waitForDeployment();
     const factoryAddress = await factory.getAddress();
 
-    deployedContracts.contracts.NoorSwapFactory = factoryAddress;
+    deployedContracts.contracts.NorSwapFactory = factoryAddress;
 
-    console.log("✅ NoorSwapFactory deployed to:", factoryAddress);
+    console.log("✅ NorSwapFactory deployed to:", factoryAddress);
 
     // For now, we'll skip WNOR and Router as they may require additional setup
     // They can be deployed separately once WNOR contract is available
@@ -211,12 +211,15 @@ async function main() {
     console.log("=".repeat(60));
 
     console.log("\n📋 Deployment Summary:");
-    console.log("   Network: Noor Chain Mainnet (Chain ID: 65001)");
+    console.log("   Network: Nor Chain Mainnet (Chain ID: 65001)");
     console.log("   Deployer:", deployer.address);
     console.log("   Timestamp:", deployedContracts.timestamp);
     console.log("\n📝 Deployed Contracts:");
     console.log("   1. NOR Token:", deployedContracts.contracts.NOR);
-    console.log("   2. NoorSwapFactory:", deployedContracts.contracts.NoorSwapFactory);
+    console.log(
+      "   2. NorSwapFactory:",
+      deployedContracts.contracts.NorSwapFactory
+    );
     console.log("   3. Dirhamat:", deployedContracts.contracts.Dirhamat);
     console.log("   4. Digital KES:", deployedContracts.contracts.DigitalKES);
     console.log("   5. NORDCoin:", deployedContracts.contracts.NORDCoin);
@@ -224,13 +227,15 @@ async function main() {
     console.log("   7. Oracles: 6 mock oracles deployed");
 
     // Save deployment info to file
-    const deploymentFile = `deployments/noor-mainnet-${Date.now()}.json`;
+    const deploymentFile = `deployments/nor-mainnet-${Date.now()}.json`;
     fs.mkdirSync("deployments", { recursive: true });
-    fs.writeFileSync(deploymentFile, JSON.stringify(deployedContracts, null, 2));
+    fs.writeFileSync(
+      deploymentFile,
+      JSON.stringify(deployedContracts, null, 2)
+    );
 
     console.log("\n💾 Deployment info saved to:", deploymentFile);
-    console.log("\n🌙 Noor Chain Core Deployment Successful! 🌙\n");
-
+    console.log("\n🌙 Nor Chain Core Deployment Successful! 🌙\n");
   } catch (error) {
     console.error("\n❌ Deployment failed:");
     console.error(error);

@@ -258,7 +258,7 @@ console.log("Liquidity removed! TX:", removeLiquidityTx);
 
 ---
 
-## 🎯 Why Tron is Critical for Xaheen
+## 🎯 Why Tron is Critical for Nor
 
 ### **Market Opportunity**
 
@@ -414,7 +414,7 @@ Tron and USDT:
 ## ✅ Pre-Launch Checklist
 
 - [ ] BTCBR-TRC20 deployed on Tron
-- [ ] Bridge operational between Xaheen and Tron
+- [ ] Bridge operational between Nor and Tron
 - [ ] Initial liquidity secured ($15K+ recommended)
 - [ ] Energy rental setup (or TRX frozen)
 - [ ] Marketing materials in Chinese/Korean

@@ -2,14 +2,14 @@
 
 ## ✅ CURRENT STATUS
 
-**Xaheen Chain is LIVE and OPERATIONAL!**
+**Nor Chain is LIVE and OPERATIONAL!**
 
 - **Chain ID**: 65001
 - **Network**: Producing blocks every 3 seconds
 - **Validators**: All 3 connected and mining
 - **Block Height**: Continuously increasing
 - **Token Supplies**:
-  - XHT (native): 21,000,000,000 ✅
+  - NOR (native): 21,000,000,000 ✅
   - BTCBR (contract): 21,000,000,000,000,000,000,000,000 ✅
 - **Smart Contracts**: All 6 tokenomics contracts deployed ✅
 
@@ -43,7 +43,7 @@ Based on your questions about **"https, https://rpc.xaheen.org", "websocket", "e
 ### 5. Security Audit Recommendations ⚠️
 - **Score**: 95/100 (very good!)
 - **Missing**: Unit tests, multi-sig wallet, external audit
-- **Guide**: See `docs/XHT_SECURITY_AUDIT.md`
+- **Guide**: See `docs/NOR_SECURITY_AUDIT.md`
 
 ---
 
@@ -78,7 +78,7 @@ All detailed guides are in the `docs/` folder:
    - Blockscout deployment
    - MetaMask logos
 
-2. **XHT_SECURITY_AUDIT.md** - Security review
+2. **NOR_SECURITY_AUDIT.md** - Security review
    - 95/100 security score
    - What's implemented
    - What's recommended
@@ -104,17 +104,17 @@ All detailed guides are in the `docs/` folder:
 - Network stable
 
 ✅ **Token Economics**
-- XHT: 21 billion supply
+- NOR: 21 billion supply
 - BTCBR: 21 septillion supply
 - Correct allocations in genesis
 
 ✅ **Smart Contracts (All Deployed)**
-1. XHTStaking: 0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c
-2. XHTBurnMechanism: 0xe97D574A2e1B62f4d32C5cfeaFa8e6B99Da020fa
-3. XHTGovernance: 0x4A82C98A950125F17943F56273efae39dDe81763
-4. XHTRevenue: 0xA37C1f80Bd02D9d70ce0188831A85c65fdFBeEDe
-5. XHTCrowdfunding: 0x1495fCf5F09D53203EE1CD1fF974591dc101df0b
-6. XHTCharity: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
+1. NORStaking: 0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c
+2. NORBurnMechanism: 0xe97D574A2e1B62f4d32C5cfeaFa8e6B99Da020fa
+3. NORGovernance: 0x4A82C98A950125F17943F56273efae39dDe81763
+4. NORRevenue: 0xA37C1f80Bd02D9d70ce0188831A85c65fdFBeEDe
+5. NORCrowdfunding: 0x1495fCf5F09D53203EE1CD1fF974591dc101df0b
+6. NORCharity: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
 
 ✅ **Security**
 - ReentrancyGuard on all financial functions
@@ -195,7 +195,7 @@ ssh -i bsc-validator-key.pem ec2-user@3.91.50.187
 
 **Security Score**: 95/100 ⭐⭐⭐⭐⭐
 
-**Deployment Cost**: 0.033256539 XHT
+**Deployment Cost**: 0.033256539 NOR
 
 **Block Production**: Perfect (3 seconds)
 
@@ -204,7 +204,7 @@ ssh -i bsc-validator-key.pem ec2-user@3.91.50.187
 ## 📞 NEED HELP?
 
 **Quick Answers**:
-- Security audit recommendations? → See `docs/XHT_SECURITY_AUDIT.md`
+- Security audit recommendations? → See `docs/NOR_SECURITY_AUDIT.md`
 - How to fix specific issues? → See `FIXES_NEEDED.md`
 - Complete setup guide? → See `docs/POST_LAUNCH_SETUP.md`
 - Launch summary? → See `XAHEEN_LAUNCH_SUCCESS.md`

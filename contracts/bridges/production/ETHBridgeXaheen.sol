@@ -12,11 +12,11 @@ interface IWETHToken {
 }
 
 /**
- * @title ETHBridgeXaheen
- * @notice Mints WETH on Xaheen when ETH locked on BSC
+ * @title ETHBridgeNor
+ * @notice Mints WETH on Nor when ETH locked on BSC
  * @dev Receives validator signatures and mints wrapped tokens
  */
-contract ETHBridgeXaheen is Ownable, Pausable, ReentrancyGuard {
+contract ETHBridgeNor is Ownable, Pausable, ReentrancyGuard {
     using ECDSA for bytes32;
 
     IWETHToken public immutable weth;
@@ -47,7 +47,7 @@ contract ETHBridgeXaheen is Ownable, Pausable, ReentrancyGuard {
     }
 
     /**
-     * @notice Mint WETH on Xaheen with validator signatures
+     * @notice Mint WETH on Nor with validator signatures
      */
     function mintWETH(
         address recipient,

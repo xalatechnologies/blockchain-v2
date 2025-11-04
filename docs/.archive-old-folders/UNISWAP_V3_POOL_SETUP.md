@@ -353,7 +353,7 @@ For new tokens:
 ## ✅ Pre-Launch Checklist
 
 - [ ] wBTCBR deployed on Ethereum
-- [ ] Bridge operational between Xaheen and Ethereum
+- [ ] Bridge operational between Nor and Ethereum
 - [ ] Marketing materials ready
 - [ ] Initial liquidity secured ($25K+ recommended)
 - [ ] Pool parameters decided (fee tier, range)

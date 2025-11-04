@@ -39,10 +39,10 @@ export default {
       gasPrice: 10000000000, // 10 gwei
     },
 
-    // Noor Chain (formerly Xaheen Chain, originally BTCBR Private Chain)
+    // Nor Chain (formerly Nor Chain, originally BTCBR Private Chain)
     btcbr: {
       type: "http",
-      url: process.env.PRIVATE_CHAIN_RPC || "https://rpc.noorchain.org", // migrating from rpc.xaheen.org
+      url: process.env.PRIVATE_CHAIN_RPC || "https://rpc.norchain.org", // migrating from rpc.xaheen.org
       chainId: 65001,
       accounts: process.env.PRIVATE_CHAIN_KEY
         ? [process.env.PRIVATE_CHAIN_KEY]
@@ -55,7 +55,7 @@ export default {
     // Local development (if running local node)
     localhost: {
       url: "http://127.0.0.1:8545",
-      chainId: 65001, // Noor Chain ID
+      chainId: 65001, // Nor Chain ID
     },
   },
 

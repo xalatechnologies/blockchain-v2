@@ -45,7 +45,9 @@ export class EventMonitor {
 
     console.log(`   Initialized ${this.config.name} monitor`);
     console.log(`   Starting from block: ${this.lastProcessedBlock}`);
-    console.log(`   Confirmations required: ${this.config.requiredConfirmations}`);
+    console.log(
+      `   Confirmations required: ${this.config.requiredConfirmations}`
+    );
   }
 
   async start() {
@@ -78,22 +80,25 @@ export class EventMonitor {
    * Setup real-time event listener
    */
   setupEventListener() {
-    this.settlementInbox.on("Fill", async (fillId, trader, xhtDelta, cashDelta, nonce, timestamp, event) => {
-      console.log(`\n📥 New Fill event on ${this.config.name}:`);
-      console.log(`   Fill ID: ${fillId}`);
-      console.log(`   Trader: ${trader}`);
-      console.log(`   XHT Delta: ${ethers.formatEther(xhtDelta)}`);
-      console.log(`   Block: ${event.log.blockNumber}`);
+    this.settlementInbox.on(
+      "Fill",
+      async (fillId, trader, xhtDelta, cashDelta, nonce, timestamp, event) => {
+        console.log(`\n📥 New Fill event on ${this.config.name}:`);
+        console.log(`   Fill ID: ${fillId}`);
+        console.log(`   Trader: ${trader}`);
+        console.log(`   NOR Delta: ${ethers.formatEther(xhtDelta)}`);
+        console.log(`   Block: ${event.log.blockNumber}`);
 
-      this.stats.eventsDetected++;
-      this.stats.lastEventTime = new Date();
+        this.stats.eventsDetected++;
+        this.stats.lastEventTime = new Date();
 
-      // Wait for confirmations before processing
-      await this.waitForConfirmations(event.log.blockNumber);
+        // Wait for confirmations before processing
+        await this.waitForConfirmations(event.log.blockNumber);
 
-      // Process the fill
-      await this.processFill(event);
-    });
+        // Process the fill
+        await this.processFill(event);
+      }
+    );
   }
 
   /**
@@ -118,7 +123,9 @@ export class EventMonitor {
       );
 
       if (events.length > 0) {
-        console.log(`\n📥 Found ${events.length} confirmed Fill events on ${this.config.name}`);
+        console.log(
+          `\n📥 Found ${events.length} confirmed Fill events on ${this.config.name}`
+        );
 
         for (const event of events) {
           await this.processFill(event);
@@ -141,16 +148,24 @@ export class EventMonitor {
       const currentBlock = await this.provider.getBlockNumber();
 
       if (currentBlock >= targetBlock) {
-        console.log(`   ✅ ${this.config.requiredConfirmations} confirmations reached`);
+        console.log(
+          `   ✅ ${this.config.requiredConfirmations} confirmations reached`
+        );
         return;
       }
 
       // Wait for next block
       const blocksToWait = targetBlock - currentBlock;
       const waitTime = blocksToWait * this.config.blockTime;
-      console.log(`   ⏳ Waiting for ${blocksToWait} more blocks (~${Math.round(waitTime / 1000)}s)...`);
+      console.log(
+        `   ⏳ Waiting for ${blocksToWait} more blocks (~${Math.round(
+          waitTime / 1000
+        )}s)...`
+      );
 
-      await new Promise((resolve) => setTimeout(resolve, this.config.blockTime));
+      await new Promise((resolve) =>
+        setTimeout(resolve, this.config.blockTime)
+      );
     }
   }
 

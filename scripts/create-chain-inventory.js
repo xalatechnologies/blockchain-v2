@@ -21,7 +21,7 @@ async function main() {
     liquidity: {},
     transactions: {},
     issues: {},
-    statistics: {}
+    statistics: {},
   };
 
   // ==========================================
@@ -37,15 +37,15 @@ async function main() {
   const gasPrice = await provider.getFeeData();
 
   inventory.chainInfo = {
-    name: "Noor Chain",
+    name: "Nor Chain",
     chainId: Number(network.chainId),
-    rpcUrl: "https://rpc.noorchain.org",
-    explorerUrl: "https://explorer.noorchain.org",
+    rpcUrl: "https://rpc.norchain.org",
+    explorerUrl: "https://explorer.norchain.org",
     currentBlock: blockNumber,
     blockTime: 3, // seconds
     consensus: "Parlia PoSA",
     timestamp: new Date(Number(block.timestamp) * 1000).toISOString(),
-    gasPrice: ethers.formatUnits(gasPrice.gasPrice, "gwei") + " gwei"
+    gasPrice: ethers.formatUnits(gasPrice.gasPrice, "gwei") + " gwei",
   };
 
   console.log("  Chain ID:", inventory.chainInfo.chainId);
@@ -60,9 +60,11 @@ async function main() {
   console.log("🌱 GENESIS CONFIGURATION");
   console.log("=".repeat(80));
 
-  const genesisFiles = fs.readdirSync("./data").filter(f => f.startsWith("genesis"));
+  const genesisFiles = fs
+    .readdirSync("./data")
+    .filter((f) => f.startsWith("genesis"));
   console.log("\n📁 Genesis Files Found:", genesisFiles.length);
-  genesisFiles.forEach(f => console.log("   -", f));
+  genesisFiles.forEach((f) => console.log("   -", f));
 
   // Load active genesis (genesis-clean.json or latest)
   let genesis;
@@ -82,7 +84,7 @@ async function main() {
     gasLimit: parseInt(genesis.gasLimit, 16),
     difficulty: parseInt(genesis.difficulty, 16),
     preFundedAccounts: Object.keys(genesis.alloc || {}).length,
-    genesisValidators: []
+    genesisValidators: [],
   };
 
   // Extract validators from extraData
@@ -97,7 +99,10 @@ async function main() {
   console.log("  Epoch Length:", inventory.genesis.epochLength);
   console.log("  Block Period:", inventory.genesis.blockPeriod, "seconds");
   console.log("  Gas Limit:", inventory.genesis.gasLimit.toLocaleString());
-  console.log("  Genesis Validators:", inventory.genesis.genesisValidators.length);
+  console.log(
+    "  Genesis Validators:",
+    inventory.genesis.genesisValidators.length
+  );
   inventory.genesis.genesisValidators.forEach((v, i) => {
     console.log(`    ${i + 1}. ${v}`);
   });
@@ -111,7 +116,9 @@ async function main() {
 
   let deployment;
   try {
-    deployment = JSON.parse(fs.readFileSync("./deployments/dex-infrastructure.json", "utf8"));
+    deployment = JSON.parse(
+      fs.readFileSync("./deployments/dex-infrastructure.json", "utf8")
+    );
   } catch (e) {
     deployment = { contracts: {}, funds: {} };
   }
@@ -121,7 +128,7 @@ async function main() {
     dex: {},
     funds: {},
     reserves: {},
-    governance: {}
+    governance: {},
   };
 
   // Tokens
@@ -132,7 +139,7 @@ async function main() {
     WUSDT: deployment.contracts?.WUSDT,
     WBNB: deployment.contracts?.WBNB,
     WETH: deployment.contracts?.WETH,
-    WNOR: deployment.contracts?.WNOR
+    WNOR: deployment.contracts?.WNOR,
   };
 
   for (const [name, address] of Object.entries(tokens)) {
@@ -148,10 +155,14 @@ async function main() {
             const token = await ethers.getContractAt("IERC20", address);
             const supply = await token.totalSupply();
             const balance = await token.balanceOf(deployer.address);
-            inventory.contracts.tokens[name].totalSupply = ethers.formatEther(supply);
-            inventory.contracts.tokens[name].deployerBalance = ethers.formatEther(balance);
+            inventory.contracts.tokens[name].totalSupply =
+              ethers.formatEther(supply);
+            inventory.contracts.tokens[name].deployerBalance =
+              ethers.formatEther(balance);
             console.log(`         Supply: ${ethers.formatEther(supply)}`);
-            console.log(`         Deployer Balance: ${ethers.formatEther(balance)}`);
+            console.log(
+              `         Deployer Balance: ${ethers.formatEther(balance)}`
+            );
           } catch (e) {
             console.log(`         (Could not read token data)`);
           }
@@ -167,7 +178,7 @@ async function main() {
   const dexContracts = {
     Factory: deployment.contracts?.NOORSWAP_FACTORY,
     Router: deployment.contracts?.NOORSWAP_ROUTER,
-    LiquidityLock: deployment.contracts?.LIQUIDITY_LOCK
+    LiquidityLock: deployment.contracts?.LIQUIDITY_LOCK,
   };
 
   for (const [name, address] of Object.entries(dexContracts)) {
@@ -183,7 +194,7 @@ async function main() {
   console.log("\n🏦 FUND CONTRACTS:");
   const fundContracts = {
     Factory: deployment.funds?.FACTORY,
-    GoldSavingsFund: deployment.funds?.GOLD_SAVINGS_FUND
+    GoldSavingsFund: deployment.funds?.GOLD_SAVINGS_FUND,
   };
 
   for (const [name, address] of Object.entries(fundContracts)) {
@@ -203,27 +214,39 @@ async function main() {
   console.log("=".repeat(80));
 
   // Read deployment summary
-  const summaryFiles = fs.readdirSync("./docs").filter(f =>
-    f.includes("DEPLOYMENT") || f.includes("SUMMARY") || f.includes("SESSION")
-  );
+  const summaryFiles = fs
+    .readdirSync("./docs")
+    .filter(
+      (f) =>
+        f.includes("DEPLOYMENT") ||
+        f.includes("SUMMARY") ||
+        f.includes("SESSION")
+    );
 
   console.log("\n📄 Deployment Documentation:");
-  summaryFiles.forEach(f => console.log("   -", f));
+  summaryFiles.forEach((f) => console.log("   -", f));
 
   // Extract liquidity info from SESSION_COMPLETE_SUMMARY.md if exists
   try {
-    const summary = fs.readFileSync("./docs/SESSION_COMPLETE_SUMMARY.md", "utf8");
+    const summary = fs.readFileSync(
+      "./docs/SESSION_COMPLETE_SUMMARY.md",
+      "utf8"
+    );
 
     // Parse liquidity data
     const liquidityMatch = summary.match(/DEX Liquidity.*?\$([0-9,]+)/);
     const lockDurationMatch = summary.match(/([0-9]+)[- ]month LP locks/i);
-    const pairsMatch = summary.match(/([0-9]+) pairs live/i) || summary.match(/([0-9]+) Active Trading Pairs/);
+    const pairsMatch =
+      summary.match(/([0-9]+) pairs live/i) ||
+      summary.match(/([0-9]+) Active Trading Pairs/);
 
     inventory.liquidity = {
       totalValue: liquidityMatch ? "$" + liquidityMatch[1] : "Unknown",
-      lockDuration: lockDurationMatch ? lockDurationMatch[1] + " months" : "Unknown",
+      lockDuration: lockDurationMatch
+        ? lockDurationMatch[1] + " months"
+        : "Unknown",
       activePairs: pairsMatch ? parseInt(pairsMatch[1]) : 0,
-      unlockDate: "November 1, 2028"
+      unlockDate: "November 1, 2028",
     };
 
     console.log("\n  Total Liquidity:", inventory.liquidity.totalValue);
@@ -263,10 +286,13 @@ async function main() {
     totalTransactions: txCount,
     averagePerBlock: (txCount / latestBlocks).toFixed(2),
     totalGasUsed: gasUsed.toString(),
-    blocksAnalyzed: latestBlocks
+    blocksAnalyzed: latestBlocks,
   };
 
-  console.log("  Total Transactions:", inventory.transactions.totalTransactions);
+  console.log(
+    "  Total Transactions:",
+    inventory.transactions.totalTransactions
+  );
   console.log("  Average per Block:", inventory.transactions.averagePerBlock);
   console.log("  Total Gas Used:", ethers.formatUnits(gasUsed, "gwei"), "gwei");
 
@@ -281,59 +307,63 @@ async function main() {
     blockCreation: [
       {
         issue: "Chain stalled at epoch boundary (block 10,000)",
-        cause: "Epoch too short (10k blocks = 8 hours), caused frequent validator revalidation",
+        cause:
+          "Epoch too short (10k blocks = 8 hours), caused frequent validator revalidation",
         resolution: "Extended epoch to 9,000,000 blocks (~1.5 years)",
-        status: "✅ RESOLVED"
+        status: "✅ RESOLVED",
       },
       {
         issue: "Validators not peering correctly",
         cause: "NAT configuration and static-nodes.json issues",
-        resolution: "Added --nat=none flag and properly configured static-nodes.json with correct enodes",
-        status: "✅ RESOLVED"
+        resolution:
+          "Added --nat=none flag and properly configured static-nodes.json with correct enodes",
+        status: "✅ RESOLVED",
       },
       {
         issue: "Blocks producing but then stopping",
         cause: "Genesis mismatch across validators, epoch boundary deadlock",
-        resolution: "Synchronized genesis files, cleaned blockchain data, reinitialize d all validators with same genesis",
-        status: "✅ RESOLVED"
-      }
+        resolution:
+          "Synchronized genesis files, cleaned blockchain data, reinitialize d all validators with same genesis",
+        status: "✅ RESOLVED",
+      },
     ],
     contracts: [
       {
-        issue: "NoorSwapPair deployment failed - minimum liquidity minting",
+        issue: "NorSwapPair deployment failed - minimum liquidity minting",
         cause: "OpenZeppelin ERC20 prevents minting to address(0)",
         resolution: "Changed to mint to address(0xdEaD) instead",
         status: "✅ RESOLVED",
-        location: "contracts/dex/NoorSwapPair.sol:168"
+        location: "contracts/dex/NorSwapPair.sol:168",
       },
       {
         issue: "Dirhamat INSUFFICIENT_RESERVES error",
         cause: "Attempted to mint without proper backing",
         resolution: "Transferred $108k WUSDT as reserves before minting",
-        status: "✅ RESOLVED"
+        status: "✅ RESOLVED",
       },
       {
         issue: "Fund access control error",
         cause: "Factory didn't transfer admin role to creator",
-        resolution: "Added role transfer in NoorFundFactory.createFund()",
+        resolution: "Added role transfer in NorFundFactory.createFund()",
         status: "✅ RESOLVED",
-        location: "contracts/funds/NoorFundFactory.sol:98-101"
-      }
+        location: "contracts/funds/NorFundFactory.sol:98-101",
+      },
     ],
     infrastructure: [
       {
         issue: "SSL/HTTPS configuration for public RPC",
         cause: "Nginx reverse proxy configuration needed",
-        resolution: "Configured Nginx with Let's Encrypt SSL for https://rpc.noorchain.org",
-        status: "✅ RESOLVED"
+        resolution:
+          "Configured Nginx with Let's Encrypt SSL for https://rpc.norchain.org",
+        status: "✅ RESOLVED",
       },
       {
         issue: "Docker network host mode required for validators",
         cause: "P2P discovery issues with bridge networking",
         resolution: "Used --network host for all validator containers",
-        status: "✅ RESOLVED"
-      }
-    ]
+        status: "✅ RESOLVED",
+      },
+    ],
   };
 
   console.log("\n📋 Block Creation Issues:");
@@ -368,12 +398,14 @@ async function main() {
     deployerAddress: deployer.address,
     deployerBalance: ethers.formatEther(deployerBalance) + " NOR",
     activeValidators: inventory.genesis.genesisValidators.length,
-    deployedContracts: Object.keys(deployment.contracts || {}).length + Object.keys(deployment.funds || {}).length,
+    deployedContracts:
+      Object.keys(deployment.contracts || {}).length +
+      Object.keys(deployment.funds || {}).length,
     totalValueLocked: "$3,336,000 (estimate)",
     documentation: {
       files: summaryFiles.length,
-      totalLines: "1,500+"
-    }
+      totalLines: "1,500+",
+    },
   };
 
   console.log("\n  Total Blocks:", inventory.statistics.totalBlocks);
@@ -383,7 +415,10 @@ async function main() {
   console.log("  Active Validators:", inventory.statistics.activeValidators);
   console.log("  Deployed Contracts:", inventory.statistics.deployedContracts);
   console.log("  Total Value Locked:", inventory.statistics.totalValueLocked);
-  console.log("  Documentation Files:", inventory.statistics.documentation.files);
+  console.log(
+    "  Documentation Files:",
+    inventory.statistics.documentation.files
+  );
 
   // ==========================================
   // SAVE INVENTORY
@@ -398,7 +433,7 @@ async function main() {
   console.log("📄 Full JSON report available for detailed analysis");
 
   // Create human-readable markdown version
-  const mdContent = `# 🌙 Noor Chain - Complete Inventory
+  const mdContent = `# 🌙 Nor Chain - Complete Inventory
 
 **Generated:** ${inventory.timestamp}
 
@@ -425,35 +460,48 @@ async function main() {
 - **Genesis Validators:** ${inventory.genesis.genesisValidators.length}
 
 ### Validators
-${inventory.genesis.genesisValidators.map((v, i) => `${i + 1}. \`${v}\``).join('\n')}
+${inventory.genesis.genesisValidators
+  .map((v, i) => `${i + 1}. \`${v}\``)
+  .join("\n")}
 
 ---
 
 ## 📜 Deployed Contracts
 
 ### 💰 Tokens
-${Object.entries(inventory.contracts.tokens).map(([name, data]) =>
-  `- **${name}:** \`${data.address}\` ${data.deployed ? '✅' : '❌'}${data.totalSupply ? `\n  - Supply: ${data.totalSupply}` : ''}`
-).join('\n')}
+${Object.entries(inventory.contracts.tokens)
+  .map(
+    ([name, data]) =>
+      `- **${name}:** \`${data.address}\` ${data.deployed ? "✅" : "❌"}${
+        data.totalSupply ? `\n  - Supply: ${data.totalSupply}` : ""
+      }`
+  )
+  .join("\n")}
 
 ### 🔄 DEX
-${Object.entries(inventory.contracts.dex).map(([name, data]) =>
-  `- **${name}:** \`${data.address}\` ${data.deployed ? '✅' : '❌'}`
-).join('\n')}
+${Object.entries(inventory.contracts.dex)
+  .map(
+    ([name, data]) =>
+      `- **${name}:** \`${data.address}\` ${data.deployed ? "✅" : "❌"}`
+  )
+  .join("\n")}
 
 ### 🏦 Funds
-${Object.entries(inventory.contracts.funds).map(([name, data]) =>
-  `- **${name}:** \`${data.address}\` ${data.deployed ? '✅' : '❌'}`
-).join('\n')}
+${Object.entries(inventory.contracts.funds)
+  .map(
+    ([name, data]) =>
+      `- **${name}:** \`${data.address}\` ${data.deployed ? "✅" : "❌"}`
+  )
+  .join("\n")}
 
 ---
 
 ## 💧 Liquidity
 
-- **Total Value:** ${inventory.liquidity?.totalValue || 'Unknown'}
-- **Lock Duration:** ${inventory.liquidity?.lockDuration || 'Unknown'}
+- **Total Value:** ${inventory.liquidity?.totalValue || "Unknown"}
+- **Lock Duration:** ${inventory.liquidity?.lockDuration || "Unknown"}
 - **Active Pairs:** ${inventory.liquidity?.activePairs || 0}
-- **Unlock Date:** ${inventory.liquidity?.unlockDate || 'Unknown'}
+- **Unlock Date:** ${inventory.liquidity?.unlockDate || "Unknown"}
 
 ---
 
@@ -468,29 +516,41 @@ ${Object.entries(inventory.contracts.funds).map(([name, data]) =>
 ## ⚠️ Issues & Resolutions
 
 ### Block Creation Issues
-${inventory.issues.blockCreation.map((issue, i) => `
+${inventory.issues.blockCreation
+  .map(
+    (issue, i) => `
 #### ${i + 1}. ${issue.issue}
 - **Cause:** ${issue.cause}
 - **Resolution:** ${issue.resolution}
 - **Status:** ${issue.status}
-`).join('\n')}
+`
+  )
+  .join("\n")}
 
 ### Smart Contract Issues
-${inventory.issues.contracts.map((issue, i) => `
+${inventory.issues.contracts
+  .map(
+    (issue, i) => `
 #### ${i + 1}. ${issue.issue}
 - **Cause:** ${issue.cause}
 - **Resolution:** ${issue.resolution}
-${issue.location ? `- **Location:** \`${issue.location}\`` : ''}
+${issue.location ? `- **Location:** \`${issue.location}\`` : ""}
 - **Status:** ${issue.status}
-`).join('\n')}
+`
+  )
+  .join("\n")}
 
 ### Infrastructure Issues
-${inventory.issues.infrastructure.map((issue, i) => `
+${inventory.issues.infrastructure
+  .map(
+    (issue, i) => `
 #### ${i + 1}. ${issue.issue}
 - **Cause:** ${issue.cause}
 - **Resolution:** ${issue.resolution}
 - **Status:** ${issue.status}
-`).join('\n')}
+`
+  )
+  .join("\n")}
 
 ---
 
@@ -513,7 +573,7 @@ ${inventory.issues.infrastructure.map((issue, i) => `
 
 ---
 
-**Generated by Noor Chain Inventory System**
+**Generated by Nor Chain Inventory System**
 **Date:** ${new Date().toISOString()}
 `;
 

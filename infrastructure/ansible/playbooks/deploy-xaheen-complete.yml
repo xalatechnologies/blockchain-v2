@@ -1,13 +1,13 @@
 ---
-- name: Complete Xaheen Chain Deployment with Corrected Supply
+- name: Complete Nor Chain Deployment with Corrected Supply
   hosts: all
   become: yes
   vars:
     chain_id: 65001
     network_id: 65001
-    xht_initial_supply: "0x033b2e3c9fd0803ce8000000"  # 1 billion XHT (1,000,000,000 * 10^18)
-    xht_main_wallet_allocation: "0x033b2e3c9fd0803ce8000000"  # 1 billion XHT to main wallet
-    gas_allocation: "0x3635c9adc5dea00000"  # 1,000 XHT for gas
+    xht_initial_supply: "0x033b2e3c9fd0803ce8000000"  # 1 billion NOR (1,000,000,000 * 10^18)
+    xht_main_wallet_allocation: "0x033b2e3c9fd0803ce8000000"  # 1 billion NOR to main wallet
+    gas_allocation: "0x3635c9adc5dea00000"  # 1,000 NOR for gas
 
     # Validator addresses
     validator1_address: "0xFAA5AA97651c2e2b6860219bb8f9902d416dB5DD"
@@ -118,7 +118,7 @@
           - "Validator 3 account: {{ validator3_account.stdout }}"
           - "Note: If accounts already existed, output will be empty"
 
-    - name: Create genesis file with corrected XHT supply
+    - name: Create genesis file with corrected NOR supply
       copy:
         content: |
           {
@@ -159,25 +159,25 @@
             "alloc": {
               "{{ main_wallet_address | lower }}": {
                 "balance": "{{ xht_main_wallet_allocation }}",
-                "comment": "Main wallet - 1 billion XHT initial supply"
+                "comment": "Main wallet - 1 billion NOR initial supply"
               },
               "{{ validator1_address | lower }}": {
                 "balance": "{{ gas_allocation }}",
-                "comment": "Validator 1 pre-funded (1000 XHT for gas)"
+                "comment": "Validator 1 pre-funded (1000 NOR for gas)"
               },
               "{{ validator2_address | lower }}": {
                 "balance": "{{ gas_allocation }}",
-                "comment": "Validator 2 pre-funded (1000 XHT for gas)"
+                "comment": "Validator 2 pre-funded (1000 NOR for gas)"
               },
               "{{ validator3_address | lower }}": {
                 "balance": "{{ gas_allocation }}",
-                "comment": "Validator 3 pre-funded (1000 XHT for gas)"
+                "comment": "Validator 3 pre-funded (1000 NOR for gas)"
               }
             },
             "number": "0x0",
             "gasUsed": "0x0",
             "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-            "_comment": "Xaheen Chain Genesis - Chain ID: 65001, Native Token: XHT, Initial Supply: 1 Billion XHT, 3-second blocks"
+            "_comment": "Nor Chain Genesis - Chain ID: 65001, Native Token: NOR, Initial Supply: 1 Billion NOR, 3-second blocks"
           }
         dest: /home/ec2-user/genesis-xaheen-65001.json
         mode: '0644'
@@ -312,11 +312,11 @@
       debug:
         msg:
           - "===================================================================="
-          - "✅ Xaheen Chain Deployment Complete!"
+          - "✅ Nor Chain Deployment Complete!"
           - "===================================================================="
           - "Chain ID: {{ chain_id }}"
           - "Network ID: {{ network_id }}"
-          - "Initial Supply: 1,000,000,000 XHT (1 billion)"
+          - "Initial Supply: 1,000,000,000 NOR (1 billion)"
           - "Main Wallet: {{ main_wallet_address }}"
           - "Validator 1: {{ validator1_address }}"
           - "Validator 2: {{ validator2_address }}"

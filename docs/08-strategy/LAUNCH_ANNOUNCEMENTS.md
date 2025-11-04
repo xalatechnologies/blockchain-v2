@@ -58,9 +58,9 @@ LFG! 🚀
 ```
 🤖 NEW LISTING ALERT
 
-$XHN - Xaheen Network Token
-Chain: BSC-based (Xaheen)
-Pair: XHT/XHN
+$XHN - Nor Network Token
+Chain: BSC-based (Nor)
+Pair: NOR/XHN
 
 📊 Stats:
 MC: $10,000
@@ -157,7 +157,7 @@ BUY NOW before bots pump it! ⚡
 >liquidity locked
 >rug-proof
 
-$XHN - Xaheen Network Token
+$XHN - Nor Network Token
 CA: 0x24719ba3b4AD49cC7edcbDc536fd97C8526830A0
 
 >don't say I didn't warn you
@@ -246,7 +246,7 @@ Keep crushing it! 🚀
 The XHN token is officially LIVE!
 
 🎯 What is XHN?
-The governance and revenue-sharing token of the Xaheen ecosystem
+The governance and revenue-sharing token of the Nor ecosystem
 
 💰 Why should you care?
 ✅ 60% of ALL protocol fees distributed to stakers
@@ -284,9 +284,9 @@ LFG! 🚀💎
 ### **Token Description**
 
 ```
-XHN - Xaheen Network Token
+XHN - Nor Network Token
 
-Governance and revenue-sharing token of the Xaheen DeFi ecosystem.
+Governance and revenue-sharing token of the Nor DeFi ecosystem.
 
 Key Features:
 • 60% revenue sharing to stakers
@@ -325,7 +325,7 @@ Docs: [DOCS LINK]
 🚀 $XHN - Actual Revenue Sharing, Not Just Promises [Just Launched]
 
 **Overview:**
-XHN is the governance token of Xaheen Network with REAL revenue distribution to holders.
+XHN is the governance token of Nor Network with REAL revenue distribution to holders.
 
 **Why This is Different:**
 Most tokens promise rewards but never deliver. XHN has smart contract-enforced revenue sharing:
@@ -406,7 +406,7 @@ def check_price():
 💰 10,000,000 XHN up for grabs!
 
 📋 How to qualify:
-1. Hold 0.1+ XHT
+1. Hold 0.1+ NOR
 2. Join Telegram: [LINK]
 3. Follow Twitter: [LINK]
 4. Retweet pinned post
@@ -418,7 +418,7 @@ def check_price():
 💎 Average airdrop: 10,000 XHN ($1 value)
 🚀 Potential value: $100+ in 3 months
 
-Not holding XHT yet?
+Not holding NOR yet?
 Buy here: [LINK]
 
 Questions? Ask in TG!

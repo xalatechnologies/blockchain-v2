@@ -1,6 +1,6 @@
-# 🚀 Xaheen Chain - Production Deployment Scripts
+# 🚀 Nor Chain - Production Deployment Scripts
 
-**Quick reference for deploying Xaheen Chain to production**
+**Quick reference for deploying Nor Chain to production**
 
 ---
 
@@ -118,7 +118,7 @@ curl -X POST https://rpc.xaheen.org \
 # Expected: {"jsonrpc":"2.0","id":1,"result":"0xfde9"}
 ```
 
-**DONE! 🎉 Xaheen Chain is public!**
+**DONE! 🎉 Nor Chain is public!**
 
 ---
 
@@ -483,7 +483,7 @@ apt-get install -y grafana
 
 2. **Create Developer Faucet**:
    ```bash
-   # Faucet for free XHT
+   # Faucet for free NOR
    # See: docs/FAUCET_SETUP.md
    ```
 
@@ -549,4 +549,4 @@ Post-launch:
 
 **Let's compete with BNB Smart Chain! 🚀**
 
-**Xaheen Chain - Where Intelligence Meets Blockchain** 🧠⚡
+**Nor Chain - Where Intelligence Meets Blockchain** 🧠⚡

@@ -10,7 +10,7 @@ The validator service is the "brain" of your bridges. It:
 
 1. **Monitors BSC** for bridge deposits
 2. **Generates signatures** to authorize minting
-3. **Mints wrapped tokens** on Xaheen Chain
+3. **Mints wrapped tokens** on Nor Chain
 4. **Runs 24/7** to process deposits automatically
 
 **Without this service, bridges won't work!**
@@ -63,13 +63,13 @@ You should see:
 ║                                                            ║
 ║         🌉 XAHEEN BRIDGE VALIDATOR SERVICE 🌉             ║
 ║                                                            ║
-║  Monitors BSC bridges and mints tokens on Xaheen Chain   ║
+║  Monitors BSC bridges and mints tokens on Nor Chain   ║
 ║                                                            ║
 ╚════════════════════════════════════════════════════════════╝
 
 🚀 INITIALIZING BRIDGE VALIDATOR SERVICE
 💼 Validator Address: 0x...
-💰 XHT Balance: 20189999999.872259848
+💰 NOR Balance: 20189999999.872259848
 
 ✅ BNB Bridge BSC: 0x9bEFFFa3b43D34a2B470DA21aab3CA3263D0e8C0
 ✅ USDT Bridge BSC: 0x7E1c4448A9d87d5C5478B86085AF4e3715a06f48
@@ -87,11 +87,11 @@ Found 1 BNB bridge event(s)
 
 🔨 MINTING WBNB ON XAHEEN...
 ✍️  Signature generated
-📡 Calling mintWBNB on Xaheen...
+📡 Calling mintWBNB on Nor...
 ⏰ Waiting for confirmation...
 ✅ WBNB Minted!
 📝 TX: 0x...
-📬 Recipient now has 0.00998 WBNB on Xaheen
+📬 Recipient now has 0.00998 WBNB on Nor
 
 👂 STARTING EVENT LISTENERS...
 ✅ Listening to BNB Bridge events
@@ -108,7 +108,7 @@ Waiting for bridge deposits...
 
 1. ✅ Service found your previous BNB bridge deposit
 2. ✅ Generated validator signature
-3. ✅ Minted 0.0098 WBNB on Xaheen Chain
+3. ✅ Minted 0.0098 WBNB on Nor Chain
 4. ✅ Started listening for new deposits
 
 **Your bridge is now FULLY OPERATIONAL!**
@@ -117,21 +117,21 @@ Waiting for bridge deposits...
 
 ## Verify WBNB in MetaMask
 
-### 1. Add Xaheen Network
+### 1. Add Nor Network
 
 If you haven't already:
 
 ```
-Network: Xaheen Chain
+Network: Nor Chain
 RPC: https://rpc.xaheen.org
 Chain ID: 65001
-Symbol: XHT
+Symbol: NOR
 Explorer: https://explorer.xaheen.org
 ```
 
 ### 2. Import WBNB Token
 
-- Switch to Xaheen network
+- Switch to Nor network
 - Click "Import tokens"
 - Address: `0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B`
 - Symbol: `WBNB`
@@ -196,7 +196,7 @@ npx hardhat run scripts/test-all-bridges.js --network bsc
        │ Mints tokens
        ↓
 ┌──────────────┐
-│    Xaheen    │  WBNB minted!
+│    Nor    │  WBNB minted!
 │              │  User receives 0.0098 WBNB
 │ WBNB Token   │
 └──────────────┘
@@ -271,7 +271,7 @@ docker run -d --name validator bridge-validator
 Create `/etc/systemd/system/bridge-validator.service`:
 ```ini
 [Unit]
-Description=Xaheen Bridge Validator
+Description=Nor Bridge Validator
 After=network.target
 
 [Service]
@@ -324,13 +324,13 @@ For now, restarting service will reprocess recent events (last 1000 blocks), but
 
 ## Troubleshooting
 
-### "Insufficient XHT balance"
+### "Insufficient NOR balance"
 
-Validator needs XHT for gas when minting tokens.
+Validator needs NOR for gas when minting tokens.
 
 **Solution:**
 ```bash
-# Send XHT to validator address
+# Send NOR to validator address
 # Your validator: 0xdD779a290C937144F80Eb75b75d814c834536B1b
 ```
 
@@ -351,7 +351,7 @@ The nonce was already used (duplicate event).
 
 ### "RPC connection failed"
 
-BSC or Xaheen RPC is down.
+BSC or Nor RPC is down.
 
 **Solutions:**
 - Check RPC URLs in .env
@@ -476,7 +476,7 @@ After setup, you should have:
 
 - [x] Validator service running
 - [x] Service detecting BSC events
-- [x] Tokens minting on Xaheen
+- [x] Tokens minting on Nor
 - [x] WBNB visible in MetaMask
 - [x] Revenue generating from fees
 

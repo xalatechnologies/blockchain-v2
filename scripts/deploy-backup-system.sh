@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ##############################################################################
-# Xaheen Chain - Automated Backup System Deployment
+# Nor Chain - Automated Backup System Deployment
 #
 # This script deploys the automated backup system to the production server
 # including S3 bucket creation, backup script deployment, and cron configuration
@@ -107,7 +107,7 @@ cat > /tmp/backup-blockchain.sh <<'BACKUP_SCRIPT'
 #!/bin/bash
 
 ##############################################################################
-# Xaheen Chain - Automated Backup Script
+# Nor Chain - Automated Backup Script
 # Run by cron: hourly, daily, weekly
 ##############################################################################
 
@@ -207,7 +207,7 @@ log "$BACKUP_TYPE backup completed successfully"
 
 # 9. Send notification (optional)
 # curl -X POST https://your-webhook-url \
-#     -d "{\"text\": \"Xaheen Chain $BACKUP_TYPE backup completed\"}"
+#     -d "{\"text\": \"Nor Chain $BACKUP_TYPE backup completed\"}"
 
 exit 0
 BACKUP_SCRIPT
@@ -229,13 +229,13 @@ ssh $SSH_OPTS $SERVER_USER@$SERVER_IP <<'CRON_CONFIG'
 # Backup existing crontab
 crontab -l > /tmp/crontab.backup 2>/dev/null || true
 
-# Remove old Xaheen backup entries
+# Remove old Nor backup entries
 crontab -l 2>/dev/null | grep -v "backup-blockchain.sh" > /tmp/crontab.new || true
 
 # Add new backup cron jobs
 cat >> /tmp/crontab.new <<EOF
 
-# Xaheen Chain Automated Backups
+# Nor Chain Automated Backups
 # Hourly backup
 0 * * * * /home/ec2-user/backup-blockchain.sh hourly >> /var/log/xaheen-backup.log 2>&1
 

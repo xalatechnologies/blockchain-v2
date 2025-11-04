@@ -1,4 +1,4 @@
-# 🌙 Press Release: Xaheen Chain Rebrands as Noor Chain
+# 🌙 Press Release: Nor Chain Rebrands as Nor Chain
 
 **FOR IMMEDIATE RELEASE**
 
@@ -6,7 +6,7 @@
 
 ---
 
-## Xaheen Chain Evolves into Noor Chain - Illuminating the Future of Ethical Blockchain
+## Nor Chain Evolves into Nor Chain - Illuminating the Future of Ethical Blockchain
 
 **Revolutionary Layer-1 Blockchain Platform Rebrands to Better Reflect Mission of Transparency, Trust, and Inclusive Innovation**
 
@@ -14,13 +14,13 @@
 
 ### Executive Summary
 
-Today marks a transformative milestone as **Xaheen Chain** officially rebrands to **Noor Chain**, alongside the evolution of its native token from **XHT** to **NOR**. This strategic rebrand reflects the platform's deepened commitment to bringing light, clarity, and ethical innovation to the blockchain ecosystem.
+Today marks a transformative milestone as **Nor Chain** officially rebrands to **Nor Chain**, alongside the evolution of its native token from **NOR** to **NOR**. This strategic rebrand reflects the platform's deepened commitment to bringing light, clarity, and ethical innovation to the blockchain ecosystem.
 
 ---
 
-### The Name "Noor"
+### The Name "Nor"
 
-**Noor** (نور) means "light" in Arabic, symbolizing:
+**Nor** (نور) means "light" in Arabic, symbolizing:
 - **Illumination** - Bringing clarity to complex blockchain technology
 - **Transparency** - Open, auditable, and accountable systems
 - **Guidance** - Leading the way in ethical DeFi and compliance-first architecture
@@ -31,10 +31,10 @@ Today marks a transformative milestone as **Xaheen Chain** officially rebrands t
 ### What's Changing
 
 **Brand Identity**:
-- **Name**: Xaheen Chain → **Noor Chain**
-- **Native Token**: XHT → **NOR**
+- **Name**: Nor Chain → **Nor Chain**
+- **Native Token**: NOR → **NOR**
 - **Visual Identity**: New logo, color palette (White + Gold + Sapphire), and design language
-- **Domains**: Migrating to noorchain.org ecosystem
+- **Domains**: Migrating to norchain.org ecosystem
 - **Messaging**: "Empowering the Future with Light and Trust"
 
 **Technical Constants** (Unchanged):
@@ -50,11 +50,11 @@ Today marks a transformative milestone as **Xaheen Chain** officially rebrands t
 
 The rebrand comes at a strategic inflection point:
 
-1. **Fresh Genesis Launch**: With a newly deployed clean genesis (Epoch: 9,000,000 blocks), this is the perfect moment to introduce Noor Chain's refined identity before widespread adoption.
+1. **Fresh Genesis Launch**: With a newly deployed clean genesis (Epoch: 9,000,000 blocks), this is the perfect moment to introduce Nor Chain's refined identity before widespread adoption.
 
-2. **Market Clarity**: "Noor" resonates globally across cultures, immediately conveying the platform's values of transparency and ethical innovation.
+2. **Market Clarity**: "Nor" resonates globally across cultures, immediately conveying the platform's values of transparency and ethical innovation.
 
-3. **Regulatory Alignment**: As blockchain compliance becomes paramount, "Noor Chain" positions the platform as a beacon of trust in an evolving regulatory landscape.
+3. **Regulatory Alignment**: As blockchain compliance becomes paramount, "Nor Chain" positions the platform as a beacon of trust in an evolving regulatory landscape.
 
 4. **Community Growth**: The rebrand aligns with the platform's expansion into inclusive DeFi, Shariah-compliant finance, and enterprise blockchain solutions.
 
@@ -62,7 +62,7 @@ The rebrand comes at a strategic inflection point:
 
 ### Technical Excellence Preserved
 
-**Noor Chain** maintains all the technical innovations that made Xaheen Chain a cutting-edge platform:
+**Nor Chain** maintains all the technical innovations that made Nor Chain a cutting-edge platform:
 
 ✅ **High Performance**: 3-second block time, sub-cent transaction fees
 ✅ **Security**: Multi-validator Parlia PoSA consensus
@@ -74,14 +74,14 @@ The rebrand comes at a strategic inflection point:
 
 ### What This Means for Stakeholders
 
-**For Token Holders (XHT → NOR)**:
-- All existing XHT balances automatically become NOR (1:1 ratio)
+**For Token Holders (NOR → NOR)**:
+- All existing NOR balances automatically become NOR (1:1 ratio)
 - Same Chain ID (65001) - wallets auto-recognize
 - No action required from users
 
 **For Developers**:
 - All existing smart contracts remain compatible
-- Same RPC endpoints (temporarily), migrating to rpc.noorchain.org
+- Same RPC endpoints (temporarily), migrating to rpc.norchain.org
 - Enhanced documentation and developer resources under new brand
 
 **For Validators**:
@@ -91,38 +91,38 @@ The rebrand comes at a strategic inflection point:
 
 **For Partners & Exchanges**:
 - Technical integration unchanged (Chain ID 65001)
-- Updated token metadata: NOR (formerly XHT)
+- Updated token metadata: NOR (formerly NOR)
 - New brand assets and marketing materials available
 
 ---
 
 ### Leadership Perspective
 
-> "Noor Chain represents more than a rebrand - it's a recommitment to our founding principles. Just as light reveals truth, Noor Chain illuminates the path to ethical, transparent, and inclusive blockchain technology. We're not just building infrastructure; we're fostering an ecosystem where innovation and integrity coexist."
+> "Nor Chain represents more than a rebrand - it's a recommitment to our founding principles. Just as light reveals truth, Nor Chain illuminates the path to ethical, transparent, and inclusive blockchain technology. We're not just building infrastructure; we're fostering an ecosystem where innovation and integrity coexist."
 
-*— Noor Chain Foundation*
+*— Nor Chain Foundation*
 
 ---
 
 ### Product Ecosystem
 
-**Noor Chain** powers a comprehensive blockchain ecosystem:
+**Nor Chain** powers a comprehensive blockchain ecosystem:
 
 **Core Infrastructure**:
-- **Noor Chain** - Layer-1 PoSA blockchain
+- **Nor Chain** - Layer-1 PoSA blockchain
 - **NOR Token** - Native utility and governance token
-- **NoorScan** - Block explorer for transparent chain analytics
+- **NorScan** - Block explorer for transparent chain analytics
 
 **User Applications**:
-- **Noor Wallet** - Secure multi-chain wallet (web, mobile, extension)
-- **NoorSwap** - Decentralized exchange (DEX)
-- **NoorStake** - Validator staking platform
-- **Noor Bridge** - Cross-chain interoperability hub
+- **Nor Wallet** - Secure multi-chain wallet (web, mobile, extension)
+- **NorSwap** - Decentralized exchange (DEX)
+- **NorStake** - Validator staking platform
+- **Nor Bridge** - Cross-chain interoperability hub
 
 **Developer Tools**:
-- **Noor CLI** - Command-line interface
-- **Noor SDK** - Comprehensive development kit
-- **Noor Docs** - Technical documentation portal
+- **Nor CLI** - Command-line interface
+- **Nor SDK** - Comprehensive development kit
+- **Nor Docs** - Technical documentation portal
 
 **Specialized Finance**:
 - **FundUnit Standard** - Tokenized investment funds with built-in compliance
@@ -137,8 +137,8 @@ The rebrand comes at a strategic inflection point:
 **Q4 2025** (Current):
 - ✅ Fresh genesis deployment (Block 0, Epoch 9M)
 - ✅ Official rebrand launch
-- 🔄 Core contract deployment (NOR, WXHT, DEX)
-- 🔄 Noor Wallet beta release
+- 🔄 Core contract deployment (NOR, WNOR, DEX)
+- 🔄 Nor Wallet beta release
 
 **Q1 2026**:
 - FundUnit standard deployment
@@ -147,7 +147,7 @@ The rebrand comes at a strategic inflection point:
 - Enterprise partnership announcements
 
 **Q2 2026**:
-- Noor Governance DAO launch
+- Nor Governance DAO launch
 - Public validator onboarding
 - Cross-chain DeFi protocols
 - Compliance framework certification
@@ -162,7 +162,7 @@ The rebrand comes at a strategic inflection point:
 
 ### Market Positioning
 
-**Noor Chain** stands apart in the crowded blockchain landscape:
+**Nor Chain** stands apart in the crowded blockchain landscape:
 
 **vs. Ethereum**: Faster (3s vs. 12s blocks), cheaper, compliance-first
 **vs. BSC**: Private, ethical, community-governed, Shariah-compliant options
@@ -200,58 +200,58 @@ The rebrand comes at a strategic inflection point:
 
 ### Community & Social
 
-**Join the Noor Nation**:
-- **Website**: https://noorchain.org
-- **Twitter/X**: @NoorChain
-- **Telegram**: t.me/noorchain
-- **Discord**: discord.gg/noorchain
-- **GitHub**: github.com/noorchain
-- **Email**: info@noorchain.org
+**Join the Nor Nation**:
+- **Website**: https://norchain.org
+- **Twitter/X**: @NorChain
+- **Telegram**: t.me/norchain
+- **Discord**: discord.gg/norchain
+- **GitHub**: github.com/norchain
+- **Email**: info@norchain.org
 
-**Hashtags**: #NoorChain #PoweredByNoor #NORtoken #LightOfWeb3
+**Hashtags**: #NorChain #PoweredByNor #NORtoken #LightOfWeb3
 
 ---
 
 ### Media Resources
 
 **Brand Assets**:
-- Logos (SVG, PNG): noorchain.org/media/logos
-- Color Palette: noorchain.org/media/colors
-- Press Kit: noorchain.org/press
+- Logos (SVG, PNG): norchain.org/media/logos
+- Color Palette: norchain.org/media/colors
+- Press Kit: norchain.org/press
 - Brand Guide: Available upon request
 
 **Technical Resources**:
-- Developer Docs: docs.noorchain.org
-- RPC Endpoint: rpc.noorchain.org
-- Block Explorer: explorer.noorchain.org
-- GitHub Repository: github.com/noorchain
+- Developer Docs: docs.norchain.org
+- RPC Endpoint: rpc.norchain.org
+- Block Explorer: explorer.norchain.org
+- GitHub Repository: github.com/norchain
 
 ---
 
 ### Contact Information
 
 **Media Inquiries**:
-- Email: press@noorchain.org
-- Twitter/X: @NoorChain
+- Email: press@norchain.org
+- Twitter/X: @NorChain
 
 **Partnership Opportunities**:
-- Email: partnerships@noorchain.org
+- Email: partnerships@norchain.org
 
 **Technical Support**:
-- Discord: discord.gg/noorchain
-- Documentation: docs.noorchain.org
+- Discord: discord.gg/norchain
+- Documentation: docs.norchain.org
 
 **General Inquiries**:
-- Email: info@noorchain.org
-- Website: noorchain.org/contact
+- Email: info@norchain.org
+- Website: norchain.org/contact
 
 ---
 
-### About Noor Chain
+### About Nor Chain
 
-**Noor Chain** is a next-generation Layer-1 blockchain platform built on the principles of transparency, compliance, and inclusivity. Powered by Proof of Staked Authority (PoSA) consensus and full EVM compatibility, Noor Chain provides the infrastructure for ethical DeFi, Shariah-compliant finance, and enterprise-grade blockchain applications.
+**Nor Chain** is a next-generation Layer-1 blockchain platform built on the principles of transparency, compliance, and inclusivity. Powered by Proof of Staked Authority (PoSA) consensus and full EVM compatibility, Nor Chain provides the infrastructure for ethical DeFi, Shariah-compliant finance, and enterprise-grade blockchain applications.
 
-With its native NOR token, three-second block time, and comprehensive compliance framework, Noor Chain is illuminating the path to a more transparent, trustworthy, and accessible blockchain ecosystem.
+With its native NOR token, three-second block time, and comprehensive compliance framework, Nor Chain is illuminating the path to a more transparent, trustworthy, and accessible blockchain ecosystem.
 
 **Mission**: To empower the future of blockchain technology with light, trust, and inclusive innovation.
 
@@ -261,13 +261,13 @@ With its native NOR token, three-second block time, and comprehensive compliance
 
 ### Safe Harbor Statement
 
-This press release contains forward-looking statements regarding Noor Chain's roadmap, partnerships, and market positioning. Actual results may differ materially due to regulatory changes, market conditions, and technological developments. Cryptocurrency and blockchain investments carry inherent risks. Past performance is not indicative of future results.
+This press release contains forward-looking statements regarding Nor Chain's roadmap, partnerships, and market positioning. Actual results may differ materially due to regulatory changes, market conditions, and technological developments. Cryptocurrency and blockchain investments carry inherent risks. Past performance is not indicative of future results.
 
 ---
 
 ### End of Release
 
-**© 2025 Noor Chain Foundation. All rights reserved.**
+**© 2025 Nor Chain Foundation. All rights reserved.**
 
 🌙 *Empowering the Future with Light and Trust*
 

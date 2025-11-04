@@ -79,7 +79,7 @@
 
 ## SLIDE 4: WHAT MAKES XAHEEN UNIQUE
 
-### The Xaheen Advantage
+### The Nor Advantage
 
 **1. Native DeFi Infrastructure**
 - Built-in DEX at protocol level (not 3rd party dependency)
@@ -165,7 +165,7 @@
 - Projected 2028: $10T+ (4x growth ahead)
 - L1 blockchains capture 50%+ of market value
 
-**Xaheen's Target Market:**
+**Nor's Target Market:**
 
 **Phase 1 (Year 1): DeFi Users**
 - 5M+ active DeFi users globally
@@ -195,9 +195,9 @@
 
 ## SLIDE 7: COMPETITIVE LANDSCAPE
 
-### How Xaheen Wins
+### How Nor Wins
 
-| Feature | Ethereum | Polygon | Avalanche | Solana | **Xaheen** |
+| Feature | Ethereum | Polygon | Avalanche | Solana | **Nor** |
 |---------|----------|---------|-----------|--------|------------|
 | **Speed** | 15s | 2s | 2s | 0.4s | **3s** ✅ |
 | **Cost** | $5-$50 | $0.01-$0.10 | $0.05-$0.50 | $0.001 | **<$0.001** ✅ |
@@ -208,7 +208,7 @@
 | **Decentralization** | ✅ Excellent | ⚠️ Moderate | ⚠️ Moderate | ⚠️ Concerns | **⚠️→✅ Growing** |
 | **Market Cap** | $400B | $8B | $6B | $70B | **Pre-launch** 🚀 |
 
-**Xaheen's Winning Position:**
+**Nor's Winning Position:**
 - ✅ Faster than most L1s
 - ✅ Cheapest transactions in market
 - ✅ Native DeFi (unique competitive moat)
@@ -284,9 +284,9 @@
 
 ## SLIDE 9: TOKENOMICS
 
-### XHT Token - The Fuel of Xaheen
+### NOR Token - The Fuel of Nor
 
-**Total Supply:** 21,000,000,000,000 XHT (21 Trillion)
+**Total Supply:** 21,000,000,000,000 NOR (21 Trillion)
 *Fixed supply - no inflation*
 
 **Strategic Distribution:**
@@ -303,7 +303,7 @@
 **Token Utility - Real Use Cases:**
 
 1. **Gas Fees** (Required)
-   - Every transaction burns XHT
+   - Every transaction burns NOR
    - Natural demand driver
    - Deflationary pressure
 
@@ -313,7 +313,7 @@
    - 20-50% APY potential
 
 3. **DEX Liquidity Mining** (Yield)
-   - Provide liquidity, earn XHT
+   - Provide liquidity, earn NOR
    - Competitive APYs
    - Protocol revenue sharing
 
@@ -324,16 +324,16 @@
 
 5. **Bridge Operations** (Utility)
    - Cross-chain transfers
-   - Fee discounts for XHT holders
+   - Fee discounts for NOR holders
    - Priority processing
 
 **Value Accrual Mechanisms:**
 
 📈 **Demand Side:**
-- More users → More gas fees → XHT burned
-- More trading → More rewards needed → XHT demand
-- More bridges → More activity → XHT utility
-- More staking → XHT locked up → Reduced supply
+- More users → More gas fees → NOR burned
+- More trading → More rewards needed → NOR demand
+- More bridges → More activity → NOR utility
+- More staking → NOR locked up → Reduced supply
 
 📉 **Supply Side:**
 - 50% of bridge fees → Burned forever
@@ -366,7 +366,7 @@
 - ✅ Chainlist.org integration (one-click MetaMask add)
 - ✅ Social media launch (Twitter, Reddit, Telegram, Discord)
 - ✅ Developer documentation and tutorials
-- ✅ Early adopter airdrop program (1,000 XHT per user)
+- ✅ Early adopter airdrop program (1,000 NOR per user)
 - ✅ Crypto media outreach (press releases, articles)
 - ✅ Influencer partnerships
 
@@ -445,25 +445,25 @@
 - ✅ Pre-funded accounts for ecosystem growth
 - ✅ BTCBR token embedded in genesis (10.5 septillion supply)
 - ✅ Validator keys secured and distributed
-- ✅ 21 trillion XHT native token supply
+- ✅ 21 trillion NOR native token supply
 - ✅ Multi-validator extraData configuration
 
 ---
 
 **🔷 NATIVE DEX - FULLY OPERATIONAL**
 
-**XaheenSwap Protocol:**
+**NorSwap Protocol:**
 - ✅ Complete Uniswap V2-style AMM deployed
 - ✅ Factory contract: Creates trading pairs on-demand
 - ✅ Router contract: Handles all swaps and liquidity
-- ✅ WXHT (Wrapped XHT): Enables XHT trading
-- ✅ Working pairs: XHT/BTCBR with real liquidity
+- ✅ WNOR (Wrapped NOR): Enables NOR trading
+- ✅ Working pairs: NOR/BTCBR with real liquidity
 - ✅ Fee mechanism: 0.25% trading fee operational
 - ✅ LP tokens: Minted and transferable
 - ✅ Fixed fee model: Revenue-generating and bug-free
 
 **Current Liquidity Deployed:**
-- ✅ $20,000 equivalent in XHT/BTCBR pair
+- ✅ $20,000 equivalent in NOR/BTCBR pair
 - ✅ Multiple working pairs ready for trading
 - ✅ Price discovery mechanisms active
 - ✅ Slippage protection implemented
@@ -488,7 +488,7 @@
    - Transfer limits: 100-100,000 BTCBR
    - Fee: 0.1% mainnet→private
 
-2. ✅ **BTCBRBridgePrivate** (Xaheen Side)
+2. ✅ **BTCBRBridgePrivate** (Nor Side)
    - Mint & Burn pattern
    - Address: 0xe9Aa0276196928fb1dD42afda89F47CF821e987C
    - Fee: 0.2% private→mainnet
@@ -499,7 +499,7 @@
    - Address: 0xB4d455356e273EaFd82E6076AFA639CdB3546750
    - Fully configured validators
 
-4. ✅ **XHNBridgePrivate** (Xaheen Side)
+4. ✅ **XHNBridgePrivate** (Nor Side)
    - Address: 0x5514EBfC66645B5Fe0BAf9FF00Eb52cc9A33Ec68
    - Cross-chain transfers tested
    - Emergency pause functionality
@@ -524,16 +524,16 @@
 **🔷 SMART CONTRACT SUITE - PRODUCTION GRADE**
 
 **Token Contracts:**
-- ✅ XHT (Native): 21T supply, ERC-20 standard
-- ✅ BTCBR on Xaheen: 0x0cF8e180350253271f4b917CcFb0aCCc4862F262
+- ✅ NOR (Native): 21T supply, ERC-20 standard
+- ✅ BTCBR on Nor: 0x0cF8e180350253271f4b917CcFb0aCCc4862F262
 - ✅ BTCBR on BSC: 0x03FC6dA7C9E48201b8FEC1Ca53EA62eA6514d48f
 - ✅ XHN (Same address both chains): 0x1777C32Da09d4FD65a74B6C9AFca17862423Fd1C
 
 **DEX Contracts:**
-- ✅ XaheenDEXFactory: 0x502ec2Ce7cd266Eff9e147d66Df3e4D4fcB9e812
-- ✅ XaheenDEXRouter: 0x0D8e7Ed1B328302bbAA0249CeFD6ca52E050F86e
-- ✅ WXHT: 0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651
-- ✅ XHT/BTCBR Pair: 0x57cd11F29869d5B4e9e4a9344817c6B98AAbEB68
+- ✅ NorDEXFactory: 0x502ec2Ce7cd266Eff9e147d66Df3e4D4fcB9e812
+- ✅ NorDEXRouter: 0x0D8e7Ed1B328302bbAA0249CeFD6ca52E050F86e
+- ✅ WNOR: 0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651
+- ✅ NOR/BTCBR Pair: 0x57cd11F29869d5B4e9e4a9344817c6B98AAbEB68
 
 **All contracts:**
 - Written in Solidity 0.8.20 (latest security features)
@@ -968,10 +968,10 @@
 **Amount Raising:** $500,000
 **Pre-Money Valuation:** $5,000,000
 **Post-Money Valuation:** $5,500,000
-**Equity Offered:** 10% of XHT token supply
+**Equity Offered:** 10% of NOR token supply
 
 **Investment Structure:**
-- Security: XHT tokens (utility + governance)
+- Security: NOR tokens (utility + governance)
 - Vesting: 1-year cliff, 2-year linear
 - Minimum: $25,000
 - Maximum: $150,000 per investor
@@ -979,7 +979,7 @@
 **Investor Benefits:**
 
 **1. Token Rights:**
-- 10% of total XHT supply
+- 10% of total NOR supply
 - Governance voting rights
 - Staking rewards eligibility
 - Fee sharing participation
@@ -1004,7 +1004,7 @@
 | Fantom | $5M | $8B | 1,600x |
 | Harmony | $3M | $4B | 1,333x |
 
-**Xaheen Potential:**
+**Nor Potential:**
 - $5M → $2.1B = **420x** (conservative)
 - $5M → $10B = **2,000x** (if we match smaller L1s)
 - $5M → $50B = **10,000x** (if we match BSC)
@@ -1275,7 +1275,7 @@ Your investment is protected by performance gates:
 **Commitment:**
 - Below-market salaries ($60k Year 1)
 - No token sales before investors break even
-- Full-time exclusive work on Xaheen
+- Full-time exclusive work on Nor
 - No luxury spending (lean operations)
 
 ---
@@ -1390,10 +1390,10 @@ This is the EXACT same structure used by:
 - BSC: Launched 2020, now #3 blockchain by TVL
 
 **Why They Succeeded:**
-- Faster than Ethereum ✅ (Xaheen: 3s vs 15s)
-- Cheaper than Ethereum ✅ (Xaheen: <$0.001)
-- EVM compatible ✅ (Xaheen: 100%)
-- Developer focused ✅ (Xaheen: zero friction)
+- Faster than Ethereum ✅ (Nor: 3s vs 15s)
+- Cheaper than Ethereum ✅ (Nor: <$0.001)
+- EVM compatible ✅ (Nor: 100%)
+- Developer focused ✅ (Nor: zero friction)
 
 **What We Do Better:**
 - Native DEX (they don't have)
@@ -1509,7 +1509,7 @@ This is the EXACT same structure used by:
 - Validator Count: 3 → 21 → 100+
 - Multi-signature: 2-of-3 validation
 - Slashing conditions: Downtime, double-signing
-- Economic security: Staked XHT value
+- Economic security: Staked NOR value
 
 **Smart Contracts:**
 - VM: EVM (Ethereum Virtual Machine)
@@ -1571,7 +1571,7 @@ This is the EXACT same structure used by:
 **Entity Structure:**
 - Foundation: [To be established]
 - Treasury: Multi-sig controlled
-- Token: Utility token (XHT)
+- Token: Utility token (NOR)
 - Compliance: Legal review ongoing
 
 **Regulatory Approach:**

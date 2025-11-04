@@ -1,14 +1,14 @@
-# 🌙 Noor Chain Deployment Status Report
+# 🌙 Nor Chain Deployment Status Report
 
 **Date**: November 2, 2025
-**Chain Name**: Noor Chain (formerly Xaheen Chain)
+**Chain Name**: Nor Chain (formerly Nor Chain)
 **Status**: 🟡 Rebrand Complete (95%) | Block Production Issue (5%)
 
 ---
 
 ## Executive Summary
 
-The **complete rebrand from Xaheen Chain → Noor Chain** has been successfully executed. All code, documentation, and branding materials have been updated. The chain is running with a fresh Noor Chain genesis and proper 9,000,000 block epoch configuration.
+The **complete rebrand from Nor Chain → Nor Chain** has been successfully executed. All code, documentation, and branding materials have been updated. The chain is running with a fresh Nor Chain genesis and proper 9,000,000 block epoch configuration.
 
 **Remaining Issue**: Block production stuck at block 1 due to insufficient peer connectivity in Parlia consensus.
 
@@ -32,19 +32,19 @@ The **complete rebrand from Xaheen Chain → Noor Chain** has been successfully 
 ### 2. Code Updates ✅ 100%
 
 **Updated Files:**
-1. `CLAUDE.md` - 42+ references updated (Xaheen → Noor, XHT → NOR)
+1. `CLAUDE.md` - 42+ references updated (Nor → Nor, NOR → NOR)
 2. `hardhat.config.js` - Network names and RPC URLs updated
 3. `package.json` - Project name, description, keywords all rebranded
-4. `scripts/generate-clean-genesis.js` - Console messages with Noor branding
+4. `scripts/generate-clean-genesis.js` - Console messages with Nor branding
 
 **Find/Replace Applied:**
-- Chain Name: Xaheen Chain → Noor Chain
-- Token: XHT → NOR
-- RPC URL: rpc.xaheen.org → rpc.noorchain.org (prepared, not live)
+- Chain Name: Nor Chain → Nor Chain
+- Token: NOR → NOR
+- RPC URL: rpc.xaheen.org → rpc.norchain.org (prepared, not live)
 
 ### 3. Genesis & Blockchain ✅ 100%
 
-**New Noor Chain Genesis:**
+**New Nor Chain Genesis:**
 - **Genesis Hash**: `0x058b19fa412aaa4044d54efc33b241bc5fb780336daa8e39aa76951fa084d159`
 - **Chain ID**: 65001 (unchanged for compatibility)
 - **Epoch**: 9,000,000 blocks (~1.5 years at 3-second blocks)
@@ -66,19 +66,19 @@ The **complete rebrand from Xaheen Chain → Noor Chain** has been successfully 
 ### 4. SSL Certificate Preparation ✅ 100%
 
 **Script Created:**
-- `/scripts/setup-noorchain-ssl.sh` - Complete SSL migration script
+- `/scripts/setup-norchain-ssl.sh` - Complete SSL migration script
 
 **Prepared For:**
-- Domain: noorchain.org
-- RPC Subdomain: rpc.noorchain.org
-- WebSocket: ws.noorchain.org
+- Domain: norchain.org
+- RPC Subdomain: rpc.norchain.org
+- WebSocket: ws.norchain.org
 - Nginx configuration with SSL/TLS best practices
 - Certbot integration for Let's Encrypt certificates
 
 **To Execute:**
-1. Register noorchain.org domain
+1. Register norchain.org domain
 2. Configure DNS A records
-3. Run: `bash scripts/setup-noorchain-ssl.sh`
+3. Run: `bash scripts/setup-norchain-ssl.sh`
 
 ---
 
@@ -140,7 +140,7 @@ Mining Flags: ✅ --mine enabled on all validators
 ### Code Changes
 - **Files Modified**: 4 core files
 - **Lines Changed**: ~100+ lines across documentation and configuration
-- **References Updated**: 42+ Xaheen→Noor, XHT→NOR
+- **References Updated**: 42+ Nor→Nor, NOR→NOR
 
 ### Infrastructure
 - **Validators Deployed**: 3/3 running
@@ -173,10 +173,10 @@ Mining Flags: ✅ --mine enabled on all validators
 
 ### Short-term (This Week)
 3. **Domain Migration**
-   - Register noorchain.org domain
+   - Register norchain.org domain
    - Configure DNS A records pointing to 3.91.50.187
    - Run SSL certificate setup script
-   - Test RPC endpoint at https://rpc.noorchain.org
+   - Test RPC endpoint at https://rpc.norchain.org
 
 4. **Test Epoch Revalidation**
    - Once blocks producing, verify Parlia epoch handling
@@ -204,8 +204,8 @@ Mining Flags: ✅ --mine enabled on all validators
 - [x] All code references updated
 - [x] Brand guide completed
 - [x] Press materials created
-- [x] Genesis regenerated with Noor identity
-- [x] Validators deployed with Noor genesis
+- [x] Genesis regenerated with Nor identity
+- [x] Validators deployed with Nor genesis
 - [x] SSL migration script prepared
 
 ### Technical Success ⏳
@@ -221,7 +221,7 @@ Mining Flags: ✅ --mine enabled on all validators
 ### External Success ⏳
 - [ ] Domain registered
 - [ ] DNS configured
-- [ ] RPC endpoint live at noorchain.org
+- [ ] RPC endpoint live at norchain.org
 - [ ] Social media updated
 - [ ] Community notified
 - [ ] Partners informed
@@ -230,10 +230,10 @@ Mining Flags: ✅ --mine enabled on all validators
 
 ## Contact & Support
 
-**Technical Team**: Noor Chain Development Team
+**Technical Team**: Nor Chain Development Team
 **Server**: 3.91.50.187 (AWS EC2)
-**RPC Endpoint**: https://rpc.noorchain.org (pending DNS setup)
-**Explorer**: https://explorer.noorchain.org (planned)
+**RPC Endpoint**: https://rpc.norchain.org (pending DNS setup)
+**Explorer**: https://explorer.norchain.org (planned)
 
 **Emergency Contacts:**
 - SSH Access: `ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@3.91.50.187`
@@ -277,11 +277,11 @@ docker exec xaheen-rpc geth --exec "eth.getBlock(0).hash" attach /bsc/geth.ipc
 
 ### Scripts Available
 
-1. `scripts/noor-chain-validators-setup.sh` - Complete validator setup
-2. `scripts/fix-noor-chain-peers.sh` - Peer connectivity fix
+1. `scripts/nor-chain-validators-setup.sh` - Complete validator setup
+2. `scripts/fix-nor-chain-peers.sh` - Peer connectivity fix
 3. `scripts/fix-enodes.sh` - Enode format fix
-4. `scripts/noor-final-fix.sh` - Comprehensive fix attempt
-5. `scripts/setup-noorchain-ssl.sh` - SSL certificate setup
+4. `scripts/nor-final-fix.sh` - Comprehensive fix attempt
+5. `scripts/setup-norchain-ssl.sh` - SSL certificate setup
 6. `scripts/generate-clean-genesis.js` - Genesis generation
 
 ---
@@ -289,4 +289,4 @@ docker exec xaheen-rpc geth --exec "eth.getBlock(0).hash" attach /bsc/geth.ipc
 **Last Updated**: November 2, 2025, 18:00 UTC
 **Next Review**: After peer connectivity issue resolved
 
-🌙 **Noor Chain - Empowering the Future with Light and Trust**
+🌙 **Nor Chain - Empowering the Future with Light and Trust**

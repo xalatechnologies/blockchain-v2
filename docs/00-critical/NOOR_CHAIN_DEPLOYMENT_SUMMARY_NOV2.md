@@ -1,4 +1,4 @@
-# 🌙 Noor Chain Deployment Summary - November 2, 2025
+# 🌙 Nor Chain Deployment Summary - November 2, 2025
 
 **Date**: November 2, 2025
 **Time**: 21:23 (9:23 PM)
@@ -9,7 +9,7 @@
 
 ## 🎉 Executive Summary
 
-**COMPLETE SUCCESS**: Noor Chain has been successfully deployed with epoch 10,000 configuration and is producing blocks continuously with stable peer connectivity. All critical systems are operational and the automated epoch revalidation monitoring is active.
+**COMPLETE SUCCESS**: Nor Chain has been successfully deployed with epoch 10,000 configuration and is producing blocks continuously with stable peer connectivity. All critical systems are operational and the automated epoch revalidation monitoring is active.
 
 ### Key Achievements
 
@@ -17,7 +17,7 @@
 2. ✅ **Peer Connectivity** - Stable 2-3 peer connections maintained
 3. ✅ **Epoch Configuration** - 10,000 blocks (~8.3 hours) configured for revalidation testing
 4. ✅ **Automated Monitoring** - Long-running monitor tracking progress to block 10,000
-5. ✅ **Documentation Updated** - All critical docs and playbook updated with Noor branding
+5. ✅ **Documentation Updated** - All critical docs and playbook updated with Nor branding
 
 ---
 
@@ -39,7 +39,7 @@
 
 ### Deployment Method
 
-**Script**: `/scripts/noor-apply-documented-fix.sh`
+**Script**: `/scripts/nor-apply-documented-fix.sh`
 
 **Key Configuration Details**:
 - Uses `docker run -d` (NOT `docker create` + `docker start`)
@@ -161,7 +161,7 @@ Blocks were stuck at block 1 with unstable P2P connectivity (0-1 peers instead o
 ### Monitor Configuration
 
 **Script**: `/scripts/monitor-epoch-revalidation.sh`
-**Log File**: `/tmp/noor-epoch-monitor-20251102-211902.log`
+**Log File**: `/tmp/nor-epoch-monitor-20251102-211902.log`
 
 **Monitoring Modes**:
 - **Standard Mode** (60-second checks): Blocks 1 → 9,989
@@ -190,9 +190,9 @@ Blocks were stuck at block 1 with unstable P2P connectivity (0-1 peers instead o
    - Monitor status added
 
 2. **`/docs/09-playbook/README.md`**
-   - Complete rebrand to Noor Chain
-   - Token symbol: XHT → NOR
-   - Ecosystem components updated (XaheenSwap → NoorSwap, etc.)
+   - Complete rebrand to Nor Chain
+   - Token symbol: NOR → NOR
+   - Ecosystem components updated (NorSwap → NorSwap, etc.)
    - Added rebrand notice
 
 3. **`/CLAUDE.md`**
@@ -223,8 +223,8 @@ Blocks were stuck at block 1 with unstable P2P connectivity (0-1 peers instead o
 4. 📝 Document epoch revalidation success
 
 ### Next Phase (Post-Validation)
-1. 🔒 Setup SSL certificates for noorchain.org domain
-2. 🌐 Configure DNS migration from xaheen.org → noorchain.org
+1. 🔒 Setup SSL certificates for norchain.org domain
+2. 🌐 Configure DNS migration from xaheen.org → norchain.org
 3. 📊 Deploy Blockscout explorer
 4. 🔄 Increase epoch to production standard (9,000,000 blocks)
 
@@ -240,11 +240,11 @@ Blocks were stuck at block 1 with unstable P2P connectivity (0-1 peers instead o
 ### Network Details
 - **Chain ID**: 65001 (0xFDE9)
 - **Network ID**: 65001
-- **RPC Endpoint**: https://rpc.xaheen.org (migrating to https://rpc.noorchain.org)
+- **RPC Endpoint**: https://rpc.xaheen.org (migrating to https://rpc.norchain.org)
 - **Server IP**: 3.91.50.187
 
 ### Deployment Scripts
-- **Main Deployment**: `/scripts/noor-apply-documented-fix.sh`
+- **Main Deployment**: `/scripts/nor-apply-documented-fix.sh`
 - **Monitoring**: `/scripts/monitor-epoch-revalidation.sh`
 - **Reference**: `/scripts/deploy-3-validators-fixed.sh`
 
@@ -306,17 +306,17 @@ Docker-created files/directories are owned by root. Always use `sudo` when writi
 
 ---
 
-## 🌙 Noor Chain Brand Identity
+## 🌙 Nor Chain Brand Identity
 
-**Name**: Noor Chain (نور - "Light")
+**Name**: Nor Chain (نور - "Light")
 **Symbol**: NOR
 **Vision**: Illuminating the future of blockchain with light and trust
 
 **Ecosystem**:
-- **Noor Chain** - Core Layer-1 blockchain
-- **NoorSwap** - Native decentralized exchange
-- **Noor Bridge** - Cross-chain vault system
-- **Noor Funds** - Halal mutual and retirement funds
+- **Nor Chain** - Core Layer-1 blockchain
+- **NorSwap** - Native decentralized exchange
+- **Nor Bridge** - Cross-chain vault system
+- **Nor Funds** - Halal mutual and retirement funds
 - **Dirhamat** - AED/Gold-backed stablecoin
 - **Digital KES** - Kenyan Shilling token
 - **NordCoin** - Nordic ESG-compliant currency
@@ -342,7 +342,7 @@ Docker-created files/directories are owned by root. Always use `sudo` when writi
 
 **Monitor Command**:
 ```bash
-tail -f /tmp/noor-epoch-monitor-20251102-211902.log
+tail -f /tmp/nor-epoch-monitor-20251102-211902.log
 ```
 
 **Check Chain Status**:
@@ -357,7 +357,7 @@ ssh ec2-user@3.91.50.187 \
 
 ## 🎉 Conclusion
 
-Noor Chain deployment with epoch 10,000 configuration is **COMPLETE and SUCCESSFUL**. The chain is producing blocks continuously with stable peer connectivity, and automated monitoring is tracking progress toward the epoch revalidation test at block 10,000.
+Nor Chain deployment with epoch 10,000 configuration is **COMPLETE and SUCCESSFUL**. The chain is producing blocks continuously with stable peer connectivity, and automated monitoring is tracking progress toward the epoch revalidation test at block 10,000.
 
 **Key Success Factors**:
 1. Applied exact documented working configuration
@@ -372,4 +372,4 @@ Noor Chain deployment with epoch 10,000 configuration is **COMPLETE and SUCCESSF
 **Deployment Completed**: November 2, 2025, 21:23 (9:23 PM)
 **Monitoring Active Until**: Block 10,000 (Expected ~5:30 AM, November 3, 2025)
 
-🌙 **Noor Chain - Empowering the Future with Light and Trust** 🌙
+🌙 **Nor Chain - Empowering the Future with Light and Trust** 🌙

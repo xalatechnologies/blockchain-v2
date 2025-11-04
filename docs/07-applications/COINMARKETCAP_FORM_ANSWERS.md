@@ -10,7 +10,7 @@ This document provides EXACT answers for each form field. Simply copy and paste.
 
 ### Project Ticker/Symbol
 ```
-XHT
+NOR
 ```
 
 ### Cryptoasset Tags
@@ -24,7 +24,7 @@ XHT
 
 ### Project Name
 ```
-Xaheen Chain
+Nor Chain
 ```
 
 ### One-liner Description (Max 200 characters)
@@ -39,28 +39,28 @@ High-performance EVM-compatible Layer 1 blockchain with 3-second finality, nativ
 **Copy this entire block:**
 
 ```
-Xaheen Chain is a high-performance, EVM-compatible blockchain network designed specifically for decentralized finance (DeFi) applications. Built on the proven Parlia Proof of Staked Authority (PoSA) consensus mechanism—the same technology powering BNB Chain—Xaheen offers significantly faster transaction speeds and lower costs compared to traditional blockchains.
+Nor Chain is a high-performance, EVM-compatible blockchain network designed specifically for decentralized finance (DeFi) applications. Built on the proven Parlia Proof of Staked Authority (PoSA) consensus mechanism—the same technology powering BNB Chain—Nor offers significantly faster transaction speeds and lower costs compared to traditional blockchains.
 
 KEY FEATURES
 
 Ultra-Fast Transactions
-Xaheen Chain achieves 3-second block finality, delivering 10x faster transaction confirmation than Ethereum. This high throughput capacity minimizes transaction delays and enables seamless user experiences for DeFi applications.
+Nor Chain achieves 3-second block finality, delivering 10x faster transaction confirmation than Ethereum. This high throughput capacity minimizes transaction delays and enables seamless user experiences for DeFi applications.
 
 Low-Cost Operations
-With average transaction fees below $0.01 USD, Xaheen is 100x cheaper than Ethereum mainnet. This cost efficiency makes the network sustainable for micro-transactions and frequent trading activity.
+With average transaction fees below $0.01 USD, Nor is 100x cheaper than Ethereum mainnet. This cost efficiency makes the network sustainable for micro-transactions and frequent trading activity.
 
 Native DeFi Infrastructure
-Xaheen features a built-in decentralized exchange (Xaheen DEX) at the protocol level, along with integrated liquidity mechanisms, staking and rewards systems, and native cross-chain bridge capabilities. This native infrastructure eliminates the need for third-party DeFi platforms.
+Nor features a built-in decentralized exchange (Nor DEX) at the protocol level, along with integrated liquidity mechanisms, staking and rewards systems, and native cross-chain bridge capabilities. This native infrastructure eliminates the need for third-party DeFi platforms.
 
 Full EVM Compatibility
-Xaheen Chain works seamlessly with MetaMask, Web3.js, and ethers.js, supports Solidity smart contracts, and enables easy migration for Ethereum dApps. Developers can leverage existing Ethereum tooling without modification.
+Nor Chain works seamlessly with MetaMask, Web3.js, and ethers.js, supports Solidity smart contracts, and enables easy migration for Ethereum dApps. Developers can leverage existing Ethereum tooling without modification.
 
 Proven Technology
 The network utilizes Parlia consensus, which has been battle-tested on BNB Chain, ensuring a security-focused architecture backed by a professional validator network with transparent on-chain operations.
 
-XHT TOKEN UTILITY
+NOR TOKEN UTILITY
 
-XHT is the native utility token of Xaheen Chain with multiple use cases:
+NOR is the native utility token of Nor Chain with multiple use cases:
 - Network gas fees for all transactions
 - DEX trading fees and liquidity provision
 - Staking rewards for network participants
@@ -70,23 +70,23 @@ XHT is the native utility token of Xaheen Chain with multiple use cases:
 
 USE CASES
 
-Current live use cases include decentralized trading on Xaheen DEX, liquidity provision with competitive yields, and token staking with rewards. The platform is available for DeFi protocol development by third-party teams.
+Current live use cases include decentralized trading on Nor DEX, liquidity provision with competitive yields, and token staking with rewards. The platform is available for DeFi protocol development by third-party teams.
 
 Planned features include an NFT marketplace, cross-chain asset bridging to major networks, and gaming and metaverse applications.
 
 TECHNICAL SPECIFICATIONS
 
-Xaheen Chain operates with Chain ID 65001, Network ID 65001, and 3-second block times via Parlia PoSA consensus. The RPC endpoint is https://rpc.xaheen.org with WebSocket support at wss://rpc.xaheen.org.
+Nor Chain operates with Chain ID 65001, Network ID 65001, and 3-second block times via Parlia PoSA consensus. The RPC endpoint is https://rpc.xaheen.org with WebSocket support at wss://rpc.xaheen.org.
 
 The blockchain explorer is available at https://explorer.xaheen.org, and it is fully compatible with MetaMask and all standard Ethereum development tools.
 
 TOKENOMICS
 
-Total supply is capped at 21,000,000,000 XHT with an initial circulating supply of approximately 1,000,000,000 XHT. The distribution includes 95% allocated to treasury and development, 4% locked in liquidity pools, and 1% in initial circulation.
+Total supply is capped at 21,000,000,000 NOR with an initial circulating supply of approximately 1,000,000,000 NOR. The distribution includes 95% allocated to treasury and development, 4% locked in liquidity pools, and 1% in initial circulation.
 
-Current liquidity includes 600,000,000 XHT in XHT/USDT pairs, 100,000,000 XHT in XHT/BNB pairs, and 100,000,000 XHT in XHT/ETH pairs, totaling approximately $800,000 USD in Total Value Locked (TVL).
+Current liquidity includes 600,000,000 NOR in NOR/USDT pairs, 100,000,000 NOR in NOR/BNB pairs, and 100,000,000 NOR in NOR/ETH pairs, totaling approximately $800,000 USD in Total Value Locked (TVL).
 
-Xaheen Chain represents a practical solution for DeFi users seeking fast, affordable transactions without sacrificing security or decentralization.
+Nor Chain represents a practical solution for DeFi users seeking fast, affordable transactions without sacrificing security or decentralization.
 ```
 
 **Word count**: ~485 words (within 450-600 requirement)
@@ -103,7 +103,7 @@ Other / Custom Blockchain
 
 **If text field, enter:**
 ```
-Xaheen Chain (Custom EVM-compatible Layer 1)
+Nor Chain (Custom EVM-compatible Layer 1)
 ```
 
 ### Chain Fork
@@ -135,7 +135,7 @@ Coin (Native blockchain token)
 0x26c0eaF731885b14c031cc50dB79b36458E0b355
 ```
 
-*(Note: This is WXHT - Wrapped XHT. If form asks "Is this native token?", answer: "Yes, XHT is native. Contract is for wrapped version used in DEX trading.")*
+*(Note: This is WNOR - Wrapped NOR. If form asks "Is this native token?", answer: "Yes, NOR is native. Contract is for wrapped version used in DEX trading.")*
 
 ### Token Decimals
 ```
@@ -209,7 +209,7 @@ https://github.com/xaheen
 
 ### Twitter/X
 ```
-https://twitter.com/XaheenChain
+https://twitter.com/NorChain
 ```
 
 ### Telegram
@@ -244,7 +244,7 @@ Yes
 
 ### Exchange Name
 ```
-Xaheen DEX
+Nor DEX
 ```
 
 ### Exchange Type
@@ -254,7 +254,7 @@ Decentralized Exchange (DEX)
 
 ### Trading Pairs
 ```
-XHT/USDT, XHT/BNB, XHT/ETH
+NOR/USDT, NOR/BNB, NOR/ETH
 ```
 
 ### DEX Router Contract
@@ -331,11 +331,11 @@ curl -X POST https://rpc.xaheen.org -H "Content-Type: application/json" -d '{"js
 ```json
 {
   "chainId": 65001,
-  "chainName": "Xaheen Chain",
+  "chainName": "Nor Chain",
   "rpcUrls": ["https://rpc.xaheen.org"],
   "nativeCurrency": {
-    "name": "Xaheen Token",
-    "symbol": "XHT",
+    "name": "Nor Token",
+    "symbol": "NOR",
     "decimals": 18
   },
   "blockExplorerUrls": ["https://explorer.xaheen.org"]
@@ -377,9 +377,9 @@ Bootstrapped project
 #### Option 1: Twitter Post
 ```
 Create a tweet:
-"Requesting @CoinMarketCap listing for Xaheen Token (XHT)
+"Requesting @CoinMarketCap listing for Nor Token (NOR)
 Contract: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
-Chain: Xaheen Chain (ID: 65001)
+Chain: Nor Chain (ID: 65001)
 Ticket: [YOUR_TICKET_NUMBER]"
 
 Then paste tweet URL in form.
@@ -388,7 +388,7 @@ Then paste tweet URL in form.
 #### Option 2: Telegram Post
 ```
 Post in your Telegram group:
-"Xaheen Token (XHT) listing request submitted to CoinMarketCap
+"Nor Token (NOR) listing request submitted to CoinMarketCap
 Ticket #[YOUR_TICKET_NUMBER]"
 
 Provide Telegram post link.
@@ -397,7 +397,7 @@ Provide Telegram post link.
 #### Option 3: Website Announcement
 ```
 Add to https://xaheen.org:
-"CoinMarketCap listing application submitted for XHT token"
+"CoinMarketCap listing application submitted for NOR token"
 
 Provide page URL.
 ```
@@ -437,7 +437,7 @@ https://xaheen.org/logo.png
 ```
 DEVELOPMENT TEAM
 
-Xaheen Chain is built by an experienced blockchain infrastructure team with expertise across multiple domains:
+Nor Chain is built by an experienced blockchain infrastructure team with expertise across multiple domains:
 
 Core Development Team:
 • Blockchain Engineers: Specialized in EVM-compatible networks, Parlia PoSA consensus implementation, and multi-validator node orchestration. Previous experience with Ethereum, BSC, and Polygon infrastructure.
@@ -482,7 +482,7 @@ The project maintains operational security through:
 
 PROJECT PHILOSOPHY
 
-Xaheen Chain is built on principles of technical excellence, sustainable tokenomics, and genuine utility. The team prioritizes working infrastructure over marketing hype, real trading volume over artificial metrics, and long-term sustainability over short-term speculation.
+Nor Chain is built on principles of technical excellence, sustainable tokenomics, and genuine utility. The team prioritizes working infrastructure over marketing hype, real trading volume over artificial metrics, and long-term sustainability over short-term speculation.
 ```
 
 ---
@@ -504,20 +504,20 @@ Network Statistics:
 • Network Hash Rate: Stable validator participation
 
 Trading & Liquidity Metrics:
-• Native DEX: Xaheen DEX live and operational (Uniswap V2 fork)
+• Native DEX: Nor DEX live and operational (Uniswap V2 fork)
 • Total Value Locked (TVL): $800,000 USD in liquidity pools
-• Active Trading Pairs: 3 pairs (XHT/USDT, XHT/BNB, XHT/ETH)
+• Active Trading Pairs: 3 pairs (NOR/USDT, NOR/BNB, NOR/ETH)
 • Liquidity Breakdown:
-  - XHT/USDT: 600,000,000 XHT ($600K USD)
-  - XHT/BNB: 100,000,000 XHT ($100K USD)
-  - XHT/ETH: 100,000,000 XHT ($100K USD)
+  - NOR/USDT: 600,000,000 NOR ($600K USD)
+  - NOR/BNB: 100,000,000 NOR ($100K USD)
+  - NOR/ETH: 100,000,000 NOR ($100K USD)
 • 24h Trading Volume: Active trading with growing participation
 • DEX Transactions: Real swaps and liquidity operations daily
 
 Token Distribution:
-• Circulating Supply: 1,000,000,000 XHT (initial phase)
-• Liquidity Locked: 800,000,000 XHT in DEX (verifiable on-chain)
-• Treasury Holdings: 19,950,000,000 XHT (managed for ecosystem growth)
+• Circulating Supply: 1,000,000,000 NOR (initial phase)
+• Liquidity Locked: 800,000,000 NOR in DEX (verifiable on-chain)
+• Treasury Holdings: 19,950,000,000 NOR (managed for ecosystem growth)
 • Distribution Model: Gradual, sustainable release aligned with adoption
 
 Technical Infrastructure:
@@ -565,8 +565,8 @@ PRODUCT ROADMAP & MVPs
 ✅ COMPLETED (Live in Production):
 • Layer 1 blockchain with Parlia PoSA consensus
 • Multi-validator network (3 validators, 2-of-3 signing)
-• Native decentralized exchange (Xaheen DEX)
-• Liquidity pools for XHT/USDT, XHT/BNB, XHT/ETH
+• Native decentralized exchange (Nor DEX)
+• Liquidity pools for NOR/USDT, NOR/BNB, NOR/ETH
 • Block explorer with full transaction transparency
 • Public RPC endpoints for developer access
 • Staking mechanism for network participants
@@ -634,7 +634,7 @@ All metrics are verifiable on-chain:
 • RPC Endpoint: https://rpc.xaheen.org
 • DEX Router: https://explorer.xaheen.org/address/0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916
 • DEX Factory: https://explorer.xaheen.org/address/0xBE254176B4f13b02f367a9feCE599ee8887E2D34
-• WXHT Token: https://explorer.xaheen.org/address/0x26c0eaF731885b14c031cc50dB79b36458E0b355
+• WNOR Token: https://explorer.xaheen.org/address/0x26c0eaF731885b14c031cc50dB79b36458E0b355
 
 Live RPC Test:
 curl -X POST https://rpc.xaheen.org \
@@ -678,9 +678,9 @@ Main Explorer: https://explorer.xaheen.org
 • Verify total supply, token holders, and distribution
 • Check validator activity and network statistics
 
-WXHT Token Contract: https://explorer.xaheen.org/address/0x26c0eaF731885b14c031cc50dB79b36458E0b355
+WNOR Token Contract: https://explorer.xaheen.org/address/0x26c0eaF731885b14c031cc50dB79b36458E0b355
 • Contract bytecode verification
-• Total supply: 21,000,000,000 XHT
+• Total supply: 21,000,000,000 NOR
 • Decimal places: 18
 • All token transfers visible
 
@@ -696,20 +696,20 @@ DEX Factory Contract: https://explorer.xaheen.org/address/0xBE254176B4f13b02f367
 3. LIQUIDITY PROOF (On-Chain Verification)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-XHT/USDT Pair: 0x3eCD8786EfCf66cc0a021c234f7Ac8606FCc0212
+NOR/USDT Pair: 0x3eCD8786EfCf66cc0a021c234f7Ac8606FCc0212
 Explorer Link: https://explorer.xaheen.org/address/0x3eCD8786EfCf66cc0a021c234f7Ac8606FCc0212
-Liquidity: 600,000,000 XHT locked (verifiable via contract balance)
+Liquidity: 600,000,000 NOR locked (verifiable via contract balance)
 
-Additional pairs (XHT/BNB, XHT/ETH) also verifiable through explorer transaction history.
+Additional pairs (NOR/BNB, NOR/ETH) also verifiable through explorer transaction history.
 
 4. METAMASK NETWORK CONFIGURATION PROOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Anyone can add Xaheen Chain to MetaMask with these parameters:
-Network Name: Xaheen Chain
+Anyone can add Nor Chain to MetaMask with these parameters:
+Network Name: Nor Chain
 RPC URL: https://rpc.xaheen.org
 Chain ID: 65001
-Currency Symbol: XHT
+Currency Symbol: NOR
 Block Explorer: https://explorer.xaheen.org
 
 This demonstrates full EVM compatibility and public accessibility.
@@ -726,7 +726,7 @@ Official Website: https://xaheen.org
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 All contracts are based on open-source standards:
-• WXHT Token: Standard ERC-20 implementation
+• WNOR Token: Standard ERC-20 implementation
 • DEX Router: Uniswap V2 Router fork (audited codebase)
 • DEX Factory: Uniswap V2 Factory fork (audited codebase)
 
@@ -771,8 +771,8 @@ Expected: {"jsonrpc":"2.0","id":1,"result":"0xfe09"} (65001 in hex)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Total Supply Query:
-Query the WXHT contract's totalSupply() method via block explorer or RPC
-Expected: 21,000,000,000 XHT (0x4563918244F40000 in hex)
+Query the WNOR contract's totalSupply() method via block explorer or RPC
+Expected: 21,000,000,000 NOR (0x4563918244F40000 in hex)
 
 Circulating Supply Calculation:
 Total Supply (21B) - Treasury Holdings (~20B) - Locked Liquidity (0.8B) = ~1B circulating
@@ -790,7 +790,7 @@ EVM Version: London-compatible (supports all modern Solidity contracts)
 12. AUTHENTICITY GUARANTEE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-This application is submitted by the official Xaheen Chain team.
+This application is submitted by the official Nor Chain team.
 
 All information is accurate and verifiable as of submission date.
 
@@ -802,9 +802,9 @@ SCREENSHOT EVIDENCE
 
 If CoinMarketCap requires visual proof, we can provide screenshots of:
 ✅ Block explorer homepage showing recent blocks
-✅ WXHT contract page with supply information
+✅ WNOR contract page with supply information
 ✅ DEX router contract showing trading activity
-✅ MetaMask with Xaheen Chain successfully added
+✅ MetaMask with Nor Chain successfully added
 ✅ Successful RPC call responses
 ✅ Trading pairs with liquidity balances
 
@@ -828,7 +828,7 @@ Upload screenshots showing:
 1. Explorer homepage: https://explorer.xaheen.org (shows blocks producing)
 2. Token contract: Show supply and contract details
 3. Trading activity: Recent swap transactions
-4. MetaMask connected: Show Xaheen network added successfully
+4. MetaMask connected: Show Nor network added successfully
 5. RPC response: Terminal showing successful eth_blockNumber call
 
 **Quick screenshot creation:**
@@ -853,7 +853,7 @@ contact@xaheen.org
 
 ### Why should CoinMarketCap list your project?
 ```
-Xaheen Chain is a live, operational Layer 1 blockchain with real trading activity and liquidity. We offer a unique value proposition with 3-second finality and sub-cent transaction fees, making DeFi accessible to users priced out of Ethereum. Our native DEX has $800K TVL and active trading across multiple pairs. We provide genuine utility and infrastructure innovation, not speculation.
+Nor Chain is a live, operational Layer 1 blockchain with real trading activity and liquidity. We offer a unique value proposition with 3-second finality and sub-cent transaction fees, making DeFi accessible to users priced out of Ethereum. Our native DEX has $800K TVL and active trading across multiple pairs. We provide genuine utility and infrastructure innovation, not speculation.
 ```
 
 ### Any additional comments?
@@ -903,22 +903,22 @@ Our blockchain explorer (https://explorer.xaheen.org) shows full transparency of
 ### "Contract address not found"
 **Fix**: CMC may not recognize custom chains. In "Additional comments" field, explain:
 ```
-"This is a custom Layer 1 blockchain (Xaheen Chain, Chain ID 65001), not a token on Ethereum or BSC. The contract address is for WXHT (Wrapped XHT) used in DEX trading. Native XHT is the blockchain's gas token. You can verify via our RPC: https://rpc.xaheen.org"
+"This is a custom Layer 1 blockchain (Nor Chain, Chain ID 65001), not a token on Ethereum or BSC. The contract address is for WNOR (Wrapped NOR) used in DEX trading. Native NOR is the blockchain's gas token. You can verify via our RPC: https://rpc.xaheen.org"
 ```
 
 ### "Supply information unclear"
 **Fix**: Add to "Additional comments":
 ```
-"Total supply is fixed at 21 billion XHT. Circulating supply is currently 1 billion (initial phase). Treasury holds 95% for ecosystem development and gradual release. Supply can be verified via blockchain explorer."
+"Total supply is fixed at 21 billion NOR. Circulating supply is currently 1 billion (initial phase). Treasury holds 95% for ecosystem development and gradual release. Supply can be verified via blockchain explorer."
 ```
 
 ### "Need more trading data"
 **Fix**: Provide exact liquidity amounts:
 ```
-"Current liquidity locked in Xaheen DEX:
-- XHT/USDT: 600M XHT (~$600K USD)
-- XHT/BNB: 100M XHT (~$100K USD)
-- XHT/ETH: 100M XHT (~$100K USD)
+"Current liquidity locked in Nor DEX:
+- NOR/USDT: 600M NOR (~$600K USD)
+- NOR/BNB: 100M NOR (~$100K USD)
+- NOR/ETH: 100M NOR (~$100K USD)
 Total TVL: $800K USD
 All verifiable on-chain via explorer."
 ```
@@ -931,22 +931,22 @@ All verifiable on-chain via explorer."
 
 ```
 To: support@coinmarketcap.com
-Subject: Follow-up: Listing Request - Xaheen Token (XHT) [Ticket #XXXXX]
+Subject: Follow-up: Listing Request - Nor Token (NOR) [Ticket #XXXXX]
 
 Dear CoinMarketCap Team,
 
-I submitted a listing request for Xaheen Token (XHT) on [DATE] with ticket #XXXXX.
+I submitted a listing request for Nor Token (NOR) on [DATE] with ticket #XXXXX.
 
 Quick recap:
-• Token: XHT (Xaheen Token)
+• Token: NOR (Nor Token)
 • Contract: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
-• Blockchain: Xaheen Chain (Custom EVM Layer 1)
+• Blockchain: Nor Chain (Custom EVM Layer 1)
 • Chain ID: 65001
 • Explorer: https://explorer.xaheen.org
 • RPC: https://rpc.xaheen.org
 
 Current Status:
-• Live trading on Xaheen DEX
+• Live trading on Nor DEX
 • $800K total liquidity
 • Multi-validator network operational
 • Growing daily transaction volume
@@ -957,7 +957,7 @@ Thank you for your time!
 
 Best regards,
 [Your Name]
-Xaheen Chain Team
+Nor Chain Team
 contact@xaheen.org
 ```
 

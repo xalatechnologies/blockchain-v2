@@ -20,7 +20,7 @@ Based on `/scripts/check-lp-balance.js` output:
    - Real Value: **$10,000.00**
 
 2. **Underlying Assets (via LP):**
-   - XHT: 2,083,349,112 XHT (**$5,000.04**)
+   - NOR: 2,083,349,112 NOR (**$5,000.04**)
    - USDT: 4,999.97 USDT (**$4,999.97**)
    - **Total: $10,000.00**
 
@@ -61,7 +61,7 @@ MetaMask gets token prices from:
 - **CoinMarketCap** (requires listing)
 - **Built-in price oracle** (major tokens only)
 
-**Problem:** XaheenSwap LP token is NOT listed on these platforms yet.
+**Problem:** NorSwap LP token is NOT listed on these platforms yet.
 
 ---
 
@@ -101,7 +101,7 @@ MetaMask gets token prices from:
 - Can't click "Swap" button in MetaMask
 
 **Why:**
-- Need to deploy XaheenSwap frontend (Uniswap-style UI)
+- Need to deploy NorSwap frontend (Uniswap-style UI)
 - Then users can swap via MetaMask browser
 - **I can build this if you want**
 
@@ -150,7 +150,7 @@ All of these WORK perfectly. The issue is just MetaMask display.
 
 **Steps:**
 1. Open MetaMask
-2. Switch to Xaheen Chain
+2. Switch to Nor Chain
 3. Click "Import tokens"
 4. Enter:
    - **Contract:** `0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8`
@@ -189,9 +189,9 @@ All of these WORK perfectly. The issue is just MetaMask display.
 
 ### Short-Term (1-2 hours):
 
-**Deploy XaheenSwap Frontend:**
+**Deploy NorSwap Frontend:**
 - Clone Uniswap interface
-- Configure for Xaheen Chain
+- Configure for Nor Chain
 - Deploy to Vercel/Netlify
 - **Result:** Full swap UI with dollar values displayed
 
@@ -228,8 +228,8 @@ All of these WORK perfectly. The issue is just MetaMask display.
 User Opens MetaMask:
 └── Clicks "Swap" tab
     ├── MetaMask shows: Ethereum mainnet tokens only
-    ├── Doesn't know about Xaheen Chain DEX
-    └── Can't swap XHT ↔ USDT ❌
+    ├── Doesn't know about Nor Chain DEX
+    └── Can't swap NOR ↔ USDT ❌
 ```
 
 ### The Solution:
@@ -239,7 +239,7 @@ User Opens MetaMask:
 User Opens MetaMask Browser:
 └── Navigates to xaheen-swap.vercel.app
     ├── Connects MetaMask wallet
-    ├── Sees XHT ↔ USDT swap interface
+    ├── Sees NOR ↔ USDT swap interface
     ├── Clicks "Swap"
     └── MetaMask popup: "Confirm transaction" ✅
 ```
@@ -268,7 +268,7 @@ User Opens MetaMask Browser:
 ### 🔧 Quick Fix Options:
 
 **I can deploy RIGHT NOW:**
-1. **XaheenSwap Frontend** (Uniswap clone)
+1. **NorSwap Frontend** (Uniswap clone)
    - Time: 1-2 hours
    - Users can swap in MetaMask
    - Shows dollar values

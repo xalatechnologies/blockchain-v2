@@ -2,9 +2,9 @@
  * Deploy Spoke Contracts to BSC Mainnet
  *
  * This script deploys the spoke infrastructure to BSC Mainnet:
- * - Wrapped XHT Token (bridge representation of XHT)
+ * - Wrapped NOR Token (bridge representation of NOR)
  * - SettlementInbox (receives Fill events)
- * - XaheenRouter (user-facing router for trades)
+ * - NorRouter (user-facing router for trades)
  *
  * Prerequisites:
  * - Hub contracts must be deployed first (deploy-hub-mainnet.cjs)
@@ -29,71 +29,91 @@ async function main() {
 
   // Check minimum balance for deployment
   if (balance < ethers.parseEther("0.005")) {
-    throw new Error("Insufficient BNB for deployment. Need at least 0.005 BNB for gas.");
+    throw new Error(
+      "Insufficient BNB for deployment. Need at least 0.005 BNB for gas."
+    );
   }
 
   // Verify we're on BSC Mainnet
   const network = await ethers.provider.getNetwork();
   if (network.chainId !== 56n) {
-    throw new Error(`Wrong network! Expected BSC Mainnet (56), got ${network.chainId}`);
+    throw new Error(
+      `Wrong network! Expected BSC Mainnet (56), got ${network.chainId}`
+    );
   }
 
   console.log("✅ Network verified: BSC Mainnet (56)\n");
 
   // Load hub deployment info
   if (!fs.existsSync("deployment-mainnet.json")) {
-    throw new Error("deployment-mainnet.json not found. Deploy hub contracts first!");
+    throw new Error(
+      "deployment-mainnet.json not found. Deploy hub contracts first!"
+    );
   }
 
-  const deploymentInfo = JSON.parse(fs.readFileSync("deployment-mainnet.json", "utf8"));
+  const deploymentInfo = JSON.parse(
+    fs.readFileSync("deployment-mainnet.json", "utf8")
+  );
   if (!deploymentInfo.hub) {
-    throw new Error("Hub deployment info not found. Deploy hub contracts first!");
+    throw new Error(
+      "Hub deployment info not found. Deploy hub contracts first!"
+    );
   }
 
   console.log("✅ Loaded hub deployment info\n");
-  console.log("   Hub chain: Xaheen Chain (65001)");
+  console.log("   Hub chain: Nor Chain (65001)");
   console.log("   SettlementHub:", deploymentInfo.hub.hub.settlementHub);
-  console.log("   SupplyController:", deploymentInfo.hub.hub.supplyController, "\n");
+  console.log(
+    "   SupplyController:",
+    deploymentInfo.hub.hub.supplyController,
+    "\n"
+  );
 
-  // ========== PHASE 1: Deploy Wrapped XHT ==========
-  console.log("📍 PHASE 1: Deploying Wrapped XHT...\n");
+  // ========== PHASE 1: Deploy Wrapped NOR ==========
+  console.log("📍 PHASE 1: Deploying Wrapped NOR...\n");
 
-  const WrappedXHT = await ethers.getContractFactory("contracts/XHTBridgeToken.sol:XHTBridgeToken");
-  const wrappedXHT = await WrappedXHT.deploy();
-  await wrappedXHT.waitForDeployment();
-  const wrappedXHTAddress = await wrappedXHT.getAddress();
-  console.log("   ✅ Wrapped XHT deployed:", wrappedXHTAddress);
-  console.log("   Name:", await wrappedXHT.name());
-  console.log("   Symbol:", await wrappedXHT.symbol(), "\n");
+  const WrappedNOR = await ethers.getContractFactory(
+    "contracts/NORBridgeToken.sol:NORBridgeToken"
+  );
+  const wrappedNOR = await WrappedNOR.deploy();
+  await wrappedNOR.waitForDeployment();
+  const wrappedNORAddress = await wrappedNOR.getAddress();
+  console.log("   ✅ Wrapped NOR deployed:", wrappedNORAddress);
+  console.log("   Name:", await wrappedNOR.name());
+  console.log("   Symbol:", await wrappedNOR.symbol(), "\n");
 
   // ========== PHASE 2: Deploy SettlementInbox ==========
   console.log("📍 PHASE 2: Deploying SettlementInbox...\n");
 
-  // Deploy with deployer as temporary router (will update after XaheenRouter deployment)
-  const SettlementInbox = await ethers.getContractFactory("contracts/crosschain/spokes/SettlementInbox.sol:SettlementInbox");
+  // Deploy with deployer as temporary router (will update after NorRouter deployment)
+  const SettlementInbox = await ethers.getContractFactory(
+    "contracts/crosschain/spokes/SettlementInbox.sol:SettlementInbox"
+  );
   const settlementInbox = await SettlementInbox.deploy(deployer.address);
   await settlementInbox.waitForDeployment();
   const settlementInboxAddress = await settlementInbox.getAddress();
   console.log("   ✅ SettlementInbox deployed:", settlementInboxAddress);
   console.log("   Temporary router:", deployer.address, "\n");
 
-  // ========== PHASE 3: Deploy XaheenRouter ==========
-  console.log("📍 PHASE 3: Deploying XaheenRouter...\n");
+  // ========== PHASE 3: Deploy NorRouter ==========
+  console.log("📍 PHASE 3: Deploying NorRouter...\n");
 
   // PancakeSwap V2 Router on BSC Mainnet
   const PANCAKESWAP_ROUTER = "0x10ED43C718714eb63d5aA57B78B54704E256024E";
 
-  const XaheenRouter = await ethers.getContractFactory("contracts/crosschain/spokes/XaheenRouter.sol:XaheenRouter");
-  const xaheenRouter = await XaheenRouter.deploy(
-    wrappedXHTAddress,
+  const NorRouter = await ethers.getContractFactory(
+    "contracts/crosschain/spokes/NorRouter.sol:NorRouter"
+  );
+  const xaheenRouter = await NorRouter.deploy(
+    wrappedNORAddress,
     settlementInboxAddress,
     deployer.address, // Quote signer (same as PriceAuthority on hub)
     PANCAKESWAP_ROUTER // PancakeSwap V2 router for fallback routing
   );
   await xaheenRouter.waitForDeployment();
   const xaheenRouterAddress = await xaheenRouter.getAddress();
-  console.log("   ✅ XaheenRouter deployed:", xaheenRouterAddress);
-  console.log("   Wrapped XHT:", wrappedXHTAddress);
+  console.log("   ✅ NorRouter deployed:", xaheenRouterAddress);
+  console.log("   Wrapped NOR:", wrappedNORAddress);
   console.log("   SettlementInbox:", settlementInboxAddress);
   console.log("   Quote signer:", deployer.address);
   console.log("   Public DEX:", PANCAKESWAP_ROUTER, "\n");
@@ -101,16 +121,16 @@ async function main() {
   // ========== PHASE 4: Configuration ==========
   console.log("📍 PHASE 4: Configuring Spoke...\n");
 
-  // Update SettlementInbox router to XaheenRouter
+  // Update SettlementInbox router to NorRouter
   console.log("4.1: Updating SettlementInbox router...");
   await settlementInbox.updateRouter(xaheenRouterAddress);
-  console.log("   ✅ SettlementInbox router set to XaheenRouter\n");
+  console.log("   ✅ SettlementInbox router set to NorRouter\n");
 
-  // Grant MINTER_ROLE to XaheenRouter on Wrapped XHT
-  console.log("4.2: Granting MINTER_ROLE to XaheenRouter...");
-  const MINTER_ROLE = await wrappedXHT.MINTER_ROLE();
-  await wrappedXHT.grantRole(MINTER_ROLE, xaheenRouterAddress);
-  console.log("   ✅ Granted MINTER_ROLE to XaheenRouter on Wrapped XHT\n");
+  // Grant MINTER_ROLE to NorRouter on Wrapped NOR
+  console.log("4.2: Granting MINTER_ROLE to NorRouter...");
+  const MINTER_ROLE = await wrappedNOR.MINTER_ROLE();
+  await wrappedNOR.grantRole(MINTER_ROLE, xaheenRouterAddress);
+  console.log("   ✅ Granted MINTER_ROLE to NorRouter on Wrapped NOR\n");
 
   // ========== PHASE 5: Deployment Summary ==========
   console.log("═══════════════════════════════════════════════════════");
@@ -118,16 +138,16 @@ async function main() {
   console.log("═══════════════════════════════════════════════════════\n");
 
   console.log("🌐 SPOKE CONTRACTS (BSC Mainnet - Chain ID: 56):");
-  console.log("   Wrapped XHT:", wrappedXHTAddress);
+  console.log("   Wrapped NOR:", wrappedNORAddress);
   console.log("   SettlementInbox:", settlementInboxAddress);
-  console.log("   XaheenRouter:", xaheenRouterAddress);
+  console.log("   NorRouter:", xaheenRouterAddress);
   console.log("");
 
-  console.log("🏦 HUB CONTRACTS (Xaheen Chain - Chain ID: 65001):");
+  console.log("🏦 HUB CONTRACTS (Nor Chain - Chain ID: 65001):");
   console.log("   SettlementHub:", deploymentInfo.hub.hub.settlementHub);
   console.log("   SupplyController:", deploymentInfo.hub.hub.supplyController);
   console.log("   PriceAuthority:", deploymentInfo.hub.hub.priceAuthority);
-  console.log("   XHT Token:", deploymentInfo.hub.hub.xhtToken);
+  console.log("   NOR Token:", deploymentInfo.hub.hub.xhtToken);
   console.log("");
 
   console.log("🔗 EXTERNAL INTEGRATIONS:");
@@ -149,7 +169,7 @@ async function main() {
     timestamp: new Date().toISOString(),
     deployer: deployer.address,
     contracts: {
-      wrappedXHT: wrappedXHTAddress,
+      wrappedNOR: wrappedNORAddress,
       settlementInbox: settlementInboxAddress,
       xaheenRouter: xaheenRouterAddress,
     },
@@ -175,29 +195,33 @@ async function main() {
   console.log("🎯 NEXT STEPS:\n");
 
   console.log("1. Initialize inventory on spoke:");
-  console.log("   - Mint wrapped XHT to XaheenRouter for initial liquidity");
+  console.log("   - Mint wrapped NOR to NorRouter for initial liquidity");
   console.log("   - Call supplyController.authorizeTopup(56, amount) on hub\n");
 
   console.log("2. Update xaheen-sdk API .env with deployed addresses:");
   console.log("   BSC_MAINNET_RPC=https://bsc-dataseed.binance.org");
   console.log("   SPOKE_BSC_SETTLEMENT_INBOX=" + settlementInboxAddress);
   console.log("   SPOKE_BSC_XAHEEN_ROUTER=" + xaheenRouterAddress);
-  console.log("   SPOKE_BSC_WRAPPED_XHT=" + wrappedXHTAddress + "\n");
+  console.log("   SPOKE_BSC_WRAPPED_NOR=" + wrappedNORAddress + "\n");
 
   console.log("3. Start relayer service:");
-  console.log("   cd /Volumes/Development/sahalat/private\\ server/xaheen-sdk/apps/api");
+  console.log(
+    "   cd /Volumes/Development/sahalat/private\\ server/xaheen-sdk/apps/api"
+  );
   console.log("   Update .env with all deployed addresses");
   console.log("   npm run db:generate && npm run db:migrate");
   console.log("   npm run dev\n");
 
   console.log("4. Execute test transfer:");
   console.log("   - Get signed quote from PriceAuthority");
-  console.log("   - Call xaheenRouter.buyXHT() or sellXHT()");
+  console.log("   - Call xaheenRouter.buyNOR() or sellNOR()");
   console.log("   - Verify Fill event emitted");
   console.log("   - Check relayer forwards to SettlementHub\n");
 
   console.log("5. Deploy BTCBR Bridge (optional):");
-  console.log("   npx hardhat run scripts/deploy-btcbr-bridge-mainnet.cjs --network bsc\n");
+  console.log(
+    "   npx hardhat run scripts/deploy-btcbr-bridge-mainnet.cjs --network bsc\n"
+  );
 
   console.log("✅ Spoke deployment complete!\n");
 }

@@ -79,7 +79,7 @@
 - ✅ Public RPC: https://rpc.xaheen.org
 
 **DeFi Layer:**
-- ✅ Native DEX deployed (XaheenSwap)
+- ✅ Native DEX deployed (NorSwap)
 - ✅ $20k initial liquidity
 - ✅ Working fee model (revenue-generating)
 - ✅ LP tokens, farming ready
@@ -102,7 +102,7 @@
 
 ## SLIDE 5: THE UNFAIR ADVANTAGE
 
-### Why Xaheen Will Win
+### Why Nor Will Win
 
 **1. First-Mover on Public Launch**
 - Built and operational BEFORE public launch
@@ -130,7 +130,7 @@
 - Lean, focused execution
 
 **6. Control of Supply**
-- 21 Trillion XHT total supply
+- 21 Trillion NOR total supply
 - Founders control distribution
 - Strategic token releases for growth
 
@@ -147,7 +147,7 @@
 
 **Comparable Projects:**
 
-| Chain | Market Cap | Features | Xaheen Comparison |
+| Chain | Market Cap | Features | Nor Comparison |
 |-------|-----------|----------|-------------------|
 | BSC (BNB) | $50B | Fast, cheap, centralized | ✅ Similar speed, more decentralized |
 | Polygon (MATIC) | $8B | Ethereum L2, cheap | ✅ True L1, faster |
@@ -155,7 +155,7 @@
 | Fantom | $1B | Fast, EVM | ✅ Better bridges |
 | Harmony | $200M | Fast, cheap | ✅ More complete ecosystem |
 
-**Xaheen Target:** Capture 0.1% of L1 market = **$1.2 Billion valuation**
+**Nor Target:** Capture 0.1% of L1 market = **$1.2 Billion valuation**
 
 Even at 0.01% = $120 Million valuation
 
@@ -169,8 +169,8 @@ Even at 0.01% = $120 Million valuation
 - **Potential:** $1.5k-$5k/month → $50k+/month
 
 ### 2. Cross-Chain Bridge Fees
-- 0.1% BSC→Xaheen
-- 0.2% Xaheen→BSC
+- 0.1% BSC→Nor
+- 0.2% Nor→BSC
 - **Potential:** $3k-$10k/month
 
 ### 3. Validator Revenue
@@ -183,11 +183,11 @@ Even at 0.01% = $120 Million valuation
 - 10% reward fee
 - **Potential:** $3k-$10k/month
 
-### 5. XHT Token Appreciation
-- Founders hold 20% (4.2T XHT)
-- At $0.000001/XHT = **$4.2 Million**
-- At $0.00001/XHT = **$42 Million**
-- At $0.0001/XHT = **$420 Million**
+### 5. NOR Token Appreciation
+- Founders hold 20% (4.2T NOR)
+- At $0.000001/NOR = **$4.2 Million**
+- At $0.00001/NOR = **$42 Million**
+- At $0.0001/NOR = **$420 Million**
 
 ### 6. Ecosystem Partnerships
 - Projects pay for integration
@@ -214,7 +214,7 @@ Even at 0.01% = $120 Million valuation
 - ✅ Social media launch (Twitter, Reddit, Telegram)
 - ✅ Developer outreach (Ethereum communities)
 - ✅ Crypto media coverage (press releases)
-- ✅ Early adopter airdrop (1000 XHT each)
+- ✅ Early adopter airdrop (1000 NOR each)
 
 **Cost:** $0 (organic growth)
 **Expected Outcome:** 1,000-5,000 users
@@ -225,11 +225,11 @@ Even at 0.01% = $120 Million valuation
 
 **Tactics:**
 - Liquidity mining (50% APY rewards)
-- Bridge incentives (earn XHT for bridging)
+- Bridge incentives (earn NOR for bridging)
 - Validator staking (open to community)
 - Trading competitions
 
-**Cost:** XHT tokens from treasury (no cash)
+**Cost:** NOR tokens from treasury (no cash)
 **Expected Outcome:** $100k-$500k TVL
 
 ### Phase 3: Ecosystem Growth (Month 2-3)
@@ -237,7 +237,7 @@ Even at 0.01% = $120 Million valuation
 **Objective:** Attract projects and developers
 
 **Tactics:**
-- Grant program ($50k-$200k in XHT)
+- Grant program ($50k-$200k in NOR)
 - Hackathons ($10k-$50k prizes)
 - Partnership with existing DeFi protocols
 - Integration with DEX aggregators (1inch, ParaSwap)
@@ -295,7 +295,7 @@ Even at 0.01% = $120 Million valuation
 - Target: $100k+ TVL
 
 **Week 5-8:**
-- First 5 projects deploy on Xaheen
+- First 5 projects deploy on Nor
 - Target: 10,000+ users
 
 **Week 9-12:**
@@ -306,9 +306,9 @@ Even at 0.01% = $120 Million valuation
 
 ## SLIDE 10: COMPETITIVE ANALYSIS
 
-### How Xaheen Compares
+### How Nor Compares
 
-| Feature | Ethereum | BSC | Polygon | Solana | **Xaheen** |
+| Feature | Ethereum | BSC | Polygon | Solana | **Nor** |
 |---------|----------|-----|---------|--------|------------|
 | **Block Time** | 15s | 3s | 2s | 0.4s | **3s** ✅ |
 | **Gas Fees** | $5-$50 | $0.10-$1 | $0.01-$0.10 | $0.001 | **<$0.001** ✅ |
@@ -320,7 +320,7 @@ Even at 0.01% = $120 Million valuation
 | **Market Cap** | $400B | $50B | $8B | $70B | **TBD** |
 | **Launch Status** | ✅ | ✅ | ✅ | ✅ | **✅** |
 
-**Xaheen's Sweet Spot:**
+**Nor's Sweet Spot:**
 - As fast as BSC
 - As cheap as any L1
 - Native DeFi (unique)
@@ -331,9 +331,9 @@ Even at 0.01% = $120 Million valuation
 
 ## SLIDE 11: TOKENOMICS
 
-### XHT Token Economics
+### NOR Token Economics
 
-**Total Supply:** 21,000,000,000,000 XHT (21 Trillion)
+**Total Supply:** 21,000,000,000,000 NOR (21 Trillion)
 
 **Distribution:**
 
@@ -355,10 +355,10 @@ Even at 0.01% = $120 Million valuation
 6. Ecosystem grants
 
 **Value Accrual:**
-- More users → More transactions → XHT burned as gas
-- More trading → More fees → Validator rewards in XHT
-- More bridges → More activity → XHT demand
-- More projects → More ecosystem value → XHT appreciation
+- More users → More transactions → NOR burned as gas
+- More trading → More fees → Validator rewards in NOR
+- More bridges → More activity → NOR demand
+- More projects → More ecosystem value → NOR appreciation
 
 **Scarcity Mechanism:**
 - 50% of bridge fees burned
@@ -375,7 +375,7 @@ Even at 0.01% = $120 Million valuation
 - Built entire blockchain infrastructure
 - Deployed 22 different bridge architectures
 - Experience: [Your background]
-- Commitment: Full-time on Xaheen
+- Commitment: Full-time on Nor
 
 **Technical Capabilities Demonstrated:**
 - Full-stack blockchain development
@@ -466,12 +466,12 @@ Even at 0.01% = $120 Million valuation
 
 **Amount Raising:** $500,000
 **Valuation:** $5,000,000 (pre-money)
-**Equity Offered:** 10% of XHT tokens + advisory stake
+**Equity Offered:** 10% of NOR tokens + advisory stake
 **Minimum Investment:** $25,000
 **Maximum Investment:** $150,000
 
 **Token Terms:**
-- Investors receive XHT tokens
+- Investors receive NOR tokens
 - 1-year cliff, 2-year linear vest
 - Pro-rata rights in future rounds
 - Governance participation
@@ -505,21 +505,21 @@ Even at 0.01% = $120 Million valuation
 - TVL: $5M
 - Daily Volume: $500k
 - Revenue: $500k
-- XHT Price: $0.000001 (founders' holdings worth $4.2M)
+- NOR Price: $0.000001 (founders' holdings worth $4.2M)
 
 **Year 2:**
 - Users: 500,000
 - TVL: $50M
 - Daily Volume: $5M
 - Revenue: $3M
-- XHT Price: $0.00001 (founders' holdings worth $42M)
+- NOR Price: $0.00001 (founders' holdings worth $42M)
 
 **Year 3:**
 - Users: 2,000,000
 - TVL: $200M
 - Daily Volume: $20M
 - Revenue: $10M
-- XHT Price: $0.0001 (founders' holdings worth $420M)
+- NOR Price: $0.0001 (founders' holdings worth $420M)
 
 **Revenue Breakdown (Year 1):**
 - DEX Fees: $200k
@@ -661,7 +661,7 @@ Even at 0.01% = $120 Million valuation
 **Investment:** $500,000 at $5M valuation
 
 **What You Get:**
-- 10% of XHT token supply
+- 10% of NOR token supply
 - Potential 10x-100x returns
 - Monthly revenue share (optional)
 - Advisory board seat
@@ -674,7 +674,7 @@ Even at 0.01% = $120 Million valuation
 - Profitable by Month 6
 - 10x your investment within 12 months
 
-**Why Invest in Xaheen:**
+**Why Invest in Nor:**
 
 1. **Complete Product** - Not a whitepaper, LIVE mainnet
 2. **Proven Team** - Built entire ecosystem in 6 months

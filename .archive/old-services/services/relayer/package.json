@@ -1,7 +1,7 @@
 {
   "name": "xaheen-relayer",
   "version": "1.0.0",
-  "description": "Cross-chain event relayer for Xaheen DEX settlement",
+  "description": "Cross-chain event relayer for Nor DEX settlement",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -14,7 +14,7 @@
     "settlement",
     "xaheen"
   ],
-  "author": "Xaheen Chain Team",
+  "author": "Nor Chain Team",
   "license": "MIT",
   "dependencies": {
     "ethers": "^6.15.0",

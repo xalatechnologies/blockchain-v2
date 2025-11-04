@@ -4,7 +4,7 @@
 # 🌙 NOOR CHAIN - EPOCH REVALIDATION MONITOR 🌙
 #═══════════════════════════════════════════════════════════════════════════════
 #
-# Monitors Noor Chain for epoch revalidation at block 10,000
+# Monitors Nor Chain for epoch revalidation at block 10,000
 #
 # Epoch Configuration:
 # - Epoch Length: 10,000 blocks
@@ -95,7 +95,7 @@ else
 fi
 
 # Create log file
-LOG_FILE="/tmp/noor-epoch-monitor-$(date +%Y%m%d-%H%M%S).log"
+LOG_FILE="/tmp/nor-epoch-monitor-$(date +%Y%m%d-%H%M%S).log"
 echo "📝 Logging to: $LOG_FILE"
 echo ""
 

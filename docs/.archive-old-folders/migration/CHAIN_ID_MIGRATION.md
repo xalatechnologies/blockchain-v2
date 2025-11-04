@@ -1,6 +1,6 @@
 # Chain ID Migration Guide: 885824 → 65001
 
-This document provides a complete guide for migrating Xaheen Chain from chain ID 885824 to 65001.
+This document provides a complete guide for migrating Nor Chain from chain ID 885824 to 65001.
 
 ## ⚠️ CRITICAL WARNING
 
@@ -28,10 +28,10 @@ This document provides a complete guide for migrating Xaheen Chain from chain ID
 
 ## Why Change Chain ID?
 
-1. **Branding**: 65001 is more memorable and professional for Xaheen Chain
+1. **Branding**: 65001 is more memorable and professional for Nor Chain
 2. **Simplicity**: Cleaner number easier to remember than 885824
 3. **Uniqueness**: Better positioning in the blockchain ecosystem
-4. **Marketing**: Aligns with Xaheen Chain brand identity
+4. **Marketing**: Aligns with Nor Chain brand identity
 
 ## Migration Steps
 
@@ -319,7 +319,7 @@ cd /Volumes/Development/sahalat/blockchain-v2
 # Deploy to BSC mainnet (if not already done)
 npx hardhat run scripts/hardhat-deploy-mainnet.js --network bsc
 
-# Deploy to new Xaheen Chain (chain ID 65001)
+# Deploy to new Nor Chain (chain ID 65001)
 npx hardhat run scripts/hardhat-deploy-private.js --network btcbr
 
 # Or use complete deployment script
@@ -336,13 +336,13 @@ Users need to update their MetaMask network configuration:
 
 1. Open MetaMask
 2. Go to Settings → Networks
-3. Delete "Xaheen Chain" (or old BitcoinBR network)
+3. Delete "Nor Chain" (or old BitcoinBR network)
 4. Click "Add Network" → "Add a network manually"
 5. Enter new configuration:
-   - **Network Name**: Xaheen Chain
+   - **Network Name**: Nor Chain
    - **RPC URL**: https://rpc.xaheen.org
    - **Chain ID**: 65001
-   - **Currency Symbol**: XHT
+   - **Currency Symbol**: NOR
    - **Block Explorer URL**: https://explorer.xaheen.org (or leave blank)
 6. Click "Save"
 
@@ -359,11 +359,11 @@ ethereum.request({
   method: 'wallet_addEthereumChain',
   params: [{
     chainId: '0xFDE9', // 65001 in hex
-    chainName: 'Xaheen Chain',
+    chainName: 'Nor Chain',
     rpcUrls: ['https://rpc.xaheen.org'],
     nativeCurrency: {
-      name: 'Xaheen Token',
-      symbol: 'XHT',
+      name: 'Nor Token',
+      symbol: 'NOR',
       decimals: 18
     },
     blockExplorerUrls: ['https://explorer.xaheen.org']
@@ -499,7 +499,7 @@ This migration changes the fundamental identity of your blockchain network. It's
 
 **Benefits**:
 - Cleaner, more memorable chain ID (65001)
-- Better branding alignment with Xaheen Chain
+- Better branding alignment with Nor Chain
 - Professional identity in blockchain ecosystem
 
 **Once completed, the old chain (885824) and new chain (65001) are completely separate networks.**

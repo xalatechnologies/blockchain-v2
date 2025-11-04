@@ -5,8 +5,8 @@
 **Two-Market Chaos:**
 ```
 Scenario without strategy:
-├─ You sell XHT at $0.10 on your platform (fiat)
-├─ DEX on BSC shows XHT at $0.08 (free market)
+├─ You sell NOR at $0.10 on your platform (fiat)
+├─ DEX on BSC shows NOR at $0.08 (free market)
 └─ Arbitrage chaos! Price confusion! Lost control!
 ```
 
@@ -25,14 +25,14 @@ Scenario without strategy:
 ### Core Concept: **Single Market, Multiple Entry Points**
 
 ```
-All Roads Lead to Xaheen Treasury:
+All Roads Lead to Nor Treasury:
 
 Investor Path 1 (Direct - 80%):
-Fiat → MoonPay/Transak → Xaheen Treasury → XHT
+Fiat → MoonPay/Transak → Nor Treasury → NOR
 (You control price, you earn revenue)
 
 Investor Path 2 (BSC - 20%):
-Fiat → Binance → BSC DEX → Bridge → Xaheen
+Fiat → Binance → BSC DEX → Bridge → Nor
 (Market finds your price)
 
 The Secret: Treasury maintains BOTH markets!
@@ -44,13 +44,13 @@ The Secret: Treasury maintains BOTH markets!
 
 ### Step 1: YOU Set the Price
 
-**Xaheen Treasury provides liquidity on your own DEX:**
+**Nor Treasury provides liquidity on your own DEX:**
 
 ```solidity
 // Treasury controls the market
-XHT/USDT Pool on Xaheen DEX:
-├─ Treasury deposits: 100M XHT + $1M USDT
-├─ Price set at: $0.01 per XHT
+NOR/USDT Pool on Nor DEX:
+├─ Treasury deposits: 100M NOR + $1M USDT
+├─ Price set at: $0.01 per NOR
 ├─ Spread: $0.0098 buy / $0.0102 sell (2% spread)
 └─ Treasury profits from every trade!
 ```
@@ -67,17 +67,17 @@ XHT/USDT Pool on Xaheen DEX:
 
 **MoonPay/Transak integration:**
 
-Instead of MoonPay holding XHT inventory, they buy from YOUR DEX:
+Instead of MoonPay holding NOR inventory, they buy from YOUR DEX:
 
 ```
 User Action:
-"Buy $100 of XHT with credit card"
+"Buy $100 of NOR with credit card"
 
 Behind the Scenes:
 1. User pays $100 to MoonPay
-2. MoonPay converts to USDT → Xaheen Chain
-3. MoonPay swaps USDT for XHT on YOUR DEX
-4. MoonPay transfers XHT to user wallet
+2. MoonPay converts to USDT → Nor Chain
+3. MoonPay swaps USDT for NOR on YOUR DEX
+4. MoonPay transfers NOR to user wallet
 5. YOU earned trading fees + spread!
 
 Your Revenue:
@@ -99,14 +99,14 @@ Your Revenue:
 
 ```
 BSC Side:
-├─ XHT listed on PancakeSwap
+├─ NOR listed on PancakeSwap
 ├─ Free market trading (you don't interfere)
-├─ If BSC price diverges from Xaheen:
+├─ If BSC price diverges from Nor:
 │   └─ Arbitrageurs bridge tokens to profit
 │   └─ This FORCES price convergence
 └─ You remain neutral (let arbitrage work)
 
-Result: BSC price mirrors Xaheen price automatically!
+Result: BSC price mirrors Nor price automatically!
 ```
 
 **No effort required** - arbitrageurs do the work for free!
@@ -131,13 +131,13 @@ Revenue Breakdown:
 Annual Run Rate: $336,000/year from fiat sales alone!
 ```
 
-**Plus**: Your treasury's XHT appreciates as more buyers come!
+**Plus**: Your treasury's NOR appreciates as more buyers come!
 
 ---
 
 ### Revenue Stream 2: Trading Fees (Ongoing)
 
-**Users trade XHT on your DEX:**
+**Users trade NOR on your DEX:**
 
 ```
 Monthly DEX Volume: $5M (conservative)
@@ -154,10 +154,10 @@ Annual: $1.38M/year from trading!
 
 ### Revenue Stream 3: Staking Fees
 
-**Users stake XHT for rewards:**
+**Users stake NOR for rewards:**
 
 ```
-Staking TVL: 500M XHT staked
+Staking TVL: 500M NOR staked
 
 Your Revenue:
 ├─ 2% management fee on staking rewards
@@ -175,7 +175,7 @@ Annual: $600,000/year
 
 ```
 Your Treasury Holdings:
-├─ 10 billion XHT (from genesis)
+├─ 10 billion NOR (from genesis)
 ├─ Current price: $0.01
 ├─ Current value: $100M
 
@@ -191,20 +191,20 @@ After 1 year (price reaches $0.10):
 
 ### How to Maintain Your Target Price
 
-**You want XHT at $0.01? Here's how:**
+**You want NOR at $0.01? Here's how:**
 
 ```solidity
 Treasury Market Making Bot:
 
 if (xhtPrice < $0.0095) {
-    // Price too low, buy XHT with USDT reserves
-    buyXHT(50000 USDT);
+    // Price too low, buy NOR with USDT reserves
+    buyNOR(50000 USDT);
     supportPrice();
 }
 
 if (xhtPrice > $0.0105) {
-    // Price too high, sell XHT from reserves
-    sellXHT(5000000 XHT);
+    // Price too high, sell NOR from reserves
+    sellNOR(5000000 NOR);
     takeProfit();
 }
 
@@ -212,7 +212,7 @@ if (xhtPrice > $0.0105) {
 ```
 
 **Your Control Mechanism:**
-- ✅ Large treasury reserves (10B XHT)
+- ✅ Large treasury reserves (10B NOR)
 - ✅ USDT reserves from sales
 - ✅ Can buy/sell to stabilize
 - ✅ Gradually increase target price over time
@@ -221,17 +221,17 @@ if (xhtPrice > $0.0105) {
 
 ### Handling BSC Price Divergence
 
-**Scenario: BSC price goes to $0.015, Xaheen at $0.01**
+**Scenario: BSC price goes to $0.015, Nor at $0.01**
 
 What happens:
 1. Arbitrageurs see opportunity
-2. They buy XHT on Xaheen at $0.01
+2. They buy NOR on Nor at $0.01
 3. Bridge to BSC
 4. Sell on BSC at $0.015
-5. Profit $0.005 per XHT
+5. Profit $0.005 per NOR
 
 **Result**:
-- Demand on Xaheen increases (buying pressure)
+- Demand on Nor increases (buying pressure)
 - Supply on BSC increases (selling pressure)
 - Prices converge automatically!
 
@@ -247,9 +247,9 @@ What happens:
 
 **Actions:**
 1. Deploy bridge to BSC (already have contracts) - $0 (done)
-2. Add treasury liquidity on Xaheen DEX:
-   - 100M XHT + $100K USDT
-   - Set initial price: $0.001 per XHT
+2. Add treasury liquidity on Nor DEX:
+   - 100M NOR + $100K USDT
+   - Set initial price: $0.001 per NOR
 3. Integrate MoonPay widget on website - $0 (already built)
 4. Get MoonPay approval (2 weeks) - $0
 5. Launch with small limits ($100 max purchase)
@@ -264,9 +264,9 @@ What happens:
 
 **Actions:**
 1. Increase purchase limits to $10K
-2. Add more treasury liquidity (200M XHT + $500K USDT)
-3. List XHT on PancakeSwap (BSC) with small liquidity
-4. Start marketing: "Buy XHT directly with credit card!"
+2. Add more treasury liquidity (200M NOR + $500K USDT)
+3. List NOR on PancakeSwap (BSC) with small liquidity
+4. Start marketing: "Buy NOR directly with credit card!"
 5. Launch staking program
 
 **Expected Revenue**: $50K/month
@@ -279,13 +279,13 @@ What happens:
 
 **Actions:**
 1. Remove purchase limits
-2. Add 500M XHT + $2M USDT to treasury pool
-3. Launch advanced trading pairs (XHT/BNB, XHT/ETH)
+2. Add 500M NOR + $2M USDT to treasury pool
+3. Launch advanced trading pairs (NOR/BNB, NOR/ETH)
 4. Expand to more chains via bridge
 5. List on CoinGecko/CoinMarketCap
 
 **Expected Revenue**: $200K/month
-**Treasury Value**: $500M (at $0.05/XHT)
+**Treasury Value**: $500M (at $0.05/NOR)
 
 ---
 
@@ -298,7 +298,7 @@ Assumptions:
 ├─ 5,000 total investors
 ├─ Average purchase: $2,000
 ├─ Total fiat inflow: $10M
-└─ XHT price: $0.01 → $0.05
+└─ NOR price: $0.01 → $0.05
 
 Revenue Breakdown:
 ├─ Trading fees: $30K
@@ -308,8 +308,8 @@ Revenue Breakdown:
 └─ Total Operating Revenue: $380K
 
 Treasury Appreciation:
-├─ Started with: 10B XHT at $0.001 = $10M
-├─ Ended with: 9B XHT at $0.05 = $450M
+├─ Started with: 10B NOR at $0.001 = $10M
+├─ Ended with: 9B NOR at $0.05 = $450M
 └─ Net Gain: $440M (4,400% ROI!)
 ```
 
@@ -322,7 +322,7 @@ Assumptions:
 ├─ 20,000 total investors
 ├─ Average purchase: $5,000
 ├─ Total fiat inflow: $100M
-└─ XHT price: $0.01 → $0.20
+└─ NOR price: $0.01 → $0.20
 
 Revenue Breakdown:
 ├─ Trading fees: $300K
@@ -332,8 +332,8 @@ Revenue Breakdown:
 └─ Total Operating Revenue: $3.8M
 
 Treasury Appreciation:
-├─ Started with: 10B XHT at $0.001 = $10M
-├─ Ended with: 8B XHT at $0.20 = $1.6B
+├─ Started with: 10B NOR at $0.001 = $10M
+├─ Ended with: 8B NOR at $0.20 = $1.6B
 └─ Net Gain: $1.59B (15,900% ROI!)
 ```
 
@@ -348,9 +348,9 @@ Treasury Appreciation:
 **Week 1-2: Setup**
 ```bash
 # Already have:
-✅ Xaheen Chain running
+✅ Nor Chain running
 ✅ DEX deployed and operational
-✅ 10B XHT in treasury wallet
+✅ 10B NOR in treasury wallet
 ✅ Trading confirmed working
 
 # Need to do:
@@ -372,8 +372,8 @@ Treasury Appreciation:
 
 **Day 1: Soft Launch**
 ```
-1. Add 50M XHT + $50K USDT to Xaheen DEX
-2. Set price at $0.001 per XHT
+1. Add 50M NOR + $50K USDT to Nor DEX
+2. Set price at $0.001 per NOR
 3. Enable MoonPay widget (max $100/purchase)
 4. Announce on social media
 5. Get first 10 investors
@@ -402,7 +402,7 @@ Target: 1,000 investors, $100K revenue
 
 ### Defense Against Dumps
 
-**Problem**: What if someone buys 100M XHT and dumps?
+**Problem**: What if someone buys 100M NOR and dumps?
 
 **Solution 1: Purchase Limits**
 ```
@@ -414,7 +414,7 @@ Tier 3 (Whitelisted): Max $100,000/day
 **Solution 2: Treasury Buyback**
 ```
 if (priceDrops > 10%) {
-    // Treasury buys XHT to support price
+    // Treasury buys NOR to support price
     executeBuyback(100000 USDT);
     stabilizeMarket();
 }
@@ -435,7 +435,7 @@ Purchase > $50K:
 **The Self-Reinforcing Cycle:**
 
 ```
-1. Investor buys XHT with fiat ($1,000)
+1. Investor buys NOR with fiat ($1,000)
    ↓
 2. Price increases slightly ($0.001 → $0.00105)
    ↓
@@ -531,10 +531,10 @@ ROI: $50K revenue from $5K spend = 10x
 ## 📞 Implementation Checklist
 
 ### This Week: Foundation
-- [x] Xaheen Chain operational ✅
+- [x] Nor Chain operational ✅
 - [x] DEX deployed and tested ✅
 - [x] Fiat widget built ✅
-- [ ] Add treasury liquidity (100M XHT + $100K USDT)
+- [ ] Add treasury liquidity (100M NOR + $100K USDT)
 - [ ] Sign up for MoonPay API
 - [ ] Deploy BSC bridge
 
@@ -580,7 +580,7 @@ Control Market → Control Price → Control Narrative → Control Wealth
 ```
 
 **Your Advantages:**
-1. You own 10B XHT (50% of supply)
+1. You own 10B NOR (50% of supply)
 2. You control the DEX (your infrastructure)
 3. You control fiat on-ramp (direct sales)
 4. You have zero competition (your chain)
@@ -592,7 +592,7 @@ Control Market → Control Price → Control Narrative → Control Wealth
 ## 💪 Next Action: Execute
 
 **Today:**
-1. Add treasury liquidity to Xaheen DEX
+1. Add treasury liquidity to Nor DEX
 2. Sign up for MoonPay business account
 3. Deploy bridge to BSC mainnet
 

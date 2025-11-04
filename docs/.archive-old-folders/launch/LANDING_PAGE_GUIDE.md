@@ -1,7 +1,7 @@
 # 🌐 XAHEEN CHAIN - LANDING PAGE COMPLETE GUIDE
 
 **Date:** October 30, 2025
-**Purpose:** Complete specifications for Xaheen Chain public landing page
+**Purpose:** Complete specifications for Nor Chain public landing page
 **Includes:** Design, copy, FAQ, features, CTAs, and all content
 
 ---
@@ -13,7 +13,7 @@
 3. [Key Features](#key-features)
 4. [Network Statistics (Live)](#network-statistics)
 5. [Quick Start / Add to MetaMask](#quick-start)
-6. [Why Xaheen](#why-xaheen)
+6. [Why Nor](#why-xaheen)
 7. [Technology Stack](#technology-stack)
 8. [Charity Impact](#charity-impact)
 9. [Roadmap](#roadmap)
@@ -89,7 +89,7 @@
   <div class="container mx-auto px-6 py-20 text-center">
 
     <!-- Logo -->
-    <img src="/logo.svg" alt="Xaheen Chain" class="h-24 mx-auto mb-8">
+    <img src="/logo.svg" alt="Nor Chain" class="h-24 mx-auto mb-8">
 
     <!-- Main Tagline -->
     <h1 class="text-5xl md:text-6xl font-bold mb-6">
@@ -131,7 +131,7 @@
              hover:bg-blue-50 transition-all shadow-2xl hover:scale-105
              flex items-center gap-3 mx-auto mb-6">
       <img src="/metamask-icon.svg" alt="MetaMask" class="h-8">
-      Add Xaheen to MetaMask
+      Add Nor to MetaMask
     </button>
 
     <!-- Secondary CTAs -->
@@ -177,7 +177,7 @@
   <div class="container mx-auto px-6">
 
     <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">
-      Why Developers & Users Love Xaheen
+      Why Developers & Users Love Nor
     </h2>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -278,7 +278,7 @@
   <div class="container mx-auto px-6">
 
     <h2 class="text-4xl font-bold text-center mb-4 text-gray-900">
-      Xaheen Network Status
+      Nor Network Status
     </h2>
     <p class="text-center text-gray-600 mb-12">
       Real-time data from the blockchain
@@ -311,7 +311,7 @@
       <div class="stat-card">
         <div class="label">DEX Volume (24h)</div>
         <div class="value" id="dexVolume">$24,582</div>
-        <div class="subtext">XaheenSwap</div>
+        <div class="subtext">NorSwap</div>
       </div>
 
       <!-- Charity Total -->
@@ -351,7 +351,7 @@
         <div>
           <div class="text-sm text-gray-600 mb-2">Symbol</div>
           <code class="bg-gray-100 px-4 py-2 rounded text-sm">
-            XHT
+            NOR
           </code>
         </div>
       </div>
@@ -405,7 +405,7 @@ setInterval(updateNetworkStats, 3000);
 ### **One-Click MetaMask Integration**
 
 ```javascript
-// Add Xaheen to MetaMask button
+// Add Nor to MetaMask button
 document.getElementById('addToMetaMask').addEventListener('click', async () => {
   if (typeof window.ethereum !== 'undefined') {
     try {
@@ -413,10 +413,10 @@ document.getElementById('addToMetaMask').addEventListener('click', async () => {
         method: 'wallet_addEthereumChain',
         params: [{
           chainId: '0xFDE9', // 65001 in hex
-          chainName: 'Xaheen Chain',
+          chainName: 'Nor Chain',
           nativeCurrency: {
-            name: 'Xaheen Token',
-            symbol: 'XHT',
+            name: 'Nor Token',
+            symbol: 'NOR',
             decimals: 18
           },
           rpcUrls: ['https://rpc.xaheen.org'],
@@ -425,7 +425,7 @@ document.getElementById('addToMetaMask').addEventListener('click', async () => {
       });
 
       // Show success message
-      showNotification('Success! Xaheen Chain added to MetaMask', 'success');
+      showNotification('Success! Nor Chain added to MetaMask', 'success');
 
     } catch (error) {
       console.error('Error adding network:', error);
@@ -481,12 +481,12 @@ function showNotification(message, type) {
         <li class="flex items-start">
           <span class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-4">3</span>
           <div>
-            <strong>Enter Xaheen Details</strong>
+            <strong>Enter Nor Details</strong>
             <div class="mt-2 bg-gray-50 p-4 rounded-lg text-sm font-mono">
-              <div><strong>Network Name:</strong> Xaheen Chain</div>
+              <div><strong>Network Name:</strong> Nor Chain</div>
               <div><strong>RPC URL:</strong> https://rpc.xaheen.org</div>
               <div><strong>Chain ID:</strong> 65001</div>
-              <div><strong>Symbol:</strong> XHT</div>
+              <div><strong>Symbol:</strong> NOR</div>
               <div><strong>Explorer:</strong> https://explorer.xaheen.org</div>
             </div>
           </div>
@@ -496,7 +496,7 @@ function showNotification(message, type) {
           <span class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-4">4</span>
           <div>
             <strong>Save & Switch</strong>
-            <p class="text-sm text-gray-600">Click "Save" and switch to Xaheen Chain network</p>
+            <p class="text-sm text-gray-600">Click "Save" and switch to Nor Chain network</p>
           </div>
         </li>
       </ol>
@@ -517,10 +517,10 @@ function showNotification(message, type) {
   <div class="container mx-auto px-6">
 
     <h2 class="text-4xl font-bold text-center mb-4">
-      Why Choose Xaheen?
+      Why Choose Nor?
     </h2>
     <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-      Xaheen combines the speed of modern L1s with the social impact of Web3's best values
+      Nor combines the speed of modern L1s with the social impact of Web3's best values
     </p>
 
     <div class="overflow-x-auto">
@@ -531,7 +531,7 @@ function showNotification(message, type) {
             <th>Ethereum</th>
             <th>Polygon</th>
             <th>BSC</th>
-            <th class="highlight">Xaheen</th>
+            <th class="highlight">Nor</th>
           </tr>
         </thead>
         <tbody>
@@ -597,7 +597,7 @@ function showNotification(message, type) {
 
     <div class="text-center mt-12">
       <p class="text-xl text-gray-700 mb-6">
-        <strong>Xaheen = Ethereum's security + BSC's speed + Built-in philanthropy</strong>
+        <strong>Nor = Ethereum's security + BSC's speed + Built-in philanthropy</strong>
       </p>
       <a href="#features" class="btn-primary">
         Get Started Now
@@ -831,7 +831,7 @@ function showNotification(message, type) {
           <div class="quarter">Q1 2026</div>
           <h3>Community Growth</h3>
           <ul>
-            <li>Airdrop campaign (1k XHT × 1k users)</li>
+            <li>Airdrop campaign (1k NOR × 1k users)</li>
             <li>Social media launch (Twitter, Telegram, Reddit)</li>
             <li>Developer grants program ($50k)</li>
             <li>First charity distribution ($40k)</li>
@@ -909,7 +909,7 @@ function showNotification(message, type) {
       Frequently Asked Questions
     </h2>
     <p class="text-center text-gray-600 mb-12">
-      Everything you need to know about Xaheen Chain
+      Everything you need to know about Nor Chain
     </p>
 
     <div class="faq-container">
@@ -920,12 +920,12 @@ function showNotification(message, type) {
 
         <div class="faq-item">
           <button class="faq-question">
-            What is Xaheen Chain?
+            What is Nor Chain?
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
             <p>
-              Xaheen Chain is a fast, affordable, EVM-compatible Layer 1 blockchain with built-in charity.
+              Nor Chain is a fast, affordable, EVM-compatible Layer 1 blockchain with built-in charity.
               It offers 3-second block finality, sub-cent transaction fees, and automatically donates 5% of
               all network fees to education, renewable energy, and humanitarian aid.
             </p>
@@ -937,7 +937,7 @@ function showNotification(message, type) {
 
         <div class="faq-item">
           <button class="faq-question">
-            How is Xaheen different from Ethereum/BSC/Polygon?
+            How is Nor different from Ethereum/BSC/Polygon?
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
@@ -951,18 +951,18 @@ function showNotification(message, type) {
 
         <div class="faq-item">
           <button class="faq-question">
-            Is Xaheen a sidechain or Layer 2?
+            Is Nor a sidechain or Layer 2?
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
             <p>
-              <strong>No.</strong> Xaheen is a standalone <strong>Layer 1 blockchain</strong> with its own
-              validators, consensus mechanism (Parlia PoSA), and native token (XHT). It's not dependent on
+              <strong>No.</strong> Nor is a standalone <strong>Layer 1 blockchain</strong> with its own
+              validators, consensus mechanism (Parlia PoSA), and native token (NOR). It's not dependent on
               Ethereum or any other chain for security.
             </p>
             <p class="mt-2">
               However, it <em>is</em> EVM-compatible, meaning you can deploy Ethereum smart contracts on
-              Xaheen with zero code changes.
+              Nor with zero code changes.
             </p>
           </div>
         </div>
@@ -975,17 +975,17 @@ function showNotification(message, type) {
 
         <div class="faq-item">
           <button class="faq-question">
-            How do I connect to Xaheen Chain?
+            How do I connect to Nor Chain?
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
             <p><strong>Option 1 (Easiest):</strong> Click the "Add to MetaMask" button on this page.</p>
             <p class="mt-2"><strong>Option 2 (Manual):</strong> Add the following to MetaMask:</p>
             <div class="mt-2 bg-gray-100 p-4 rounded font-mono text-sm">
-              Network Name: Xaheen Chain<br>
+              Network Name: Nor Chain<br>
               RPC URL: https://rpc.xaheen.org<br>
               Chain ID: 65001<br>
-              Symbol: XHT<br>
+              Symbol: NOR<br>
               Explorer: https://explorer.xaheen.org
             </div>
           </div>
@@ -993,13 +993,13 @@ function showNotification(message, type) {
 
         <div class="faq-item">
           <button class="faq-question">
-            Can I deploy my Ethereum contracts on Xaheen?
+            Can I deploy my Ethereum contracts on Nor?
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
             <p>
-              <strong>Yes!</strong> Xaheen is fully EVM-compatible. If your contract works on Ethereum,
-              it will work on Xaheen with <strong>zero code changes</strong>.
+              <strong>Yes!</strong> Nor is fully EVM-compatible. If your contract works on Ethereum,
+              it will work on Nor with <strong>zero code changes</strong>.
             </p>
             <p class="mt-2"><strong>Supported tools:</strong></p>
             <ul class="list-disc ml-6 mt-2">
@@ -1015,7 +1015,7 @@ function showNotification(message, type) {
 
         <div class="faq-item">
           <button class="faq-question">
-            What consensus mechanism does Xaheen use?
+            What consensus mechanism does Nor use?
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
@@ -1037,15 +1037,15 @@ function showNotification(message, type) {
 
         <div class="faq-item">
           <button class="faq-question">
-            How do I get XHT tokens for gas?
+            How do I get NOR tokens for gas?
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
             <p><strong>Three ways:</strong></p>
             <ol class="list-decimal ml-6 mt-2 space-y-2">
-              <li><strong>Faucet (Free):</strong> Visit <a href="https://faucet.xaheen.org" class="text-blue-600">faucet.xaheen.org</a> to get 10 XHT/day for gas</li>
-              <li><strong>Airdrop:</strong> Claim 1,000 XHT (first 1,000 users) at <a href="https://airdrop.xaheen.org" class="text-blue-600">airdrop.xaheen.org</a></li>
-              <li><strong>Buy on DEX:</strong> Swap USDT for XHT on XaheenSwap</li>
+              <li><strong>Faucet (Free):</strong> Visit <a href="https://faucet.xaheen.org" class="text-blue-600">faucet.xaheen.org</a> to get 10 NOR/day for gas</li>
+              <li><strong>Airdrop:</strong> Claim 1,000 NOR (first 1,000 users) at <a href="https://airdrop.xaheen.org" class="text-blue-600">airdrop.xaheen.org</a></li>
+              <li><strong>Buy on DEX:</strong> Swap USDT for NOR on NorSwap</li>
             </ol>
           </div>
         </div>
@@ -1064,10 +1064,10 @@ function showNotification(message, type) {
           <div class="faq-answer">
             <p>
               <strong>Automatic smart contract allocation:</strong> 5% of all network fees (gas, DEX, bridges)
-              are sent to a multi-signature charity wallet called the <strong>Xaheen Global Impact Fund (XGIF)</strong>.
+              are sent to a multi-signature charity wallet called the <strong>Nor Global Impact Fund (XGIF)</strong>.
             </p>
             <p class="mt-2">
-              Every quarter, XHT token holders vote on which projects to fund (education, renewable energy,
+              Every quarter, NOR token holders vote on which projects to fund (education, renewable energy,
               humanitarian aid, etc.). The process is 100% transparent and on-chain.
             </p>
             <p class="mt-2">
@@ -1126,22 +1126,22 @@ function showNotification(message, type) {
 
         <div class="faq-item">
           <button class="faq-question">
-            What is the XHT token?
+            What is the NOR token?
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
             <p>
-              <strong>XHT (Xaheen Token)</strong> is the native cryptocurrency of Xaheen Chain. It's used for:
+              <strong>NOR (Nor Token)</strong> is the native cryptocurrency of Nor Chain. It's used for:
             </p>
             <ul class="list-disc ml-6 mt-2">
               <li><strong>Gas fees:</strong> Pay for transactions (like ETH on Ethereum)</li>
-              <li><strong>Staking:</strong> Earn rewards by staking XHT</li>
+              <li><strong>Staking:</strong> Earn rewards by staking NOR</li>
               <li><strong>Governance:</strong> Vote on proposals (DAO)</li>
-              <li><strong>DEX trading:</strong> Trade on XaheenSwap</li>
+              <li><strong>DEX trading:</strong> Trade on NorSwap</li>
             </ul>
             <p class="mt-2">
-              <strong>Total Supply:</strong> 21 Trillion XHT (fixed, no inflation)<br>
-              <strong>Launch Price:</strong> $0.0000024 per XHT<br>
+              <strong>Total Supply:</strong> 21 Trillion NOR (fixed, no inflation)<br>
+              <strong>Launch Price:</strong> $0.0000024 per NOR<br>
               <strong>Market Cap:</strong> $500,000 (ground floor opportunity)
             </p>
           </div>
@@ -1149,12 +1149,12 @@ function showNotification(message, type) {
 
         <div class="faq-item">
           <button class="faq-question">
-            Is XHT deflationary?
+            Is NOR deflationary?
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
             <p>
-              <strong>Yes.</strong> XHT has multiple burn mechanisms:
+              <strong>Yes.</strong> NOR has multiple burn mechanisms:
             </p>
             <ul class="list-disc ml-6 mt-2">
               <li><strong>DEX swaps:</strong> 0.25% burned per trade</li>
@@ -1164,21 +1164,21 @@ function showNotification(message, type) {
             </ul>
             <p class="mt-2">
               <strong>Target:</strong> 0.5% of circulating supply burned per month<br>
-              <strong>Year 1 estimate:</strong> ~12.6 Billion XHT burned
+              <strong>Year 1 estimate:</strong> ~12.6 Billion NOR burned
             </p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            How can I buy XHT?
+            How can I buy NOR?
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
             <p><strong>Currently:</strong></p>
             <ul class="list-disc ml-6 mt-2">
-              <li><strong>XaheenSwap DEX:</strong> Trade USDT/BUSD for XHT</li>
-              <li><strong>Airdrop:</strong> Get 1,000 XHT free (first 1,000 users)</li>
+              <li><strong>NorSwap DEX:</strong> Trade USDT/BUSD for NOR</li>
+              <li><strong>Airdrop:</strong> Get 1,000 NOR free (first 1,000 users)</li>
             </ul>
             <p class="mt-4"><strong>Coming Soon (Q2 2026):</strong></p>
             <ul class="list-disc ml-6 mt-2">
@@ -1196,7 +1196,7 @@ function showNotification(message, type) {
 
         <div class="faq-item">
           <button class="faq-question">
-            Is Xaheen Chain secure?
+            Is Nor Chain secure?
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
@@ -1241,18 +1241,18 @@ function showNotification(message, type) {
 
         <div class="faq-item">
           <button class="faq-question">
-            Is Xaheen raising funds?
+            Is Nor raising funds?
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
             <p>
-              <strong>Yes.</strong> Xaheen is raising a <strong>$500,000 seed round</strong> at a
+              <strong>Yes.</strong> Nor is raising a <strong>$500,000 seed round</strong> at a
               <strong>$5M pre-money valuation</strong>.
             </p>
             <p class="mt-2"><strong>Investment Details:</strong></p>
             <ul class="list-disc ml-6 mt-2">
               <li>10% equity (Delaware C-Corp)</li>
-              <li>10% of XHT token supply (2.1 Trillion tokens)</li>
+              <li>10% of NOR token supply (2.1 Trillion tokens)</li>
               <li>1x liquidation preference</li>
               <li>Board seat for lead investor</li>
               <li>4-year founder lockup</li>
@@ -1356,7 +1356,7 @@ document.querySelectorAll('.faq-question').forEach(button => {
   <div class="container mx-auto px-6 text-center">
 
     <h2 class="text-4xl font-bold mb-4">
-      Join the Xaheen Community
+      Join the Nor Community
     </h2>
     <p class="text-gray-600 mb-12 max-w-2xl mx-auto">
       Connect with developers, traders, and philanthropists building the future of Web3
@@ -1365,18 +1365,18 @@ document.querySelectorAll('.faq-question').forEach(button => {
     <div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
 
       <!-- Twitter -->
-      <a href="https://twitter.com/XaheenChain" target="_blank" class="social-card">
+      <a href="https://twitter.com/NorChain" target="_blank" class="social-card">
         <div class="icon">🐦</div>
         <div class="name">Twitter</div>
-        <div class="handle">@XaheenChain</div>
+        <div class="handle">@NorChain</div>
         <div class="followers">12.5k followers</div>
       </a>
 
       <!-- Telegram -->
-      <a href="https://t.me/XaheenOfficial" target="_blank" class="social-card">
+      <a href="https://t.me/NorOfficial" target="_blank" class="social-card">
         <div class="icon">✈️</div>
         <div class="name">Telegram</div>
-        <div class="handle">@XaheenOfficial</div>
+        <div class="handle">@NorOfficial</div>
         <div class="followers">8.2k members</div>
       </a>
 
@@ -1384,7 +1384,7 @@ document.querySelectorAll('.faq-question').forEach(button => {
       <a href="https://discord.gg/xaheen" target="_blank" class="social-card">
         <div class="icon">💬</div>
         <div class="name">Discord</div>
-        <div class="handle">Xaheen Server</div>
+        <div class="handle">Nor Server</div>
         <div class="followers">5.1k members</div>
       </a>
 
@@ -1436,13 +1436,13 @@ document.querySelectorAll('.faq-question').forEach(button => {
 
       <!-- Column 1: About -->
       <div>
-        <img src="/logo-white.svg" alt="Xaheen" class="h-12 mb-4">
+        <img src="/logo-white.svg" alt="Nor" class="h-12 mb-4">
         <p class="text-gray-400 mb-4">
           Fast, affordable, EVM-compatible blockchain with built-in charity.
         </p>
         <div class="flex gap-4">
-          <a href="https://twitter.com/XaheenChain" class="social-icon">🐦</a>
-          <a href="https://t.me/XaheenOfficial" class="social-icon">✈️</a>
+          <a href="https://twitter.com/NorChain" class="social-icon">🐦</a>
+          <a href="https://t.me/NorOfficial" class="social-icon">✈️</a>
           <a href="https://discord.gg/xaheen" class="social-icon">💬</a>
           <a href="https://github.com/xaheen" class="social-icon">💻</a>
         </div>
@@ -1492,7 +1492,7 @@ document.querySelectorAll('.faq-question').forEach(button => {
     <!-- Bottom Bar -->
     <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="text-gray-400 text-sm">
-        © 2025 Xaheen Foundation. All rights reserved.
+        © 2025 Nor Foundation. All rights reserved.
       </div>
       <div class="flex gap-6 text-sm text-gray-400">
         <a href="/privacy">Privacy Policy</a>
@@ -1590,4 +1590,4 @@ document.querySelectorAll('.social-card').forEach(link => {
 
 ---
 
-**This landing page guide provides everything needed to create a professional, conversion-optimized website for Xaheen Chain. 🚀**
+**This landing page guide provides everything needed to create a professional, conversion-optimized website for Nor Chain. 🚀**

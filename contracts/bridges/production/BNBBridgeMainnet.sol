@@ -9,7 +9,7 @@ import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 /**
  * @title BNBBridgeMainnet
  * @notice Bridge contract for BNB on BSC Mainnet side (REVENUE GENERATOR!)
- * @dev Locks BNB on BSC mainnet for transfer to Xaheen Chain
+ * @dev Locks BNB on BSC mainnet for transfer to Nor Chain
  *
  * MONETIZATION:
  * - Charges 0.2% fee per bridge transaction
@@ -71,8 +71,8 @@ contract BNBBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
     }
 
     /**
-     * @notice Lock BNB on BSC to bridge to Xaheen Chain
-     * @param recipient Address on Xaheen Chain to receive WBNB
+     * @notice Lock BNB on BSC to bridge to Nor Chain
+     * @param recipient Address on Nor Chain to receive WBNB
      */
     function bridgeBNB(address recipient) external payable whenNotPaused nonReentrant {
         require(msg.value >= minTransferAmount, "Amount below minimum");
@@ -108,7 +108,7 @@ contract BNBBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
     }
 
     /**
-     * @notice Release BNB back to user (when bridging from Xaheen → BSC)
+     * @notice Release BNB back to user (when bridging from Nor → BSC)
      * @param amount Amount to release
      * @param recipient Recipient address on BSC
      * @param nonce Unique transaction nonce

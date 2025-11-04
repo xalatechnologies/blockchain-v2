@@ -6,18 +6,18 @@
 Deployer address: 0xdD779a290C937144F80Eb75b75d814c834536B1b
 Deployer balance: 0.0439948861 BNB
 
-📍 PHASE 1: Deploying Hub Contracts (Xaheen Chain simulation)...
+📍 PHASE 1: Deploying Hub Contracts (Nor Chain simulation)...
 
-1.1: Deploying XHT Token...
-   ✅ XHT Token deployed: 0x4CFc151663109E559669fE23B58a0F1FEa35aa9E
-   ✅ Minted 1M XHT to deployer
+1.1: Deploying NOR Token...
+   ✅ NOR Token deployed: 0x4CFc151663109E559669fE23B58a0F1FEa35aa9E
+   ✅ Minted 1M NOR to deployer
 
 1.2: Deploying Mock DEX infrastructure...
    ✅ Mock DEX Router deployed: 0x4266f5ca67a695efB185ae5c59f5B66FE39ad9A4
    ✅ USDT Token deployed: 0x32cAb42a1279F42b41e7dFfa31cF0009fF995406
    ✅ Minted 100K USDT to deployer
    ✅ Mock DEX Pair deployed: 0x970400b0ccD64Aa54603E060fe648800ED12464a
-   ✅ Set exchange rate: 1 USDT = 10 XHT
+   ✅ Set exchange rate: 1 USDT = 10 NOR
 
    Approving tokens for liquidity...
    ✅ Tokens approved

@@ -11,14 +11,19 @@ async function main() {
   // Check BSC Mainnet
   console.log("📍 BSC MAINNET STATUS:\n");
 
-  const bscProvider = new ethers.JsonRpcProvider("https://bsc-dataseed.binance.org");
+  const bscProvider = new ethers.JsonRpcProvider(
+    "https://bsc-dataseed.binance.org"
+  );
 
   // Check BNB balance
   const bnbBalance = await bscProvider.getBalance(DEPLOYER);
   const bnbFormatted = ethers.formatEther(bnbBalance);
 
   console.log("💰 BNB Balance:", bnbFormatted, "BNB");
-  console.log("   USD Value (@ $600/BNB):", "$" + (parseFloat(bnbFormatted) * 600).toFixed(2));
+  console.log(
+    "   USD Value (@ $600/BNB):",
+    "$" + (parseFloat(bnbFormatted) * 600).toFixed(2)
+  );
 
   if (parseFloat(bnbFormatted) < 0.01) {
     console.log("   ⚠️  LOW! Need at least 0.01 BNB for deployment");
@@ -35,10 +40,14 @@ async function main() {
   const btcbrBalance = await btcbr.balanceOf(DEPLOYER);
   const btcbrFormatted = ethers.formatEther(btcbrBalance);
 
-  console.log("💎 BTCBR Balance:", parseFloat(btcbrFormatted).toLocaleString(), "BTCBR");
+  console.log(
+    "💎 BTCBR Balance:",
+    parseFloat(btcbrFormatted).toLocaleString(),
+    "BTCBR"
+  );
   console.log("   Ready for bridge: ✅\n");
 
-  // Check Xaheen Chain
+  // Check Nor Chain
   console.log("📍 XAHEEN CHAIN (HUB) STATUS:\n");
 
   try {
@@ -46,16 +55,16 @@ async function main() {
     const xhtBalance = await xaheenProvider.getBalance(DEPLOYER);
     const xhtFormatted = ethers.formatEther(xhtBalance);
 
-    console.log("💰 XHT Balance:", xhtFormatted, "XHT");
+    console.log("💰 NOR Balance:", xhtFormatted, "NOR");
 
     if (parseFloat(xhtFormatted) < 0.1) {
-      console.log("   ⚠️  LOW! Need XHT for hub deployment");
-      console.log("   💡 Get XHT from faucet or bridge\n");
+      console.log("   ⚠️  LOW! Need NOR for hub deployment");
+      console.log("   💡 Get NOR from faucet or bridge\n");
     } else {
       console.log("   ✅ Sufficient for deployment\n");
     }
   } catch (error) {
-    console.log("   ⚠️  Could not connect to Xaheen RPC");
+    console.log("   ⚠️  Could not connect to Nor RPC");
     console.log("   Error:", error.message, "\n");
   }
 
@@ -64,19 +73,19 @@ async function main() {
   console.log("💵 ESTIMATED DEPLOYMENT COSTS:\n");
 
   console.log("BSC Mainnet (Spoke):");
-  console.log("  Wrapped XHT:         ~0.002 BNB (~$1.20)");
+  console.log("  Wrapped NOR:         ~0.002 BNB (~$1.20)");
   console.log("  SettlementInbox:     ~0.002 BNB (~$1.20)");
-  console.log("  XaheenRouter:        ~0.003 BNB (~$1.80)");
+  console.log("  NorRouter:        ~0.003 BNB (~$1.80)");
   console.log("  Subtotal:            ~0.007 BNB (~$4.20)\n");
 
-  console.log("Xaheen Chain (Hub):");
-  console.log("  XHT Token:           ~0.01 XHT");
-  console.log("  PriceAuthority:      ~0.01 XHT");
-  console.log("  SupplyController:    ~0.015 XHT");
-  console.log("  SettlementHub:       ~0.01 XHT");
-  console.log("  Subtotal:            ~0.045 XHT\n");
+  console.log("Nor Chain (Hub):");
+  console.log("  NOR Token:           ~0.01 NOR");
+  console.log("  PriceAuthority:      ~0.01 NOR");
+  console.log("  SupplyController:    ~0.015 NOR");
+  console.log("  SettlementHub:       ~0.01 NOR");
+  console.log("  Subtotal:            ~0.045 NOR\n");
 
-  console.log("🎯 TOTAL COST: ~0.01 BNB + 0.05 XHT (~$6-10)\n");
+  console.log("🎯 TOTAL COST: ~0.01 BNB + 0.05 NOR (~$6-10)\n");
 
   // Liquidity Plan
   console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
@@ -86,10 +95,14 @@ async function main() {
 
   console.log("Available BTCBR:", available.toLocaleString());
   console.log("\nRecommended Allocation:");
-  console.log("  BSC → Xaheen:   70,000 BTCBR (70%)");
-  console.log("  Xaheen → BSC:   30,000 BTCBR (30%)");
+  console.log("  BSC → Nor:   70,000 BTCBR (70%)");
+  console.log("  Nor → BSC:   30,000 BTCBR (30%)");
   console.log("  Total Bridge:  100,000 BTCBR");
-  console.log("  Remaining:    ", (available - 100000).toLocaleString(), "BTCBR\n");
+  console.log(
+    "  Remaining:    ",
+    (available - 100000).toLocaleString(),
+    "BTCBR\n"
+  );
 
   // Final checklist
   console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
@@ -100,7 +113,7 @@ async function main() {
     "BTCBR Available": parseFloat(btcbrFormatted) >= 100000,
     "Private Key in .env": !!process.env.MAINNET_PRIVATE_KEY,
     "BSC RPC Configured": !!process.env.BSC_MAINNET_RPC,
-    "Xaheen RPC Configured": !!process.env.XAHEEN_CHAIN_RPC,
+    "Nor RPC Configured": !!process.env.XAHEEN_CHAIN_RPC,
   };
 
   for (const [check, passed] of Object.entries(checks)) {
@@ -109,12 +122,14 @@ async function main() {
 
   console.log("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
 
-  const allPassed = Object.values(checks).every(v => v);
+  const allPassed = Object.values(checks).every((v) => v);
 
   if (allPassed) {
     console.log("🚀 STATUS: READY FOR MAINNET DEPLOYMENT!");
     console.log("\n⚠️  WARNING: This will use REAL BNB and deploy to MAINNET!");
-    console.log("⚠️  Double-check all addresses and amounts before proceeding!\n");
+    console.log(
+      "⚠️  Double-check all addresses and amounts before proceeding!\n"
+    );
   } else {
     console.log("⚠️  STATUS: NOT READY - Fix issues above first\n");
   }

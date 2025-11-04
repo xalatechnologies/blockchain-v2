@@ -1,4 +1,4 @@
-# 🚀 Xaheen Chain - Quick Start Guide
+# 🚀 Nor Chain - Quick Start Guide
 
 **Where Intelligence Meets Blockchain** 🧠⚡
 
@@ -8,10 +8,10 @@
 
 | Parameter | Value |
 |-----------|-------|
-| **Chain Name** | Xaheen Chain |
+| **Chain Name** | Nor Chain |
 | **Chain ID** | 65001 (0xFDE9) |
 | **Network ID** | 65001 |
-| **Native Token** | XHT (Xaheen Token) |
+| **Native Token** | NOR (Nor Token) |
 | **RPC URL** | https://rpc.xaheen.org |
 | **WebSocket** | wss://ws.xaheen.org |
 | **Block Explorer** | https://explorer.xaheen.org |
@@ -84,10 +84,10 @@ open add-xaheen-to-metamask.html
 3. Enter details:
 
 ```
-Network Name:      Xaheen Chain
+Network Name:      Nor Chain
 RPC URL:           https://rpc.xaheen.org
 Chain ID:          65001
-Currency Symbol:   XHT
+Currency Symbol:   NOR
 Block Explorer:    https://explorer.xaheen.org
 ```
 
@@ -145,7 +145,7 @@ npm run compile
 npm run deploy:mainnet
 ```
 
-### Deploy to Xaheen Chain
+### Deploy to Nor Chain
 
 ```bash
 npm run deploy:xaheen
@@ -177,7 +177,7 @@ Validator 2: 0xfd634d55ce9b99058dc06cdda1f866b39579a9f3
 Validator 3: 0xb753b892551d1c374fda6fd7f6e9b787688c4ea5
 ```
 
-### Pre-Funded Accounts (1000 XHT each)
+### Pre-Funded Accounts (1000 NOR each)
 
 ```
 EOA:         0x81bDAf1ac2094D5133937B3361A38a4976E55acc
@@ -424,7 +424,7 @@ Before going live:
 - [ ] Peer count = 2 for each validator
 - [ ] Blocks being produced every 3 seconds
 - [ ] BTCBR contract deployed at 0x0cF8e180350253271f4b917CcFb0aCCc4862F262
-- [ ] Pre-funded accounts have 1000 XHT
+- [ ] Pre-funded accounts have 1000 NOR
 - [ ] RPC endpoint responding
 - [ ] WebSocket endpoint responding
 - [ ] MetaMask integration tested
@@ -432,8 +432,8 @@ Before going live:
 
 ---
 
-**Xaheen Chain - Where Intelligence Meets Blockchain!** 🧠⚡
+**Nor Chain - Where Intelligence Meets Blockchain!** 🧠⚡
 
-**Chain ID**: 65001 | **Token**: XHT | **Block Time**: 3s
+**Chain ID**: 65001 | **Token**: NOR | **Block Time**: 3s
 
 For detailed deployment instructions, see: **[XAHEEN_DEPLOYMENT_READY.md](./XAHEEN_DEPLOYMENT_READY.md)**

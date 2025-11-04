@@ -9,21 +9,21 @@
 x × y = k
 
 Where:
-x = XHT in pool
+x = NOR in pool
 y = USDT in pool
 k = constant
 ```
 
 **Example:**
 ```
-Pool: 1,000,000 XHT × 1,000 USDT = k
-Price: $0.001 per XHT
+Pool: 1,000,000 NOR × 1,000 USDT = k
+Price: $0.001 per NOR
 
-If someone buys 100,000 XHT:
-- They remove 100,000 XHT from pool
+If someone buys 100,000 NOR:
+- They remove 100,000 NOR from pool
 - They add ~111 USDT to pool
-- New pool: 900,000 XHT × 1,111 USDT
-- New price: ~$0.00123 per XHT (price moved up!)
+- New pool: 900,000 NOR × 1,111 USDT
+- New price: ~$0.00123 per NOR (price moved up!)
 ```
 
 **Bigger liquidity = smaller price moves!**
@@ -32,13 +32,13 @@ If someone buys 100,000 XHT:
 
 ## YOUR CURRENT SITUATION
 
-### Xaheen DEX Liquidity:
+### Nor DEX Liquidity:
 ```
-XHT/USDT: 600M XHT + $600K USDT
-XHT/BNB: 100M XHT + ~250 BNB (~$100K)
-XHT/ETH: 100M XHT + ~40 ETH (~$100K)
+NOR/USDT: 600M NOR + $600K USDT
+NOR/BNB: 100M NOR + ~250 BNB (~$100K)
+NOR/ETH: 100M NOR + ~40 ETH (~$100K)
 
-Total: 800M XHT + $800K value
+Total: 800M NOR + $800K value
 ```
 
 **This is ALREADY EXCELLENT liquidity!**
@@ -61,8 +61,8 @@ Liquidity needed = 100 × Expected Trade Size
 
 #### Small Trade ($100):
 ```
-Pool: 600M XHT × $600K USDT
-User buys: $100 of XHT (100,000 XHT)
+Pool: 600M NOR × $600K USDT
+User buys: $100 of NOR (100,000 NOR)
 
 Price impact: ~0.017%
 Slippage: Negligible
@@ -72,7 +72,7 @@ Slippage: Negligible
 
 #### Medium Trade ($1,000):
 ```
-User buys: $1,000 of XHT (1M XHT)
+User buys: $1,000 of NOR (1M NOR)
 
 Price impact: ~0.17%
 Slippage: Minimal
@@ -82,7 +82,7 @@ Slippage: Minimal
 
 #### Large Trade ($10,000):
 ```
-User buys: $10,000 of XHT (10M XHT)
+User buys: $10,000 of NOR (10M NOR)
 
 Price impact: ~1.7%
 Slippage: $170 loss
@@ -92,7 +92,7 @@ Slippage: $170 loss
 
 #### Very Large Trade ($100,000):
 ```
-User buys: $100,000 of XHT (100M XHT)
+User buys: $100,000 of NOR (100M NOR)
 
 Price impact: ~16.7%
 Slippage: $16,700 loss
@@ -140,34 +140,34 @@ Need: $10M+ liquidity
 ### Scenario: You Deploy to PancakeSwap
 
 **Two pools exist:**
-1. Xaheen DEX: $800K liquidity
+1. Nor DEX: $800K liquidity
 2. PancakeSwap: $400K liquidity
 
 **What happens:**
 
 **Initial state:**
 ```
-Xaheen: 1 XHT = $0.001
-PancakeSwap: 1 XHT = $0.001
+Nor: 1 NOR = $0.001
+PancakeSwap: 1 NOR = $0.001
 ```
 
 **User buys $10K on PancakeSwap:**
 ```
-PancakeSwap: 1 XHT = $0.0013 (price up 30%!)
-Xaheen: 1 XHT = $0.001 (no change)
+PancakeSwap: 1 NOR = $0.0013 (price up 30%!)
+Nor: 1 NOR = $0.001 (no change)
 ```
 
 **Arbitrage bot sees opportunity:**
 ```
-1. Buy XHT on Xaheen for $0.001
-2. Sell XHT on PancakeSwap for $0.0013
-3. Profit: $0.0003 per XHT (30% profit!)
+1. Buy NOR on Nor for $0.001
+2. Sell NOR on PancakeSwap for $0.0013
+3. Profit: $0.0003 per NOR (30% profit!)
 ```
 
 **Bot does this until:**
 ```
-Xaheen: 1 XHT = $0.0011
-PancakeSwap: 1 XHT = $0.0011
+Nor: 1 NOR = $0.0011
+PancakeSwap: 1 NOR = $0.0011
 ```
 
 **Prices balanced!** ✅
@@ -212,7 +212,7 @@ Balanced!
 
 ## YOUR ADVANTAGE: CONCENTRATED LIQUIDITY
 
-### Keep Everything on Xaheen DEX:
+### Keep Everything on Nor DEX:
 
 **Benefits:**
 1. All $800K liquidity in ONE place
@@ -227,7 +227,7 @@ Balanced!
 ### If You Split to PancakeSwap:
 
 **Problems:**
-1. $400K on Xaheen, $400K on PancakeSwap
+1. $400K on Nor, $400K on PancakeSwap
 2. Each has WORSE liquidity (higher slippage)
 3. Prices diverge frequently
 4. Arbitrage bots eat your liquidity
@@ -291,7 +291,7 @@ Your liquidity: $800K → Need to grow
 
 **How to add:**
 - Use trading fee revenue
-- Add from treasury: 1B XHT + $1M USDT
+- Add from treasury: 1B NOR + $1M USDT
 - Offer LP rewards (attract outside capital)
 
 ---
@@ -306,7 +306,7 @@ Your liquidity: $800K → Need to grow
 **How:**
 - Partnership with market makers
 - Institutional liquidity
-- Treasury allocation: 5B XHT + $5M USDT
+- Treasury allocation: 5B NOR + $5M USDT
 
 ---
 
@@ -346,11 +346,11 @@ User profile: Retail to small whales ✅
 
 ## MAINTAINING PRICE WITHOUT PANCAKESWAP
 
-### Keep Everything on Xaheen:
+### Keep Everything on Nor:
 
 **Single Source of Truth:**
 ```
-Xaheen DEX = THE price
+Nor DEX = THE price
 No other platforms = no arbitrage
 All liquidity concentrated = best prices
 ```
@@ -388,14 +388,14 @@ All liquidity concentrated = best prices
 
 **Option 1: From Treasury (FREE)**
 ```
-Add: 1B XHT + $1M USDT
-Cost: $0 (you own the XHT)
+Add: 1B NOR + $1M USDT
+Cost: $0 (you own the NOR)
 Revenue: 100% of fees
 ```
 
 **Option 2: Attract LPs (REWARDS)**
 ```
-Offer: 1M XHT/month rewards
+Offer: 1M NOR/month rewards
 Attracts: $2M-5M outside liquidity
 Cost: From treasury
 Revenue: Share fees with LPs
@@ -419,15 +419,15 @@ You get: Depth and stability
 
 **Example:**
 ```
-Target price: $0.001 per XHT
+Target price: $0.001 per NOR
 
 If price drops to $0.0009:
-- Buy XHT with treasury USDT
+- Buy NOR with treasury USDT
 - Support the price
-- Accumulate more XHT
+- Accumulate more NOR
 
 If price rises to $0.0011:
-- Sell XHT from treasury
+- Sell NOR from treasury
 - Take profit
 - Add to USDT reserves
 ```
@@ -439,7 +439,7 @@ If price rises to $0.0011:
 
 **Risks:**
 - Need to monitor 24/7
-- Could run out of USDT or XHT
+- Could run out of USDT or NOR
 
 ---
 
@@ -470,7 +470,7 @@ If price rises to $0.0011:
 ### Month 4-6: Add to $2M
 **Goal:** 3,000 users
 **Volume:** $300K-500K daily
-**Action:** Add 1B XHT + $1M USDT from treasury
+**Action:** Add 1B NOR + $1M USDT from treasury
 
 ### Month 7-12: Scale to $5M-10M
 **Goal:** 10,000+ users
@@ -483,7 +483,7 @@ If price rises to $0.0011:
 
 ### Q: How to maintain same price?
 
-**A:** Keep all liquidity on Xaheen DEX!
+**A:** Keep all liquidity on Nor DEX!
 
 **Reasons:**
 - Single source of truth

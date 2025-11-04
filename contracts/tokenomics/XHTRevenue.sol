@@ -4,7 +4,7 @@ pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-interface IXHTStaking {
+interface INORStaking {
     function totalStaked() external view returns (uint256);
     function stakes(address user) external view returns (
         uint256 amount,
@@ -16,13 +16,13 @@ interface IXHTStaking {
     );
 }
 
-interface IXHTBurnMechanism {
+interface INORBurnMechanism {
     function burnBridgeFees() external payable;
 }
 
 /**
- * @title XHTRevenue
- * @notice Revenue collection and distribution for Xaheen ecosystem
+ * @title NORRevenue
+ * @notice Revenue collection and distribution for Nor ecosystem
  * @dev Collects fees from:
  * - Bridge transfers (0.1-0.2%)
  * - DEX swaps (0.3%)
@@ -35,12 +35,12 @@ interface IXHTBurnMechanism {
  * - 10% burned
  * - 10% to treasury
  */
-contract XHTRevenue is Ownable, ReentrancyGuard {
+contract NORRevenue is Ownable, ReentrancyGuard {
 
     // ============ State Variables ============
 
-    IXHTStaking public stakingContract;
-    IXHTBurnMechanism public burnContract;
+    INORStaking public stakingContract;
+    INORBurnMechanism public burnContract;
     address public treasuryAddress;
 
     struct RevenueStats {
@@ -90,8 +90,8 @@ contract XHTRevenue is Ownable, ReentrancyGuard {
         address _burnContract,
         address _treasuryAddress
     ) {
-        stakingContract = IXHTStaking(_stakingContract);
-        burnContract = IXHTBurnMechanism(_burnContract);
+        stakingContract = INORStaking(_stakingContract);
+        burnContract = INORBurnMechanism(_burnContract);
         treasuryAddress = _treasuryAddress;
     }
 
@@ -293,14 +293,14 @@ contract XHTRevenue is Ownable, ReentrancyGuard {
      * @notice Update staking contract
      */
     function updateStakingContract(address _stakingContract) external onlyOwner {
-        stakingContract = IXHTStaking(_stakingContract);
+        stakingContract = INORStaking(_stakingContract);
     }
 
     /**
      * @notice Update burn contract
      */
     function updateBurnContract(address _burnContract) external onlyOwner {
-        burnContract = IXHTBurnMechanism(_burnContract);
+        burnContract = INORBurnMechanism(_burnContract);
     }
 
     // ============ View Functions ============

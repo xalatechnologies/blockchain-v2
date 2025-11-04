@@ -2,21 +2,21 @@
 
 ## Overview
 
-The Noor Chain cross-chain bridge enables users on Ethereum, BSC, and Polygon to purchase and trade BTCBR, NOR, and Dirhamat tokens seamlessly.
+The Nor Chain cross-chain bridge enables users on Ethereum, BSC, and Polygon to purchase and trade BTCBR, NOR, and Dirhamat tokens seamlessly.
 
 ## Architecture
 
 ### Bridge Mechanism: Lock & Mint / Burn & Release
 
-1. **From Noor Chain → External Chain**:
-   - User locks tokens on Noor Chain via `CrossChainBridge.lock()`
+1. **From Nor Chain → External Chain**:
+   - User locks tokens on Nor Chain via `CrossChainBridge.lock()`
    - 2/3 validators approve the transfer
    - Wrapped tokens are minted on external chain
 
-2. **From External Chain → Noor Chain**:
+2. **From External Chain → Nor Chain**:
    - User burns wrapped tokens via `WrappedToken.redeem()`
    - Validators observe burn event
-   - Original tokens are released on Noor Chain
+   - Original tokens are released on Nor Chain
 
 ### Security
 
@@ -28,11 +28,11 @@ The Noor Chain cross-chain bridge enables users on Ethereum, BSC, and Polygon to
 - **Pausable**: Emergency pause functionality
 - **Blacklist**: Compliance controls for Dirhamat
 
-## Deployed Contracts (Noor Chain)
+## Deployed Contracts (Nor Chain)
 
 ### CrossChainBridge
 - **Address**: `0xC808e1962bD8fE5d0fBc41D76B7909B80C442D84`
-- **Chain ID**: 65001 (Noor Chain)
+- **Chain ID**: 65001 (Nor Chain)
 - **Supported Tokens**:
   - BTCBR: `0x0cF8e180350253271f4b917CcFb0aCCc4862F262`
   - WNOR: `0x0f8498072DB1611497e2068f9896aeFfcf173583`
@@ -87,21 +87,21 @@ await bridge.addToken(wrappedBTCBR.address);
 await bridge.addToken(wrappedNOR.address);
 await bridge.addToken(wrappedDirhamat.address);
 
-// Add Noor Chain connection
+// Add Nor Chain connection
 await bridge.addBridge(
-  65001, // Noor Chain ID
-  "Noor Chain",
-  "0xC808e1962bD8fE5d0fBc41D76B7909B80C442D84" // Noor bridge address
+  65001, // Nor Chain ID
+  "Nor Chain",
+  "0xC808e1962bD8fE5d0fBc41D76B7909B80C442D84" // Nor bridge address
 );
 ```
 
-### Step 4: Update Noor Chain Bridge
+### Step 4: Update Nor Chain Bridge
 
-After deploying on external chains, update Noor bridge with actual addresses:
+After deploying on external chains, update Nor bridge with actual addresses:
 
 ```python
 # Update Ethereum bridge address
-tx = noor_bridge.functions.updateBridge(
+tx = nor_bridge.functions.updateBridge(
     1,  # Ethereum chain ID
     ethereum_bridge_address
 ).build_transaction({...})
@@ -125,19 +125,19 @@ await uniswapRouter.swapExactETHForTokens(
   deadline
 );
 
-// 3. Bridge wBTCBR to Noor Chain
+// 3. Bridge wBTCBR to Nor Chain
 await wBTCBR.approve(bridge.address, amount);
-await wBTCBR.redeem(amount, noorChainAddress); // Burns and unlocks on Noor
+await wBTCBR.redeem(amount, norChainAddress); // Burns and unlocks on Nor
 ```
 
-### Example 2: Bridge BTCBR from Noor to BSC
+### Example 2: Bridge BTCBR from Nor to BSC
 
 ```javascript
-// 1. User on Noor Chain locks BTCBR
-const noorBridge = new ethers.Contract(NOOR_BRIDGE_ADDRESS, abi, signer);
+// 1. User on Nor Chain locks BTCBR
+const norBridge = new ethers.Contract(NOOR_BRIDGE_ADDRESS, abi, signer);
 
-await btcbr.approve(noorBridge.address, amount);
-await noorBridge.lock(
+await btcbr.approve(norBridge.address, amount);
+await norBridge.lock(
   BTCBR_ADDRESS,
   amount,
   bscRecipientAddress,
@@ -162,8 +162,8 @@ await quickswapRouter.swapExactETHForTokens(
   deadline
 );
 
-// 2. Hold wDIRHAMAT (AED-pegged stablecoin) or bridge to Noor
-await wDIRHAMAT.redeem(amount, noorAddress);
+// 2. Hold wDIRHAMAT (AED-pegged stablecoin) or bridge to Nor
+await wDIRHAMAT.redeem(amount, norAddress);
 ```
 
 ## Validator Operations
@@ -173,8 +173,8 @@ await wDIRHAMAT.redeem(amount, noorAddress);
 Validators monitor both chains and approve transfers:
 
 ```javascript
-// When user locks on Noor Chain
-const lockEvent = await noorBridge.queryFilter("TransferInitiated");
+// When user locks on Nor Chain
+const lockEvent = await norBridge.queryFilter("TransferInitiated");
 
 // Validator approves on external chain
 await externalBridge.approveTransfer(
@@ -226,7 +226,7 @@ To enable seamless cross-chain purchases:
 
 1. **Total Value Locked (TVL)**:
    ```javascript
-   const btcbrLocked = await noorBridge.totalLocked(BTCBR_ADDRESS);
+   const btcbrLocked = await norBridge.totalLocked(BTCBR_ADDRESS);
    ```
 
 2. **Bridge Statistics**:
@@ -253,7 +253,7 @@ To enable seamless cross-chain purchases:
 
 ### Gas Costs (Estimated)
 
-| Operation | Noor Chain | Ethereum | BSC | Polygon |
+| Operation | Nor Chain | Ethereum | BSC | Polygon |
 |-----------|-----------|----------|-----|---------|
 | Lock tokens | ~100K gas | N/A | N/A | N/A |
 | Mint wrapped | N/A | ~150K gas | ~100K gas | ~80K gas |
@@ -273,7 +273,7 @@ To enable seamless cross-chain purchases:
 3. ✅ Deploy wrapped tokens on Polygon mainnet
 4. ✅ Deploy CrossChainBridge on each external chain
 5. ✅ Configure validators and multi-sig
-6. ✅ Update Noor Chain bridge with external addresses
+6. ✅ Update Nor Chain bridge with external addresses
 7. ✅ Add liquidity on external DEXs
 8. ✅ Test cross-chain transfers
 9. ✅ Launch bridge interface (UI)
@@ -285,4 +285,4 @@ For technical support or questions:
 - Documentation: `/docs/BRIDGE_DEPLOYMENT_GUIDE.md`
 - Discord: [Your Discord]
 - Telegram: [Your Telegram]
-- Email: support@noorchain.com
+- Email: support@norchain.com

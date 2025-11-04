@@ -1,4 +1,4 @@
-# Xaheen Chain Documentation Index
+# Nor Chain Documentation Index
 
 **Complete documentation bundle for blockchain deployment, maintenance, and troubleshooting**
 
@@ -6,7 +6,7 @@
 
 ## 🚀 QUICK START
 
-**New to Xaheen Chain deployment?** Start here:
+**New to Nor Chain deployment?** Start here:
 
 1. **Read**: `MASTER-DEPLOYMENT-CHECKLIST.md` - Complete deployment overview
 2. **Follow**: Phase-by-phase instructions
@@ -413,7 +413,7 @@ console.log('Seal all zeros:', seal.split('').every(c => c === '0'));
 
 ---
 
-**Maintained By**: Xaheen Chain Team
+**Maintained By**: Nor Chain Team
 **Last Updated**: October 31, 2025
 **Status**: Production-Ready ✅
 

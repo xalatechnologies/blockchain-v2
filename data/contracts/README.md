@@ -11,7 +11,7 @@ This directory contains JSON files with deployed contract addresses.
 Contract address files typically contain:
 - Contract name
 - Deployment address
-- Network (BSC Mainnet, Xaheen Chain, etc.)
+- Network (BSC Mainnet, Nor Chain, etc.)
 - Chain ID
 - Deployment timestamp
 - Deployer address

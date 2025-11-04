@@ -3,29 +3,29 @@ pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import "./XaheenDEXFactory.sol";
-import "./XaheenDEXPair.sol";
-import "./WXHT.sol";
+import "./NorDEXFactory.sol";
+import "./NorDEXPair.sol";
+import "./WNOR.sol";
 
 /**
- * @title XaheenDEXRouter
- * @notice Router contract for Xaheen DEX (Uniswap V2 style)
- * @dev Handles all swaps, liquidity addition/removal with support for XHT
+ * @title NorDEXRouter
+ * @notice Router contract for Nor DEX (Uniswap V2 style)
+ * @dev Handles all swaps, liquidity addition/removal with support for NOR
  */
-contract XaheenDEXRouter {
+contract NorDEXRouter {
     using SafeERC20 for IERC20;
 
     address public immutable factory;
-    WXHT public immutable wxht;
+    WNOR public immutable wxht;
 
     modifier ensure(uint256 deadline) {
         require(deadline >= block.timestamp, "EXPIRED");
         _;
     }
 
-    constructor(address _factory, address payable _WXHT) {
+    constructor(address _factory, address payable _WNOR) {
         factory = _factory;
-        wxht = WXHT(_WXHT);
+        wxht = WNOR(_WNOR);
     }
 
     receive() external payable {
@@ -45,36 +45,36 @@ contract XaheenDEXRouter {
         uint256 deadline
     ) external ensure(deadline) returns (uint256 amountA, uint256 amountB, uint256 liquidity) {
         (amountA, amountB) = _addLiquidity(tokenA, tokenB, amountADesired, amountBDesired, amountAMin, amountBMin);
-        address pair = XaheenDEXFactory(factory).getPair(tokenA, tokenB);
+        address pair = NorDEXFactory(factory).getPair(tokenA, tokenB);
         _safeTransferFrom(tokenA, msg.sender, pair, amountA);
         _safeTransferFrom(tokenB, msg.sender, pair, amountB);
-        liquidity = XaheenDEXPair(pair).mint(to);
+        liquidity = NorDEXPair(pair).mint(to);
     }
 
-    function addLiquidityXHT(
+    function addLiquidityNOR(
         address token,
         uint256 amountTokenDesired,
         uint256 amountTokenMin,
-        uint256 amountXHTMin,
+        uint256 amountNORMin,
         address to,
         uint256 deadline
-    ) external payable ensure(deadline) returns (uint256 amountToken, uint256 amountXHT, uint256 liquidity) {
-        (amountToken, amountXHT) = _addLiquidity(
+    ) external payable ensure(deadline) returns (uint256 amountToken, uint256 amountNOR, uint256 liquidity) {
+        (amountToken, amountNOR) = _addLiquidity(
             token,
             address(wxht),
             amountTokenDesired,
             msg.value,
             amountTokenMin,
-            amountXHTMin
+            amountNORMin
         );
-        address pair = XaheenDEXFactory(factory).getPair(token, address(wxht));
+        address pair = NorDEXFactory(factory).getPair(token, address(wxht));
         _safeTransferFrom(token, msg.sender, pair, amountToken);
-        wxht.deposit{value: amountXHT}();
-        assert(wxht.transfer(pair, amountXHT));
-        liquidity = XaheenDEXPair(pair).mint(to);
+        wxht.deposit{value: amountNOR}();
+        assert(wxht.transfer(pair, amountNOR));
+        liquidity = NorDEXPair(pair).mint(to);
 
-        if (msg.value > amountXHT) {
-            payable(msg.sender).transfer(msg.value - amountXHT);
+        if (msg.value > amountNOR) {
+            payable(msg.sender).transfer(msg.value - amountNOR);
         }
     }
 
@@ -87,35 +87,35 @@ contract XaheenDEXRouter {
         address to,
         uint256 deadline
     ) public ensure(deadline) returns (uint256 amountA, uint256 amountB) {
-        address pair = XaheenDEXFactory(factory).getPair(tokenA, tokenB);
+        address pair = NorDEXFactory(factory).getPair(tokenA, tokenB);
         IERC20(pair).safeTransferFrom(msg.sender, pair, liquidity);
-        (uint256 amount0, uint256 amount1) = XaheenDEXPair(pair).burn(to);
+        (uint256 amount0, uint256 amount1) = NorDEXPair(pair).burn(to);
         (address token0,) = sortTokens(tokenA, tokenB);
         (amountA, amountB) = tokenA == token0 ? (amount0, amount1) : (amount1, amount0);
         require(amountA >= amountAMin, "INSUFFICIENT_A_AMOUNT");
         require(amountB >= amountBMin, "INSUFFICIENT_B_AMOUNT");
     }
 
-    function removeLiquidityXHT(
+    function removeLiquidityNOR(
         address token,
         uint256 liquidity,
         uint256 amountTokenMin,
-        uint256 amountXHTMin,
+        uint256 amountNORMin,
         address to,
         uint256 deadline
-    ) public ensure(deadline) returns (uint256 amountToken, uint256 amountXHT) {
-        (amountToken, amountXHT) = removeLiquidity(
+    ) public ensure(deadline) returns (uint256 amountToken, uint256 amountNOR) {
+        (amountToken, amountNOR) = removeLiquidity(
             token,
             address(wxht),
             liquidity,
             amountTokenMin,
-            amountXHTMin,
+            amountNORMin,
             address(this),
             deadline
         );
         _safeTransfer(token, to, amountToken);
-        wxht.withdraw(amountXHT);
-        payable(to).transfer(amountXHT);
+        wxht.withdraw(amountNOR);
+        payable(to).transfer(amountNOR);
     }
 
     // ============ Swap Functions ============
@@ -129,7 +129,7 @@ contract XaheenDEXRouter {
     ) external ensure(deadline) returns (uint256[] memory amounts) {
         amounts = getAmountsOut(amountIn, path);
         require(amounts[amounts.length - 1] >= amountOutMin, "INSUFFICIENT_OUTPUT_AMOUNT");
-        _safeTransferFrom(path[0], msg.sender, XaheenDEXFactory(factory).getPair(path[0], path[1]), amounts[0]);
+        _safeTransferFrom(path[0], msg.sender, NorDEXFactory(factory).getPair(path[0], path[1]), amounts[0]);
         _swap(amounts, path, to);
     }
 
@@ -142,11 +142,11 @@ contract XaheenDEXRouter {
     ) external ensure(deadline) returns (uint256[] memory amounts) {
         amounts = getAmountsIn(amountOut, path);
         require(amounts[0] <= amountInMax, "EXCESSIVE_INPUT_AMOUNT");
-        _safeTransferFrom(path[0], msg.sender, XaheenDEXFactory(factory).getPair(path[0], path[1]), amounts[0]);
+        _safeTransferFrom(path[0], msg.sender, NorDEXFactory(factory).getPair(path[0], path[1]), amounts[0]);
         _swap(amounts, path, to);
     }
 
-    function swapExactXHTForTokens(
+    function swapExactNORForTokens(
         uint256 amountOutMin,
         address[] calldata path,
         address to,
@@ -156,11 +156,11 @@ contract XaheenDEXRouter {
         amounts = getAmountsOut(msg.value, path);
         require(amounts[amounts.length - 1] >= amountOutMin, "INSUFFICIENT_OUTPUT_AMOUNT");
         wxht.deposit{value: amounts[0]}();
-        assert(wxht.transfer(XaheenDEXFactory(factory).getPair(path[0], path[1]), amounts[0]));
+        assert(wxht.transfer(NorDEXFactory(factory).getPair(path[0], path[1]), amounts[0]));
         _swap(amounts, path, to);
     }
 
-    function swapTokensForExactXHT(
+    function swapTokensForExactNOR(
         uint256 amountOut,
         uint256 amountInMax,
         address[] calldata path,
@@ -170,13 +170,13 @@ contract XaheenDEXRouter {
         require(path[path.length - 1] == address(wxht), "INVALID_PATH");
         amounts = getAmountsIn(amountOut, path);
         require(amounts[0] <= amountInMax, "EXCESSIVE_INPUT_AMOUNT");
-        _safeTransferFrom(path[0], msg.sender, XaheenDEXFactory(factory).getPair(path[0], path[1]), amounts[0]);
+        _safeTransferFrom(path[0], msg.sender, NorDEXFactory(factory).getPair(path[0], path[1]), amounts[0]);
         _swap(amounts, path, address(this));
         wxht.withdraw(amounts[amounts.length - 1]);
         payable(to).transfer(amounts[amounts.length - 1]);
     }
 
-    function swapExactTokensForXHT(
+    function swapExactTokensForNOR(
         uint256 amountIn,
         uint256 amountOutMin,
         address[] calldata path,
@@ -186,13 +186,13 @@ contract XaheenDEXRouter {
         require(path[path.length - 1] == address(wxht), "INVALID_PATH");
         amounts = getAmountsOut(amountIn, path);
         require(amounts[amounts.length - 1] >= amountOutMin, "INSUFFICIENT_OUTPUT_AMOUNT");
-        _safeTransferFrom(path[0], msg.sender, XaheenDEXFactory(factory).getPair(path[0], path[1]), amounts[0]);
+        _safeTransferFrom(path[0], msg.sender, NorDEXFactory(factory).getPair(path[0], path[1]), amounts[0]);
         _swap(amounts, path, address(this));
         wxht.withdraw(amounts[amounts.length - 1]);
         payable(to).transfer(amounts[amounts.length - 1]);
     }
 
-    function swapXHTForExactTokens(
+    function swapNORForExactTokens(
         uint256 amountOut,
         address[] calldata path,
         address to,
@@ -202,7 +202,7 @@ contract XaheenDEXRouter {
         amounts = getAmountsIn(amountOut, path);
         require(amounts[0] <= msg.value, "EXCESSIVE_INPUT_AMOUNT");
         wxht.deposit{value: amounts[0]}();
-        assert(wxht.transfer(XaheenDEXFactory(factory).getPair(path[0], path[1]), amounts[0]));
+        assert(wxht.transfer(NorDEXFactory(factory).getPair(path[0], path[1]), amounts[0]));
         _swap(amounts, path, to);
 
         if (msg.value > amounts[0]) {
@@ -220,8 +220,8 @@ contract XaheenDEXRouter {
         uint256 amountAMin,
         uint256 amountBMin
     ) internal returns (uint256 amountA, uint256 amountB) {
-        if (XaheenDEXFactory(factory).getPair(tokenA, tokenB) == address(0)) {
-            XaheenDEXFactory(factory).createPair(tokenA, tokenB);
+        if (NorDEXFactory(factory).getPair(tokenA, tokenB) == address(0)) {
+            NorDEXFactory(factory).createPair(tokenA, tokenB);
         }
 
         (uint256 reserveA, uint256 reserveB) = getReserves(tokenA, tokenB);
@@ -247,8 +247,8 @@ contract XaheenDEXRouter {
             (address token0,) = sortTokens(input, output);
             uint256 amountOut = amounts[i + 1];
             (uint256 amount0Out, uint256 amount1Out) = input == token0 ? (uint256(0), amountOut) : (amountOut, uint256(0));
-            address to = i < path.length - 2 ? XaheenDEXFactory(factory).getPair(output, path[i + 2]) : _to;
-            XaheenDEXPair(XaheenDEXFactory(factory).getPair(input, output)).swap(amount0Out, amount1Out, to, new bytes(0));
+            address to = i < path.length - 2 ? NorDEXFactory(factory).getPair(output, path[i + 2]) : _to;
+            NorDEXPair(NorDEXFactory(factory).getPair(input, output)).swap(amount0Out, amount1Out, to, new bytes(0));
         }
     }
 
@@ -309,7 +309,7 @@ contract XaheenDEXRouter {
 
     function getReserves(address tokenA, address tokenB) public view returns (uint256 reserveA, uint256 reserveB) {
         (address token0,) = sortTokens(tokenA, tokenB);
-        (uint256 reserve0, uint256 reserve1,) = XaheenDEXPair(XaheenDEXFactory(factory).getPair(tokenA, tokenB)).getReserves();
+        (uint256 reserve0, uint256 reserve1,) = NorDEXPair(NorDEXFactory(factory).getPair(tokenA, tokenB)).getReserves();
         (reserveA, reserveB) = tokenA == token0 ? (reserve0, reserve1) : (reserve1, reserve0);
     }
 

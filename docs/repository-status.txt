@@ -100,7 +100,7 @@
 🚨 CRITICAL PRIORITY
 ═══════════════════════════════════════════════════════════════════════════
 ⚠️  Chain Status:  STUCK at block 29,999
-⚠️  Liquidity:     $20,000 at risk on Xaheen Chain
+⚠️  Liquidity:     $20,000 at risk on Nor Chain
 ⚠️  Action:        Review docs/00-critical/CRITICAL_BACKUP_ANALYSIS.md
 
 ═══════════════════════════════════════════════════════════════════════════

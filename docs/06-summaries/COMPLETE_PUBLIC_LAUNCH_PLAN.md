@@ -1,6 +1,6 @@
 # 🌍 Complete Public Ecosystem Launch Plan
 
-**Making Xaheen Fully Public - Complete Roadmap**
+**Making Nor Fully Public - Complete Roadmap**
 
 ---
 
@@ -22,7 +22,7 @@ Your ecosystem will be accessible to everyone worldwide with:
 **Cost**: 2.5 BNB ($1,500)
 **Result**: Immediate public trading + MetaMask USD values
 
-### **Phase 2: Make Xaheen Chain Public** (LONG-TERM)
+### **Phase 2: Make Nor Chain Public** (LONG-TERM)
 **Timeline**: 2-4 weeks
 **Cost**: $500-2,000/month
 **Result**: Your own public blockchain
@@ -194,7 +194,7 @@ npx hardhat verify --network bsc [ROUTER_ADDRESS] [FACTORY_ADDRESS] [WBNB_ADDRES
 
 **What This Means**:
 - Your blockchain becomes accessible to everyone
-- Anyone can add Xaheen Chain to MetaMask
+- Anyone can add Nor Chain to MetaMask
 - RPC endpoint publicly available
 - Listed on chainlist.org
 
@@ -407,7 +407,7 @@ ROI: 833,233% (100x scenario)
 - [ ] Community AMA
 - [ ] Partnerships exploration
 - [ ] CEX listing research
-- [ ] Plan Phase 2 (Xaheen Chain public)
+- [ ] Plan Phase 2 (Nor Chain public)
 
 ---
 
@@ -442,7 +442,7 @@ ROI: 833,233% (100x scenario)
 - ✅ Path to $10M+ valuation
 
 **Then later** (1-3 months):
-- Make Xaheen Chain public
+- Make Nor Chain public
 - Bridge between chains
 - Expand to Tron & Ethereum
 - Build full multi-chain ecosystem

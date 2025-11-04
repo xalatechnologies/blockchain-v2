@@ -10,21 +10,21 @@
 
 ### 1. BNB Bridge - ✅ TESTED & WORKING
 - **BSC:** `0x9bEFFFa3b43D34a2B470DA21aab3CA3263D0e8C0`
-- **Xaheen:** `0xB1347E378CE63475b282fCC4E9037D51F189758A`
+- **Nor:** `0xB1347E378CE63475b282fCC4E9037D51F189758A`
 - **WBNB Token:** `0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B`
 - **Test Result:** 0.01 BNB → 0.00998 WBNB minted ✅
 - **Revenue:** $0.008
 
 ### 2. USDT Bridge - ✅ TESTED & WORKING
 - **BSC:** `0x7E1c4448A9d87d5C5478B86085AF4e3715a06f48`
-- **Xaheen:** `0x1d24C3c51855d5320d7459E03F2d1a13F7cB6334`
+- **Nor:** `0x1d24C3c51855d5320d7459E03F2d1a13F7cB6334`
 - **WUSDT Token:** `0xA0de216D0bF10E9a40C0666FB3De458e3AEB70F5`
 - **Test Result:** 10 USDT → 9.98 WUSDT minted ✅
 - **Revenue:** $0.020
 
 ### 3. ETH Bridge - ✅ FIXED & TESTED & WORKING!
 - **BSC:** `0xc5d3eF6f22EBEe07de9320680706a234d4f843f8` (FIXED!)
-- **Xaheen:** `0x4Ce2954074a2cD465a05dE8518143Cb478A0c913`
+- **Nor:** `0x4Ce2954074a2cD465a05dE8518143Cb478A0c913`
 - **WETH Token:** `0xF1C1dc0263686093389Fbd66c2951122B2133aEA`
 - **Test Result:** 0.005 ETH → 0.00499 WETH minted ✅
 - **Revenue:** $0.025
@@ -51,9 +51,9 @@
 ## 🎯 YOUR XAHEEN WALLET TOKENS:
 
 ```
-MetaMask on Xaheen Chain (65001):
+MetaMask on Nor Chain (65001):
 
-XHT:   20,189,999,999.86 XHT  (native token)
+NOR:   20,189,999,999.86 NOR  (native token)
 WBNB:  0.00998 WBNB          ✅ Working!
 WUSDT: 9.98 WUSDT            ✅ Working!
 WETH:  0.00499 WETH          ✅ Working!
@@ -67,7 +67,7 @@ WETH:  0.00499 WETH          ✅ Working!
 
 ### Core Components:
 - ✅ All 3 bridges deployed on BSC
-- ✅ All 3 bridges deployed on Xaheen
+- ✅ All 3 bridges deployed on Nor
 - ✅ All 3 wrapped tokens deployed
 - ✅ Validator service running 24/7
 - ✅ PM2 managing process (auto-restart, auto-boot)
@@ -96,7 +96,7 @@ WETH:  0.00499 WETH          ✅ Working!
 1. Go to: https://bscscan.com/address/0x9bEFFFa3b43D34a2B470DA21aab3CA3263D0e8C0#writeContract
 2. Connect MetaMask (BSC network)
 3. Call bridgeBNB:
-   - recipient: Your Xaheen address
+   - recipient: Your Nor address
    - value: Amount in BNB (e.g., 0.1 BNB)
 4. Wait 30-60 seconds
 5. Add WBNB to MetaMask:
@@ -176,7 +176,7 @@ WETH:  0.00499 WETH          ✅ Working!
 - ✅ **Proven working** (all tested successfully)
 
 ### Target Users:
-- BSC users wanting to try Xaheen Chain
+- BSC users wanting to try Nor Chain
 - DeFi traders looking for lower fees
 - Crypto enthusiasts exploring new chains
 - Your DEX users (bridge → swap → trade)
@@ -188,7 +188,7 @@ WETH:  0.00499 WETH          ✅ Working!
 ```
 🚀 XAHEEN CHAIN MULTI-TOKEN BRIDGES ARE LIVE!
 
-Bridge BNB, USDT, and ETH to Xaheen Chain in seconds!
+Bridge BNB, USDT, and ETH to Nor Chain in seconds!
 
 💎 3 Major Tokens Supported:
 ✅ BNB - BSC's native token
@@ -209,7 +209,7 @@ Bridge BNB, USDT, and ETH to Xaheen Chain in seconds!
 
 After bridging, trade on our DEX for 0.3% fees!
 
-#XaheenChain #BSC #DeFi #BNB #USDT #ETH #Crypto
+#NorChain #BSC #DeFi #BNB #USDT #ETH #Crypto
 ```
 
 ---
@@ -265,7 +265,7 @@ Go to BSCScan → Write Contract → withdrawFees(your_treasury_address)
 
 ### Step 1: Add All Tokens to MetaMask (5 min)
 
-Open MetaMask on Xaheen Chain (65001):
+Open MetaMask on Nor Chain (65001):
 
 **WBNB:**
 - Address: `0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B`
@@ -292,7 +292,7 @@ You should see all 3 balances! ✅
 - List all 3 bridge contract addresses
 - Link to BSCScan for each bridge
 - Step-by-step bridging instructions
-- Xaheen network details for MetaMask
+- Nor network details for MetaMask
 - Wrapped token addresses
 
 **Host on:** GitHub Pages, Netlify, Vercel (all free!)
@@ -303,9 +303,9 @@ You should see all 3 balances! ✅
 
 **Twitter/X:**
 ```
-🚀 MAJOR ANNOUNCEMENT: Xaheen Chain Multi-Token Bridges Are Live!
+🚀 MAJOR ANNOUNCEMENT: Nor Chain Multi-Token Bridges Are Live!
 
-Bridge BNB, USDT & ETH from BSC to Xaheen in 30-60 seconds!
+Bridge BNB, USDT & ETH from BSC to Nor in 30-60 seconds!
 
 ✅ 3 major tokens
 ✅ 0.2% fees
@@ -314,7 +314,7 @@ Bridge BNB, USDT & ETH from BSC to Xaheen in 30-60 seconds!
 
 Start bridging: [your landing page URL]
 
-#XaheenChain #BSC #DeFi
+#NorChain #BSC #DeFi
 ```
 
 **Discord/Telegram:**

@@ -18,7 +18,7 @@
    Ready for bridge
 
 📍 XAHEEN CHAIN (HUB) STATUS:
-💰 XHT Balance: 20,189,999,999.861 XHT ✅
+💰 NOR Balance: 20,189,999,999.861 NOR ✅
    Sufficient for deployment
 
 ✅ DEPLOYMENT CHECKLIST:
@@ -26,7 +26,7 @@
   ✅ BTCBR Available
   ✅ Private Key in .env
   ✅ BSC RPC Configured
-  ✅ Xaheen RPC Configured
+  ✅ Nor RPC Configured
 
 🚀 STATUS: READY FOR MAINNET DEPLOYMENT!
 ```
@@ -38,15 +38,15 @@
 ### 1. Hub Deployment Script ✅
 **File**: `scripts/deploy-hub-mainnet.cjs`
 
-**Deploys to**: Xaheen Chain (Chain ID: 65001)
+**Deploys to**: Nor Chain (Chain ID: 65001)
 
 **Contracts**:
-- XHT Token (native token)
+- NOR Token (native token)
 - PriceAuthority (TWAP oracle)
 - SupplyController (inventory management)
 - SettlementHub (cross-chain settlement)
 
-**Cost**: ~0.05 XHT (~$0.01)
+**Cost**: ~0.05 NOR (~$0.01)
 
 **Usage**:
 ```bash
@@ -59,9 +59,9 @@ npx hardhat run scripts/deploy-hub-mainnet.cjs --network btcbr
 **Deploys to**: BSC Mainnet (Chain ID: 56)
 
 **Contracts**:
-- Wrapped XHT (bridge representation)
+- Wrapped NOR (bridge representation)
 - SettlementInbox (receives Fill events)
-- XaheenRouter (user-facing router)
+- NorRouter (user-facing router)
 
 **Cost**: ~0.01 BNB (~$6)
 
@@ -74,8 +74,8 @@ npx hardhat run scripts/deploy-spoke-mainnet.cjs --network bsc
 **File**: `scripts/initialize-inventory-mainnet.cjs`
 
 **Actions**:
-- Mints 100K wrapped XHT to XaheenRouter
-- Authorizes 100K XHT topup on hub
+- Mints 100K wrapped NOR to NorRouter
+- Authorizes 100K NOR topup on hub
 
 **Cost**: Minimal gas fees
 
@@ -116,15 +116,15 @@ node scripts/generate-api-config.cjs
 
 | Component | Network | Estimated Cost |
 |-----------|---------|---------------|
-| XHT Token | Xaheen | ~0.01 XHT |
-| PriceAuthority | Xaheen | ~0.01 XHT |
-| SupplyController | Xaheen | ~0.015 XHT |
-| SettlementHub | Xaheen | ~0.01 XHT |
-| **Hub Subtotal** | **Xaheen** | **~0.045 XHT (~$0.01)** |
+| NOR Token | Nor | ~0.01 NOR |
+| PriceAuthority | Nor | ~0.01 NOR |
+| SupplyController | Nor | ~0.015 NOR |
+| SettlementHub | Nor | ~0.01 NOR |
+| **Hub Subtotal** | **Nor** | **~0.045 NOR (~$0.01)** |
 | | | |
-| Wrapped XHT | BSC | ~0.002 BNB |
+| Wrapped NOR | BSC | ~0.002 BNB |
 | SettlementInbox | BSC | ~0.002 BNB |
-| XaheenRouter | BSC | ~0.003 BNB |
+| NorRouter | BSC | ~0.003 BNB |
 | Configuration | BSC | ~0.003 BNB |
 | **Spoke Subtotal** | **BSC** | **~0.01 BNB (~$6)** |
 | | | |
@@ -154,9 +154,9 @@ node scripts/generate-api-config.cjs
 This script will:
 1. Verify prerequisites
 2. Ask for confirmation
-3. Deploy hub contracts to Xaheen Chain
+3. Deploy hub contracts to Nor Chain
 4. Deploy spoke contracts to BSC Mainnet
-5. Initialize 100K XHT inventory
+5. Initialize 100K NOR inventory
 6. Generate API configuration
 7. Save all addresses to `deployment-mainnet.json`
 8. Generate `api-config.env` for xaheen-sdk
@@ -169,15 +169,15 @@ This script will:
 
 If you prefer manual control:
 
-#### Step 1: Deploy Hub (Xaheen Chain)
+#### Step 1: Deploy Hub (Nor Chain)
 ```bash
 npx hardhat run scripts/deploy-hub-mainnet.cjs --network btcbr
 ```
 
 **Expected output**:
 ```
-🚀 Deploying Hub Contracts to Xaheen Chain Mainnet...
-✅ XHT Token deployed: 0x...
+🚀 Deploying Hub Contracts to Nor Chain Mainnet...
+✅ NOR Token deployed: 0x...
 ✅ PriceAuthority deployed: 0x...
 ✅ SupplyController deployed: 0x...
 ✅ SettlementHub deployed: 0x...
@@ -192,9 +192,9 @@ npx hardhat run scripts/deploy-spoke-mainnet.cjs --network bsc
 **Expected output**:
 ```
 🚀 Deploying Spoke Contracts to BSC Mainnet...
-✅ Wrapped XHT deployed: 0x...
+✅ Wrapped NOR deployed: 0x...
 ✅ SettlementInbox deployed: 0x...
-✅ XaheenRouter deployed: 0x...
+✅ NorRouter deployed: 0x...
 ✅ Spoke deployment complete!
 ```
 
@@ -206,8 +206,8 @@ node scripts/initialize-inventory-mainnet.cjs
 **Expected output**:
 ```
 💰 Initializing Inventory on Mainnet...
-✅ Minted 100K wrapped XHT to XaheenRouter
-✅ Authorized 100K XHT topup for BSC
+✅ Minted 100K wrapped NOR to NorRouter
+✅ Authorized 100K NOR topup for BSC
 ✅ Initialization complete!
 ```
 
@@ -233,7 +233,7 @@ Complete deployment information with all contract addresses:
 ```json
 {
   "hub": {
-    "network": "Xaheen Chain Mainnet",
+    "network": "Nor Chain Mainnet",
     "chainId": 65001,
     "hub": {
       "xhtToken": "0x...",
@@ -246,7 +246,7 @@ Complete deployment information with all contract addresses:
     "network": "BSC Mainnet",
     "chainId": 56,
     "contracts": {
-      "wrappedXHT": "0x...",
+      "wrappedNOR": "0x...",
       "settlementInbox": "0x...",
       "xaheenRouter": "0x..."
     }
@@ -265,7 +265,7 @@ HUB_PRICE_AUTHORITY=0x...
 # Spoke contracts
 SPOKE_BSC_SETTLEMENT_INBOX=0x...
 SPOKE_BSC_XAHEEN_ROUTER=0x...
-SPOKE_BSC_WRAPPED_XHT=0x...
+SPOKE_BSC_WRAPPED_NOR=0x...
 ```
 
 ---
@@ -304,8 +304,8 @@ npm run dev
 **Expected output**:
 ```
 Server running on port 4000
-🌉 Initializing Xaheen Bridge Relayer...
-💰 Hub balance: 10.0 XHT
+🌉 Initializing Nor Bridge Relayer...
+💰 Hub balance: 10.0 NOR
 💰 BSC Mainnet balance: 0.1 BNB
 👂 Listening for Fill events on BSC Mainnet (Chain 56)
 ✅ Bridge relayer started successfully
@@ -320,7 +320,7 @@ RELAYER_ADDRESS=0x...
 
 # Fund with gas
 # BSC: Send 0.1 BNB for ongoing operations
-# Xaheen: Send 10 XHT for ongoing operations
+# Nor: Send 10 NOR for ongoing operations
 ```
 
 ### 3. Test with Real Transfer
@@ -328,7 +328,7 @@ RELAYER_ADDRESS=0x...
 ```bash
 # Execute a small test trade
 # 1. Get signed quote from PriceAuthority
-# 2. Call xaheenRouter.buyXHT() on BSC
+# 2. Call xaheenRouter.buyNOR() on BSC
 # 3. Verify Fill event emitted
 # 4. Check relayer logs for forwarding
 # 5. Confirm settlement on hub
@@ -351,7 +351,7 @@ curl http://localhost:4000/api/bridge/transfers
 
 ## ⚠️ Important Warnings
 
-1. **REAL FUNDS**: This is MAINNET deployment with REAL BNB and XHT
+1. **REAL FUNDS**: This is MAINNET deployment with REAL BNB and NOR
 2. **IRREVERSIBLE**: Once deployed, contracts cannot be undeployed
 3. **TEST FIRST**: Consider testing on testnet if you haven't already
 4. **SECURITY**: Use a dedicated relayer wallet, NOT your main wallet
@@ -366,7 +366,7 @@ curl http://localhost:4000/api/bridge/transfers
 
 **Hub deployment fails**:
 ```bash
-# Check XHT balance
+# Check NOR balance
 curl -X POST https://rpc.xaheen.org \
   -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xdD779a290C937144F80Eb75b75d814c834536B1b","latest"],"id":1}'
@@ -423,7 +423,7 @@ Before deploying, verify:
 - [x] `XAHEEN_CHAIN_RPC` is configured
 - [x] `BSC_MAINNET_RPC` is configured
 - [x] Deployer has sufficient BNB (0.082 BNB ✅)
-- [x] Deployer has sufficient XHT (20B XHT ✅)
+- [x] Deployer has sufficient NOR (20B NOR ✅)
 - [x] All deployment scripts created
 - [x] Deployment orchestrator is executable
 - [ ] **User confirmation to proceed**
@@ -464,7 +464,7 @@ Once deployed and tested:
 
 1. **Launch marketing campaign** (budget: $6K-$17K from MARKETING_CAMPAIGN.md)
 2. **Target $200K daily volume** by Month 3
-3. **Bridge fees**: 0.1% BSC→Xaheen, 0.2% Xaheen→BSC
+3. **Bridge fees**: 0.1% BSC→Nor, 0.2% Nor→BSC
 4. **Monthly revenue potential**: $20K-$50K+ (at target volume)
 
 **Time to revenue**: 2-4 weeks from deployment

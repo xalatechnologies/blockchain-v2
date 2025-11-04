@@ -8,20 +8,23 @@ import { time, loadFixture } from "@nomicfoundation/hardhat-network-helpers";
  * Tests complete trade flows from spoke to hub settlement
  */
 describe("Cross-Chain DEX Integration Tests", function () {
-
   // Fixture: Deploy entire system (hub + spoke)
   async function deployFullSystemFixture() {
-    const [owner, quoteSigner, relayer, trader, validator] = await ethers.getSigners();
+    const [owner, quoteSigner, relayer, trader, validator] =
+      await ethers.getSigners();
 
-    // ========== DEPLOY HUB CONTRACTS (Xaheen Chain) ==========
+    // ========== DEPLOY HUB CONTRACTS (Nor Chain) ==========
 
     // 1. Deploy Mock DEX Pair
-    const MockDEXPair = await ethers.getContractFactory("MockXaheenDEXPair");
+    const MockDEXPair = await ethers.getContractFactory("MockNorDEXPair");
     const mockPair = await MockDEXPair.deploy();
     await mockPair.waitForDeployment();
 
-    // Initialize with price: 1 XHT = $0.10
-    await mockPair.setPrice(ethers.parseEther("100"), ethers.parseEther("1000"));
+    // Initialize with price: 1 NOR = $0.10
+    await mockPair.setPrice(
+      ethers.parseEther("100"),
+      ethers.parseEther("1000")
+    );
 
     // 2. Deploy PriceAuthority
     const PriceAuthority = await ethers.getContractFactory("PriceAuthority");
@@ -31,16 +34,18 @@ describe("Cross-Chain DEX Integration Tests", function () {
     );
     await priceAuthority.waitForDeployment();
 
-    // 3. Deploy Mock XHT Token
+    // 3. Deploy Mock NOR Token
     const MockERC20 = await ethers.getContractFactory("MockERC20");
-    const xhtToken = await MockERC20.deploy("Xaheen Token", "XHT", 18);
+    const xhtToken = await MockERC20.deploy("Nor Token", "NOR", 18);
     await xhtToken.waitForDeployment();
 
     // Mint initial supply
-    await xhtToken.mint(owner.address, ethers.parseEther("1000000")); // 1M XHT
+    await xhtToken.mint(owner.address, ethers.parseEther("1000000")); // 1M NOR
 
     // 4. Deploy SupplyController
-    const SupplyController = await ethers.getContractFactory("SupplyController");
+    const SupplyController = await ethers.getContractFactory(
+      "SupplyController"
+    );
     const supplyController = await SupplyController.deploy(
       await xhtToken.getAddress(),
       owner.address // Treasury
@@ -62,7 +67,10 @@ describe("Cross-Chain DEX Integration Tests", function () {
 
     // Grant operator role to settlement hub
     const OPERATOR_ROLE = await supplyController.OPERATOR_ROLE();
-    await supplyController.grantRole(OPERATOR_ROLE, await settlementHub.getAddress());
+    await supplyController.grantRole(
+      OPERATOR_ROLE,
+      await settlementHub.getAddress()
+    );
 
     // Configure BSC chain (testnet chainId 97)
     await supplyController.addChain(
@@ -78,9 +86,9 @@ describe("Cross-Chain DEX Integration Tests", function () {
     await usdt.waitForDeployment();
     await usdt.mint(trader.address, 100000e6); // 100K USDT to trader
 
-    // 7. Deploy Wrapped XHT on spoke
-    const wrappedXHT = await MockERC20.deploy("Wrapped XHT", "WXHT", 18);
-    await wrappedXHT.waitForDeployment();
+    // 7. Deploy Wrapped NOR on spoke
+    const wrappedNOR = await MockERC20.deploy("Wrapped NOR", "WNOR", 18);
+    await wrappedNOR.waitForDeployment();
 
     // 8. Deploy SettlementInbox
     const SettlementInbox = await ethers.getContractFactory("SettlementInbox");
@@ -94,10 +102,10 @@ describe("Cross-Chain DEX Integration Tests", function () {
     const mockDEXRouter = await MockDEXRouter.deploy();
     await mockDEXRouter.waitForDeployment();
 
-    // 10. Deploy XaheenRouter
-    const XaheenRouter = await ethers.getContractFactory("XaheenRouter");
-    const xaheenRouter = await XaheenRouter.deploy(
-      await wrappedXHT.getAddress(),
+    // 10. Deploy NorRouter
+    const NorRouter = await ethers.getContractFactory("NorRouter");
+    const xaheenRouter = await NorRouter.deploy(
+      await wrappedNOR.getAddress(),
       await settlementInbox.getAddress(),
       quoteSigner.address,
       await mockDEXRouter.getAddress()
@@ -110,9 +118,12 @@ describe("Cross-Chain DEX Integration Tests", function () {
     // Add USDT as payment token
     await xaheenRouter.addPaymentToken(await usdt.getAddress());
 
-    // Replenish hot inventory (10K XHT)
-    await wrappedXHT.mint(owner.address, ethers.parseEther("10000"));
-    await wrappedXHT.approve(await xaheenRouter.getAddress(), ethers.parseEther("10000"));
+    // Replenish hot inventory (10K NOR)
+    await wrappedNOR.mint(owner.address, ethers.parseEther("10000"));
+    await wrappedNOR.approve(
+      await xaheenRouter.getAddress(),
+      ethers.parseEther("10000")
+    );
     await xaheenRouter.replenishInventory(ethers.parseEther("10000"));
 
     return {
@@ -125,7 +136,7 @@ describe("Cross-Chain DEX Integration Tests", function () {
       // Spoke
       xaheenRouter,
       settlementInbox,
-      wrappedXHT,
+      wrappedNOR,
       usdt,
       mockDEXRouter,
       // Signers
@@ -139,7 +150,7 @@ describe("Cross-Chain DEX Integration Tests", function () {
 
   // ========== SCENARIO 1: HAPPY PATH TRADE ==========
 
-  describe("Scenario 1: Happy Path - Buy XHT", function () {
+  describe("Scenario 1: Happy Path - Buy NOR", function () {
     it("Should complete full trade flow from spoke to hub settlement", async function () {
       const {
         priceAuthority,
@@ -147,11 +158,11 @@ describe("Cross-Chain DEX Integration Tests", function () {
         settlementHub,
         xaheenRouter,
         settlementInbox,
-        wrappedXHT,
+        wrappedNOR,
         usdt,
         quoteSigner,
         relayer,
-        trader
+        trader,
       } = await loadFixture(deployFullSystemFixture);
 
       console.log("\n📊 Scenario 1: Happy Path Trade");
@@ -168,7 +179,9 @@ describe("Cross-Chain DEX Integration Tests", function () {
         ["uint256", "uint256", "uint256"],
         [price, timestamp, nonce]
       );
-      const signature = await quoteSigner.signMessage(ethers.getBytes(messageHash));
+      const signature = await quoteSigner.signMessage(
+        ethers.getBytes(messageHash)
+      );
       const signedQuote = ethers.AbiCoder.defaultAbiCoder().encode(
         ["uint256", "uint256", "uint256", "bytes"],
         [price, timestamp, nonce, signature]
@@ -176,35 +189,48 @@ describe("Cross-Chain DEX Integration Tests", function () {
 
       // Step 3: Trader approves USDT
       const usdtAmount = 1000e6; // 1000 USDT
-      await usdt.connect(trader).approve(await xaheenRouter.getAddress(), usdtAmount);
+      await usdt
+        .connect(trader)
+        .approve(await xaheenRouter.getAddress(), usdtAmount);
       console.log(`2. Trader approved ${usdtAmount / 1e6} USDT`);
 
-      // Step 4: Execute buyXHT on spoke
-      const minXHTOut = ethers.parseEther("9900"); // Expect ~10,000 XHT (1% slippage)
+      // Step 4: Execute buyNOR on spoke
+      const minNOROut = ethers.parseEther("9900"); // Expect ~10,000 NOR (1% slippage)
       const deadline = (await time.latest()) + 300; // 5 minutes
 
-      const balanceBefore = await wrappedXHT.balanceOf(trader.address);
+      const balanceBefore = await wrappedNOR.balanceOf(trader.address);
 
-      await xaheenRouter.connect(trader).buyXHT(
-        await usdt.getAddress(),
-        usdtAmount,
-        minXHTOut,
-        signedQuote,
-        deadline
-      );
+      await xaheenRouter
+        .connect(trader)
+        .buyNOR(
+          await usdt.getAddress(),
+          usdtAmount,
+          minNOROut,
+          signedQuote,
+          deadline
+        );
 
-      const balanceAfter = await wrappedXHT.balanceOf(trader.address);
+      const balanceAfter = await wrappedNOR.balanceOf(trader.address);
       const xhtReceived = balanceAfter - balanceBefore;
-      console.log(`3. Trade executed: Received ${ethers.formatEther(xhtReceived)} XHT`);
+      console.log(
+        `3. Trade executed: Received ${ethers.formatEther(xhtReceived)} NOR`
+      );
 
       // Step 5: Verify Fill event emitted
       const events = await settlementInbox.queryFilter("Fill");
       expect(events.length).to.equal(1);
 
       const fillEvent = events[0];
-      const [fillId, traderAddr, xhtDelta, cashDelta, fillNonce, fillTimestamp] = fillEvent.args;
+      const [
+        fillId,
+        traderAddr,
+        xhtDelta,
+        cashDelta,
+        fillNonce,
+        fillTimestamp,
+      ] = fillEvent.args;
       console.log(`4. Fill event emitted: ${fillId}`);
-      console.log(`   XHT Delta: ${ethers.formatEther(xhtDelta)}`);
+      console.log(`   NOR Delta: ${ethers.formatEther(xhtDelta)}`);
       console.log(`   Cash Delta: ${cashDelta / 1e6} USDT`);
 
       // Step 6: Relayer forwards receipt to SettlementHub
@@ -222,10 +248,28 @@ describe("Cross-Chain DEX Integration Tests", function () {
 
       // Sign receipt with relayer
       const receiptHash = ethers.solidityPackedKeccak256(
-        ["bytes32", "uint64", "address", "int256", "uint256", "uint256", "uint256"],
-        [fillId, 97, traderAddr, xhtDelta, receipt.proceeds, fillTimestamp, fillNonce]
+        [
+          "bytes32",
+          "uint64",
+          "address",
+          "int256",
+          "uint256",
+          "uint256",
+          "uint256",
+        ],
+        [
+          fillId,
+          97,
+          traderAddr,
+          xhtDelta,
+          receipt.proceeds,
+          fillTimestamp,
+          fillNonce,
+        ]
       );
-      const receiptSignature = await relayer.signMessage(ethers.getBytes(receiptHash));
+      const receiptSignature = await relayer.signMessage(
+        ethers.getBytes(receiptHash)
+      );
       receipt.signature = receiptSignature;
 
       await settlementHub.connect(relayer).acknowledgeFill(receipt);
@@ -238,7 +282,9 @@ describe("Cross-Chain DEX Integration Tests", function () {
 
       // Step 8: Check inventory updated on hub
       const [balance] = await supplyController.getChainInventory(97);
-      console.log(`7. Updated spoke inventory: ${ethers.formatEther(balance)} XHT`);
+      console.log(
+        `7. Updated spoke inventory: ${ethers.formatEther(balance)} NOR`
+      );
 
       console.log("\n✅ Happy path test passed!");
     });
@@ -264,7 +310,9 @@ describe("Cross-Chain DEX Integration Tests", function () {
         ["uint256", "uint256", "uint256"],
         [price, timestamp, nonce]
       );
-      const signature = await quoteSigner.signMessage(ethers.getBytes(messageHash));
+      const signature = await quoteSigner.signMessage(
+        ethers.getBytes(messageHash)
+      );
       const signedQuote = ethers.AbiCoder.defaultAbiCoder().encode(
         ["uint256", "uint256", "uint256", "bytes"],
         [price, timestamp, nonce, signature]
@@ -275,20 +323,24 @@ describe("Cross-Chain DEX Integration Tests", function () {
       console.log("1. Quote expired after 61 seconds");
 
       // Step 4: Approve USDT
-      await usdt.connect(trader).approve(await xaheenRouter.getAddress(), 1000e6);
+      await usdt
+        .connect(trader)
+        .approve(await xaheenRouter.getAddress(), 1000e6);
 
       // Step 5: Attempt trade with expired quote
-      const minXHTOut = ethers.parseEther("9900");
+      const minNOROut = ethers.parseEther("9900");
       const deadline = (await time.latest()) + 300;
 
       await expect(
-        xaheenRouter.connect(trader).buyXHT(
-          await usdt.getAddress(),
-          1000e6,
-          minXHTOut,
-          signedQuote,
-          deadline
-        )
+        xaheenRouter
+          .connect(trader)
+          .buyNOR(
+            await usdt.getAddress(),
+            1000e6,
+            minNOROut,
+            signedQuote,
+            deadline
+          )
       ).to.be.revertedWith("Quote expired");
 
       console.log("2. Trade rejected: Quote expired ✅");
@@ -300,7 +352,9 @@ describe("Cross-Chain DEX Integration Tests", function () {
 
   describe("Scenario 3: Inventory Cap Protection", function () {
     it("Should reject topup exceeding 3% cap", async function () {
-      const { supplyController, xhtToken } = await loadFixture(deployFullSystemFixture);
+      const { supplyController, xhtToken } = await loadFixture(
+        deployFullSystemFixture
+      );
 
       console.log("\n🚧 Scenario 3: Inventory Cap");
       console.log("===========================");
@@ -308,8 +362,8 @@ describe("Cross-Chain DEX Integration Tests", function () {
       // Step 1: Check current cap
       const totalSupply = await xhtToken.totalSupply();
       const maxAllowed = (totalSupply * 300n) / 10000n; // 3%
-      console.log(`1. Total supply: ${ethers.formatEther(totalSupply)} XHT`);
-      console.log(`2. Max allowed (3%): ${ethers.formatEther(maxAllowed)} XHT`);
+      console.log(`1. Total supply: ${ethers.formatEther(totalSupply)} NOR`);
+      console.log(`2. Max allowed (3%): ${ethers.formatEther(maxAllowed)} NOR`);
 
       // Step 2: Try to topup beyond cap
       const excessAmount = maxAllowed + ethers.parseEther("1000");
@@ -340,7 +394,9 @@ describe("Cross-Chain DEX Integration Tests", function () {
 
       // Step 2: Create manipulated quote (5% higher)
       const manipulatedPrice = (normalPrice * 105n) / 100n;
-      console.log(`2. Manipulated price: $${ethers.formatEther(manipulatedPrice)} (+5%)`);
+      console.log(
+        `2. Manipulated price: $${ethers.formatEther(manipulatedPrice)} (+5%)`
+      );
 
       // Step 3: Create fake receipt with manipulated price
       const fillId = ethers.randomBytes(32);
@@ -351,7 +407,9 @@ describe("Cross-Chain DEX Integration Tests", function () {
         ["uint256", "uint256", "uint256"],
         [manipulatedPrice, timestamp, nonce]
       );
-      const signature = await quoteSigner.signMessage(ethers.getBytes(messageHash));
+      const signature = await quoteSigner.signMessage(
+        ethers.getBytes(messageHash)
+      );
       const signedQuote = ethers.AbiCoder.defaultAbiCoder().encode(
         ["uint256", "uint256", "uint256", "bytes"],
         [manipulatedPrice, timestamp, nonce, signature]
@@ -362,7 +420,7 @@ describe("Cross-Chain DEX Integration Tests", function () {
         chainId: 97,
         trader: relayer.address,
         xhtDelta: ethers.parseEther("1000"),
-        proceeds: ethers.parseEther("105"), // $105 for 1000 XHT = $0.105/XHT
+        proceeds: ethers.parseEther("105"), // $105 for 1000 NOR = $0.105/NOR
         timestamp,
         nonce: 1,
         signature: "0x",
@@ -371,10 +429,28 @@ describe("Cross-Chain DEX Integration Tests", function () {
 
       // Sign receipt
       const receiptHash = ethers.solidityPackedKeccak256(
-        ["bytes32", "uint64", "address", "int256", "uint256", "uint256", "uint256"],
-        [fillId, 97, relayer.address, receipt.xhtDelta, receipt.proceeds, timestamp, 1]
+        [
+          "bytes32",
+          "uint64",
+          "address",
+          "int256",
+          "uint256",
+          "uint256",
+          "uint256",
+        ],
+        [
+          fillId,
+          97,
+          relayer.address,
+          receipt.xhtDelta,
+          receipt.proceeds,
+          timestamp,
+          1,
+        ]
       );
-      receipt.signature = await relayer.signMessage(ethers.getBytes(receiptHash));
+      receipt.signature = await relayer.signMessage(
+        ethers.getBytes(receiptHash)
+      );
 
       // Step 4: Attempt to process receipt (should trigger circuit breaker)
       await expect(
@@ -413,7 +489,9 @@ describe("Cross-Chain DEX Integration Tests", function () {
         ["uint256", "uint256", "uint256"],
         [price, timestamp, nonce]
       );
-      const signature = await quoteSigner.signMessage(ethers.getBytes(messageHash));
+      const signature = await quoteSigner.signMessage(
+        ethers.getBytes(messageHash)
+      );
       const signedQuote = ethers.AbiCoder.defaultAbiCoder().encode(
         ["uint256", "uint256", "uint256", "bytes"],
         [price, timestamp, nonce, signature]
@@ -432,10 +510,28 @@ describe("Cross-Chain DEX Integration Tests", function () {
       };
 
       const receiptHash = ethers.solidityPackedKeccak256(
-        ["bytes32", "uint64", "address", "int256", "uint256", "uint256", "uint256"],
-        [fillId, 97, relayer.address, receipt.xhtDelta, receipt.proceeds, timestamp, 1]
+        [
+          "bytes32",
+          "uint64",
+          "address",
+          "int256",
+          "uint256",
+          "uint256",
+          "uint256",
+        ],
+        [
+          fillId,
+          97,
+          relayer.address,
+          receipt.xhtDelta,
+          receipt.proceeds,
+          timestamp,
+          1,
+        ]
       );
-      receipt.signature = await relayer.signMessage(ethers.getBytes(receiptHash));
+      receipt.signature = await relayer.signMessage(
+        ethers.getBytes(receiptHash)
+      );
 
       // Step 2: Submit first time (should succeed)
       await settlementHub.connect(relayer).acknowledgeFill(receipt);

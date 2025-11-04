@@ -1,5 +1,5 @@
 /**
- * @title Deploy Noor Chain Oracle Network
+ * @title Deploy Nor Chain Oracle Network
  * @notice Deploys OracleAggregator contracts for all price feeds
  * @dev Run with: npx hardhat run scripts/deploy-oracle-network.js --network btcbr
  */
@@ -27,7 +27,7 @@ const PRICE_FEEDS = [
 ];
 
 async function main() {
-  console.log("\n🌙 Noor Chain Oracle Network Deployment\n");
+  console.log("\n🌙 Nor Chain Oracle Network Deployment\n");
   console.log("=".repeat(60));
 
   const [deployer] = await ethers.getSigners();
@@ -43,16 +43,18 @@ async function main() {
   console.log();
 
   const deployedOracles = {
-    network: "Noor Chain Mainnet",
+    network: "Nor Chain Mainnet",
     chainId: 65001,
     deployer: deployer.address,
     timestamp: new Date().toISOString(),
     oracleNodes: ORACLE_NODES,
-    oracles: {}
+    oracles: {},
   };
 
   try {
-    const OracleAggregator = await ethers.getContractFactory("OracleAggregator");
+    const OracleAggregator = await ethers.getContractFactory(
+      "OracleAggregator"
+    );
 
     // Deploy oracle for each price feed
     for (const feed of PRICE_FEEDS) {
@@ -60,17 +62,14 @@ async function main() {
       console.log(`📊 Deploying ${feed.name} Oracle Aggregator...`);
       console.log("=".repeat(60));
 
-      const oracle = await OracleAggregator.deploy(
-        feed.name,
-        ORACLE_NODES
-      );
+      const oracle = await OracleAggregator.deploy(feed.name, ORACLE_NODES);
 
       await oracle.waitForDeployment();
       const oracleAddress = await oracle.getAddress();
 
       deployedOracles.oracles[feed.symbol] = {
         address: oracleAddress,
-        priceFeed: feed.name
+        priceFeed: feed.name,
       };
 
       console.log(`✅ ${feed.name} Oracle deployed to:`, oracleAddress);
@@ -82,7 +81,11 @@ async function main() {
       const activeOracles = await oracle.getActiveOracles();
 
       console.log(`   Minimum Oracles: ${minimumOracles}`);
-      console.log(`   Staleness Threshold: ${stalenessThreshold} seconds (${Number(stalenessThreshold) / 3600} hours)`);
+      console.log(
+        `   Staleness Threshold: ${stalenessThreshold} seconds (${
+          Number(stalenessThreshold) / 3600
+        } hours)`
+      );
       console.log(`   Deviation Threshold: ${deviationThreshold}%`);
       console.log(`   Active Oracle Count: ${activeOracles.length}`);
       console.log();
@@ -105,17 +108,19 @@ async function main() {
     console.log("\n💾 Deployment info saved to:", deploymentFile);
 
     // Generate oracle node .env file
-    const envContent = `# Noor Chain Oracle Node Configuration
+    const envContent = `# Nor Chain Oracle Node Configuration
 # Generated: ${new Date().toISOString()}
 
 # Blockchain Connection
-ORACLE_RPC_URL=https://rpc.noorchain.org
+ORACLE_RPC_URL=https://rpc.norchain.org
 ORACLE_PRIVATE_KEY=your_oracle_wallet_private_key_here
 
 # Oracle Contract Addresses
-${Object.entries(deployedOracles.oracles).map(([symbol, data]) => {
-  return `${symbol}_ADDRESS=${data.address}`;
-}).join('\n')}
+${Object.entries(deployedOracles.oracles)
+  .map(([symbol, data]) => {
+    return `${symbol}_ADDRESS=${data.address}`;
+  })
+  .join("\n")}
 
 # API Keys (optional but recommended)
 COINGECKO_API_KEY=
@@ -137,10 +142,11 @@ GAS_PRICE_GWEI=1
     console.log("   3. Start oracle nodes on each validator:");
     console.log("      npm start");
     console.log("   4. Monitor oracle submissions:");
-    console.log("      Check blockchain for PriceSubmitted and PriceAggregated events");
+    console.log(
+      "      Check blockchain for PriceSubmitted and PriceAggregated events"
+    );
 
     console.log("\n🌙 Oracle Network Ready! 🌙\n");
-
   } catch (error) {
     console.error("\n❌ Deployment failed:");
     console.error(error);

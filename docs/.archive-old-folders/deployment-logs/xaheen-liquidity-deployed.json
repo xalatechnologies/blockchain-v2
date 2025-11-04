@@ -1,15 +1,15 @@
 {
-  "network": "Xaheen Chain",
+  "network": "Nor Chain",
   "timestamp": "2025-10-31T08:32:52.640Z",
   "pair": "0x59a09aCEb22A5dE82222ddA235490eD7317Eb7f9",
   "router": "0x4A82C98A950125F17943F56273efae39dDe81763",
   "factory": "0xe97D574A2e1B62f4d32C5cfeaFa8e6B99Da020fa",
   "tokens": {
-    "XHT": "0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c",
+    "NOR": "0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c",
     "USDT": "0xA37C1f80Bd02D9d70ce0188831A85c65fdFBeEDe"
   },
   "reserves": {
-    "XHT": "2083333333000000000000000000",
+    "NOR": "2083333333000000000000000000",
     "USDT": "5000000000000000000000"
   },
   "price": "0.0000024000",

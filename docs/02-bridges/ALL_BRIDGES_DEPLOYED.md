@@ -16,10 +16,10 @@ BNBBridgeMainnet: 0x9bEFFFa3b43D34a2B470DA21aab3CA3263D0e8C0
 ```
 https://bscscan.com/address/0x9bEFFFa3b43D34a2B470DA21aab3CA3263D0e8C0
 
-**Xaheen Chain:**
+**Nor Chain:**
 ```
 WBNB Token:       0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B
-BNBBridgeXaheen:  0xB1347E378CE63475b282fCC4E9037D51F189758A
+BNBBridgeNor:  0xB1347E378CE63475b282fCC4E9037D51F189758A
 ```
 
 **Configuration:**
@@ -39,10 +39,10 @@ USDT Token (BSC):  0x55d398326f99059fF775485246999027B3197955
 ```
 https://bscscan.com/address/0x7E1c4448A9d87d5C5478B86085AF4e3715a06f48
 
-**Xaheen Chain:**
+**Nor Chain:**
 ```
 WUSDT Token:        0xA0de216D0bF10E9a40C0666FB3De458e3AEB70F5
-USDTBridgeXaheen:   0x1d24C3c51855d5320d7459E03F2d1a13F7cB6334
+USDTBridgeNor:   0x1d24C3c51855d5320d7459E03F2d1a13F7cB6334
 ```
 
 **Configuration:**
@@ -61,10 +61,10 @@ ETHBridgeMainnet: 0x99883F508F41Ad3750695E68B456A50909f0F3Fe
 ```
 https://bscscan.com/address/0x99883F508F41Ad3750695E68B456A50909f0F3Fe
 
-**Xaheen Chain:**
+**Nor Chain:**
 ```
 WETH Token:       0xF1C1dc0263686093389Fbd66c2951122B2133aEA
-ETHBridgeXaheen:  0x4Ce2954074a2cD465a05dE8518143Cb478A0c913
+ETHBridgeNor:  0x4Ce2954074a2cD465a05dE8518143Cb478A0c913
 ```
 
 **Configuration:**
@@ -108,7 +108,7 @@ Total: $20,000/month ($240,000/year!)
 
 ### Plus DEX Swaps (0.3%)
 
-**After users bridge, they swap for XHT:**
+**After users bridge, they swap for NOR:**
 ```
 $1M bridged → $1M swapped → $3,000/month DEX fees
 
@@ -132,48 +132,48 @@ Total: $8,000/month ($96K/year!)
 
 ---
 
-## 🔄 HOW USERS BUY XHT
+## 🔄 HOW USERS BUY NOR
 
 ### Step 1: User has assets on BSC
 - BNB (buy on Binance, easiest!)
 - USDT (most stable)
 - ETH (if they prefer ETH)
 
-### Step 2: User bridges to Xaheen
+### Step 2: User bridges to Nor
 **Via BSCScan (no UI needed!):**
 1. Go to bridge contract on BSCScan
 2. Connect MetaMask (BSC network)
 3. Call `bridgeBNB(xaheenAddress)` with BNB amount
 4. Wait 30 seconds
-5. Receive WBNB on Xaheen
+5. Receive WBNB on Nor
 
 **Via your bridge UI (if you build one):**
 1. Go to https://xaheen.org/bridge
 2. Select token (BNB/USDT/ETH)
-3. Enter amount and Xaheen address
+3. Enter amount and Nor address
 4. Click "Bridge"
 5. Done!
 
-### Step 3: User adds Xaheen to MetaMask
+### Step 3: User adds Nor to MetaMask
 ```
-Network: Xaheen Chain
+Network: Nor Chain
 RPC: https://rpc.xaheen.org
 Chain ID: 65001
-Symbol: XHT
+Symbol: NOR
 Explorer: https://explorer.xaheen.org
 ```
 
 **Or use 1-click add:**
 https://xaheen.org/add-network (you should build this!)
 
-### Step 4: User swaps for XHT
-- Switch MetaMask to Xaheen network
+### Step 4: User swaps for NOR
+- Switch MetaMask to Nor network
 - Go to your DEX
-- Swap WBNB/WUSDT/WETH → XHT
+- Swap WBNB/WUSDT/WETH → NOR
 - YOU earn 0.3% fee!
 
-### Step 5: User trades XHT
-- Trade XHT/USDT, XHT/BNB, XHT/ETH
+### Step 5: User trades NOR
+- Trade NOR/USDT, NOR/BNB, NOR/ETH
 - YOU earn 0.3% per trade!
 - Revenue forever! 💰
 
@@ -209,14 +209,14 @@ Required signatures: 2 of 3 (multi-sig)
 3. Go to "Write Contract"
 4. Find `bridgeBNB`
 5. Enter:
-   - `recipient`: Your Xaheen address
+   - `recipient`: Your Nor address
    - `payableAmount`: 0.01 BNB
 6. Click "Write"
 7. Confirm transaction
 
 **Wait 30 seconds**
 
-8. Add Xaheen to MetaMask
+8. Add Nor to MetaMask
 9. Check balance: 0.0098 WBNB (0.01 - 0.2% fee)
 
 ### Test USDT Bridge (Cost: ~$10)
@@ -225,7 +225,7 @@ Required signatures: 2 of 3 (multi-sig)
 2. Approve USDT first (if needed)
 3. Call `bridgeUSDT(recipient, amount)`
 4. Wait 30 seconds
-5. Check WUSDT balance on Xaheen
+5. Check WUSDT balance on Nor
 
 ### Test ETH Bridge (Cost: ~$10)
 
@@ -322,9 +322,9 @@ Total: 2.5 hours
 ```
 🌉 Bridges LIVE!
 
-Buy XHT in 3 steps:
+Buy NOR in 3 steps:
 1. Bridge BNB/USDT/ETH from BSC
-2. Swap for XHT on Xaheen DEX
+2. Swap for NOR on Nor DEX
 3. Trade with <$0.01 fees!
 
 Bridge: [link]
@@ -333,11 +333,11 @@ Network: [link]
 
 **Reddit:**
 ```
-[Guide] How to buy XHT
+[Guide] How to buy NOR
 
-Step 1: Add Xaheen to MetaMask
+Step 1: Add Nor to MetaMask
 Step 2: Bridge from BSC (BNB/USDT/ETH)
-Step 3: Swap for XHT
+Step 3: Swap for NOR
 Step 4: Trade! 🚀
 ```
 
@@ -345,7 +345,7 @@ Step 4: Trade! 🚀
 ```
 Bridges are LIVE! 🎉
 
-3 ways to get XHT:
+3 ways to get NOR:
 • Bridge BNB from BSC
 • Bridge USDT from BSC
 • Bridge ETH from BSC
@@ -357,17 +357,17 @@ Fee: 0.2% | Time: 30 sec | Easy!
 
 **If you want trading pairs:**
 ```javascript
-// WBNB/XHT pair (~$400)
+// WBNB/NOR pair (~$400)
 await router.addLiquidity(
   WBNB,
-  XHT,
+  NOR,
   ethers.parseEther("1"),      // 1 WBNB (~$400)
-  ethers.parseEther("400000"), // 400K XHT (~$400)
+  ethers.parseEther("400000"), // 400K NOR (~$400)
   ...
 );
 
-// WUSDT/XHT pair (~$400)
-// WETH/XHT pair (~$400)
+// WUSDT/NOR pair (~$400)
+// WETH/NOR pair (~$400)
 
 Total cost: ~$1,200 for all 3 pairs
 ```
@@ -381,18 +381,18 @@ Total cost: ~$1,200 for all 3 pairs
 ### Unique Selling Points:
 
 1. **Multiple On-Ramps**
-   - "Buy XHT with BNB, USDT, or ETH!"
+   - "Buy NOR with BNB, USDT, or ETH!"
    - "Bridge from BSC in 30 seconds"
 
 2. **Cheap & Fast**
    - "0.2% bridge fee (lower than CEX!)"
    - "30-second transfers"
-   - "<$0.01 transaction fees on Xaheen"
+   - "<$0.01 transaction fees on Nor"
 
 3. **Easy Access**
    - "Buy BNB on Binance (credit card!)"
-   - "Bridge to Xaheen (30 sec)"
-   - "Trade XHT (instant!)"
+   - "Bridge to Nor (30 sec)"
+   - "Trade NOR (instant!)"
 
 4. **Secure**
    - "Multi-signature validation"
@@ -458,7 +458,7 @@ USDT_BRIDGE_BSC=0x7E1c4448A9d87d5C5478B86085AF4e3715a06f48
 ETH_BRIDGE_BSC=0x99883F508F41Ad3750695E68B456A50909f0F3Fe
 ```
 
-**Xaheen Chain:**
+**Nor Chain:**
 ```bash
 WBNB_TOKEN_XAHEEN=0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B
 BNB_BRIDGE_XAHEEN=0xB1347E378CE63475b282fCC4E9037D51F189758A

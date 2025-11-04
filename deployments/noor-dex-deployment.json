@@ -1,14 +1,14 @@
 {
   "timestamp": "2025-11-03T14:07:32Z",
   "chainId": 65001,
-  "network": "Noor Chain",
+  "network": "Nor Chain",
   "rpc": "http://3.91.50.187:8545",
   "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
   "contracts": {
     "BTCBR": "0x0cF8e180350253271f4b917CcFb0aCCc4862F262",
     "WNOR": "0x0f8498072DB1611497e2068f9896aeFfcf173583",
-    "NoorSwapFactory": "0x9f37c0fCc07741C7bF452390F4415820f0E605B7",
-    "NoorSwapRouter": "0x51321281AB0644aed5555b3A306C7AbfFf13c4C2",
+    "NorSwapFactory": "0x9f37c0fCc07741C7bF452390F4415820f0E605B7",
+    "NorSwapRouter": "0x51321281AB0644aed5555b3A306C7AbfFf13c4C2",
     "initCodeHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
   "pairs": [

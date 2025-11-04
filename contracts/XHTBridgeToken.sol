@@ -5,17 +5,17 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
- * @title XHT Bridge Token (BSC Side)
- * @notice Bridged version of XHT on BSC for PancakeSwap trading
- * @dev This is the "World 2" token that connects to Xaheen Chain
+ * @title NOR Bridge Token (BSC Side)
+ * @notice Bridged version of NOR on BSC for PancakeSwap trading
+ * @dev This is the "World 2" token that connects to Nor Chain
  *
  * How it works:
- * 1. User locks XHT on Xaheen Chain
+ * 1. User locks NOR on Nor Chain
  * 2. Bridge mints same amount here on BSC
  * 3. User can trade on PancakeSwap
- * 4. User burns to bridge back to Xaheen
+ * 4. User burns to bridge back to Nor
  */
-contract XHTBridgeToken is ERC20, Ownable {
+contract NORBridgeToken is ERC20, Ownable {
     // Bridge operators (can mint/burn)
     mapping(address => bool) public bridges;
 
@@ -25,7 +25,7 @@ contract XHTBridgeToken is ERC20, Ownable {
     event BridgeDeposit(address indexed from, uint256 amount, string destinationChain, bytes32 txHash);
     event BridgeWithdrawal(address indexed to, uint256 amount, string sourceChain, bytes32 txHash);
 
-    constructor() ERC20("Xaheen Token", "XHT") Ownable() {
+    constructor() ERC20("Nor Token", "NOR") Ownable() {
         // Owner is initial bridge operator
         bridges[msg.sender] = true;
     }
@@ -49,7 +49,7 @@ contract XHTBridgeToken is ERC20, Ownable {
     }
 
     /**
-     * @notice Mint tokens (called by bridge when user locks on Xaheen)
+     * @notice Mint tokens (called by bridge when user locks on Nor)
      * @param to Recipient address
      * @param amount Amount to mint
      */
@@ -59,7 +59,7 @@ contract XHTBridgeToken is ERC20, Ownable {
     }
 
     /**
-     * @notice Burn tokens to bridge back to Xaheen
+     * @notice Burn tokens to bridge back to Nor
      * @param amount Amount to burn
      */
     function bridgeOut(uint256 amount) external {

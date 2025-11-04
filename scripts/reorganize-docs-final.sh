@@ -120,11 +120,11 @@ echo ""
 echo "📖 Step 4: Creating category README files..."
 
 cat > 09-playbook/README.md << 'EOF'
-# 09 - Xaheen Chain Playbook
+# 09 - Nor Chain Playbook
 
-**Xaheen Chain Playbook v3** - Public Master Edition
+**Nor Chain Playbook v3** - Public Master Edition
 
-This directory contains the comprehensive vision, strategy, and technical playbook for Xaheen Chain.
+This directory contains the comprehensive vision, strategy, and technical playbook for Nor Chain.
 
 ## Playbook Parts
 
@@ -133,7 +133,7 @@ This directory contains the comprehensive vision, strategy, and technical playbo
    - Ecosystem overview (Dirhamat, Digital KES, NordCoin, etc.)
    - Core philosophy (ethical, compliant, intelligent, inclusive)
    - Governance and participation model
-   - Token economy (XHT)
+   - Token economy (NOR)
 
 2. **Part 2 – Technical Foundations**
    - Parlia PoSA consensus
@@ -170,13 +170,13 @@ This directory contains the comprehensive vision, strategy, and technical playbo
 ## Key Concepts
 
 **Ecosystem Components**:
-- Xaheen Chain (L1) - Core blockchain
+- Nor Chain (L1) - Core blockchain
 - Dirhamat - AED/Gold-backed stablecoin
 - Digital KES - Kenyan Shilling token
 - NordCoin - Nordic ESG-compliant currency
-- Xaheen Swap (DEX) - Native decentralized exchange
-- Xaheen Bridge - Cross-chain vault system
-- Xaheen Funds - Halal mutual and retirement funds
+- Nor Swap (DEX) - Native decentralized exchange
+- Nor Bridge - Cross-chain vault system
+- Nor Funds - Halal mutual and retirement funds
 - Compliance Core (XCC) - AML/KYC/GDPR framework
 - AI Agents - Autonomous liquidity and compliance management
 
@@ -185,7 +185,7 @@ This directory contains the comprehensive vision, strategy, and technical playbo
 - Block Time: 3 seconds
 - Epoch: 10,000 blocks (~8h 20m)
 - Validators: 3 active + 2 standby
-- Native Token: XHT (21 billion, 24 decimals)
+- Native Token: NOR (21 billion, 24 decimals)
 
 **Philosophy**:
 - Ethical by Design (no riba, no gharar)
@@ -199,7 +199,7 @@ This directory contains the comprehensive vision, strategy, and technical playbo
 ---
 
 **Document Version**: v3.0-2025-11-02
-**Copyright**: © 2025 Xaheen Technologies AS
+**Copyright**: © 2025 Nor Technologies AS
 **Purpose**: Educational and development reference
 EOF
 

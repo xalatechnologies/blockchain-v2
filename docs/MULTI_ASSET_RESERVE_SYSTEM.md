@@ -343,10 +343,10 @@ await vault.recordAudit("QmXxx...audit-report-hash");
 **Contract:** `contracts/reserves/MultiAssetReserveVault.sol`
 **Deployment:** `scripts/deploy-multi-asset-vault.js`
 
-**Audit Requests:** audits@noorchain.org
-**Reserve Inquiries:** reserves@noorchain.org
-**Public Dashboard:** https://reserves.noorchain.org (coming soon)
+**Audit Requests:** audits@norchain.org
+**Reserve Inquiries:** reserves@norchain.org
+**Public Dashboard:** https://reserves.norchain.org (coming soon)
 
 ---
 
-**🌙 Noor Chain - Illuminating Finance with Transparent, Multi-Asset Reserves 🌙**
+**🌙 Nor Chain - Illuminating Finance with Transparent, Multi-Asset Reserves 🌙**

@@ -20,7 +20,7 @@ Your comprehensive documentation bundle covering **"from genesis, validators, co
 1. Genesis Creation
 2. Validator Deployment
 3. Smart Contract Deployment
-4. DEX Deployment (XaheenDEX)
+4. DEX Deployment (NorDEX)
 5. Liquidity Deployment
 6. Liquidity Locks (LP Timelock)
 7. Bridges Deployment
@@ -130,15 +130,15 @@ Your comprehensive documentation bundle covering **"from genesis, validators, co
 - Parlia deadlock resolution
 
 ### ✅ Smart Contracts & DEX
-- WXHT deployment
+- WNOR deployment
 - ERC20 token deployment
-- XaheenDEX (Uniswap V2 fork) deployment
+- NorDEX (Uniswap V2 fork) deployment
 - Contract verification
 
 ### ✅ Liquidity & Trading
 - Initial liquidity pools
-- Token pricing ($0.0000024/XHT)
-- XHT/USDT pair (4.17B XHT : $10K USDT)
+- Token pricing ($0.0000024/NOR)
+- NOR/USDT pair (4.17B NOR : $10K USDT)
 - Additional trading pairs
 - LP balance checks
 
@@ -362,7 +362,7 @@ From genesis to go-live, from blocks to peers, from contracts to bridges - every
 
 **Created**: October 31, 2025
 **Status**: Production-Ready ✅
-**Maintained By**: Xaheen Chain Team
+**Maintained By**: Nor Chain Team
 **Last Updated**: October 31, 2025
 
 ---

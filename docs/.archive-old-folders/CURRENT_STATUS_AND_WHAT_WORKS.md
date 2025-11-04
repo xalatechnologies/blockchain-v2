@@ -1,13 +1,13 @@
 # Current Status: What's Working & What's Needed
 
 **Last Updated**: 2025-10-30
-**Status**: 60% Complete - Xaheen Bridges Deployed, BSC Pending
+**Status**: 60% Complete - Nor Bridges Deployed, BSC Pending
 
 ---
 
 ## ✅ **WHAT'S WORKING (100% Operational)**
 
-### 1. **Xaheen Private Blockchain** ✅
+### 1. **Nor Private Blockchain** ✅
 - **Status**: LIVE and RUNNING
 - **RPC**: rpc.xaheen.org
 - **Chain ID**: 885824
@@ -84,12 +84,12 @@
    - Sell back to test
    - Creates volume, triggers indexing
 
-2. **Use BTCBR on Xaheen Chain**
+2. **Use BTCBR on Nor Chain**
    - Transfer between addresses
    - Trade on internal DEX
    - All token functions work
 
-3. **Burn BTCBR on Xaheen** (for bridge)
+3. **Burn BTCBR on Nor** (for bridge)
    - Bridge contract can burn tokens
    - Emits events for validators
    - Ready for BSC minting (once BSC bridge deployed)
@@ -131,14 +131,14 @@
 2. USER BRIDGES TO BSC
    ↓
    Opens bridge UI
-   Connects MetaMask to Xaheen chain
+   Connects MetaMask to Nor chain
    Clicks "Bridge to BSC"
    Enters: 1000 BTCBR
    Confirms transaction
 
 3. BRIDGE PROCESSES
    ↓
-   Xaheen bridge burns 1000 BTCBR
+   Nor bridge burns 1000 BTCBR
    Validators detect burn event
    2 of 3 validators sign
    Relayer sends to BSC bridge
@@ -185,12 +185,12 @@ npx hardhat run scripts/deploy-and-activate-bridge-complete.js --network bsc
 ### Step 4: Build Validator Relayer (ME - 2 hours)
 ```javascript
 // Node.js service that:
-// 1. Listens to Xaheen bridge burn events
+// 1. Listens to Nor bridge burn events
 // 2. Collects 2 of 3 validator signatures
 // 3. Relays to BSC bridge to release tokens
 // 4. Listens to BSC bridge lock events
 // 5. Collects signatures
-// 6. Relays to Xaheen bridge to mint tokens
+// 6. Relays to Nor bridge to mint tokens
 ```
 **Result**: Automatic bridge relaying ✅
 
@@ -198,7 +198,7 @@ npx hardhat run scripts/deploy-and-activate-bridge-complete.js --network bsc
 ```
 Simple React app with:
 - Connect Wallet
-- Switch Network (Xaheen ↔ BSC)
+- Switch Network (Nor ↔ BSC)
 - Input amount
 - Bridge button
 - Transaction status
@@ -207,10 +207,10 @@ Simple React app with:
 
 ### Step 6: Test End-to-End (US - 30 minutes)
 ```
-1. Bridge 100 BTCBR from Xaheen → BSC
+1. Bridge 100 BTCBR from Nor → BSC
 2. Verify tokens appear on BSC
 3. Trade on PancakeSwap
-4. Bridge back to Xaheen
+4. Bridge back to Nor
 5. Verify everything works
 ```
 **Result**: Proven working system ✅
@@ -230,7 +230,7 @@ Simple React app with:
 
 ### Deployed Contracts:
 
-**Xaheen Chain**:
+**Nor Chain**:
 - BTCBR: 0x0cF8e180350253271f4b917CcFb0aCCc4862F262
 - Bridge: 0x549133B103805F69A266f7322C1D55A665a0D9fa
 - Validators: 3 addresses, 2-of-3 multisig
@@ -245,7 +245,7 @@ Simple React app with:
 - **Min Transfer**: 100 BTCBR
 - **Max Transfer**: 100,000 BTCBR
 - **Daily Limit**: 500,000 BTCBR per address
-- **Fee**: 0.2% (Xaheen → BSC), 0.1% (BSC → Xaheen)
+- **Fee**: 0.2% (Nor → BSC), 0.1% (BSC → Nor)
 - **Required Signatures**: 2 of 3 validators
 
 ---
@@ -259,7 +259,7 @@ Simple React app with:
 - BTCBR: 30,000 tokens
 - XHN: 100,030,000 tokens
 
-**On Xaheen Chain**:
+**On Nor Chain**:
 - BNB: 20,999,997,859 BNB (plenty!)
 - BTCBR: Genesis supply
 - XHN: Available
@@ -273,14 +273,14 @@ Simple React app with:
 - ⏳ XHN on PancakeSwap with liquidity
 
 ### Phase 2: Bridge (50% Complete)
-- ✅ Xaheen bridge deployed and configured
+- ✅ Nor bridge deployed and configured
 - ⏳ BSC bridge deployed and configured
 - ⏳ Validator relayer service operational
 - ⏳ Bridge UI functional
 
 ### Phase 3: Testing (Pending)
-- ⏳ Successful Xaheen → BSC bridge
-- ⏳ Successful BSC → Xaheen bridge
+- ⏳ Successful Nor → BSC bridge
+- ⏳ Successful BSC → Nor bridge
 - ⏳ PancakeSwap trading verified
 - ⏳ End-to-end flow proven
 
@@ -324,16 +324,16 @@ Simple React app with:
 **Overall Progress**: 60% Complete
 
 **Infrastructure**: ✅ 100% Complete
-- Xaheen chain: LIVE
+- Nor chain: LIVE
 - BSC tokens: DEPLOYED
-- Xaheen bridge: DEPLOYED
+- Nor bridge: DEPLOYED
 
 **Liquidity**: ✅ 50% Complete
 - BTCBR: LIVE on PancakeSwap
 - XHN: Pending (needs $14)
 
 **Bridge**: ✅ 40% Complete
-- Xaheen side: DEPLOYED
+- Nor side: DEPLOYED
 - BSC side: Pending (needs $3-5)
 - Relayer: Pending (2 hours work)
 - UI: Pending (2 hours work)
@@ -348,14 +348,14 @@ Simple React app with:
 
 ## 🎉 **Bottom Line**
 
-**What's Working**: Core infrastructure, Xaheen chain, BTCBR trading
+**What's Working**: Core infrastructure, Nor chain, BTCBR trading
 
 **What's Needed**: $14-36 in BNB + 4-5 hours development time
 
 **Timeline**: Can be live in ~6 hours after BNB added!
 
 **Impact**: Complete monetization system allowing users to:
-- Earn on Xaheen (fast, cheap)
+- Earn on Nor (fast, cheap)
 - Bridge to BSC (automated)
 - Trade on PancakeSwap (liquid)
 - Cash out to fiat (real money)

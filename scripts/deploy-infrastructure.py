@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Deploy Oracle and Bridge contracts on Noor Chain
+Deploy Oracle and Bridge contracts on Nor Chain
 """
 
 from web3 import Web3
@@ -64,7 +64,7 @@ def deploy_contract(name, path, *args):
 results = {
     "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ"),
     "chainId": 65001,
-    "network": "Noor Chain",
+    "network": "Nor Chain",
     "deployer": account.address,
     "oracle": {},
     "bridges": {}
@@ -119,7 +119,7 @@ results['bridges']['Tron'] = tron_bridge
 print()
 
 # Save deployment
-with open('deployments/noor-infrastructure-deployment.json', 'w') as f:
+with open('deployments/nor-infrastructure-deployment.json', 'w') as f:
     json.dump(results, f, indent=2)
 
 print("═══════════════════════════════════════════════════════════════════════════")
@@ -134,7 +134,7 @@ print(f"   Ethereum Mainnet: {eth_bridge}")
 print(f"   Private Chain:    {private_bridge}")
 print(f"   Tron:             {tron_bridge}")
 print()
-print("💾 Deployment saved to: deployments/noor-infrastructure-deployment.json")
+print("💾 Deployment saved to: deployments/nor-infrastructure-deployment.json")
 print()
 print("📝 Next Steps:")
 print("   1. Configure oracle price feeds")

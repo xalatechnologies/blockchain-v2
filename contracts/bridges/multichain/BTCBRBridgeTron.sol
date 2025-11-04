@@ -8,7 +8,7 @@ import "./BTCBR_TRC20.sol";
 
 /**
  * @title BTCBRBridgeTron
- * @notice Bridge BTCBR between Xaheen Chain and Tron Network
+ * @notice Bridge BTCBR between Nor Chain and Tron Network
  * @dev Lock/mint mechanism optimized for Tron's low fees
  *      Tron fees: ~$0.01 vs Ethereum $5-50
  *      This makes Tron ideal for retail users and high frequency trading
@@ -34,7 +34,7 @@ contract BTCBRBridgeTron is Ownable, ReentrancyGuard, Pausable {
     uint256 public totalBridged;
     uint256 public accumulatedFees;
 
-    event TransferToXaheen(
+    event TransferToNor(
         address indexed from,
         address indexed xaheenRecipient,
         uint256 amount,
@@ -42,7 +42,7 @@ contract BTCBRBridgeTron is Ownable, ReentrancyGuard, Pausable {
         bytes32 indexed transferId
     );
 
-    event TransferFromXaheen(
+    event TransferFromNor(
         bytes32 indexed transferId,
         address indexed to,
         uint256 amount
@@ -57,11 +57,11 @@ contract BTCBRBridgeTron is Ownable, ReentrancyGuard, Pausable {
     }
 
     /**
-     * @notice Bridge BTCBR-TRC20 from Tron to Xaheen Chain
-     * @param xaheenRecipient Address on Xaheen Chain
+     * @notice Bridge BTCBR-TRC20 from Tron to Nor Chain
+     * @param xaheenRecipient Address on Nor Chain
      * @param amount Amount to bridge
      */
-    function bridgeToXaheen(
+    function bridgeToNor(
         address xaheenRecipient,
         uint256 amount
     ) external nonReentrant whenNotPaused returns (bytes32 transferId) {
@@ -96,7 +96,7 @@ contract BTCBRBridgeTron is Ownable, ReentrancyGuard, Pausable {
 
         totalBridged++;
 
-        emit TransferToXaheen(
+        emit TransferToNor(
             msg.sender,
             xaheenRecipient,
             netAmount,
@@ -108,13 +108,13 @@ contract BTCBRBridgeTron is Ownable, ReentrancyGuard, Pausable {
     }
 
     /**
-     * @notice Complete bridge transfer from Xaheen (validators only)
+     * @notice Complete bridge transfer from Nor (validators only)
      * @param transferId Unique transfer identifier
      * @param recipient Recipient address on Tron
      * @param amount Amount to mint
      * @param signatures Validator signatures
      */
-    function bridgeFromXaheen(
+    function bridgeFromNor(
         bytes32 transferId,
         address recipient,
         uint256 amount,
@@ -131,7 +131,7 @@ contract BTCBRBridgeTron is Ownable, ReentrancyGuard, Pausable {
         // Mint BTCBR-TRC20 on Tron
         btcbrTRC20.bridgeMint(recipient, amount, transferId);
 
-        emit TransferFromXaheen(transferId, recipient, amount);
+        emit TransferFromNor(transferId, recipient, amount);
     }
 
     /**

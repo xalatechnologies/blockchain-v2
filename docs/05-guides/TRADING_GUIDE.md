@@ -1,6 +1,6 @@
-# 🎯 Xaheen Chain DEX - Trading Guide
+# 🎯 Nor Chain DEX - Trading Guide
 
-**Start trading immediately on the Xaheen Chain DEX!**
+**Start trading immediately on the Nor Chain DEX!**
 
 ---
 
@@ -8,13 +8,13 @@
 
 ### Network Configuration
 
-Add Xaheen Chain to MetaMask:
+Add Nor Chain to MetaMask:
 
 ```
-Network Name:     Xaheen Chain
+Network Name:     Nor Chain
 RPC URL:          https://rpc.xaheen.org
 Chain ID:         65001
-Currency Symbol:  XHT
+Currency Symbol:  NOR
 ```
 
 ### Key Contract Addresses
@@ -22,7 +22,7 @@ Currency Symbol:  XHT
 | Contract | Address |
 |----------|---------|
 | **DEX Router** | `0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916` |
-| **WXHT** | `0x26c0eaF731885b14c031cc50dB79b36458E0b355` |
+| **WNOR** | `0x26c0eaF731885b14c031cc50dB79b36458E0b355` |
 | **USDT** | `0xB8fa87a1dAC07e077a51999F5cE79BD236f06acf` |
 | **BNB** | `0xa4cBBcbd8146482E5618c833faFf5fA4C29B78a6` |
 | **ETH** | `0xc6E0cD72723C9409ba221197e06830EB928a7A76` |
@@ -35,13 +35,13 @@ Currency Symbol:  XHT
 
 ```bash
 # Check price
-node scripts/quick-trade.js price WXHT USDT
+node scripts/quick-trade.js price WNOR USDT
 
 # Execute trade
-node scripts/quick-trade.js WXHT USDT 1000
+node scripts/quick-trade.js WNOR USDT 1000
 
 # With custom slippage (2%)
-node scripts/quick-trade.js USDT WXHT 10 2
+node scripts/quick-trade.js USDT WNOR 10 2
 ```
 
 ### Method 2: Web3 JavaScript
@@ -53,7 +53,7 @@ const provider = new ethers.JsonRpcProvider("https://rpc.xaheen.org");
 const wallet = new ethers.Wallet("YOUR_PRIVATE_KEY", provider);
 
 const ROUTER = "0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916";
-const WXHT = "0x26c0eaF731885b14c031cc50dB79b36458E0b355";
+const WNOR = "0x26c0eaF731885b14c031cc50dB79b36458E0b355";
 const USDT = "0xB8fa87a1dAC07e077a51999F5cE79BD236f06acf";
 
 // Router contract
@@ -63,15 +63,15 @@ const router = new ethers.Contract(ROUTER, [
 ], wallet);
 
 // Approve tokens first
-const wxht = new ethers.Contract(WXHT, [
+const wxht = new ethers.Contract(WNOR, [
   "function approve(address spender, uint256 amount) external returns (bool)"
 ], wallet);
 
 await wxht.approve(ROUTER, ethers.MaxUint256);
 
 // Execute swap
-const amountIn = ethers.parseEther("1000"); // 1000 WXHT
-const path = [WXHT, USDT];
+const amountIn = ethers.parseEther("1000"); // 1000 WNOR
+const path = [WNOR, USDT];
 const deadline = Math.floor(Date.now() / 1000) + 600;
 
 const tx = await router.swapExactTokensForTokens(
@@ -95,7 +95,7 @@ w3 = Web3(Web3.HTTPProvider('https://rpc.xaheen.org'))
 account = w3.eth.account.from_key('YOUR_PRIVATE_KEY')
 
 ROUTER = '0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916'
-WXHT = '0x26c0eaF731885b14c031cc50dB79b36458E0b355'
+WNOR = '0x26c0eaF731885b14c031cc50dB79b36458E0b355'
 USDT = '0xB8fa87a1dAC07e077a51999F5cE79BD236f06acf'
 
 # Router ABI (simplified)
@@ -117,7 +117,7 @@ router = w3.eth.contract(address=ROUTER, abi=router_abi)
 
 # Approve and swap
 amount_in = w3.to_wei(1000, 'ether')
-path = [WXHT, USDT]
+path = [WNOR, USDT]
 deadline = int(time.time()) + 600
 
 tx = router.functions.swapExactTokensForTokens(
@@ -143,14 +143,14 @@ receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
 ## 📊 Available Trading Pairs
 
 ### Direct Pairs
-- **WXHT/USDT**: Highest liquidity (500M XHT)
-- **WXHT/BNB**: Moderate liquidity (50M XHT)
-- **WXHT/ETH**: Moderate liquidity (50M XHT)
+- **WNOR/USDT**: Highest liquidity (500M NOR)
+- **WNOR/BNB**: Moderate liquidity (50M NOR)
+- **WNOR/ETH**: Moderate liquidity (50M NOR)
 
 ### Multi-hop Routes
 The DEX automatically routes through multiple pools for best prices:
-- USDT → WXHT → BNB
-- BNB → WXHT → ETH
+- USDT → WNOR → BNB
+- BNB → WNOR → ETH
 - And all reverse combinations
 
 ---
@@ -161,9 +161,9 @@ The DEX automatically routes through multiple pools for best prices:
 
 | Trade Size | Recommended Slippage |
 |------------|----------------------|
-| Small (< 1K WXHT) | 0.5% - 1% |
-| Medium (1K - 10K WXHT) | 1% - 2% |
-| Large (> 10K WXHT) | 2% - 5% |
+| Small (< 1K WNOR) | 0.5% - 1% |
+| Medium (1K - 10K WNOR) | 1% - 2% |
+| Large (> 10K WNOR) | 2% - 5% |
 
 ### 2. Gas Optimization
 
@@ -177,8 +177,8 @@ The DEX automatically routes through multiple pools for best prices:
 
 Check price impact before large trades:
 ```bash
-node scripts/quick-trade.js price WXHT USDT 1
-node scripts/quick-trade.js price WXHT USDT 10000
+node scripts/quick-trade.js price WNOR USDT 1
+node scripts/quick-trade.js price WNOR USDT 10000
 # Compare prices to see impact
 ```
 
@@ -212,12 +212,12 @@ curl -X POST https://rpc.xaheen.org \
 ### Track Your Balance
 
 ```javascript
-const wxht = new ethers.Contract(WXHT_ADDRESS, [
+const wxht = new ethers.Contract(WNOR_ADDRESS, [
   "function balanceOf(address) view returns (uint256)"
 ], provider);
 
 const balance = await wxht.balanceOf(YOUR_ADDRESS);
-console.log("WXHT:", ethers.formatEther(balance));
+console.log("WNOR:", ethers.formatEther(balance));
 ```
 
 ---
@@ -226,7 +226,7 @@ console.log("WXHT:", ethers.formatEther(balance));
 
 ### Current Prices (at launch)
 
-- **XHT/USDT**: ~$0.0000024 per XHT
+- **NOR/USDT**: ~$0.0000024 per NOR
 - **Total Liquidity**: $1,200 USDT + 100 BNB + 2 ETH
 - **24h Volume**: Building...
 
@@ -236,10 +236,10 @@ console.log("WXHT:", ethers.formatEther(balance));
 // Get current price
 const amounts = await router.getAmountsOut(
   ethers.parseEther("1"),
-  [WXHT_ADDRESS, USDT_ADDRESS]
+  [WNOR_ADDRESS, USDT_ADDRESS]
 );
 const price = ethers.formatEther(amounts[1]);
-console.log("1 WXHT =", price, "USDT");
+console.log("1 WNOR =", price, "USDT");
 ```
 
 ---
@@ -247,7 +247,7 @@ console.log("1 WXHT =", price, "USDT");
 ## 🛡️ Security Checklist
 
 Before trading, verify:
-- [ ] Network is Xaheen Chain (Chain ID: 65001)
+- [ ] Network is Nor Chain (Chain ID: 65001)
 - [ ] RPC is https://rpc.xaheen.org
 - [ ] Router address is correct
 - [ ] Token addresses are correct
@@ -326,40 +326,40 @@ const ROUTER_ABI = [
 
 ## 🎯 Trading Examples
 
-### Example 1: Buy USDT with WXHT
+### Example 1: Buy USDT with WNOR
 ```bash
-node scripts/quick-trade.js WXHT USDT 1000
+node scripts/quick-trade.js WNOR USDT 1000
 ```
 
-### Example 2: Sell USDT for WXHT
+### Example 2: Sell USDT for WNOR
 ```bash
-node scripts/quick-trade.js USDT WXHT 10
+node scripts/quick-trade.js USDT WNOR 10
 ```
 
 ### Example 3: Swap BNB to ETH (multi-hop)
 ```bash
-# This automatically routes: BNB → WXHT → ETH
+# This automatically routes: BNB → WNOR → ETH
 node scripts/quick-trade.js BNB ETH 5
 ```
 
 ### Example 4: Check current prices
 ```bash
-node scripts/quick-trade.js price WXHT USDT
-node scripts/quick-trade.js price WXHT BNB
-node scripts/quick-trade.js price WXHT ETH
+node scripts/quick-trade.js price WNOR USDT
+node scripts/quick-trade.js price WNOR BNB
+node scripts/quick-trade.js price WNOR ETH
 ```
 
 ---
 
 ## 🎉 Start Trading Now!
 
-1. **Add Xaheen Chain to MetaMask**
+1. **Add Nor Chain to MetaMask**
 2. **Import token addresses**
-3. **Get some native XHT** (for gas)
-4. **Wrap XHT to WXHT** (using WXHT contract)
+3. **Get some native NOR** (for gas)
+4. **Wrap NOR to WNOR** (using WNOR contract)
 5. **Start trading!**
 
-Happy trading on Xaheen Chain! 🚀
+Happy trading on Nor Chain! 🚀
 
 ---
 

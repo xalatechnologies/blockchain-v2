@@ -4,7 +4,7 @@
 # Complete Mainnet Deployment Script
 #
 # This script orchestrates the full deployment of the cross-chain DEX:
-# 1. Deploy hub contracts to Xaheen Chain
+# 1. Deploy hub contracts to Nor Chain
 # 2. Deploy spoke contracts to BSC Mainnet
 # 3. Allocate BTCBR liquidity
 # 4. Generate configuration for xaheen-sdk API
@@ -56,11 +56,11 @@ echo ""
 echo "⚠️  WARNING: This will deploy to MAINNET with REAL funds!"
 echo ""
 echo "   Deployer: $MAIN_WALLET"
-echo "   Hub chain: Xaheen Chain (65001)"
+echo "   Hub chain: Nor Chain (65001)"
 echo "   Spoke chain: BSC Mainnet (56)"
 echo ""
 echo "   Estimated costs:"
-echo "   - Hub deployment: ~0.05 XHT"
+echo "   - Hub deployment: ~0.05 NOR"
 echo "   - Spoke deployment: ~0.01 BNB (~$6)"
 echo "   - Total: ~$6-10"
 echo ""

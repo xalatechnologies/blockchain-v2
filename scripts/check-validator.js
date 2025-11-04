@@ -9,13 +9,13 @@ dotenvConfig();
 
 async function main() {
   console.log("\n🔍 CHECKING VALIDATOR STATUS\n");
-  console.log("=" .repeat(60));
+  console.log("=".repeat(60));
 
   const [signer] = await ethers.getSigners();
   console.log("💼 Checking address:", signer.address);
 
-  const BNBBridgeXaheen = await ethers.getContractFactory("BNBBridgeXaheen");
-  const bridge = BNBBridgeXaheen.attach(process.env.BNB_BRIDGE_XAHEEN);
+  const BNBBridgeNor = await ethers.getContractFactory("BNBBridgeNor");
+  const bridge = BNBBridgeNor.attach(process.env.BNB_BRIDGE_XAHEEN);
 
   // Check if validator
   const isValidator = await bridge.validators(signer.address);

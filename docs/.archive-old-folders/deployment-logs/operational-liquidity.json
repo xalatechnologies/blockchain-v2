@@ -1,20 +1,20 @@
 {
   "timestamp": "2025-10-30T23:24:20.092Z",
-  "network": "Xaheen Chain",
+  "network": "Nor Chain",
   "pair": "0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8",
   "router": "0x25a4240A868f9F5D5e6b55e5dd355bF2e1F9890a",
   "operationalLiquidity": {
-    "xhtAmount": "2083334497.9161987 XHT",
+    "xhtAmount": "2083334497.9161987 NOR",
     "usdtAmount": "5000.0 USDT",
     "valueUSD": "$10,000",
     "lpTokens": "3227487.020629360571760602 LP tokens",
     "status": "UNLOCKED"
   },
   "totalPool": {
-    "xhtReserve": "4166668415.499216732090420647 WXHT",
+    "xhtReserve": "4166668415.499216732090420647 WNOR",
     "usdtReserve": "9999.998607201144458681 USDT",
     "totalLiquidityUSD": "$20000.00",
-    "price": "$0.0000024000 USDT/XHT"
+    "price": "$0.0000024000 USDT/NOR"
   },
   "breakdown": {
     "locked": {

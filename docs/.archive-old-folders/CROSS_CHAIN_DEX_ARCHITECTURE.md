@@ -1,12 +1,12 @@
 # Cross-Chain DEX Architecture
 
-**Xaheen Chain Global DEX - Technical Architecture**
+**Nor Chain Global DEX - Technical Architecture**
 
 ## Overview
 
-The Xaheen Cross-Chain DEX implements a **Hub-and-Spoke architecture** where Xaheen Chain acts as the central authority for pricing, supply control, and settlement, while spoke chains (BSC, Polygon, Ethereum) serve as execution layers.
+The Nor Cross-Chain DEX implements a **Hub-and-Spoke architecture** where Nor Chain acts as the central authority for pricing, supply control, and settlement, while spoke chains (BSC, Polygon, Ethereum) serve as execution layers.
 
-**Key Innovation:** Users see XHT as a unified token across all major chains (MetaMask, PancakeSwap, QuickSwap, Uniswap), while Xaheen maintains complete control over monetary policy, pricing, and treasury.
+**Key Innovation:** Users see NOR as a unified token across all major chains (MetaMask, PancakeSwap, QuickSwap, Uniswap), while Nor maintains complete control over monetary policy, pricing, and treasury.
 
 ## Architecture Model
 
@@ -31,7 +31,7 @@ The Xaheen Cross-Chain DEX implements a **Hub-and-Spoke architecture** where Xah
 │              (BSC, Polygon, Ethereum)                        │
 │                                                              │
 │  ┌──────────────────────┐      ┌──────────────────────┐    │
-│  │   XaheenRouter       │◄────►│  SettlementInbox     │    │
+│  │   NorRouter       │◄────►│  SettlementInbox     │    │
 │  │   (Dual-Mode)        │      │  (Event Logger)      │    │
 │  │                      │      │                      │    │
 │  │  ┌────────────────┐  │      │  Emits Fill events   │    │
@@ -48,14 +48,14 @@ The Xaheen Cross-Chain DEX implements a **Hub-and-Spoke architecture** where Xah
 └─────────────────────────────────────────────────────────────┘
 ```
 
-## Hub Contracts (Xaheen Chain)
+## Hub Contracts (Nor Chain)
 
 ### 1. PriceAuthority.sol
 
 **Purpose:** Canonical price oracle for all cross-chain trades.
 
 **Key Features:**
-- Reads TWAP from Xaheen DEX (30-minute window)
+- Reads TWAP from Nor DEX (30-minute window)
 - Applies policy spread (±0.25% for revenue)
 - Signs quotes with authorized key
 - Publishes every 30 seconds
@@ -76,7 +76,7 @@ interface IPriceAuthority {
 ```
 
 **Trade Flow:**
-1. PriceAuthority reads `price0CumulativeLast` from XaheenDEXPair
+1. PriceAuthority reads `price0CumulativeLast` from NorDEXPair
 2. Calculates TWAP: `(current_cumulative - old_cumulative) / time_elapsed`
 3. Applies 0.25% spread
 4. Signs quote with authorized key
@@ -84,7 +84,7 @@ interface IPriceAuthority {
 
 ### 2. SupplyController.sol
 
-**Purpose:** Treasury management and XHT supply control across all chains.
+**Purpose:** Treasury management and NOR supply control across all chains.
 
 **Key Features:**
 - Per-chain inventory caps (max 3% circulating supply)
@@ -127,17 +127,17 @@ interface IPriceAuthority {
 ```
 Total Capital: $800,000
 
-Xaheen Chain (Hub): $760,000 (95%)
-├─ XHT/USDT LP: $600,000
-├─ XHT/BNB LP: $100,000
+Nor Chain (Hub): $760,000 (95%)
+├─ NOR/USDT LP: $600,000
+├─ NOR/BNB LP: $100,000
 └─ Treasury Reserve: $60,000 (emergency + buyback)
 
 BSC (Spoke): $20,000 (2.5%)
-├─ XHT/BUSD Public LP: $10,000 (if created)
+├─ NOR/BUSD Public LP: $10,000 (if created)
 └─ Hot Inventory: $10,000 (guaranteed fills)
 
 Polygon (Spoke): $15,000 (1.875%)
-├─ XHT/USDC Public LP: $7,500 (if created)
+├─ NOR/USDC Public LP: $7,500 (if created)
 └─ Hot Inventory: $7,500 (guaranteed fills)
 
 Ethereum (Spoke): $5,000 (0.625%)
@@ -159,7 +159,7 @@ Ethereum (Spoke): $5,000 (0.625%)
 **Settlement Flow:**
 ```
 1. User trades on Spoke (BSC/Polygon/ETH)
-   └─> XaheenRouter executes trade
+   └─> NorRouter executes trade
        └─> SettlementInbox emits Fill event
 
 2. Relayer picks up Fill event
@@ -182,17 +182,17 @@ Ethereum (Spoke): $5,000 (0.625%)
 
 ## Spoke Contracts (BSC, Polygon, Ethereum)
 
-### 1. XaheenRouter.sol
+### 1. NorRouter.sol
 
 **Purpose:** Execute trades on spoke chains using hub quotes.
 
 **Key Innovation: Dual-Mode Routing**
 ```
-User wants to buy XHT on BSC
+User wants to buy NOR on BSC
         │
         ▼
 ┌───────────────────┐
-│ XaheenRouter      │
+│ NorRouter      │
 │ Check LP exists?  │
 └───────┬───────────┘
         │
@@ -212,17 +212,17 @@ User wants to buy XHT on BSC
 
 **Trade Functions:**
 ```solidity
-// Buy XHT with USDT/USDC
-function buyXHT(
+// Buy NOR with USDT/USDC
+function buyNOR(
     address paymentToken,
     uint256 amountIn,
-    uint256 minXHTOut,
+    uint256 minNOROut,
     bytes calldata signedQuote, // From PriceAuthority
     uint256 deadline
 ) external returns (uint256 xhtOut);
 
-// Sell XHT for USDT/USDC
-function sellXHT(
+// Sell NOR for USDT/USDC
+function sellNOR(
     address paymentToken,
     uint256 xhtIn,
     uint256 minPaymentOut,
@@ -262,13 +262,13 @@ Traditional cross-chain models split liquidity across all chains, weakening pric
 ### Solution: Hub-and-Spoke with Minimal Spoke Capital
 
 **Capital Distribution:**
-- **95% on Xaheen Hub** → Deep liquidity, strong price discovery
+- **95% on Nor Hub** → Deep liquidity, strong price discovery
 - **5% on Spokes** → Just enough for visibility and instant fills
 
 **How It Works:**
-1. **Xaheen = Price Authority**
-   - $600K XHT/USDT LP → Determines canonical price
-   - All spoke trades follow Xaheen price (±0.25% spread)
+1. **Nor = Price Authority**
+   - $600K NOR/USDT LP → Determines canonical price
+   - All spoke trades follow Nor price (±0.25% spread)
 
 2. **Spokes = Execution Layers**
    - BSC: $20K → Small showcase LP + hot inventory
@@ -286,7 +286,7 @@ Traditional cross-chain models split liquidity across all chains, weakening pric
 
 With small spoke LPs, external traders could create price deviations. The arbitrage bot ensures:
 - ✅ Price stays within ±0.5% tolerance
-- ✅ Xaheen price remains canonical
+- ✅ Nor price remains canonical
 - ✅ Self-funding (no operational cost)
 - ✅ MEV protection via Flashbots
 
@@ -297,13 +297,13 @@ With small spoke LPs, external traders could create price deviations. The arbitr
 │                  Arbitrage Bot Logic                     │
 ├─────────────────────────────────────────────────────────┤
 │ 1. Monitor Prices (every 30 seconds)                    │
-│    - Xaheen TWAP: $0.10                                 │
+│    - Nor TWAP: $0.10                                 │
 │    - BSC PancakeSwap: $0.1035                           │
 │    - Deviation: 3.5% (above 0.5% threshold)             │
 │                                                          │
 │ 2. Calculate Arbitrage Profit                           │
-│    - Buy 10,000 XHT on Xaheen @ $0.10 = $1,000          │
-│    - Sell 10,000 XHT on BSC @ $0.1035 = $1,035          │
+│    - Buy 10,000 NOR on Nor @ $0.10 = $1,000          │
+│    - Sell 10,000 NOR on BSC @ $0.1035 = $1,035          │
 │    - Gross Profit: $35                                  │
 │    - Gas Cost: $5                                       │
 │    - Net Profit: $30 ✅                                 │
@@ -322,17 +322,17 @@ With small spoke LPs, external traders could create price deviations. The arbitr
 **On BSC:**
 ```
 MetaMask → Add Token
-Contract: 0x[XHT_BSC_ADDRESS]
-Symbol: XHT
-Name: Xaheen Token
+Contract: 0x[NOR_BSC_ADDRESS]
+Symbol: NOR
+Name: Nor Token
 Decimals: 18
 
-Balance: 250 XHT ✅
+Balance: 250 NOR ✅
 ```
 
 **On PancakeSwap:**
 ```
-Swap BUSD → XHT
+Swap BUSD → NOR
 Price: $0.10
 Volume: $240K
 APR: 45%
@@ -341,12 +341,12 @@ Trade like any other token ✅
 ```
 
 **Behind the Scenes:**
-- Price comes from Xaheen PriceAuthority
-- Trade routes through XaheenRouter
-- Settlement happens on Xaheen hub
+- Price comes from Nor PriceAuthority
+- Trade routes through NorRouter
+- Settlement happens on Nor hub
 - User never sees cross-chain mechanics
 
-### For Xaheen Team (Control)
+### For Nor Team (Control)
 
 **Complete Sovereignty:**
 - ✅ Set all prices (via PriceAuthority TWAP)
@@ -406,7 +406,7 @@ Trade like any other token ✅
 
 ## Deployment Sequence
 
-### Phase 1: Hub Deployment (Xaheen Chain)
+### Phase 1: Hub Deployment (Nor Chain)
 
 ```bash
 # 1. Deploy hub contracts
@@ -439,15 +439,15 @@ npx hardhat run scripts/deploy-crosschain-spoke.js --network mainnet
 ### Phase 3: Capital Seeding
 
 ```bash
-# Xaheen Hub: $760K
-# Add liquidity to XHT/USDT and XHT/BNB pools
+# Nor Hub: $760K
+# Add liquidity to NOR/USDT and NOR/BNB pools
 
 # BSC: $20K
-# Option A: Create XHT/BUSD LP on PancakeSwap ($10K)
+# Option A: Create NOR/BUSD LP on PancakeSwap ($10K)
 # Option B: Replenish hot inventory ($20K)
 
 # Polygon: $15K
-# Option A: Create XHT/USDC LP on QuickSwap ($7.5K)
+# Option A: Create NOR/USDC LP on QuickSwap ($7.5K)
 # Option B: Replenish hot inventory ($15K)
 
 # Ethereum: $5K
@@ -504,7 +504,7 @@ Optimistic ($500K/day):
 
 ### Capital Allocation ROI
 
-**Xaheen Hub ($760K):**
+**Nor Hub ($760K):**
 - Deep liquidity → Low slippage
 - Strong price discovery
 - Attracts large trades
@@ -524,7 +524,7 @@ Optimistic ($500K/day):
 ## Next Steps
 
 ### Immediate (Week 1-2)
-- [x] Deploy hub contracts on Xaheen
+- [x] Deploy hub contracts on Nor
 - [ ] Deploy spoke contracts on BSC testnet
 - [ ] Test TWAP calculations
 - [ ] Test quote signing/verification
@@ -549,21 +549,21 @@ Optimistic ($500K/day):
 
 ## Contract Addresses
 
-**Hub Contracts (Xaheen Chain):**
+**Hub Contracts (Nor Chain):**
 - PriceAuthority: `[TBD after deployment]`
 - SupplyController: `[TBD after deployment]`
 - SettlementHub: `[TBD after deployment]`
 
 **Spoke Contracts (BSC):**
-- XaheenRouter: `[TBD after deployment]`
+- NorRouter: `[TBD after deployment]`
 - SettlementInbox: `[TBD after deployment]`
 
 **Spoke Contracts (Polygon):**
-- XaheenRouter: `[TBD after deployment]`
+- NorRouter: `[TBD after deployment]`
 - SettlementInbox: `[TBD after deployment]`
 
 **Spoke Contracts (Ethereum):**
-- XaheenRouter: `[TBD after deployment]`
+- NorRouter: `[TBD after deployment]`
 - SettlementInbox: `[TBD after deployment]`
 
 ---

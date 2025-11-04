@@ -1,4 +1,4 @@
-# XaheenSwap Architecture - Wallet-Based (Non-Custodial)
+# NorSwap Architecture - Wallet-Based (Non-Custodial)
 
 ## High-Level Architecture
 
@@ -50,13 +50,13 @@
 │  (Trustless, Transparent, On-Chain)                     │
 ├─────────────────────────────────────────────────────────┤
 │                                                         │
-│  🔗 Xaheen Chain (https://rpc.xaheen.org)               │
+│  🔗 Nor Chain (https://rpc.xaheen.org)               │
 │                                                         │
 │  ┌───────────────────────────────────────────────────┐  │
 │  │  📜 Smart Contracts (Already Deployed)            │  │
 │  │  ├─ Router: 0x25a4...9890a                        │  │
 │  │  ├─ Factory: 0x3652...A13D                        │  │
-│  │  ├─ Pair (XHT/USDT): 0xa6E8...87EC8               │  │
+│  │  ├─ Pair (NOR/USDT): 0xa6E8...87EC8               │  │
 │  │  └─ All code is public & auditable                │  │
 │  └───────────────────────────────────────────────────┘  │
 │                                                         │
@@ -65,7 +65,7 @@
 
 ---
 
-## Data Flow: User Swaps 100 USDT → XHT
+## Data Flow: User Swaps 100 USDT → NOR
 
 ```
 Step 1: User Visits Frontend
@@ -118,19 +118,19 @@ Step 3: Enter Swap Details
 ┌────────────────────┐
 │ Frontend queries   │
 │ blockchain:        │
-│ "How much XHT?"    │
+│ "How much NOR?"    │
 └────────────────────┘
          ↓
 ┌────────────────────┐
 │ Router contract    │
 │ calculates:        │
-│ 41,666,666 XHT     │
+│ 41,666,666 NOR     │
 └────────────────────┘
          ↓
 ┌────────────────────┐
 │ Frontend shows:    │
 │ "You'll receive    │
-│  41,666,666 XHT"   │
+│  41,666,666 NOR"   │
 └────────────────────┘
 
 Step 4: Execute Swap
@@ -181,7 +181,7 @@ Step 4: Execute Swap
          ↓
 ┌────────────────────┐
 │ User receives      │
-│ 41,666,666 XHT ✅  │
+│ 41,666,666 NOR ✅  │
 └────────────────────┘
 ```
 
@@ -238,7 +238,7 @@ Security:
 └─ Users trust centralized entity
 ```
 
-### Our Model (XaheenSwap):
+### Our Model (NorSwap):
 ```
 User Flow:
 1. User connects wallet → ✅ No registration
@@ -358,24 +358,24 @@ Bob installs MetaMask:
 ├─ Sets password
 └─ Wallet ready ✅
 
-Bob adds Xaheen Chain:
+Bob adds Nor Chain:
 ├─ Opens MetaMask settings
 ├─ Adds custom network:
 │  ├─ RPC: https://rpc.xaheen.org
 │  ├─ Chain ID: 65001
-│  ├─ Symbol: XHT
+│  ├─ Symbol: NOR
 │  └─ Explorer: https://explorer.xaheen.org
-└─ Xaheen Chain added ✅
+└─ Nor Chain added ✅
 
-Bob gets USDT on Xaheen:
+Bob gets USDT on Nor:
 ├─ Bridges from BSC (using bridge UI)
 ├─ Or buys with card (via Moonpay)
-└─ Has 100 USDT on Xaheen ✅
+└─ Has 100 USDT on Nor ✅
 
 Total setup time: 10-15 minutes (first time only)
 ```
 
-**2. Buying XHT (Every Time):**
+**2. Buying NOR (Every Time):**
 ```
 Bob visits swap.xaheen.org:
 ├─ Clicks "Connect Wallet"
@@ -385,10 +385,10 @@ Bob visits swap.xaheen.org:
 
 Bob swaps:
 ├─ Enters: 100 USDT
-├─ Sees: ~41,666,666 XHT
+├─ Sees: ~41,666,666 NOR
 ├─ Clicks "Swap"
 ├─ MetaMask popup → Confirms
-└─ Receives XHT in 3 seconds ✅
+└─ Receives NOR in 3 seconds ✅
 
 Total swap time: 30 seconds
 ```
@@ -398,13 +398,13 @@ Total swap time: 30 seconds
 ```
 Alice already has:
 ├─ MetaMask installed ✅
-├─ Xaheen Chain added ✅
-├─ USDT on Xaheen ✅
+├─ Nor Chain added ✅
+├─ USDT on Nor ✅
 
 Alice swaps:
 ├─ Visits swap.xaheen.org
 ├─ Connects wallet (auto-remembers)
-├─ Swaps USDT → XHT
+├─ Swaps USDT → NOR
 └─ Done in 20 seconds ✅
 ```
 
@@ -416,7 +416,7 @@ Alice swaps:
 
 **Gas Fees (Transaction Costs):**
 ```
-Xaheen Chain (Parlia consensus):
+Nor Chain (Parlia consensus):
 ├─ Swap: ~$0.001 (0.1 cents)
 ├─ Add liquidity: ~$0.002
 ├─ Remove liquidity: ~$0.002
@@ -425,13 +425,13 @@ Xaheen Chain (Parlia consensus):
 
 **Trading Fees:**
 ```
-XaheenSwap (Uniswap V2 model):
+NorSwap (Uniswap V2 model):
 ├─ Swap fee: 0.3%
 ├─ Goes to liquidity providers
 └─ Example: $100 swap = $0.30 fee
 ```
 
-**Total Cost to Buy $100 XHT:**
+**Total Cost to Buy $100 NOR:**
 ```
 $100 USDT
 + $0.30 trading fee (0.3%)
@@ -542,7 +542,7 @@ Deploy to Vercel: 2 minutes
 Setup domain: 5 minutes
 Total: ~2 hours
 
-Users can buy XHT ✅
+Users can buy NOR ✅
 ```
 
 ---

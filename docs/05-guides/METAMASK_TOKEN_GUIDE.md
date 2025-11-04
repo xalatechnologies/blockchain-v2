@@ -13,7 +13,7 @@ When you add `0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B` to MetaMask, the symbo
 ### Step-by-Step for WBNB:
 
 **1. Open MetaMask**
-- Make sure you're on **Xaheen Chain** network
+- Make sure you're on **Nor Chain** network
 - Chain ID should show: 65001
 
 **2. Click "Import tokens"**
@@ -106,7 +106,7 @@ MetaMask shows:
 
 MetaMask tries to read `name()`, `symbol()`, and `decimals()` from the contract, but:
 
-1. **Network delays** - Xaheen RPC might be slow
+1. **Network delays** - Nor RPC might be slow
 2. **Contract not indexed** - MetaMask hasn't cached it yet
 3. **First time** - Token is new, MetaMask doesn't know it
 
@@ -116,7 +116,7 @@ MetaMask tries to read `name()`, `symbol()`, and `decimals()` from the contract,
 
 ## 🔍 HOW TO VERIFY IT'S THE RIGHT TOKEN:
 
-### Method 1: Check on Xaheen Explorer
+### Method 1: Check on Nor Explorer
 
 1. Go to: https://explorer.xaheen.org/address/0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B
 2. Should show:
@@ -151,7 +151,7 @@ You can create a token list file for easy import:
 
 ```json
 {
-  "name": "Xaheen Chain Tokens",
+  "name": "Nor Chain Tokens",
   "version": {
     "major": 1,
     "minor": 0,
@@ -187,7 +187,7 @@ You can create a token list file for easy import:
 ```
 
 **Host this file publicly, then:**
-- MetaMask → Settings → Networks → Xaheen Chain → Token List
+- MetaMask → Settings → Networks → Nor Chain → Token List
 - Add your URL
 
 ---
@@ -197,11 +197,11 @@ You can create a token list file for easy import:
 You should see:
 
 ```
-MetaMask on Xaheen Chain:
+MetaMask on Nor Chain:
 ┌─────────────────────────┐
 │ Assets                  │
 ├─────────────────────────┤
-│ XHT                     │
+│ NOR                     │
 │ 20,189,999,999.86       │
 │                         │
 │ WBNB                    │
@@ -215,7 +215,7 @@ MetaMask on Xaheen Chain:
 
 ### "Invalid address"
 - Check you copied the full address
-- Make sure you're on Xaheen network (Chain ID 65001)
+- Make sure you're on Nor network (Chain ID 65001)
 
 ### "Token already added"
 - Good! It's already there
@@ -240,14 +240,14 @@ After adding WBNB, verify:
 - [ ] Token appears in asset list
 - [ ] Symbol shows as "WBNB"
 - [ ] Balance shows 0.00998 WBNB
-- [ ] Network is Xaheen Chain (65001)
+- [ ] Network is Nor Chain (65001)
 - [ ] Can click token to see details
 
 ---
 
 ## 🔗 USEFUL LINKS:
 
-**Xaheen Explorer:**
+**Nor Explorer:**
 - WBNB: https://explorer.xaheen.org/address/0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B
 - WUSDT: https://explorer.xaheen.org/address/0xA0de216D0bF10E9a40C0666FB3De458e3AEB70F5
 - WETH: https://explorer.xaheen.org/address/0xF1C1dc0263686093389Fbd66c2951122B2133aEA
@@ -261,10 +261,10 @@ After adding WBNB, verify:
 
 Now that you can see your WBNB:
 
-1. **Swap it for XHT** on your DEX
+1. **Swap it for NOR** on your DEX
    - You earn 0.3% fee!
 
-2. **Trade XHT**
+2. **Trade NOR**
    - You earn 0.3% on every trade!
 
 3. **Bridge more assets**

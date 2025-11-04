@@ -12,11 +12,11 @@ interface IWBNBToken {
 }
 
 /**
- * @title BNBBridgeXaheen
- * @notice Bridge contract on Xaheen Chain side
+ * @title BNBBridgeNor
+ * @notice Bridge contract on Nor Chain side
  * @dev Mints WBNB when users lock BNB on BSC
  */
-contract BNBBridgeXaheen is Ownable, Pausable, ReentrancyGuard {
+contract BNBBridgeNor is Ownable, Pausable, ReentrancyGuard {
     using ECDSA for bytes32;
 
     IWBNBToken public immutable wbnb;
@@ -62,8 +62,8 @@ contract BNBBridgeXaheen is Ownable, Pausable, ReentrancyGuard {
     }
 
     /**
-     * @notice Mint WBNB on Xaheen (triggered by BSC bridge deposit)
-     * @param recipient Recipient address on Xaheen
+     * @notice Mint WBNB on Nor (triggered by BSC bridge deposit)
+     * @param recipient Recipient address on Nor
      * @param amount Amount to mint
      * @param nonce Unique transaction nonce from BSC
      * @param signatures Validator signatures

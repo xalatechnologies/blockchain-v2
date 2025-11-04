@@ -20,22 +20,22 @@
 - BTCBR Bridge: 0xa48e7B09Af5ABCfC5eB2657d8d1Afa988B13e424
 - XHN Bridge: 0xB4d455356e273EaFd82E6076AFA639CdB3546750
 
-### On Xaheen Private Chain
+### On Nor Private Chain
 **USD values will NEVER show automatically** because:
 - Private chains not indexed by CoinGecko/CMC
 - MetaMask price feeds only work for public chains
-- This is by design - Xaheen is for earning, BSC is for trading
+- This is by design - Nor is for earning, BSC is for trading
 
 ## How to Convince Investors
 
 ### 1. SHOW THE COMPLETE ECOSYSTEM
 
-**Xaheen Chain (Private)**
+**Nor Chain (Private)**
 - Fast: 3-second blocks
 - Cheap: Nearly zero gas fees
-- Native DEX: Trade XHT ↔ BTCBR instantly
+- Native DEX: Trade NOR ↔ BTCBR instantly
 - NEW FIXED PAIR: 0x57cd11F29869d5B4e9e4a9344817c6B98AAbEB68
-- Liquidity: 10,000 BTCBR + 10,000 XHT ($20k value)
+- Liquidity: 10,000 BTCBR + 10,000 NOR ($20k value)
 
 **BSC Mainnet (Public)**
 - Real liquidity: $153 total across both tokens
@@ -51,7 +51,7 @@
 ### 2. DEMO THE USER JOURNEY
 
 ```
-USER EARNS → Xaheen Chain (fast, cheap)
+USER EARNS → Nor Chain (fast, cheap)
      ↓
 BRIDGE → BSC Mainnet (secure transfer)
      ↓
@@ -68,7 +68,7 @@ CASH OUT → BNB → Fiat
 # Check BSC liquidity
 npx hardhat run scripts/check-balance-bsc.js --network bsc
 
-# Check Xaheen DEX
+# Check Nor DEX
 npx hardhat run scripts/check-pair-status.js --network btcbr
 
 # Show bridge contracts
@@ -78,14 +78,14 @@ cat docs/BRIDGE_DEPLOYMENT_SUCCESS.md
 ### 4. KEY METRICS TO HIGHLIGHT
 
 **Infrastructure (100% Complete)**
-✅ Private blockchain: Xaheen Chain (3s blocks, Parlia consensus)
+✅ Private blockchain: Nor Chain (3s blocks, Parlia consensus)
 ✅ Native DEX with working fees
 ✅ Cross-chain bridges (4 contracts deployed)
-✅ Multi-chain support (Xaheen + BSC, ready for ETH/Tron)
+✅ Multi-chain support (Nor + BSC, ready for ETH/Tron)
 
 **Liquidity (Real Money Deployed)**
 ✅ BSC: $153 in PancakeSwap pools
-✅ Xaheen: $20k equivalent liquidity
+✅ Nor: $20k equivalent liquidity
 ✅ Trading bot generated 30+ transactions
 
 **Security**
@@ -128,7 +128,7 @@ cat docs/BRIDGE_DEPLOYMENT_SUCCESS.md
 4. Generate more trading volume
 
 **To Convince Investors:**
-1. Show working Xaheen DEX (live demo)
+1. Show working Nor DEX (live demo)
 2. Show BSC PancakeSwap pools (real money)
 3. Demonstrate bridge architecture
 4. Present 22 bridge types roadmap
@@ -137,7 +137,7 @@ cat docs/BRIDGE_DEPLOYMENT_SUCCESS.md
 ## CURRENT STATUS
 
 **PRODUCTION READY:**
-✅ Xaheen blockchain
+✅ Nor blockchain
 ✅ Native DEX (fixed fee model)
 ✅ BSC integration
 ✅ Bridge contracts

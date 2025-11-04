@@ -6,18 +6,18 @@
 ---
 
 ## 27 Governance Framework
-Xaheen Chain balances **institutional accountability** with **community participation**.
+Nor Chain balances **institutional accountability** with **community participation**.
 
 ### Governance Layers
 | Layer | Participants | Decision Scope |
 | ------- | -------------- | ---------------- |
-| **Council DAO** | 5 signers (UAE, Kenya, Nordic institutions, Xaheen Foundation) | Protocol changes, validator on/off boarding, treasury allocations |
+| **Council DAO** | 5 signers (UAE, Kenya, Nordic institutions, Nor Foundation) | Protocol changes, validator on/off boarding, treasury allocations |
 | **Validator DAO** | All active validators + delegators | Consensus params, epoch policy |
-| **Community DAO** | Token holders (staked XHT ≥ 10 000) | Grant funding, feature votes |
+| **Community DAO** | Token holders (staked NOR ≥ 10 000) | Grant funding, feature votes |
 | **AI Advisory Layer** | Autonomous agents with read-only rights | Forecast models, risk alerts |
 
 ### Voting Mechanics
-- Weighted 1 vote per XHT (staked).  
+- Weighted 1 vote per NOR (staked).  
 - Minimum participation quorum 15 %.  
 - Council supermajority (3 of 5) for critical actions.  
 - AI Advisors propose parameter tweaks → require DAO approval.
@@ -36,7 +36,7 @@ flowchart TD
 
 28 Compliance Core (XCC)
 
-The Xaheen Compliance Core is a modular smart-contract framework providing AML, KYC, GDPR, and AAOIFI controls.
+The Nor Compliance Core is a modular smart-contract framework providing AML, KYC, GDPR, and AAOIFI controls.
 
 Functions
 	1.	KYC Registry: Off-chain verification hash anchored on-chain.
@@ -61,7 +61,7 @@ sequenceDiagram
 
 29 Regulatory Alignment
 
-Framework	Coverage	Xaheen Implementation
+Framework	Coverage	Nor Implementation
 UAE VARA/ADGM	VASP licensing & stablecoin oversight	Dirhamat issuer licensed; audit proofs on-chain
 Kenya CBK/CMA	Digital KES VASP + fund licensing	Sandbox pilot registered; AML module integrated
 EU GDPR/MiCA	Data protection & crypto-asset issuance	XCC GDPR mode; MiCA e-money alignment
@@ -131,7 +131,7 @@ AI advice is advisory only; human validators retain final authority.
 
 35 Compliance as a Feature
 
-Xaheen’s differentiator: regulatory alignment is native code, not afterthought.
+Nor’s differentiator: regulatory alignment is native code, not afterthought.
 	•	Banks and fintechs can on-board without rewriting compliance processes.
 	•	Public users get transparent auditability and protection.
 	•	Regulators get real-time visibility without controlling funds.

@@ -2,24 +2,24 @@
 
 **Verification Date**: October 30, 2025
 **Chain ID**: 65001
-**Network**: Xaheen Chain
+**Network**: Nor Chain
 **Total Contracts**: 7
 
 ---
 
 ## ✅ VERIFICATION SUMMARY
 
-All 7 contracts have been verified and are operational on Xaheen Chain.
+All 7 contracts have been verified and are operational on Nor Chain.
 
 | # | Contract Name | Address | Bytecode Size | Status |
 |---|---------------|---------|---------------|--------|
 | 1 | BTCBR Token | `0x0cF8e180350253271f4b917CcFb0aCCc4862F262` | 7,340 bytes | ✅ Verified |
-| 2 | XHTStaking | `0xAe1C7ebcbE42C66a7C03A661505Cc39A5963e286` | 10,990 bytes | ✅ Verified |
-| 3 | XHTBurnMechanism | `0xe447647577cc340B0D853F9A8F052E9BF5D673c1` | 9,734 bytes | ✅ Verified |
-| 4 | XHTGovernance | `0xCff12037d60452F18B2D347c8602F03e0C3089C0` | 20,138 bytes | ✅ Verified |
-| 5 | XHTRevenue | `0xE4bC805e5ED3eB8715A27D4CBAdDF510764aAF53` | 11,322 bytes | ✅ Verified |
-| 6 | XHTCrowdfunding | `0xbbb1ec421b156f0442D435A875E5267B8A2FDc39` | 17,962 bytes | ✅ Verified |
-| 7 | XHTCharity | `0x0f8498072DB1611497e2068f9896aeFfcf173583` | 21,940 bytes | ✅ Verified |
+| 2 | NORStaking | `0xAe1C7ebcbE42C66a7C03A661505Cc39A5963e286` | 10,990 bytes | ✅ Verified |
+| 3 | NORBurnMechanism | `0xe447647577cc340B0D853F9A8F052E9BF5D673c1` | 9,734 bytes | ✅ Verified |
+| 4 | NORGovernance | `0xCff12037d60452F18B2D347c8602F03e0C3089C0` | 20,138 bytes | ✅ Verified |
+| 5 | NORRevenue | `0xE4bC805e5ED3eB8715A27D4CBAdDF510764aAF53` | 11,322 bytes | ✅ Verified |
+| 6 | NORCrowdfunding | `0xbbb1ec421b156f0442D435A875E5267B8A2FDc39` | 17,962 bytes | ✅ Verified |
+| 7 | NORCharity | `0x0f8498072DB1611497e2068f9896aeFfcf173583` | 21,940 bytes | ✅ Verified |
 
 **Total Bytecode**: 99,426 bytes
 
@@ -46,22 +46,22 @@ All 7 contracts have been verified and are operational on Xaheen Chain.
 
 ---
 
-### 2. XHTStaking
+### 2. NORStaking
 
 **Address**: `0xAe1C7ebcbE42C66a7C03A661505Cc39A5963e286`
 **Compiler**: Solidity ^0.8.20
 **Optimization**: Enabled (200 runs)
 **License**: MIT
 
-**Source Code Location**: `contracts/tokenomics/XHTStaking.sol`
+**Source Code Location**: `contracts/tokenomics/NORStaking.sol`
 
 **Constructor Arguments**: None
 
 **Contract Features**:
 - Dynamic APY: 8-20% based on network security
 - Lock periods: 0, 90, 180, 365, 1095 days
-- Minimum stake: 1,000 XHT
-- Validator stake: 10,000 XHT
+- Minimum stake: 1,000 NOR
+- Validator stake: 10,000 NOR
 - Voting power multipliers: 1x to 5x
 - Revenue sharing: 50% of ecosystem revenue to stakers
 
@@ -78,14 +78,14 @@ All 7 contracts have been verified and are operational on Xaheen Chain.
 
 ---
 
-### 3. XHTBurnMechanism
+### 3. NORBurnMechanism
 
 **Address**: `0xe447647577cc340B0D853F9A8F052E9BF5D673c1`
 **Compiler**: Solidity ^0.8.20
 **Optimization**: Enabled (200 runs)
 **License**: MIT
 
-**Source Code Location**: `contracts/tokenomics/XHTBurnMechanism.sol`
+**Source Code Location**: `contracts/tokenomics/NORBurnMechanism.sol`
 
 **Constructor Arguments**: None
 
@@ -93,7 +93,7 @@ All 7 contracts have been verified and are operational on Xaheen Chain.
 - Gas fees burn: 50-80% (velocity sink)
 - Validator rewards burn: 10%
 - Bridge fees burn: 5%
-- Minimum supply floor: 100,000,000 XHT
+- Minimum supply floor: 100,000,000 NOR
 - Expected annual burn: 5-10%
 
 **Burn Address**: `0x000000000000000000000000000000000000dEaD`
@@ -105,14 +105,14 @@ All 7 contracts have been verified and are operational on Xaheen Chain.
 
 ---
 
-### 4. XHTGovernance
+### 4. NORGovernance
 
 **Address**: `0xCff12037d60452F18B2D347c8602F03e0C3089C0`
 **Compiler**: Solidity ^0.8.20
 **Optimization**: Enabled (200 runs)
 **License**: MIT
 
-**Source Code Location**: `contracts/tokenomics/XHTGovernance.sol`
+**Source Code Location**: `contracts/tokenomics/NORGovernance.sol`
 
 **Constructor Arguments**:
 - Staking Contract: `0xAe1C7ebcbE42C66a7C03A661505Cc39A5963e286`
@@ -120,7 +120,7 @@ All 7 contracts have been verified and are operational on Xaheen Chain.
 **Contract Features**:
 - Voting period: 7 days
 - Timelock: 2 days (security)
-- Minimum voting power: 10,000 XHT
+- Minimum voting power: 10,000 NOR
 - Quorum requirement: 10% of staked supply
 - Voting power from staking contract (with multipliers)
 
@@ -135,14 +135,14 @@ All 7 contracts have been verified and are operational on Xaheen Chain.
 
 ---
 
-### 5. XHTRevenue
+### 5. NORRevenue
 
 **Address**: `0xE4bC805e5ED3eB8715A27D4CBAdDF510764aAF53`
 **Compiler**: Solidity ^0.8.20
 **Optimization**: Enabled (200 runs)
 **License**: MIT
 
-**Source Code Location**: `contracts/tokenomics/XHTRevenue.sol`
+**Source Code Location**: `contracts/tokenomics/NORRevenue.sol`
 
 **Constructor Arguments**:
 - Staking Contract: `0xAe1C7ebcbE42C66a7C03A661505Cc39A5963e286`
@@ -167,22 +167,22 @@ All 7 contracts have been verified and are operational on Xaheen Chain.
 
 ---
 
-### 6. XHTCrowdfunding
+### 6. NORCrowdfunding
 
 **Address**: `0xbbb1ec421b156f0442D435A875E5267B8A2FDc39`
 **Compiler**: Solidity ^0.8.20
 **Optimization**: Enabled (200 runs)
 **License**: MIT
 
-**Source Code Location**: `contracts/tokenomics/XHTCrowdfunding.sol`
+**Source Code Location**: `contracts/tokenomics/NORCrowdfunding.sol`
 
 **Constructor Arguments**:
 - Revenue Contract: `0xE4bC805e5ED3eB8715A27D4CBAdDF510764aAF53`
 
 **Contract Features**:
-- Platform fee: 2% (goes to XHTRevenue)
-- Minimum goal: 100 XHT
-- Maximum goal: 1,000,000 XHT
+- Platform fee: 2% (goes to NORRevenue)
+- Minimum goal: 100 NOR
+- Maximum goal: 1,000,000 NOR
 - Campaign duration: 7-90 days
 - All-or-Nothing & Flexible Funding models
 - Milestone-based fund releases
@@ -195,14 +195,14 @@ All 7 contracts have been verified and are operational on Xaheen Chain.
 
 ---
 
-### 7. XHTCharity
+### 7. NORCharity
 
 **Address**: `0x0f8498072DB1611497e2068f9896aeFfcf173583`
 **Compiler**: Solidity ^0.8.20
 **Optimization**: Enabled (200 runs)
 **License**: MIT
 
-**Source Code Location**: `contracts/tokenomics/XHTCharity.sol`
+**Source Code Location**: `contracts/tokenomics/NORCharity.sol`
 
 **Constructor Arguments**: None
 
@@ -284,12 +284,12 @@ All source code is available in the repository:
 ```
 contracts/
 ├── tokenomics/
-│   ├── XHTStaking.sol
-│   ├── XHTBurnMechanism.sol
-│   ├── XHTGovernance.sol
-│   ├── XHTRevenue.sol
-│   ├── XHTCrowdfunding.sol
-│   └── XHTCharity.sol
+│   ├── NORStaking.sol
+│   ├── NORBurnMechanism.sol
+│   ├── NORGovernance.sol
+│   ├── NORRevenue.sol
+│   ├── NORCrowdfunding.sol
+│   └── NORCharity.sol
 ```
 
 ### 4. ABI Files
@@ -313,7 +313,7 @@ import { ethers } from "ethers";
 
 const provider = new ethers.JsonRpcProvider("https://rpc.xaheen.org");
 
-// XHTStaking contract
+// NORStaking contract
 const stakingAddress = "0xAe1C7ebcbE42C66a7C03A661505Cc39A5963e286";
 const stakingABI = [...]; // From artifacts
 const staking = new ethers.Contract(stakingAddress, stakingABI, provider);
@@ -339,7 +339,7 @@ When displaying these contracts:
 
 **Deployment Transaction**: See `deployment-xht-tokenomics.json`
 **Deployer Address**: `0xdD779a290C937144F80Eb75b75d814c834536B1b`
-**Total Gas Used**: 0.033256539 XHT
+**Total Gas Used**: 0.033256539 NOR
 **Deployment Date**: October 30, 2025, 11:42 UTC
 
 ---

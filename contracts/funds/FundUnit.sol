@@ -9,7 +9,7 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 /**
  * @title FundUnit
- * @notice Shariah-Compliant Fund Unit Token Standard for Noor Funds
+ * @notice Shariah-Compliant Fund Unit Token Standard for Nor Funds
  * @dev Represents investor positions in halal investment funds
  *
  * Fund Types Supported:

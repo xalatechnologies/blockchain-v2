@@ -23,8 +23,8 @@
 **PART 1: THE OPPORTUNITY (Slides 1-7)**
 - Slide 1: Opening - Investment ask and stage
 - Slide 2: The Problem - Why current blockchains fail
-- Slide 3: Introducing Xaheen - Our solution
-- Slide 4: What Makes Xaheen Unique - Key differentiators
+- Slide 3: Introducing Nor - Our solution
+- Slide 4: What Makes Nor Unique - Key differentiators
 - Slide 5: The Technology - Technical architecture
 - Slide 6: Market Opportunity - $1.2T market size
 - Slide 7: Competitive Landscape - vs Ethereum, Polygon, BSC
@@ -110,7 +110,7 @@ Quick reference for key protections:
 ### **Launch Materials:**
 - **ULTIMATE_STRATEGY.md** - 90-day public launch strategy
 - **SOCIAL_MEDIA_LAUNCH.md** - Ready-to-use content
-- **METAMASK_GUIDE.md** - User guide for adding Xaheen
+- **METAMASK_GUIDE.md** - User guide for adding Nor
 
 ---
 
@@ -217,7 +217,7 @@ Quick reference for key protections:
 - Start with Slide 11 (show what you've built)
 - Emphasize Slide 20 (investor protection)
 - Have laptop ready to demo blockchain live
-- Show MetaMask with Xaheen network added
+- Show MetaMask with Nor network added
 - Execute a live transaction on DEX
 - Show block explorer with real-time blocks
 
@@ -227,7 +227,7 @@ Quick reference for key protections:
 
 **For Investor Inquiries:**
 - Email: investors@xaheen.org
-- Telegram: @XaheenInvestors
+- Telegram: @NorInvestors
 - Calendar: https://calendly.com/xaheen-investors
 
 **For Technical Questions:**
@@ -246,11 +246,11 @@ Quick reference for key protections:
 ### Email Template:
 
 ```
-Subject: Xaheen Chain - Investment Opportunity ($500k Seed Round)
+Subject: Nor Chain - Investment Opportunity ($500k Seed Round)
 
 Hi [Investor Name],
 
-Thank you for your interest in Xaheen Chain. Attached/linked below are our investor materials:
+Thank you for your interest in Nor Chain. Attached/linked below are our investor materials:
 
 1. One-Page Summary (start here): INVESTOR_GUARANTEES_SUMMARY.md
 2. Full Pitch Deck (22 slides): INVESTOR_PITCH_FINAL.md
@@ -278,7 +278,7 @@ I'm happy to answer any questions. Let's schedule a call to discuss further.
 Best regards,
 [Your Name]
 [Title]
-Xaheen Chain
+Nor Chain
 investors@xaheen.org
 ```
 

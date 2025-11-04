@@ -6,14 +6,14 @@ dotenvConfig();
 /**
  * Deploy DEX Infrastructure
  *
- * This script deploys all required infrastructure for the Noor Chain DEX:
+ * This script deploys all required infrastructure for the Nor Chain DEX:
  * 1. WNOR (Wrapped NOR) - ERC-20 wrapper for native NOR
  * 2. Mock USDT - Test USDT token (6 decimals)
- * 3. NoorSwapRouter (if not already deployed)
+ * 3. NorSwapRouter (if not already deployed)
  * 4. LiquidityLock - LP token time-lock vault
  *
  * Requirements:
- * - NoorSwapFactory must be deployed at: 0xbbb1ec421b156f0442D435A875E5267B8A2FDc39
+ * - NorSwapFactory must be deployed at: 0xbbb1ec421b156f0442D435A875E5267B8A2FDc39
  * - NOR Token must be deployed at: 0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c
  * - Dirhamat must be deployed at: 0x7857D6a475498e535969121f1B7B96151E422813
  */
@@ -24,11 +24,15 @@ const NOORSWAP_FACTORY = "0xbbb1ec421b156f0442D435A875E5267B8A2FDc39";
 const DIRHAMAT = "0x7857D6a475498e535969121f1B7B96151E422813";
 
 async function main() {
-  console.log("🚀 Deploying Noor Chain DEX Infrastructure...\n");
+  console.log("🚀 Deploying Nor Chain DEX Infrastructure...\n");
 
   const [deployer] = await ethers.getSigners();
   console.log("📋 Deployer:", deployer.address);
-  console.log("💰 Balance:", ethers.formatEther(await ethers.provider.getBalance(deployer.address)), "NOR\n");
+  console.log(
+    "💰 Balance:",
+    ethers.formatEther(await ethers.provider.getBalance(deployer.address)),
+    "NOR\n"
+  );
 
   // Track deployed contracts
   const deployedContracts = {
@@ -82,12 +86,12 @@ async function main() {
   const usdtBalance = await wusdt.balanceOf(deployer.address);
   console.log("   WUSDT Balance:", ethers.formatEther(usdtBalance), "WUSDT");
   console.log("   ⚠️  NOTE: This is WUSDT (Wrapped USDT) - bridge-compatible");
-  console.log("   📝 For production: Bridge real USDT from BSC → Noor Chain\n");
+  console.log("   📝 For production: Bridge real USDT from BSC → Nor Chain\n");
 
   // ======================
   // 3. Check/Deploy Router
   // ======================
-  console.log("3️⃣ Checking NoorSwapRouter...");
+  console.log("3️⃣ Checking NorSwapRouter...");
 
   // Try to find existing router
   let router;
@@ -95,15 +99,18 @@ async function main() {
 
   try {
     // Check if router exists by querying factory
-    const factory = await ethers.getContractAt("NoorSwapFactory", NOORSWAP_FACTORY);
+    const factory = await ethers.getContractAt(
+      "NorSwapFactory",
+      NOORSWAP_FACTORY
+    );
     // Router might be stored in factory or we need to deploy
-    console.log("   Deploying new NoorSwapRouter...");
+    console.log("   Deploying new NorSwapRouter...");
 
-    const NoorSwapRouter = await ethers.getContractFactory("NoorSwapRouter");
-    router = await NoorSwapRouter.deploy(NOORSWAP_FACTORY, wnorAddress);
+    const NorSwapRouter = await ethers.getContractFactory("NorSwapRouter");
+    router = await NorSwapRouter.deploy(NOORSWAP_FACTORY, wnorAddress);
     await router.waitForDeployment();
     routerAddress = await router.getAddress();
-    console.log("✅ NoorSwapRouter deployed to:", routerAddress);
+    console.log("✅ NorSwapRouter deployed to:", routerAddress);
     deployedContracts.NOORSWAP_ROUTER = routerAddress;
   } catch (error) {
     console.error("   ❌ Error with router:", error.message);
@@ -126,29 +133,43 @@ async function main() {
   // ======================
   // Summary
   // ======================
-  console.log("=" .repeat(70));
+  console.log("=".repeat(70));
   console.log("✅ DEX INFRASTRUCTURE DEPLOYMENT COMPLETE");
-  console.log("=" .repeat(70));
+  console.log("=".repeat(70));
   console.log("\n📋 Deployed Contracts:\n");
 
   console.log("Core Tokens:");
-  console.log(`  NOR Token:        ${deployedContracts.NOR_TOKEN} (pre-deployed)`);
-  console.log(`  WNOR:             ${deployedContracts.WNOR} ⭐ NEW (18 decimals)`);
-  console.log(`  WUSDT:            ${deployedContracts.WUSDT} ⭐ NEW (18 decimals, bridge-ready)`);
-  console.log(`  Dirhamat:         ${deployedContracts.DIRHAMAT} (pre-deployed)`);
+  console.log(
+    `  NOR Token:        ${deployedContracts.NOR_TOKEN} (pre-deployed)`
+  );
+  console.log(
+    `  WNOR:             ${deployedContracts.WNOR} ⭐ NEW (18 decimals)`
+  );
+  console.log(
+    `  WUSDT:            ${deployedContracts.WUSDT} ⭐ NEW (18 decimals, bridge-ready)`
+  );
+  console.log(
+    `  Dirhamat:         ${deployedContracts.DIRHAMAT} (pre-deployed)`
+  );
   console.log("");
 
   console.log("DEX Contracts:");
-  console.log(`  NoorSwapFactory:  ${deployedContracts.NOORSWAP_FACTORY} (pre-deployed)`);
-  console.log(`  NoorSwapRouter:   ${deployedContracts.NOORSWAP_ROUTER} ⭐ NEW`);
+  console.log(
+    `  NorSwapFactory:  ${deployedContracts.NOORSWAP_FACTORY} (pre-deployed)`
+  );
+  console.log(`  NorSwapRouter:   ${deployedContracts.NOORSWAP_ROUTER} ⭐ NEW`);
   console.log(`  LiquidityLock:    ${deployedContracts.LIQUIDITY_LOCK} ⭐ NEW`);
   console.log("");
 
   console.log("🎯 Next Steps:");
-  console.log("  1. Run: npx hardhat run scripts/add-initial-liquidity.js --network btcbr");
+  console.log(
+    "  1. Run: npx hardhat run scripts/add-initial-liquidity.js --network btcbr"
+  );
   console.log("     → This will add $800k liquidity across 3 pairs");
   console.log("");
-  console.log("  2. Run: npx hardhat run scripts/lock-lp-tokens.js --network btcbr");
+  console.log(
+    "  2. Run: npx hardhat run scripts/lock-lp-tokens.js --network btcbr"
+  );
   console.log("     → This will lock all LP tokens for 12 months");
   console.log("");
 

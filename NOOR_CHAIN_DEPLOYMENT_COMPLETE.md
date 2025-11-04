@@ -1,7 +1,7 @@
-# 🌙 Noor Chain Mainnet - Complete Deployment Summary
+# 🌙 Nor Chain Mainnet - Complete Deployment Summary
 
 **Deployment Date:** November 2, 2025
-**Network:** Noor Chain Mainnet
+**Network:** Nor Chain Mainnet
 **Chain ID:** 65001
 **Status:** ✅ **PRODUCTION READY**
 
@@ -9,10 +9,10 @@
 
 ## 🎉 Deployment Complete!
 
-Noor Chain now has a **complete DeFi ecosystem** with:
+Nor Chain now has a **complete DeFi ecosystem** with:
 - ✅ Native NOR Token (21B supply, 24 decimals)
 - ✅ 3 Stablecoins (Dirhamat, Digital KES, NORDCoin)
-- ✅ NoorSwap DEX (Uniswap V2 AMM)
+- ✅ NorSwap DEX (Uniswap V2 AMM)
 - ✅ Decentralized Oracle Network (6 price feeds)
 
 ---
@@ -24,7 +24,7 @@ Noor Chain now has a **complete DeFi ecosystem** with:
 | Contract | Address | Purpose |
 |----------|---------|---------|
 | **NOR Token** | `0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c` | Native utility token (21B supply) |
-| **NoorSwapFactory** | `0xbbb1ec421b156f0442D435A875E5267B8A2FDc39` | DEX factory for liquidity pools |
+| **NorSwapFactory** | `0xbbb1ec421b156f0442D435A875E5267B8A2FDc39` | DEX factory for liquidity pools |
 
 ### 2. Stablecoins (3 Contracts)
 
@@ -65,12 +65,12 @@ Noor Chain now has a **complete DeFi ecosystem** with:
 ### Blockchain Network
 
 ```
-Noor Chain Mainnet
+Nor Chain Mainnet
 ├── Chain ID: 65001
 ├── Consensus: Parlia PoSA (3-second blocks)
 ├── Validators: 3 active
-├── RPC: https://rpc.noorchain.org
-├── Explorer: https://explorer.noorchain.org
+├── RPC: https://rpc.norchain.org
+├── Explorer: https://explorer.norchain.org
 └── Status: ✅ Producing blocks continuously
 ```
 
@@ -349,7 +349,7 @@ await factory.createPair(NOR_ADDRESS, NORD_ADDRESS);
 - [ ] Chainlink integration (hybrid oracles)
 - [ ] Mobile wallet launch
 - [ ] Cross-chain bridges (BSC, Polygon, Ethereum)
-- [ ] Noor Funds (halal investment products)
+- [ ] Nor Funds (halal investment products)
 - [ ] Governance DAO activation
 
 ### Q2 2026 (Scale Phase)
@@ -374,7 +374,7 @@ await factory.createPair(NOR_ADDRESS, NORD_ADDRESS);
 
 ✅ **Complete DeFi Infrastructure**
 - Native token, DEX, stablecoins, oracles all deployed
-- Production-ready on Noor Chain mainnet (Chain ID 65001)
+- Production-ready on Nor Chain mainnet (Chain ID 65001)
 
 ✅ **Multi-Currency Stablecoin Ecosystem**
 - Dirhamat (AED/Gold) - MENA region
@@ -405,7 +405,7 @@ await factory.createPair(NOR_ADDRESS, NORD_ADDRESS);
 
 ## 🎉 Conclusion
 
-**Noor Chain is now a complete, production-ready blockchain with:**
+**Nor Chain is now a complete, production-ready blockchain with:**
 
 | Component | Status | Contracts |
 |-----------|--------|-----------|
@@ -422,7 +422,7 @@ await factory.createPair(NOR_ADDRESS, NORD_ADDRESS);
 ---
 
 **Deployment Completed:** November 2, 2025
-**Network:** Noor Chain Mainnet (Chain ID 65001)
+**Network:** Nor Chain Mainnet (Chain ID 65001)
 **Status:** 🚀 **PRODUCTION READY**
 
-🌙 **Noor Chain - Illuminating the Future of Compliant Finance** 🌙
+🌙 **Nor Chain - Illuminating the Future of Compliant Finance** 🌙

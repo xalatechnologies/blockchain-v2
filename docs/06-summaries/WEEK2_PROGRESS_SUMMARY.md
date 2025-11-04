@@ -20,7 +20,7 @@
 - ✅ Signer and spread updates
 - ✅ Security controls
 
-**Mock Contract:** `contracts/test/MockXaheenDEXPair.sol`
+**Mock Contract:** `contracts/test/MockNorDEXPair.sol`
 
 **Status:** Test files complete, awaiting full dependency installation
 
@@ -53,7 +53,7 @@ Total: 32 comprehensive tests
 - Graceful shutdown handling
 
 #### b) Price Monitor (`src/PriceMonitor.js`) - 180 lines
-- Connects to Xaheen PriceAuthority
+- Connects to Nor PriceAuthority
 - Queries spoke DEX prices (PancakeSwap, QuickSwap, Uniswap)
 - Calculates price deviations
 - Determines arbitrage direction
@@ -89,7 +89,7 @@ Total: 32 comprehensive tests
 | PriceAuthority.sol | 220 | ✅ Complete | TWAP oracle + quote signing |
 | SupplyController.sol | 320 | ✅ Complete | Treasury + inventory management |
 | SettlementHub.sol | 350 | ✅ Complete | Receipt processing + settlement |
-| XaheenRouter.sol | 400 | ✅ Complete | Dual-mode spoke router |
+| NorRouter.sol | 400 | ✅ Complete | Dual-mode spoke router |
 | SettlementInbox.sol | 120 | ✅ Complete | Event logging |
 | **Total** | **1,410** | **100%** | **All core functionality** |
 
@@ -97,7 +97,7 @@ Total: 32 comprehensive tests
 
 | Script | Lines | Status | Networks |
 |--------|-------|--------|----------|
-| deploy-crosschain-hub.js | 150 | ✅ Complete | Xaheen Chain |
+| deploy-crosschain-hub.js | 150 | ✅ Complete | Nor Chain |
 | deploy-crosschain-spoke.js | 180 | ✅ Complete | BSC, Polygon, ETH |
 | **Total** | **330** | **100%** | **All chains** |
 
@@ -163,10 +163,10 @@ Total: 32 comprehensive tests
 
 ```
 Every 30 seconds:
-1. Get Xaheen TWAP: $0.10
+1. Get Nor TWAP: $0.10
 2. Get BSC price: $0.1035 (3.5% deviation ⚠️)
 3. Calculate profit: $26.50 ✅
-4. Execute: Buy Xaheen, sell BSC
+4. Execute: Buy Nor, sell BSC
 5. Result: Prices converge to ±0.5%
 ```
 
@@ -220,7 +220,7 @@ test/
 └── (Updated package.json test script)
 
 contracts/test/
-└── MockXaheenDEXPair.sol        (40 lines)
+└── MockNorDEXPair.sol        (40 lines)
 ```
 
 ### Arbitrage Bot (5 files)
@@ -248,7 +248,7 @@ WEEK2_PROGRESS_SUMMARY.md         (This file)
 
 ### Originally Planned (Week 1-2)
 - ✅ Hub contracts (PriceAuthority, SupplyController, SettlementHub)
-- ✅ Spoke contracts (XaheenRouter, SettlementInbox)
+- ✅ Spoke contracts (NorRouter, SettlementInbox)
 - ✅ Deployment scripts
 - ✅ Unit tests (partial)
 - ✅ Arbitrage bot
@@ -277,7 +277,7 @@ WEEK2_PROGRESS_SUMMARY.md         (This file)
    - Retry logic + finality windows
 
 3. **Testnet Deployment** (8 hours)
-   - Deploy hub on BSC Testnet (mock Xaheen)
+   - Deploy hub on BSC Testnet (mock Nor)
    - Deploy spokes on BSC Testnet, Polygon Mumbai
    - Test full trade flows
 
@@ -318,7 +318,7 @@ WEEK2_PROGRESS_SUMMARY.md         (This file)
 ### Challenges Overcome
 
 1. **Testing Dependencies** - Resolved hardhat-toolbox compatibility
-2. **Mock Contracts** - Created MockXaheenDEXPair for isolated testing
+2. **Mock Contracts** - Created MockNorDEXPair for isolated testing
 3. **Multi-Chain Config** - Unified configuration for all spokes
 4. **Profit Calculation** - Accurate accounting for gas + fees + slippage
 
@@ -363,7 +363,7 @@ WEEK2_PROGRESS_SUMMARY.md         (This file)
 # Compile all contracts
 npx hardhat compile
 
-# Deploy hub on Xaheen
+# Deploy hub on Nor
 npx hardhat run scripts/deploy-crosschain-hub.js --network btcbr
 
 # Deploy spokes
@@ -382,15 +382,15 @@ npm start
 
 ### Critical Addresses (To be filled after deployment)
 
-**Hub (Xaheen Chain):**
+**Hub (Nor Chain):**
 - PriceAuthority: `0x...`
 - SupplyController: `0x...`
 - SettlementHub: `0x...`
 
 **Spokes:**
-- BSC XaheenRouter: `0x...`
-- Polygon XaheenRouter: `0x...`
-- ETH XaheenRouter: `0x...`
+- BSC NorRouter: `0x...`
+- Polygon NorRouter: `0x...`
+- ETH NorRouter: `0x...`
 
 ---
 
@@ -434,8 +434,8 @@ npm start
 ### Ready to Continue?
 
 You now have a **fully functional cross-chain DEX infrastructure**:
-- Control: 95% capital on Xaheen
-- Visibility: XHT on all major chains
+- Control: 95% capital on Nor
+- Visibility: NOR on all major chains
 - Security: Multi-layer defense
 - Revenue: Self-sustaining arbitrage
 

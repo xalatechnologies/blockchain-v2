@@ -2,16 +2,16 @@
 
 **Date:** October 30, 2025
 **Status:** ✅ SUCCESSFULLY LOCKED
-**Network:** Xaheen Chain
+**Network:** Nor Chain
 
 ---
 
 ## 🎯 OBJECTIVE
 
-Lock XaheenSwap liquidity to demonstrate anti-rug commitment and build trust with users and investors.
+Lock NorSwap liquidity to demonstrate anti-rug commitment and build trust with users and investors.
 
 **Original Plan:** Lock 30% via Unicrypt
-**Reality:** Locked 100% via custom timelock (Unicrypt doesn't support Xaheen Chain)
+**Reality:** Locked 100% via custom timelock (Unicrypt doesn't support Nor Chain)
 
 ---
 
@@ -74,10 +74,10 @@ Can Withdraw: false (not yet unlocked)
 
 ### **Underlying Assets Locked**
 ```
-WXHT: 2,083,333,918 tokens (~$5,000)
+WNOR: 2,083,333,918 tokens (~$5,000)
 USDT: 5,000 tokens ($5,000)
 Total Value: ~$10,000 USD
-Price: 1 XHT = $0.0000024 USDT
+Price: 1 NOR = $0.0000024 USDT
 ```
 
 ---
@@ -95,10 +95,10 @@ Price: 1 XHT = $0.0000024 USDT
 ### **Why Custom Timelock > Unicrypt?**
 - **Same Security:** Time-based locking, transparent, verifiable
 - **More Flexible:** Supports multiple lock schedules
-- **Native to Chain:** Works on any EVM chain, including Xaheen
+- **Native to Chain:** Works on any EVM chain, including Nor
 - **Cost-Effective:** No platform fees
 - **Fully Controlled:** We own the contract, no third-party risk
-- **Future-Proof:** Can migrate to Unicrypt later if they add Xaheen support
+- **Future-Proof:** Can migrate to Unicrypt later if they add Nor support
 
 ---
 
@@ -153,13 +153,13 @@ Price: 1 XHT = $0.0000024 USDT
 2. **Transparent & Verifiable** - Custom timelock contract, open source
 3. **Anti-Rug Proof** - Cannot withdraw until October 30, 2026
 4. **First of $150k Target** - Part of larger liquidity security plan
-5. **Custom Solution** - Built for Xaheen Chain (Unicrypt not available)
+5. **Custom Solution** - Built for Nor Chain (Unicrypt not available)
 
 ### **Announcement Template**
 ```markdown
 🔒 XAHEEN LIQUIDITY LOCKED! 🔒
 
-We're excited to announce that 100% of XaheenSwap liquidity ($10,000) is now LOCKED for 12 months!
+We're excited to announce that 100% of NorSwap liquidity ($10,000) is now LOCKED for 12 months!
 
 📊 LOCK DETAILS:
 • Amount: 3.2M LP tokens (100% of supply)
@@ -182,7 +182,7 @@ Lock TX: 0xcddd533de6293df4d952596b0f55c8636de49e5dde83fffdeea3c101d836eda4
 
 This is the FIRST STEP toward our $150k locked liquidity target!
 
-#XaheenChain #DeFi #LiquidityLocked #SafeLaunch #AntiRug
+#NorChain #DeFi #LiquidityLocked #SafeLaunch #AntiRug
 ```
 
 ---
@@ -197,7 +197,7 @@ This is the FIRST STEP toward our $150k locked liquidity target!
 5. ✅ Transparent on-chain verification
 
 ### **Challenges Overcome**
-1. ✅ Unicrypt doesn't support Xaheen Chain → Built custom solution
+1. ✅ Unicrypt doesn't support Nor Chain → Built custom solution
 2. ✅ OpenZeppelin Ownable constructor issue → Fixed by removing parameter
 3. ✅ BigInt scientific notation errors → Used proper BigInt arithmetic
 
@@ -205,7 +205,7 @@ This is the FIRST STEP toward our $150k locked liquidity target!
 - No platform fees (Unicrypt charges ~$100-500)
 - Full control over lock terms
 - Extensible for future locks
-- Native to Xaheen Chain
+- Native to Nor Chain
 - Can migrate to Unicrypt later if needed
 
 ---
@@ -227,7 +227,7 @@ This is the FIRST STEP toward our $150k locked liquidity target!
 ### **Long-term (6-12 Months)**
 1. Add more liquidity ($140k to reach $150k target)
 2. Lock additional portions via timelock
-3. Contact Unicrypt/Team Finance about Xaheen Chain support
+3. Contact Unicrypt/Team Finance about Nor Chain support
 4. Implement governance for lock management
 
 ---
@@ -260,7 +260,7 @@ This is the FIRST STEP toward our $150k locked liquidity target!
 
 | Feature | Unicrypt | Custom Timelock | Winner |
 |---------|----------|-----------------|--------|
-| **Xaheen Chain Support** | ❌ No | ✅ Yes | Custom |
+| **Nor Chain Support** | ❌ No | ✅ Yes | Custom |
 | **Cost** | ~$100-500 | <$0.001 | Custom |
 | **Transparency** | ✅ Yes | ✅ Yes | Tie |
 | **Time-Locked** | ✅ Yes | ✅ Yes | Tie |
@@ -271,7 +271,7 @@ This is the FIRST STEP toward our $150k locked liquidity target!
 | **Third-Party Risk** | ⚠️ Some | ✅ None | Custom |
 | **Future Migration** | ✅ Possible | ✅ Possible | Tie |
 
-**Verdict:** Custom timelock is the RIGHT solution for Xaheen Chain right now. Can migrate to Unicrypt later if they add support.
+**Verdict:** Custom timelock is the RIGHT solution for Nor Chain right now. Can migrate to Unicrypt later if they add support.
 
 ---
 
@@ -283,7 +283,7 @@ LPTokenTimelock:     0x02938F8c35A08126b0be008AaEb0B29B7E48d355
 LP Token (Pair):     0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8
 Router:              0x25a4240A868f9F5D5e6b55e5dd355bF2e1F9890a
 Factory:             0x3652Da488FeF83C3327760f43B01Bad02FFfA13D
-WXHT:                0xeeE0Bf805c80456C539Ec73855b3a9bf81E54862
+WNOR:                0xeeE0Bf805c80456C539Ec73855b3a9bf81E54862
 Test USDT:           0xd16F235BB4b53b448e5ECdE89Cf17568FD91CFaA
 ```
 
@@ -316,7 +316,7 @@ You have successfully:
 - ✅ Created transparent verification
 - ✅ Documented everything comprehensively
 
-**XaheenSwap liquidity is now SAFU! 🛡️**
+**NorSwap liquidity is now SAFU! 🛡️**
 
 ---
 
@@ -342,4 +342,4 @@ You have successfully:
 **Date:** October 30, 2025
 **Next:** Public announcement + landing page
 
-**🚀 XaheenSwap liquidity is locked and ready for launch! 🌊**
+**🚀 NorSwap liquidity is locked and ready for launch! 🌊**

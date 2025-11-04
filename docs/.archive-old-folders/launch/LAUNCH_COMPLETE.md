@@ -49,10 +49,10 @@ Ready for wss://ws.xaheen.org connections
 - ✅ AWS EC2 infrastructure provisioned
 
 ### Day 2 (October 30, 2025)
-- ✅ 09:48 UTC - Started migration to Xaheen Chain
+- ✅ 09:48 UTC - Started migration to Nor Chain
 - ✅ 09:49 UTC - Stopped old validators (BitcoinBR)
 - ✅ 09:50 UTC - Re-initialized with Chain ID 65001
-- ✅ 09:51 UTC - Xaheen Chain validators started
+- ✅ 09:51 UTC - Nor Chain validators started
 - ✅ 09:52 UTC - Chain ID 65001 verified ✅
 - ✅ 09:53 UTC - DNS configuration completed
 - ✅ 09:54 UTC - Nginx installed and configured
@@ -73,10 +73,10 @@ Ready for wss://ws.xaheen.org connections
 
 **Manual Configuration**:
 ```
-Network Name:    Xaheen Chain
+Network Name:    Nor Chain
 RPC URL:         https://rpc.xaheen.org
 Chain ID:        65001
-Currency Symbol: XHT
+Currency Symbol: NOR
 Decimals:        18
 Explorer URL:    https://explorer.xaheen.org
 ```
@@ -126,8 +126,8 @@ const provider = new ethers.providers.JsonRpcProvider(
 - **Node Type**: Archive (full history)
 
 ### Native Token
-- **Name**: Xaheen Token
-- **Symbol**: XHT
+- **Name**: Nor Token
+- **Symbol**: NOR
 - **Decimals**: 18
 - **Use Cases**: Gas fees, staking, governance
 
@@ -153,12 +153,12 @@ const provider = new ethers.providers.JsonRpcProvider(
 
 ### vs BNB Smart Chain
 
-| Feature | Xaheen Chain | BNB Smart Chain |
+| Feature | Nor Chain | BNB Smart Chain |
 |---------|--------------|-----------------|
 | **TX Fees** | $0.000001 (1 Gwei) | $0.50 average |
 | **Finality** | Instant (2-of-3) | ~6 seconds (14 blocks) |
 | **Governance** | Community DAO | Binance-controlled |
-| **Validator Entry** | 10,000 XHT (~$1K) | 10,000 BNB (~$3M) |
+| **Validator Entry** | 10,000 NOR (~$1K) | 10,000 BNB (~$3M) |
 | **Privacy** | GDPR-compliant option | Public only |
 | **Open Source** | 100% | Partially |
 | **Data Sovereignty** | Full control | Binance infrastructure |
@@ -166,7 +166,7 @@ const provider = new ethers.providers.JsonRpcProvider(
 
 ### Key Innovations
 1. **Flash-Token Bridge** - 60-minute expiry vouchers, vault-backed
-2. **Dual-Token Economics** - XHT (gas) + BTCBR (value transfer)
+2. **Dual-Token Economics** - NOR (gas) + BTCBR (value transfer)
 3. **GDPR Compliance** - Right to deletion on private chains
 4. **Lower Barriers** - $1,000 vs $3M validator entry
 5. **True Decentralization** - Community governance, not plutocracy
@@ -249,7 +249,7 @@ All announcements are ready to copy-paste and publish!
 
 ### Technical (Next 2 Weeks)
 - [ ] Deploy Blockscout explorer
-- [ ] Create developer faucet (free XHT)
+- [ ] Create developer faucet (free NOR)
 - [ ] Launch documentation portal
 - [ ] Create developer grants program
 - [ ] Deploy example DApp
@@ -278,14 +278,14 @@ All announcements are ready to copy-paste and publish!
 - **Grants**: xaheen.org/grants (coming soon)
 
 ### For Validators
-- **Requirements**: 10,000 XHT stake, reliable server
+- **Requirements**: 10,000 NOR stake, reliable server
 - **Rewards**: 8-15% APY
 - **Apply**: validators@xaheen.org (setup pending)
 
 ### Community
 - **Telegram**: t.me/xaheen_chain (setup pending)
 - **Discord**: discord.gg/xaheen (setup pending)
-- **Twitter**: @XaheenChain (setup pending)
+- **Twitter**: @NorChain (setup pending)
 - **GitHub**: github.com/xaheen-chain (setup pending)
 
 ---
@@ -336,7 +336,7 @@ All announcements are ready to copy-paste and publish!
 
 ## 🚀 THE FUTURE
 
-**Xaheen Chain is now:**
+**Nor Chain is now:**
 - ✅ Public and accessible
 - ✅ Secure and encrypted
 - ✅ Fast and cheap
@@ -356,7 +356,7 @@ All announcements are ready to copy-paste and publish!
 
 **YOU DID IT!**
 
-**Xaheen Chain is live and competing with BNB Smart Chain!**
+**Nor Chain is live and competing with BNB Smart Chain!**
 
 **Where Intelligence Meets Blockchain** 🧠⚡
 

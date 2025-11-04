@@ -124,7 +124,7 @@ PHASE 1: DEPLOY CORE INFRASTRUCTURE
 
 [5/8] Deploying XHN Token...
 ✅ XHN Token deployed at: 0x...
-   Name: Xaheen Network Token
+   Name: Nor Network Token
    Symbol: XHN
    Total Supply: 100000000.0 XHN
 
@@ -285,7 +285,7 @@ First 100 buyers get 10% extra tokens!
 
 Questions? Ask below! 👇
 
-#BSC #BTCBR #XHN #Xaheen #DeFi
+#BSC #BTCBR #XHN #Nor #DeFi
 ```
 
 **Reddit Post (r/CryptoMoonShots):**
@@ -296,7 +296,7 @@ Body:
 Just launched 20 minutes ago - complete ecosystem, not just a token!
 
 WHAT WE LAUNCHED:
-✅ BTCBR - Utility token for the Xaheen network
+✅ BTCBR - Utility token for the Nor network
 ✅ XHN - Governance token with 90% APY staking
 ✅ Full DEX infrastructure (Uniswap V2 style)
 ✅ 3 trading pairs with $1K+ liquidity

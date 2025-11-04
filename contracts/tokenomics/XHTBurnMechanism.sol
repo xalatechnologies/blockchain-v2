@@ -4,23 +4,23 @@ pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
- * @title XHTBurnMechanism
- * @notice Triple burn mechanism for XHT deflationary tokenomics
- * @dev Burns XHT from three sources:
+ * @title NORBurnMechanism
+ * @notice Triple burn mechanism for NOR deflationary tokenomics
+ * @dev Burns NOR from three sources:
  * 1. 50% of gas fees (velocity sink - more usage = more burn)
  * 2. 10% of validator rewards
  * 3. 5% of bridge fees
  *
  * Expected burn rate: 5-10% annually
- * Minimum supply floor: 100M XHT (10% of original 1B)
+ * Minimum supply floor: 100M NOR (10% of original 1B)
  */
-contract XHTBurnMechanism is Ownable {
+contract NORBurnMechanism is Ownable {
 
     // ============ State Variables ============
 
     uint256 public totalBurned;
-    uint256 public constant INITIAL_SUPPLY = 1_000_000_000 ether; // 1 billion XHT
-    uint256 public constant MINIMUM_SUPPLY = 100_000_000 ether;   // 100 million XHT floor
+    uint256 public constant INITIAL_SUPPLY = 1_000_000_000 ether; // 1 billion NOR
+    uint256 public constant MINIMUM_SUPPLY = 100_000_000 ether;   // 100 million NOR floor
 
     uint256 public gasBurnPercentage = 50;      // 50% of gas fees
     uint256 public validatorBurnPercentage = 10; // 10% of validator rewards

@@ -16,7 +16,7 @@ async function main() {
   const ethAbi = [
     "function balanceOf(address) view returns (uint256)",
     "function approve(address spender, uint256 amount) returns (bool)",
-    "function allowance(address owner, address spender) view returns (uint256)"
+    "function allowance(address owner, address spender) view returns (uint256)",
   ];
   const ethToken = new ethers.Contract(ethAddress, ethAbi, wallet);
 
@@ -37,7 +37,7 @@ async function main() {
     "function minTransferAmount() view returns (uint256)",
     "function bridgeFeePercent() view returns (uint256)",
     "function currentNonce() view returns (uint256)",
-    "event BridgeDeposit(address indexed user, address indexed recipient, uint256 amount, uint256 fee, uint256 indexed nonce, uint256 timestamp)"
+    "event BridgeDeposit(address indexed user, address indexed recipient, uint256 amount, uint256 fee, uint256 indexed nonce, uint256 timestamp)",
   ];
   const bridge = new ethers.Contract(bridgeAddress, bridgeAbi, wallet);
 
@@ -45,7 +45,9 @@ async function main() {
 
   // Check fee
   const feePercent = await bridge.bridgeFeePercent();
-  console.log(`Bridge Fee: ${Number(feePercent) / 100}% (${feePercent} basis points)\n`);
+  console.log(
+    `Bridge Fee: ${Number(feePercent) / 100}% (${feePercent} basis points)\n`
+  );
 
   // Test amount: 0.005 ETH (~$12.50)
   const testAmount = ethers.parseEther("0.005");
@@ -54,12 +56,19 @@ async function main() {
   // Calculate expected fee
   const fee = (testAmount * feePercent) / 10000n;
   const netAmount = testAmount - fee;
-  console.log(`Expected Fee: ${ethers.formatEther(fee)} ETH (~$${(parseFloat(ethers.formatEther(fee)) * 2500).toFixed(4)})`);
+  console.log(
+    `Expected Fee: ${ethers.formatEther(fee)} ETH (~$${(
+      parseFloat(ethers.formatEther(fee)) * 2500
+    ).toFixed(4)})`
+  );
   console.log(`Expected Net: ${ethers.formatEther(netAmount)} ETH\n`);
 
   // Step 1: Approve ETH
   console.log("📝 Step 1: Approving ETH...");
-  const currentAllowance = await ethToken.allowance(wallet.address, bridgeAddress);
+  const currentAllowance = await ethToken.allowance(
+    wallet.address,
+    bridgeAddress
+  );
 
   if (currentAllowance < testAmount) {
     const approveTx = await ethToken.approve(bridgeAddress, testAmount);
@@ -71,14 +80,14 @@ async function main() {
   }
 
   // Step 2: Bridge ETH
-  console.log("🌉 Step 2: Bridging ETH to Xaheen Chain...");
-  const recipient = wallet.address; // Same address on Xaheen
+  console.log("🌉 Step 2: Bridging ETH to Nor Chain...");
+  const recipient = wallet.address; // Same address on Nor
 
   const nonceBefore = await bridge.currentNonce();
   console.log(`Current nonce: ${nonceBefore}`);
 
   const bridgeTx = await bridge.bridgeETH(recipient, testAmount, {
-    gasLimit: 500000
+    gasLimit: 500000,
   });
 
   console.log(`Bridge TX: ${bridgeTx.hash}`);
@@ -90,14 +99,14 @@ async function main() {
 
   // Parse event
   const event = receipt.logs
-    .map(log => {
+    .map((log) => {
       try {
         return bridge.interface.parseLog(log);
       } catch (e) {
         return null;
       }
     })
-    .find(e => e && e.name === "BridgeDeposit");
+    .find((e) => e && e.name === "BridgeDeposit");
 
   if (event) {
     console.log("📋 BRIDGE DEPOSIT EVENT:");
@@ -106,15 +115,27 @@ async function main() {
     console.log(`   Amount: ${ethers.formatEther(event.args.amount)} ETH`);
     console.log(`   Fee: ${ethers.formatEther(event.args.fee)} ETH`);
     console.log(`   Nonce: ${event.args.nonce}`);
-    console.log(`   Timestamp: ${new Date(Number(event.args.timestamp) * 1000).toISOString()}\n`);
+    console.log(
+      `   Timestamp: ${new Date(
+        Number(event.args.timestamp) * 1000
+      ).toISOString()}\n`
+    );
   }
 
   console.log("═".repeat(60));
   console.log("\n✅ ETH BRIDGE TEST SUCCESSFUL!\n");
 
   console.log("💰 REVENUE EARNED:");
-  console.log(`   Fee collected: ${ethers.formatEther(fee)} ETH (~$${(parseFloat(ethers.formatEther(fee)) * 2500).toFixed(4)})`);
-  console.log(`   Your cut: 100% = $${(parseFloat(ethers.formatEther(fee)) * 2500).toFixed(4)}\n`);
+  console.log(
+    `   Fee collected: ${ethers.formatEther(fee)} ETH (~$${(
+      parseFloat(ethers.formatEther(fee)) * 2500
+    ).toFixed(4)})`
+  );
+  console.log(
+    `   Your cut: 100% = $${(
+      parseFloat(ethers.formatEther(fee)) * 2500
+    ).toFixed(4)}\n`
+  );
 
   console.log("🎯 NEXT STEPS:");
   console.log("1. Wait 30-60 seconds for validator to mint WETH");

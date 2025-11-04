@@ -22,10 +22,18 @@ dotenvConfig();
 
 const CLEAN_GENESIS_FILE = "./data/genesis-clean.json";
 
-console.log("╔═══════════════════════════════════════════════════════════════════════════╗");
-console.log("║          🌙 NOOR CHAIN - GENERATE CLEAN GENESIS 🌙                       ║");
-console.log("║              Empowering the Future with Light and Trust                  ║");
-console.log("╚═══════════════════════════════════════════════════════════════════════════╝");
+console.log(
+  "╔═══════════════════════════════════════════════════════════════════════════╗"
+);
+console.log(
+  "║          🌙 NOOR CHAIN - GENERATE CLEAN GENESIS 🌙                       ║"
+);
+console.log(
+  "║              Empowering the Future with Light and Trust                  ║"
+);
+console.log(
+  "╚═══════════════════════════════════════════════════════════════════════════╝"
+);
 console.log("");
 
 // Validator addresses (SORTED lexicographically, lowercase)
@@ -45,8 +53,7 @@ console.log("");
 const sortedCheck = [...VALIDATORS].sort((a, b) =>
   a.toLowerCase().localeCompare(b.toLowerCase())
 );
-const isSorted =
-  JSON.stringify(VALIDATORS) === JSON.stringify(sortedCheck);
+const isSorted = JSON.stringify(VALIDATORS) === JSON.stringify(sortedCheck);
 
 if (!isSorted) {
   console.log("❌ ERROR: Validators are NOT sorted correctly!");
@@ -86,7 +93,11 @@ async function generateCleanGenesis() {
 
   console.log("🔧 Step 1: Generating extraData...");
   const extraData = generateExtraData(VALIDATORS);
-  console.log(`   extraData: ${extraData.substring(0, 50)}...${extraData.substring(extraData.length - 10)}`);
+  console.log(
+    `   extraData: ${extraData.substring(0, 50)}...${extraData.substring(
+      extraData.length - 10
+    )}`
+  );
   console.log("");
 
   console.log("💰 Step 2: Creating alloc (pre-funded accounts)...");
@@ -161,13 +172,19 @@ async function generateCleanGenesis() {
   console.log(`   ✅ Saved to ${CLEAN_GENESIS_FILE}`);
 
   console.log("");
-  console.log("╔═══════════════════════════════════════════════════════════════════════════╗");
-  console.log("║          🌙 NOOR CHAIN GENESIS GENERATED SUCCESSFULLY ✅                 ║");
-  console.log("╚═══════════════════════════════════════════════════════════════════════════╝");
+  console.log(
+    "╔═══════════════════════════════════════════════════════════════════════════╗"
+  );
+  console.log(
+    "║          🌙 NOOR CHAIN GENESIS GENERATED SUCCESSFULLY ✅                 ║"
+  );
+  console.log(
+    "╚═══════════════════════════════════════════════════════════════════════════╝"
+  );
   console.log("");
-  console.log("📊 Noor Chain Genesis Summary:");
-  console.log(`   Chain Name: Noor Chain`);
-  console.log(`   Native Token: NOR (Noor Token)`);
+  console.log("📊 Nor Chain Genesis Summary:");
+  console.log(`   Chain Name: Nor Chain`);
+  console.log(`   Native Token: NOR (Nor Token)`);
   console.log(`   Chain ID: 65001`);
   console.log(`   Epoch: 9,000,000 blocks (~1.5 years until boundary)`);
   console.log(`   Block Time: 3 seconds`);
@@ -182,22 +199,28 @@ async function generateCleanGenesis() {
   console.log("");
   console.log("⚠️  IMPORTANT:");
   console.log("   This is a CLEAN GENESIS. All old state removed.");
-  console.log("   Deploy Noor Chain ecosystem from scratch:");
+  console.log("   Deploy Nor Chain ecosystem from scratch:");
   console.log("   - NOR token (native)");
-  console.log("   - WXHT wrapper");
-  console.log("   - NoorSwap DEX (Factory, Router, Pairs)");
-  console.log("   - Halal finance contracts (FundUnit, Shariah Oracle, NAV, Zakat)");
+  console.log("   - WNOR wrapper");
+  console.log("   - NorSwap DEX (Factory, Router, Pairs)");
+  console.log(
+    "   - Halal finance contracts (FundUnit, Shariah Oracle, NAV, Zakat)"
+  );
   console.log("");
   console.log("📋 Next steps:");
-  console.log("   1. Review epoch strategy: docs/00-critical/EPOCH_STRATEGY.md");
-  console.log("   2. Review brand guide: docs/branding/NOOR_CHAIN_BRAND_GUIDE.md");
+  console.log(
+    "   1. Review epoch strategy: docs/00-critical/EPOCH_STRATEGY.md"
+  );
+  console.log(
+    "   2. Review brand guide: docs/branding/NOOR_CHAIN_BRAND_GUIDE.md"
+  );
   console.log("   3. Stop all validators");
   console.log("   4. Clean validator data directories");
-  console.log("   5. Re-initialize with Noor Chain genesis");
+  console.log("   5. Re-initialize with Nor Chain genesis");
   console.log("   6. Start validators and verify block production");
   console.log("   7. Deploy core contracts (Phase 1 of master plan)");
   console.log("");
-  console.log("🌙 Noor Chain - Empowering the Future with Light and Trust");
+  console.log("🌙 Nor Chain - Empowering the Future with Light and Trust");
 
   // Verify genesis can be parsed back
   console.log("");
@@ -205,12 +228,8 @@ async function generateCleanGenesis() {
   try {
     const parsed = JSON.parse(fs.readFileSync(CLEAN_GENESIS_FILE, "utf8"));
     console.log("   ✅ Genesis file is valid JSON");
-    console.log(
-      `   ✅ Chain ID: ${parsed.config.chainId}`
-    );
-    console.log(
-      `   ✅ Epoch: ${parsed.config.parlia.epoch.toLocaleString()}`
-    );
+    console.log(`   ✅ Chain ID: ${parsed.config.chainId}`);
+    console.log(`   ✅ Epoch: ${parsed.config.parlia.epoch.toLocaleString()}`);
     console.log(`   ✅ Alloc accounts: ${Object.keys(parsed.alloc).length}`);
 
     // Verify all balances are hex

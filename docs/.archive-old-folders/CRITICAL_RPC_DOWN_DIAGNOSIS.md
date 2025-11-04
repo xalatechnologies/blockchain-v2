@@ -1,4 +1,4 @@
-# 🚨 CRITICAL: Xaheen Chain RPC Down - Diagnosis & Fix
+# 🚨 CRITICAL: Nor Chain RPC Down - Diagnosis & Fix
 
 **STATUS: CRITICAL INFRASTRUCTURE FAILURE**
 **Date:** October 31, 2025
@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-**Problem:** Xaheen Chain RPC endpoint (`https://rpc.xaheen.org`) is returning 502 Bad Gateway
+**Problem:** Nor Chain RPC endpoint (`https://rpc.xaheen.org`) is returning 502 Bad Gateway
 
 **Impact:**
 - ❌ ZERO users can interact with blockchain
@@ -125,7 +125,7 @@ Port 30303: P2P (Unknown)
 
 ### Deployed Contracts (Now Inaccessible):
 ```
-WXHT:    0xeeE0Bf805c80456C539Ec73855b3a9bf81E54862
+WNOR:    0xeeE0Bf805c80456C539Ec73855b3a9bf81E54862
 Factory: 0x3652Da488FeF83C3327760f43B01Bad02FFfA13D
 Router:  0x25a4240A868f9F5D5e6b55e5dd355bF2e1F9890a
 USDT:    0xd16F235BB4b53b448e5ECdE89Cf17568FD91CFaA
@@ -290,7 +290,7 @@ docker update --restart=unless-stopped bsc-validator-3
 # Create systemd service file
 sudo cat > /etc/systemd/system/xaheen-validators.service << 'EOF'
 [Unit]
-Description=Xaheen Chain Validators
+Description=Nor Chain Validators
 After=docker.service
 Requires=docker.service
 
@@ -329,7 +329,7 @@ crontab -e
 ```bash
 cat > ~/check-validators.sh << 'EOF'
 #!/bin/bash
-# Health check script for Xaheen validators
+# Health check script for Nor validators
 
 # Check if RPC responds
 if ! curl -s -X POST -H "Content-Type: application/json" \
@@ -340,7 +340,7 @@ if ! curl -s -X POST -H "Content-Type: application/json" \
   docker restart bsc-validator-1 bsc-validator-2 bsc-validator-3
 
   # Send alert (if configured)
-  # curl -X POST https://your-webhook-url -d "Xaheen RPC was down, auto-restarted"
+  # curl -X POST https://your-webhook-url -d "Nor RPC was down, auto-restarted"
 fi
 EOF
 
@@ -419,7 +419,7 @@ curl -X POST https://rpc.xaheen.org \
 ## Impact Timeline
 
 **Before Fix:**
-- ❌ No users can buy XHT
+- ❌ No users can buy NOR
 - ❌ No users can swap tokens
 - ❌ Cannot deploy BNB/ETH pairs
 - ❌ Cannot deploy frontend (would be useless)

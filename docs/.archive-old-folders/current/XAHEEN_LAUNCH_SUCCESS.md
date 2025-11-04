@@ -24,11 +24,11 @@
 
 ## 💰 Token Economics
 
-### Native Token: XHT
-- **Total Supply**: 21,000,000,000 XHT (21 billion)
+### Native Token: NOR
+- **Total Supply**: 21,000,000,000 NOR (21 billion)
 - **Decimals**: 18
 - **Main Wallet**: 0xdD779a290C937144F80Eb75b75d814c834536B1b
-  - Balance: 21,000,000,000 XHT
+  - Balance: 21,000,000,000 NOR
 
 ### BTCBR Token Contract
 - **Address**: 0x0cF8e180350253271f4b917CcFb0aCCc4862F262
@@ -52,40 +52,40 @@
 
 ---
 
-## 📜 XHT Tokenomics Smart Contracts
+## 📜 NOR Tokenomics Smart Contracts
 
-### 1️⃣ XHTStaking
+### 1️⃣ NORStaking
 **Address**: `0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c`
 
 **Features**:
 - Dynamic APY: 8-20% (adjusts based on network security)
 - Lock Periods: 0, 90, 180, 365, 1095 days
-- Minimum Stake: 1,000 XHT
-- Validator Stake: 10,000 XHT
+- Minimum Stake: 1,000 NOR
+- Validator Stake: 10,000 NOR
 - Voting Power Multipliers: 1x to 5x based on lock period
 - Revenue Sharing: 50% of ecosystem revenue to stakers
 
-### 2️⃣ XHTBurnMechanism
+### 2️⃣ NORBurnMechanism
 **Address**: `0xe97D574A2e1B62f4d32C5cfeaFa8e6B99Da020fa`
 
 **Triple Burn Mechanism**:
 - Gas Fees: 50-80% burned (velocity sink - heavier users burn more)
 - Validator Rewards: 10% burned
 - Bridge Fees: 5% burned
-- Minimum Supply Floor: 100,000,000 XHT (to prevent over-deflation)
+- Minimum Supply Floor: 100,000,000 NOR (to prevent over-deflation)
 - Expected Annual Burn Rate: 5-10%
 
-### 3️⃣ XHTGovernance
+### 3️⃣ NORGovernance
 **Address**: `0x4A82C98A950125F17943F56273efae39dDe81763`
 
 **DAO Features**:
 - Voting Period: 7 days
 - Timelock: 2 days (for security)
-- Minimum Voting Power: 10,000 XHT
+- Minimum Voting Power: 10,000 NOR
 - Quorum Requirement: 10% of staked supply
 - Voting Power from Staking Contract (with multipliers)
 
-### 4️⃣ XHTRevenue
+### 4️⃣ NORRevenue
 **Address**: `0xA37C1f80Bd02D9d70ce0188831A85c65fdFBeEDe`
 
 **Revenue Distribution**:
@@ -100,18 +100,18 @@
 - NFT marketplace fees (future)
 - Crowdfunding platform fees (2%)
 
-### 5️⃣ XHTCrowdfunding
+### 5️⃣ NORCrowdfunding
 **Address**: `0x1495fCf5F09D53203EE1CD1fF974591dc101df0b`
 
 **Platform Features**:
-- Platform Fee: 2% (goes to XHTRevenue)
-- Minimum Goal: 100 XHT
-- Maximum Goal: 1,000,000 XHT
+- Platform Fee: 2% (goes to NORRevenue)
+- Minimum Goal: 100 NOR
+- Maximum Goal: 1,000,000 NOR
 - Campaign Duration: 7-90 days
 - All-or-Nothing & Flexible Funding Models
 - Milestone-Based Fund Releases
 
-### 6️⃣ XHTCharity
+### 6️⃣ NORCharity
 **Address**: `0x26c0eaF731885b14c031cc50dB79b36458E0b355`
 
 **Charity Features**:
@@ -140,14 +140,14 @@
 **Expected Results**:
 - Annual Burn: 5-10% of circulating supply
 - Decreasing to 2-3% as supply approaches minimum floor
-- Long-term Target: 100M XHT minimum supply (from 21B)
+- Long-term Target: 100M NOR minimum supply (from 21B)
 
 ---
 
 ## 📈 Token Utility
 
 ### Staking
-- Earn 8-20% APY on staked XHT
+- Earn 8-20% APY on staked NOR
 - Longer locks = higher APY + voting power multipliers
 - Validators earn extra rewards (30% of ecosystem revenue)
 
@@ -176,7 +176,7 @@
 
 ## 🚀 Deployment Metrics
 
-- **Total Gas Used**: 0.033256539 XHT
+- **Total Gas Used**: 0.033256539 NOR
 - **Contracts Deployed**: 6
 - **Total Lines of Code**: 1,891 lines
 - **Security Score**: 95/100
@@ -236,7 +236,7 @@
 ### Innovation
 1. **Dynamic APY Staking** - First blockchain with APY that adjusts based on network security needs
 2. **Velocity Sink** - Pioneering burn mechanism that targets heavy users
-3. **Dual Token Model** - XHT (native) + BTCBR (contract) for diverse use cases
+3. **Dual Token Model** - NOR (native) + BTCBR (contract) for diverse use cases
 4. **Zero-Fee Charity** - Only blockchain with built-in charity platform at zero cost
 
 ### Economics
@@ -267,14 +267,14 @@
 - [x] Validators initialized
 - [x] Peer connectivity configured
 - [x] Blocks producing every 3 seconds
-- [x] XHT supply: 21 billion ✅
+- [x] NOR supply: 21 billion ✅
 - [x] BTCBR supply: 21 septillion ✅
-- [x] XHTStaking deployed ✅
-- [x] XHTBurnMechanism deployed ✅
-- [x] XHTGovernance deployed ✅
-- [x] XHTRevenue deployed ✅
-- [x] XHTCrowdfunding deployed ✅
-- [x] XHTCharity deployed ✅
+- [x] NORStaking deployed ✅
+- [x] NORBurnMechanism deployed ✅
+- [x] NORGovernance deployed ✅
+- [x] NORRevenue deployed ✅
+- [x] NORCrowdfunding deployed ✅
+- [x] NORCharity deployed ✅
 - [x] Validators configured in revenue contract ✅
 - [x] Security audit completed (95/100) ✅
 - [x] Documentation created ✅
@@ -283,10 +283,10 @@
 
 ## 🎊 Conclusion
 
-**Xaheen Chain is now LIVE with fully functional tokenomics!**
+**Nor Chain is now LIVE with fully functional tokenomics!**
 
 The blockchain is producing blocks consistently, all 6 tokenomics contracts are deployed and operational, and the network has the correct token supplies:
-- **21 billion XHT** (native token)
+- **21 billion NOR** (native token)
 - **21 septillion BTCBR** (contract token)
 
 The platform is ready for integration with frontend interfaces, bridge deployments, and ecosystem expansion.
@@ -299,4 +299,4 @@ The platform is ready for integration with frontend interfaces, bridge deploymen
 
 **Deployed by**: Claude Code
 **Date**: October 30, 2025
-**Network**: Xaheen Chain (Chain ID: 65001)
+**Network**: Nor Chain (Chain ID: 65001)

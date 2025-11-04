@@ -48,7 +48,7 @@ echo ""
 echo "⚡ Starting automatic fix (non-interactive mode)..."
 echo ""
 
-cat << 'REMOTE_SCRIPT' > /tmp/noor-epoch-200-fix.sh
+cat << 'REMOTE_SCRIPT' > /tmp/nor-epoch-200-fix.sh
 #!/bin/bash
 
 VALIDATOR1="0xbb64F4050fC21A2eC3506245A1Ad63cB0256b6dE"
@@ -256,7 +256,7 @@ for i in {1..20}; do
 
     if [ "$DEC_BLOCK" -gt "10" ]; then
       echo ""
-      echo "🎉🎉🎉 SUCCESS! Noor Chain producing blocks with epoch 200! 🎉🎉🎉"
+      echo "🎉🎉🎉 SUCCESS! Nor Chain producing blocks with epoch 200! 🎉🎉🎉"
       SUCCESS=true
       break
     fi
@@ -295,11 +295,11 @@ echo "📊 Final Status:"
 docker ps --format "table {{.Names}}\t{{.Status}}" | grep -E "(NAMES|validator|xaheen)"
 
 echo ""
-echo "🌙 Noor Chain - Empowering the Future with Light and Trust"
+echo "🌙 Nor Chain - Empowering the Future with Light and Trust"
 
 REMOTE_SCRIPT
 
-chmod +x /tmp/noor-epoch-200-fix.sh
+chmod +x /tmp/nor-epoch-200-fix.sh
 
 echo ""
 echo "📝 Step 1: Creating genesis with epoch 200..."
@@ -323,8 +323,8 @@ scp -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no \
 echo ""
 echo "📤 Step 3: Uploading fix script to server..."
 scp -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no \
-  /tmp/noor-epoch-200-fix.sh \
-  ec2-user@$SERVER_IP:/home/ec2-user/noor-epoch-200-fix.sh
+  /tmp/nor-epoch-200-fix.sh \
+  ec2-user@$SERVER_IP:/home/ec2-user/nor-epoch-200-fix.sh
 
 echo ""
 echo "🚀 Step 4: Executing epoch 200 fix on server..."
@@ -333,9 +333,9 @@ echo ""
 
 ssh -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no \
   ec2-user@$SERVER_IP \
-  'bash /home/ec2-user/noor-epoch-200-fix.sh'
+  'bash /home/ec2-user/nor-epoch-200-fix.sh'
 
 echo ""
 echo "✅ Epoch 200 Fix Complete!"
 echo ""
-echo "🌙 Noor Chain - Empowering the Future with Light and Trust"
+echo "🌙 Nor Chain - Empowering the Future with Light and Trust"

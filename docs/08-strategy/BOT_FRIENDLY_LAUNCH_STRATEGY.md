@@ -40,7 +40,7 @@ XHN Launch:
 
 Within 1-5 minutes of launch:
 → Bots scan blockchain for new pairs
-→ Find your XHT/XHN and XHT/BTCBR pools
+→ Find your NOR/XHN and NOR/BTCBR pools
 → Auto-list on aggregators
 → Trading bots start monitoring
 ```
@@ -55,15 +55,15 @@ Within 1-5 minutes of launch:
 // Right after adding liquidity, make first buys:
 
 // Buy 1: Small buy (create first trade)
-swap 1 XHT → XHN
+swap 1 NOR → XHN
 Price goes from $0.01 to $0.011 (+10%)
 
 // Buy 2: Slightly larger (shows momentum)
-swap 5 XHT → XHN
+swap 5 NOR → XHN
 Price goes to $0.013 (+30% from launch)
 
 // Buy 3: Create FOMO
-swap 10 XHT → XHN
+swap 10 NOR → XHN
 Price hits $0.018 (+80% from launch!)
 
 Result: Bots see +80% in first hour!
@@ -95,7 +95,7 @@ Result: Bots see +80% in first hour!
 🚀 XAHEEN ECOSYSTEM LIVE!
 
 💎 THREE TOKENS, ONE ECOSYSTEM:
-• XHT: Gas token (21B supply)
+• NOR: Gas token (21B supply)
 • BTCBR: Utility token (21 septillion)
 • XHN: Governance (100M supply) ⭐
 
@@ -106,11 +106,11 @@ Result: Bots see +80% in first hour!
 • $10K market cap (100x potential!)
 
 📊 LIQUIDITY:
-• XHT/XHN: $1,000
-• XHT/BTCBR: $100
+• NOR/XHN: $1,000
+• NOR/BTCBR: $100
 • 99% locked (rug-proof!)
 
-⚡ CHAIN: Xaheen (BSC-based)
+⚡ CHAIN: Nor (BSC-based)
 💰 CONTRACT: 0x24719ba3b4AD49cC7edcbDc536fd97C8526830A0
 
 🎁 FIRST 100 BUYERS GET AIRDROP!
@@ -141,7 +141,7 @@ Key elements:
 // Modify add-xhn-liquidity.js:
 
 // 1. Add liquidity silently (no announcement yet)
-await router.addLiquidityXHT(...);
+await router.addLiquidityNOR(...);
 
 // 2. IMMEDIATELY post announcement (within same block if possible)
 // Twitter, Telegram, Discord all at once
@@ -185,8 +185,8 @@ More bots join: Chain reaction starts
 **Setup:**
 ```javascript
 // You already have:
-XHT/XHN pool: 1 XHT = 100 XHN ($0.01 per XHN)
-XHT/BTCBR pool: 1 XHT = 1000 BTCBR
+NOR/XHN pool: 1 NOR = 100 XHN ($0.01 per XHN)
+NOR/BTCBR pool: 1 NOR = 1000 BTCBR
 
 // Create implied price difference:
 XHN/BTCBR ratio: 1 XHN = 10 BTCBR
@@ -196,8 +196,8 @@ XHN/BTCBR pool: 1 XHN = 9 BTCBR
 
 // Arbitrage opportunity:
 Buy XHN with BTCBR at 9:1 ratio
-Sell XHN for XHT
-Buy BTCBR with XHT at 1000:1
+Sell XHN for NOR
+Buy BTCBR with NOR at 1000:1
 Repeat (11% profit per cycle!)
 
 // Bots create constant trading volume
@@ -286,10 +286,10 @@ GO GO GO!"
 **Step 1: Announce Airdrop (1 week before)**
 ```
 🎁 XHN AIRDROP:
-First 1000 wallets with 0.1 XHT get 100 XHN free!
+First 1000 wallets with 0.1 NOR get 100 XHN free!
 
 To qualify:
-1. Hold 0.1+ XHT
+1. Hold 0.1+ NOR
 2. Join Telegram
 3. Follow Twitter
 4. Wait for snapshot
@@ -457,7 +457,7 @@ TRADE NOW: [LINK]
 // Execute in this exact order:
 
 // 1. Add liquidity
-await addLiquidityXHT(...);
+await addLiquidityNOR(...);
 
 // 2. Make first buys (your wallets)
 await swap(wallet1, xht, xhn, amount1);

@@ -1,13 +1,13 @@
-# MetaMask Setup Guide for Xaheen Bridge
+# MetaMask Setup Guide for Nor Bridge
 
-Complete guide to configuring MetaMask for use with Xaheen Chain and the BTCBR Bridge.
+Complete guide to configuring MetaMask for use with Nor Chain and the BTCBR Bridge.
 
 ---
 
 ## Table of Contents
 
 1. [Install MetaMask](#install-metamask)
-2. [Add Xaheen Chain Network](#add-xaheen-chain-network)
+2. [Add Nor Chain Network](#add-xaheen-chain-network)
 3. [Add BTCBR Token](#add-btcbr-token)
 4. [Switch Between Networks](#switch-between-networks)
 5. [Troubleshooting](#troubleshooting)
@@ -70,13 +70,13 @@ Complete guide to configuring MetaMask for use with Xaheen Chain and the BTCBR B
 
 ---
 
-## Add Xaheen Chain Network
+## Add Nor Chain Network
 
-MetaMask doesn't include Xaheen Chain by default. Follow these steps to add it:
+MetaMask doesn't include Nor Chain by default. Follow these steps to add it:
 
 ### Method 1: Automatic (Recommended)
 
-1. **Visit Xaheen Bridge**
+1. **Visit Nor Bridge**
    - Go to: https://bridge.xaheen.org
    - Click **"Connect Wallet"**
 
@@ -84,8 +84,8 @@ MetaMask doesn't include Xaheen Chain by default. Follow these steps to add it:
    - MetaMask popup appears
    - Click **"Next"** → **"Connect"**
 
-3. **Attempt Transfer to Xaheen**
-   - Select "From: BSC Mainnet" → "To: Xaheen Chain"
+3. **Attempt Transfer to Nor**
+   - Select "From: BSC Mainnet" → "To: Nor Chain"
    - Enter any amount
    - Click **"Transfer"**
 
@@ -94,7 +94,7 @@ MetaMask doesn't include Xaheen Chain by default. Follow these steps to add it:
    - Click **"Approve"**
    - Click **"Switch network"**
 
-Done! Xaheen Chain is now added to MetaMask.
+Done! Nor Chain is now added to MetaMask.
 
 ### Method 2: Manual
 
@@ -111,31 +111,31 @@ Done! Xaheen Chain is now added to MetaMask.
    Copy these values **exactly**:
 
    ```
-   Network Name: Xaheen Chain
+   Network Name: Nor Chain
 
    RPC URL: https://rpc.xaheen.org
 
    Chain ID: 65001
 
-   Currency Symbol: XHT
+   Currency Symbol: NOR
 
    Block Explorer URL: https://explorer.xaheen.org
    ```
 
    **Screenshot of fields:**
-   - **Network Name**: `Xaheen Chain`
+   - **Network Name**: `Nor Chain`
    - **New RPC URL**: `https://rpc.xaheen.org`
    - **Chain ID**: `65001`
-   - **Currency Symbol**: `XHT`
+   - **Currency Symbol**: `NOR`
    - **Block Explorer URL (Optional)**: `https://explorer.xaheen.org`
 
 4. **Save**
    - Click **"Save"**
-   - MetaMask will automatically switch to Xaheen Chain
+   - MetaMask will automatically switch to Nor Chain
 
 5. **Verify**
-   - Check network dropdown shows "Xaheen Chain"
-   - You should see XHT as the currency
+   - Check network dropdown shows "Nor Chain"
+   - You should see NOR as the currency
 
 ---
 
@@ -181,12 +181,12 @@ BTCBR must be manually added to see your balance in MetaMask.
    - You should now see BTCBR in your token list
    - Balance will show (0 BTCBR if you don't have any yet)
 
-### On Xaheen Chain
+### On Nor Chain
 
-1. **Switch to Xaheen Chain**
+1. **Switch to Nor Chain**
    - Open MetaMask
    - Click network dropdown
-   - Select **"Xaheen Chain"**
+   - Select **"Nor Chain"**
 
 2. **Add BTCBR Token**
    - Scroll down to **"Tokens"**
@@ -209,7 +209,7 @@ BTCBR must be manually added to see your balance in MetaMask.
    - Click **"Import Tokens"**
 
 5. **Verify**
-   - BTCBR now appears in token list on Xaheen Chain
+   - BTCBR now appears in token list on Nor Chain
 
 ---
 
@@ -226,18 +226,18 @@ BTCBR must be manually added to see your balance in MetaMask.
 
 3. **Select Network**
    - **BSC Mainnet**: For BSC operations
-   - **Xaheen Chain**: For Xaheen operations
+   - **Nor Chain**: For Nor operations
 
 4. **Verify Switch**
    - Network name updates at top
-   - Currency symbol changes (BNB or XHT)
+   - Currency symbol changes (BNB or NOR)
 
 ### Auto-Switch (on Bridge)
 
-The Xaheen Bridge will automatically prompt you to switch when needed:
+The Nor Bridge will automatically prompt you to switch when needed:
 
 1. **Select Transfer Direction**
-   - E.g., From "BSC Mainnet" to "Xaheen Chain"
+   - E.g., From "BSC Mainnet" to "Nor Chain"
 
 2. **Click Transfer**
    - If you're on wrong network, MetaMask prompts:
@@ -253,12 +253,12 @@ The Xaheen Bridge will automatically prompt you to switch when needed:
 
 ### "Network RPC URL Not Working"
 
-**Problem**: Can't connect to Xaheen Chain
+**Problem**: Can't connect to Nor Chain
 
 **Solutions**:
 
 1. **Try Alternative RPC**
-   - Edit Xaheen Chain network
+   - Edit Nor Chain network
    - Replace RPC URL with: `https://rpc.bitcoinbr.tech`
 
 2. **Check Internet Connection**
@@ -276,7 +276,7 @@ The Xaheen Bridge will automatically prompt you to switch when needed:
 **Solutions**:
 
 1. **Verify Correct Network**
-   - Check if you're on BSC Mainnet or Xaheen Chain
+   - Check if you're on BSC Mainnet or Nor Chain
    - BTCBR exists on both, but balances are separate
 
 2. **Re-import Token**
@@ -288,23 +288,23 @@ The Xaheen Bridge will automatically prompt you to switch when needed:
    - Click your account name to copy address
    - Check balance on block explorer:
      - **BSC**: https://bscscan.com
-     - **Xaheen**: https://explorer.xaheen.org
+     - **Nor**: https://explorer.xaheen.org
 
 ### "Chain ID Already Exists"
 
-**Problem**: Error when adding Xaheen Chain
+**Problem**: Error when adding Nor Chain
 
 **Solution**:
 
 1. **Chain Already Added**
    - Check network dropdown
-   - Look for "Xaheen Chain" or similar name
+   - Look for "Nor Chain" or similar name
 
 2. **Remove Duplicate**
    - Settings → Networks
    - Find duplicate network
    - Click **"Delete"**
-   - Re-add Xaheen Chain with correct details
+   - Re-add Nor Chain with correct details
 
 ### "Transaction Stuck/Pending"
 
@@ -314,7 +314,7 @@ The Xaheen Bridge will automatically prompt you to switch when needed:
 
 1. **Check Network Status**
    - BSC: https://bscscan.com (check if network is congested)
-   - Xaheen: https://explorer.xaheen.org
+   - Nor: https://explorer.xaheen.org
 
 2. **Speed Up (BSC only)**
    - Click pending transaction in MetaMask
@@ -342,10 +342,10 @@ The Xaheen Bridge will automatically prompt you to switch when needed:
    - Send to your MetaMask address
    - Need ~0.001 BNB (~$0.30) for gas
 
-2. **Get More XHT (for Xaheen)**
-   - Use Xaheen faucet (if available)
-   - Bridge BNB or other tokens to Xaheen
-   - Need ~0.0001 XHT for gas
+2. **Get More NOR (for Nor)**
+   - Use Nor faucet (if available)
+   - Bridge BNB or other tokens to Nor
+   - Need ~0.0001 NOR for gas
 
 ### "Wrong Network Warning"
 
@@ -366,13 +366,13 @@ The Xaheen Bridge will automatically prompt you to switch when needed:
 
 ## Network Comparison
 
-| Feature | BSC Mainnet | Xaheen Chain |
+| Feature | BSC Mainnet | Nor Chain |
 |---------|-------------|--------------|
 | **Chain ID** | 56 | 65001 |
-| **Currency** | BNB | XHT |
+| **Currency** | BNB | NOR |
 | **RPC URL** | https://bsc-dataseed.binance.org | https://rpc.xaheen.org |
 | **Explorer** | https://bscscan.com | https://explorer.xaheen.org |
-| **Gas Fee** | ~0.001 BNB (~$0.30) | ~0.0001 XHT (negligible) |
+| **Gas Fee** | ~0.001 BNB (~$0.30) | ~0.0001 NOR (negligible) |
 | **Block Time** | ~3 seconds | ~3 seconds |
 | **BTCBR Address** | 0x0cF8e180350253271f4b917CcFb0aCCc4862F262 | 0x0cF8e180350253271f4b917CcFb0aCCc4862F262 |
 
@@ -405,7 +405,7 @@ The Xaheen Bridge will automatically prompt you to switch when needed:
 1. **Never Share Seed Phrase**
    - No one legitimate will ever ask for it
    - MetaMask support never asks
-   - Xaheen team never asks
+   - Nor team never asks
 
 2. **Don't Click Suspicious Links**
    - Phishing sites look like real MetaMask
@@ -429,7 +429,7 @@ The Xaheen Bridge will automatically prompt you to switch when needed:
 - **Community Forum**: https://community.metamask.io
 - **Twitter**: @MetaMaskSupport
 
-### Xaheen Chain Support
+### Nor Chain Support
 
 - **Telegram**: https://t.me/xaheenchain
 - **Twitter**: https://twitter.com/xaheenchain

@@ -126,7 +126,7 @@ for i in {1..20}; do
 
     if [ "$DEC" -gt "10" ]; then
       echo ""
-      echo "🎉 SUCCESS! Noor Chain is producing blocks!"
+      echo "🎉 SUCCESS! Nor Chain is producing blocks!"
       break
     fi
   else
@@ -155,4 +155,4 @@ ssh -i ~/.ssh/bsc-validator-key.pem -o StrictHostKeyChecking=no ec2-user@$SERVER
 echo ""
 echo "✅ Peer fix complete!"
 echo ""
-echo "🌙 Noor Chain - Empowering the Future with Light and Trust"
+echo "🌙 Nor Chain - Empowering the Future with Light and Trust"

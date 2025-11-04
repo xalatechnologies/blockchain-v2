@@ -1,14 +1,14 @@
 # Playbook Update Summary
 
 **Update Date**: 2025-11-02  
-**Updated By**: Noor Technologies Development Team  
+**Updated By**: Nor Technologies Development Team  
 **Reason**: Post-rebrand documentation standardization
 
 ---
 
 ## Changes Implemented
 
-### ✅ 1. Branding Update (Xaheen → Noor)
+### ✅ 1. Branding Update (Nor → Nor)
 
 **Files Updated:**
 - ✅ Part 1 – Vision, Ecosystem & Philosophy.md
@@ -21,13 +21,13 @@
 - ✅ README.md
 
 **Key Changes:**
-- "Xaheen Chain" → "Noor Chain" (نور - "Light")
-- "XHT" → "NOR" (native token symbol)
-- "Xaheen Swap" → "NoorSwap"
-- "Xaheen Bridge" → "Noor Bridge"
-- "Xaheen Funds" → "Noor Funds"
-- URLs updated: xaheen.io → noor.io
-- Copyright: "Xaheen Technologies AS" → "Noor Technologies (formerly Xaheen Technologies AS)"
+- "Nor Chain" → "Nor Chain" (نور - "Light")
+- "NOR" → "NOR" (native token symbol)
+- "Nor Swap" → "NorSwap"
+- "Nor Bridge" → "Nor Bridge"
+- "Nor Funds" → "Nor Funds"
+- URLs updated: xaheen.io → nor.io
+- Copyright: "Nor Technologies AS" → "Nor Technologies (formerly Nor Technologies AS)"
 
 ---
 
@@ -51,8 +51,8 @@
 ```
 Core Infrastructure:
 - WNOR: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
-- NoorSwap Factory: 0xBE254176B4f13b02f367a9feCE599ee8887E2D34
-- NoorSwap Router: 0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916
+- NorSwap Factory: 0xBE254176B4f13b02f367a9feCE599ee8887E2D34
+- NorSwap Router: 0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916
 
 External Tokens:
 - USDT: 0xB8fa87a1dAC07e077a51999F5cE79BD236f06acf
@@ -95,7 +95,7 @@ Treasury:
 3. Bridge Infrastructure (5 items)
 4. Stablecoins (4 items)
 5. DEX & Liquidity (6 items)
-6. Noor Funds (8 items)
+6. Nor Funds (8 items)
 7. Compliance & Privacy (5 items)
 8. AI & Automation (5 items)
 9. External Integrations (6 items)
@@ -134,7 +134,7 @@ Treasury:
 **All Files Now Include:**
 ```
 Version: v3.1-2025-11-02
-Part of: Noor Chain Playbook v3 - Public Master Edition
+Part of: Nor Chain Playbook v3 - Public Master Edition
 ```
 
 **Files Standardized:**
@@ -151,7 +151,7 @@ Part of: Noor Chain Playbook v3 - Public Master Edition
 
 **Version Numbering:**
 - **v3.1**: Current playbook version (post-rebrand)
-- **v3.0**: Pre-rebrand version (Xaheen branding)
+- **v3.0**: Pre-rebrand version (Nor branding)
 - Date format: YYYY-MM-DD (ISO 8601)
 
 ---
@@ -179,8 +179,8 @@ docs/09-playbook/
 
 ## Verification Checklist
 
-- [x] All "Xaheen" references replaced with "Noor"
-- [x] All "XHT" token references replaced with "NOR"
+- [x] All "Nor" references replaced with "Nor"
+- [x] All "NOR" token references replaced with "NOR"
 - [x] Contract addresses updated from codebase
 - [x] Duplicate files archived (not deleted)
 - [x] Implementation tracker created
@@ -188,7 +188,7 @@ docs/09-playbook/
 - [x] Version numbers standardized
 - [x] README updated with new structure
 - [x] Copyright notices updated
-- [x] URLs updated (xaheen.io → noor.io)
+- [x] URLs updated (xaheen.io → nor.io)
 - [x] Mermaid diagrams updated
 - [x] All files compile without errors
 
@@ -212,7 +212,7 @@ docs/09-playbook/
 
 ### Immediate (Within 1 Week)
 1. ✅ Legal review of COMPLIANCE-FRAMEWORK.md
-2. ✅ Update website (noor.io) with rebrand
+2. ✅ Update website (nor.io) with rebrand
 3. ✅ Update RPC endpoints to reflect new branding
 4. ✅ Social media announcements
 5. ✅ Update GitHub repository name/description
@@ -236,9 +236,9 @@ docs/09-playbook/
 ## Contact & Feedback
 
 **For Questions:**
-- Technical: dev@noor.io
-- Partnerships: partners@noor.io
-- General: hello@noor.io
+- Technical: dev@nor.io
+- Partnerships: partners@nor.io
+- General: hello@nor.io
 
 **Documentation Updates:**
 - Submit issues: GitHub repository
@@ -257,4 +257,4 @@ docs/09-playbook/
 
 **End of Update Summary**
 
-All tasks completed successfully. Playbook is now fully updated to Noor Chain branding with comprehensive implementation tracking and roadmap planning.
+All tasks completed successfully. Playbook is now fully updated to Nor Chain branding with comprehensive implementation tracking and roadmap planning.

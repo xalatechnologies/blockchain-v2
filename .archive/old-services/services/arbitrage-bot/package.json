@@ -1,7 +1,7 @@
 {
   "name": "xaheen-arbitrage-bot",
   "version": "1.0.0",
-  "description": "Arbitrage bot for maintaining XHT price consistency across chains",
+  "description": "Arbitrage bot for maintaining NOR price consistency across chains",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -14,7 +14,7 @@
     "cross-chain",
     "xaheen"
   ],
-  "author": "Xaheen Chain Team",
+  "author": "Nor Chain Team",
   "license": "MIT",
   "dependencies": {
     "ethers": "^6.15.0",

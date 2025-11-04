@@ -23,8 +23,8 @@
 ### 1. Liquidity Pools ($1,000) - ✅ INVESTMENT, NOT LOST
 
 **Current Setup:**
-- XHT/BTCBR: 100 XHT + 100K BTCBR (~$10 + $10 = $20)
-- XHT/XHN: 1,000 XHT + 100K XHN (~$100 + $900 = $1,000)
+- NOR/BTCBR: 100 NOR + 100K BTCBR (~$10 + $10 = $20)
+- NOR/XHN: 1,000 NOR + 100K XHN (~$100 + $900 = $1,000)
 - **Total Liquidity**: $1,020
 
 **What happens to this money:**
@@ -34,18 +34,18 @@
 
 This means:
 → You can withdraw liquidity ANYTIME
-→ You get back XHT + XHN (amounts may vary due to trading)
+→ You get back NOR + XHN (amounts may vary due to trading)
 → You earn 0.3% fee on EVERY trade
 → Your LP tokens are like shares in the pool
 
 Example after 1 week of trading:
-Initial: 1,000 XHT + 100,000 XHN
-Fees earned: 50 XHT (from $50K volume)
-Withdrawal: 1,050 XHT + ~95,000 XHN (due to impermanent loss)
+Initial: 1,000 NOR + 100,000 XHN
+Fees earned: 50 NOR (from $50K volume)
+Withdrawal: 1,050 NOR + ~95,000 XHN (due to impermanent loss)
 
 If XHN price 10x:
 Your XHN worth: 95,000 XHN × $0.10 = $9,500
-Your XHT worth: 1,050 XHT × $0.10 = $105
+Your NOR worth: 1,050 NOR × $0.10 = $105
 Total value: $9,605 (9.6x return!)
 ```
 
@@ -58,34 +58,34 @@ Total value: $9,605 (9.6x return!)
 
 **What you need gas for:**
 
-| Operation | Estimated Gas | Cost @ $0.10/XHT |
+| Operation | Estimated Gas | Cost @ $0.10/NOR |
 |-----------|---------------|-------------------|
-| Deploy WXHT | 0.5 XHT | $0.05 |
-| Deploy DEX Factory | 2 XHT | $0.20 |
-| Deploy DEX Router | 3 XHT | $0.30 |
-| Deploy XHN Token | 2 XHT | $0.20 |
-| Create XHT/BTCBR Pair | 1 XHT | $0.10 |
-| Create XHT/XHN Pair | 1 XHT | $0.10 |
-| Add XHT/BTCBR Liquidity | 0.5 XHT | $0.05 |
-| Add XHT/XHN Liquidity | 0.5 XHT | $0.05 |
-| Approve Tokens (multiple) | 0.5 XHT | $0.05 |
-| Launch Script (5 buys) | 0.5 XHT | $0.05 |
-| **Subtotal** | **12 XHT** | **$1.20** |
-| **Safety Buffer (10x)** | **120 XHT** | **$12** |
+| Deploy WNOR | 0.5 NOR | $0.05 |
+| Deploy DEX Factory | 2 NOR | $0.20 |
+| Deploy DEX Router | 3 NOR | $0.30 |
+| Deploy XHN Token | 2 NOR | $0.20 |
+| Create NOR/BTCBR Pair | 1 NOR | $0.10 |
+| Create NOR/XHN Pair | 1 NOR | $0.10 |
+| Add NOR/BTCBR Liquidity | 0.5 NOR | $0.05 |
+| Add NOR/XHN Liquidity | 0.5 NOR | $0.05 |
+| Approve Tokens (multiple) | 0.5 NOR | $0.05 |
+| Launch Script (5 buys) | 0.5 NOR | $0.05 |
+| **Subtotal** | **12 NOR** | **$1.20** |
+| **Safety Buffer (10x)** | **120 NOR** | **$12** |
 
 **ALREADY SPENT (from previous deployments):**
-- Complete liquidity infrastructure: 0.042 XHT ($0.004)
-- XHN deployment: 0.002 XHT ($0.0002)
-- Liquidity additions: 0.003 XHT ($0.0003)
+- Complete liquidity infrastructure: 0.042 NOR ($0.004)
+- XHN deployment: 0.002 NOR ($0.0002)
+- Liquidity additions: 0.003 NOR ($0.0003)
 
 **REMAINING GAS NEEDED:**
-- Launch script execution: ~1 XHT ($0.10)
-- Marketing buys (optional): ~10 XHT ($1)
-- Emergency buffer: ~50 XHT ($5)
-- **Total**: ~61 XHT (~$6 if XHT = $0.10)
+- Launch script execution: ~1 NOR ($0.10)
+- Marketing buys (optional): ~10 NOR ($1)
+- Emergency buffer: ~50 NOR ($5)
+- **Total**: ~61 NOR (~$6 if NOR = $0.10)
 
-**If XHT price is $1**: Gas would be $61
-**If XHT price is $0.01**: Gas would be $0.61
+**If NOR price is $1**: Gas would be $61
+**If NOR price is $0.01**: Gas would be $0.61
 
 **IS THIS LOST FOREVER?**
 ✅ **YES** - Gas fees are burned/paid to validators, never recoverable
@@ -96,13 +96,13 @@ Total value: $9,605 (9.6x return!)
 
 **The 5 staircase buys:**
 ```javascript
-Buy 1: 1 XHT → ~100 XHN
-Buy 2: 2 XHT → ~200 XHN
-Buy 3: 5 XHT → ~500 XHN
-Buy 4: 10 XHT → ~950 XHN
-Buy 5: 20 XHT → ~1,800 XHN
+Buy 1: 1 NOR → ~100 XHN
+Buy 2: 2 NOR → ~200 XHN
+Buy 3: 5 NOR → ~500 XHN
+Buy 4: 10 NOR → ~950 XHN
+Buy 5: 20 NOR → ~1,800 XHN
 
-Total spent: 38 XHT = $3.80 @ $0.10/XHT
+Total spent: 38 NOR = $3.80 @ $0.10/NOR
 Total received: ~3,550 XHN
 ```
 
@@ -131,15 +131,15 @@ Profit: $351 (92x return!)
 ### Scenario 1: Minimal Launch ($500 budget)
 
 ```
-Liquidity (XHT/XHN): $450
-  → 900 XHT + 90,000 XHN
+Liquidity (NOR/XHN): $450
+  → 900 NOR + 90,000 XHN
   → Smaller pool but still functional
 
 Gas fees: $40
-  → 400 XHT for all operations
+  → 400 NOR for all operations
 
 Launch script: $4
-  → 38 XHT for momentum buys
+  → 38 NOR for momentum buys
 
 Buffer: $6
   → Emergency reserves
@@ -157,15 +157,15 @@ TOTAL: $500
 ### Scenario 2: Recommended Launch ($1,100 budget) ⭐ BEST
 
 ```
-Liquidity (XHT/XHN): $1,000
-  → 1,000 XHT + 100,000 XHN (ALREADY DONE ✅)
+Liquidity (NOR/XHN): $1,000
+  → 1,000 NOR + 100,000 XHN (ALREADY DONE ✅)
   → Optimal depth for stable growth
 
 Gas fees: $50
-  → 500 XHT buffer for all operations
+  → 500 NOR buffer for all operations
 
 Launch script: $4
-  → 38 XHT for momentum buys
+  → 38 NOR for momentum buys
 
 Buffer: $50
   → Emergency reserves
@@ -183,16 +183,16 @@ TOTAL: $1,104
 ### Scenario 3: Aggressive Launch ($5,000 budget)
 
 ```
-Liquidity (XHT/XHN): $4,000
-  → 4,000 XHT + 400,000 XHN
+Liquidity (NOR/XHN): $4,000
+  → 4,000 NOR + 400,000 XHN
   → Deep liquidity, very stable
 
-Liquidity (XHT/BTCBR): $500
-  → 5,000 XHT + 5,000,000 BTCBR
+Liquidity (NOR/BTCBR): $500
+  → 5,000 NOR + 5,000,000 BTCBR
   → Two active pairs
 
 Gas fees: $100
-  → 1,000 XHT buffer
+  → 1,000 NOR buffer
 
 Launch script: $100
   → Larger buys for stronger momentum
@@ -228,7 +228,7 @@ TOTAL LOST: ~$54
 
 ### INVESTED (Recoverable):
 ```
-LP Tokens (XHT/XHN): $1,000
+LP Tokens (NOR/XHN): $1,000
   → Withdraw anytime
   → PLUS 0.3% fees on all trades
   → PLUS potential XHN price appreciation
@@ -308,8 +308,8 @@ READY TO LAUNCH: YES! ✅
 IF launch successful (10x in first week):
 
 Add more liquidity:
-→ $3,000 to XHT/XHN pool
-→ $1,000 to XHT/BTCBR pool
+→ $3,000 to NOR/XHN pool
+→ $1,000 to NOR/BTCBR pool
 → $500 to marketing
 → $500 gas buffer
 ```
@@ -377,14 +377,14 @@ Week 1:
 **Absolute minimum to launch successfully:**
 
 ```
-Liquidity (XHT/XHN): $200
-  → 200 XHT + 20,000 XHN
+Liquidity (NOR/XHN): $200
+  → 200 NOR + 20,000 XHN
 
 Gas fees: $20
-  → 200 XHT buffer
+  → 200 NOR buffer
 
 Launch script: $4
-  → 38 XHT buys
+  → 38 NOR buys
 
 TOTAL: $224
 ```
@@ -400,8 +400,8 @@ TOTAL: $224
 ## ✅ YOUR CURRENT POSITION
 
 **Already Invested:**
-- Liquidity (XHT/XHN): $1,000 ✅
-- Liquidity (XHT/BTCBR): $20 ✅
+- Liquidity (NOR/XHN): $1,000 ✅
+- Liquidity (NOR/BTCBR): $20 ✅
 - Gas spent: $0.05 ✅
 
 **Remaining Needed:**
@@ -412,7 +412,7 @@ TOTAL: $224
 **Total Remaining**: $104
 
 **RECOMMENDATION**:
-Add 1,000 more XHT to your wallet for gas/launch = $100
+Add 1,000 more NOR to your wallet for gas/launch = $100
 
 Then you're 100% ready to launch! 🚀
 
@@ -474,7 +474,7 @@ Then you're 100% ready to launch! 🚀
 
 **Next Step:**
 ```bash
-# Add 1,000 XHT to deployer wallet
+# Add 1,000 NOR to deployer wallet
 # Then execute:
 node scripts/bot-friendly-launch.js
 ```

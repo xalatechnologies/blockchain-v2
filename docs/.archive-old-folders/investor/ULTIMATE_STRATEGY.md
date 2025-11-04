@@ -28,28 +28,28 @@ You're sitting on a **COMPLETE BLOCKCHAIN** trying to bootstrap liquidity on BSC
 
 ## 🎯 THE WINNING STRATEGY: PUBLIC LAUNCH
 
-Instead of burning $120 on BSC liquidity, **launch Xaheen as a PUBLIC blockchain** and build ecosystem FIRST, liquidity FOLLOWS.
+Instead of burning $120 on BSC liquidity, **launch Nor as a PUBLIC blockchain** and build ecosystem FIRST, liquidity FOLLOWS.
 
 ---
 
 ## 📋 PHASE 1: PUBLIC LAUNCH (Days 1-3) - ZERO CAPITAL NEEDED
 
-### Day 1: Make Xaheen Discoverable
+### Day 1: Make Nor Discoverable
 
 **1. Submit to Chainlist.org**
 ```
 Site: https://chainlist.org/
-Action: Submit Xaheen Chain
-Result: Anyone can add Xaheen to MetaMask with 1 click
+Action: Submit Nor Chain
+Result: Anyone can add Nor to MetaMask with 1 click
 ```
 
 **Chain Details to Submit:**
-- Chain Name: Xaheen Chain
+- Chain Name: Nor Chain
 - Chain ID: 65001
-- Currency: XHT (Xaheen Token)
+- Currency: NOR (Nor Token)
 - RPC URL: https://rpc.xaheen.org
 - Block Explorer: https://explorer.xaheen.org (deploy publicly)
-- Symbol: XHT
+- Symbol: NOR
 - Decimals: 18
 
 **2. Deploy Public Block Explorer**
@@ -73,7 +73,7 @@ Content:
 
 **Twitter/X Announcement:**
 ```
-🚀 Introducing Xaheen Chain
+🚀 Introducing Nor Chain
 
 ⚡ 3-second blocks
 💰 Near-zero gas fees
@@ -101,7 +101,7 @@ Explorer: explorer.xaheen.org
 ### Day 3: Developer Outreach
 
 **Create GitHub Repo:**
-- Xaheen documentation
+- Nor documentation
 - How to deploy contracts
 - Bridge integration guide
 - DEX API documentation
@@ -116,38 +116,38 @@ Explorer: explorer.xaheen.org
 
 ## 📋 PHASE 2: TOKENOMICS & INCENTIVES (Week 1-2)
 
-### XHT Token Distribution Strategy
+### NOR Token Distribution Strategy
 
-**Current Supply:** 21 trillion XHT (pre-mined in genesis)
+**Current Supply:** 21 trillion NOR (pre-mined in genesis)
 
 **Proposed Distribution:**
-1. **Team/Development (20%)**: 4.2T XHT - vested 2 years
-2. **Ecosystem Fund (30%)**: 6.3T XHT - for growth/marketing
-3. **Liquidity Mining (20%)**: 4.2T XHT - DEX rewards
-4. **Validator Rewards (15%)**: 3.15T XHT - staking
-5. **Bridge Incentives (10%)**: 2.1T XHT - cross-chain activity
-6. **Community Airdrop (5%)**: 1.05T XHT - early adopters
+1. **Team/Development (20%)**: 4.2T NOR - vested 2 years
+2. **Ecosystem Fund (30%)**: 6.3T NOR - for growth/marketing
+3. **Liquidity Mining (20%)**: 4.2T NOR - DEX rewards
+4. **Validator Rewards (15%)**: 3.15T NOR - staking
+5. **Bridge Incentives (10%)**: 2.1T NOR - cross-chain activity
+6. **Community Airdrop (5%)**: 1.05T NOR - early adopters
 
 ### Liquidity Mining Program
 
-**Launch Xaheen DEX Farms:**
+**Launch Nor DEX Farms:**
 ```
-XHT/BTCBR Pool: 30% APY
-XHT/USDT Pool: 50% APY
+NOR/BTCBR Pool: 30% APY
+NOR/USDT Pool: 50% APY
 BTCBR/USDT Pool: 40% APY
 
-Rewards: Paid in XHT
+Rewards: Paid in NOR
 Duration: 6 months
 Auto-compound: Yes
 ```
 
 ### Bridge Incentives
 
-**Earn XHT for Bridging:**
-- Bridge from BSC → Xaheen: 100 XHT bonus
-- Bridge from Xaheen → BSC: 50 XHT bonus
-- First 1000 users: 1000 XHT each
-- Trading on Xaheen DEX: 0.25% cashback in XHT
+**Earn NOR for Bridging:**
+- Bridge from BSC → Nor: 100 NOR bonus
+- Bridge from Nor → BSC: 50 NOR bonus
+- First 1000 users: 1000 NOR each
+- Trading on Nor DEX: 0.25% cashback in NOR
 
 ---
 
@@ -162,13 +162,13 @@ Auto-compound: Yes
 
 1. **Create Validator Staking Contract**
 ```solidity
-// Validators must stake 100,000 XHT
+// Validators must stake 100,000 NOR
 // Slash for downtime/malicious behavior
-// Rewards: Transaction fees + XHT emissions
+// Rewards: Transaction fees + NOR emissions
 ```
 
 2. **Validator Rewards:**
-- Block rewards: 10 XHT per block (28,800 XHT/day)
+- Block rewards: 10 NOR per block (28,800 NOR/day)
 - Transaction fees: Keep 50%
 - Bridge fees: 10% of bridge fees
 
@@ -187,29 +187,29 @@ Auto-compound: Yes
 
 ## 📋 PHASE 4: BUILD ECOSYSTEM (Week 3-8)
 
-### Attract Projects to Deploy on Xaheen
+### Attract Projects to Deploy on Nor
 
 **Target Projects:**
-1. **DEX Aggregators:** 1inch, ParaSwap (integrate Xaheen DEX)
+1. **DEX Aggregators:** 1inch, ParaSwap (integrate Nor DEX)
 2. **Stablecoins:** Deploy USDT/USDC bridges
-3. **NFT Marketplaces:** OpenSea alternative on Xaheen
+3. **NFT Marketplaces:** OpenSea alternative on Nor
 4. **Lending Protocols:** Aave/Compound fork
 5. **GameFi Projects:** Low fees = perfect for gaming
 
 **Incentives for Projects:**
-- Grant program (pay in XHT)
-- Featured on Xaheen site
+- Grant program (pay in NOR)
+- Featured on Nor site
 - Marketing support
 - Technical integration help
 
 ### Build DeFi Primitives
 
 **Deploy These Yourself:**
-1. **XaheenSwap** (already have DEX ✅)
-2. **XaheenLend** (lending protocol)
-3. **XaheenBridge** (already have ✅)
-4. **XaheenStake** (staking platform)
-5. **XaheenFarm** (yield farming)
+1. **NorSwap** (already have DEX ✅)
+2. **NorLend** (lending protocol)
+3. **NorBridge** (already have ✅)
+4. **NorStake** (staking platform)
+5. **NorFarm** (yield farming)
 
 Each generates fees → revenue for you!
 
@@ -246,8 +246,8 @@ Each generates fees → revenue for you!
 ## 💰 REVENUE MODEL (Multiple Streams!)
 
 ### 1. Bridge Fees (IMMEDIATE)
-- BSC→Xaheen: 0.1% fee
-- Xaheen→BSC: 0.2% fee
+- BSC→Nor: 0.1% fee
+- Nor→BSC: 0.2% fee
 - **Projected:** $100/day → $3k/month (with users)
 
 ### 2. DEX Trading Fees (IMMEDIATE)
@@ -264,10 +264,10 @@ Each generates fees → revenue for you!
 - 10% of staking rewards
 - **Projected:** $100/day → $3k/month
 
-### 5. XHT Token Appreciation (MONTH 2+)
-- You hold 20% of supply (4.2T XHT)
-- If XHT = $0.0000001, your holdings = $420k
-- If XHT = $0.000001, your holdings = $4.2M
+### 5. NOR Token Appreciation (MONTH 2+)
+- You hold 20% of supply (4.2T NOR)
+- If NOR = $0.0000001, your holdings = $420k
+- If NOR = $0.000001, your holdings = $4.2M
 
 ### 6. Grant/Partnership Revenue (MONTH 2+)
 - Projects pay for integration
@@ -385,15 +385,15 @@ Each generates fees → revenue for you!
 ```
 1. Go to https://github.com/ethereum-lists/chains
 2. Fork repository
-3. Add Xaheen chain JSON
+3. Add Nor chain JSON
 4. Submit pull request
 5. Usually approved in 24-48 hours
 ```
 
 ### Hour 3: Social Media Accounts
 ```
-- Create @XaheenChain on Twitter/X
-- Create r/XaheenChain on Reddit
+- Create @NorChain on Twitter/X
+- Create r/NorChain on Reddit
 - Create Telegram group: t.me/xaheenchain
 - Create Discord server
 ```
@@ -401,7 +401,7 @@ Each generates fees → revenue for you!
 ### Hour 4: First Announcement
 ```
 Write and post launch announcement:
-- What is Xaheen
+- What is Nor
 - Why it's unique (3s blocks, native DEX, bridges)
 - How to add to MetaMask
 - Call for validators/developers
@@ -424,22 +424,22 @@ Create docs.xaheen.org with:
 
 **6 Months from Now:**
 
-- Xaheen Chain: 50,000+ users
+- Nor Chain: 50,000+ users
 - Daily Volume: $500k+
 - TVL: $5M+
 - Validators: 100+
 - Projects: 50+
-- Your XHT Holdings: $1M+ value
+- Your NOR Holdings: $1M+ value
 - Monthly Revenue: $50k+
 
 **12 Months from Now:**
 
-- Xaheen Chain: 500,000+ users
+- Nor Chain: 500,000+ users
 - Daily Volume: $5M+
 - TVL: $50M+
 - Major CEX listings (KuCoin, Gate.io)
 - Top 100 chain by TVL
-- Your XHT Holdings: $10M+ value
+- Your NOR Holdings: $10M+ value
 - Monthly Revenue: $200k+
 
 **This is possible because you already have the infrastructure!**

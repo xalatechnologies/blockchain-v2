@@ -2,7 +2,7 @@
 
 **Date**: October 31, 2025
 **Chain ID**: 65001
-**Network**: Xaheen Chain (Private BSC/Parlia)
+**Network**: Nor Chain (Private BSC/Parlia)
 **RPC**: https://rpc.xaheen.org
 **Deployer**: 0xdD779a290C937144F80Eb75b75d814c834536B1b
 
@@ -18,15 +18,15 @@
 
 ---
 
-## 📋 DEX CONTRACTS (XaheenDEX - Uniswap V2 Fork)
+## 📋 DEX CONTRACTS (NorDEX - Uniswap V2 Fork)
 
 ### Core DEX Infrastructure
 
 | Contract | Address | Description |
 |----------|---------|-------------|
-| **WXHT** | `0x26c0eaF731885b14c031cc50dB79b36458E0b355` | Wrapped XHT (Native token wrapper) |
-| **XaheenDEXFactory** | `0x5DAB997112119BeCf715607CaA0A94f020AE2Da3` | DEX Factory (creates pairs) |
-| **XaheenDEXRouter** | `0xbe0d0ec34A93a2Ec08492715a51C613B7E530D80` | DEX Router (trading interface) |
+| **WNOR** | `0x26c0eaF731885b14c031cc50dB79b36458E0b355` | Wrapped NOR (Native token wrapper) |
+| **NorDEXFactory** | `0x5DAB997112119BeCf715607CaA0A94f020AE2Da3` | DEX Factory (creates pairs) |
+| **NorDEXRouter** | `0xbe0d0ec34A93a2Ec08492715a51C613B7E530D80` | DEX Router (trading interface) |
 
 ---
 
@@ -45,19 +45,19 @@
 ### Network Configuration
 
 ```
-Network Name: Xaheen Chain
+Network Name: Nor Chain
 RPC URL: https://rpc.xaheen.org
 Chain ID: 65001
-Currency Symbol: XHT
+Currency Symbol: NOR
 Block Explorer: (Coming soon)
 ```
 
 ### Import Tokens to Metamask
 
-**WXHT**:
+**WNOR**:
 ```
 Token Address: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
-Symbol: WXHT
+Symbol: WNOR
 Decimals: 18
 ```
 
@@ -86,15 +86,15 @@ Decimals: 18
 
 ## 🎯 TRADING INSTRUCTIONS
 
-### Using XaheenDEX Router
+### Using NorDEX Router
 
 **Router Address**: `0xbe0d0ec34A93a2Ec08492715a51C613B7E530D80`
 
 **Key Functions**:
 - `swapExactTokensForTokens()` - Swap exact input tokens
 - `swapTokensForExactTokens()` - Swap for exact output tokens
-- `swapExactETHForTokens()` - Swap XHT for tokens
-- `swapTokensForExactETH()` - Swap tokens for XHT
+- `swapExactETHForTokens()` - Swap NOR for tokens
+- `swapTokensForExactETH()` - Swap tokens for NOR
 - `addLiquidity()` - Add liquidity to pools
 - `removeLiquidity()` - Remove liquidity from pools
 
@@ -105,25 +105,25 @@ Decimals: 18
 ### ✅ Completed
 1. Genesis deployment with epoch=30000
 2. 3 validators running and producing blocks
-3. WXHT deployed
+3. WNOR deployed
 4. DEX Factory deployed
 5. DEX Router deployed
 6. Test tokens deployed (USDT, BNB, ETH)
 
 ### 📋 To Do
-1. **Add Liquidity** - Create XHT/USDT pair with initial liquidity
-   - Target: 4.17B XHT : $10,000 USDT @ $0.0000024/XHT
+1. **Add Liquidity** - Create NOR/USDT pair with initial liquidity
+   - Target: 4.17B NOR : $10,000 USDT @ $0.0000024/NOR
    - Requires smaller amounts due to transaction limits
 
 2. **Deploy Tokenomics**:
-   - XHTStaking contract
-   - XHTBuyback contract
-   - XHTBurn contract
+   - NORStaking contract
+   - NORBuyback contract
+   - NORBurn contract
 
 3. **Create Trading Pairs**:
-   - XHT/USDT (primary)
-   - XHT/BNB
-   - XHT/ETH
+   - NOR/USDT (primary)
+   - NOR/BNB
+   - NOR/ETH
    - USDT/BNB
    - USDT/ETH
 

@@ -22,9 +22,15 @@ const RPC_URL = process.env.PRIVATE_CHAIN_RPC || "https://rpc.xaheen.org";
 const EXPORT_BLOCK = 29999;
 const OUTPUT_FILE = "./data/state-export-29999.json";
 
-console.log("╔═══════════════════════════════════════════════════════════════════════════╗");
-console.log("║              STATE EXPORT - Block 29,999 (Pre-Epoch)                     ║");
-console.log("╚═══════════════════════════════════════════════════════════════════════════╝");
+console.log(
+  "╔═══════════════════════════════════════════════════════════════════════════╗"
+);
+console.log(
+  "║              STATE EXPORT - Block 29,999 (Pre-Epoch)                     ║"
+);
+console.log(
+  "╚═══════════════════════════════════════════════════════════════════════════╝"
+);
 console.log("");
 console.log(`RPC: ${RPC_URL}`);
 console.log(`Block: ${EXPORT_BLOCK}`);
@@ -34,10 +40,10 @@ const provider = new ethers.JsonRpcProvider(RPC_URL);
 
 // Known critical addresses to export
 const CRITICAL_ADDRESSES = [
-  "0x26c0eaF731885b14c031cc50dB79b36458E0b355", // WXHT
+  "0x26c0eaF731885b14c031cc50dB79b36458E0b355", // WNOR
   "0x5DAB997112119BeCf715607CaA0A94f020AE2Da3", // Factory
   "0xbe0d0ec34A93a2Ec08492715a51C613B7E530D80", // Router
-  "0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8", // XHT/USDT Pair
+  "0xa6E8ce14D79FE0D0ab6e5f6D806310f46cb87EC8", // NOR/USDT Pair
   "0x0cF8e180350253271f4b917CcFb0aCCc4862F262", // BTCBR
   "0x55d398326f99059fF775485246999027B3197955", // USDT (if bridged)
 ];
@@ -135,7 +141,9 @@ async function exportState() {
       balance: state.balance,
       nonce: state.nonce,
     };
-    console.log(`   ✅ Wallet ${mainWallet}: ${ethers.formatEther(state.balance)} BNB`);
+    console.log(
+      `   ✅ Wallet ${mainWallet}: ${ethers.formatEther(state.balance)} BNB`
+    );
   }
 
   console.log("");
@@ -156,9 +164,15 @@ async function exportState() {
 
   console.log(`   ✅ Saved to ${OUTPUT_FILE}`);
   console.log("");
-  console.log("╔═══════════════════════════════════════════════════════════════════════════╗");
-  console.log("║                       STATE EXPORT COMPLETE                               ║");
-  console.log("╚═══════════════════════════════════════════════════════════════════════════╝");
+  console.log(
+    "╔═══════════════════════════════════════════════════════════════════════════╗"
+  );
+  console.log(
+    "║                       STATE EXPORT COMPLETE                               ║"
+  );
+  console.log(
+    "╚═══════════════════════════════════════════════════════════════════════════╝"
+  );
   console.log("");
   console.log(`📊 Summary:`);
   console.log(`   Total accounts: ${exportData.summary.totalAccounts}`);

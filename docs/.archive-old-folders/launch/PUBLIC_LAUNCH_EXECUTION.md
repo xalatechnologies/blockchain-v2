@@ -1,14 +1,14 @@
-# 🚀 Xaheen Chain - Public Launch Execution Plan
+# 🚀 Nor Chain - Public Launch Execution Plan
 
 **Status**: 🔴 READY TO EXECUTE
-**Client Request**: Make Xaheen Chain publicly accessible
+**Client Request**: Make Nor Chain publicly accessible
 **Timeline**: 1-2 weeks for complete deployment
 
 ---
 
 ## 📋 Executive Summary
 
-Your client wants public access to Xaheen Chain. This document provides the complete execution plan to take your local deployment public with production-grade infrastructure.
+Your client wants public access to Nor Chain. This document provides the complete execution plan to take your local deployment public with production-grade infrastructure.
 
 **Current Status**: ✅ Local deployment operational (Chain ID 65001)
 **Target Status**: 🌐 Public RPC, Explorer, and Documentation accessible globally
@@ -329,7 +329,7 @@ nano .env
 # Set values:
 CHAIN_ID=65001
 NETWORK_ID=65001
-CHAIN_NAME=Xaheen Chain
+CHAIN_NAME=Nor Chain
 CHAIN_DOMAIN=xaheen.org
 # ... other variables
 ```
@@ -353,7 +353,7 @@ docker ps | grep bsc-validator
 
 ```ini
 [Unit]
-Description=Xaheen Chain Validator 1
+Description=Nor Chain Validator 1
 After=docker.service
 Requires=docker.service
 
@@ -409,8 +409,8 @@ ETHEREUM_JSONRPC_VARIANT=geth
 ETHEREUM_JSONRPC_HTTP_URL=http://localhost:8545
 ETHEREUM_JSONRPC_WS_URL=ws://localhost:8546
 CHAIN_ID=65001
-COIN=XHT
-SUBNETWORK=Xaheen Chain
+COIN=NOR
+SUBNETWORK=Nor Chain
 LOGO=/images/xaheen_logo.svg
 EOF
 
@@ -540,10 +540,10 @@ ws.on('message', (data) => {
 
 1. Open MetaMask
 2. Add Network manually:
-   - Network Name: Xaheen Chain
+   - Network Name: Nor Chain
    - RPC URL: https://rpc.xaheen.org
    - Chain ID: 65001
-   - Currency Symbol: XHT
+   - Currency Symbol: NOR
    - Explorer: https://explorer.xaheen.org
 3. Verify connection
 4. Check balance
@@ -644,7 +644,7 @@ receivers:
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Xaheen Chain - Where Intelligence Meets Blockchain</title>
+    <title>Nor Chain - Where Intelligence Meets Blockchain</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
@@ -652,7 +652,7 @@ receivers:
     <div class="container mx-auto px-4 py-16">
         <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl p-8">
             <div class="text-center mb-8">
-                <h1 class="text-5xl font-bold text-blue-900 mb-4">Xaheen Chain</h1>
+                <h1 class="text-5xl font-bold text-blue-900 mb-4">Nor Chain</h1>
                 <p class="text-2xl text-blue-600">Where Intelligence Meets Blockchain 🧠⚡</p>
             </div>
 
@@ -660,7 +660,7 @@ receivers:
                 <div class="bg-blue-50 p-6 rounded-lg">
                     <h3 class="text-xl font-bold mb-2">Network Details</h3>
                     <p><strong>Chain ID:</strong> 65001</p>
-                    <p><strong>Native Token:</strong> XHT</p>
+                    <p><strong>Native Token:</strong> NOR</p>
                     <p><strong>Block Time:</strong> 3 seconds</p>
                 </div>
 
@@ -687,7 +687,7 @@ receivers:
 
 **Send to client**:
 ```
-🎉 Xaheen Chain is now PUBLIC! 🎉
+🎉 Nor Chain is now PUBLIC! 🎉
 
 ✅ RPC Endpoint: https://rpc.xaheen.org
 ✅ WebSocket: wss://ws.xaheen.org
@@ -814,6 +814,6 @@ After deployment:
 
 ---
 
-**© 2025 Xaheen Technologies**
+**© 2025 Nor Technologies**
 
 **Where Intelligence Meets Blockchain** 🧠⚡

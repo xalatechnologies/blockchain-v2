@@ -46,7 +46,7 @@ async function main() {
   console.log("🎯 COMPUTING DETERMINISTIC ADDRESS");
   console.log("=".repeat(70));
 
-  // Use a memorable salt for Noor Chain
+  // Use a memorable salt for Nor Chain
   const salt = ethers.keccak256(ethers.toUtf8Bytes("NOOR_CHAIN_BTCBR_V1"));
   console.log("\n📝 Salt:", salt);
 
@@ -98,42 +98,51 @@ async function main() {
 
   // Verify balance
   const balance_btcbr = await btcbr.balanceOf(deployer.address);
-  console.log("\n📊 Deployer BTCBR Balance:", ethers.formatEther(balance_btcbr), "BTCBR");
+  console.log(
+    "\n📊 Deployer BTCBR Balance:",
+    ethers.formatEther(balance_btcbr),
+    "BTCBR"
+  );
 
   // ========================================
   // Step 6: Save deployment info
   // ========================================
   const deployment = {
     timestamp: new Date().toISOString(),
-    network: "noorchain",
+    network: "norchain",
     chainId: "65001",
     deployer: deployer.address,
     contracts: {
       CREATE2_FACTORY: factoryAddress,
-      BTCBR: predictedAddress
+      BTCBR: predictedAddress,
     },
     deployment: {
       method: "CREATE2",
       salt: salt,
-      bytecode: btcbrBytecode
+      bytecode: btcbrBytecode,
     },
     supply: {
       initial: "21000000000",
       decimals: 18,
-      holder: deployer.address
-    }
+      holder: deployer.address,
+    },
   };
 
   // Update or create deployment file
   let existingDeployment = {};
   try {
-    existingDeployment = JSON.parse(fs.readFileSync("./deployments/dex-infrastructure.json", "utf8"));
+    existingDeployment = JSON.parse(
+      fs.readFileSync("./deployments/dex-infrastructure.json", "utf8")
+    );
   } catch (e) {
     // File doesn't exist, create new
   }
 
   existingDeployment.btcbr = deployment;
-  fs.writeFileSync("./deployments/dex-infrastructure.json", JSON.stringify(existingDeployment, null, 2));
+  fs.writeFileSync(
+    "./deployments/dex-infrastructure.json",
+    JSON.stringify(existingDeployment, null, 2)
+  );
 
   // ========================================
   // Final Summary
@@ -155,12 +164,14 @@ async function main() {
   console.log("  ✅ Same address if redeployed with same salt");
   console.log("  ✅ No genesis modification needed");
 
-  console.log("\n💾 Deployment saved to: deployments/dex-infrastructure.json\n");
+  console.log(
+    "\n💾 Deployment saved to: deployments/dex-infrastructure.json\n"
+  );
 
   return {
     factory: factoryAddress,
     btcbr: predictedAddress,
-    supply: "21 billion BTCBR"
+    supply: "21 billion BTCBR",
   };
 }
 

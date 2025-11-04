@@ -2,23 +2,23 @@
 📧 COPY THIS EMAIL AND SEND TO: hello@coingecko.com
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-SUBJECT: Token Listing Request - Xaheen Token (XHT)
+SUBJECT: Token Listing Request - Nor Token (NOR)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Dear CoinGecko Team,
 
-I would like to request a listing for Xaheen Token (XHT) on CoinGecko.
+I would like to request a listing for Nor Token (NOR) on CoinGecko.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📋 TOKEN INFORMATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Token Name: Xaheen Token
-Symbol: XHT
+Token Name: Nor Token
+Symbol: NOR
 Type: Native Blockchain Token (ERC-20 compatible)
 
-Blockchain: Xaheen Chain
+Blockchain: Nor Chain
 Platform: Custom EVM-compatible blockchain
 Consensus: Parlia PoSA (Proof of Staked Authority)
 Block Time: 3 seconds
@@ -28,10 +28,10 @@ Chain ID: 65001
 📍 CONTRACT DETAILS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Contract Address (WXHT): 0x26c0eaF731885b14c031cc50dB79b36458E0b355
+Contract Address (WNOR): 0x26c0eaF731885b14c031cc50dB79b36458E0b355
 Decimals: 18
-Total Supply: 21,000,000,000 XHT
-Circulating Supply: ~1,000,000,000 XHT (initial)
+Total Supply: 21,000,000,000 NOR
+Circulating Supply: ~1,000,000,000 NOR (initial)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🌐 NETWORK DETAILS
@@ -45,11 +45,11 @@ WebSocket: wss://rpc.xaheen.org
 Network Configuration (for verification):
 {
   "chainId": 65001,
-  "chainName": "Xaheen Chain",
+  "chainName": "Nor Chain",
   "rpcUrls": ["https://rpc.xaheen.org"],
   "nativeCurrency": {
-    "name": "XHT",
-    "symbol": "XHT",
+    "name": "NOR",
+    "symbol": "NOR",
     "decimals": 18
   },
   "blockExplorerUrls": ["https://explorer.xaheen.org"]
@@ -67,23 +67,23 @@ Documentation: https://docs.xaheen.org
 💱 TRADING INFORMATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Native DEX: Xaheen DEX (Operational)
+Native DEX: Nor DEX (Operational)
 DEX Type: Uniswap V2 Fork
 Router Contract: 0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916
 Factory Contract: 0xBE254176B4f13b02f367a9feCE599ee8887E2D34
 
 Active Trading Pairs:
-• XHT/USDT - 600,000,000 XHT liquidity
-• XHT/BNB  - 100,000,000 XHT liquidity
-• XHT/ETH  - 100,000,000 XHT liquidity
+• NOR/USDT - 600,000,000 NOR liquidity
+• NOR/BNB  - 100,000,000 NOR liquidity
+• NOR/ETH  - 100,000,000 NOR liquidity
 
-Total Liquidity Locked: 800,000,000 XHT (~$800,000 TVL)
+Total Liquidity Locked: 800,000,000 NOR (~$800,000 TVL)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🎯 PROJECT DESCRIPTION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Xaheen Chain is a high-performance EVM-compatible blockchain network
+Nor Chain is a high-performance EVM-compatible blockchain network
 designed for fast, low-cost decentralized finance (DeFi) operations.
 
 Key Features:
@@ -94,7 +94,7 @@ Key Features:
 • Full EVM compatibility (works with MetaMask, Web3.js, ethers.js)
 • Built-in cross-chain bridge capabilities (planned)
 
-XHT Token Utility:
+NOR Token Utility:
 • Network gas fees (primary use case)
 • DEX trading and liquidity provision
 • Staking rewards (active)
@@ -105,7 +105,7 @@ XHT Token Utility:
 ✅ VERIFICATION STEPS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-You can verify XHT and Xaheen Chain by:
+You can verify NOR and Nor Chain by:
 
 1. Test RPC Endpoint:
    curl -X POST https://rpc.xaheen.org \
@@ -115,24 +115,24 @@ You can verify XHT and Xaheen Chain by:
 2. View Block Explorer:
    https://explorer.xaheen.org
 
-3. Check WXHT Contract:
+3. Check WNOR Contract:
    https://explorer.xaheen.org/address/0x26c0eaF731885b14c031cc50dB79b36458E0b355
 
 4. Verify DEX Router:
    https://explorer.xaheen.org/address/0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916
 
 5. Add to MetaMask:
-   Network: Xaheen Chain
+   Network: Nor Chain
    RPC: https://rpc.xaheen.org
    Chain ID: 65001
-   Symbol: XHT
+   Symbol: NOR
    Explorer: https://explorer.xaheen.org
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📊 MARKET DATA (CURRENT STATUS)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Current Price: ~$0.001 per XHT (indicative, DEX-based)
+Current Price: ~$0.001 per NOR (indicative, DEX-based)
 Market Cap: ~$1,000,000 (circulating supply based)
 Total Value Locked: $800,000+ in DEX liquidity
 Daily Volume: Growing (new launch)
@@ -153,14 +153,14 @@ Holders: Active and growing community
 📨 CONTACT INFORMATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Project: Xaheen Chain
+Project: Nor Chain
 Website: https://xaheen.org
 Email: contact@xaheen.org
 Support: support@xaheen.org
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-We believe Xaheen Token would be a valuable addition to CoinGecko's
+We believe Nor Token would be a valuable addition to CoinGecko's
 comprehensive cryptocurrency tracking platform. Our blockchain is live,
 operational, and providing real utility to users.
 
@@ -169,6 +169,6 @@ Please let me know if you need any additional information or documentation.
 Thank you for considering our listing request!
 
 Best regards,
-Xaheen Chain Team
+Nor Chain Team
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

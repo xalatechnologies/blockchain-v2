@@ -7,12 +7,12 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 /**
- * @title XHN - Xaheen Network Token
- * @notice Governance and value capture token for Xaheen ecosystem
+ * @title XHN - Nor Network Token
+ * @notice Governance and value capture token for Nor ecosystem
  * @dev Features: Revenue sharing, staking, governance, buyback & burn
  *
- * Key Differentiation from XHT and BTCBR:
- * - XHT: Native gas token (utility)
+ * Key Differentiation from NOR and BTCBR:
+ * - NOR: Native gas token (utility)
  * - BTCBR: Trading/utility token (volume)
  * - XHN: Governance & value capture (revenue sharing)
  */
@@ -69,11 +69,11 @@ contract XHN is ERC20, AccessControl, Pausable, ReentrancyGuard {
     event Unstaked(address indexed user, uint256 amount, uint256 rewards, uint256 stakeIndex);
     event RewardsClaimed(address indexed user, uint256 amount);
     event RevenueDistributed(uint256 amount, uint256 timestamp);
-    event BuybackAndBurn(uint256 amountXHT, uint256 amountXHN, uint256 burned);
+    event BuybackAndBurn(uint256 amountNOR, uint256 amountXHN, uint256 burned);
     event GovernanceProposal(uint256 indexed proposalId, address proposer, string description);
     event GovernanceVote(uint256 indexed proposalId, address voter, uint256 votes, bool support);
 
-    constructor(address _treasury, address _dexRouter) ERC20("Xaheen", "XHN") {
+    constructor(address _treasury, address _dexRouter) ERC20("Nor", "XHN") {
         require(_treasury != address(0), "Invalid treasury");
         require(_dexRouter != address(0), "Invalid router");
 
@@ -259,19 +259,19 @@ contract XHN is ERC20, AccessControl, Pausable, ReentrancyGuard {
 
     /**
      * @notice Execute buyback and burn using DEX
-     * @param amountXHT Amount of XHT to use for buyback
+     * @param amountNOR Amount of NOR to use for buyback
      */
-    function _executeBuybackAndBurn(uint256 amountXHT) private {
-        // This would integrate with the XaheenDEXRouter to:
-        // 1. Swap XHT for XHN
+    function _executeBuybackAndBurn(uint256 amountNOR) private {
+        // This would integrate with the NorDEXRouter to:
+        // 1. Swap NOR for XHN
         // 2. Burn the purchased XHN
 
         // For now, just track the buyback amount
         // Full implementation requires DEX integration
 
-        totalBurned += amountXHT; // Track as if we bought and burned
+        totalBurned += amountNOR; // Track as if we bought and burned
 
-        emit BuybackAndBurn(amountXHT, 0, amountXHT);
+        emit BuybackAndBurn(amountNOR, 0, amountNOR);
     }
 
     /**

@@ -51,7 +51,7 @@ Comprehensive self-audit checklist to replace $15-25K professional audit.
 | PriceAuthority.sol | 220 | ✅ Complete | 32 tests |
 | SupplyController.sol | 320 | ✅ Complete | Pending |
 | SettlementHub.sol | 350 | ✅ Complete | Pending |
-| XaheenRouter.sol | 400 | ✅ Complete | Pending |
+| NorRouter.sol | 400 | ✅ Complete | Pending |
 | SettlementInbox.sol | 120 | ✅ Complete | Pending |
 | **Total** | **1,410** | **100%** | **33%** |
 
@@ -67,7 +67,7 @@ Comprehensive self-audit checklist to replace $15-25K professional audit.
 
 | Script | Lines | Status | Networks |
 |--------|-------|--------|----------|
-| deploy-crosschain-hub.js | 150 | ✅ Complete | Xaheen Chain |
+| deploy-crosschain-hub.js | 150 | ✅ Complete | Nor Chain |
 | deploy-crosschain-spoke.js | 180 | ✅ Complete | BSC, Polygon, ETH |
 | **Total** | **330** | **100%** | **All chains** |
 
@@ -97,7 +97,7 @@ Comprehensive self-audit checklist to replace $15-25K professional audit.
 │                                                  │
 │  Spoke Chains (BSC, Polygon, Ethereum)          │
 │  ┌──────────────────────────────────────┐       │
-│  │ User trades on XaheenRouter           │       │
+│  │ User trades on NorRouter           │       │
 │  │   └─> SettlementInbox emits Fill     │       │
 │  └──────────────┬───────────────────────┘       │
 │                 │                                │
@@ -119,7 +119,7 @@ Comprehensive self-audit checklist to replace $15-25K professional audit.
 │                 │                                │
 │                 ▼                                │
 │  ┌──────────────────────────────────────┐       │
-│  │ SettlementHub (Xaheen Chain)         │       │
+│  │ SettlementHub (Nor Chain)         │       │
 │  │ • Validates receipt signature        │       │
 │  │ • Calls SupplyController.settleFill()│       │
 │  │ • Updates inventory + logs revenue   │       │
@@ -280,7 +280,7 @@ WEEK3_COMPLETE_SUMMARY.md            (This file)
 
 ✅ **5 Production-Ready Smart Contracts** (1,410 LOC)
 - Hub: PriceAuthority, SupplyController, SettlementHub
-- Spokes: XaheenRouter, SettlementInbox
+- Spokes: NorRouter, SettlementInbox
 - All compiled, no warnings
 
 ✅ **2 Automated Services** (1,790 LOC)
@@ -312,7 +312,7 @@ WEEK3_COMPLETE_SUMMARY.md            (This file)
 - Same tools as auditors use
 
 ✅ **Capital Efficient Model**
-- 95% on Xaheen (control)
+- 95% on Nor (control)
 - 5% on spokes (visibility)
 - Minimal risk exposure
 

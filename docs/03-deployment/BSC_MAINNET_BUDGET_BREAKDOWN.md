@@ -170,7 +170,7 @@ npx hardhat run scripts/deploy-minimum-ecosystem-bsc.js --network bsc
 
 **This will**:
 - ✅ Use optimized amounts for your 0.37 BNB budget
-- ✅ Deploy all contracts with correct names ("Bitcoin BR", "Xaheen")
+- ✅ Deploy all contracts with correct names ("Bitcoin BR", "Nor")
 - ✅ Create trading pairs
 - ✅ Add minimal liquidity ($150 total)
 - ✅ Execute bot-friendly launch

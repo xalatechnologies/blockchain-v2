@@ -1,8 +1,8 @@
-# 💰 XAHEEN TOKEN (XHT) - PRICING & MARKETING STRATEGY
+# 💰 XAHEEN TOKEN (NOR) - PRICING & MARKETING STRATEGY
 
 ## Executive Summary
 
-This document outlines the complete token pricing, liquidity strategy, revenue model, and marketing approach for Xaheen Token (XHT) — designed to balance investor confidence, operational flexibility, and sustainable growth.
+This document outlines the complete token pricing, liquidity strategy, revenue model, and marketing approach for Nor Token (NOR) — designed to balance investor confidence, operational flexibility, and sustainable growth.
 
 ---
 
@@ -10,9 +10,9 @@ This document outlines the complete token pricing, liquidity strategy, revenue m
 
 ### Total Supply & Distribution
 
-**Total Supply:** 21 Trillion XHT (21,000,000,000,000)
+**Total Supply:** 21 Trillion NOR (21,000,000,000,000)
 
-| Allocation | % | Amount (XHT) | Vesting |
+| Allocation | % | Amount (NOR) | Vesting |
 |------------|---|--------------|---------|
 | Public Liquidity | 0.1% | 21B | Locked 1 year |
 | Airdrop/Faucet | 0.5% | 105B | Released 30 days |
@@ -21,7 +21,7 @@ This document outlines the complete token pricing, liquidity strategy, revenue m
 | Ecosystem & Rewards | 20% | 4.2T | Gradual release |
 | Treasury | 59.4% | 12.474T | DAO-controlled |
 
-**Circulating Supply at Launch:** 1% = 210 Billion XHT
+**Circulating Supply at Launch:** 1% = 210 Billion NOR
 
 ---
 
@@ -33,7 +33,7 @@ This document outlines the complete token pricing, liquidity strategy, revenue m
 
 **Target Market Cap at Launch:** $500,000 (aligned with seed valuation)
 
-**Launch Price:** $0.0000024 per XHT
+**Launch Price:** $0.0000024 per NOR
 
 ```
 $500,000 ÷ 210,000,000,000 = $0.00000238 ≈ $0.0000024
@@ -41,7 +41,7 @@ $500,000 ÷ 210,000,000,000 = $0.00000238 ≈ $0.0000024
 
 ### Price Tiers & Phases
 
-| Phase | XHT Price | Discount | Purpose |
+| Phase | NOR Price | Discount | Purpose |
 |-------|-----------|----------|---------|
 | Airdrop | $0.000001 | 58% off | Attract 1,000 early wallets |
 | Seed Investors | $0.0000018 | 25% off | $500k raise |
@@ -57,7 +57,7 @@ $500,000 ÷ 210,000,000,000 = $0.00000238 ≈ $0.0000024
 | Polygon | $45M | $0.0026 | $7B | 155x |
 | Avalanche | $50M | $0.50 | $12B | 240x |
 | Fantom | $20M | $0.016 | $1B | 50x |
-| **Xaheen** | **$0.5M** | **$0.0000024** | **Room to 100x+** | **TBD** |
+| **Nor** | **$0.5M** | **$0.0000024** | **Room to 100x+** | **TBD** |
 
 ---
 
@@ -85,11 +85,11 @@ $500,000 ÷ 210,000,000,000 = $0.00000238 ≈ $0.0000024
 
 ### Initial LP Deployment
 
-**Pair:** XHT/USDT
+**Pair:** NOR/USDT
 **Initial Value:** $10,000 at launch
-**Target Price:** $0.0000024 per XHT
+**Target Price:** $0.0000024 per NOR
 **Required USDT:** $10,000
-**XHT Allocated:** ~4.17 Billion XHT
+**NOR Allocated:** ~4.17 Billion NOR
 
 **Expansion Schedule:**
 
@@ -121,7 +121,7 @@ $500,000 ÷ 210,000,000,000 = $0.00000238 ≈ $0.0000024
 
 **Treasury Composition:**
 - 60% USDT (operational stability)
-- 40% Native XHT (aligned incentives)
+- 40% Native NOR (aligned incentives)
 
 **Transparency Measures:**
 - Monthly on-chain treasury report: `/docs/current/TREASURY_LOG.md`
@@ -210,8 +210,8 @@ Every Transaction →
 **Target Burn Rate:** 0.5% of circulating supply per month
 
 **Impact:**
-- Month 1: 1.05B XHT burned
-- Year 1: ~12.6B XHT burned
+- Month 1: 1.05B NOR burned
+- Year 1: ~12.6B NOR burned
 - Long-term: Controlled scarcity = price appreciation
 
 **Transparency:**
@@ -266,21 +266,21 @@ Every Transaction →
 
 **Example Announcement:**
 ```
-🔥 Xaheen Foundation bought 15B XHT from open market!
+🔥 Nor Foundation bought 15B NOR from open market!
    - 7.5B burned (reducing supply by 0.2%)
    - 7.5B added to treasury for staking rewards
    📊 Tx: 0xabc...def
    💪 Price floor strengthened!
 ```
 
-### Weekly Buy Events: #BuyXaheenFriday
+### Weekly Buy Events: #BuyNorFriday
 
 **Every Friday:**
 - Foundation commits $2,000 buyback
 - Community encouraged to buy small amounts ($10-$50)
 - All buyers get random rewards:
   - NFT badges
-  - Small XHT bonus (from rewards pool)
+  - Small NOR bonus (from rewards pool)
   - Early staking access
   - Whitelist for future features
 
@@ -290,7 +290,7 @@ Every Transaction →
 
 | Phase | Liquidity Added | Marketing Message |
 |-------|-----------------|-------------------|
-| 1,000 users | +$20,000 | "We just doubled Xaheen's liquidity! 💪" |
+| 1,000 users | +$20,000 | "We just doubled Nor's liquidity! 💪" |
 | 5,000 users | +$40,000 | "Price floor 3x stronger than launch 🚀" |
 | 10,000 users | +$80,000 | "CEX-ready liquidity achieved! 🎯" |
 
@@ -311,12 +311,12 @@ Every Transaction →
 
 **Campaign:** "50 Influencers Challenge"
 
-"We're challenging 50 verified crypto influencers to buy $100 of XHT each — and we'll match their total buy with burns."
+"We're challenging 50 verified crypto influencers to buy $100 of NOR each — and we'll match their total buy with burns."
 
 - Cost: $5,000 match
 - Exposure: 50 influencers × 10k followers avg = 500k reach
 - Genuine market buys: $5,000
-- Burns: $5,000 worth of XHT
+- Burns: $5,000 worth of NOR
 
 ### Smart Buying Rhythm
 
@@ -347,7 +347,7 @@ User Activity ↑
 ### Year 1 Projections
 
 **Assumptions:**
-- Launch: $0.0000024 per XHT
+- Launch: $0.0000024 per NOR
 - Users: 1,000 → 10,000
 - Daily tx: 50,000 → 500,000
 - DEX volume: $200k → $2M daily
@@ -471,24 +471,24 @@ User Activity ↑
 
 ### Key Takeaways
 
-✅ **Launch Price:** $0.0000024 per XHT
+✅ **Launch Price:** $0.0000024 per NOR
 ✅ **Initial Liquidity:** $10,000 (scaling to $150k)
 ✅ **30/70 Split:** 30% locked LP, 70% operational
 ✅ **Revenue Model:** Gas + DEX + Bridge fees = $1M+ Year 1
 ✅ **Burn Policy:** 0.5% supply/month deflationary
 ✅ **Charity:** $164k/year donated on-chain
 ✅ **Buybacks:** Weekly from revenue (5% of all sources)
-✅ **Marketing:** #BuyXaheenFriday + influencer challenges
+✅ **Marketing:** #BuyNorFriday + influencer challenges
 
 ### Immediate Actions
 
 **Week 1:**
-1. Deploy initial $10k XHT/USDT liquidity pool
+1. Deploy initial $10k NOR/USDT liquidity pool
 2. Lock LP tokens publicly (12 months)
 3. Publish lock verification link
 
 **Week 2-4:**
-4. Launch #BuyXaheenFriday campaign
+4. Launch #BuyNorFriday campaign
 5. Execute first foundation buyback
 6. Publish first burn report
 

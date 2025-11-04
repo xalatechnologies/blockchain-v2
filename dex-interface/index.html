@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NorSwap - Decentralized Exchange</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+
+        .wallet-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        .wallet-info.connected {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .swap-container {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .token-input {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .token-select {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        select {
+            padding: 10px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            min-width: 150px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1.2em;
+            outline: none;
+        }
+
+        input[type="number"]:focus {
+            border-color: #667eea;
+        }
+
+        .balance {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .swap-arrow {
+            text-align: center;
+            margin: 10px 0;
+            font-size: 1.5em;
+            color: #667eea;
+        }
+
+        .price-info {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .status.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            display: block;
+        }
+
+        .status.error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            display: block;
+        }
+
+        .status.info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            display: block;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.85em;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌙 NorSwap</h1>
+        <p class="subtitle">Decentralized Token Exchange on Nor Chain</p>
+
+        <div id="walletInfo" class="wallet-info">
+            <div id="walletStatus">👛 Click "Connect Wallet" to begin</div>
+        </div>
+
+        <div class="swap-container">
+            <div class="token-input">
+                <div class="token-select">
+                    <label>From:</label>
+                    <select id="tokenFrom">
+                        <option value="">Select Token</option>
+                        <option value="DIRHAMAT">Dirhamat (AED)</option>
+                        <option value="WETH">WETH</option>
+                        <option value="WUSDT">WUSDT</option>
+                        <option value="BTCBR">BTCBR</option>
+                        <option value="NOR">NOR</option>
+                    </select>
+                </div>
+                <input type="number" id="amountFrom" placeholder="0.00" step="any">
+                <div class="balance" id="balanceFrom">Balance: --</div>
+            </div>
+
+            <div class="swap-arrow">⇅</div>
+
+            <div class="token-input">
+                <div class="token-select">
+                    <label>To:</label>
+                    <select id="tokenTo">
+                        <option value="">Select Token</option>
+                        <option value="DIRHAMAT">Dirhamat (AED)</option>
+                        <option value="WETH">WETH</option>
+                        <option value="WUSDT">WUSDT</option>
+                        <option value="BTCBR">BTCBR</option>
+                        <option value="NOR">NOR</option>
+                    </select>
+                </div>
+                <input type="number" id="amountTo" placeholder="0.00" readonly>
+                <div class="balance" id="balanceTo">Balance: --</div>
+            </div>
+        </div>
+
+        <div class="price-info" id="priceInfo" style="display: none;">
+            <div class="price-row">
+                <span>Rate:</span>
+                <span id="exchangeRate">--</span>
+            </div>
+            <div class="price-row">
+                <span>Price Impact:</span>
+                <span id="priceImpact">--</span>
+            </div>
+            <div class="price-row">
+                <span>Min. Received:</span>
+                <span id="minReceived">--</span>
+            </div>
+        </div>
+
+        <button id="connectBtn" onclick="connectWallet()">Connect Wallet</button>
+        <button id="swapBtn" onclick="executeSwap()" style="display: none;" disabled>Enter Amount</button>
+
+        <div id="status" class="status"></div>
+    </div>
+
+    <div class="footer">
+        <p>Nor Chain (Chain ID: 65001)</p>
+        <p>Powered by NorSwap Protocol</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

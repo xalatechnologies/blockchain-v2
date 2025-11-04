@@ -11,9 +11,9 @@
 - Total Supply: 45,000 tokens
 - Your Balance: 30,000 tokens
 
-**XHN (Xaheen)**
+**XHN (Nor)**
 - Contract: `0x1777C32Da09d4FD65a74B6C9AFca17862423Fd1C`
-- Name: "Xaheen" ✅
+- Name: "Nor" ✅
 - Symbol: XHN
 - Total Supply: 100,045,000 tokens
 - Your Balance: 100,030,000 tokens
@@ -109,12 +109,12 @@
    For XHN (`0x1777C32Da09d4FD65a74B6C9AFca17862423Fd1C/info.json`):
    ```json
    {
-     "name": "Xaheen",
+     "name": "Nor",
      "type": "BEP20",
      "symbol": "XHN",
      "decimals": 18,
      "website": "https://yourwebsite.com",
-     "description": "Xaheen - Your description here",
+     "description": "Nor - Your description here",
      "explorer": "https://bscscan.com/token/0x1777C32Da09d4FD65a74B6C9AFca17862423Fd1C",
      "status": "active",
      "id": "0x1777C32Da09d4FD65a74B6C9AFca17862423Fd1C"
@@ -151,7 +151,7 @@
      "logoURI": "https://yourdomain.com/btcbr-logo.png"
    },
    {
-     "name": "Xaheen",
+     "name": "Nor",
      "symbol": "XHN",
      "address": "0x1777C32Da09d4FD65a74B6C9AFca17862423Fd1C",
      "chainId": 56,

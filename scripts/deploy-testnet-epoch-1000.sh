@@ -56,20 +56,20 @@ cd /home/ec2-user
 
 echo "   Initializing testnet-validator-1..."
 docker run --rm \
-  -v /opt/noor-chain/testnet-validator-1:/bsc \
-  -v /opt/noor-chain/testnet-genesis.json:/genesis.json \
+  -v /opt/nor-chain/testnet-validator-1:/bsc \
+  -v /opt/nor-chain/testnet-genesis.json:/genesis.json \
   dysnix/bsc init --datadir /bsc /genesis.json
 
 echo "   Initializing testnet-validator-2..."
 docker run --rm \
-  -v /opt/noor-chain/testnet-validator-2:/bsc \
-  -v /opt/noor-chain/testnet-genesis.json:/genesis.json \
+  -v /opt/nor-chain/testnet-validator-2:/bsc \
+  -v /opt/nor-chain/testnet-genesis.json:/genesis.json \
   dysnix/bsc init --datadir /bsc /genesis.json
 
 echo "   Initializing testnet-validator-3..."
 docker run --rm \
-  -v /opt/noor-chain/testnet-validator-3:/bsc \
-  -v /opt/noor-chain/testnet-genesis.json:/genesis.json \
+  -v /opt/nor-chain/testnet-validator-3:/bsc \
+  -v /opt/nor-chain/testnet-genesis.json:/genesis.json \
   dysnix/bsc init --datadir /bsc /genesis.json
 
 echo "   ✅ All testnet validators initialized"
@@ -79,7 +79,7 @@ REMOTE_INIT
 echo ""
 echo "🔑 Step 4: Copying validator keystores..."
 ssh -i "$SSH_KEY" -o StrictHostKeyChecking=no "$SERVER" << 'REMOTE_KEYS'
-cd /opt/noor-chain
+cd /opt/nor-chain
 
 cp -r validator-1/keystore testnet-validator-1/
 cp -r validator-2/keystore testnet-validator-2/
@@ -96,13 +96,13 @@ REMOTE_KEYS
 echo ""
 echo "🔗 Step 5: Generating testnet enode addresses..."
 ssh -i "$SSH_KEY" -o StrictHostKeyChecking=no "$SERVER" << 'REMOTE_ENODES'
-cd /opt/noor-chain
+cd /opt/nor-chain
 
 # Get enode for validator 1 (port 40303)
-ENODE1=$(docker run --rm -v /opt/noor-chain/testnet-validator-1:/bsc dysnix/bsc \
+ENODE1=$(docker run --rm -v /opt/nor-chain/testnet-validator-1:/bsc dysnix/bsc \
   --datadir /bsc \
   --exec 'admin.nodeInfo.enode' attach /bsc/geth.ipc 2>/dev/null | grep -o 'enode://[^"]*' || \
-  docker run --rm -v /opt/noor-chain/testnet-validator-1:/bsc dysnix/bsc \
+  docker run --rm -v /opt/nor-chain/testnet-validator-1:/bsc dysnix/bsc \
   account list --datadir /bsc --keystore /bsc/keystore 2>&1 | grep -o '0x[a-fA-F0-9]*' | head -1)
 
 # Use hardcoded enodes (same nodekeys as production)
@@ -134,11 +134,11 @@ REMOTE_ENODES
 echo ""
 echo "🚀 Step 6: Starting testnet validators..."
 ssh -i "$SSH_KEY" -o StrictHostKeyChecking=no "$SERVER" << 'REMOTE_START'
-cd /opt/noor-chain
+cd /opt/nor-chain
 
 # Testnet Validator 1 (RPC + Mining on port 40303)
 docker run -d --name testnet-validator-1 --network host \
-  -v /opt/noor-chain/testnet-validator-1:/bsc \
+  -v /opt/nor-chain/testnet-validator-1:/bsc \
   dysnix/bsc \
   --datadir /bsc \
   --networkid 65002 \
@@ -166,7 +166,7 @@ sleep 5
 
 # Testnet Validator 2 (Mining only on port 40304)
 docker run -d --name testnet-validator-2 --network host \
-  -v /opt/noor-chain/testnet-validator-2:/bsc \
+  -v /opt/nor-chain/testnet-validator-2:/bsc \
   dysnix/bsc \
   --datadir /bsc \
   --networkid 65002 \
@@ -187,7 +187,7 @@ sleep 5
 
 # Testnet Validator 3 (Mining only on port 40305)
 docker run -d --name testnet-validator-3 --network host \
-  -v /opt/noor-chain/testnet-validator-3:/bsc \
+  -v /opt/nor-chain/testnet-validator-3:/bsc \
   dysnix/bsc \
   --datadir /bsc \
   --networkid 65002 \
@@ -209,7 +209,7 @@ REMOTE_START
 echo ""
 echo "⚙️  Step 7: Deploying testnet auto-sealer..."
 ssh -i "$SSH_KEY" -o StrictHostKeyChecking=no "$SERVER" << 'REMOTE_AUTOSEALER'
-cat > /opt/noor-chain/scripts/testnet-auto-sealer.sh << 'AUTOSEALER_SCRIPT'
+cat > /opt/nor-chain/scripts/testnet-auto-sealer.sh << 'AUTOSEALER_SCRIPT'
 #!/bin/bash
 
 #═══════════════════════════════════════════════════════════════════════════
@@ -304,11 +304,11 @@ fi
 exit 0
 AUTOSEALER_SCRIPT
 
-chmod +x /opt/noor-chain/scripts/testnet-auto-sealer.sh
+chmod +x /opt/nor-chain/scripts/testnet-auto-sealer.sh
 echo "   ✅ Testnet auto-sealer script deployed"
 
 # Add to crontab (run every minute)
-(crontab -l 2>/dev/null | grep -v testnet-auto-sealer; echo "* * * * * /opt/noor-chain/scripts/testnet-auto-sealer.sh >> /var/log/testnet-auto-sealer.log 2>&1") | crontab -
+(crontab -l 2>/dev/null | grep -v testnet-auto-sealer; echo "* * * * * /opt/nor-chain/scripts/testnet-auto-sealer.sh >> /var/log/testnet-auto-sealer.log 2>&1") | crontab -
 echo "   ✅ Testnet auto-sealer cron job installed (runs every minute)"
 REMOTE_AUTOSEALER
 

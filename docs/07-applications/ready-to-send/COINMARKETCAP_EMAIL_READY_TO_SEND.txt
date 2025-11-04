@@ -2,21 +2,21 @@
 📧 COPY THIS EMAIL AND SEND TO: listings@coinmarketcap.com
 
 
-SUBJECT: New Cryptocurrency Listing Request - Xaheen Token (XHT)
+SUBJECT: New Cryptocurrency Listing Request - Nor Token (NOR)
 
 
 
 Dear CoinMarketCap Team,
 
-I am writing to request a listing for Xaheen Token (XHT) on CoinMarketCap.
+I am writing to request a listing for Nor Token (NOR) on CoinMarketCap.
 
 
 📋 PROJECT INFORMATION
 
 
-Project Name: Xaheen Chain
-Token Name: Xaheen Token
-Token Symbol/Ticker: XHT
+Project Name: Nor Chain
+Token Name: Nor Token
+Token Symbol/Ticker: NOR
 Token Type: Native Blockchain Token / Utility Token
 
 
@@ -28,7 +28,7 @@ Block Explorer: https://explorer.xaheen.org
 Documentation: https://docs.xaheen.org
 
 Social Media (if available):
-Twitter: https://twitter.com/XaheenChain
+Twitter: https://twitter.com/NorChain
 Telegram: https://t.me/xaheenchain
 Discord: https://discord.gg/xaheenchain
 
@@ -36,7 +36,7 @@ Discord: https://discord.gg/xaheenchain
 ⛓️ BLOCKCHAIN INFORMATION
 
 
-Blockchain Platform: Xaheen Chain (Custom EVM-compatible blockchain)
+Blockchain Platform: Nor Chain (Custom EVM-compatible blockchain)
 Platform Type: Independent Blockchain (Layer 1)
 Consensus Mechanism: Parlia PoSA (Proof of Staked Authority)
 Block Time: 3 seconds
@@ -50,14 +50,14 @@ Compatible With: MetaMask, Web3.js, ethers.js, Hardhat, Truffle
 📍 TOKEN CONTRACT DETAILS
 
 
-Contract Address (Wrapped XHT): 0x26c0eaF731885b14c031cc50dB79b36458E0b355
+Contract Address (Wrapped NOR): 0x26c0eaF731885b14c031cc50dB79b36458E0b355
 Contract Type: ERC-20 Compatible
 Token Standard: ERC-20
 Decimals: 18
 
-Total Supply: 21,000,000,000 XHT
-Max Supply: 21,000,000,000 XHT
-Circulating Supply: ~1,000,000,000 XHT (approximate, initial phase)
+Total Supply: 21,000,000,000 NOR
+Max Supply: 21,000,000,000 NOR
+Circulating Supply: ~1,000,000,000 NOR (approximate, initial phase)
 
 
 🌐 NETWORK ACCESS
@@ -76,11 +76,11 @@ Block Explorer:
 Add Network to MetaMask:
 {
   "chainId": 65001,
-  "chainName": "Xaheen Chain",
+  "chainName": "Nor Chain",
   "rpcUrls": ["https://rpc.xaheen.org"],
   "nativeCurrency": {
-    "name": "Xaheen Token",
-    "symbol": "XHT",
+    "name": "Nor Token",
+    "symbol": "NOR",
     "decimals": 18
   },
   "blockExplorerUrls": ["https://explorer.xaheen.org"]
@@ -93,7 +93,7 @@ Add Network to MetaMask:
 Launch Date: January 2025
 Current Status: Live and Trading
 
-Primary Exchange: Xaheen DEX (Native)
+Primary Exchange: Nor DEX (Native)
 Exchange Type: Decentralized Exchange (DEX)
 DEX Protocol: Uniswap V2 Fork
 
@@ -102,15 +102,15 @@ Smart Contracts:
 • Factory: 0xBE254176B4f13b02f367a9feCE599ee8887E2D34
 
 Trading Pairs (Live):
-1. XHT/USDT
-   • Liquidity: 600,000,000 XHT
+1. NOR/USDT
+   • Liquidity: 600,000,000 NOR
    • Pair Address: 0x3eCD8786EfCf66cc0a021c234f7Ac8606FCc0212
 
-2. XHT/BNB
-   • Liquidity: 100,000,000 XHT
+2. NOR/BNB
+   • Liquidity: 100,000,000 NOR
 
-3. XHT/ETH
-   • Liquidity: 100,000,000 XHT
+3. NOR/ETH
+   • Liquidity: 100,000,000 NOR
 
 Total Value Locked (TVL): ~$800,000 USD
 24h Trading Volume: Growing (recent launch)
@@ -122,12 +122,12 @@ Market Capitalization: ~$1,000,000 USD (circulating supply based)
 📊 TOKEN DISTRIBUTION
 
 
-Total Supply: 21,000,000,000 XHT (100%)
+Total Supply: 21,000,000,000 NOR (100%)
 
 Distribution:
-• Treasury/Development: 95% (19,950,000,000 XHT)
-• Liquidity Pools: 4% (800,000,000 XHT locked in DEX)
-• Initial Circulation: 1% (200,000,000 XHT)
+• Treasury/Development: 95% (19,950,000,000 NOR)
+• Liquidity Pools: 4% (800,000,000 NOR locked in DEX)
+• Initial Circulation: 1% (200,000,000 NOR)
 
 Token Utility:
 • Network gas fees (primary use case)
@@ -141,12 +141,12 @@ Token Utility:
 🎯 PROJECT DESCRIPTION
 
 
-What is Xaheen Chain?
+What is Nor Chain?
 
-Xaheen Chain is a high-performance, EVM-compatible blockchain network
+Nor Chain is a high-performance, EVM-compatible blockchain network
 designed specifically for decentralized finance (DeFi) applications.
 Built on proven Parlia PoSA consensus (same technology as BNB Chain),
-Xaheen offers significantly faster transaction speeds and lower costs
+Nor offers significantly faster transaction speeds and lower costs
 compared to traditional blockchains.
 
 Key Features & Advantages:
@@ -162,7 +162,7 @@ Key Features & Advantages:
    • Sustainable for micro-transactions
 
 3. Native DeFi Infrastructure
-   • Built-in decentralized exchange (Xaheen DEX)
+   • Built-in decentralized exchange (Nor DEX)
    • Protocol-level liquidity mechanisms
    • Integrated staking and rewards system
    • Native cross-chain bridge capabilities (planned)
@@ -232,7 +232,7 @@ Contact:
 ✅ VERIFICATION & TESTING
 
 
-Your team can verify Xaheen Chain and XHT token through:
+Your team can verify Nor Chain and NOR token through:
 
 1. Test RPC Endpoint (confirms blockchain is live):
    curl -X POST https://rpc.xaheen.org \
@@ -254,15 +254,15 @@ Your team can verify Xaheen Chain and XHT token through:
    (View trading activity, swaps, liquidity operations)
 
 5. Add Network to MetaMask:
-   Network Name: Xaheen Chain
+   Network Name: Nor Chain
    RPC URL: https://rpc.xaheen.org
    Chain ID: 65001
-   Currency Symbol: XHT
+   Currency Symbol: NOR
    Block Explorer: https://explorer.xaheen.org
 
 6. Test Token Import:
    Import token address: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
-   Will display as "Wrapped XHT" with 18 decimals
+   Will display as "Wrapped NOR" with 18 decimals
 
 7. View Recent Transactions:
    https://explorer.xaheen.org/txs
@@ -307,13 +307,13 @@ Documentation: https://docs.xaheen.org
 API Access: Standard EVM JSON-RPC API
 
 Listing Preference:
-• Primary listing as XHT on Xaheen Chain
+• Primary listing as NOR on Nor Chain
 • Category: Platform / Infrastructure Token
 • Tag: DeFi, DEX, Layer 1
 
 
 
-We believe Xaheen Token and the Xaheen Chain platform would be a
+We believe Nor Token and the Nor Chain platform would be a
 valuable addition to CoinMarketCap's comprehensive cryptocurrency
 database. Our blockchain is live, operational, and providing real
 utility to an active and growing user base.
@@ -324,7 +324,7 @@ documentation, or verification for this listing request.
 Thank you for your consideration!
 
 Best regards,
-Xaheen Chain Team
+Nor Chain Team
 
 Website: https://xaheen.org
 Email: contact@xaheen.org

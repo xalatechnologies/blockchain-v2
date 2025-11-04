@@ -260,7 +260,7 @@ PHASE 1: DEPLOY DEX INFRASTRUCTURE
 ✅ Router deployed at: 0x...
 [4/6] Deploying XHN Token...
 ✅ XHN Token deployed at: 0x...
-   Name: Xaheen Network Token
+   Name: Nor Network Token
    Symbol: XHN
    Total Supply: 100000000.0 XHN
 [5/6] Creating XHN/BNB pair...
@@ -437,7 +437,7 @@ First 100 buyers get 10% BONUS! 🎁
 ```
 🎉 XHN TOKEN IS NOW LIVE ON BSC! 🎉
 
-The Xaheen Network governance token just launched!
+The Nor Network governance token just launched!
 
 💰 WHAT IS XHN?
 Revolutionary revenue-sharing token where 60% of ALL protocol fees go to stakers!
@@ -486,7 +486,7 @@ Title: 🚀 $XHN - Actual Revenue Sharing, 90% APY, Fair Launch [Just Launched -
 Body:
 Just launched 30 minutes ago on BSC!
 
-XHN is the governance token of Xaheen Network with REAL utility and revenue sharing:
+XHN is the governance token of Nor Network with REAL utility and revenue sharing:
 
 ✅ 60% of protocol fees → distributed to stakers
 ✅ 30% buyback & burn (deflationary)

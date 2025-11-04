@@ -14,7 +14,7 @@ interface IMintableXHN {
 
 /**
  * @title XHNBridgePrivate
- * @notice Bridge contract for XHN on Xaheen Private Chain side
+ * @notice Bridge contract for XHN on Nor Private Chain side
  * @dev Mints XHN when locked on mainnet, burns when withdrawing
  */
 contract XHNBridgePrivate is Ownable, Pausable, ReentrancyGuard {

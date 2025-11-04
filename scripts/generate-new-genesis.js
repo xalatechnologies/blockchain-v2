@@ -20,9 +20,15 @@ const STATE_EXPORT_FILE = "./data/state-export-29999.json";
 const OLD_GENESIS_FILE = "./data/genesis.json";
 const NEW_GENESIS_FILE = "./data/genesis-regenesis.json";
 
-console.log("╔═══════════════════════════════════════════════════════════════════════════╗");
-console.log("║           GENERATE NEW GENESIS - State-Preserving Regenesis              ║");
-console.log("╚═══════════════════════════════════════════════════════════════════════════╝");
+console.log(
+  "╔═══════════════════════════════════════════════════════════════════════════╗"
+);
+console.log(
+  "║           GENERATE NEW GENESIS - State-Preserving Regenesis              ║"
+);
+console.log(
+  "╚═══════════════════════════════════════════════════════════════════════════╝"
+);
 console.log("");
 
 // Validator addresses (SORTED lexicographically, lowercase)
@@ -98,7 +104,8 @@ async function generateNewGenesis() {
 
     // Remove undefined values
     if (!convertedAlloc[address].code) delete convertedAlloc[address].code;
-    if (!convertedAlloc[address].storage) delete convertedAlloc[address].storage;
+    if (!convertedAlloc[address].storage)
+      delete convertedAlloc[address].storage;
   }
 
   const newGenesis = {
@@ -146,20 +153,28 @@ async function generateNewGenesis() {
   console.log(`   ✅ Saved to ${NEW_GENESIS_FILE}`);
 
   console.log("");
-  console.log("╔═══════════════════════════════════════════════════════════════════════════╗");
-  console.log("║                    NEW GENESIS GENERATED ✅                               ║");
-  console.log("╚═══════════════════════════════════════════════════════════════════════════╝");
+  console.log(
+    "╔═══════════════════════════════════════════════════════════════════════════╗"
+  );
+  console.log(
+    "║                    NEW GENESIS GENERATED ✅                               ║"
+  );
+  console.log(
+    "╚═══════════════════════════════════════════════════════════════════════════╝"
+  );
   console.log("");
   console.log("📊 New Genesis Summary:");
   console.log(`   Chain ID: 65001 (unchanged)`);
-  console.log(`   Epoch: 9,000,000 (was: ${oldGenesis.config.parlia?.epoch || 30000})`);
+  console.log(
+    `   Epoch: 9,000,000 (was: ${oldGenesis.config.parlia?.epoch || 30000})`
+  );
   console.log(`   Period: 3 seconds`);
   console.log(`   Validators: ${VALIDATORS.length}`);
   console.log(`   Imported accounts: ${Object.keys(newGenesis.alloc).length}`);
   console.log("");
   console.log("⚠️  CRITICAL:");
   console.log("   All contracts, LP reserves, and balances are PRESERVED.");
-  console.log("   Your $20,000 XHT/USDT liquidity will be intact.");
+  console.log("   Your $20,000 NOR/USDT liquidity will be intact.");
   console.log("");
   console.log("Next steps:");
   console.log("   1. Backup current validator data");

@@ -164,7 +164,7 @@ for CHECK in {1..20}; do
     echo "  Peers: $DEC_PEERS"
     echo "  Genesis: CORRECT (sorted validators, no epoch issues)"
     echo ""
-    echo "🌙 Noor Chain Ready for Contract Deployment!"
+    echo "🌙 Nor Chain Ready for Contract Deployment!"
     echo ""
     exit 0
   fi
@@ -180,5 +180,5 @@ EOF
 
 echo ""
 echo "═══════════════════════════════════════════════════════════════════════════"
-echo "  🌙 Noor Chain - Empowering the Future with Light and Trust"
+echo "  🌙 Nor Chain - Empowering the Future with Light and Trust"
 echo "═══════════════════════════════════════════════════════════════════════════"

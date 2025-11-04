@@ -1,4 +1,4 @@
-# Noor Chain Smart Contracts Implementation Status
+# Nor Chain Smart Contracts Implementation Status
 
 **Date**: November 2, 2025
 **Version**: 1.1
@@ -17,10 +17,10 @@
 - ✅ Role-based access control
 - Status: **Ready for deployment**
 
-**NoorSwap DEX** (3 contracts)
-- ✅ `NoorSwapFactory.sol` - Pair creation and management
-- ✅ `NoorSwapPair.sol` - AMM liquidity pools (x*y=k)
-- ✅ `NoorSwapRouter.sol` - User-facing swap interface
+**NorSwap DEX** (3 contracts)
+- ✅ `NorSwapFactory.sol` - Pair creation and management
+- ✅ `NorSwapPair.sol` - AMM liquidity pools (x*y=k)
+- ✅ `NorSwapRouter.sol` - User-facing swap interface
 - Status: **Ready for deployment** (minor Ownable constructor fix applied)
 
 **Stablecoins** (2 contracts)
@@ -28,7 +28,7 @@
 - ✅ `DigitalKES.sol` - Kenyan Shilling with bank licensing
 - Status: **Ready for deployment**
 
-**Governance** (`contracts/governance/NoorGovernance.sol`)
+**Governance** (`contracts/governance/NorGovernance.sol`)
 - ✅ Three-layer DAO system
 - ✅ Council, Validator, and Community DAOs
 - ✅ Timelock integration
@@ -46,7 +46,7 @@
 
 ### 2. Deployment Infrastructure - COMPLETE
 
-**Deployment Script** (`scripts/deploy-noor-ecosystem.js`)
+**Deployment Script** (`scripts/deploy-nor-ecosystem.js`)
 - ✅ Comprehensive ecosystem deployment
 - ✅ Proper deployment order
 - ✅ Address tracking and logging
@@ -64,15 +64,15 @@
 
 ### Fixed Issues:
 1. ✅ ReentrancyGuard import paths updated (`utils/` → `security/`)
-2. ✅ NoorSwapPair - Removed redundant ReentrancyGuard (uses custom lock)
-3. ✅ NoorSwapFactory - Fixed Ownable constructor for OpenZeppelin 4.9.6
+2. ✅ NorSwapPair - Removed redundant ReentrancyGuard (uses custom lock)
+3. ✅ NorSwapFactory - Fixed Ownable constructor for OpenZeppelin 4.9.6
 4. ✅ MockOracle - Fixed Ownable constructor for OpenZeppelin 4.9.6
 
 ---
 
 ## ⚠️ Pending Research Required
 
-### NoorGovernance Contract - OpenZeppelin 4.9.6 Compatibility
+### NorGovernance Contract - OpenZeppelin 4.9.6 Compatibility
 
 The governance contract is fully implemented with correct logic but encounters contradictory compilation errors with OpenZeppelin 4.9.6 Governor override patterns.
 
@@ -91,7 +91,7 @@ The governance contract is fully implemented with correct logic but encounters c
 - `proposalThreshold()` - Line 292
 
 **Current Status**:
-- Contract moved to `contracts/governance/NoorGovernance.sol.pending`
+- Contract moved to `contracts/governance/NorGovernance.sol.pending`
 - Requires research into OpenZeppelin 4.9.6 Governor documentation and examples
 - May need to use different OpenZeppelin version or adjust inheritance pattern
 
@@ -127,7 +127,7 @@ The governance contract is fully implemented with correct logic but encounters c
 
 ### Immediate (Optional - Core Functions Available Without Governance)
 
-1. **Research NoorGovernance OpenZeppelin Pattern** (1-2 hours)
+1. **Research NorGovernance OpenZeppelin Pattern** (1-2 hours)
    - Study OpenZeppelin 4.9.6 Governor documentation
    - Check OpenZeppelin test suite examples
    - Consider version upgrade to 5.x
@@ -136,7 +136,7 @@ The governance contract is fully implemented with correct logic but encounters c
 2. **Deploy Core Contracts** (Can proceed without governance)
    ```bash
    npx hardhat compile  # Already successful
-   npx hardhat run scripts/deploy-noor-ecosystem.js --network btcbr
+   npx hardhat run scripts/deploy-nor-ecosystem.js --network btcbr
    ```
    - NOR token, DEX, Stablecoins, Funds can deploy immediately
    - Governance can be added later via upgrade proxy
@@ -159,7 +159,7 @@ The governance contract is fully implemented with correct logic but encounters c
 
 5. **Testnet Deployment**
    ```bash
-   npx hardhat run scripts/deploy-noor-ecosystem.js --network btcbr
+   npx hardhat run scripts/deploy-nor-ecosystem.js --network btcbr
    ```
 
 6. **Verification**
@@ -169,7 +169,7 @@ The governance contract is fully implemented with correct logic but encounters c
 
 7. **Mainnet Deployment**
    - Security audit recommended
-   - Deploy to Noor Chain mainnet
+   - Deploy to Nor Chain mainnet
    - Initialize liquidity pools
    - Enable governance
 
@@ -177,7 +177,7 @@ The governance contract is fully implemented with correct logic but encounters c
 
 ## 📈 Blockchain Status
 
-**Current Noor Chain Status**:
+**Current Nor Chain Status**:
 - Block: 237+ (continuously producing)
 - Peers: 2 stable connections
 - Epoch: 10,000 blocks (~8.3 hours)
@@ -230,20 +230,20 @@ The governance contract is fully implemented with correct logic but encounters c
 contracts/
 ├── tokens/NOR.sol
 ├── dex/
-│   ├── NoorSwapFactory.sol
-│   ├── NoorSwapPair.sol
-│   └── NoorSwapRouter.sol
+│   ├── NorSwapFactory.sol
+│   ├── NorSwapPair.sol
+│   └── NorSwapRouter.sol
 ├── stablecoins/
 │   ├── Dirhamat.sol
 │   └── DigitalKES.sol
-├── governance/NoorGovernance.sol
+├── governance/NorGovernance.sol
 ├── funds/FundUnit.sol
 └── mocks/MockOracle.sol
 ```
 
 ### Scripts (1 file)
 ```
-scripts/deploy-noor-ecosystem.js
+scripts/deploy-nor-ecosystem.js
 ```
 
 ### Documentation (3 files)
@@ -258,11 +258,11 @@ docs/
 
 ## 🎉 Conclusion
 
-**The Noor Chain smart contract ecosystem is 90% deployment-ready!**
+**The Nor Chain smart contract ecosystem is 90% deployment-ready!**
 
 **9 out of 10 production contracts compile successfully and are ready for immediate deployment:**
 - ✅ NOR Token (21B supply, 24 decimals, vesting)
-- ✅ NoorSwap DEX (Factory, Pair, Router - Full Uniswap V2 AMM)
+- ✅ NorSwap DEX (Factory, Pair, Router - Full Uniswap V2 AMM)
 - ✅ Dirhamat (AED/Gold-backed stablecoin)
 - ✅ Digital KES (Kenyan Shilling with bank licensing)
 - ✅ NORDCoin (Nordic ESG-compliant multi-currency)
@@ -277,7 +277,7 @@ docs/
 - Comprehensive documentation
 - Automated deployment scripts
 
-**NoorGovernance Status:**
+**NorGovernance Status:**
 - Fully implemented with complete logic (300 lines)
 - Requires OpenZeppelin 4.9.6 Governor override pattern research
 - **Can be deployed separately** - Core contracts don't depend on it
@@ -294,4 +294,4 @@ docs/
 **Ready for Audit**: ✅ Recommended before mainnet deployment
 **Testnet**: Will be configured separately with different Chain ID
 
-🌙 **Noor Chain - Illuminating the Future of Finance** 🌙
+🌙 **Nor Chain - Illuminating the Future of Finance** 🌙

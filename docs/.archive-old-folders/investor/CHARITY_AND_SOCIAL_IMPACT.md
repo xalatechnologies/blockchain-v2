@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-Xaheen Chain integrates **on-chain philanthropy** as a core feature — not an afterthought. Every transaction on the network automatically contributes to the **Xaheen Global Impact Fund (XGIF)**, making Xaheen the world's first blockchain with **built-in social responsibility**.
+Nor Chain integrates **on-chain philanthropy** as a core feature — not an afterthought. Every transaction on the network automatically contributes to the **Nor Global Impact Fund (XGIF)**, making Nor the world's first blockchain with **built-in social responsibility**.
 
 **Annual Charity Contribution:** ~$164,000 (Year 1)
 **Source:** 0.25% of all network gas fees and DEX volume
@@ -15,7 +15,7 @@ Xaheen Chain integrates **on-chain philanthropy** as a core feature — not an a
 
 ### Why Blockchain Needs a Heart
 
-Most blockchains focus solely on profit. Xaheen is different.
+Most blockchains focus solely on profit. Nor is different.
 
 **We believe:**
 - Technology should serve humanity, not just traders
@@ -24,7 +24,7 @@ Most blockchains focus solely on profit. Xaheen is different.
 - Decentralization means community-driven impact
 
 **Our Mission:**
-> "Make every Xaheen transaction contribute to a better world — transparently, automatically, and permanently."
+> "Make every Nor transaction contribute to a better world — transparently, automatically, and permanently."
 
 ---
 
@@ -32,12 +32,12 @@ Most blockchains focus solely on profit. Xaheen is different.
 
 ### Automatic Allocation (Smart Contract Enforced)
 
-Every transaction on Xaheen Chain triggers automatic charity contributions:
+Every transaction on Nor Chain triggers automatic charity contributions:
 
 | Revenue Source | Charity Allocation | Implementation |
 |----------------|-------------------|----------------|
 | **Gas Fees** | 5% of all gas | Real-time via `GasFeeDistributor.sol` |
-| **DEX Swap Fees** | 5% of DEX revenue | Via `XaheenDEXRouter.sol` |
+| **DEX Swap Fees** | 5% of DEX revenue | Via `NorDEXRouter.sol` |
 | **Bridge Fees** | 5% of bridge revenue | Via bridge contracts |
 
 **Example Transaction Flow:**
@@ -105,9 +105,9 @@ User swaps $1,000 worth of tokens (0.25% fee = $2.50)
 ### DAO Governance (Quarterly Voting)
 
 **Who Can Vote:**
-- XHT holders (1 token = 1 vote)
+- NOR holders (1 token = 1 vote)
 - Weighted by holding duration (max 2x for 1+ year holders)
-- Minimum: 10,000 XHT to propose
+- Minimum: 10,000 NOR to propose
 
 **Voting Process:**
 
@@ -176,7 +176,7 @@ Results published: [Date + 7 days]
 - **Blockchain Bootcamps:** Train 1,000 developers/year in Africa, Asia, LATAM
 - **University Grants:** Partner with 20 universities for blockchain courses
 - **Youth Coding:** Support coding schools for underserved communities
-- **Certification Programs:** Free Xaheen developer certifications
+- **Certification Programs:** Free Nor developer certifications
 
 **Measurable Impact:**
 - 1,000 developers trained (Year 1)
@@ -324,7 +324,7 @@ Results published: [Date + 7 days]
 - Long-term brand loyalty
 
 **For Users:**
-- Feel good about using Xaheen
+- Feel good about using Nor
 - "My transaction helped build a school"
 - Social sharing ("I donated via blockchain")
 - Community pride and engagement
@@ -340,7 +340,7 @@ Results published: [Date + 7 days]
 **Monthly Announcements:**
 
 ```
-🎉 This month, Xaheen users contributed $15,000 to charity!
+🎉 This month, Nor users contributed $15,000 to charity!
 
 Your transactions funded:
 - 50 scholarships for African developers
@@ -349,7 +349,7 @@ Your transactions funded:
 
 Every swap, every transfer, every transaction = IMPACT.
 
-#BlockchainForGood #XaheenCharity
+#BlockchainForGood #NorCharity
 ```
 
 **Success Stories:**
@@ -357,10 +357,10 @@ Every swap, every transfer, every transaction = IMPACT.
 ```
 Meet Sarah, 22, from Kenya 🇰🇪
 
-Xaheen's education grant paid for her blockchain bootcamp.
+Nor's education grant paid for her blockchain bootcamp.
 She's now a smart contract developer earning $3,000/month.
 
-"Xaheen didn't just teach me code — it changed my family's future."
+"Nor didn't just teach me code — it changed my family's future."
 
 1 transaction = 1 impact. ❤️
 ```
@@ -378,7 +378,7 @@ She's now a smart contract developer earning $3,000/month.
 | **Salesforce** | 1-1-1 model | $300M+ (lifetime) | Transparent blockchain |
 | **The Giving Block** | Crypto donations | $100M processed | Native integration |
 
-**Xaheen Advantages:**
+**Nor Advantages:**
 - ✅ Fully automated (no manual processes)
 - ✅ 100% transparent (blockchain verification)
 - ✅ Community-governed (not top-down)
@@ -401,13 +401,13 @@ She's now a smart contract developer earning $3,000/month.
 - 2,000 students trained
 - 10 solar validators (50% of network)
 - 50 NGO partnerships
-- Xaheen Scholarship Fund established
+- Nor Scholarship Fund established
 
 **Year 5:** $2,000,000 donated
 - 10,000 students trained
 - 100% carbon-neutral network
 - 200 NGO partnerships
-- Xaheen recognized as most charitable blockchain
+- Nor recognized as most charitable blockchain
 
 **Year 10:** $10,000,000+ donated
 - 50,000 students trained
@@ -418,7 +418,7 @@ She's now a smart contract developer earning $3,000/month.
 ### Ripple Effect
 
 ```
-1 Xaheen Transaction
+1 Nor Transaction
    → $0.0001 to charity
       → 10 transactions = 1 meal
          → 100 transactions = 1 day of school
@@ -449,7 +449,7 @@ She's now a smart contract developer earning $3,000/month.
 - Community can flag suspicious activity
 
 **Conflict of Interest:**
-- No funds to Xaheen team members
+- No funds to Nor team members
 - No funds to immediate family members
 - All proposals disclose potential conflicts
 - Board members recuse from related votes
@@ -464,7 +464,7 @@ She's now a smart contract developer earning $3,000/month.
 
 ## 📈 10. INVESTOR PITCH INTEGRATION
 
-### Why Charity Makes Xaheen a Better Investment
+### Why Charity Makes Nor a Better Investment
 
 **1. Regulatory Advantage**
 - Demonstrates social responsibility
@@ -526,7 +526,7 @@ She's now a smart contract developer earning $3,000/month.
 **Phase 4: Global Impact (Year 2+)**
 - ⏳ Scale to $100k+/quarter
 - ⏳ Expand to all continents
-- ⏳ Launch Xaheen Impact Scholarship
+- ⏳ Launch Nor Impact Scholarship
 - ⏳ Partner with major humanitarian orgs
 - ⏳ Recognized as leader in blockchain charity
 
@@ -534,14 +534,14 @@ She's now a smart contract developer earning $3,000/month.
 
 ## ✅ 12. SUMMARY
 
-### The Xaheen Difference
+### The Nor Difference
 
 **Most blockchains:**
 - Focus only on profit
 - Ignore social impact
 - Charity = marketing afterthought
 
-**Xaheen Chain:**
+**Nor Chain:**
 - **Built-in philanthropy** (smart contract enforced)
 - **$164,000/year donated** (Year 1, scaling to $2M+)
 - **DAO-governed** (community decides)
@@ -578,7 +578,7 @@ She's now a smart contract developer earning $3,000/month.
 
 ## 💖 THE BOTTOM LINE
 
-**Xaheen isn't just a blockchain. It's a movement.**
+**Nor isn't just a blockchain. It's a movement.**
 
 **Every transaction makes the world a little better.**
 
@@ -586,7 +586,7 @@ She's now a smart contract developer earning $3,000/month.
 
 **Every trade funds a scholarship, powers a solar panel, or saves a life.**
 
-**This is blockchain with a heart. This is Xaheen. ❤️**
+**This is blockchain with a heart. This is Nor. ❤️**
 
 ---
 

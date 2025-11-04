@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Deploy Dirhamat stablecoin and MultiAssetReserveVault on Noor Chain
+Deploy Dirhamat stablecoin and MultiAssetReserveVault on Nor Chain
 """
 
 from web3 import Web3
@@ -66,7 +66,7 @@ def deploy_contract(name, path, *args):
 results = {
     "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ"),
     "chainId": 65001,
-    "network": "Noor Chain",
+    "network": "Nor Chain",
     "deployer": account.address,
     "stablecoin": {},
     "vault": {}
@@ -94,7 +94,7 @@ results['stablecoin']['Dirhamat'] = dirhamat_address
 print()
 
 # Save deployment
-with open('deployments/noor-dirhamat-deployment.json', 'w') as f:
+with open('deployments/nor-dirhamat-deployment.json', 'w') as f:
     json.dump(results, f, indent=2)
 
 print("═══════════════════════════════════════════════════════════════════════════")
@@ -114,7 +114,7 @@ print("🔮 Oracles:")
 print(f"   Gold Price:  {GOLD_ORACLE}")
 print(f"   AED/USD:     {AED_ORACLE}")
 print()
-print("💾 Deployment saved to: deployments/noor-dirhamat-deployment.json")
+print("💾 Deployment saved to: deployments/nor-dirhamat-deployment.json")
 print()
 print("📝 Next Steps:")
 print("   1. Add reserve assets to vault (WUSDT, WBNB, gold, etc.)")

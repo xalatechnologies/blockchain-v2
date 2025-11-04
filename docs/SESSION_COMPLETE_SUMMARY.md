@@ -1,4 +1,4 @@
-# 🌙 Noor Chain - Complete Session Summary
+# 🌙 Nor Chain - Complete Session Summary
 
 **Date:** November 2, 2025
 **Status:** ✅ ALL OBJECTIVES ACHIEVED
@@ -8,7 +8,7 @@
 
 ## 🎉 Executive Summary
 
-Successfully completed **end-to-end deployment** of Noor Chain's DeFi ecosystem in a single session:
+Successfully completed **end-to-end deployment** of Nor Chain's DeFi ecosystem in a single session:
 
 ✅ **Multi-Asset Reserve Vault** - $1.78M diversified backing
 ✅ **DEX Infrastructure** - $800k liquidity across 4 pairs
@@ -41,8 +41,8 @@ Successfully completed **end-to-end deployment** of Noor Chain's DeFi ecosystem 
 ### Phase 2: DEX Liquidity Deployment ($800k)
 
 **New Contracts (Fixed):**
-- **NoorSwapFactory:** `0xA92d4a495d6c9D90e9d80D78a1b9d74c39aA7dab` ⭐
-- **NoorSwapRouter:** `0xD4567cD447068aaD470431746592f261Fae92bAa` ⭐
+- **NorSwapFactory:** `0xA92d4a495d6c9D90e9d80D78a1b9d74c39aA7dab` ⭐
+- **NorSwapRouter:** `0xD4567cD447068aaD470431746592f261Fae92bAa` ⭐
 
 **4 Active Trading Pairs:**
 
@@ -83,13 +83,13 @@ Successfully completed **end-to-end deployment** of Noor Chain's DeFi ecosystem 
 ### Phase 4: Fund Infrastructure ($754k NAV)
 
 **New Contracts:**
-- **NoorFundFactory:** `0xD8D59fE51aB032941A35D1853622F56b775DB927` 🆕
+- **NorFundFactory:** `0xD8D59fE51aB032941A35D1853622F56b775DB927` 🆕
 - **Gold Savings Fund:** `0x201bF3CCa7FD1244B3Dc3810bE45Df3760D96650` 🆕
 
 **Gold Savings Fund Details:**
 | Parameter | Value |
 |-----------|-------|
-| **Fund Name** | Noor Gold Savings Fund |
+| **Fund Name** | Nor Gold Savings Fund |
 | **Symbol** | NGSF |
 | **Shariah Structure** | Murabahah / Wakalah |
 | **Total NAV** | $754,000 |
@@ -109,7 +109,7 @@ Successfully completed **end-to-end deployment** of Noor Chain's DeFi ecosystem 
 
 ### Smart Contracts Created
 
-1. **`NoorFund.sol`** (650+ lines)
+1. **`NorFund.sol`** (650+ lines)
    - Multi-asset portfolio management
    - Subscribe/redeem functions
    - NAV tracking with oracle
@@ -117,14 +117,14 @@ Successfully completed **end-to-end deployment** of Noor Chain's DeFi ecosystem 
    - Role-based access control
    - Purification & zakat support
 
-2. **`NoorFundFactory.sol`** (150+ lines)
+2. **`NorFundFactory.sol`** (150+ lines)
    - Fund deployment factory
    - Fund verification system
    - Creator tracking
    - Statistics & analytics
 
 3. **Bug Fixes:**
-   - Fixed NoorSwapPair minimum liquidity minting (`address(0)` → `address(0xdEaD)`)
+   - Fixed NorSwapPair minimum liquidity minting (`address(0)` → `address(0xdEaD)`)
    - Fixed NOR token architecture (ERC-20, not native)
    - Fixed access control in fund factory
 
@@ -181,7 +181,7 @@ Successfully completed **end-to-end deployment** of Noor Chain's DeFi ecosystem 
 
 | Component | Status | Production Ready? |
 |-----------|--------|-------------------|
-| **NoorSwap DEX** | ✅ Live | YES |
+| **NorSwap DEX** | ✅ Live | YES |
 | **Multi-Asset Reserves** | ✅ Live | YES |
 | **LP Token Locks** | ✅ Locked | YES |
 | **Fund Factory** | ✅ Deployed | YES |
@@ -204,19 +204,19 @@ Successfully completed **end-to-end deployment** of Noor Chain's DeFi ecosystem 
 
 ### 1. Swap Tokens on DEX
 ```typescript
-User → NoorSwap Router → Pair Contract → Swap Complete
+User → NorSwap Router → Pair Contract → Swap Complete
 ```
 **Status:** ✅ Ready (4 pairs live)
 
 ### 2. Subscribe to Gold Savings Fund
 ```typescript
-User → NoorFund.subscribe() → Mint shares → Investor tracking
+User → NorFund.subscribe() → Mint shares → Investor tracking
 ```
 **Status:** ✅ Ready ($1,000 minimum)
 
 ### 3. Redeem Fund Shares
 ```typescript
-User → NoorFund.redeem() → Burn shares → Transfer assets
+User → NorFund.redeem() → Burn shares → Transfer assets
 ```
 **Status:** ✅ Ready (with notice period)
 
@@ -256,7 +256,7 @@ User → getPerformanceMetrics() → NAV, share price, returns
    - Dirhamat Reserve Fund ($5M target)
    - Digital KES Income Fund ($2M target)
 
-2. Integrate with Noor Wallet
+2. Integrate with Nor Wallet
    - Add fund subscription UI
    - Portfolio tracking
    - NAV updates
@@ -324,9 +324,9 @@ User → getPerformanceMetrics() → NAV, share price, returns
 ## 📞 Contact & Resources
 
 **Deployed Networks:**
-- **Network:** Noor Chain (Chain ID 65001)
-- **RPC:** https://rpc.noorchain.org
-- **Explorer:** https://explorer.noorchain.org
+- **Network:** Nor Chain (Chain ID 65001)
+- **RPC:** https://rpc.norchain.org
+- **Explorer:** https://explorer.norchain.org
 
 **Contract Addresses:**
 - **Factory:** `0xD8D59fE51aB032941A35D1853622F56b775DB927`
@@ -416,7 +416,7 @@ In a single session, we built a **complete DeFi ecosystem** from the ground up:
 - **1,500+ Lines of Documentation**
 - **100% Production Ready**
 
-Noor Chain now has:
+Nor Chain now has:
 1. The most secure DEX in the industry (36-month locks)
 2. The best-capitalized stablecoin (16.5x overcollateralized)
 3. A working fund infrastructure (Gold Savings Fund live)
@@ -427,7 +427,7 @@ Noor Chain now has:
 ---
 
 *Session completed: November 2, 2025*
-*By: Noor Chain Development Team*
+*By: Nor Chain Development Team*
 *Status: ✅ PRODUCTION READY*
 
 **🌙 Illuminating Finance with Light, Trust, and Innovation 🌙**

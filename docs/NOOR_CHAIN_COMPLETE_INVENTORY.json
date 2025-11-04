@@ -1,10 +1,10 @@
 {
   "timestamp": "2025-11-03T08:31:20.038Z",
   "chainInfo": {
-    "name": "Noor Chain",
+    "name": "Nor Chain",
     "chainId": 65001,
-    "rpcUrl": "https://rpc.noorchain.org",
-    "explorerUrl": "https://explorer.noorchain.org",
+    "rpcUrl": "https://rpc.norchain.org",
+    "explorerUrl": "https://explorer.norchain.org",
     "currentBlock": 9999,
     "blockTime": 3,
     "consensus": "Parlia PoSA",
@@ -127,11 +127,11 @@
     ],
     "contracts": [
       {
-        "issue": "NoorSwapPair deployment failed - minimum liquidity minting",
+        "issue": "NorSwapPair deployment failed - minimum liquidity minting",
         "cause": "OpenZeppelin ERC20 prevents minting to address(0)",
         "resolution": "Changed to mint to address(0xdEaD) instead",
         "status": "✅ RESOLVED",
-        "location": "contracts/dex/NoorSwapPair.sol:168"
+        "location": "contracts/dex/NorSwapPair.sol:168"
       },
       {
         "issue": "Dirhamat INSUFFICIENT_RESERVES error",
@@ -142,16 +142,16 @@
       {
         "issue": "Fund access control error",
         "cause": "Factory didn't transfer admin role to creator",
-        "resolution": "Added role transfer in NoorFundFactory.createFund()",
+        "resolution": "Added role transfer in NorFundFactory.createFund()",
         "status": "✅ RESOLVED",
-        "location": "contracts/funds/NoorFundFactory.sol:98-101"
+        "location": "contracts/funds/NorFundFactory.sol:98-101"
       }
     ],
     "infrastructure": [
       {
         "issue": "SSL/HTTPS configuration for public RPC",
         "cause": "Nginx reverse proxy configuration needed",
-        "resolution": "Configured Nginx with Let's Encrypt SSL for https://rpc.noorchain.org",
+        "resolution": "Configured Nginx with Let's Encrypt SSL for https://rpc.norchain.org",
         "status": "✅ RESOLVED"
       },
       {

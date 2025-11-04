@@ -5,8 +5,8 @@
 #ai:audience developer, investor, regulator, ai-agent
 ---
 
-## 15  Xaheen Funds Platform Overview
-Xaheen Funds enables creation and management of **Shariah-compliant investment vehicles**—mutual funds, sukuk portfolios, waqf impact pools, and retirement schemes—fully on-chain with regulatory auditability.
+## 15  Nor Funds Platform Overview
+Nor Funds enables creation and management of **Shariah-compliant investment vehicles**—mutual funds, sukuk portfolios, waqf impact pools, and retirement schemes—fully on-chain with regulatory auditability.
 
 ### Objectives
 - Provide **interest-free (riba-free)** returns through asset-backed profit sharing.  
@@ -95,7 +95,7 @@ A dedicated registry contract verifying:
 	•	Certified Scholars who sign off funds
 
 ShariahOracle.approveFund(fundAddress, fatwaHash)
-Only approved funds can appear in Xaheen Funds UI or APIs.
+Only approved funds can appear in Nor Funds UI or APIs.
 
 ⸻
 
@@ -134,7 +134,7 @@ UAE	VARA / ADGM	Fund SPV + licensed manager + custodian	Shariah certification re
 Kenya	CBK / CMA	Licensed VASP + Collective Investment Scheme	Digital KES compliance
 EU	AIFMD / MiCA	Professional AIF first → retail after	GDPR + MiCA e-money rules
 
-Custodians must provide daily reconciliation; hashes of statements anchored on Xaheen Chain.
+Custodians must provide daily reconciliation; hashes of statements anchored on Nor Chain.
 
 ⸻
 
@@ -150,10 +150,10 @@ Custodians must provide daily reconciliation; hashes of statements anchored on X
 25  Example Flow – Gold Fund Subscription
 
 sequenceDiagram
- Investor->>XaheenWallet: Choose Gold Fund
- XaheenWallet->>XCC: KYC verification
- XCC-->>XaheenWallet: Verified
- XaheenWallet->>FundRouter: Subscribe 100 Dirhamat
+ Investor->>NorWallet: Choose Gold Fund
+ NorWallet->>XCC: KYC verification
+ XCC-->>NorWallet: Verified
+ NorWallet->>FundRouter: Subscribe 100 Dirhamat
  FundRouter->>Oracle: Get NAV
  Oracle-->>FundRouter: NAV = 1.05
  FundRouter->>FundUnit: Mint 95.23 units
@@ -166,5 +166,5 @@ sequenceDiagram
 	•	Transparency: every NAV and fatwa attestation on-chain.
 	•	Ethical returns: real assets, no riba or speculation.
 	•	Automation: AI fund agents handle NAV, zakat, and risk.
-	•	Inclusivity: small ticket sizes; mobile access through Xaheen Wallet.
+	•	Inclusivity: small ticket sizes; mobile access through Nor Wallet.
 	•	Trust: verified scholars + regulated custodians + auditable code.

@@ -1,8 +1,8 @@
 /**
- * Deploy Hub Contracts to Xaheen Chain Mainnet
+ * Deploy Hub Contracts to Nor Chain Mainnet
  *
- * This script deploys the core hub infrastructure to Xaheen Chain:
- * - XHT Token (native token)
+ * This script deploys the core hub infrastructure to Nor Chain:
+ * - NOR Token (native token)
  * - PriceAuthority (TWAP oracle)
  * - SupplyController (cross-chain inventory management)
  * - SettlementHub (cross-chain settlement)
@@ -16,38 +16,48 @@ const { ethers } = hre;
 const fs = require("fs");
 
 async function main() {
-  console.log("\n🚀 Deploying Hub Contracts to Xaheen Chain Mainnet...\n");
+  console.log("\n🚀 Deploying Hub Contracts to Nor Chain Mainnet...\n");
 
   const [deployer] = await ethers.getSigners();
   console.log("Deployer address:", deployer.address);
 
   const balance = await ethers.provider.getBalance(deployer.address);
-  console.log("Deployer balance:", ethers.formatEther(balance), "XHT\n");
+  console.log("Deployer balance:", ethers.formatEther(balance), "NOR\n");
 
   // Check minimum balance for deployment
   if (balance < ethers.parseEther("0.1")) {
-    throw new Error("Insufficient XHT for deployment. Need at least 0.1 XHT for gas.");
+    throw new Error(
+      "Insufficient NOR for deployment. Need at least 0.1 NOR for gas."
+    );
   }
 
-  // Verify we're on Xaheen Chain
+  // Verify we're on Nor Chain
   const network = await ethers.provider.getNetwork();
   if (network.chainId !== 65001n) {
-    throw new Error(`Wrong network! Expected Xaheen Chain (65001), got ${network.chainId}`);
+    throw new Error(
+      `Wrong network! Expected Nor Chain (65001), got ${network.chainId}`
+    );
   }
 
-  console.log("✅ Network verified: Xaheen Chain (65001)\n");
+  console.log("✅ Network verified: Nor Chain (65001)\n");
 
-  // ========== PHASE 1: Deploy XHT ERC20 Token ==========
-  console.log("📍 PHASE 1: Deploying XHT ERC20 Token...\n");
-  console.log("   Note: This is the ERC20 XHT token for cross-chain DEX");
-  console.log("   (separate from native XHT gas token in genesis)\n");
+  // ========== PHASE 1: Deploy NOR ERC20 Token ==========
+  console.log("📍 PHASE 1: Deploying NOR ERC20 Token...\n");
+  console.log("   Note: This is the ERC20 NOR token for cross-chain DEX");
+  console.log("   (separate from native NOR gas token in genesis)\n");
 
-  const XHTToken = await ethers.getContractFactory("contracts/crosschain/XHTToken.sol:XHTToken");
-  const xhtToken = await XHTToken.deploy();
+  const NORToken = await ethers.getContractFactory(
+    "contracts/crosschain/NORToken.sol:NORToken"
+  );
+  const xhtToken = await NORToken.deploy();
   await xhtToken.waitForDeployment();
   const xhtAddress = await xhtToken.getAddress();
-  console.log("   ✅ XHT ERC20 Token deployed:", xhtAddress);
-  console.log("   Initial supply:", ethers.formatEther(await xhtToken.totalSupply()), "XHT");
+  console.log("   ✅ NOR ERC20 Token deployed:", xhtAddress);
+  console.log(
+    "   Initial supply:",
+    ethers.formatEther(await xhtToken.totalSupply()),
+    "NOR"
+  );
   console.log("   (Supply will be minted by SupplyController as needed)\n");
 
   // ========== PHASE 2: Deploy PriceAuthority ==========
@@ -58,7 +68,9 @@ async function main() {
   // For now, use a placeholder that will be updated
   const PLACEHOLDER_PAIR = "0x0000000000000000000000000000000000000001"; // Placeholder
 
-  const PriceAuthority = await ethers.getContractFactory("contracts/crosschain/PriceAuthority.sol:PriceAuthority");
+  const PriceAuthority = await ethers.getContractFactory(
+    "contracts/crosschain/PriceAuthority.sol:PriceAuthority"
+  );
   const priceAuthority = await PriceAuthority.deploy(
     PLACEHOLDER_PAIR, // Will be updated to real PancakeSwap pair
     deployer.address // Quote signer (deployer for now, can be updated)
@@ -67,12 +79,16 @@ async function main() {
   const priceAuthorityAddress = await priceAuthority.getAddress();
   console.log("   ✅ PriceAuthority deployed:", priceAuthorityAddress);
   console.log("   Quote signer:", deployer.address);
-  console.log("   ⚠️  DEX pair is placeholder, update after spoke deployment\n");
+  console.log(
+    "   ⚠️  DEX pair is placeholder, update after spoke deployment\n"
+  );
 
   // ========== PHASE 3: Deploy SupplyController ==========
   console.log("📍 PHASE 3: Deploying SupplyController...\n");
 
-  const SupplyController = await ethers.getContractFactory("contracts/crosschain/SupplyController.sol:SupplyController");
+  const SupplyController = await ethers.getContractFactory(
+    "contracts/crosschain/SupplyController.sol:SupplyController"
+  );
   const supplyController = await SupplyController.deploy(
     xhtAddress,
     deployer.address // Treasury (deployer for now)
@@ -85,7 +101,9 @@ async function main() {
   // ========== PHASE 4: Deploy SettlementHub ==========
   console.log("📍 PHASE 4: Deploying SettlementHub...\n");
 
-  const SettlementHub = await ethers.getContractFactory("contracts/crosschain/SettlementHub.sol:SettlementHub");
+  const SettlementHub = await ethers.getContractFactory(
+    "contracts/crosschain/SettlementHub.sol:SettlementHub"
+  );
   const settlementHub = await SettlementHub.deploy(
     supplyControllerAddress,
     priceAuthorityAddress,
@@ -112,15 +130,15 @@ async function main() {
   await settlementHub.grantRole(RELAYER_ROLE, deployer.address);
   console.log("   ✅ Granted RELAYER_ROLE to deployer on SettlementHub");
 
-  // Grant MINTER_ROLE to SupplyController on XHT Token
+  // Grant MINTER_ROLE to SupplyController on NOR Token
   const MINTER_ROLE = await xhtToken.MINTER_ROLE();
   await xhtToken.grantRole(MINTER_ROLE, supplyControllerAddress);
-  console.log("   ✅ Granted MINTER_ROLE to SupplyController on XHT Token\n");
+  console.log("   ✅ Granted MINTER_ROLE to SupplyController on NOR Token\n");
 
   // Add BSC Mainnet chain to SupplyController
   console.log("5.2: Adding BSC Mainnet chain...");
   const BSC_MAINNET_CHAIN_ID = 56;
-  const INVENTORY_CAP = ethers.parseEther("1000000"); // 1M XHT cap
+  const INVENTORY_CAP = ethers.parseEther("1000000"); // 1M NOR cap
   const MAX_INVENTORY_PERCENTAGE = 500; // 5% of total supply
   const DAILY_LIMIT = ethers.parseEther("100000"); // $100K daily limit
 
@@ -131,7 +149,7 @@ async function main() {
     DAILY_LIMIT
   );
   console.log("   ✅ Added BSC Mainnet (Chain ID: 56) to SupplyController");
-  console.log("      - Inventory Cap: 1M XHT");
+  console.log("      - Inventory Cap: 1M NOR");
   console.log("      - Max Percentage: 5%");
   console.log("      - Daily Limit: $100K\n");
 
@@ -140,17 +158,17 @@ async function main() {
   console.log("         HUB CONTRACTS DEPLOYMENT COMPLETE");
   console.log("═══════════════════════════════════════════════════════\n");
 
-  console.log("🏦 HUB CONTRACTS (Xaheen Chain - Chain ID: 65001):");
-  console.log("   XHT Token:", xhtAddress);
+  console.log("🏦 HUB CONTRACTS (Nor Chain - Chain ID: 65001):");
+  console.log("   NOR Token:", xhtAddress);
   console.log("   PriceAuthority:", priceAuthorityAddress);
   console.log("   SupplyController:", supplyControllerAddress);
   console.log("   SettlementHub:", settlementHubAddress);
   console.log("");
 
   console.log("⚙️  CONFIGURATION:");
-  console.log("   Chain ID: 65001 (Xaheen Chain)");
+  console.log("   Chain ID: 65001 (Nor Chain)");
   console.log("   Supported Spokes: BSC Mainnet (56)");
-  console.log("   Inventory Cap: 1,000,000 XHT");
+  console.log("   Inventory Cap: 1,000,000 NOR");
   console.log("   Daily Limit: $100,000");
   console.log("   Max Inventory: 5% of total supply");
   console.log("");
@@ -166,7 +184,7 @@ async function main() {
 
   // Save deployment addresses
   const deploymentInfo = {
-    network: "Xaheen Chain Mainnet",
+    network: "Nor Chain Mainnet",
     chainId: 65001,
     timestamp: new Date().toISOString(),
     deployer: deployer.address,
@@ -193,7 +211,9 @@ async function main() {
   // Load existing deployment info if it exists
   let fullDeployment = {};
   if (fs.existsSync("deployment-mainnet.json")) {
-    fullDeployment = JSON.parse(fs.readFileSync("deployment-mainnet.json", "utf8"));
+    fullDeployment = JSON.parse(
+      fs.readFileSync("deployment-mainnet.json", "utf8")
+    );
   }
 
   // Merge with existing spoke deployment if present
@@ -209,7 +229,9 @@ async function main() {
   // ========== NEXT STEPS ==========
   console.log("🎯 NEXT STEPS:\n");
   console.log("1. Deploy spoke contracts to BSC Mainnet:");
-  console.log("   npx hardhat run scripts/deploy-spoke-mainnet.cjs --network bsc\n");
+  console.log(
+    "   npx hardhat run scripts/deploy-spoke-mainnet.cjs --network bsc\n"
+  );
 
   console.log("2. Update PriceAuthority with real PancakeSwap pair address\n");
 

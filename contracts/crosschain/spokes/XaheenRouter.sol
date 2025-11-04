@@ -23,29 +23,29 @@ interface ISettlementInbox {
 }
 
 /**
- * @title XaheenRouter
- * @notice Spoke-side router for cross-chain XHT trading
+ * @title NorRouter
+ * @notice Spoke-side router for cross-chain NOR trading
  * @dev Dual-mode: Try public LP first, fallback to hot inventory
  *
  * Architecture:
  * - Users interact with this contract on BSC/Polygon/ETH
- * - Verifies price quotes from PriceAuthority (Xaheen hub)
+ * - Verifies price quotes from PriceAuthority (Nor hub)
  * - Routes through public DEX LP if available (PancakeSwap, QuickSwap, Uniswap)
  * - Falls back to hot inventory for instant fills
- * - Emits fill events for settlement on Xaheen hub
+ * - Emits fill events for settlement on Nor hub
  */
-contract XaheenRouter is Ownable, ReentrancyGuard {
+contract NorRouter is Ownable, ReentrancyGuard {
     using ECDSA for bytes32;
 
     // ============ State Variables ============
 
-    /// @notice XHT token on this chain (wrapped/bridged)
+    /// @notice NOR token on this chain (wrapped/bridged)
     IERC20 public immutable xhtToken;
 
     /// @notice Settlement inbox for logging fills
     ISettlementInbox public immutable settlementInbox;
 
-    /// @notice PriceAuthority signer address (from Xaheen hub)
+    /// @notice PriceAuthority signer address (from Nor hub)
     address public priceAuthoritySigner;
 
     /// @notice Uniswap V2 style router (PancakeSwap, QuickSwap, Uniswap)
@@ -96,7 +96,7 @@ contract XaheenRouter is Ownable, ReentrancyGuard {
         address _priceAuthoritySigner,
         address _dexRouter
     ) {
-        require(_xhtToken != address(0), "Invalid XHT address");
+        require(_xhtToken != address(0), "Invalid NOR address");
         require(_settlementInbox != address(0), "Invalid inbox address");
         require(_priceAuthoritySigner != address(0), "Invalid signer address");
         require(_dexRouter != address(0), "Invalid router address");
@@ -117,17 +117,17 @@ contract XaheenRouter is Ownable, ReentrancyGuard {
     // ============ User Functions ============
 
     /**
-     * @notice Buy XHT with payment token (USDT, USDC, etc.)
+     * @notice Buy NOR with payment token (USDT, USDC, etc.)
      * @param paymentToken Token to pay with
      * @param amountIn Amount of payment token to spend
-     * @param minXHTOut Minimum XHT to receive (slippage protection)
+     * @param minNOROut Minimum NOR to receive (slippage protection)
      * @param signedQuote Signed quote from PriceAuthority
      * @param deadline Transaction deadline
      */
-    function buyXHT(
+    function buyNOR(
         address paymentToken,
         uint256 amountIn,
-        uint256 minXHTOut,
+        uint256 minNOROut,
         bytes calldata signedQuote,
         uint256 deadline
     ) external whenNotPaused nonReentrant returns (uint256 xhtOut) {
@@ -149,13 +149,13 @@ contract XaheenRouter is Ownable, ReentrancyGuard {
 
         if (lpAddress != address(0)) {
             // Route through public DEX (PancakeSwap, QuickSwap, Uniswap)
-            xhtOut = _swapViaPublicLP(paymentToken, amountIn, minXHTOut);
+            xhtOut = _swapViaPublicLP(paymentToken, amountIn, minNOROut);
             usedPublicLP = true;
         } else {
             // Fallback to hot inventory
             (uint256 quotedPrice, , , ) = abi.decode(signedQuote, (uint256, uint256, uint256, bytes));
-            xhtOut = (amountIn * 1e18) / quotedPrice; // Calculate XHT amount based on quote
-            require(xhtOut >= minXHTOut, "Slippage too high");
+            xhtOut = (amountIn * 1e18) / quotedPrice; // Calculate NOR amount based on quote
+            require(xhtOut >= minNOROut, "Slippage too high");
             require(hotInventory >= xhtOut, "Insufficient inventory");
 
             hotInventory -= xhtOut;
@@ -166,7 +166,7 @@ contract XaheenRouter is Ownable, ReentrancyGuard {
         bytes32 fillId = keccak256(abi.encodePacked(
             block.chainid,
             msg.sender,
-            int256(xhtOut), // Positive = user bought XHT
+            int256(xhtOut), // Positive = user bought NOR
             amountIn,
             block.timestamp,
             ++fillNonce
@@ -179,14 +179,14 @@ contract XaheenRouter is Ownable, ReentrancyGuard {
     }
 
     /**
-     * @notice Sell XHT for payment token
+     * @notice Sell NOR for payment token
      * @param paymentToken Token to receive
-     * @param xhtIn Amount of XHT to sell
+     * @param xhtIn Amount of NOR to sell
      * @param minPaymentOut Minimum payment token to receive
      * @param signedQuote Signed quote from PriceAuthority
      * @param deadline Transaction deadline
      */
-    function sellXHT(
+    function sellNOR(
         address paymentToken,
         uint256 xhtIn,
         uint256 minPaymentOut,
@@ -199,7 +199,7 @@ contract XaheenRouter is Ownable, ReentrancyGuard {
         // 1. Verify quote signature and freshness
         _verifyQuote(signedQuote);
 
-        // 2. Transfer XHT from user
+        // 2. Transfer NOR from user
         require(xhtToken.transferFrom(msg.sender, address(this), xhtIn), "Transfer failed");
 
         // 3. Try public LP first (if exists)
@@ -208,10 +208,10 @@ contract XaheenRouter is Ownable, ReentrancyGuard {
 
         if (lpAddress != address(0)) {
             // Route through public DEX
-            paymentOut = _swapXHTForToken(xhtIn, paymentToken, minPaymentOut);
+            paymentOut = _swapNORForToken(xhtIn, paymentToken, minPaymentOut);
             usedPublicLP = true;
         } else {
-            // Use hot inventory (accept XHT, pay from reserve)
+            // Use hot inventory (accept NOR, pay from reserve)
             (uint256 quotedPrice, , , ) = abi.decode(signedQuote, (uint256, uint256, uint256, bytes));
             paymentOut = (xhtIn * quotedPrice) / 1e18;
             require(paymentOut >= minPaymentOut, "Slippage too high");
@@ -224,7 +224,7 @@ contract XaheenRouter is Ownable, ReentrancyGuard {
         bytes32 fillId = keccak256(abi.encodePacked(
             block.chainid,
             msg.sender,
-            -int256(xhtIn), // Negative = user sold XHT
+            -int256(xhtIn), // Negative = user sold NOR
             paymentOut,
             block.timestamp,
             ++fillNonce
@@ -237,11 +237,11 @@ contract XaheenRouter is Ownable, ReentrancyGuard {
     }
 
     /**
-     * @notice Get quote for buying XHT
+     * @notice Get quote for buying NOR
      * @param paymentToken Token to pay with
      * @param amountIn Amount of payment token
      */
-    function quoteBuyXHT(address paymentToken, uint256 amountIn) external view returns (uint256 xhtOut) {
+    function quoteBuyNOR(address paymentToken, uint256 amountIn) external view returns (uint256 xhtOut) {
         address lpAddress = publicLPs[paymentToken];
 
         if (lpAddress != address(0)) {
@@ -261,7 +261,7 @@ contract XaheenRouter is Ownable, ReentrancyGuard {
 
     /**
      * @notice Replenish hot inventory
-     * @param amount Amount of XHT to add
+     * @param amount Amount of NOR to add
      */
     function replenishInventory(uint256 amount) external onlyOwner {
         require(xhtToken.transferFrom(msg.sender, address(this), amount), "Transfer failed");
@@ -339,7 +339,7 @@ contract XaheenRouter is Ownable, ReentrancyGuard {
     }
 
     /**
-     * @notice Swap payment token for XHT via public DEX
+     * @notice Swap payment token for NOR via public DEX
      */
     function _swapViaPublicLP(
         address paymentToken,
@@ -367,9 +367,9 @@ contract XaheenRouter is Ownable, ReentrancyGuard {
     }
 
     /**
-     * @notice Swap XHT for payment token via public DEX
+     * @notice Swap NOR for payment token via public DEX
      */
-    function _swapXHTForToken(
+    function _swapNORForToken(
         uint256 xhtIn,
         address paymentToken,
         uint256 minOut

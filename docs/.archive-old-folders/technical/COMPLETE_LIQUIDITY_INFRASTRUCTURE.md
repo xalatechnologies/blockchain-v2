@@ -2,16 +2,16 @@
 
 **Deployment Date**: October 30, 2025
 **Chain ID**: 65001
-**Network**: Xaheen Chain
+**Network**: Nor Chain
 **Total Contracts Deployed**: 13 (7 Tokenomics + 6 Liquidity)
-**Total Gas Used**: 0.075110946 XHT
+**Total Gas Used**: 0.075110946 NOR
 
 ---
 
 ## 🎯 OVERVIEW
 
-Xaheen Chain now has **complete multi-chain liquidity infrastructure** enabling:
-- ✅ Native DEX for XHT/BTCBR trading
+Nor Chain now has **complete multi-chain liquidity infrastructure** enabling:
+- ✅ Native DEX for NOR/BTCBR trading
 - ✅ Cross-chain bridges to BSC, Ethereum, and Tron
 - ✅ Access to billions in external liquidity
 - ✅ Low-cost trading on Tron ($0.01 fees)
@@ -21,19 +21,19 @@ Xaheen Chain now has **complete multi-chain liquidity infrastructure** enabling:
 
 ## 📋 DEPLOYED CONTRACTS
 
-### **1. Native DEX (Xaheen Chain)**
+### **1. Native DEX (Nor Chain)**
 
-#### WXHT (Wrapped XHT)
+#### WNOR (Wrapped NOR)
 **Address**: `0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651`
-**Type**: ERC-20 Wrapper for native XHT
-**Purpose**: Enable XHT to be traded as ERC-20 token in DEX pairs
+**Type**: ERC-20 Wrapper for native NOR
+**Purpose**: Enable NOR to be traded as ERC-20 token in DEX pairs
 
 **Functions**:
-- `deposit()` - Wrap XHT → WXHT
-- `withdraw(uint256)` - Unwrap WXHT → XHT
+- `deposit()` - Wrap NOR → WNOR
+- `withdraw(uint256)` - Unwrap WNOR → NOR
 - `transfer()`, `approve()` - Standard ERC-20
 
-#### XaheenDEXFactory
+#### NorDEXFactory
 **Address**: `0x502ec2Ce7cd266Eff9e147d66Df3e4D4fcB9e812`
 **Type**: Uniswap V2 Fork (Factory)
 **Purpose**: Create and manage trading pairs
@@ -43,9 +43,9 @@ Xaheen Chain now has **complete multi-chain liquidity infrastructure** enabling:
 - `getPair(tokenA, tokenB)` - Get pair address
 - `allPairs(index)` - List all pairs
 
-**Integrated With**: XHTRevenue (0xE4bC805e5ED3eB8715A27D4CBAdDF510764aAF53)
+**Integrated With**: NORRevenue (0xE4bC805e5ED3eB8715A27D4CBAdDF510764aAF53)
 
-#### XaheenDEXRouter
+#### NorDEXRouter
 **Address**: `0x0D8e7Ed1B328302bbAA0249CeFD6ca52E050F86e`
 **Type**: Uniswap V2 Fork (Router)
 **Purpose**: Main interface for swaps and liquidity
@@ -53,23 +53,23 @@ Xaheen Chain now has **complete multi-chain liquidity infrastructure** enabling:
 **Key Functions**:
 - `swapExactTokensForTokens()` - Swap with exact input
 - `swapTokensForExactTokens()` - Swap with exact output
-- `swapExactXHTForTokens()` - Swap native XHT for tokens
-- `swapTokensForExactXHT()` - Swap tokens for native XHT
+- `swapExactNORForTokens()` - Swap native NOR for tokens
+- `swapTokensForExactNOR()` - Swap tokens for native NOR
 - `addLiquidity()` - Add liquidity to pairs
-- `addLiquidityXHT()` - Add liquidity with native XHT
+- `addLiquidityNOR()` - Add liquidity with native NOR
 - `removeLiquidity()` - Remove liquidity
-- `removeLiquidityXHT()` - Remove liquidity get native XHT
+- `removeLiquidityNOR()` - Remove liquidity get native NOR
 
 **Fees**: 0.3% per swap (same as Uniswap V2)
 - 0.25% to liquidity providers
-- 0.05% to protocol (routed to XHTRevenue)
+- 0.05% to protocol (routed to NORRevenue)
 
-#### XHT/BTCBR Trading Pair
+#### NOR/BTCBR Trading Pair
 **Address**: `0x96BEFeb7cE1a6545f0288F62b314f26852999A9B`
 **Type**: Automated Market Maker (AMM) Pair
-**Tokens**: WXHT (0x1299b31...) / BTCBR (0x0cF8e180...)
+**Tokens**: WNOR (0x1299b31...) / BTCBR (0x0cF8e180...)
 
-**LP Token**: XLP (Xaheen LP Token)
+**LP Token**: XLP (Nor LP Token)
 **Formula**: Constant Product (x * y = k)
 
 ---
@@ -79,7 +79,7 @@ Xaheen Chain now has **complete multi-chain liquidity infrastructure** enabling:
 #### USDTBridgeBSC
 **Address**: `0x68EF664d975c0fda0BbD994433e9651cBED2B38f`
 **Type**: Lock/Mint Bridge
-**Purpose**: Bridge USDT-BEP20 from BSC to Xaheen Chain
+**Purpose**: Bridge USDT-BEP20 from BSC to Nor Chain
 
 **Configuration**:
 - Min Transfer: 10 USDT
@@ -94,7 +94,7 @@ Xaheen Chain now has **complete multi-chain liquidity infrastructure** enabling:
 3. `0x7e05277D528B9192572EB1dCdAdcE3527c337Cdf`
 
 **Functions**:
-- `bridgeToXaheen(recipient, amount, chainId)` - Initiate bridge transfer
+- `bridgeToNor(recipient, amount, chainId)` - Initiate bridge transfer
 - `completeTransfer(transferId, recipient, amount, signatures)` - Complete transfer (validators)
 
 **BSC Deployment**:
@@ -119,7 +119,7 @@ Xaheen Chain now has **complete multi-chain liquidity infrastructure** enabling:
 #### BTCBRBridgeEthereum
 **Address**: `0x1a49C061d9131c90e9141D8D9754Bf4c8Bd2c82A`
 **Type**: Lock/Mint Bridge
-**Purpose**: Bridge BTCBR between Xaheen and Ethereum
+**Purpose**: Bridge BTCBR between Nor and Ethereum
 
 **Configuration**:
 - Min Transfer: 100 BTCBR
@@ -131,8 +131,8 @@ Xaheen Chain now has **complete multi-chain liquidity infrastructure** enabling:
 **Validators**: Same 3 as BSC bridge
 
 **Functions**:
-- `bridgeToXaheen(xaheenRecipient, amount)` - Bridge from ETH to Xaheen
-- `bridgeFromXaheen(transferId, recipient, amount, signatures)` - Bridge from Xaheen to ETH
+- `bridgeToNor(xaheenRecipient, amount)` - Bridge from ETH to Nor
+- `bridgeFromNor(transferId, recipient, amount, signatures)` - Bridge from Nor to ETH
 
 **Ethereum Deployment**:
 - Deploy wBTCBR_Ethereum to Ethereum mainnet
@@ -163,7 +163,7 @@ Xaheen Chain now has **complete multi-chain liquidity infrastructure** enabling:
 #### BTCBRBridgeTron
 **Address**: `0x4f001737E8A1c9e8954F3B01411c2BB22d229792`
 **Type**: Lock/Mint Bridge
-**Purpose**: Bridge BTCBR between Xaheen and Tron
+**Purpose**: Bridge BTCBR between Nor and Tron
 
 **Configuration**:
 - Min Transfer: 10 BTCBR (lower due to cheap Tron fees)
@@ -175,8 +175,8 @@ Xaheen Chain now has **complete multi-chain liquidity infrastructure** enabling:
 **Validators**: Same 3 as BSC/ETH bridges
 
 **Functions**:
-- `bridgeToXaheen(xaheenRecipient, amount)` - Bridge from Tron to Xaheen
-- `bridgeFromXaheen(transferId, recipient, amount, signatures)` - Bridge from Xaheen to Tron
+- `bridgeToNor(xaheenRecipient, amount)` - Bridge from Tron to Nor
+- `bridgeFromNor(transferId, recipient, amount, signatures)` - Bridge from Nor to Tron
 
 **Tron Deployment** (TVM Compatible):
 - Deploy BTCBR_TRC20 to Tron mainnet
@@ -205,14 +205,14 @@ Xaheen Chain now has **complete multi-chain liquidity infrastructure** enabling:
 │                    XAHEEN CHAIN (HUB)                        │
 │                                                              │
 │  ┌────────────────────────────────────────────────────────┐ │
-│  │              XaheenDEX (Native)                        │ │
-│  │  WXHT: 0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651     │ │
+│  │              NorDEX (Native)                        │ │
+│  │  WNOR: 0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651     │ │
 │  │  Factory: 0x502ec2Ce7cd266Eff9e147d66Df3e4D4fcB9e812 │ │
 │  │  Router: 0x0D8e7Ed1B328302bbAA0249CeFD6ca52E050F86e   │ │
 │  │                                                        │ │
 │  │  Trading Pairs:                                        │ │
-│  │  • XHT/BTCBR: 0x96BEFeb7cE1a6545f0288F62b314f269...  │ │
-│  │  • XHT/USDT (future)                                   │ │
+│  │  • NOR/BTCBR: 0x96BEFeb7cE1a6545f0288F62b314f269...  │ │
+│  │  • NOR/USDT (future)                                   │ │
 │  │  • BTCBR/USDT (future)                                 │ │
 │  └────────────────────────────────────────────────────────┘ │
 └──────────────────┬────────────────────┬──────────────────────┘
@@ -239,9 +239,9 @@ Xaheen Chain now has **complete multi-chain liquidity infrastructure** enabling:
 
 ## 💱 TRADING ROUTES
 
-### **Route 1: Native Trading (Xaheen Chain)**
+### **Route 1: Native Trading (Nor Chain)**
 ```
-User → XaheenDEXRouter → XHT/BTCBR Pair → Swap Complete
+User → NorDEXRouter → NOR/BTCBR Pair → Swap Complete
 Fee: 0.3% (to LPs + protocol)
 Speed: 3 seconds
 Cost: ~$0.001 (native gas)
@@ -249,8 +249,8 @@ Cost: ~$0.001 (native gas)
 
 ### **Route 2: BSC Trading**
 ```
-User on BSC → USDTBridgeBSC → Xaheen Chain
-→ XaheenDEX → Bridge back to BSC
+User on BSC → USDTBridgeBSC → Nor Chain
+→ NorDEX → Bridge back to BSC
 Fee: 0.1% bridge + 0.3% swap = 0.4% total
 Speed: ~1 minute
 Cost: ~$0.10 (BSC gas)
@@ -258,8 +258,8 @@ Cost: ~$0.10 (BSC gas)
 
 ### **Route 3: Ethereum Trading**
 ```
-User on ETH → BTCBRBridgeEthereum → Xaheen Chain
-→ XaheenDEX → Bridge back to ETH
+User on ETH → BTCBRBridgeEthereum → Nor Chain
+→ NorDEX → Bridge back to ETH
 Fee: 0.3% bridge + 0.3% swap = 0.6% total
 Speed: ~5 minutes
 Cost: ~$5-50 (ETH gas - depends on network)
@@ -267,8 +267,8 @@ Cost: ~$5-50 (ETH gas - depends on network)
 
 ### **Route 4: Tron Trading** ⭐ **RECOMMENDED FOR RETAIL**
 ```
-User on Tron → BTCBRBridgeTron → Xaheen Chain
-→ XaheenDEX → Bridge back to Tron
+User on Tron → BTCBRBridgeTron → Nor Chain
+→ NorDEX → Bridge back to Tron
 Fee: 0.1% bridge + 0.3% swap = 0.4% total
 Speed: ~30 seconds
 Cost: ~$0.01 (Tron gas) ← CHEAPEST!
@@ -279,18 +279,18 @@ Cost: ~$0.01 (Tron gas) ← CHEAPEST!
 ## 🎯 TARGET LIQUIDITY GOALS
 
 ### **Phase 1: Launch (Month 1)**
-- **XHT/BTCBR**: $100K liquidity
+- **NOR/BTCBR**: $100K liquidity
 - **Tron BTCBR/USDT**: $50K liquidity ⭐ Priority
 - **Total TVL Target**: $150K
 
 ### **Phase 2: Growth (Month 2-3)**
-- **XHT/BTCBR**: $500K liquidity
+- **NOR/BTCBR**: $500K liquidity
 - **Tron BTCBR/USDT**: $250K liquidity
 - **Ethereum wBTCBR/ETH**: $100K liquidity
 - **Total TVL Target**: $850K
 
 ### **Phase 3: Expansion (Month 4-6)**
-- **XHT/BTCBR**: $2M liquidity
+- **NOR/BTCBR**: $2M liquidity
 - **Tron BTCBR/USDT**: $1M liquidity
 - **Ethereum wBTCBR/USDT**: $500K liquidity
 - **BSC USDT pools**: $500K liquidity
@@ -302,19 +302,19 @@ Cost: ~$0.01 (Tron gas) ← CHEAPEST!
 
 ### **For Frontend Developers**
 
-#### Connect to XaheenDEX
+#### Connect to NorDEX
 ```javascript
 import { ethers } from "ethers";
 
 const provider = new ethers.JsonRpcProvider("https://rpc.xaheen.org");
 const routerAddress = "0x0D8e7Ed1B328302bbAA0249CeFD6ca52E050F86e";
-const routerABI = [...]; // From artifacts/contracts/dex/XaheenDEXRouter.sol
+const routerABI = [...]; // From artifacts/contracts/dex/NorDEXRouter.sol
 
 const router = new ethers.Contract(routerAddress, routerABI, provider);
 
 // Get quote for swap
 const path = [wxhtAddress, btcbrAddress];
-const amountIn = ethers.parseEther("100"); // 100 XHT
+const amountIn = ethers.parseEther("100"); // 100 NOR
 const amountsOut = await router.getAmountsOut(amountIn, path);
 console.log("You will receive:", ethers.formatEther(amountsOut[1]), "BTCBR");
 
@@ -323,12 +323,12 @@ const signer = await provider.getSigner();
 const routerWithSigner = router.connect(signer);
 const deadline = Math.floor(Date.now() / 1000) + 60 * 20; // 20 minutes
 
-const tx = await routerWithSigner.swapExactXHTForTokens(
+const tx = await routerWithSigner.swapExactNORForTokens(
   amountsOut[1], // minAmountOut (with slippage)
   path,
   userAddress,
   deadline,
-  { value: amountIn } // Send XHT
+  { value: amountIn } // Send NOR
 );
 
 await tx.wait();
@@ -341,18 +341,18 @@ console.log("Swap complete!");
 const btcbr = new ethers.Contract(btcbrAddress, erc20ABI, signer);
 await btcbr.approve(routerAddress, ethers.parseEther("1000"));
 
-// Add liquidity with XHT
+// Add liquidity with NOR
 const amountBTCBR = ethers.parseEther("1000");
-const amountXHT = ethers.parseEther("100");
+const amountNOR = ethers.parseEther("100");
 
-const tx = await routerWithSigner.addLiquidityXHT(
+const tx = await routerWithSigner.addLiquidityNOR(
   btcbrAddress,
   amountBTCBR,
   amountBTCBR * 95n / 100n, // 5% slippage
-  amountXHT * 95n / 100n,
+  amountNOR * 95n / 100n,
   userAddress,
   deadline,
-  { value: amountXHT }
+  { value: amountNOR }
 );
 
 await tx.wait();
@@ -400,7 +400,7 @@ await bridge.completeTransfer(transferId, recipient, amount, [sig1, sig2]);
 ### **Key Metrics to Track**
 
 1. **TVL (Total Value Locked)**
-   - XHT/BTCBR pair liquidity
+   - NOR/BTCBR pair liquidity
    - Cross-chain bridge balances
    - Multi-chain pool sizes
 
@@ -412,7 +412,7 @@ await bridge.completeTransfer(transferId, recipient, amount, [sig1, sig2]);
 3. **Fees Generated**
    - Swap fees (0.3%)
    - Bridge fees (0.1-0.3%)
-   - Revenue to XHTRevenue contract
+   - Revenue to NORRevenue contract
 
 4. **User Activity**
    - Unique traders
@@ -430,7 +430,7 @@ await bridge.completeTransfer(transferId, recipient, amount, [sig1, sig2]);
 // Get pair reserves
 const pair = new ethers.Contract(pairAddress, pairABI, provider);
 const [reserve0, reserve1] = await pair.getReserves();
-console.log("XHT Reserve:", ethers.formatEther(reserve0));
+console.log("NOR Reserve:", ethers.formatEther(reserve0));
 console.log("BTCBR Reserve:", ethers.formatEther(reserve1));
 
 // Get bridge statistics
@@ -446,7 +446,7 @@ console.log("Today Volume:", ethers.formatEther(stats.todayVolume));
 ### **Multi-Signature Validation**
 - All bridges require 2-of-3 or 3-of-5 validator signatures
 - Prevents single point of failure
-- Validators are trusted nodes from Xaheen ecosystem
+- Validators are trusted nodes from Nor ecosystem
 
 ### **Transfer Limits**
 - Minimum and maximum per transaction
@@ -487,10 +487,10 @@ console.log("Today Volume:", ethers.formatEther(stats.todayVolume));
 
 ## ✅ DEPLOYMENT CHECKLIST
 
-- [x] WXHT deployed
-- [x] XaheenDEXFactory deployed
-- [x] XaheenDEXRouter deployed
-- [x] XHT/BTCBR pair created
+- [x] WNOR deployed
+- [x] NorDEXFactory deployed
+- [x] NorDEXRouter deployed
+- [x] NOR/BTCBR pair created
 - [x] USDTBridgeBSC deployed and configured
 - [x] wBTCBR_Ethereum deployed
 - [x] BTCBRBridgeEthereum deployed and configured
@@ -500,7 +500,7 @@ console.log("Today Volume:", ethers.formatEther(stats.todayVolume));
 - [x] Minter/Burner roles granted
 
 **Next Steps**:
-- [ ] Add initial liquidity to XHT/BTCBR
+- [ ] Add initial liquidity to NOR/BTCBR
 - [ ] Deploy wBTCBR to Ethereum mainnet
 - [ ] Deploy BTCBR-TRC20 to Tron mainnet
 - [ ] Create Uniswap V3 pools

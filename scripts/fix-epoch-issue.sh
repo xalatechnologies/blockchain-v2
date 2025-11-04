@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# Fix Xaheen Chain Epoch Issue - PERMANENT SOLUTION
+# Fix Nor Chain Epoch Issue - PERMANENT SOLUTION
 #
 # This script:
 # 1. Safely restarts validators (NO DATA LOSS)

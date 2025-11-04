@@ -9,14 +9,14 @@
 
 ### 1. BNB Bridge - FULLY TESTED ✅
 - **BSC Address:** `0x9bEFFFa3b43D34a2B470DA21aab3CA3263D0e8C0`
-- **Xaheen Address:** `0xB1347E378CE63475b282fCC4E9037D51F189758A`
+- **Nor Address:** `0xB1347E378CE63475b282fCC4E9037D51F189758A`
 - **WBNB Token:** `0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B`
 - **Status:** ✅ Tested, working, auto-minting confirmed
 - **Revenue:** $0.008 from test bridge
 
 ### 2. USDT Bridge - FULLY TESTED ✅
 - **BSC Address:** `0x7E1c4448A9d87d5C5478B86085AF4e3715a06f48`
-- **Xaheen Address:** `0x1d24C3c51855d5320d7459E03F2d1a13F7cB6334`
+- **Nor Address:** `0x1d24C3c51855d5320d7459E03F2d1a13F7cB6334`
 - **WUSDT Token:** `0xA0de216D0bF10E9a40C0666FB3De458e3AEB70F5`
 - **Status:** ✅ Tested, working, auto-minting confirmed
 - **Revenue:** $0.02 from test bridge
@@ -51,8 +51,8 @@
 | ETH    | Not tested | $0 | ❌ Needs fix |
 | **TOTAL** | **~$37 test volume** | **$0.028** | **67% Ready** |
 
-### Your Wallet on Xaheen:
-- **XHT:** 20,189,999,999.86 XHT
+### Your Wallet on Nor:
+- **NOR:** 20,189,999,999.86 NOR
 - **WBNB:** 0.00998 WBNB ✅
 - **WUSDT:** 9.98 WUSDT ✅
 - **WETH:** 0 WETH (bridge not working yet)
@@ -116,7 +116,7 @@
 ```
 🚀 XAHEEN CHAIN BRIDGES ARE LIVE!
 
-Bridge BNB and USDT to Xaheen Chain in seconds!
+Bridge BNB and USDT to Nor Chain in seconds!
 
 ✅ BNB Bridge - Fast, secure, low fees (0.2%)
 ✅ USDT Bridge - Instant stablecoin transfers
@@ -133,27 +133,27 @@ Bridge now:
 🔗 BNB: https://bscscan.com/address/0x9bEFFFa3b43D34a2B470DA21aab3CA3263D0e8C0
 🔗 USDT: https://bscscan.com/address/0x7E1c4448A9d87d5C5478B86085AF4e3715a06f48
 
-#XaheenChain #BSC #DeFi #BNB #USDT
+#NorChain #BSC #DeFi #BNB #USDT
 ```
 
 ### Positioning:
 - **Don't mention ETH bridge** (not ready)
 - **Focus on BNB + USDT** (your strengths!)
 - **Emphasize speed and low fees**
-- **Mention your DEX** (swap WBNB ↔ XHT = more revenue!)
+- **Mention your DEX** (swap WBNB ↔ NOR = more revenue!)
 
 ---
 
 ## 💻 USER FLOW (2 Bridges):
 
 1. **User has BNB or USDT on BSC**
-2. **User bridges to Xaheen:**
+2. **User bridges to Nor:**
    - BNB → WBNB (you earn 0.2%)
    - USDT → WUSDT (you earn 0.2%)
 3. **User swaps on your DEX:**
-   - WBNB → XHT (you earn 0.3%)
-   - WUSDT → XHT (you earn 0.3%)
-4. **User trades XHT:**
+   - WBNB → NOR (you earn 0.3%)
+   - WUSDT → NOR (you earn 0.3%)
+4. **User trades NOR:**
    - Every trade = 0.3% fee for you
 
 **Revenue per user:** $0.50+ initial + ongoing trading fees!
@@ -200,14 +200,14 @@ Go to BSCScan → Write Contract → withdrawFees(your_treasury_address)
 ### Step 1: Verify Tokens in MetaMask (2 min)
 
 **Add WBNB:**
-- Network: Xaheen Chain (65001)
+- Network: Nor Chain (65001)
 - Address: `0x5E2A669Bd80042254C81707Dd53c38D9cFA0fA1B`
 - Symbol: `WBNB`
 - Decimals: `18`
 - Should see: 0.00998 WBNB ✅
 
 **Add WUSDT:**
-- Network: Xaheen Chain (65001)
+- Network: Nor Chain (65001)
 - Address: `0xA0de216D0bF10E9a40C0666FB3De458e3AEB70F5`
 - Symbol: `WUSDT`
 - Decimals: `18`
@@ -223,19 +223,19 @@ Go to BSCScan → Write Contract → withdrawFees(your_treasury_address)
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Xaheen Chain Bridges</title>
+  <title>Nor Chain Bridges</title>
 </head>
 <body>
-  <h1>Bridge to Xaheen Chain</h1>
+  <h1>Bridge to Nor Chain</h1>
 
   <h2>BNB Bridge</h2>
-  <p>Bridge BNB from BSC to Xaheen</p>
+  <p>Bridge BNB from BSC to Nor</p>
   <a href="https://bscscan.com/address/0x9bEFFFa3b43D34a2B470DA21aab3CA3263D0e8C0#writeContract">
     Bridge BNB →
   </a>
 
   <h2>USDT Bridge</h2>
-  <p>Bridge USDT from BSC to Xaheen</p>
+  <p>Bridge USDT from BSC to Nor</p>
   <a href="https://bscscan.com/address/0x7E1c4448A9d87d5C5478B86085AF4e3715a06f48#writeContract">
     Bridge USDT →
   </a>
@@ -244,19 +244,19 @@ Go to BSCScan → Write Contract → withdrawFees(your_treasury_address)
   <ol>
     <li>Connect MetaMask to BSC network</li>
     <li>Click bridge link above</li>
-    <li>Enter your Xaheen address</li>
+    <li>Enter your Nor address</li>
     <li>Enter amount to bridge</li>
     <li>Click "Write" and confirm</li>
     <li>Wait 30-60 seconds</li>
-    <li>Receive wrapped tokens on Xaheen!</li>
+    <li>Receive wrapped tokens on Nor!</li>
   </ol>
 
-  <h3>Add Xaheen Network to MetaMask:</h3>
+  <h3>Add Nor Network to MetaMask:</h3>
   <ul>
-    <li>Network Name: Xaheen Chain</li>
+    <li>Network Name: Nor Chain</li>
     <li>RPC URL: http://3.91.50.187:8545</li>
     <li>Chain ID: 65001</li>
-    <li>Currency Symbol: XHT</li>
+    <li>Currency Symbol: NOR</li>
   </ul>
 
   <h3>Add Wrapped Tokens:</h3>

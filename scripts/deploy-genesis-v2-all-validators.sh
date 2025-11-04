@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ##############################################################################
-# Xaheen Chain - Genesis V2 Deployment to All 7 Validators
+# Nor Chain - Genesis V2 Deployment to All 7 Validators
 #
 # This script deploys genesis v2 with 4 embedded tokens to all 7 validators
 # and initializes the complete 7-validator network

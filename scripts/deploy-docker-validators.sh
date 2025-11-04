@@ -19,19 +19,19 @@ echo ""
 # Upload and execute on server
 ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@3.91.50.187 << 'ENDSSH'
 
-# Validator addresses from genesis-noor-corrected.json
+# Validator addresses from genesis-nor-corrected.json
 VALIDATOR_1="0xa3aaC90d6505c2a57141EaFDA973222DF91BBe1C"
 VALIDATOR_2="0x632b5aCF4FfbBE8dAe81df89754Fb1b217924788"
 VALIDATOR_3="0xB3B4f4fb663d9C8c6AD57e30631Ae1BB0E60c62B"
 
 echo "🛑 Stopping existing validators..."
 pkill -f geth || true
-docker stop noor-rpc bsc-validator-2 bsc-validator-3 2>/dev/null || true
-docker rm noor-rpc bsc-validator-2 bsc-validator-3 2>/dev/null || true
+docker stop nor-rpc bsc-validator-2 bsc-validator-3 2>/dev/null || true
+docker rm nor-rpc bsc-validator-2 bsc-validator-3 2>/dev/null || true
 
 echo ""
 echo "🐳 Starting Validator 1 (RPC + Mining)..."
-docker run -d --name noor-rpc --network host \
+docker run -d --name nor-rpc --network host \
     -v /home/ec2-user/validator-1:/bsc \
     dysnix/bsc \
     --datadir /bsc \
@@ -98,7 +98,7 @@ echo ""
 echo "📡 Retrieving enode addresses..."
 
 # Get enodes using geth attach (CRITICAL - documented working method)
-ENODE1=$(docker exec noor-rpc geth attach /bsc/geth.ipc --exec "admin.nodeInfo.enode" 2>/dev/null | sed 's/"//g; s/@[0-9.]*:/@127.0.0.1:/')
+ENODE1=$(docker exec nor-rpc geth attach /bsc/geth.ipc --exec "admin.nodeInfo.enode" 2>/dev/null | sed 's/"//g; s/@[0-9.]*:/@127.0.0.1:/')
 ENODE2=$(docker exec bsc-validator-2 geth attach /bsc/geth.ipc --exec "admin.nodeInfo.enode" 2>/dev/null | sed 's/"//g; s/@[0-9.]*:/@127.0.0.1:/')
 ENODE3=$(docker exec bsc-validator-3 geth attach /bsc/geth.ipc --exec "admin.nodeInfo.enode" 2>/dev/null | sed 's/"//g; s/@[0-9.]*:/@127.0.0.1:/')
 
@@ -123,7 +123,7 @@ echo "✅ Static-nodes.json files created"
 
 echo ""
 echo "🔄 Restarting validators to apply static peering..."
-docker restart noor-rpc bsc-validator-2 bsc-validator-3
+docker restart nor-rpc bsc-validator-2 bsc-validator-3
 
 echo "⏳ Waiting 20 seconds for peer connections..."
 sleep 20
@@ -185,7 +185,7 @@ else
     echo "⚠️  No new blocks produced yet"
     echo ""
     echo "Check logs:"
-    echo "  docker logs noor-rpc --tail 50"
+    echo "  docker logs nor-rpc --tail 50"
     echo "  docker logs bsc-validator-2 --tail 50"
     echo "  docker logs bsc-validator-3 --tail 50"
 fi
@@ -193,9 +193,9 @@ fi
 echo ""
 echo "Useful commands:"
 echo "  docker ps                          # Check running containers"
-echo "  docker logs noor-rpc -f            # Follow validator 1 logs"
-echo "  docker restart noor-rpc            # Restart validator 1"
-echo "  docker exec noor-rpc geth attach /bsc/geth.ipc # Attach to geth console"
+echo "  docker logs nor-rpc -f            # Follow validator 1 logs"
+echo "  docker restart nor-rpc            # Restart validator 1"
+echo "  docker exec nor-rpc geth attach /bsc/geth.ipc # Attach to geth console"
 
 ENDSSH
 

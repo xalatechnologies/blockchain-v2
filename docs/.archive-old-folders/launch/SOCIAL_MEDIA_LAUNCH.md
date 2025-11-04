@@ -4,7 +4,7 @@
 
 ### Tweet 1 (Main Announcement)
 ```
-🚀 Introducing Xaheen Chain - A New EVM Layer 1 Blockchain
+🚀 Introducing Nor Chain - A New EVM Layer 1 Blockchain
 
 ⚡ 3-second block time
 💰 Near-zero gas fees
@@ -20,7 +20,7 @@ https://chainlist.org/chain/65001
 
 ### Tweet 2 (Key Features)
 ```
-What makes Xaheen unique?
+What makes Nor unique?
 
 ✅ Lightning fast: 3-second blocks (10x faster than Ethereum)
 ✅ Cheap: Transactions cost <$0.001
@@ -37,12 +37,12 @@ RPC: https://rpc.xaheen.org
 Early Adopter Rewards 🎁
 
 First 1,000 users get:
-🪙 1,000 XHT airdrop
+🪙 1,000 NOR airdrop
 💎 Priority validator spots
 🌟 Founding member NFT
 📈 Liquidity mining rewards
 
-Add Xaheen to MetaMask & join our Telegram!
+Add Nor to MetaMask & join our Telegram!
 t.me/xaheenchain
 
 #Airdrop #Crypto
@@ -52,7 +52,7 @@ t.me/xaheenchain
 ```
 Calling all developers! 👨‍💻
 
-Xaheen is:
+Nor is:
 - EVM-compatible (Solidity, Vyper)
 - Supports all Ethereum tools (Hardhat, Truffle, Remix)
 - Has low deployment costs (<$0.01)
@@ -68,15 +68,15 @@ Build the future with us! 🏗️
 ## Reddit Post Template
 
 ### r/CryptoCurrency
-**Title:** Introducing Xaheen Chain - New EVM L1 with 3-Second Blocks & Native DEX
+**Title:** Introducing Nor Chain - New EVM L1 with 3-Second Blocks & Native DEX
 
 **Post:**
 ```
 Hey r/CryptoCurrency!
 
-I want to share a new blockchain project I've been working on: **Xaheen Chain**
+I want to share a new blockchain project I've been working on: **Nor Chain**
 
-**What is Xaheen?**
+**What is Nor?**
 - EVM-compatible Layer 1 blockchain
 - 3-second block time (faster than most L1s)
 - Near-zero gas fees (<$0.001 per transaction)
@@ -98,7 +98,7 @@ Most L1s are either:
 2. Decentralized but slow/expensive (Ethereum)
 3. Complex to use (Cosmos, Polkadot)
 
-Xaheen aims for a middle ground:
+Nor aims for a middle ground:
 - Fast enough for real applications
 - Cheap enough for mass adoption
 - Simple enough for any Ethereum developer
@@ -112,12 +112,12 @@ Xaheen aims for a middle ground:
 
 **How to Try It:**
 1. Add to MetaMask: https://chainlist.org/chain/65001
-2. Get test XHT from faucet (coming soon)
+2. Get test NOR from faucet (coming soon)
 3. Try the native DEX
 4. Deploy your contracts
 
 **Early Adopter Incentives:**
-- First 1,000 users get 1,000 XHT airdrop
+- First 1,000 users get 1,000 NOR airdrop
 - Liquidity mining rewards (50%+ APY)
 - Validator staking opportunities
 - Grant program for developers
@@ -141,15 +141,15 @@ I'm happy to answer any technical questions!
 ```
 
 ### r/CryptoMoonShots
-**Title:** 🚀 Xaheen Chain - New L1 Blockchain | 1000 XHT Airdrop | Liquidity Mining Live
+**Title:** 🚀 Nor Chain - New L1 Blockchain | 1000 NOR Airdrop | Liquidity Mining Live
 
 **Post:**
 ```
 💎 XAHEEN CHAIN - THE OPPORTUNITY
 
-**Token:** XHT (Xaheen Token)
+**Token:** NOR (Nor Token)
 **Chain ID:** 65001
-**Supply:** 21 Trillion XHT
+**Supply:** 21 Trillion NOR
 **Market Cap:** Not listed yet (EARLY!)
 
 **Why This Could Moon:**
@@ -166,10 +166,10 @@ I'm happy to answer any technical questions!
    - Ground floor opportunity
 
 3. **Real Utility**
-   - Pay gas fees with XHT
+   - Pay gas fees with NOR
    - Stake for validator rewards
    - Liquidity mining APY: 50%+
-   - Bridge fees paid in XHT
+   - Bridge fees paid in NOR
 
 4. **Tokenomics**
    - 20% Team (2 year vest)
@@ -182,20 +182,20 @@ I'm happy to answer any technical questions!
 **Current Stats:**
 - Price: TBD (not listed yet)
 - Holders: <100 (VERY EARLY)
-- DEX Liquidity: $20k on Xaheen Chain
+- DEX Liquidity: $20k on Nor Chain
 - Daily Volume: Growing
 
-**How to Get XHT:**
+**How to Get NOR:**
 
 Method 1: Airdrop (First 1,000 users)
-- Add Xaheen to MetaMask
+- Add Nor to MetaMask
 - Join Telegram
 - Complete simple tasks
-- Get 1,000 XHT
+- Get 1,000 NOR
 
 Method 2: Liquidity Mining
-- Add liquidity to Xaheen DEX
-- Earn 50%+ APY in XHT
+- Add liquidity to Nor DEX
+- Earn 50%+ APY in NOR
 
 Method 3: Bridge & Trade
 - Bridge from BSC
@@ -216,7 +216,7 @@ Method 3: Bridge & Trade
 **Links:**
 🌐 Website: https://xaheen.org
 📱 Telegram: https://t.me/xaheenchain
-🐦 Twitter: https://twitter.com/XaheenChain
+🐦 Twitter: https://twitter.com/NorChain
 📊 Explorer: https://explorer.xaheen.org
 
 DYOR! Not financial advice!
@@ -226,9 +226,9 @@ DYOR! Not financial advice!
 
 ## Telegram/Discord Welcome Message
 ```
-Welcome to Xaheen Chain! 🎉
+Welcome to Nor Chain! 🎉
 
-Xaheen is a fast EVM-compatible blockchain with:
+Nor is a fast EVM-compatible blockchain with:
 ⚡ 3-second blocks
 💰 Near-zero fees
 🔄 Native DEX
@@ -241,7 +241,7 @@ Xaheen is a fast EVM-compatible blockchain with:
 • Documentation: https://docs.xaheen.org
 
 🎁 Early Adopter Rewards:
-• 1,000 XHT airdrop (first 1,000 users)
+• 1,000 NOR airdrop (first 1,000 users)
 • Liquidity mining: 50%+ APY
 • Validator program opening soon
 
@@ -257,7 +257,7 @@ Be respectful, no spam, have fun! 🚀
 
 ## BitcoinTalk Thread Template
 
-**Title:** [ANN][XHT] Xaheen Chain - EVM L1 | 3s Blocks | Native DEX | Airdrop
+**Title:** [ANN][NOR] Nor Chain - EVM L1 | 3s Blocks | Native DEX | Airdrop
 
 **Post:**
 ```
@@ -272,7 +272,7 @@ Be respectful, no spam, have fun! 🚀
 
 [SIZE=5][B]📋 OVERVIEW[/B][/SIZE]
 
-Xaheen Chain is a new EVM-compatible Layer 1 blockchain focused on speed, low costs, and native DeFi functionality.
+Nor Chain is a new EVM-compatible Layer 1 blockchain focused on speed, low costs, and native DeFi functionality.
 
 [B]Key Features:[/B]
 • Lightning-fast 3-second block time
@@ -287,13 +287,13 @@ Xaheen Chain is a new EVM-compatible Layer 1 blockchain focused on speed, low co
 [SIZE=5][B]🔧 TECHNICAL SPECS[/B][/SIZE]
 
 [CODE]
-Chain Name: Xaheen Chain
-Ticker: XHT
+Chain Name: Nor Chain
+Ticker: NOR
 Chain ID: 65001
 Network ID: 65001
 Consensus: Parlia (Proof of Staked Authority)
 Block Time: 3 seconds
-Total Supply: 21 Trillion XHT
+Total Supply: 21 Trillion NOR
 RPC Endpoint: https://rpc.xaheen.org
 Block Explorer: https://explorer.xaheen.org
 [/CODE]
@@ -302,7 +302,7 @@ Block Explorer: https://explorer.xaheen.org
 
 [SIZE=5][B]💎 TOKENOMICS[/B][/SIZE]
 
-[B]Total Supply:[/B] 21,000,000,000,000 XHT
+[B]Total Supply:[/B] 21,000,000,000,000 NOR
 
 [B]Distribution:[/B]
 • 20% - Team/Development (2 year vesting)
@@ -323,13 +323,13 @@ Block Explorer: https://explorer.xaheen.org
 
 [SIZE=5][B]🎁 AIRDROP PROGRAM[/B][/SIZE]
 
-[B]First 1,000 Users:[/B] 1,000 XHT each
+[B]First 1,000 Users:[/B] 1,000 NOR each
 
 [B]How to Qualify:[/B]
-1. Add Xaheen Chain to MetaMask
+1. Add Nor Chain to MetaMask
 2. Join official Telegram group
 3. Fill airdrop form
-4. Receive XHT directly to wallet
+4. Receive NOR directly to wallet
 
 [B]Start Date:[/B] [DATE]
 [B]End Date:[/B] When 1,000 users reached
@@ -339,13 +339,13 @@ Block Explorer: https://explorer.xaheen.org
 [SIZE=5][B]💰 LIQUIDITY MINING[/B][/SIZE]
 
 [B]Available Pools:[/B]
-• XHT/BTCBR: 30% APY
-• XHT/USDT: 50% APY
+• NOR/BTCBR: 30% APY
+• NOR/USDT: 50% APY
 • BTCBR/USDT: 40% APY
 
-[B]Rewards:[/B] Paid in XHT
+[B]Rewards:[/B] Paid in NOR
 [B]Duration:[/B] 6 months
-[B]Total Rewards:[/B] 4.2 Trillion XHT
+[B]Total Rewards:[/B] 4.2 Trillion NOR
 
 [HR][/HR]
 
@@ -355,7 +355,7 @@ Block Explorer: https://explorer.xaheen.org
 [B]Documentation:[/B] https://docs.xaheen.org
 [B]Block Explorer:[/B] https://explorer.xaheen.org
 [B]GitHub:[/B] https://github.com/xaheen
-[B]Twitter:[/B] https://twitter.com/XaheenChain
+[B]Twitter:[/B] https://twitter.com/NorChain
 [B]Telegram:[/B] https://t.me/xaheenchain
 [B]Discord:[/B] [link]
 [B]Medium:[/B] [link]
@@ -409,18 +409,18 @@ This is experimental technology. Do your own research. Never invest more than yo
 
 [HR][/HR]
 
-[CENTER][B]Join the Xaheen Revolution! 🚀[/B][/CENTER]
+[CENTER][B]Join the Nor Revolution! 🚀[/B][/CENTER]
 ```
 
 ---
 
 ## Medium Article Outline
 
-**Title:** "Introducing Xaheen Chain: Fast, Cheap, and Built for DeFi"
+**Title:** "Introducing Nor Chain: Fast, Cheap, and Built for DeFi"
 
 **Sections:**
 1. The Problem with Current Blockchains
-2. What is Xaheen Chain?
+2. What is Nor Chain?
 3. Key Technical Features
 4. Native DEX Architecture
 5. Cross-Chain Bridge System

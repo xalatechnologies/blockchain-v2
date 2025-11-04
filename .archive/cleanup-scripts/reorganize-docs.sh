@@ -3,7 +3,7 @@
 # Documentation Reorganization Script
 # Date: 2025-11-02
 
-echo "📁 Starting Xaheen Chain Documentation Reorganization..."
+echo "📁 Starting Nor Chain Documentation Reorganization..."
 echo ""
 
 # Create new directory structure
@@ -130,7 +130,7 @@ EOF
 cat > docs/01-getting-started/README.md << 'EOF'
 # 01 - Getting Started
 
-Quick start guides and essential first steps for working with Xaheen Chain.
+Quick start guides and essential first steps for working with Nor Chain.
 
 ## Quick Reference
 

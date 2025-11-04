@@ -53,9 +53,9 @@ fi
 echo "   ✅ WNOR deployed at: $WNOR_ADDR"
 echo ""
 
-# Deploy NoorSwapFactory
-echo "📦 Step 2: Deploying NoorSwapFactory..."
-FACTORY_ARTIFACT=".build/artifacts/contracts/dex/NoorSwapFactory.sol/NoorSwapFactory.json"
+# Deploy NorSwapFactory
+echo "📦 Step 2: Deploying NorSwapFactory..."
+FACTORY_ARTIFACT=".build/artifacts/contracts/dex/NorSwapFactory.sol/NorSwapFactory.json"
 FACTORY_BYTECODE=$(cat $FACTORY_ARTIFACT | jq -r '.bytecode')
 
 # Encode constructor args (feeToSetter = deployer)
@@ -77,9 +77,9 @@ INIT_CODE_HASH=$(cast call $FACTORY_ADDR "INIT_CODE_PAIR_HASH()(bytes32)" --rpc-
 echo "   📋 INIT_CODE_HASH: $INIT_CODE_HASH"
 echo ""
 
-# Deploy NoorSwapRouter
-echo "📦 Step 3: Deploying NoorSwapRouter..."
-ROUTER_ARTIFACT=".build/artifacts/contracts/dex/NoorSwapRouter.sol/NoorSwapRouter.json"
+# Deploy NorSwapRouter
+echo "📦 Step 3: Deploying NorSwapRouter..."
+ROUTER_ARTIFACT=".build/artifacts/contracts/dex/NorSwapRouter.sol/NorSwapRouter.json"
 ROUTER_BYTECODE=$(cat $ROUTER_ARTIFACT | jq -r '.bytecode')
 
 # Encode constructor args (factory, WNOR)
@@ -110,18 +110,18 @@ echo ""
 
 # Save deployment info
 mkdir -p deployments
-cat > deployments/noor-dex-deployment.json << EOF
+cat > deployments/nor-dex-deployment.json << EOF
 {
   "timestamp": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
   "chainId": 65001,
-  "network": "Noor Chain",
+  "network": "Nor Chain",
   "rpc": "$RPC",
   "deployer": "$DEPLOYER",
   "contracts": {
     "BTCBR": "$BTCBR",
     "WNOR": "$WNOR_ADDR",
-    "NoorSwapFactory": "$FACTORY_ADDR",
-    "NoorSwapRouter": "$ROUTER_ADDR",
+    "NorSwapFactory": "$FACTORY_ADDR",
+    "NorSwapRouter": "$ROUTER_ADDR",
     "initCodeHash": "$INIT_CODE_HASH"
   },
   "pairs": [
@@ -135,7 +135,7 @@ cat > deployments/noor-dex-deployment.json << EOF
 }
 EOF
 
-echo "📝 Deployment info saved to deployments/noor-dex-deployment.json"
+echo "📝 Deployment info saved to deployments/nor-dex-deployment.json"
 echo ""
 
 echo "═══════════════════════════════════════════════════════════════════════════"
@@ -145,11 +145,11 @@ echo ""
 echo "📋 Deployed Contracts:"
 echo "   BTCBR Token:       $BTCBR"
 echo "   WNOR:              $WNOR_ADDR"
-echo "   NoorSwap Factory:  $FACTORY_ADDR"
-echo "   NoorSwap Router:   $ROUTER_ADDR"
+echo "   NorSwap Factory:  $FACTORY_ADDR"
+echo "   NorSwap Router:   $ROUTER_ADDR"
 echo "   BTCBR/WNOR Pair:   $PAIR_ADDR"
 echo ""
-echo "🔗 Network: Noor Chain (Chain ID 65001)"
+echo "🔗 Network: Nor Chain (Chain ID 65001)"
 echo "🌐 RPC: $RPC"
 echo ""
 echo "📝 Next Steps:"

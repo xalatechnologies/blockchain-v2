@@ -1,4 +1,4 @@
-# Xaheen Chain - Validator Scaling Plan (3 → 7)
+# Nor Chain - Validator Scaling Plan (3 → 7)
 
 **Current State**: 3 validators
 **Target State**: 7 validators

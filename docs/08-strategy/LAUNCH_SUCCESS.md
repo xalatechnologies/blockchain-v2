@@ -26,26 +26,26 @@ A complete three-token DeFi ecosystem with:
 
 ## 💎 XHN TOKEN DETAILS
 
-### **Contract Address (Xaheen Chain):**
+### **Contract Address (Nor Chain):**
 ```
 0xD4567cD447068aaD470431746592f261Fae92bAa
 ```
 
 ### **Token Information:**
-- **Name**: Xaheen Network Token
+- **Name**: Nor Network Token
 - **Symbol**: XHN
 - **Decimals**: 18
 - **Total Supply**: 100,000,000 XHN (initial)
 - **Max Supply**: 1,000,000,000 XHN
 
 ### **Current Price:**
-- **Launch Price**: $0.01 per XHN (1 XHT = 100 XHN)
-- **Current Price**: $0.0109 per XHN (1 XHT = 92 XHN)
+- **Launch Price**: $0.01 per XHN (1 NOR = 100 XHN)
+- **Current Price**: $0.0109 per XHN (1 NOR = 92 XHN)
 - **Price Change**: +9% in first 5 minutes! 🚀
 
 ### **Market Metrics:**
 - **Market Cap**: ~$10,900 (from $10,000 launch)
-- **Liquidity**: $1,000 XHT + $1,000 XHN
+- **Liquidity**: $1,000 NOR + $1,000 XHN
 - **Your Ownership**: 99.99% of liquidity pool
 - **Trading Volume**: $43 (launch buys)
 
@@ -53,14 +53,14 @@ A complete three-token DeFi ecosystem with:
 
 ## 📊 LIQUIDITY POOL
 
-### **XHT/XHN Pair:**
+### **NOR/XHN Pair:**
 ```
 Contract: 0xAF89BE1221c65c1984446eca4027Ac42d0650474
 Router: 0x25918D0630bC8a6683d9882a1e2e01B8d0eC45dd
 ```
 
 ### **Pool Composition:**
-- XHT: 1,038 XHT (after launch buys)
+- NOR: 1,038 NOR (after launch buys)
 - XHN: 96,350 XHN (after launch sales)
 - **Your LP Tokens**: 9,999.99 (100% ownership)
 
@@ -105,7 +105,7 @@ Router: 0x25918D0630bC8a6683d9882a1e2e01B8d0eC45dd
 ```
 DEX Infrastructure:  $0.08 gas
 XHN Token:          $0.01 gas
-XHT/XHN Liquidity:  $1,000.00
+NOR/XHN Liquidity:  $1,000.00
 Launch Buys:        $3.80
 ─────────────────────────────
 TOTAL:              $1,003.89
@@ -116,7 +116,7 @@ TOTAL:              $1,003.89
   - Minus 3,650 XHN sold during launch
   - Current value: ~$1,090,000 at current price
 
-- **99.99% of XHT/XHN liquidity pool**
+- **99.99% of NOR/XHN liquidity pool**
   - Earn 0.3% on all trades
   - Withdrawable anytime
 
@@ -149,7 +149,7 @@ TOTAL:              $1,003.89
 
 ## 📝 ALL DEPLOYED CONTRACTS
 
-### **Xaheen Chain (Chain ID: 65001):**
+### **Nor Chain (Chain ID: 65001):**
 
 **Core Tokens:**
 ```
@@ -159,19 +159,19 @@ BTCBR:  0x0cF8e180350253271f4b917CcFb0aCCc4862F262
 
 **DEX Infrastructure:**
 ```
-WXHT:           0x2AfF9B4999f587090840f4fD8F85A7EE643947Ee
+WNOR:           0x2AfF9B4999f587090840f4fD8F85A7EE643947Ee
 Factory:        0x492DC3847fB2D36d64898274079C1DcD8cA5B99B
 Router:         0x25918D0630bC8a6683d9882a1e2e01B8d0eC45dd
-XHTRevenue:     0xE4bC805e5ED3eB8715A27D4CBAdDF510764aAF53
+NORRevenue:     0xE4bC805e5ED3eB8715A27D4CBAdDF510764aAF53
 ```
 
 **Trading Pairs:**
 ```
-XHT/BTCBR:  0x4b07AE99F1895b617421A89ba7Fe153A341d8744
-XHT/XHN:    0xAF89BE1221c65c1984446eca4027Ac42d0650474
+NOR/BTCBR:  0x4b07AE99F1895b617421A89ba7Fe153A341d8744
+NOR/XHN:    0xAF89BE1221c65c1984446eca4027Ac42d0650474
 ```
 
-**Cross-Chain Bridges (Xaheen Side):**
+**Cross-Chain Bridges (Nor Side):**
 ```
 USDT Bridge (BSC):        0x4cA45048F09b30dF359d63043A378c00a8315B21
 wBTCBR (Ethereum):        0x471D919B23CacD3d983399cff42c4D1636e45c32
@@ -207,14 +207,14 @@ CA: 0xD4567cD447068aaD470431746592f261Fae92bAa
 DEX: https://dex.xaheen.network
 Chart: [Coming Soon]
 
-#XHN #DeFi #100xGem #Xaheen $XHN
+#XHN #DeFi #100xGem #Nor $XHN
 ```
 
 **Telegram Message:**
 ```
 🎉 XHN IS LIVE! 🎉
 
-The Xaheen Network governance token is now trading!
+The Nor Network governance token is now trading!
 
 💰 WHAT IS XHN?
 Revenue-sharing token with 60% of ALL protocol fees going to stakers!
@@ -248,7 +248,7 @@ Title: 🚀 $XHN - Actual Revenue Sharing, 90% APY Staking [Just Launched - $10K
 Body:
 Just launched 10 minutes ago and already +9%!
 
-XHN is the governance token of Xaheen DeFi ecosystem with REAL utility:
+XHN is the governance token of Nor DeFi ecosystem with REAL utility:
 
 ✅ 60% of protocol fees → distributed to stakers
 ✅ 30% buyback & burn (deflationary)
@@ -291,7 +291,7 @@ See you at $1M market cap! 🚀
 
 **Watch These Addresses:**
 - **XHN Token**: 0xD4567cD447068aaD470431746592f261Fae92bAa
-- **XHT/XHN Pair**: 0xAF89BE1221c65c1984446eca4027Ac42d0650474
+- **NOR/XHN Pair**: 0xAF89BE1221c65c1984446eca4027Ac42d0650474
 - **Router**: 0x25918D0630bC8a6683d9882a1e2e01B8d0eC45dd
 
 **Look For:**
@@ -350,7 +350,7 @@ See you at $1M market cap! 🚀
 
 ### **Network Details:**
 ```
-Network: Xaheen Chain (BSC Fork)
+Network: Nor Chain (BSC Fork)
 Chain ID: 65001
 RPC URL: http://localhost:8545
 Block Time: 3 seconds
@@ -361,18 +361,18 @@ Consensus: Parlia PoSA
 1. Open MetaMask
 2. Networks → Add Network
 3. Enter:
-   - Network Name: Xaheen Chain
+   - Network Name: Nor Chain
    - RPC URL: http://localhost:8545
    - Chain ID: 65001
-   - Currency Symbol: XHT
+   - Currency Symbol: NOR
    - Block Explorer: (Coming Soon)
 
 ### **How to Trade:**
-1. Add Xaheen Chain to MetaMask (above)
-2. Get XHT (native token)
+1. Add Nor Chain to MetaMask (above)
+2. Get NOR (native token)
 3. Go to DEX interface
 4. Connect wallet
-5. Swap XHT for XHN!
+5. Swap NOR for XHN!
 
 ### **Smart Contract Interactions:**
 
@@ -380,19 +380,19 @@ Consensus: Parlia PoSA
 ```javascript
 // Using ethers.js
 const router = await ethers.getContractAt(
-  "XaheenDEXRouter",
+  "NorDEXRouter",
   "0x25918D0630bC8a6683d9882a1e2e01B8d0eC45dd"
 );
 
-const path = [WXHT_ADDRESS, XHN_ADDRESS];
+const path = [WNOR_ADDRESS, XHN_ADDRESS];
 const deadline = Math.floor(Date.now() / 1000) + 60 * 20;
 
-await router.swapExactXHTForTokens(
+await router.swapExactNORForTokens(
   0, // min amount out (set proper slippage!)
   path,
   YOUR_ADDRESS,
   deadline,
-  { value: ethers.parseEther("1") } // 1 XHT
+  { value: ethers.parseEther("1") } // 1 NOR
 );
 ```
 
@@ -445,8 +445,8 @@ await xhn.stake(
 
 ### **Contract Source:**
 - XHN Token: `contracts/tokens/XHN.sol`
-- DEX Router: `contracts/dex/XaheenDEXRouter.sol`
-- DEX Pair: `contracts/dex/XaheenDEXPair.sol`
+- DEX Router: `contracts/dex/NorDEXRouter.sol`
+- DEX Pair: `contracts/dex/NorDEXPair.sol`
 
 ---
 

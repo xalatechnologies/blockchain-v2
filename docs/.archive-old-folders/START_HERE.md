@@ -1,4 +1,4 @@
-# 🎯 START HERE - Xaheen Chain Public Launch
+# 🎯 START HERE - Nor Chain Public Launch
 
 **Last Updated**: October 30, 2025 | **Status**: READY TO DEPLOY
 
@@ -73,7 +73,7 @@
 **What**: Competitive strategy against BNB Smart Chain
 **Contains**:
 - Head-to-head comparison
-- Why developers should choose Xaheen
+- Why developers should choose Nor
 - Growth strategy (5 phases)
 - Economic advantages
 - Marketing positioning
@@ -221,7 +221,7 @@ Total time: ~90 minutes
 
 ## 🏆 WHY XAHEEN CHAIN BEATS BNB
 
-| Feature | Xaheen | BNB |
+| Feature | Nor | BNB |
 |---------|--------|-----|
 | **TX Fees** | $0.000001 | $0.50 |
 | **Finality** | Instant | 6 seconds |
@@ -335,7 +335,7 @@ Missing: Just server IP + domain (the final 5%)
 
 ## 🎯 THE BOTTOM LINE
 
-**Xaheen Chain is ready to launch.**
+**Nor Chain is ready to launch.**
 
 **For just $490/year, you get:**
 - A blockchain competing with BNB Smart Chain
@@ -368,4 +368,4 @@ Missing: Just server IP + domain (the final 5%)
 
 ---
 
-**Xaheen Chain - Where Intelligence Meets Blockchain** 🧠⚡
+**Nor Chain - Where Intelligence Meets Blockchain** 🧠⚡

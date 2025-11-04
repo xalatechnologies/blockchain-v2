@@ -5,8 +5,8 @@ import fs from "fs";
 dotenvConfig();
 
 async function main() {
-  console.log("💰 Noor Chain DEX - Complete $800K Liquidity Deployment\n");
-  console.log("=" .repeat(70));
+  console.log("💰 Nor Chain DEX - Complete $800K Liquidity Deployment\n");
+  console.log("=".repeat(70));
 
   const [deployer] = await ethers.getSigners();
   console.log("📋 Deployer:", deployer.address);
@@ -14,7 +14,9 @@ async function main() {
   console.log("💰 Balance:", ethers.formatEther(balance), "NOR\n");
 
   // Load deployment info
-  const deployment = JSON.parse(fs.readFileSync("./deployments/dex-infrastructure.json", "utf8"));
+  const deployment = JSON.parse(
+    fs.readFileSync("./deployments/dex-infrastructure.json", "utf8")
+  );
   const {
     NOR_TOKEN,
     WNOR,
@@ -23,7 +25,7 @@ async function main() {
     WETH,
     DIRHAMAT,
     NOORSWAP_FACTORY,
-    NOORSWAP_ROUTER
+    NOORSWAP_ROUTER,
   } = deployment.contracts;
 
   console.log("📋 Contract Addresses:");
@@ -43,12 +45,15 @@ async function main() {
   const wbnb = await ethers.getContractAt("WBNBToken", WBNB);
   const weth = await ethers.getContractAt("WETHToken", WETH);
   const dirhamat = await ethers.getContractAt("Dirhamat", DIRHAMAT);
-  const factory = await ethers.getContractAt("NoorSwapFactory", NOORSWAP_FACTORY);
-  const router = await ethers.getContractAt("NoorSwapRouter", NOORSWAP_ROUTER);
+  const factory = await ethers.getContractAt(
+    "NorSwapFactory",
+    NOORSWAP_FACTORY
+  );
+  const router = await ethers.getContractAt("NorSwapRouter", NOORSWAP_ROUTER);
 
-  console.log("=" .repeat(70));
+  console.log("=".repeat(70));
   console.log("💰 LIQUIDITY ALLOCATION PLAN - $800,000 TOTAL");
-  console.log("=" .repeat(70));
+  console.log("=".repeat(70));
   console.log("1. NOR/WUSDT:      $250,000 (31.25%) - 1 NOR = $0.01");
   console.log("2. NOR/WBNB:       $200,000 (25.00%) - Bridge asset priority");
   console.log("3. NOR/WETH:       $150,000 (18.75%) - Bridge asset priority");
@@ -107,13 +112,15 @@ async function main() {
   console.log("  ✅ Liquidity added successfully");
 
   // Verify reserves
-  const pair1 = await ethers.getContractAt("INoorSwapPair", pair1Address);
+  const pair1 = await ethers.getContractAt("INorSwapPair", pair1Address);
   const reserves1 = await pair1.getReserves();
   const token0 = await pair1.token0();
   const [reserve0, reserve1] = reserves1;
 
-  const norReserve1 = token0.toLowerCase() === WNOR.toLowerCase() ? reserve0 : reserve1;
-  const usdtReserve1 = token0.toLowerCase() === WNOR.toLowerCase() ? reserve1 : reserve0;
+  const norReserve1 =
+    token0.toLowerCase() === WNOR.toLowerCase() ? reserve0 : reserve1;
+  const usdtReserve1 =
+    token0.toLowerCase() === WNOR.toLowerCase() ? reserve1 : reserve0;
 
   console.log("\n  📊 Verified Reserves:");
   console.log(`    WNOR:  ${ethers.formatUnits(norReserve1, 18)}`);
@@ -131,7 +138,7 @@ async function main() {
     reserve1: usdtReserve1.toString(),
     liquidity: "$250,000",
     targetPrice: "$0.01",
-    actualPrice: `$${price1.toFixed(6)}`
+    actualPrice: `$${price1.toFixed(6)}`,
   });
 
   // ============================================================
@@ -183,13 +190,15 @@ async function main() {
   console.log("  ✅ Liquidity added successfully");
 
   // Verify reserves
-  const pair2 = await ethers.getContractAt("INoorSwapPair", pair2Address);
+  const pair2 = await ethers.getContractAt("INorSwapPair", pair2Address);
   const reserves2 = await pair2.getReserves();
   const token0_p2 = await pair2.token0();
   const [reserve0_p2, reserve1_p2] = reserves2;
 
-  const norReserve2 = token0_p2.toLowerCase() === WNOR.toLowerCase() ? reserve0_p2 : reserve1_p2;
-  const bnbReserve2 = token0_p2.toLowerCase() === WNOR.toLowerCase() ? reserve1_p2 : reserve0_p2;
+  const norReserve2 =
+    token0_p2.toLowerCase() === WNOR.toLowerCase() ? reserve0_p2 : reserve1_p2;
+  const bnbReserve2 =
+    token0_p2.toLowerCase() === WNOR.toLowerCase() ? reserve1_p2 : reserve0_p2;
 
   console.log("\n  📊 Verified Reserves:");
   console.log(`    WNOR: ${ethers.formatUnits(norReserve2, 18)}`);
@@ -207,7 +216,7 @@ async function main() {
     reserve1: bnbReserve2.toString(),
     liquidity: "$200,000",
     targetPrice: "0.0000333 BNB",
-    actualPrice: `${price2.toFixed(9)} BNB`
+    actualPrice: `${price2.toFixed(9)} BNB`,
   });
 
   // ============================================================
@@ -259,13 +268,15 @@ async function main() {
   console.log("  ✅ Liquidity added successfully");
 
   // Verify reserves
-  const pair3 = await ethers.getContractAt("INoorSwapPair", pair3Address);
+  const pair3 = await ethers.getContractAt("INorSwapPair", pair3Address);
   const reserves3 = await pair3.getReserves();
   const token0_p3 = await pair3.token0();
   const [reserve0_p3, reserve1_p3] = reserves3;
 
-  const norReserve3 = token0_p3.toLowerCase() === WNOR.toLowerCase() ? reserve0_p3 : reserve1_p3;
-  const ethReserve3 = token0_p3.toLowerCase() === WNOR.toLowerCase() ? reserve1_p3 : reserve0_p3;
+  const norReserve3 =
+    token0_p3.toLowerCase() === WNOR.toLowerCase() ? reserve0_p3 : reserve1_p3;
+  const ethReserve3 =
+    token0_p3.toLowerCase() === WNOR.toLowerCase() ? reserve1_p3 : reserve0_p3;
 
   console.log("\n  📊 Verified Reserves:");
   console.log(`    WNOR: ${ethers.formatUnits(norReserve3, 18)}`);
@@ -283,7 +294,7 @@ async function main() {
     reserve1: ethReserve3.toString(),
     liquidity: "$150,000",
     targetPrice: "0.00000627 ETH",
-    actualPrice: `${price3.toFixed(11)} ETH`
+    actualPrice: `${price3.toFixed(11)} ETH`,
   });
 
   // ============================================================
@@ -335,13 +346,15 @@ async function main() {
   console.log("  ✅ Liquidity added successfully");
 
   // Verify reserves
-  const pair4 = await ethers.getContractAt("INoorSwapPair", pair4Address);
+  const pair4 = await ethers.getContractAt("INorSwapPair", pair4Address);
   const reserves4 = await pair4.getReserves();
   const token0_p4 = await pair4.token0();
   const [reserve0_p4, reserve1_p4] = reserves4;
 
-  const norReserve4 = token0_p4.toLowerCase() === WNOR.toLowerCase() ? reserve0_p4 : reserve1_p4;
-  const dirhamatReserve4 = token0_p4.toLowerCase() === WNOR.toLowerCase() ? reserve1_p4 : reserve0_p4;
+  const norReserve4 =
+    token0_p4.toLowerCase() === WNOR.toLowerCase() ? reserve0_p4 : reserve1_p4;
+  const dirhamatReserve4 =
+    token0_p4.toLowerCase() === WNOR.toLowerCase() ? reserve1_p4 : reserve0_p4;
 
   console.log("\n  📊 Verified Reserves:");
   console.log(`    WNOR:     ${ethers.formatUnits(norReserve4, 18)}`);
@@ -359,7 +372,7 @@ async function main() {
     reserve1: dirhamatReserve4.toString(),
     liquidity: "$150,000",
     targetPrice: "27 NOR",
-    actualPrice: `${price4.toFixed(2)} NOR`
+    actualPrice: `${price4.toFixed(2)} NOR`,
   });
 
   // ============================================================
@@ -405,13 +418,19 @@ async function main() {
   console.log("  ✅ Liquidity added successfully");
 
   // Verify reserves
-  const pair5 = await ethers.getContractAt("INoorSwapPair", pair5Address);
+  const pair5 = await ethers.getContractAt("INorSwapPair", pair5Address);
   const reserves5 = await pair5.getReserves();
   const token0_p5 = await pair5.token0();
   const [reserve0_p5, reserve1_p5] = reserves5;
 
-  const dirhamatReserve5 = token0_p5.toLowerCase() === DIRHAMAT.toLowerCase() ? reserve0_p5 : reserve1_p5;
-  const usdtReserve5 = token0_p5.toLowerCase() === DIRHAMAT.toLowerCase() ? reserve1_p5 : reserve0_p5;
+  const dirhamatReserve5 =
+    token0_p5.toLowerCase() === DIRHAMAT.toLowerCase()
+      ? reserve0_p5
+      : reserve1_p5;
+  const usdtReserve5 =
+    token0_p5.toLowerCase() === DIRHAMAT.toLowerCase()
+      ? reserve1_p5
+      : reserve0_p5;
 
   console.log("\n  📊 Verified Reserves:");
   console.log(`    DIRHAMAT: ${ethers.formatEther(dirhamatReserve5)}`);
@@ -429,7 +448,7 @@ async function main() {
     reserve1: usdtReserve5.toString(),
     liquidity: "$50,000",
     targetPrice: "$0.27",
-    actualPrice: `$${price5.toFixed(4)}`
+    actualPrice: `$${price5.toFixed(4)}`,
   });
 
   // ============================================================
@@ -456,7 +475,7 @@ async function main() {
     chainId: "65001",
     deployer: deployer.address,
     totalLiquidity: "$800,000",
-    pairs: pairs
+    pairs: pairs,
   };
 
   fs.writeFileSync(
@@ -464,13 +483,17 @@ async function main() {
     JSON.stringify(liquidityDeployment, null, 2)
   );
 
-  console.log("💾 Deployment data saved to: deployments/liquidity-deployment.json");
+  console.log(
+    "💾 Deployment data saved to: deployments/liquidity-deployment.json"
+  );
 
   console.log("\n" + "=".repeat(70));
   console.log("🎉 NOOR CHAIN DEX NOW LIVE WITH $800K LIQUIDITY!");
   console.log("=".repeat(70));
   console.log("\n🚀 Next Step: Lock LP tokens for 12 months");
-  console.log("   Run: npx hardhat run scripts/lock-all-lp-tokens.js --network btcbr\n");
+  console.log(
+    "   Run: npx hardhat run scripts/lock-all-lp-tokens.js --network btcbr\n"
+  );
 
   return liquidityDeployment;
 }

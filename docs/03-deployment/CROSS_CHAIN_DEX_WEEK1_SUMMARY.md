@@ -7,20 +7,20 @@
 
 ## What We Built
 
-### 🏛️ Hub Contracts (Xaheen Chain)
+### 🏛️ Hub Contracts (Nor Chain)
 
 #### 1. **PriceAuthority.sol** - TWAP Oracle ✅
 **Location:** `contracts/crosschain/PriceAuthority.sol`
 
 **Functionality:**
-- Reads 30-minute TWAP from Xaheen DEX
+- Reads 30-minute TWAP from Nor DEX
 - Applies 0.25% policy spread for revenue
 - Signs quotes with authorized key
 - Publishes every 30 seconds
 - Quote freshness: 60 seconds max
 
 **Why It Matters:**
-This makes Xaheen the **single source of truth** for XHT price across all chains. BSC, Polygon, and Ethereum spokes all follow Xaheen's price.
+This makes Nor the **single source of truth** for NOR price across all chains. BSC, Polygon, and Ethereum spokes all follow Nor's price.
 
 ---
 
@@ -36,7 +36,7 @@ This makes Xaheen the **single source of truth** for XHT price across all chains
 - Tracks all cross-chain revenue
 
 **Why It Matters:**
-You maintain **complete control** over XHT supply across all chains. No spoke can mint/burn without hub authorization.
+You maintain **complete control** over NOR supply across all chains. No spoke can mint/burn without hub authorization.
 
 ---
 
@@ -51,14 +51,14 @@ You maintain **complete control** over XHT supply across all chains. No spoke ca
 - Circuit breaker (auto-pause on price deviation >3%)
 
 **Why It Matters:**
-Every trade on BSC/Polygon/ETH settles through Xaheen, maintaining **complete audit trail** and **price integrity**.
+Every trade on BSC/Polygon/ETH settles through Nor, maintaining **complete audit trail** and **price integrity**.
 
 ---
 
 ### 🌐 Spoke Contracts (BSC, Polygon, Ethereum)
 
-#### 4. **XaheenRouter.sol** - Dual-Mode Router ✅
-**Location:** `contracts/crosschain/spokes/XaheenRouter.sol`
+#### 4. **NorRouter.sol** - Dual-Mode Router ✅
+**Location:** `contracts/crosschain/spokes/NorRouter.sol`
 
 **Innovation: Dual-Mode Routing**
 - **Mode 1:** Route through public LP (PancakeSwap, QuickSwap, Uniswap) if available
@@ -70,10 +70,10 @@ Users get **instant fills** even if public LPs don't exist yet. You control liqu
 **Example:**
 ```solidity
 // BSC has $10K public LP on PancakeSwap
-buyXHT() → Routes through PancakeSwap → User sees XHT on DEX charts ✅
+buyNOR() → Routes through PancakeSwap → User sees NOR on DEX charts ✅
 
 // Ethereum has no public LP yet
-buyXHT() → Fills from $5K hot inventory → User still gets instant fill ✅
+buyNOR() → Fills from $5K hot inventory → User still gets instant fill ✅
 ```
 
 ---
@@ -87,7 +87,7 @@ buyXHT() → Fills from $5K hot inventory → User still gets instant fill ✅
 - Forwards receipts to SettlementHub
 
 **Why It Matters:**
-Simple, gas-efficient event logging enables **real-time settlement** on Xaheen hub.
+Simple, gas-efficient event logging enables **real-time settlement** on Nor hub.
 
 ---
 
@@ -115,7 +115,7 @@ npx hardhat run scripts/deploy-crosschain-hub.js --network btcbr
 **What It Does:**
 1. Detects chain (BSC/Polygon/Ethereum)
 2. Uses correct DEX router (PancakeSwap/QuickSwap/Uniswap)
-3. Deploys XaheenRouter and SettlementInbox
+3. Deploys NorRouter and SettlementInbox
 4. Configures payment tokens (USDT, USDC, BUSD)
 5. Outputs all contract addresses
 
@@ -140,7 +140,7 @@ npx hardhat run scripts/deploy-crosschain-spoke.js --network mainnet
 
 **Contents:**
 - Hub-and-Spoke architecture diagram
-- Capital allocation strategy ($760K Xaheen, $40K spokes)
+- Capital allocation strategy ($760K Nor, $40K spokes)
 - Security architecture (6 layers)
 - Arbitrage bot logic
 - User experience flows
@@ -160,7 +160,7 @@ npx hardhat run scripts/deploy-crosschain-spoke.js --network mainnet
 | PriceAuthority.sol | ✅ Complete | 220 | Pending |
 | SupplyController.sol | ✅ Complete | 320 | Pending |
 | SettlementHub.sol | ✅ Complete | 350 | Pending |
-| XaheenRouter.sol | ✅ Complete | 400 | Pending |
+| NorRouter.sol | ✅ Complete | 400 | Pending |
 | SettlementInbox.sol | ✅ Complete | 120 | Pending |
 | **Total** | **✅ 5/5** | **1,410** | **Week 2** |
 
@@ -168,7 +168,7 @@ npx hardhat run scripts/deploy-crosschain-spoke.js --network mainnet
 
 | Script | Status | Supported Networks |
 |--------|--------|--------------------|
-| deploy-crosschain-hub.js | ✅ Complete | Xaheen Chain |
+| deploy-crosschain-hub.js | ✅ Complete | Nor Chain |
 | deploy-crosschain-spoke.js | ✅ Complete | BSC, Polygon, Ethereum |
 
 ### ✅ Comprehensive Documentation
@@ -185,7 +185,7 @@ npx hardhat run scripts/deploy-crosschain-spoke.js --network mainnet
 ### The Hub-and-Spoke Model
 
 ```
-Xaheen Chain = Federal Reserve (sets policy)
+Nor Chain = Federal Reserve (sets policy)
            ↓
 BSC/Polygon/ETH = Regional Banks (execute trades)
            ↓
@@ -200,7 +200,7 @@ Users = Citizens (trade freely, see one price)
 - ✅ Multi-sig treasury (3-of-5)
 
 **User Experience:**
-- ✅ XHT appears on MetaMask like any other token
+- ✅ NOR appears on MetaMask like any other token
 - ✅ Trade on PancakeSwap, QuickSwap, Uniswap
 - ✅ One unified price across all chains
 - ✅ Instant fills (no cross-chain wait times)
@@ -211,12 +211,12 @@ Users = Citizens (trade freely, see one price)
 
 ### Total: $800,000
 
-**Xaheen Hub: $760,000 (95%)**
+**Nor Hub: $760,000 (95%)**
 ```
-├─ XHT/USDT LP: $600,000
+├─ NOR/USDT LP: $600,000
 │  └─> Deep liquidity, strong price discovery
 │
-├─ XHT/BNB LP: $100,000
+├─ NOR/BNB LP: $100,000
 │  └─> Additional trading pairs
 │
 └─ Treasury Reserve: $60,000
@@ -225,7 +225,7 @@ Users = Citizens (trade freely, see one price)
 
 **BSC Spoke: $20,000 (2.5%)**
 ```
-├─ XHT/BUSD Public LP: $10,000 (optional)
+├─ NOR/BUSD Public LP: $10,000 (optional)
 │  └─> Visibility on PancakeSwap charts
 │
 └─ Hot Inventory: $10,000
@@ -234,7 +234,7 @@ Users = Citizens (trade freely, see one price)
 
 **Polygon Spoke: $15,000 (1.875%)**
 ```
-├─ XHT/USDC Public LP: $7,500 (optional)
+├─ NOR/USDC Public LP: $7,500 (optional)
 │  └─> Visibility on QuickSwap charts
 │
 └─ Hot Inventory: $7,500
@@ -254,7 +254,7 @@ Users = Citizens (trade freely, see one price)
 **Solution:** 95% on hub → Strong price discovery + Only 5% on spokes → Just enough for visibility
 
 **Result:**
-- Deep liquidity on Xaheen ($600K XHT/USDT)
+- Deep liquidity on Nor ($600K NOR/USDT)
 - Small showcase LPs on BSC/Polygon ($10K, $7.5K)
 - Arbitrage bot maintains ±0.5% price tolerance
 - **Best of both worlds: Control + Visibility**
@@ -325,7 +325,7 @@ ROI Timeline:    1.5-2 months
 ```
 
 **Additional Revenue Streams:**
-- LP fees (0.3% on Xaheen DEX)
+- LP fees (0.3% on Nor DEX)
 - Arbitrage bot profits (self-funding)
 - Future: Lending, staking, derivatives
 
@@ -352,7 +352,7 @@ ROI Timeline:    1.5-2 months
 
 ### Testnet First (Recommended)
 
-**1. Deploy Hub (BSC Testnet as mock Xaheen):**
+**1. Deploy Hub (BSC Testnet as mock Nor):**
 ```bash
 npx hardhat run scripts/deploy-crosschain-hub.js --network bscTestnet
 ```
@@ -366,7 +366,7 @@ npx hardhat run scripts/deploy-crosschain-spoke.js --network polygonMumbai
 **3. Test Trades:**
 ```bash
 # Get testnet tokens from faucets
-# Test buyXHT() and sellXHT()
+# Test buyNOR() and sellNOR()
 # Verify settlement on hub
 ```
 
@@ -379,7 +379,7 @@ npx hardhat run scripts/deploy-crosschain-spoke.js --network polygonMumbai
 ### Mainnet When Ready
 
 **Prerequisites:**
-- ✅ All hub contracts deployed on Xaheen
+- ✅ All hub contracts deployed on Nor
 - ✅ All spoke contracts deployed on BSC/Polygon/ETH
 - ✅ Multi-sig treasury setup (3-of-5 Gnosis Safe)
 - ✅ Relayer service running
@@ -398,7 +398,7 @@ contracts/crosschain/
 ├── SupplyController.sol        (320 lines)
 ├── SettlementHub.sol           (350 lines)
 └── spokes/
-    ├── XaheenRouter.sol        (400 lines)
+    ├── NorRouter.sol        (400 lines)
     └── SettlementInbox.sol     (120 lines)
 ```
 
@@ -427,13 +427,13 @@ CROSS_CHAIN_DEX_WEEK1_SUMMARY.md     (This file)
 A: After testnet validation (1 week) + security audit (2-3 weeks) = 3-4 weeks minimum
 
 **Q: Do we need all $800K upfront?**
-A: No. Start with $40K for spokes, add more to Xaheen hub as volume grows
+A: No. Start with $40K for spokes, add more to Nor hub as volume grows
 
 **Q: What if BSC price deviates?**
 A: Arbitrage bot executes within 30 seconds, brings price back to ±0.5%
 
 **Q: Can users see this is cross-chain?**
-A: No. They see "XHT" on MetaMask and trade like any other token. Cross-chain mechanics are hidden.
+A: No. They see "NOR" on MetaMask and trade like any other token. Cross-chain mechanics are hidden.
 
 **Q: Do we need LPs on all spokes?**
 A: No. Hot inventory works fine. LPs are optional for marketing visibility.

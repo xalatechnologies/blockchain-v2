@@ -23,10 +23,10 @@ ROUTER = "0x51321281AB0644aed5555b3A306C7AbfFf13c4C2"
 LIQUIDITY_LOCK = "0x704cf9Fd1977365426Bd15A1aD348B17B401877B"
 
 # Load ABIs
-with open('.build/artifacts/contracts/dex/NoorSwapFactory.sol/NoorSwapFactory.json') as f:
+with open('.build/artifacts/contracts/dex/NorSwapFactory.sol/NorSwapFactory.json') as f:
     factory_abi = json.load(f)['abi']
 
-with open('.build/artifacts/contracts/dex/NoorSwapRouter.sol/NoorSwapRouter.json') as f:
+with open('.build/artifacts/contracts/dex/NorSwapRouter.sol/NorSwapRouter.json') as f:
     router_abi = json.load(f)['abi']
 
 with open('.build/artifacts/@openzeppelin/contracts/token/ERC20/ERC20.sol/ERC20.json') as f:
@@ -271,7 +271,7 @@ print("=" * 80)
 deployment_data = {
     'timestamp': datetime.utcnow().isoformat() + 'Z',
     'chainId': 65001,
-    'network': 'Noor Chain',
+    'network': 'Nor Chain',
     'deployer': account.address,
     'liquidity_lock_contract': LIQUIDITY_LOCK,
     'total_pairs': len(all_pairs),
@@ -293,7 +293,7 @@ for i, pair_config in enumerate(all_pairs):
         'unlock_date': lock_info['unlock_date']
     })
 
-with open('deployments/noor-all-liquidity-locked.json', 'w') as f:
+with open('deployments/nor-all-liquidity-locked.json', 'w') as f:
     json.dump(deployment_data, f, indent=2)
 
 print("\nAll Pairs with Locked Liquidity:")
@@ -305,7 +305,7 @@ print(f"\n✓ Total Pairs: {len(all_pairs)}")
 print(f"✓ Total Liquidity: ${len(all_pairs) * 10000:,}")
 print(f"✓ Lock Duration: 36 months")
 print(f"✓ Unlock Date: {locked_positions[0]['unlock_date']}")
-print(f"\n✓ Deployment data saved to deployments/noor-all-liquidity-locked.json")
+print(f"\n✓ Deployment data saved to deployments/nor-all-liquidity-locked.json")
 
 print("\n" + "=" * 80)
 print("All liquidity added and locked successfully!")

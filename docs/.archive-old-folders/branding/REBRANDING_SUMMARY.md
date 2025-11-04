@@ -1,14 +1,14 @@
-# Xaheen Chain Complete Rebranding Summary
+# Nor Chain Complete Rebranding Summary
 
 ## 🎯 Overview
 
-This document summarizes all rebranding changes made to transform the "BitcoinBR network" into **Xaheen Chain** - an intelligent, enterprise-grade blockchain network.
+This document summarizes all rebranding changes made to transform the "BitcoinBR network" into **Nor Chain** - an intelligent, enterprise-grade blockchain network.
 
 ---
 
-## ✨ What is Xaheen?
+## ✨ What is Nor?
 
-**Xaheen** (ذهين) is an Arabic word meaning:
+**Nor** (ذهين) is an Arabic word meaning:
 - **Smart**
 - **Genius**
 - **Undoubtedly Intelligent**
@@ -23,12 +23,12 @@ This perfectly embodies the vision of an intelligent blockchain network with cut
 
 | Aspect | Old Value | New Value |
 |--------|-----------|-----------|
-| **Network Name** | BitcoinBR network / BTCBR Private Chain | **Xaheen Chain** |
+| **Network Name** | BitcoinBR network / BTCBR Private Chain | **Nor Chain** |
 | **Domain** | bitcoinbr.tech | **xaheen.org** |
 | **Chain ID** | 885824 | **65001** ⚠️ Breaking Change |
 | **Network ID** | 885824 | **65001** ⚠️ Breaking Change |
-| **Native Token** | BNB | **XHT (Xaheen Token)** |
-| **Token Symbol** | BNB | **XHT** |
+| **Native Token** | BNB | **NOR (Nor Token)** |
+| **Token Symbol** | BNB | **NOR** |
 
 ### 2. RPC Endpoints
 
@@ -60,19 +60,19 @@ This perfectly embodies the vision of an intelligent blockchain network with cut
 ### Core Configuration Files
 
 1. **CLAUDE.md**
-   - Updated all network references to Xaheen Chain
+   - Updated all network references to Nor Chain
    - Changed chain ID from 885824 to 65001
-   - Added XHT as native token
+   - Added NOR as native token
    - Updated RPC endpoints
 
 2. **README.md**
-   - New project header: "Blockchain V2 - Xaheen Chain"
-   - Added "About Xaheen Chain" section with features
+   - New project header: "Blockchain V2 - Nor Chain"
+   - Added "About Nor Chain" section with features
    - Updated chain ID to 65001
-   - Added XHT token information
+   - Added NOR token information
 
 3. **.env**
-   - Added `CHAIN_NAME=Xaheen Chain`
+   - Added `CHAIN_NAME=Nor Chain`
    - Added `CHAIN_DOMAIN=xaheen.org`
    - Changed `CHAIN_ID=65001`
    - Changed `NETWORK_ID=65001`
@@ -80,7 +80,7 @@ This perfectly embodies the vision of an intelligent blockchain network with cut
    - Kept legacy RPC as fallback comment
 
 4. **hardhat.config.js**
-   - Updated network comments: "Xaheen Chain (formerly BTCBR Private Chain)"
+   - Updated network comments: "Nor Chain (formerly BTCBR Private Chain)"
    - Changed chainId from 885824 to 65001 for both networks
    - Updated default RPC URL to https://rpc.xaheen.org
 
@@ -108,9 +108,9 @@ This perfectly embodies the vision of an intelligent blockchain network with cut
    - Logo design concepts
    - Color palette (Intelligence Blue, Innovation Cyan, Wisdom Purple)
    - Typography specifications
-   - XHT token branding
+   - NOR token branding
    - Website and social media guidelines
-   - MetaMask configuration with XHT
+   - MetaMask configuration with NOR
 
 ---
 
@@ -138,10 +138,10 @@ Silver Mist:          #E2E8F0 (Light)
 - Body: Inter / IBM Plex Sans (Professional, readable)
 - Code: JetBrains Mono / Fira Code (Monospace)
 
-### XHT Token Identity
+### NOR Token Identity
 
-**Name**: Xaheen Token
-**Symbol**: XHT
+**Name**: Nor Token
+**Symbol**: NOR
 **Type**: Native gas token
 **Decimals**: 18
 **Use Cases**:
@@ -179,7 +179,7 @@ Silver Mist:          #E2E8F0 (Light)
 
 **Why Changed?**
 - 65001 is cleaner and more memorable
-- Better brand alignment with Xaheen Chain
+- Better brand alignment with Nor Chain
 - Professional chain ID for enterprise positioning
 
 ---
@@ -203,10 +203,10 @@ See detailed guide in: **CHAIN_ID_MIGRATION.md**
 
 **MetaMask Configuration**:
 ```
-Network Name: Xaheen Chain
+Network Name: Nor Chain
 RPC URL: https://rpc.xaheen.org
 Chain ID: 65001
-Currency Symbol: XHT
+Currency Symbol: NOR
 Block Explorer: https://explorer.xaheen.org
 ```
 
@@ -216,11 +216,11 @@ ethereum.request({
   method: 'wallet_addEthereumChain',
   params: [{
     chainId: '0xFDE9',
-    chainName: 'Xaheen Chain',
+    chainName: 'Nor Chain',
     rpcUrls: ['https://rpc.xaheen.org'],
     nativeCurrency: {
-      name: 'Xaheen Token',
-      symbol: 'XHT',
+      name: 'Nor Token',
+      symbol: 'NOR',
       decimals: 18
     },
     blockExplorerUrls: ['https://explorer.xaheen.org']
@@ -233,7 +233,7 @@ ethereum.request({
 1. Update Hardhat/Truffle configs with new chain ID
 2. Update RPC endpoints to xaheen.org
 3. Redeploy contracts if needed
-4. Update frontend to show XHT instead of BNB
+4. Update frontend to show NOR instead of BNB
 5. Test thoroughly on new chain before production
 
 ---
@@ -280,7 +280,7 @@ CNAME bridge         -> [Bridge Interface]
 
 ### Elevator Pitch
 
-"Xaheen Chain is an intelligent, high-performance blockchain network built on proven BSC technology. With 3-second block finality, multi-validator security, and 22+ innovative bridge implementations, Xaheen delivers enterprise-grade reliability with developer-friendly EVM compatibility. Powered by XHT, our native token, Xaheen Chain is designed for the next generation of decentralized applications."
+"Nor Chain is an intelligent, high-performance blockchain network built on proven BSC technology. With 3-second block finality, multi-validator security, and 22+ innovative bridge implementations, Nor delivers enterprise-grade reliability with developer-friendly EVM compatibility. Powered by NOR, our native token, Nor Chain is designed for the next generation of decentralized applications."
 
 ### Key Features
 
@@ -289,7 +289,7 @@ CNAME bridge         -> [Bridge Interface]
 🔗 **22+ Bridge Types** - From production to experimental implementations
 💎 **Enterprise Security** - Multi-validator Parlia consensus
 🚀 **EVM Compatible** - Easy migration for Ethereum developers
-💰 **Low Gas Fees** - Powered by XHT native token
+💰 **Low Gas Fees** - Powered by NOR native token
 
 ---
 
@@ -335,9 +335,9 @@ CNAME bridge         -> [Bridge Interface]
 ## ✅ Verification Checklist
 
 ### Configuration Files
-- [x] CLAUDE.md updated with Xaheen Chain and chain ID 65001
+- [x] CLAUDE.md updated with Nor Chain and chain ID 65001
 - [x] README.md updated with new branding
-- [x] .env updated with CHAIN_ID=65001 and XHT references
+- [x] .env updated with CHAIN_ID=65001 and NOR references
 - [x] hardhat.config.js updated with chainId: 65001
 - [x] XAHEEN_REBRANDING.md created
 - [x] CHAIN_ID_MIGRATION.md created
@@ -367,7 +367,7 @@ CNAME bridge         -> [Bridge Interface]
 
 ### Branding (To Do)
 - [ ] Logo designed (hexagon with neural network)
-- [ ] XHT token logo designed
+- [ ] NOR token logo designed
 - [ ] Brand assets repository created
 - [ ] Website design completed
 - [ ] Social media graphics
@@ -395,20 +395,20 @@ CNAME bridge         -> [Bridge Interface]
 
 ## 💡 Key Takeaways
 
-1. **Xaheen = Intelligence**: The brand embodies smart, innovative blockchain design
+1. **Nor = Intelligence**: The brand embodies smart, innovative blockchain design
 2. **Chain ID 65001**: Clean, memorable, professional identity
-3. **XHT Token**: Native gas token for the Xaheen ecosystem
+3. **NOR Token**: Native gas token for the Nor ecosystem
 4. **Breaking Change**: Requires complete reinitialization but worth it for brand clarity
 5. **Comprehensive Guides**: All migration steps documented
 6. **Professional Brand**: Enterprise-ready visual identity and messaging
 
 ---
 
-## 🎉 Welcome to Xaheen Chain!
+## 🎉 Welcome to Nor Chain!
 
 **Where Intelligence Meets Blockchain** 🧠⚡
 
-The transformation from BitcoinBR network to Xaheen Chain represents a bold step forward in creating a professional, intelligent blockchain platform. With chain ID 65001, XHT native token, and comprehensive brand identity, Xaheen Chain is positioned to become a leading private blockchain network.
+The transformation from BitcoinBR network to Nor Chain represents a bold step forward in creating a professional, intelligent blockchain platform. With chain ID 65001, NOR native token, and comprehensive brand identity, Nor Chain is positioned to become a leading private blockchain network.
 
 ---
 

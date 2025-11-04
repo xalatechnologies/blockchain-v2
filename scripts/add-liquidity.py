@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Add liquidity to BTCBR/WNOR pair on Noor Chain DEX
+Add liquidity to BTCBR/WNOR pair on Nor Chain DEX
 """
 
 from web3 import Web3
@@ -12,12 +12,12 @@ RPC_URL = "http://3.91.50.187:8545"
 PRIVATE_KEY = "0x681fda6ad9585ce9c27688eb60087ddaf4a90ca75f8f77b0f039bd5692ed2bd4"
 
 # Load deployment info
-with open('deployments/noor-dex-deployment.json') as f:
+with open('deployments/nor-dex-deployment.json') as f:
     deployment = json.load(f)
 
 BTCBR_ADDRESS = deployment['contracts']['BTCBR']
 WNOR_ADDRESS = deployment['contracts']['WNOR']
-ROUTER_ADDRESS = deployment['contracts']['NoorSwapRouter']
+ROUTER_ADDRESS = deployment['contracts']['NorSwapRouter']
 PAIR_ADDRESS = deployment['pairs'][0]['address']
 
 # Liquidity amounts

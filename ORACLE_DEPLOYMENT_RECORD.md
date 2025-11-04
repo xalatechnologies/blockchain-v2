@@ -1,7 +1,7 @@
-# Noor Chain Oracle Network - Mainnet Deployment Record
+# Nor Chain Oracle Network - Mainnet Deployment Record
 
 **Deployment Date:** November 2, 2025
-**Network:** Noor Chain Mainnet
+**Network:** Nor Chain Mainnet
 **Chain ID:** 65001
 **Deployer:** 0xdD779a290C937144F80Eb75b75d814c834536B1b
 
@@ -13,12 +13,12 @@
 
 | Price Feed | Contract Address | Block Explorer |
 |------------|------------------|----------------|
-| **GOLD/USD** | `0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651` | [View on Explorer](https://explorer.noorchain.org/address/0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651) |
-| **AED/USD** | `0x502ec2Ce7cd266Eff9e147d66Df3e4D4fcB9e812` | [View on Explorer](https://explorer.noorchain.org/address/0x502ec2Ce7cd266Eff9e147d66Df3e4D4fcB9e812) |
-| **KES/USD** | `0x0D8e7Ed1B328302bbAA0249CeFD6ca52E050F86e` | [View on Explorer](https://explorer.noorchain.org/address/0x0D8e7Ed1B328302bbAA0249CeFD6ca52E050F86e) |
-| **NOK/USD** | `0xa8f2fa9B2B7c26d69E996480C914914Aad25D4E6` | [View on Explorer](https://explorer.noorchain.org/address/0xa8f2fa9B2B7c26d69E996480C914914Aad25D4E6) |
-| **SEK/USD** | `0x68EF664d975c0fda0BbD994433e9651cBED2B38f` | [View on Explorer](https://explorer.noorchain.org/address/0x68EF664d975c0fda0BbD994433e9651cBED2B38f) |
-| **DKK/USD** | `0x793c849f6207E9a7B1C8Bdf99D0743400f6bB658` | [View on Explorer](https://explorer.noorchain.org/address/0x793c849f6207E9a7B1C8Bdf99D0743400f6bB658) |
+| **GOLD/USD** | `0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651` | [View on Explorer](https://explorer.norchain.org/address/0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651) |
+| **AED/USD** | `0x502ec2Ce7cd266Eff9e147d66Df3e4D4fcB9e812` | [View on Explorer](https://explorer.norchain.org/address/0x502ec2Ce7cd266Eff9e147d66Df3e4D4fcB9e812) |
+| **KES/USD** | `0x0D8e7Ed1B328302bbAA0249CeFD6ca52E050F86e` | [View on Explorer](https://explorer.norchain.org/address/0x0D8e7Ed1B328302bbAA0249CeFD6ca52E050F86e) |
+| **NOK/USD** | `0xa8f2fa9B2B7c26d69E996480C914914Aad25D4E6` | [View on Explorer](https://explorer.norchain.org/address/0xa8f2fa9B2B7c26d69E996480C914914Aad25D4E6) |
+| **SEK/USD** | `0x68EF664d975c0fda0BbD994433e9651cBED2B38f` | [View on Explorer](https://explorer.norchain.org/address/0x68EF664d975c0fda0BbD994433e9651cBED2B38f) |
+| **DKK/USD** | `0x793c849f6207E9a7B1C8Bdf99D0743400f6bB658` | [View on Explorer](https://explorer.norchain.org/address/0x793c849f6207E9a7B1C8Bdf99D0743400f6bB658) |
 
 ---
 
@@ -88,12 +88,12 @@ nano .env  # Add oracle private key
 sudo npm install -g pm2
 
 # Start oracle service
-pm2 start oracle-service.js --name noor-oracle
+pm2 start oracle-service.js --name nor-oracle
 pm2 save
 pm2 startup
 
 # Monitor
-pm2 logs noor-oracle
+pm2 logs nor-oracle
 ```
 
 **Option B: Automated Deployment**
@@ -144,7 +144,7 @@ async function main() {
 **Check oracle submissions:**
 ```bash
 # Monitor oracle logs
-pm2 logs noor-oracle
+pm2 logs nor-oracle
 
 # Check blockchain for PriceSubmitted events
 # Expected: 3 submissions per round (one from each oracle)
@@ -156,7 +156,7 @@ pm2 logs noor-oracle
 **Verify prices:**
 ```bash
 # Using cast (foundry)
-cast call 0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651 "getPrice()(uint256)" --rpc-url https://rpc.noorchain.org
+cast call 0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651 "getPrice()(uint256)" --rpc-url https://rpc.norchain.org
 
 # Using ethers.js
 const oracle = await ethers.getContractAt("OracleAggregator", "0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651");
@@ -280,7 +280,7 @@ console.log("GOLD/USD:", ethers.formatEther(price));
 
 - **Documentation:** `/docs/ORACLE_NETWORK_GUIDE.md`
 - **GitHub Issues:** Report issues in project repository
-- **Community:** Noor Chain Discord/Telegram
+- **Community:** Nor Chain Discord/Telegram
 
 ---
 
@@ -288,4 +288,4 @@ console.log("GOLD/USD:", ethers.formatEther(price));
 
 **Next Action:** Deploy oracle services to AWS validators
 
-🌙 **Noor Chain - Decentralized Price Oracles Live on Mainnet** 🌙
+🌙 **Nor Chain - Decentralized Price Oracles Live on Mainnet** 🌙

@@ -22,7 +22,7 @@ async function main() {
   const validators = [
     "0xFAA5AA97651c2e2b6860219bb8f9902d416dB5DD",
     "0xfd634d55ce9b99058dc06cdda1f866b39579a9f3",
-    "0xb753b892551d1c374fda6fd7f6e9b787688c4ea5"
+    "0xb753b892551d1c374fda6fd7f6e9b787688c4ea5",
   ];
 
   console.log("🔐 Validators:", validators.length);
@@ -76,13 +76,13 @@ async function main() {
   console.log(`BNB_BRIDGE_BSC=${bscAddress}`);
 
   console.log("\n📝 NEXT STEPS:");
-  console.log("1. Deploy to Xaheen Chain (WBNB token + bridge)");
+  console.log("1. Deploy to Nor Chain (WBNB token + bridge)");
   console.log("2. Test with small amount (0.01 BNB)");
-  console.log("3. Add WBNB/XHT liquidity to DEX");
+  console.log("3. Add WBNB/NOR liquidity to DEX");
   console.log("4. Market to users!");
 
   console.log("\n💡 USER FLOW:");
-  console.log("Buy BNB on Binance → Bridge to Xaheen → Swap for XHT → Trade!");
+  console.log("Buy BNB on Binance → Bridge to Nor → Swap for NOR → Trade!");
 
   console.log("\n🚀 Ready to make money!\n");
 }

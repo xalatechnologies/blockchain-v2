@@ -1,4 +1,4 @@
-# Master Deployment Checklist - Complete Xaheen Chain Launch
+# Master Deployment Checklist - Complete Nor Chain Launch
 
 **Purpose**: Complete end-to-end deployment guide from genesis to trading launch
 
@@ -9,7 +9,7 @@
 
 ## 📋 DEPLOYMENT OVERVIEW
 
-This master checklist covers the complete Xaheen Chain deployment:
+This master checklist covers the complete Nor Chain deployment:
 
 1. **Genesis Creation** → 2. **Validator Deployment** → 3. **Contract Deployment** → 4. **DEX Deployment** → 5. **Token Deployment** → 6. **Liquidity Deployment** → 7. **Bridges** → 8. **Go Live**
 
@@ -28,7 +28,7 @@ This master checklist covers the complete Xaheen Chain deployment:
 - [ ] Network ID: **65001**
 - [ ] Block period: **3 seconds**
 - [ ] Epoch: **200** (for 3 validators)
-- [ ] Native token: **XHT** (Xaheen Token)
+- [ ] Native token: **NOR** (Nor Token)
 
 ### 1.2 Generate Validator Keystores
 ```bash
@@ -69,10 +69,10 @@ node scripts/generate-xaheen-genesis-v2.js
 
 ### 1.4 Configure Genesis Alloc
 
-- [ ] Main wallet pre-funded (10M+ XHT for gas)
-- [ ] Validator 1 funded (1000 XHT)
-- [ ] Validator 2 funded (1000 XHT)
-- [ ] Validator 3 funded (1000 XHT)
+- [ ] Main wallet pre-funded (10M+ NOR for gas)
+- [ ] Validator 1 funded (1000 NOR)
+- [ ] Validator 2 funded (1000 NOR)
+- [ ] Validator 3 funded (1000 NOR)
 - [ ] OPTIONAL: Embedded ERC20 tokens with bytecode
 
 ### 1.5 Validate Genesis
@@ -209,7 +209,7 @@ done
 
 ## PHASE 3: SMART CONTRACT DEPLOYMENT
 
-**Objective**: Deploy core smart contracts (WXHT, ERC20 tokens)
+**Objective**: Deploy core smart contracts (WNOR, ERC20 tokens)
 
 ### 3.1 Prepare Environment
 
@@ -227,22 +227,22 @@ npx hardhat compile
 ```
 
 - [ ] .env configured
-- [ ] Private key has XHT for gas
+- [ ] Private key has NOR for gas
 - [ ] RPC endpoint accessible
 - [ ] Contracts compiled
 
-### 3.2 Deploy WXHT (Wrapped XHT)
+### 3.2 Deploy WNOR (Wrapped NOR)
 
 ```bash
-# Deploy WXHT
+# Deploy WNOR
 node scripts/deploy-wxht.js
 ```
 
-- [ ] WXHT contract deployed
+- [ ] WNOR contract deployed
 - [ ] Address saved: `contracts-deployed/wxht-address.txt`
 - [ ] Verified on block explorer (optional)
 
-**WXHT Address**: `0x...`
+**WNOR Address**: `0x...`
 
 ### 3.3 Deploy ERC20 Tokens (Optional)
 
@@ -264,7 +264,7 @@ node scripts/deploy-test-bnb-eth.js
 
 ---
 
-## PHASE 4: DEX DEPLOYMENT (XaheenDEX)
+## PHASE 4: DEX DEPLOYMENT (NorDEX)
 
 **Objective**: Deploy Uniswap V2 fork for decentralized trading
 
@@ -276,9 +276,9 @@ node scripts/deploy-xaheen-dex.js
 ```
 
 **Contracts deployed:**
-- [ ] XaheenFactory: `0x...`
-- [ ] XaheenRouter: `0x...`
-- [ ] WXHT address configured in router
+- [ ] NorFactory: `0x...`
+- [ ] NorRouter: `0x...`
+- [ ] WNOR address configured in router
 
 ### 4.2 Verify DEX Functionality
 
@@ -289,7 +289,7 @@ node scripts/test-swap-xaheen.js
 
 - [ ] Factory creates pairs
 - [ ] Router swaps work
-- [ ] WXHT wrapping/unwrapping works
+- [ ] WNOR wrapping/unwrapping works
 
 **➡️ DEX operational**
 
@@ -302,30 +302,30 @@ node scripts/test-swap-xaheen.js
 
 ### 5.1 Prepare Liquidity Amounts
 
-**XHT/USDT Pair** (Primary trading pair):
-- Launch price: **$0.0000024 per XHT**
+**NOR/USDT Pair** (Primary trading pair):
+- Launch price: **$0.0000024 per NOR**
 - Initial liquidity: **$10,000 USDT**
-- Required XHT: **4.17 billion XHT**
+- Required NOR: **4.17 billion NOR**
 
 ```bash
 # Calculate amounts
-# XHT = $10,000 / $0.0000024 = 4,166,666,666 XHT
+# NOR = $10,000 / $0.0000024 = 4,166,666,666 NOR
 # USDT = 10,000 USDT
 ```
 
 **Other Pairs** (Optional):
-- XHT/BNB: 1M XHT : 10 BNB
-- XHT/ETH: 1M XHT : 5 ETH
+- NOR/BNB: 1M NOR : 10 BNB
+- NOR/ETH: 1M NOR : 5 ETH
 
-### 5.2 Add XHT/USDT Liquidity
+### 5.2 Add NOR/USDT Liquidity
 
 ```bash
-# Add liquidity to XHT/USDT pair
+# Add liquidity to NOR/USDT pair
 node scripts/add-liquidity-xht-usdt.js
 ```
 
-- [ ] XHT/USDT pair created
-- [ ] 4.17B XHT added
+- [ ] NOR/USDT pair created
+- [ ] 4.17B NOR added
 - [ ] 10,000 USDT added
 - [ ] LP tokens received
 
@@ -340,8 +340,8 @@ node scripts/add-operational-liquidity.js
 ```
 
 - [ ] BNB/ETH pair created
-- [ ] XHT/BNB pair created (optional)
-- [ ] XHT/ETH pair created (optional)
+- [ ] NOR/BNB pair created (optional)
+- [ ] NOR/ETH pair created (optional)
 
 ### 5.4 Verify Liquidity
 
@@ -354,7 +354,7 @@ node scripts/check-current-price.js
 ```
 
 - [ ] LP tokens received
-- [ ] Price matches $0.0000024/XHT
+- [ ] Price matches $0.0000024/NOR
 - [ ] Reserves correct
 
 **➡️ Liquidity deployed and priced correctly**
@@ -383,7 +383,7 @@ node scripts/deploy-lp-timelock.js
 node scripts/lock-all-lp-tokens.js
 ```
 
-- [ ] XHT/USDT LP locked
+- [ ] NOR/USDT LP locked
 - [ ] BNB/ETH LP locked
 - [ ] Other pairs LP locked
 - [ ] Lock duration verified
@@ -415,7 +415,7 @@ node scripts/deploy-all-ecosystem.js
 ```
 
 **Bridges to deploy:**
-- [ ] Lock/Mint Bridge (BSC ↔ Xaheen)
+- [ ] Lock/Mint Bridge (BSC ↔ Nor)
 - [ ] Atomic Swap (HTLC)
 - [ ] Liquidity Pool Bridge
 - [ ] Timelock Bridge
@@ -555,7 +555,7 @@ ansible-playbook playbooks/deploy-explorer.yml
 
 ### 10.2 Smart Contract Verification
 
-- [ ] WXHT deployed and functional
+- [ ] WNOR deployed and functional
 - [ ] DEX Factory operational
 - [ ] DEX Router working
 - [ ] All token pairs created
@@ -563,8 +563,8 @@ ansible-playbook playbooks/deploy-explorer.yml
 
 ### 10.3 DEX Functionality
 
-- [ ] XHT/USDT swaps work
-- [ ] Price matches $0.0000024/XHT
+- [ ] NOR/USDT swaps work
+- [ ] Price matches $0.0000024/NOR
 - [ ] Slippage acceptable (< 1%)
 - [ ] Router calculations correct
 
@@ -605,7 +605,7 @@ ansible-playbook playbooks/deploy-explorer.yml
 - [ ] RPC endpoint announced: `https://rpc.xaheen.org`
 - [ ] Chain ID announced: **65001**
 - [ ] DEX address published
-- [ ] Initial price: **$0.0000024/XHT**
+- [ ] Initial price: **$0.0000024/NOR**
 - [ ] LP lock proof shared
 
 ### 11.2 Enable Public Access
@@ -625,10 +625,10 @@ ansible-playbook playbooks/deploy-explorer.yml
 
 **Share with users:**
 ```
-Network Name: Xaheen Chain
+Network Name: Nor Chain
 RPC URL: https://rpc.xaheen.org
 Chain ID: 65001
-Currency Symbol: XHT
+Currency Symbol: NOR
 Block Explorer: https://explorer.xaheen.org (if available)
 ```
 
@@ -750,9 +750,9 @@ node scripts/simulate-trading-volume.js
 
 - [ ] **Phase 1**: Genesis created and validated
 - [ ] **Phase 2**: 3 validators running with 2 peers each
-- [ ] **Phase 3**: WXHT and tokens deployed
-- [ ] **Phase 4**: XaheenDEX operational
-- [ ] **Phase 5**: Liquidity pools funded ($10K XHT/USDT)
+- [ ] **Phase 3**: WNOR and tokens deployed
+- [ ] **Phase 4**: NorDEX operational
+- [ ] **Phase 5**: Liquidity pools funded ($10K NOR/USDT)
 - [ ] **Phase 6**: LP tokens locked for 1 year
 - [ ] **Phase 7**: Bridges deployed and tested
 - [ ] **Phase 8**: Tokenomics (staking, buyback) active
@@ -776,4 +776,4 @@ node scripts/simulate-trading-volume.js
 
 **Last Updated**: October 31, 2025
 **Version**: 1.0
-**Maintainer**: Xaheen Chain Team
+**Maintainer**: Nor Chain Team

@@ -1,20 +1,20 @@
 # Part 3 – Financial Products & Halal Funds  
 **Version**: v3.1-2025-11-02  
-**Part of**: Noor Chain Playbook v3 - Public Master Edition  
+**Part of**: Nor Chain Playbook v3 - Public Master Edition  
 ---
-#ai:module noor-chain-funds
+#ai:module nor-chain-funds
 #ai:topic halal-finance, real-estate, fintech, zakat, esg
 #ai:audience investor, institution, developer, public
 ---
 
 ## 15  Purpose & Vision
-**Noor Funds** extend the chain's utility beyond crypto into **real-world finance**, creating a bridge between  
+**Nor Funds** extend the chain's utility beyond crypto into **real-world finance**, creating a bridge between  
 🌍 *business*, 💼 *industry*, and 🤲 *social impact*.
 
 > “Finance should build communities—not debt.”
 
 ### Strategic Goal
-To make Noor Chain the **financial backbone** for:
+To make Nor Chain the **financial backbone** for:
 - UAE & GCC **Islamic banks** seeking Shariah-compliant tokenization.  
 - **Fintechs** that need ready-made halal-compliant infrastructure.  
 - **Real-estate developers** issuing tokenized ijārah or sukuk.  
@@ -24,14 +24,14 @@ To make Noor Chain the **financial backbone** for:
 ---
 
 ## 16  Halal Finance for a Digital World
-Noor Funds are built for **profit-sharing, not interest**.  
+Nor Funds are built for **profit-sharing, not interest**.  
 Each fund is anchored to *real assets* and verified by the **Shariah Oracle**.
 
-| Sector | Opportunity | Noor Use Case |
+| Sector | Opportunity | Nor Use Case |
 |--------|--------------|----------------|
 | **Real Estate** | Tokenize ijārah properties | Ijārah Fund with monthly rental payouts |
 | **Banking** | Digitize sukuk & liquidity pools | Sukuk Fund & Liquidity Park |
-| **Fintech** | Offer compliant investment wallets | Plug-in to Noor API |
+| **Fintech** | Offer compliant investment wallets | Plug-in to Nor API |
 | **Charity & Zakat** | Track donations & impact | Zakat & Waqf Funds |
 | **SMEs & Trade** | Asset-based finance | Mushārakah SME Fund |
 
@@ -59,7 +59,7 @@ Partners complete compliance registration via XCC (AML/KYC + AAOIFI certificatio
 Each partner receives a **Fund Router** smart contract with branding & fee configuration.
 
 ### Step 3 – Investor Access
-Noor Wallet & APIs expose subscription, NAV, and redemption flows.
+Nor Wallet & APIs expose subscription, NAV, and redemption flows.
 
 ### Step 4 – Reporting & Governance
 Daily NAV + fatwa hashes published on-chain → regulator & auditor dashboards.
@@ -76,9 +76,9 @@ Daily NAV + fatwa hashes published on-chain → regulator & auditor dashboards.
 ---
 
 ## 20  Value for Industries
-| Industry | Challenge | Xaheen Solution |
+| Industry | Challenge | Nor Solution |
 |-----------|------------|----------------|
-| **Banks** | Legacy core systems, lack of blockchain integration | Plug-and-play tokenization via Noor API |
+| **Banks** | Legacy core systems, lack of blockchain integration | Plug-and-play tokenization via Nor API |
 | **Real Estate** | Liquidity lock-in & fractional ownership barriers | On-chain Ijārah tokens + DEX liquidity |
 | **Fintechs** | Compliance burden & slow licensing | Built-in AAOIFI & GDPR modules |
 | **Charities** | Opaque fund flows & trust deficit | Transparent zakat & waqf tracking |
@@ -126,7 +126,7 @@ Ideal Partners
 
 Benefits
 	•	Compliant tokenization without re-engineering legacy systems.
-	•	Instant global liquidity via Xaheen DEX & Bridge.
+	•	Instant global liquidity via Nor DEX & Bridge.
 	•	AI-driven reporting for regulators and stakeholders.
 	•	Participation in ethical finance for a sustainable future.
 
@@ -134,7 +134,7 @@ Benefits
 
 24  Summary
 
-Xaheen Funds empower businesses and institutions to move into Web3 with trust, compliance, and purpose.
+Nor Funds empower businesses and institutions to move into Web3 with trust, compliance, and purpose.
 They are more than financial instruments—they are vehicles for social good, economic growth, and inter-faith collaboration toward a transparent and ethical future.
 
 ⸻

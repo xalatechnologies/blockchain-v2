@@ -6,10 +6,10 @@
 **Status**: All contracts developed and compiled successfully
 
 **DEX Contracts:**
-- ✅ WXHT.sol - Wrapped XHT token
-- ✅ XaheenDEXPair.sol - AMM pair contract
-- ✅ XaheenDEXFactory.sol - Pair factory
-- ✅ XaheenDEXRouter.sol - Trading router
+- ✅ WNOR.sol - Wrapped NOR token
+- ✅ NorDEXPair.sol - AMM pair contract
+- ✅ NorDEXFactory.sol - Pair factory
+- ✅ NorDEXRouter.sol - Trading router
 
 **Token Contracts:**
 - ✅ XHN.sol - Governance and revenue-sharing token
@@ -78,7 +78,7 @@
 - Wallet: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 (Hardhat #0)
 - Status: Used for testing, contracts deployed here are NOT on real chain
 
-**Network 2: Xaheen Chain (Production)**
+**Network 2: Nor Chain (Production)**
 - RPC: http://localhost:8545 (or https://rpc.xaheen.network)
 - Chain ID: 65001
 - Wallet: 0xdD779a290C937144F80Eb75b75d814c834536B1b (from .env PRIVATE_CHAIN_KEY)
@@ -86,20 +86,20 @@
 
 ---
 
-## 📊 LATEST DEPLOYMENT (Background - Xaheen Chain)
+## 📊 LATEST DEPLOYMENT (Background - Nor Chain)
 
-**Deployed on**: Xaheen Chain (Chain ID 65001)
+**Deployed on**: Nor Chain (Chain ID 65001)
 **Deployer**: 0xdD779a290C937144F80Eb75b75d814c834536B1b
-**Gas Used**: 0.041854407 XHT
+**Gas Used**: 0.041854407 NOR
 
-### Contract Addresses (Xaheen Chain):
+### Contract Addresses (Nor Chain):
 
 **DEX Infrastructure:**
 ```
-WXHT:           0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651
+WNOR:           0x1299b31D4BC22AF4cBE9c5dC3A760F4636393651
 Factory:        0x502ec2Ce7cd266Eff9e147d66Df3e4D4fcB9e812
 Router:         0x0D8e7Ed1B328302bbAA0249CeFD6ca52E050F86e
-XHT/BTCBR Pair: 0x96BEFeb7cE1a6545f0288F62b314f26852999A9B
+NOR/BTCBR Pair: 0x96BEFeb7cE1a6545f0288F62b314f26852999A9B
 ```
 
 **Tokens:**
@@ -121,26 +121,26 @@ BTCBR Bridge (Tron):      0x4f001737E8A1c9e8954F3B01411c2BB22d229792
 
 ## 🎯 IMMEDIATE NEXT STEPS
 
-### Step 1: Deploy XHN Token to Xaheen Chain ⏰ CRITICAL
+### Step 1: Deploy XHN Token to Nor Chain ⏰ CRITICAL
 
-**Current Status**: XHN was deployed to localhost, NOT Xaheen Chain
+**Current Status**: XHN was deployed to localhost, NOT Nor Chain
 
 **Action Required**:
 ```bash
-# Deploy XHN using the correct private key for Xaheen Chain
+# Deploy XHN using the correct private key for Nor Chain
 export PRIVATE_CHAIN_KEY=0x681fda6ad9585ce9c27688eb60087ddaf4a90ca75f8f77b0f039bd5692ed2bd4
 npx hardhat run scripts/deploy-xhn.js --network btcbr
 ```
 
 **Expected Result**:
-- XHN deployed to Xaheen Chain
+- XHN deployed to Nor Chain
 - New XHN address (replace 0x24719ba3b4AD49cC7edcbDc536fd97C8526830A0)
 
 ---
 
-### Step 2: Create XHT/XHN Liquidity Pair ⏰
+### Step 2: Create NOR/XHN Liquidity Pair ⏰
 
-**Current Status**: Pair NOT created on Xaheen Chain
+**Current Status**: Pair NOT created on Nor Chain
 
 **Action Required**:
 ```bash
@@ -150,9 +150,9 @@ npx hardhat run scripts/add-xhn-liquidity-v2.js --network btcbr
 ```
 
 **Expected Result**:
-- XHT/XHN pair created
-- 1,000 XHT + 100,000 XHN liquidity added
-- Initial price: 1 XHT = 100 XHN
+- NOR/XHN pair created
+- 1,000 NOR + 100,000 XHN liquidity added
+- Initial price: 1 NOR = 100 XHN
 
 ---
 
@@ -205,20 +205,20 @@ BUY NOW: [DEX_LINK]
 ### Already Invested: $1,020
 
 **Breakdown:**
-- XHT/BTCBR liquidity: $20 (deployed to Xaheen Chain ✅)
-- DEX contracts: $0.042 gas (deployed to Xaheen Chain ✅)
+- NOR/BTCBR liquidity: $20 (deployed to Nor Chain ✅)
+- DEX contracts: $0.042 gas (deployed to Nor Chain ✅)
 - Bridges: $0 gas (included in above)
 
 ### Still Needed: $100
 
 **For:**
-- Deploy XHN to Xaheen Chain: ~$0.002 gas
-- Add XHT/XHN liquidity: $1,000 + ~$0.003 gas
-- Execute launch script: $4 (38 XHT for buys)
+- Deploy XHN to Nor Chain: ~$0.002 gas
+- Add NOR/XHN liquidity: $1,000 + ~$0.003 gas
+- Execute launch script: $4 (38 NOR for buys)
 - Gas buffer: $50
 
 **Total Required**: $1,054.05
-**Still Need**: $34 (assuming you have 1,000 XHT for liquidity)
+**Still Need**: $34 (assuming you have 1,000 NOR for liquidity)
 
 ---
 
@@ -248,7 +248,7 @@ PRIVATE_CHAIN_KEY=0x681fda6ad9585ce9c27688eb60087ddaf4a90ca75f8f77b0f039bd5692ed
 PRIVATE_CHAIN_RPC=http://localhost:8545
 ```
 
-### 3. Check Xaheen Chain Status
+### 3. Check Nor Chain Status
 
 **Verify blockchain is running**:
 ```bash
@@ -264,11 +264,11 @@ curl -X POST http://localhost:8545 \
 ## 📋 LAUNCH CHECKLIST
 
 ### Pre-Launch (Do First):
-- [ ] Verify Xaheen Chain is running (curl command above)
-- [ ] Confirm deployer wallet has 1,100+ XHT
-- [ ] Deploy XHN token to Xaheen Chain
-- [ ] Create XHT/XHN pair
-- [ ] Add 1,000 XHT + 100,000 XHN liquidity
+- [ ] Verify Nor Chain is running (curl command above)
+- [ ] Confirm deployer wallet has 1,100+ NOR
+- [ ] Deploy XHN token to Nor Chain
+- [ ] Create NOR/XHN pair
+- [ ] Add 1,000 NOR + 100,000 XHN liquidity
 - [ ] Verify pair has liquidity (check reserves)
 
 ### Launch Day:
@@ -296,8 +296,8 @@ curl -X POST http://localhost:8545 \
 **Fix**: Deploy contracts with `--network btcbr` flag
 
 ### Issue: "Insufficient funds"
-**Cause**: Deployer wallet doesn't have enough XHT
-**Fix**: Send XHT to deployer address (0xdD779a290C937144F80Eb75b75d814c834536B1b)
+**Cause**: Deployer wallet doesn't have enough NOR
+**Fix**: Send NOR to deployer address (0xdD779a290C937144F80Eb75b75d814c834536B1b)
 
 ### Issue: "Transaction reverted"
 **Cause**: Various (check error message)
@@ -340,7 +340,7 @@ curl -X POST http://localhost:8545 \
 **XHN Token** (governance):
 ```
 0x24719ba3b4AD49cC7edcbDc536fd97C8526830A0
-(⚠️ Localhost only - needs redeployment to Xaheen Chain)
+(⚠️ Localhost only - needs redeployment to Nor Chain)
 ```
 
 **BTCBR Token** (utility):
@@ -348,7 +348,7 @@ curl -X POST http://localhost:8545 \
 0x0cF8e180350253271f4b917CcFb0aCCc4862F262
 ```
 
-**Deployer Wallet** (Xaheen Chain):
+**Deployer Wallet** (Nor Chain):
 ```
 0xdD779a290C937144F80Eb75b75d814c834536B1b
 ```
@@ -360,8 +360,8 @@ curl -X POST http://localhost:8545 \
 **You are 95% ready to launch!**
 
 **Missing**:
-1. Deploy XHN to Xaheen Chain (5 minutes)
-2. Add XHT/XHN liquidity (5 minutes)
+1. Deploy XHN to Nor Chain (5 minutes)
+2. Add NOR/XHN liquidity (5 minutes)
 3. Execute launch script (2 minutes)
 4. Post announcements (10 minutes)
 

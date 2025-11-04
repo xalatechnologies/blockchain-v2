@@ -7,7 +7,7 @@
 
 ## Summary
 
-Completed comprehensive reorganization of the docs folder and integrated the Xaheen Chain Playbook v3 with full CLAUDE.md updates.
+Completed comprehensive reorganization of the docs folder and integrated the Nor Chain Playbook v3 with full CLAUDE.md updates.
 
 ---
 
@@ -27,7 +27,7 @@ Completed comprehensive reorganization of the docs folder and integrated the Xah
 
 ### 2. New Category Created ✅
 
-**09-playbook/** - Comprehensive Xaheen Chain vision and strategy
+**09-playbook/** - Comprehensive Nor Chain vision and strategy
 
 Contains the complete 5-part playbook:
 1. **Part 1**: Vision, Ecosystem & Philosophy
@@ -52,7 +52,7 @@ Added comprehensive sections:
 - **Documentation & Playbook**: Reference to docs/09-playbook/
 
 **Updated Sections**:
-- Technical specs now include 24-decimal XHT, 10,000-block epochs
+- Technical specs now include 24-decimal NOR, 10,000-block epochs
 - Key differences expanded from 7 to 12 points
 - Added halal compliance, AI enhancement, multi-asset ecosystem
 
@@ -151,26 +151,26 @@ Moved to `.archive-old-folders/`:
 
 | Component | Purpose |
 |-----------|---------|
-| Xaheen Chain (L1) | Core blockchain |
+| Nor Chain (L1) | Core blockchain |
 | Dirhamat | AED/Gold-backed stablecoin |
 | Digital KES | Kenyan Shilling token |
 | NordCoin | Nordic ESG currency |
-| Xaheen Swap (DEX) | Native decentralized exchange |
-| Xaheen Bridge | Cross-chain vault system |
-| Xaheen Funds | Halal mutual and retirement funds |
+| Nor Swap (DEX) | Native decentralized exchange |
+| Nor Bridge | Cross-chain vault system |
+| Nor Funds | Halal mutual and retirement funds |
 | Compliance Core (XCC) | AML/KYC/GDPR framework |
-| Xaheen AI Agents | Autonomous management |
+| Nor AI Agents | Autonomous management |
 
 ### 3. Technical Specs Updated
 - **Epoch**: 10,000 blocks (~8h 20m)
-- **XHT Supply**: 21 billion (24 decimals)
+- **NOR Supply**: 21 billion (24 decimals)
 - **Validators**: 3 active + 2 standby
 - **Finality**: < 30 seconds
 
 ### 4. Governance Structure
 - **Council DAO**: 5 institutional signers
 - **Validator DAO**: Active validators + delegators
-- **Community DAO**: Token holders (≥10,000 XHT)
+- **Community DAO**: Token holders (≥10,000 NOR)
 - **AI Advisory Layer**: Autonomous agents (read-only)
 
 ### 5. Compliance Framework

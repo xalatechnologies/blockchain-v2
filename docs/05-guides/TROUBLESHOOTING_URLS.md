@@ -22,17 +22,17 @@ https://support.coingecko.com/hc/en-us/requests/new
 ```
 Email: hello@coingecko.com
 
-Subject: Token Listing Request - Xaheen Token (XHT)
+Subject: Token Listing Request - Nor Token (NOR)
 
 Body:
 Hello,
 
 I would like to request a listing for:
 
-Token Name: Xaheen Token
-Symbol: XHT
+Token Name: Nor Token
+Symbol: NOR
 Contract Address: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
-Blockchain: Xaheen Chain (Custom EVM Chain)
+Blockchain: Nor Chain (Custom EVM Chain)
 Chain ID: 65001
 RPC: https://rpc.xaheen.org
 Explorer: https://explorer.xaheen.org
@@ -62,13 +62,13 @@ https://support.coinmarketcap.com/hc/en-us/requests/new?ticket_form_id=360000591
 ```
 Email: listings@coinmarketcap.com
 
-Subject: New Cryptocurrency Listing Request - XHT
+Subject: New Cryptocurrency Listing Request - NOR
 
 Body:
-Project Name: Xaheen Chain
-Ticker: XHT
+Project Name: Nor Chain
+Ticker: NOR
 Contract Address: 0x26c0eaF731885b14c031cc50dB79b36458E0b355
-Blockchain: Xaheen Chain
+Blockchain: Nor Chain
 Website: https://xaheen.org
 Explorer: https://explorer.xaheen.org
 Whitepaper: [if you have]

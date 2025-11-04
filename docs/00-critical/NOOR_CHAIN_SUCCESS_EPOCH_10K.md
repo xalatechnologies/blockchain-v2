@@ -1,15 +1,15 @@
-# 🎉 Noor Chain Success - Epoch 10,000 Configuration
+# 🎉 Nor Chain Success - Epoch 10,000 Configuration
 
 **Date**: November 2, 2025, 7:54 PM
 **Status**: ✅ **SUCCESS - BLOCKS PRODUCING**
-**Chain**: Noor Chain, Chain ID 65001
+**Chain**: Nor Chain, Chain ID 65001
 **Epoch**: 10,000 blocks (~8.3 hours at 3-second blocks)
 
 ---
 
 ## Executive Summary
 
-**SUCCESS**: Noor Chain is producing blocks with 3 validators and stable peer connectivity!
+**SUCCESS**: Nor Chain is producing blocks with 3 validators and stable peer connectivity!
 
 **Metrics**:
 - **Block Production**: 6 → 7 → 8 → 9 → 10 → 11+ (continuously increasing)
@@ -246,7 +246,7 @@ curl -s -X POST http://localhost:8545 \
 
 ## Deployment Scripts
 
-**Working Script**: `/scripts/noor-apply-documented-fix.sh`
+**Working Script**: `/scripts/nor-apply-documented-fix.sh`
 
 This script applies the exact documented working configuration including:
 - Genesis initialization with epoch 10,000
@@ -257,7 +257,7 @@ This script applies the exact documented working configuration including:
 
 **Usage**:
 ```bash
-bash scripts/noor-apply-documented-fix.sh
+bash scripts/nor-apply-documented-fix.sh
 ```
 
 ---
@@ -298,8 +298,8 @@ Docker-created files/directories are owned by root. Always use `sudo` when writi
 
 1. ✅ **Block Production**: Fixed and verified
 2. 🔄 **Epoch Revalidation**: Monitor chain for 8.3 hours until block 10,000
-3. ⏳ **SSL Setup**: Configure SSL certificates for noorchain.org domain
-4. ⏳ **Domain Migration**: Update all references from xaheen.org → noorchain.org
+3. ⏳ **SSL Setup**: Configure SSL certificates for norchain.org domain
+4. ⏳ **Domain Migration**: Update all references from xaheen.org → norchain.org
 
 ---
 
@@ -321,4 +321,4 @@ Docker-created files/directories are owned by root. Always use `sudo` when writi
 **Last Updated**: November 2, 2025, 7:55 PM
 **Status**: Production-ready, monitoring for epoch revalidation
 
-🌙 **Noor Chain - Empowering the Future with Light and Trust** 🌙
+🌙 **Nor Chain - Empowering the Future with Light and Trust** 🌙

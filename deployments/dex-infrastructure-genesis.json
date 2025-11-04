@@ -1,6 +1,6 @@
 {
   "timestamp": "2025-11-03T00:00:00.000Z",
-  "network": "Noor Chain Genesis",
+  "network": "Nor Chain Genesis",
   "chainId": "65001",
   "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
   "description": "Sequential contract addresses for genesis deployment - starting from 0x0cF8e180350253271f4b917CcFb0aCCc4862F262",

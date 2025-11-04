@@ -483,4 +483,4 @@ mv docs/[category]/OLD_DOC.md docs/09-archived/
 **Quality**: Production-Grade
 **Maintenance**: Easy & Sustainable
 
-🎯 **The Xaheen Chain documentation is now professional, organized, and ready for production use!**
+🎯 **The Nor Chain documentation is now professional, organized, and ready for production use!**

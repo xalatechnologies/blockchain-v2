@@ -1,4 +1,4 @@
-# Backend Integration Guide: Xaheen Bridge Relayer
+# Backend Integration Guide: Nor Bridge Relayer
 
 Guide to integrating the bridge relayer and monitoring services into your existing `xaheen-sdk` backend.
 
@@ -50,7 +50,7 @@ blockchain-v2/
 
 ```typescript
 /**
- * Xaheen Bridge Relayer Service
+ * Nor Bridge Relayer Service
  *
  * Monitors spoke chains for Fill events and forwards to hub for settlement
  */
@@ -100,7 +100,7 @@ export class RelayerService {
       return;
     }
 
-    logger.info('Starting Xaheen Bridge Relayer...');
+    logger.info('Starting Nor Bridge Relayer...');
     this.isRunning = true;
 
     // Initialize spoke chain listeners
@@ -436,7 +436,7 @@ export default router;
 # Relayer Configuration
 RELAYER_PRIVATE_KEY=0x0000000000000000000000000000000000000000000000000000000000000000
 
-# Hub Chain (Xaheen)
+# Hub Chain (Nor)
 XAHEEN_CHAIN_RPC=https://rpc.xaheen.org
 HUB_SETTLEMENT_HUB=UPDATE_AFTER_DEPLOYMENT
 HUB_SUPPLY_CONTROLLER=UPDATE_AFTER_DEPLOYMENT
@@ -446,7 +446,7 @@ HUB_PRICE_AUTHORITY=UPDATE_AFTER_DEPLOYMENT
 BSC_MAINNET_RPC=https://bsc-dataseed.binance.org
 SPOKE_BSC_SETTLEMENT_INBOX=UPDATE_AFTER_DEPLOYMENT
 SPOKE_BSC_XAHEEN_ROUTER=UPDATE_AFTER_DEPLOYMENT
-SPOKE_BSC_WRAPPED_XHT=UPDATE_AFTER_DEPLOYMENT
+SPOKE_BSC_WRAPPED_NOR=UPDATE_AFTER_DEPLOYMENT
 
 # Relayer Settings
 CONFIRMATIONS_REQUIRED=15

@@ -1,4 +1,4 @@
-# 🧾 Xaheen Chain – Public RPC Access Details
+# 🧾 Nor Chain – Public RPC Access Details
 
 **Version**: 1.0 | **Date**: October 30, 2025 | **Status**: ✅ OPERATIONAL
 
@@ -23,8 +23,8 @@
 | Parameter | Value |
 |-----------|-------|
 | **Block Explorer** | https://explorer.xaheen.org |
-| **Native Currency** | Xaheen Token (XHT) – 18 decimals |
-| **Symbol** | XHT |
+| **Native Currency** | Nor Token (NOR) – 18 decimals |
+| **Symbol** | NOR |
 | **Symbol Logo** | https://assets.xaheen.org/xht-logo.png |
 | **Documentation** | https://docs.xaheen.org |
 | **Bridge Interface** | https://bridge.xaheen.org |
@@ -47,10 +47,10 @@ https://xaheen.org/metamask?chainId=65001
 ```json
 {
   "chainId": "0xFDE9",
-  "chainName": "Xaheen Chain",
+  "chainName": "Nor Chain",
   "nativeCurrency": {
-    "name": "Xaheen Token",
-    "symbol": "XHT",
+    "name": "Nor Token",
+    "symbol": "NOR",
     "decimals": 18
   },
   "rpcUrls": ["https://rpc.xaheen.org"],
@@ -61,26 +61,26 @@ https://xaheen.org/metamask?chainId=65001
 ### JavaScript Integration
 
 ```javascript
-// Add Xaheen Chain to MetaMask
-async function addXaheenNetwork() {
+// Add Nor Chain to MetaMask
+async function addNorNetwork() {
   try {
     await window.ethereum.request({
       method: 'wallet_addEthereumChain',
       params: [{
         chainId: '0xFDE9',
-        chainName: 'Xaheen Chain',
+        chainName: 'Nor Chain',
         nativeCurrency: {
-          name: 'Xaheen Token',
-          symbol: 'XHT',
+          name: 'Nor Token',
+          symbol: 'NOR',
           decimals: 18
         },
         rpcUrls: ['https://rpc.xaheen.org'],
         blockExplorerUrls: ['https://explorer.xaheen.org']
       }]
     });
-    console.log('Xaheen Chain added successfully!');
+    console.log('Nor Chain added successfully!');
   } catch (error) {
-    console.error('Error adding Xaheen Chain:', error);
+    console.error('Error adding Nor Chain:', error);
   }
 }
 ```
@@ -210,7 +210,7 @@ ws.send(JSON.stringify({
 | **Current Validators** | 3 |
 | **Consensus Required** | 2-of-3 signatures |
 | **Max Gas Limit** | 30,000,000 |
-| **Min Gas Price** | 1 Gwei (in XHT) |
+| **Min Gas Price** | 1 Gwei (in NOR) |
 | **EVM Version** | London (EIP-1559 compatible) |
 
 ---
@@ -235,8 +235,8 @@ ws.send(JSON.stringify({
 
 | Account | Address | Initial Balance |
 |---------|---------|-----------------|
-| **EOA** | `0x81bDAf1ac2094D5133937B3361A38a4976E55acc` | 1000 XHT |
-| **Main Wallet** | `0xdd779a290c937144f80eb75b75d814c834536b1b` | 1000 XHT |
+| **EOA** | `0x81bDAf1ac2094D5133937B3361A38a4976E55acc` | 1000 NOR |
+| **Main Wallet** | `0xdd779a290c937144f80eb75b75d814c834536b1b` | 1000 NOR |
 
 ---
 
@@ -289,7 +289,7 @@ const web3 = new Web3('https://rpc.xaheen.org');
 
 // Verify connection
 web3.eth.getChainId().then(chainId => {
-  console.log('Connected to Xaheen Chain:', chainId); // Should be 65001
+  console.log('Connected to Nor Chain:', chainId); // Should be 65001
 });
 ```
 
@@ -319,7 +319,7 @@ provider.getNetwork().then(network => {
 
 ### RPC Methods Supported
 
-Xaheen Chain supports all standard Ethereum JSON-RPC methods:
+Nor Chain supports all standard Ethereum JSON-RPC methods:
 
 **Blockchain Access**:
 - `eth_blockNumber`
@@ -470,7 +470,7 @@ curl -X POST https://rpc.xaheen.org \
 # Response: {"jsonrpc":"2.0","id":1,"result":"0x123"}
 ```
 
-### Example 2: Check Your XHT Balance
+### Example 2: Check Your NOR Balance
 
 ```javascript
 const Web3 = require('web3');
@@ -479,7 +479,7 @@ const web3 = new Web3('https://rpc.xaheen.org');
 const address = '0xYourAddress';
 web3.eth.getBalance(address).then(balance => {
   const xht = web3.utils.fromWei(balance, 'ether');
-  console.log(`Balance: ${xht} XHT`);
+  console.log(`Balance: ${xht} NOR`);
 });
 ```
 
@@ -492,7 +492,7 @@ const wallet = new ethers.Wallet('YOUR_PRIVATE_KEY', provider);
 
 const tx = await wallet.sendTransaction({
   to: '0xRecipientAddress',
-  value: ethers.utils.parseEther('1.0') // 1 XHT
+  value: ethers.utils.parseEther('1.0') // 1 NOR
 });
 
 console.log('Transaction hash:', tx.hash);
@@ -518,10 +518,10 @@ console.log('BTCBR Balance:', ethers.utils.formatEther(balance));
 
 ## 📋 Summary
 
-**Xaheen Chain** is a fully operational EVM-compatible blockchain with:
+**Nor Chain** is a fully operational EVM-compatible blockchain with:
 
 - ✅ Chain ID: **65001** (0xFDE9)
-- ✅ Native Token: **XHT** (Xaheen Token)
+- ✅ Native Token: **NOR** (Nor Token)
 - ✅ Block Time: **3 seconds**
 - ✅ Archive Node: Full historical data
 - ✅ BTCBR Contract: Deployed at genesis
@@ -531,6 +531,6 @@ console.log('BTCBR Balance:', ethers.utils.formatEther(balance));
 
 ---
 
-**© 2025 Xaheen Technologies. All rights reserved.**
+**© 2025 Nor Technologies. All rights reserved.**
 
 **Where Intelligence Meets Blockchain** 🧠⚡

@@ -10,8 +10,8 @@ import "@openzeppelin/contracts/governance/extensions/GovernorTimelockControl.so
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
 /**
- * @title NoorGovernance
- * @notice Three-Layer DAO Governance System for Noor Chain
+ * @title NorGovernance
+ * @notice Three-Layer DAO Governance System for Nor Chain
  * @dev Implements hybrid governance with institutional and community participation
  *
  * Governance Layers:
@@ -39,7 +39,7 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
  * - Voting period: 3 days
  * - Timelock execution: 2 days
  */
-contract NoorGovernance is
+contract NorGovernance is
     Governor,
     GovernorSettings,
     GovernorCountingSimple,
@@ -94,7 +94,7 @@ contract NoorGovernance is
         TimelockController _timelock,
         address[] memory _initialCouncil
     )
-        Governor("Noor Chain Governance")
+        Governor("Nor Chain Governance")
         GovernorSettings(
             1 days,     // Voting delay: 1 day
             3 days,     // Voting period: 3 days
@@ -104,14 +104,14 @@ contract NoorGovernance is
         GovernorVotesQuorumFraction(15) // 15% quorum
         GovernorTimelockControl(_timelock)
     {
-        require(_initialCouncil.length == 5, "NoorGovernance: INVALID_COUNCIL_SIZE");
+        require(_initialCouncil.length == 5, "NorGovernance: INVALID_COUNCIL_SIZE");
 
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
 
         // Initialize council members
         for (uint256 i = 0; i < _initialCouncil.length; i++) {
             address member = _initialCouncil[i];
-            require(member != address(0), "NoorGovernance: ZERO_ADDRESS");
+            require(member != address(0), "NorGovernance: ZERO_ADDRESS");
 
             _grantRole(COUNCIL_ROLE, member);
             councilMembers.push(member);
@@ -128,8 +128,8 @@ contract NoorGovernance is
      * @dev Requires 3/5 council supermajority via proposal
      */
     function addCouncilMember(address member) external onlyGovernance {
-        require(member != address(0), "NoorGovernance: ZERO_ADDRESS");
-        require(!isCouncilMember[member], "NoorGovernance: ALREADY_MEMBER");
+        require(member != address(0), "NorGovernance: ZERO_ADDRESS");
+        require(!isCouncilMember[member], "NorGovernance: ALREADY_MEMBER");
 
         _grantRole(COUNCIL_ROLE, member);
         councilMembers.push(member);
@@ -143,8 +143,8 @@ contract NoorGovernance is
      * @dev Requires 3/5 council supermajority via proposal
      */
     function removeCouncilMember(address member) external onlyGovernance {
-        require(isCouncilMember[member], "NoorGovernance: NOT_MEMBER");
-        require(councilMembers.length > 3, "NoorGovernance: MIN_COUNCIL_SIZE");
+        require(isCouncilMember[member], "NorGovernance: NOT_MEMBER");
+        require(councilMembers.length > 3, "NorGovernance: MIN_COUNCIL_SIZE");
 
         _revokeRole(COUNCIL_ROLE, member);
         isCouncilMember[member] = false;
@@ -174,7 +174,7 @@ contract NoorGovernance is
      * @notice Adds a validator to the DAO
      */
     function addValidator(address validator) external onlyRole(COUNCIL_ROLE) {
-        require(validator != address(0), "NoorGovernance: ZERO_ADDRESS");
+        require(validator != address(0), "NorGovernance: ZERO_ADDRESS");
         _grantRole(VALIDATOR_ROLE, validator);
         emit ValidatorAdded(validator);
     }
@@ -206,14 +206,14 @@ contract NoorGovernance is
     ) public returns (uint256) {
         // Verify proposer has appropriate role
         if (proposalType == ProposalType.COUNCIL) {
-            require(hasRole(COUNCIL_ROLE, msg.sender), "NoorGovernance: NOT_COUNCIL");
+            require(hasRole(COUNCIL_ROLE, msg.sender), "NorGovernance: NOT_COUNCIL");
         } else if (proposalType == ProposalType.VALIDATOR) {
-            require(hasRole(VALIDATOR_ROLE, msg.sender), "NoorGovernance: NOT_VALIDATOR");
+            require(hasRole(VALIDATOR_ROLE, msg.sender), "NorGovernance: NOT_VALIDATOR");
         } else {
             // Community proposal requires minimum stake
             require(
                 getVotes(msg.sender, block.number - 1) >= COMMUNITY_MIN_STAKE,
-                "NoorGovernance: INSUFFICIENT_STAKE"
+                "NorGovernance: INSUFFICIENT_STAKE"
             );
         }
 

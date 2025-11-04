@@ -9,16 +9,16 @@ import "@openzeppelin/contracts/access/Ownable.sol";
  * @dev Simple event emitter for cross-chain settlement
  *
  * Architecture:
- * - XaheenRouter calls emitFill() after each trade
+ * - NorRouter calls emitFill() after each trade
  * - Events are picked up by off-chain relayer
- * - Relayer forwards receipts to SettlementHub on Xaheen
+ * - Relayer forwards receipts to SettlementHub on Nor
  * - Nonce-tracked to prevent replays
  */
 contract SettlementInbox is Ownable {
 
     // ============ State Variables ============
 
-    /// @notice XaheenRouter address (only authorized caller)
+    /// @notice NorRouter address (only authorized caller)
     address public router;
 
     /// @notice Fill nonce for ordering
@@ -33,7 +33,7 @@ contract SettlementInbox is Ownable {
      * @notice Fill event emitted when a trade is executed
      * @param fillId Unique fill identifier
      * @param trader User who executed the trade
-     * @param xhtDelta Net XHT change (positive = bought, negative = sold)
+     * @param xhtDelta Net NOR change (positive = bought, negative = sold)
      * @param cashDelta Payment amount in USD (18 decimals)
      * @param nonce Fill nonce for ordering
      * @param timestamp Block timestamp
@@ -69,7 +69,7 @@ contract SettlementInbox is Ownable {
      * @notice Emit fill event for relayer pickup
      * @param fillId Unique fill identifier (from router)
      * @param trader User who executed the trade
-     * @param xhtDelta Net XHT change
+     * @param xhtDelta Net NOR change
      * @param cashDelta Payment amount
      */
     function emitFill(
@@ -99,7 +99,7 @@ contract SettlementInbox is Ownable {
 
     /**
      * @notice Update router address
-     * @param newRouter New XaheenRouter address
+     * @param newRouter New NorRouter address
      */
     function updateRouter(address newRouter) external onlyOwner {
         require(newRouter != address(0), "Invalid router");

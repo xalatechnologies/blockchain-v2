@@ -1,10 +1,10 @@
-# Xaheen Cross-Chain Relayer
+# Nor Cross-Chain Relayer
 
 Event monitoring and receipt forwarding service for cross-chain settlement.
 
 ## Purpose
 
-Monitor `Fill` events from spoke chains (BSC, Polygon, Ethereum) and forward signed receipts to `SettlementHub` on Xaheen Chain for final settlement.
+Monitor `Fill` events from spoke chains (BSC, Polygon, Ethereum) and forward signed receipts to `SettlementHub` on Nor Chain for final settlement.
 
 ## Architecture
 
@@ -29,7 +29,7 @@ Monitor `Fill` events from spoke chains (BSC, Polygon, Ethereum) and forward sig
 │                            ▼                             │
 │                   ┌────────────────┐                     │
 │                   │ SettlementHub  │                     │
-│                   │ (Xaheen Chain) │                     │
+│                   │ (Nor Chain) │                     │
 │                   └────────────────┘                     │
 └─────────────────────────────────────────────────────────┘
 ```
@@ -40,8 +40,8 @@ Monitor `Fill` events from spoke chains (BSC, Polygon, Ethereum) and forward sig
 
 ```
 1. SettlementInbox emits Fill event on spoke
-   └─> XaheenRouter executed trade
-       └─> User bought/sold XHT
+   └─> NorRouter executed trade
+       └─> User bought/sold NOR
 
 2. EventMonitor detects event
    └─> Waits for confirmations (BSC: 15, Polygon: 128, ETH: 12)
@@ -69,7 +69,7 @@ npm install
 ### Environment Variables (.env)
 
 ```bash
-# Xaheen Chain (Hub)
+# Nor Chain (Hub)
 PRIVATE_CHAIN_RPC=https://rpc.xaheen.org
 SETTLEMENT_HUB_ADDRESS=0x[HUB_ADDRESS]
 PRICE_AUTHORITY_ADDRESS=0x[PRICE_AUTHORITY]
@@ -111,7 +111,7 @@ npm start
 
 **Output:**
 ```
-🔗 Xaheen Cross-Chain Relayer Starting...
+🔗 Nor Cross-Chain Relayer Starting...
 
 📤 Initializing Receipt Forwarder...
 ✅ Receipt Forwarder initialized (0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb)
@@ -141,7 +141,7 @@ npm start
 📥 New Fill event on BSC:
    Fill ID: 0x1234...
    Trader: 0x5678...
-   XHT Delta: 1000.0
+   NOR Delta: 1000.0
    Block: 35123470
 
    ⏳ Waiting for 15 more blocks (~45s)...
@@ -402,7 +402,7 @@ npm start
 
 ```bash
 # 1. Execute test trade on spoke
-await xaheenRouter.buyXHT(...)
+await xaheenRouter.buyNOR(...)
 
 # 2. Watch relayer logs
 📥 New Fill event on BSC Testnet:

@@ -9,15 +9,15 @@
 ## ✅ What's Complete
 
 ### Infrastructure (100% Done)
-- ✅ Xaheen Chain running (3-second blocks)
+- ✅ Nor Chain running (3-second blocks)
 - ✅ RPC endpoint: https://rpc.xaheen.org
 - ✅ DEX deployed and operational
-- ✅ 600M WXHT liquidity (you control 99.99%)
+- ✅ 600M WNOR liquidity (you control 99.99%)
 - ✅ Trading tested and confirmed working
-- ✅ Treasury: 20 billion XHT
+- ✅ Treasury: 20 billion NOR
 
 ### Smart Contracts (100% Done)
-- ✅ WXHT: `0x26c0eaF731885b14c031cc50dB79b36458E0b355`
+- ✅ WNOR: `0x26c0eaF731885b14c031cc50dB79b36458E0b355`
 - ✅ Router: `0x50BbB1c9b6fe957AEc1145cb1a9D8EB51A2BE916`
 - ✅ Factory: `0xBE254176B4f13b02f367a9feCE599ee8887E2D34`
 - ✅ Staking: `0xbA554577De2d3eE1AdE77737Dc32717527E0cA86`
@@ -25,12 +25,12 @@
 - ✅ Burn: `0xA609ad73915f72a824b1bFEACd5cA3027490d5b9`
 
 ### Fiat On-Ramp (90% Done - Needs API Key)
-- ✅ MoonPay widget built: `frontend/BuyXHT.html`
+- ✅ MoonPay widget built: `frontend/BuyNOR.html`
 - ✅ Transak widget built: `frontend/transak-integration.html`
 - ⏳ Need: Sign up for MoonPay/Transak API key (1-3 days)
 
 ### Bridge to BSC (Ready to Deploy)
-- ✅ Bridge contract: `contracts/XHTBridgeToken.sol`
+- ✅ Bridge contract: `contracts/NORBridgeToken.sol`
 - ✅ Deployment script: `scripts/deploy-xht-bsc.js`
 - ✅ Full guide: `DEPLOY_BRIDGE_NOW.md`
 - ⏳ Need: Execute deployment (1 hour + $5,150)
@@ -58,7 +58,7 @@ TODAY:
 2. Wait 1-3 days for approval
 
 WHEN APPROVED:
-3. Update BuyXHT.html with API key (5 min)
+3. Update BuyNOR.html with API key (5 min)
 4. Deploy widget to your website (10 min)
 5. Launch marketing ($1,000 budget)
 
@@ -149,35 +149,35 @@ Benefit: Scale with confidence
 3. Clicks "Buy with Card"
 4. MoonPay window opens
 5. User enters card details
-6. MoonPay swaps USDT → XHT on YOUR Xaheen DEX
-7. 30 seconds later: XHT in user's wallet!
+6. MoonPay swaps USDT → NOR on YOUR Nor DEX
+7. 30 seconds later: NOR in user's wallet!
 
 YOU EARNED:
 ├─ Trading fee: $0.30
 ├─ Spread profit: $2.00
 └─ Total: $2.30 per sale
 
-Plus: Your treasury XHT appreciates! 💎
+Plus: Your treasury NOR appreciates! 💎
 ```
 
 ### The User Journey (With BSC Bridge):
 
 ```
 OPTION A: Buy with Fiat
-└─ Same as above (on Xaheen)
+└─ Same as above (on Nor)
 
 OPTION B: Buy on PancakeSwap
-└─ User swaps BNB/USDT → XHT on BSC
+└─ User swaps BNB/USDT → NOR on BSC
 
 OPTION C: Arbitrage Bot
-1. Bot sees: Xaheen $0.001, BSC $0.002
-2. Bot buys on Xaheen ($1,000)
+1. Bot sees: Nor $0.001, BSC $0.002
+2. Bot buys on Nor ($1,000)
 3. Bot bridges to BSC ($10 fee)
 4. Bot sells on BSC ($2,000)
 5. Bot profit: $990
 
 YOU EARNED:
-├─ Trading fee on Xaheen: $3
+├─ Trading fee on Nor: $3
 ├─ Bridge fee: $10
 ├─ Treasury appreciation: HUGE
 └─ Total: Massive! 💰
@@ -240,7 +240,7 @@ YOU EARNED:
 8. Launch!
 
 **Files You Need:**
-- `frontend/BuyXHT.html` (widget)
+- `frontend/BuyNOR.html` (widget)
 - `START_HERE.md` (guide)
 - `docs/EXECUTION_CHECKLIST.md` (daily tasks)
 
@@ -265,7 +265,7 @@ YOU EARNED:
 
 **Files You Need:**
 - `DEPLOY_BRIDGE_NOW.md` (bridge deployment)
-- `frontend/BuyXHT.html` (fiat widget)
+- `frontend/BuyNOR.html` (fiat widget)
 - `docs/CONNECTING_TWO_WORLDS.md` (bridge strategy)
 
 ---
