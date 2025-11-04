@@ -7,16 +7,16 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 /**
- * @title XHN - Nor Network Token
+ * @title NRG - Nor Revenue Governance Token
  * @notice Governance and value capture token for Nor ecosystem
  * @dev Features: Revenue sharing, staking, governance, buyback & burn
  *
  * Key Differentiation from NOR and BTCBR:
  * - NOR: Native gas token (utility)
  * - BTCBR: Trading/utility token (volume)
- * - XHN: Governance & value capture (revenue sharing)
+ * - NRG: Governance & value capture (revenue sharing)
  */
-contract XHN is ERC20, AccessControl, Pausable, ReentrancyGuard {
+contract NRG is ERC20, AccessControl, Pausable, ReentrancyGuard {
 
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
@@ -49,7 +49,7 @@ contract XHN is ERC20, AccessControl, Pausable, ReentrancyGuard {
     uint256 public totalBurned;
 
     // Tokenomics
-    uint256 public constant MAX_SUPPLY = 1_000_000_000 * 10**18; // 1 billion XHN
+    uint256 public constant MAX_SUPPLY = 1_000_000_000 * 10**18; // 1 billion NRG
     uint256 public constant INITIAL_SUPPLY = 100_000_000 * 10**18; // 100M initial (10%)
     uint256 public constant TEAM_ALLOCATION = 200_000_000 * 10**18; // 200M (20%)
     uint256 public constant ECOSYSTEM_FUND = 300_000_000 * 10**18; // 300M (30%)
@@ -69,11 +69,11 @@ contract XHN is ERC20, AccessControl, Pausable, ReentrancyGuard {
     event Unstaked(address indexed user, uint256 amount, uint256 rewards, uint256 stakeIndex);
     event RewardsClaimed(address indexed user, uint256 amount);
     event RevenueDistributed(uint256 amount, uint256 timestamp);
-    event BuybackAndBurn(uint256 amountNOR, uint256 amountXHN, uint256 burned);
+    event BuybackAndBurn(uint256 amountNOR, uint256 amountNRG, uint256 burned);
     event GovernanceProposal(uint256 indexed proposalId, address proposer, string description);
     event GovernanceVote(uint256 indexed proposalId, address voter, uint256 votes, bool support);
 
-    constructor(address _treasury, address _dexRouter) ERC20("Nor", "XHN") {
+    constructor(address _treasury, address _dexRouter) ERC20("Nor Revenue Governance", "NRG") {
         require(_treasury != address(0), "Invalid treasury");
         require(_dexRouter != address(0), "Invalid router");
 
@@ -96,8 +96,8 @@ contract XHN is ERC20, AccessControl, Pausable, ReentrancyGuard {
     }
 
     /**
-     * @notice Stake XHN tokens to earn revenue share
-     * @param amount Amount of XHN to stake
+     * @notice Stake NRG tokens to earn revenue share
+     * @param amount Amount of NRG to stake
      * @param lockPeriod Lock period in days (30, 90, 180, 365)
      */
     function stake(uint256 amount, uint256 lockPeriod) external nonReentrant whenNotPaused {
@@ -127,7 +127,7 @@ contract XHN is ERC20, AccessControl, Pausable, ReentrancyGuard {
     }
 
     /**
-     * @notice Unstake XHN tokens and claim rewards
+     * @notice Unstake NRG tokens and claim rewards
      * @param stakeIndex Index of the stake to unstake
      */
     function unstake(uint256 stakeIndex) external nonReentrant {
@@ -221,7 +221,7 @@ contract XHN is ERC20, AccessControl, Pausable, ReentrancyGuard {
     }
 
     /**
-     * @notice Distribute protocol revenue to XHN stakers
+     * @notice Distribute protocol revenue to NRG stakers
      * @dev Called by protocol contracts (DEX, bridges, etc.)
      */
     function distributeRevenue() external payable nonReentrant {
@@ -263,8 +263,8 @@ contract XHN is ERC20, AccessControl, Pausable, ReentrancyGuard {
      */
     function _executeBuybackAndBurn(uint256 amountNOR) private {
         // This would integrate with the NorDEXRouter to:
-        // 1. Swap NOR for XHN
-        // 2. Burn the purchased XHN
+        // 1. Swap NOR for NRG
+        // 2. Burn the purchased NRG
 
         // For now, just track the buyback amount
         // Full implementation requires DEX integration
@@ -308,7 +308,7 @@ contract XHN is ERC20, AccessControl, Pausable, ReentrancyGuard {
     }
 
     /**
-     * @notice Mint new XHN tokens (controlled)
+     * @notice Mint new NRG tokens (controlled)
      * @param to Recipient address
      * @param amount Amount to mint
      */
@@ -318,7 +318,7 @@ contract XHN is ERC20, AccessControl, Pausable, ReentrancyGuard {
     }
 
     /**
-     * @notice Burn XHN tokens
+     * @notice Burn NRG tokens
      * @param amount Amount to burn
      */
     function burn(uint256 amount) external {

@@ -1,0 +1,145 @@
+{
+  "project": {
+    "name": "Nor Chain",
+    "symbol": "NOR",
+    "chainId": 65001,
+    "consensus": "Parlia Proof-of-Staked-Authority",
+    "epoch": 10000,
+    "blockTime": 3,
+    "gasLimit": "0x2FAF080"
+  },
+  "validators": {
+    "active": 3,
+    "standby": 2,
+    "addresses": [
+      "0x15f0f5b738bc2b1ab8cd68e4674769a89bf5390a",
+      "0x689cf2c189781d9bb6859a830acbf64044e4432f",
+      "0xbb64f4050fc21a2ec3506245a1ad63cb0256b6de"
+    ],
+    "bootnode": "0xdd779a290c937144f80eb75b75d814c834536b1b"
+  },
+  "tokens": {
+    "native": {
+      "name": "Nor Token",
+      "symbol": "NOR",
+      "address": "0x0000000000000000000000000000000000000000",
+      "type": "native",
+      "supply": "1000000000"
+    },
+    "btcbr": {
+      "name": "Bitcoin Reserve",
+      "symbol": "BTCBR",
+      "address": "0x0cF8e180350253271f4b917CcFb0aCCc4862F262",
+      "type": "utility",
+      "supply": "21000000000000000000000000"
+    },
+    "nrg": {
+      "name": "Nor Revenue Governance",
+      "symbol": "NRG",
+      "address": "0x1111111111111111111111111111111111111111",
+      "type": "governance",
+      "supply": "1000000000"
+    },
+    "dirhamat": {
+      "name": "Dirham Stablecoin",
+      "symbol": "Dirhamat",
+      "address": "0x2222222222222222222222222222222222222222",
+      "type": "stablecoin",
+      "supply": "0"
+    }
+  },
+  "dex": {
+    "factory": {
+      "name": "NorSwapFactory",
+      "address": "0x3333333333333333333333333333333333333333",
+      "contracts": [
+        "NorSwapFactory.sol",
+        "NorSwapPair.sol",
+        "NorSwapRouter.sol"
+      ]
+    },
+    "router": {
+      "name": "NorSwapRouter",
+      "address": "0x4444444444444444444444444444444444444444"
+    },
+    "wrapped": {
+      "wnor": {
+        "name": "WNOR",
+        "address": "0x5555555555555555555555555555555555555555"
+      }
+    }
+  },
+  "bridges": {
+    "crosschain": {
+      "name": "CrossChainBridge",
+      "address": "0x6666666666666666666666666666666666666666"
+    },
+    "btcbrMainnet": {
+      "name": "BTCBRBridgeMainnet",
+      "address": "0x7777777777777777777777777777777777777777"
+    },
+    "btcbrPrivate": {
+      "name": "BTCBRBridgePrivate",
+      "address": "0x8888888888888888888888888888888888888888"
+    }
+  },
+  "oracles": {
+    "priceOracle": {
+      "name": "PriceOracle",
+      "address": "0x9999999999999999999999999999999999999999"
+    },
+    "chainlinkAggregator": {
+      "name": "ChainlinkPriceAggregator",
+      "address": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  },
+  "governance": {
+    "norGovernance": {
+      "name": "NorGovernance",
+      "address": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    }
+  },
+  "staking": {
+    "norStaking": {
+      "name": "NorStaking",
+      "address": "0xcccccccccccccccccccccccccccccccccccccccc"
+    },
+    "norFarming": {
+      "name": "NorFarming",
+      "address": "0xdddddddddddddddddddddddddddddddddddddddd"
+    }
+  },
+  "tokenomics": {
+    "burnMechanism": {
+      "name": "NORBurnMechanism",
+      "address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    },
+    "revenue": {
+      "name": "NORRevenue",
+      "address": "0xffffffffffffffffffffffffffffffffffffffff"
+    }
+  },
+  "liquidity": {
+    "lock": {
+      "name": "LiquidityLock",
+      "address": "0x1212121212121212121212121212121212121212"
+    }
+  },
+  "initialLiquidity": {
+    "pairs": [
+      {
+        "name": "BTCBR/WNOR",
+        "token0": "BTCBR",
+        "token1": "WNOR",
+        "address": "0x1313131313131313131313131313131313131313",
+        "initialLiquidity": "800000",
+        "initialPrice": "1000000000000000000"
+      }
+    ]
+  },
+  "visibility": {
+    "blockExplorer": "https://explorer.norchain.io",
+    "rpcEndpoint": "http://3.91.50.187:8545",
+    "websocket": "ws://3.91.50.187:8546"
+  }
+}
