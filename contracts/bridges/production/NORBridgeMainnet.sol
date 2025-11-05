@@ -8,14 +8,14 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
 /**
- * @title XHNBridgeMainnet
- * @notice Bridge contract for XHN on BSC Mainnet side
- * @dev Locks XHN tokens on mainnet for transfer to private chain
+ * @title NORBridgeMainnet
+ * @notice Bridge contract for NOR on BSC Mainnet side
+ * @dev Locks NOR tokens on mainnet for transfer to private chain
  */
-contract XHNBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
+contract NORBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
     using ECDSA for bytes32;
 
-    IERC20 public immutable xhn;
+    IERC20 public immutable nor;
 
     uint256 public requiredSignatures;
     uint256 public minTransferAmount;
@@ -56,13 +56,13 @@ contract XHNBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
     event ValidatorRemoved(address indexed validator);
 
     constructor(
-        address _xhn,
+        address _nor,
         uint256 _requiredSignatures
     ) {
-        require(_xhn != address(0), "Invalid token address");
+        require(_nor != address(0), "Invalid token address");
         require(_requiredSignatures > 0, "Invalid signature requirement");
 
-        xhn = IERC20(_xhn);
+        nor = IERC20(_nor);
         requiredSignatures = _requiredSignatures;
 
         minTransferAmount = 100 * 10**18;
@@ -89,7 +89,7 @@ contract XHNBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
         uint256 netAmount = amount - fee;
 
         require(
-            xhn.transferFrom(msg.sender, address(this), amount),
+            nor.transferFrom(msg.sender, address(this), amount),
             "Transfer failed"
         );
 
@@ -141,7 +141,7 @@ contract XHNBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
         processedNonces[nonce] = true;
         totalReleased += amount;
 
-        require(xhn.transfer(recipient, amount), "Transfer failed");
+        require(nor.transfer(recipient, amount), "Transfer failed");
 
         emit Released(recipient, amount, nonce, block.timestamp);
     }
@@ -201,7 +201,7 @@ contract XHNBridgeMainnet is Ownable, Pausable, ReentrancyGuard {
         uint256 fees = totalFees;
         totalFees = 0;
 
-        require(xhn.transfer(recipient, fees), "Transfer failed");
+        require(nor.transfer(recipient, fees), "Transfer failed");
     }
 
     function pause() external onlyOwner {

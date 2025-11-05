@@ -44,8 +44,8 @@ export default {
       type: "http",
       url: process.env.PRIVATE_CHAIN_RPC || "https://rpc.norchain.org", // migrating from rpc.xaheen.org
       chainId: 65001,
-      accounts: process.env.PRIVATE_CHAIN_KEY
-        ? [process.env.PRIVATE_CHAIN_KEY]
+      accounts: process.env.MAIN_WALLET_PRIVATE_KEY
+        ? [process.env.MAIN_WALLET_PRIVATE_KEY]
         : [],
       gasPrice: 3000000000, // 3 gwei (increased for faster deployment)
       gas: 8000000, // 8M gas limit

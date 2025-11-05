@@ -24,6 +24,8 @@
 
 **Note**: Validators 2 and 3 were previously on old network (885824) but have been reinitialized with the correct network ID (65001) and genesis file.
 
+**Static Nodes**: ✅ Configured - All validators have static-nodes.json with all 3 enode addresses for peer connections.
+
 ---
 
 ## ⚠️ Issues Identified

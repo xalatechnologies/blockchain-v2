@@ -21,7 +21,7 @@ async function main() {
 
   // Token addresses on BSC
   const BTCBR_BSC = "0x03FC6dA7C9E48201b8FEC1Ca53EA62eA6514d48f";
-  const XHN_BSC = "0x1777C32Da09d4FD65a74B6C9AFca17862423Fd1C";
+  const NOR_BSC = "0x1777C32Da09d4FD65a74B6C9AFca17862423Fd1C";
 
   // Validators (same as Nor)
   const validators = [
@@ -32,7 +32,7 @@ async function main() {
 
   console.log("\n🔧 CONFIGURATION:");
   console.log("  BTCBR on BSC:", BTCBR_BSC);
-  console.log("  XHN on BSC:", XHN_BSC);
+  console.log("  NOR on BSC:", NOR_BSC);
   console.log("  Validators:", validators.length);
   console.log("  Required signatures: 2 of 3");
 
@@ -88,29 +88,29 @@ async function main() {
   console.log("  ✅ Fee: 0.1% (10 basis points)");
 
   console.log("\n" + "=".repeat(70));
-  console.log("PART 2: XHN BRIDGE");
+  console.log("PART 2: NOR BRIDGE");
   console.log("=".repeat(70));
 
-  // Deploy XHN Bridge
-  console.log("\n[4/6] Deploying XHNBridgeMainnet...");
-  const XHNBridgeMainnet = await ethers.getContractFactory("XHNBridgeMainnet");
-  const xhnBridge = await XHNBridgeMainnet.deploy(XHN_BSC, 2);
-  await xhnBridge.waitForDeployment();
-  const xhnBridgeAddr = await xhnBridge.getAddress();
-  console.log("  ✅ Deployed at:", xhnBridgeAddr);
+  // Deploy NOR Bridge
+  console.log("\n[4/6] Deploying NORBridgeMainnet...");
+  const NORBridgeMainnet = await ethers.getContractFactory("NORBridgeMainnet");
+  const norBridge = await NORBridgeMainnet.deploy(NOR_BSC, 2);
+  await norBridge.waitForDeployment();
+  const norBridgeAddr = await norBridge.getAddress();
+  console.log("  ✅ Deployed at:", norBridgeAddr);
 
   // Add validators
-  console.log("\n[5/6] Adding validators to XHN bridge...");
+  console.log("\n[5/6] Adding validators to NOR bridge...");
   for (const validator of validators) {
-    const tx = await xhnBridge.addValidator(validator);
+    const tx = await norBridge.addValidator(validator);
     await tx.wait();
     console.log("  ✅ Added:", validator);
   }
 
   // Set limits
-  console.log("\n[6/6] Setting XHN bridge limits...");
+  console.log("\n[6/6] Setting NOR bridge limits...");
   await (
-    await xhnBridge.setLimits(
+    await norBridge.setLimits(
       ethers.parseEther("100"),
       ethers.parseEther("100000"),
       ethers.parseEther("500000")
@@ -119,8 +119,8 @@ async function main() {
   console.log("  ✅ Limits configured");
 
   // Set fee
-  console.log("\nSetting XHN bridge fee...");
-  await (await xhnBridge.setBridgeFee(10)).wait(); // 0.1%
+  console.log("\nSetting NOR bridge fee...");
+  await (await norBridge.setBridgeFee(10)).wait(); // 0.1%
   console.log("  ✅ Fee: 0.1% (10 basis points)");
 
   console.log("\n" + "=".repeat(70));
