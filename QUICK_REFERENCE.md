@@ -44,18 +44,43 @@ ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@3.91.50.187 \
 
 ---
 
-## 🌐 Reserved Contract Addresses
+## 🌐 Contract Addresses
+
+### NorChain Contracts
 
 | Contract | Address | Status |
 |----------|---------|--------|
 | **BTCBR** | `0x0cF8e180350253271f4b917CcFb0aCCc4862F262` | ✅ **Deployed & Operational** |
-| **NOR_TOKEN** | `0x0cf8e180350253271f4b917ccfb0accc4862f263` | ⏳ Ready to Deploy |
-| **NOORSWAP_FACTORY** | `0x0cf8e180350253271f4b917ccfb0accc4862f264` | ⏳ Ready to Deploy |
-| **NOORSWAP_ROUTER** | `0x0cf8e180350253271f4b917ccfb0accc4862f265` | ⏳ Ready to Deploy |
-| **DIRHAMAT** | `0x0cf8e180350253271f4b917ccfb0accc4862f266` | ⏳ Ready to Deploy |
-| **DIGITAL_KES** | `0x0cf8e180350253271f4b917ccfb0accc4862f267` | ⏳ Ready to Deploy |
-| **NORDCOIN** | `0x0cf8e180350253271f4b917ccfb0accc4862f268` | ⏳ Ready to Deploy |
-| **WNOR** | `0x0cf8e180350253271f4b917ccfb0accc4862f269` | ⏳ Ready to Deploy |
+| **NOR Token** | `0xbe0d0ec34A93a2Ec08492715a51C613B7E530D80` | ✅ **Deployed** |
+| **NOR Bridge (NorChain)** | `0xe447647577cc340B0D853F9A8F052E9BF5D673c1` | ✅ **Deployed** |
+
+### BSC Mainnet Contracts
+
+| Contract | Address | Status |
+|----------|---------|--------|
+| **NOR_BSC Token** | `0x7C9B26Ad3b26cAab39f9945B40B2c30309ed490E` | ✅ **Deployed** |
+| **NOR Bridge (BSC)** | `0x75dc5817e128a60920964Ff12Bcc17480c8e57B1` | ✅ **Deployed** |
+| **PancakeSwap NOR/BNB Pool** | Created Nov 5, 2025 | ✅ **Active** |
+
+**Bridge Status**: ✅ Fully operational with 1:1 backing verified
+
+**Liquidity Status**: ✅ $19.09 on PancakeSwap V2
+- Pool: 1,000 NOR + 0.01 BNB
+- Initial Price: ~$0.006 per NOR
+- Transaction: `0x05f342a2509ef4d293ac82d158094683ab614f5e565d34221c06dd84dcbeb191`
+- DEX Aggregators: Indexing in progress (10-30 minutes for full data)
+
+### Reserved Addresses (Future Deployment)
+
+| Contract | Address | Status |
+|----------|---------|--------|
+| **NOR_TOKEN (NorChain)** | `0x0cf8e180350253271f4b917ccfb0accc4862f263` | ⏳ Reserved |
+| **NOORSWAP_FACTORY** | `0x0cf8e180350253271f4b917ccfb0accc4862f264` | ⏳ Reserved |
+| **NOORSWAP_ROUTER** | `0x0cf8e180350253271f4b917ccfb0accc4862f265` | ⏳ Reserved |
+| **DIRHAMAT** | `0x0cf8e180350253271f4b917ccfb0accc4862f266` | ⏳ Reserved |
+| **DIGITAL_KES** | `0x0cf8e180350253271f4b917ccfb0accc4862f267` | ⏳ Reserved |
+| **NORDCOIN** | `0x0cf8e180350253271f4b917ccfb0accc4862f268` | ⏳ Reserved |
+| **WNOR** | `0x0cf8e180350253271f4b917ccfb0accc4862f269` | ⏳ Reserved |
 
 ### BTCBR Contract Details
 
@@ -65,6 +90,67 @@ ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@3.91.50.187 \
 - ✅ Token symbol: "BTCBR"
 - ✅ Decimals: 18
 - ✅ All ERC-20 functions operational
+
+---
+
+## 💰 NOR_BSC Price Discovery & DEX Aggregators
+
+### Current DEX Status (as of liquidity addition)
+
+**DexTools Status**: ⏳ Indexing in progress
+- ✅ Liquidity Detected: $19.09
+- ✅ Supply Detected: 10M NOR
+- ✅ Holders Detected: 2
+- ⏳ Market Cap: $0 (awaiting price calculation)
+- ⏳ 24h Volume: $0 (no trades yet)
+
+**Why Market Cap Shows $0**: This is **completely normal** for brand new tokens!
+
+### DEX Aggregator Indexing Timeline
+
+| Timeframe | What Happens |
+|-----------|--------------|
+| **0-10 min** | ✅ Basic pair detection (liquidity, supply) |
+| **10-30 min** | ⏳ Price calculation and validation |
+| **30-60 min** | ⏳ Market cap updates |
+| **1-2 hours** | ⏳ Chart becomes active with data |
+| **24 hours** | Full historical data and analytics |
+
+**Expected Values Once Fully Indexed:**
+- Price: ~$0.006 per NOR
+- Market Cap: ~$60,000 (10M supply × $0.006)
+- Total Liquidity: ~$12-20 (varies with trades)
+
+### Check Price Discovery
+
+**DexScreener** (preferred - usually faster):
+```
+https://dexscreener.com/bsc/0x7c9b26ad3b26caab39f9945b40b2c30309ed490e
+```
+
+**DexTools**:
+```
+https://www.dextools.io/app/en/bnb/pair-explorer/0x7c9b26ad3b26caab39f9945b40b2c30309ed490e
+```
+
+**PancakeSwap Info**:
+```
+https://pancakeswap.finance/info/v2/tokens/0x7c9b26ad3b26caab39f9945b40b2c30309ed490e
+```
+
+### Troubleshooting Price Display
+
+**If price still shows $0 after 2 hours:**
+1. Verify liquidity pool exists on PancakeSwap
+2. Check if there have been any trades (volume > 0)
+3. Try different aggregator (DexScreener vs DexTools)
+4. Consider adding more liquidity (current is minimal)
+5. Make a small test trade to trigger indexing
+
+**Current Liquidity Is Very Low**: $12-20 total liquidity means:
+- High slippage for trades
+- Price volatility with small trades
+- May need $100-500 liquidity for smooth trading
 
 ---
 

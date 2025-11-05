@@ -30,6 +30,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **WebSocket Port**: 8546
 - **P2P Port**: 30303
 
+### NOR Bridge System (Nov 5, 2025)
+
+**Status**: ✅ **FULLY OPERATIONAL** with 1:1 backing verified
+
+**NorChain Contracts**:
+- NOR Token: `0xbe0d0ec34A93a2Ec08492715a51C613B7E530D80`
+- NOR Bridge (NorChain): `0xe447647577cc340B0D853F9A8F052E9BF5D673c1`
+
+**BSC Mainnet Contracts**:
+- NOR_BSC Token: `0x7C9B26Ad3b26cAab39f9945B40B2c30309ed490E`
+- NOR Bridge (BSC): `0x75dc5817e128a60920964Ff12Bcc17480c8e57B1`
+- PancakeSwap NOR/BNB Pool: ✅ Active ($19.09 liquidity)
+
+**Bridge Validation**: Lock/unlock on NorChain ↔ Mint/burn on BSC with verified 1:1 backing
+
+**Liquidity Addition** (Nov 5, 2025):
+- Pool Created: 1,000 NOR + 0.01 BNB (~$6)
+- Initial Price: ~$0.006 per NOR
+- Expected Market Cap: ~$60,000 (for 10M supply)
+- Transaction: `0x05f342a2509ef4d293ac82d158094683ab614f5e565d34221c06dd84dcbeb191`
+- DEX Aggregators: Indexing (10-30 min for price, 1-2 hours for full data)
+
+**Important Note**: New tokens typically show "Market Cap: $0" on DexTools for the first 30-60 minutes while price calculations are being indexed. This is normal behavior.
+
 ### Core Philosophy
 
 1. **Ethical by Design** — No interest (riba), no gharar (excessive uncertainty), transparent risk-sharing
@@ -295,6 +319,34 @@ node scripts/deploy-mintable-btcbr.js
 # Atomic swap helper
 node scripts/atomic-swap-helper.js
 ```
+
+### NOR Bridge & Liquidity Operations
+
+```bash
+# Deploy NOR bridge components
+node scripts/deploy-nor-bridge.js
+node scripts/deploy-nor-chain-handler.js --network btcbr
+node scripts/deploy-nor-bsc-token.js --network bsc
+
+# Test bridge transfer
+node scripts/test-nor-bridge.js
+
+# Add liquidity to PancakeSwap (WORKING VERSION)
+node scripts/add-nor-bnb-liquidity-fixed.js
+
+# Check available liquidity options
+node scripts/check-liquidity-options.js
+
+# Debug PancakeSwap liquidity issues
+node scripts/debug-pancake-liquidity.js
+```
+
+**Critical**: When adding liquidity to new pairs, ALWAYS estimate gas dynamically:
+```javascript
+const gasEstimate = await router.addLiquidityETH.estimateGas(...);
+const gasLimit = (gasEstimate * 120n) / 100n;  // +20% buffer
+```
+Hardcoded gas limits (like 500k) will fail for new pair creation which requires ~3.5M gas.
 
 ## Critical Configuration Files
 
@@ -582,6 +634,55 @@ dotenvConfig();
 3. Check deployer has BNB for gas on private chain
 4. Use `--network btcbr` flag with correct RPC URL
 
+### DEX aggregators show Market Cap $0 after adding liquidity
+
+**This is NORMAL for new tokens!** DEX aggregators need time to index and calculate prices.
+
+**Typical Timeline:**
+- ✅ 0-10 min: Liquidity and supply detected
+- ⏳ 10-30 min: Price calculation in progress
+- ⏳ 30-60 min: Market cap updates
+- ⏳ 1-2 hours: Chart becomes active
+- ⏳ 24 hours: Full historical data
+
+**What you'll see during indexing:**
+- Liquidity: ✅ Shows correct value
+- Supply: ✅ Shows correct value
+- Holders: ✅ Shows correct count
+- Market Cap: ❌ Shows $0 (temporary)
+- 24h Volume: ❌ Shows $0 (no trades yet)
+
+**If still showing $0 after 2 hours:**
+1. Check pool exists: https://pancakeswap.finance/liquidity
+2. Verify transaction succeeded on BSCScan
+3. Try different aggregator (DexScreener often faster than DexTools)
+4. Make a small test trade to trigger indexing
+5. Consider adding more liquidity (very low liquidity may not trigger indexing)
+
+**Current minimum liquidity**: ~$20-50 recommended for reliable indexing
+
+### Liquidity addition transaction reverts with no error
+
+**Cause**: Hardcoded gas limit too low for new pair creation
+
+**Solution**: ALWAYS estimate gas dynamically for liquidity operations:
+```javascript
+// Estimate gas first
+const gasEstimate = await router.addLiquidityETH.estimateGas(
+  tokenAddress, amount, minAmount, minETH, to, deadline, { value: ethAmount }
+);
+
+// Add 20% buffer
+const gasLimit = (gasEstimate * 120n) / 100n;
+
+// Use in transaction
+const tx = await router.addLiquidityETH(..., { value: ethAmount, gasLimit });
+```
+
+**Why**: New pair creation requires ~3.5M gas, but most transactions use 200-500k. Hardcoded limits will fail.
+
+**Working Script**: `scripts/add-nor-bnb-liquidity-fixed.js`
+
 ## Documentation Structure
 
 Comprehensive docs in `docs/` folder:
@@ -594,6 +695,9 @@ Comprehensive docs in `docs/` folder:
 - `BRIDGE_TYPES_COMPARISON.md` - Feature comparison matrix
 - `ATOMIC_SWAP_GUIDE.md` - HTLC implementation details
 - `DAY2_BRIDGE_DEPLOYMENT.md` - Post-deployment operations
+- `NOR_BRIDGE_FINAL_COMPLETE.md` - NOR bridge implementation (Nov 2025)
+- `NOR_LIQUIDITY_ADDITION_COMPLETE.md` - Liquidity addition guide (Nov 2025)
+- `ADD_LIQUIDITY_GUIDE.md` - Manual PancakeSwap UI guide
 
 **Infrastructure Documentation:**
 - `MAINNET_PRODUCTION_DEPLOYMENT.md` - Production deployment guide
