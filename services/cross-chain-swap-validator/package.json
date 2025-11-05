@@ -1,0 +1,25 @@
+{
+  "name": "cross-chain-swap-validator",
+  "version": "1.0.0",
+  "description": "Validator service for NorChain cross-chain swap automation",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "norchain",
+    "cross-chain",
+    "swap",
+    "validator",
+    "bridge"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "ethers": "^6.15.0",
+    "dotenv": "^17.2.3"
+  }
+}
