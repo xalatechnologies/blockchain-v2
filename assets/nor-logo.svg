@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+
+    <radialGradient id="lightGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#f59e0b;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Light rays filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Main circle background -->
+  <circle cx="100" cy="100" r="95" fill="url(#bgGradient)"/>
+
+  <!-- Inner glow circle -->
+  <circle cx="100" cy="100" r="70" fill="url(#lightGlow)" opacity="0.6"/>
+
+  <!-- Light rays (8 rays around center) -->
+  <g filter="url(#glow)">
+    <!-- Ray 1 (top) -->
+    <path d="M 100 20 L 105 60 L 95 60 Z" fill="#fbbf24" opacity="0.9"/>
+    <!-- Ray 2 (top-right) -->
+    <path d="M 141.42 41.42 L 129.29 70.71 L 120.71 62.13 Z" fill="#fbbf24" opacity="0.85"/>
+    <!-- Ray 3 (right) -->
+    <path d="M 180 100 L 140 105 L 140 95 Z" fill="#fbbf24" opacity="0.9"/>
+    <!-- Ray 4 (bottom-right) -->
+    <path d="M 158.58 158.58 L 129.29 129.29 L 137.87 120.71 Z" fill="#fbbf24" opacity="0.85"/>
+    <!-- Ray 5 (bottom) -->
+    <path d="M 100 180 L 95 140 L 105 140 Z" fill="#fbbf24" opacity="0.9"/>
+    <!-- Ray 6 (bottom-left) -->
+    <path d="M 41.42 158.58 L 70.71 129.29 L 79.29 137.87 Z" fill="#fbbf24" opacity="0.85"/>
+    <!-- Ray 7 (left) -->
+    <path d="M 20 100 L 60 95 L 60 105 Z" fill="#fbbf24" opacity="0.9"/>
+    <!-- Ray 8 (top-left) -->
+    <path d="M 41.42 41.42 L 70.71 70.71 L 62.13 79.29 Z" fill="#fbbf24" opacity="0.85"/>
+  </g>
+
+  <!-- Central "N" letter stylized as light beam -->
+  <g filter="url(#glow)">
+    <path d="M 70 80 L 80 80 L 80 120 L 70 120 Z" fill="#ffffff" opacity="0.95"/>
+    <path d="M 75 85 L 120 120 L 110 120 L 75 95 Z" fill="#ffffff" opacity="0.95"/>
+    <path d="M 110 80 L 120 80 L 120 120 L 110 120 Z" fill="#ffffff" opacity="0.95"/>
+  </g>
+
+  <!-- Outer ring (border) -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#1e293b" stroke-width="3" opacity="0.2"/>
+</svg>
