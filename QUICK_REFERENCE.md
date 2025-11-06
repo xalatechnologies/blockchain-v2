@@ -154,6 +154,71 @@ https://pancakeswap.finance/info/v2/tokens/0x7c9b26ad3b26caab39f9945b40b2c30309e
 
 ---
 
+## 💧 Additional Liquidity Pairs (USDT & ETH)
+
+### Available Pair Scripts
+
+**Scripts created to expand trading options:**
+
+| Pair | Script | Liquidity | Purpose | Status |
+|------|--------|-----------|---------|--------|
+| **NOR/BNB** | `add-nor-bnb-liquidity-fixed.js` | $19.09 | Price discovery | ✅ **LIVE** |
+| **NOR/USDT** | `add-nor-usdt-liquidity-fixed.js` | ~$40 | Stable price | 📝 Ready |
+| **NOR/ETH** | `add-nor-eth-liquidity-fixed.js` | ~$21 | Advanced traders | 📝 Ready |
+
+### Add USDT Pair
+
+**Recommended**: Provides stable price reference in USDT
+
+```bash
+# Add ~20 USDT + 3,000 NOR liquidity
+node scripts/add-nor-usdt-liquidity-fixed.js
+```
+
+**Benefits**:
+- ✅ Stable price reference (not affected by BNB volatility)
+- ✅ Easier arbitrage (most CEXs use USDT pairs)
+- ✅ Professional appearance
+
+**Cost**: ~$2-3 gas + $40 liquidity = ~$42-43 total
+
+### Add ETH Pair
+
+**Optional**: For advanced traders and better routing
+
+```bash
+# Add ~0.003 ETH + 1,600 NOR liquidity
+node scripts/add-nor-eth-liquidity-fixed.js
+```
+
+**Benefits**:
+- ✅ Advanced trader access
+- ✅ More routing options for better prices
+- ✅ Cross-chain bridge preparation
+
+**Cost**: ~$2-3 gas + $21 liquidity = ~$23-24 total
+
+### Complete Guide
+
+**Full documentation**: `docs/NOR_ADDITIONAL_LIQUIDITY_PAIRS.md`
+
+**Quick Deployment** (both pairs in 15 min):
+```bash
+# 1. Add USDT pair
+node scripts/add-nor-usdt-liquidity-fixed.js
+
+# 2. Wait 2 minutes
+
+# 3. Add ETH pair
+node scripts/add-nor-eth-liquidity-fixed.js
+
+# 4. Wait 10-30 min for DEX indexing
+```
+
+**Total Cost**: ~$5-6 gas fees + $61 liquidity = ~$66-67 total
+
+---
+
 ## 🚀 Next Steps - Contract Deployment
 
 ### 1. Deploy NOR Token

@@ -3,34 +3,36 @@ pragma solidity ^0.8.20;
 
 /**
  * @title CREATE2Factory
- * @notice Factory for deterministic contract deployment using CREATE2
+ * @notice Deploys contracts to deterministic addresses across all chains
+ * @dev Uses CREATE2 opcode for same address on every chain
  */
 contract CREATE2Factory {
-    event ContractDeployed(address indexed deployedAddress, bytes32 indexed salt);
+    event Deployed(address indexed addr, bytes32 indexed salt);
 
     /**
      * @notice Deploy a contract using CREATE2
-     * @param bytecode Contract bytecode to deploy
-     * @param salt Salt for deterministic address
-     * @return deployed Address of deployed contract
+     * @param bytecode The contract bytecode to deploy
+     * @param salt A unique salt for deterministic address
+     * @return addr The deployed contract address
      */
-    function deploy(bytes memory bytecode, bytes32 salt) external returns (address deployed) {
+    function deploy(bytes memory bytecode, bytes32 salt) public returns (address addr) {
         assembly {
-            deployed := create2(0, add(bytecode, 0x20), mload(bytecode), salt)
+            addr := create2(0, add(bytecode, 0x20), mload(bytecode), salt)
+            if iszero(extcodesize(addr)) {
+                revert(0, 0)
+            }
         }
-        require(deployed != address(0), "CREATE2Factory: deployment failed");
-        
-        emit ContractDeployed(deployed, salt);
-        return deployed;
+
+        emit Deployed(addr, salt);
     }
 
     /**
      * @notice Compute the address where a contract will be deployed
-     * @param bytecode Contract bytecode
-     * @param salt Salt for deterministic address
-     * @return predicted Predicted deployment address
+     * @param bytecode The contract bytecode
+     * @param salt The salt to use
+     * @return The predicted address
      */
-    function computeAddress(bytes memory bytecode, bytes32 salt) external view returns (address predicted) {
+    function computeAddress(bytes memory bytecode, bytes32 salt) public view returns (address) {
         bytes32 hash = keccak256(
             abi.encodePacked(
                 bytes1(0xff),
@@ -39,20 +41,26 @@ contract CREATE2Factory {
                 keccak256(bytecode)
             )
         );
-        
+
         return address(uint160(uint256(hash)));
     }
 
     /**
-     * @notice Check if contract is deployed at address
-     * @param addr Address to check
-     * @return deployed True if contract exists at address
+     * @notice Compute address with deployer and bytecode hash
+     * @param deployer The factory address
+     * @param salt The salt
+     * @param bytecodeHash The keccak256 hash of bytecode
+     * @return The predicted address
      */
-    function isDeployed(address addr) external view returns (bool deployed) {
-        uint size;
-        assembly {
-            size := extcodesize(addr)
-        }
-        return size > 0;
+    function computeAddressWithHash(
+        address deployer,
+        bytes32 salt,
+        bytes32 bytecodeHash
+    ) public pure returns (address) {
+        bytes32 hash = keccak256(
+            abi.encodePacked(bytes1(0xff), deployer, salt, bytecodeHash)
+        );
+
+        return address(uint160(uint256(hash)));
     }
 }

@@ -34,7 +34,7 @@ const CONFIG = {
     chainId: 56,
     contracts: {
       crossChainRouter: '0x5B5F78D3743319698cdf5613DEe64869f2a3526c',
-      norBridge: '0xFA321371b32b1bFA928081C7E10F7E688c66F900',  // NEW: Real BSC bridge
+      norBridge: '0x75dc5817e128a60920964Ff12Bcc17480c8e57B1',  // UPDATED: V2 bridge with real mint
       btcbrBridge: '0x1A2651144788544222544FcC0109DECCE60AD1A6'
     }
   },
@@ -44,7 +44,7 @@ const CONFIG = {
     contracts: {
       norChainHandler: '0xFfbD6d56d310582e514B0FA62cEd9809f96Bf90c',
       noorSwapRouter: '0x0cf8e180350253271f4b917ccfb0accc4862f265',
-      norBridge: '0x1495fCf5F09D53203EE1CD1fF974591dc101df0b'  // NEW: Real NorChain bridge
+      norBridge: '0xe447647577cc340B0D853F9A8F052E9BF5D673c1'  // UPDATED: New NorChain bridge
     }
   },
   validator: {
@@ -133,8 +133,8 @@ function log(level, message) {
 async function getTokenMapping(bscToken) {
   // Map BSC token addresses to NorChain addresses
   const TOKEN_MAP = {
-    // NOR (NEW BSC ADDRESS)
-    '0x7C9B26Ad3b26cAab39f9945B40B2c30309ed490E': '0x0cf8e180350253271f4b917ccfb0accc4862f263',
+    // NOR (UPDATED - Correct NorChain address)
+    '0x7C9B26Ad3b26cAab39f9945B40B2c30309ed490E': '0xbe0d0ec34A93a2Ec08492715a51C613B7E530D80',
     // BTCBR
     '0x03FC6dA7C9E48201b8FEC1Ca53EA62eA6514d48f': '0x0cF8e180350253271f4b917CcFb0aCCc4862F262',
     // USDT
@@ -418,7 +418,52 @@ async function startService() {
     await handleSwapRequest(swapId, user, tokenIn, tokenOut, amountIn, minAmountOut);
   });
 
-  log('SUCCESS', `Event listeners active!`);
+  // Bridge event listeners for direct bridge transfers (not swaps)
+  norChainBridge.on('BridgeInitiated', async (bridgeId, user, amount, destinationChain, event) => {
+    log('INFO', ``);
+    log('INFO', `🌉 BRIDGE REQUEST: NorChain → BSC`);
+    log('INFO', `  Bridge ID: ${bridgeId}`);
+    log('INFO', `  User: ${user}`);
+    log('INFO', `  Amount: ${ethers.formatEther(amount)} NOR`);
+
+    try {
+      // Complete bridge on BSC (mint NOR_BSC)
+      const tx = event.log.transactionHash;
+      const sourceTransferId = ethers.keccak256(ethers.toUtf8Bytes(`${tx}-${bridgeId}`));
+
+      log('INFO', `  Completing bridge on BSC...`);
+      const completeTx = await bscBridge.completeBridge(bridgeId, user, amount, sourceTransferId);
+      await completeTx.wait();
+
+      log('SUCCESS', `✅ Bridge completed! ${ethers.formatEther(amount)} NOR_BSC minted on BSC`);
+    } catch (error) {
+      log('ERROR', `Failed to complete bridge: ${error.message}`);
+    }
+  });
+
+  bscBridge.on('BridgeInitiated', async (bridgeId, user, amount, destinationChain, event) => {
+    log('INFO', ``);
+    log('INFO', `🌉 BRIDGE REQUEST: BSC → NorChain`);
+    log('INFO', `  Bridge ID: ${bridgeId}`);
+    log('INFO', `  User: ${user}`);
+    log('INFO', `  Amount: ${ethers.formatEther(amount)} NOR`);
+
+    try {
+      // Complete bridge on NorChain (unlock NOR)
+      const tx = event.log.transactionHash;
+      const sourceTransferId = ethers.keccak256(ethers.toUtf8Bytes(`${tx}-${bridgeId}`));
+
+      log('INFO', `  Completing bridge on NorChain...`);
+      const completeTx = await norChainBridge.completeBridge(bridgeId, user, amount, sourceTransferId);
+      await completeTx.wait();
+
+      log('SUCCESS', `✅ Bridge completed! ${ethers.formatEther(amount)} NOR unlocked on NorChain`);
+    } catch (error) {
+      log('ERROR', `Failed to complete bridge: ${error.message}`);
+    }
+  });
+
+  log('SUCCESS', `Event listeners active (swaps + bridges)!`);
   log('INFO', ``);
   log('SUCCESS', `========================================`);
   log('SUCCESS', `SERVICE RUNNING - Waiting for swaps...`);
