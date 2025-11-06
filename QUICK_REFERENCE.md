@@ -415,6 +415,136 @@ This prevents ALL epoch revalidation issues forever.
 
 ---
 
+## 🔐 Escrow System (NEW!)
+
+**Status**: ✅ **READY TO DEPLOY**
+
+NorChain now includes a production-ready escrow smart contract for secure peer-to-peer transactions with arbiter governance.
+
+### Key Features
+
+- ✅ **Native NOR and ERC-20 support**
+- ✅ **Arbiter-based settlement** (supports DAO/multisig)
+- ✅ **Time-locked deals** with automatic refund
+- ✅ **Circuit breaker** (daily and per-deal limits)
+- ✅ **Fee system** (configurable, default 0.25-0.5%)
+- ✅ **OpenZeppelin security** (ReentrancyGuard, Pausable)
+- ✅ **Full audit trail** (events for all actions)
+
+### Quick Deployment
+
+```bash
+# Deploy to NorChain
+npx hardhat run scripts/deploy-escrow.js --network btcbr
+
+# Deploy to BSC
+npx hardhat run scripts/deploy-escrow.js --network bsc
+```
+
+### Example Usage
+
+```javascript
+// 1. Create escrow deal
+const dealId = ethers.id("project-payment-001");
+await escrow.createDeal(
+  dealId,
+  payeeAddress,    // Who gets paid on release
+  arbiterAddress,  // Who can settle disputes (multisig)
+  deadline,        // Unix timestamp (0 = no deadline)
+  0,               // Asset.Native for NOR
+  ethers.ZeroAddress,
+  ethers.parseEther("100")  // 100 NOR
+);
+
+// 2. Fund the deal
+await escrow.fund(dealId, { value: ethers.parseEther("100") });
+
+// 3. Release to payee (by arbiter or payer)
+await escrow.release(dealId);
+
+// OR refund to payer (by arbiter or after deadline)
+await escrow.refund(dealId);
+```
+
+### Documentation
+
+- **Contract**: `contracts/escrow/Escrow.sol`
+- **Deploy Script**: `scripts/deploy-escrow.js`
+- **Compliance Guide**: `docs/NORCHAIN_COMPLIANCE.md`
+
+---
+
+## 🏛️ Regulatory Compliance & Security
+
+**Status**: Roadmap defined for Norway/EU operations
+
+NorChain is positioning as a **regulated, compliant blockchain** operating under:
+- 🇳🇴 **Norwegian VASP Registration** (Finanstilsynet)
+- 🇪🇺 **EU MiCA CASP Authorization** (effective Dec 30, 2024)
+- 🌍 **FATF Travel Rule** (Recommendation 16)
+- 🔒 **ISO 27001 Security Management**
+
+### Key Compliance Areas
+
+| Area | Requirement | Status |
+|------|-------------|--------|
+| **VASP Registration** | Norway Finanstilsynet | 🔄 In Progress |
+| **MiCA CASP** | EU authorization for exchange/custody | ⏳ Roadmap defined |
+| **AML/KYC** | Know Your Customer procedures | ⏳ Pending |
+| **Travel Rule** | VASP-to-VASP info sharing | ⏳ Pending |
+| **Smart Contract Audits** | Independent security reviews | ⏳ Pending |
+| **Proof-of-Reserves** | Public attestation | 🔄 In Progress |
+
+### Security Architecture
+
+**DEX (NorSwap)**:
+- ✅ TWAP oracles (price manipulation resistance)
+- ✅ Emergency pause by Safe multisig
+- ✅ Per-pair rate limits
+- ✅ 48-72h timelock on parameter changes
+
+**Bridge System**:
+- ✅ 3-of-5 Gnosis Safe multisig
+- ✅ Daily and per-transaction limits
+- ✅ Minimum finality blocks
+- ✅ HSM key storage (planned)
+- ✅ Weekly proof-of-reserves publication (planned)
+
+**Escrow**:
+- ✅ Daily volume limits (AML control)
+- ✅ Per-deal caps
+- ✅ Arbiter governance (DAO/multisig)
+- ✅ Full audit trail
+
+### Documentation
+
+**Comprehensive Guides**:
+- 📚 **NORCHAIN_COMPLIANCE.md** - Full regulatory framework
+  - Norwegian VASP requirements
+  - EU MiCA CASP checklist
+  - AML/KYC program structure
+  - GDPR data protection
+  - Travel Rule implementation
+  - Incident reporting procedures
+
+- 🛡️ **NORCHAIN_RESILIENCE.md** - Infrastructure resilience
+  - Redundant RPC endpoints
+  - Validator distribution strategy
+  - Emergency CLI tools
+  - Incident response playbooks
+  - Disaster recovery procedures
+  - 24/7 monitoring setup
+
+### Compliance Roadmap
+
+**Phase 1** (Months 1-3): VASP registration, baseline AML controls
+**Phase 2** (Months 4-6): MiCA authorization preparation
+**Phase 3** (Months 7-9): Production-ready compliance infrastructure
+
+**Contact**: compliance@norchain.org
+
+---
+
 ## 🔗 Useful Links
 
 - **GitHub**: https://github.com/[your-org]/nor-chain

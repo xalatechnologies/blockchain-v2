@@ -1,0 +1,67 @@
+service: nor-price-monitor
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-1
+  stage: prod
+  memorySize: 256
+  timeout: 60
+  environment:
+    NODE_ENV: production
+    MAIN_WALLET_PRIVATE_KEY: ${env:MAIN_WALLET_PRIVATE_KEY}
+    AUTO_REBALANCE: ${env:AUTO_REBALANCE, 'false'}
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - logs:CreateLogGroup
+            - logs:CreateLogStream
+            - logs:PutLogEvents
+          Resource: '*'
+
+functions:
+  priceMonitor:
+    handler: scripts/lambda-handler-cjs.handler
+    description: Monitors NOR token prices on BSC and NorChain
+    events:
+      # Run every hour
+      - schedule:
+          rate: rate(1 hour)
+          enabled: true
+          description: 'Check prices every hour'
+
+  # On-demand price check
+  manualCheck:
+    handler: scripts/lambda-handler-cjs.handler
+    description: Manual price check trigger
+    events:
+      - http:
+          path: check-price
+          method: get
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 3000
+
+# Package configuration
+package:
+  individually: false
+  patterns:
+    - '!.git/**'
+    - '!.github/**'
+    - '!test/**'
+    - '!docs/**'
+    - '!contracts/**'
+    - '!artifacts/**'
+    - '!cache/**'
+    - '!hardhat.config.js'
+    - 'package.json'
+    - 'package-lock.json'
+    - 'node_modules/**'
+    - 'scripts/lambda-handler-cjs.js'

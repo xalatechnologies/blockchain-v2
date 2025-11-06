@@ -1,0 +1,494 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "The AWS CloudFormation template for this Serverless application",
+  "Resources": {
+    "ServerlessDeploymentBucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "ServerlessDeploymentBucketPolicy": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "ServerlessDeploymentBucket"
+        },
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "s3:*",
+              "Effect": "Deny",
+              "Principal": "*",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":s3:::",
+                      {
+                        "Ref": "ServerlessDeploymentBucket"
+                      },
+                      "/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":s3:::",
+                      {
+                        "Ref": "ServerlessDeploymentBucket"
+                      }
+                    ]
+                  ]
+                }
+              ],
+              "Condition": {
+                "Bool": {
+                  "aws:SecureTransport": false
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "PriceMonitorLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/nor-price-monitor-prod-priceMonitor"
+      }
+    },
+    "ManualCheckLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/nor-price-monitor-prod-manualCheck"
+      }
+    },
+    "IamRoleLambdaExecution": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "lambda.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": {
+              "Fn::Join": [
+                "-",
+                [
+                  "nor-price-monitor",
+                  "prod",
+                  "lambda"
+                ]
+              ]
+            },
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogStream",
+                    "logs:CreateLogGroup",
+                    "logs:TagResource"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/nor-price-monitor-prod*:*"
+                    }
+                  ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:PutLogEvents"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/nor-price-monitor-prod*:*:*"
+                    }
+                  ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogGroup",
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents"
+                  ],
+                  "Resource": "*"
+                }
+              ]
+            }
+          }
+        ],
+        "Path": "/",
+        "RoleName": {
+          "Fn::Join": [
+            "-",
+            [
+              "nor-price-monitor",
+              "prod",
+              {
+                "Ref": "AWS::Region"
+              },
+              "lambdaRole"
+            ]
+          ]
+        }
+      }
+    },
+    "PriceMonitorLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/nor-price-monitor/prod/1762458775213-2025-11-06T19:52:55.213Z/nor-price-monitor.zip"
+        },
+        "Handler": "scripts/lambda-handler-cjs.handler",
+        "Runtime": "nodejs20.x",
+        "FunctionName": "nor-price-monitor-prod-priceMonitor",
+        "MemorySize": 256,
+        "Timeout": 60,
+        "Description": "Monitors NOR token prices on BSC and NorChain",
+        "Environment": {
+          "Variables": {
+            "NODE_ENV": "production",
+            "MAIN_WALLET_PRIVATE_KEY": "681fda6ad9585ce9c27688eb60087ddaf4a90ca75f8f77b0f039bd5692ed2bd4",
+            "AUTO_REBALANCE": "false",
+            "PRIVATE_CHAIN_RPC": "http://3.91.50.187:8545",
+            "CHAIN_ID": "65001",
+            "MAIN_WALLET": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+            "VALIDATOR_1_ADDRESS": "0xa3aaC90d6505c2a57141EaFDA973222DF91BBe1C",
+            "VALIDATOR_1_PRIVATE_KEY": "0x3193f4dbdf307b1193f3cf7723f1fac5ec621a4468908da4384313df66925e4a",
+            "PRIVATE_CHAIN_KEY": "0x3193f4dbdf307b1193f3cf7723f1fac5ec621a4468908da4384313df66925e4a",
+            "BTCBR_ADDRESS": "0x0cF8e180350253271f4b917CcFb0aCCc4862F262",
+            "MAINNET_PRIVATE_KEY": "681fda6ad9585ce9c27688eb60087ddaf4a90ca75f8f77b0f039bd5692ed2bd4",
+            "BSCSCAN_API_KEY": "4PUGIFJUTQHUU35D863ERIDBXY3YXR3XW5"
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "PriceMonitorLogGroup"
+      ]
+    },
+    "ManualCheckLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/nor-price-monitor/prod/1762458775213-2025-11-06T19:52:55.213Z/nor-price-monitor.zip"
+        },
+        "Handler": "scripts/lambda-handler-cjs.handler",
+        "Runtime": "nodejs20.x",
+        "FunctionName": "nor-price-monitor-prod-manualCheck",
+        "MemorySize": 256,
+        "Timeout": 60,
+        "Description": "Manual price check trigger",
+        "Environment": {
+          "Variables": {
+            "NODE_ENV": "production",
+            "MAIN_WALLET_PRIVATE_KEY": "681fda6ad9585ce9c27688eb60087ddaf4a90ca75f8f77b0f039bd5692ed2bd4",
+            "AUTO_REBALANCE": "false",
+            "PRIVATE_CHAIN_RPC": "http://3.91.50.187:8545",
+            "CHAIN_ID": "65001",
+            "MAIN_WALLET": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+            "VALIDATOR_1_ADDRESS": "0xa3aaC90d6505c2a57141EaFDA973222DF91BBe1C",
+            "VALIDATOR_1_PRIVATE_KEY": "0x3193f4dbdf307b1193f3cf7723f1fac5ec621a4468908da4384313df66925e4a",
+            "PRIVATE_CHAIN_KEY": "0x3193f4dbdf307b1193f3cf7723f1fac5ec621a4468908da4384313df66925e4a",
+            "BTCBR_ADDRESS": "0x0cF8e180350253271f4b917CcFb0aCCc4862F262",
+            "MAINNET_PRIVATE_KEY": "681fda6ad9585ce9c27688eb60087ddaf4a90ca75f8f77b0f039bd5692ed2bd4",
+            "BSCSCAN_API_KEY": "4PUGIFJUTQHUU35D863ERIDBXY3YXR3XW5"
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "ManualCheckLogGroup"
+      ]
+    },
+    "PriceMonitorLambdaVersionXb4hAYUCV5VGVLnaXotfBotWcvTpg0wSuKrJUqiI": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PriceMonitorLambdaFunction"
+        },
+        "CodeSha256": "RIAO1HWxGNZyM3WFXAW18xsmWvPLmLhT1rhnHBgmJso=",
+        "Description": "Monitors NOR token prices on BSC and NorChain"
+      }
+    },
+    "ManualCheckLambdaVersionjVMk1M5B8gC9X7BhSiO9E3i1KBY1eWRa8CdUbxf4k": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "ManualCheckLambdaFunction"
+        },
+        "CodeSha256": "RIAO1HWxGNZyM3WFXAW18xsmWvPLmLhT1rhnHBgmJso=",
+        "Description": "Manual price check trigger"
+      }
+    },
+    "PriceMonitorEventsRuleSchedule1": {
+      "Type": "AWS::Events::Rule",
+      "Properties": {
+        "ScheduleExpression": "rate(1 hour)",
+        "State": "ENABLED",
+        "Description": "Check prices every hour",
+        "Targets": [
+          {
+            "Arn": {
+              "Fn::GetAtt": [
+                "PriceMonitorLambdaFunction",
+                "Arn"
+              ]
+            },
+            "Id": "priceMonitorSchedule"
+          }
+        ]
+      }
+    },
+    "PriceMonitorLambdaPermissionEventsRuleSchedule1": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "PriceMonitorLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "events.amazonaws.com",
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "PriceMonitorEventsRuleSchedule1",
+            "Arn"
+          ]
+        }
+      }
+    },
+    "ApiGatewayRestApi": {
+      "Type": "AWS::ApiGateway::RestApi",
+      "Properties": {
+        "Name": "prod-nor-price-monitor",
+        "EndpointConfiguration": {
+          "Types": [
+            "EDGE"
+          ]
+        },
+        "Policy": ""
+      }
+    },
+    "ApiGatewayResourceCheckDashprice": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "check-price",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayMethodCheckDashpriceGet": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceCheckDashprice"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "ManualCheckLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      },
+      "DependsOn": [
+        "ManualCheckLambdaPermissionApiGateway"
+      ]
+    },
+    "ApiGatewayDeployment1762458769486": {
+      "Type": "AWS::ApiGateway::Deployment",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "StageName": "prod"
+      },
+      "DependsOn": [
+        "ApiGatewayMethodCheckDashpriceGet"
+      ]
+    },
+    "ManualCheckLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "ManualCheckLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "ServerlessDeploymentBucketName": {
+      "Value": {
+        "Ref": "ServerlessDeploymentBucket"
+      },
+      "Export": {
+        "Name": "sls-nor-price-monitor-prod-ServerlessDeploymentBucketName"
+      }
+    },
+    "PriceMonitorLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "PriceMonitorLambdaVersionXb4hAYUCV5VGVLnaXotfBotWcvTpg0wSuKrJUqiI"
+      },
+      "Export": {
+        "Name": "sls-nor-price-monitor-prod-PriceMonitorLambdaFunctionQualifiedArn"
+      }
+    },
+    "ManualCheckLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "ManualCheckLambdaVersionjVMk1M5B8gC9X7BhSiO9E3i1KBY1eWRa8CdUbxf4k"
+      },
+      "Export": {
+        "Name": "sls-nor-price-monitor-prod-ManualCheckLambdaFunctionQualifiedArn"
+      }
+    },
+    "ServiceEndpoint": {
+      "Description": "URL of the service endpoint",
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "https://",
+            {
+              "Ref": "ApiGatewayRestApi"
+            },
+            ".execute-api.",
+            {
+              "Ref": "AWS::Region"
+            },
+            ".",
+            {
+              "Ref": "AWS::URLSuffix"
+            },
+            "/prod"
+          ]
+        ]
+      },
+      "Export": {
+        "Name": "sls-nor-price-monitor-prod-ServiceEndpoint"
+      }
+    }
+  }
+}
