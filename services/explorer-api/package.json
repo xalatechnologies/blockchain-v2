@@ -13,7 +13,14 @@
     "lint": "eslint src/**/*.js",
     "lint:fix": "eslint src/**/*.js --fix",
     "security:audit": "npm audit && snyk test",
-    "docs:generate": "node scripts/generate-swagger.js"
+    "docs:generate": "node scripts/generate-swagger.js",
+    "health-check": "node scripts/health-check.js",
+    "test-api": "node scripts/test-api.js",
+    "test-all": "node scripts/test-all-endpoints.js",
+    "test-comprehensive": "node scripts/test-endpoints-comprehensive.js",
+    "test:e2e": "jest --testPathPattern=e2e",
+    "db:setup": "node scripts/setup-database.js",
+    "indexer:start": "node src/services/indexer-service.js"
   },
   "keywords": [
     "blockchain",
@@ -38,6 +45,7 @@
     "swagger-ui-express": "^5.0.0",
     "swagger-jsdoc": "^6.2.8",
     "redis": "^4.6.12",
+    "pg": "^8.11.3",
     "graphql": "^16.8.1",
     "express-graphql": "^0.12.0",
     "body-parser": "^1.20.2"

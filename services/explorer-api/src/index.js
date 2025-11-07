@@ -5,7 +5,8 @@ import compression from 'compression';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import { createRateLimiter } from './middleware/rateLimiter.js';
-import { errorHandler } from './middleware/errorHandler.js';
+import { errorHandler, asyncHandler } from './middleware/errorHandler.js';
+import { formatResponse } from './utils/provider.js';
 import { cacheMiddleware } from './middleware/cache.js';
 import { apiKeyMiddleware } from './middleware/apiKey.js';
 
@@ -24,6 +25,7 @@ import graphqlRoutes from './routes/graphql.js';
 import aiRoutes from './routes/ai.js';
 import healthRoutes from './routes/health.js';
 import swaggerRoutes from './routes/swagger.js';
+import ledgerRoutes from './routes/ledger.js';
 import { developerFriendlyHeaders, enhancedErrorHandler } from './middleware/developerFriendly.js';
 import { validateInput, securityHeaders, securityAuditLog, validateApiKey } from './middleware/security.js';
 import { requestMonitoring } from './middleware/monitoring.js';
@@ -81,6 +83,21 @@ app.use(`${API_PREFIX}/portfolio`, portfolioRoutes);
 app.use(`${API_PREFIX}/playground`, playgroundRoutes);
 app.use(`${API_PREFIX}/graphql`, graphqlRoutes);
 app.use(`${API_PREFIX}/ai`, aiRoutes);
+app.use(`${API_PREFIX}/ledger`, ledgerRoutes);
+
+// Indexer status endpoint (if database enabled)
+if (process.env.USE_DATABASE === 'true') {
+  import('./services/indexer.js').then(({ default: BlockchainIndexer }) => {
+    const indexer = new BlockchainIndexer();
+    
+    app.get(`${API_PREFIX}/indexer/status`, asyncHandler(async (req, res) => {
+      const status = await indexer.getStatus();
+      res.json(formatResponse('1', status));
+    }));
+  }).catch(() => {
+    // Indexer not available
+  });
+}
 
 // Root endpoint - API documentation
 app.get('/', (req, res) => {
@@ -102,6 +119,7 @@ app.get('/', (req, res) => {
       playground: `${API_PREFIX}/playground`,
       graphql: `${API_PREFIX}/graphql`,
       ai: `${API_PREFIX}/ai`,
+      ledger: `${API_PREFIX}/ledger`,
       health: '/health'
     },
     documentation: 'https://docs.norchain.org/api',
