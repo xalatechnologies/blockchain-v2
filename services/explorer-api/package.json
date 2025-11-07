@@ -1,0 +1,57 @@
+{
+  "name": "norchain-explorer-api",
+  "version": "1.0.0",
+  "description": "Comprehensive REST API for Nor Chain blockchain explorer (Etherscan/BSCScan compatible)",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:integration": "jest --testPathPattern=integration",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "security:audit": "npm audit && snyk test",
+    "docs:generate": "node scripts/generate-swagger.js"
+  },
+  "keywords": [
+    "blockchain",
+    "api",
+    "explorer",
+    "norchain",
+    "ethereum",
+    "rpc"
+  ],
+  "author": "Nor Chain Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "ethers": "^6.15.0",
+    "dotenv": "^17.2.3",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5",
+    "node-cache": "^5.1.2",
+    "compression": "^1.7.4",
+    "morgan": "^1.10.0",
+    "swagger-ui-express": "^5.0.0",
+    "swagger-jsdoc": "^6.2.8",
+    "redis": "^4.6.12",
+    "graphql": "^16.8.1",
+    "express-graphql": "^0.12.0",
+    "body-parser": "^1.20.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "@types/jest": "^29.5.11",
+    "snyk": "^1.1288.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
+

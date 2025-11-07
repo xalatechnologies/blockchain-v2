@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: norchain-api
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - RPC_URL=${RPC_URL:-https://rpc.xaheen.org}
+      - CHAIN_ID=${CHAIN_ID:-65001}
+      - ENABLE_CACHE=true
+      - RATE_LIMIT_MAX_REQUESTS=100
+      - API_KEY_ENABLED=${API_KEY_ENABLED:-false}
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    networks:
+      - norchain-network
+
+  # Optional: Redis for distributed caching
+  redis:
+    image: redis:7-alpine
+    container_name: norchain-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    networks:
+      - norchain-network
+    command: redis-server --appendonly yes
+
+volumes:
+  redis-data:
+
+networks:
+  norchain-network:
+    driver: bridge
+

@@ -1,0 +1,102 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: norchain-api
+  labels:
+    app: norchain-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: norchain-api
+  template:
+    metadata:
+      labels:
+        app: norchain-api
+    spec:
+      containers:
+      - name: api
+        image: norchain-api:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+          name: http
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: PORT
+          value: "3000"
+        - name: RPC_URL
+          valueFrom:
+            configMapKeyRef:
+              name: norchain-config
+              key: rpc-url
+        - name: CHAIN_ID
+          valueFrom:
+            configMapKeyRef:
+              name: norchain-config
+              key: chain-id
+        - name: API_KEY_ENABLED
+          valueFrom:
+            secretKeyRef:
+              name: norchain-secrets
+              key: api-key-enabled
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 3
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1001
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: norchain-api-service
+spec:
+  selector:
+    app: norchain-api
+  ports:
+  - port: 80
+    targetPort: 3000
+    protocol: TCP
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: norchain-config
+data:
+  rpc-url: "https://rpc.xaheen.org"
+  chain-id: "65001"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: norchain-secrets
+type: Opaque
+stringData:
+  api-key-enabled: "true"
+  api-keys: "your-api-key-here"
+
