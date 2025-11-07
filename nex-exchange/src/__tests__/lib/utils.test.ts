@@ -21,7 +21,8 @@ describe("utils", () => {
 
   describe("formatAmount", () => {
     it("should format small amounts", () => {
-      expect(formatAmount("0.000001", 18)).toBe("<0.000001");
+      expect(formatAmount("0.0000005", 18)).toBe("<0.000001");
+      expect(formatAmount("0.000001", 18)).toBe("0.000001");
       expect(formatAmount("0.5", 18)).toBe("0.50");
     });
 

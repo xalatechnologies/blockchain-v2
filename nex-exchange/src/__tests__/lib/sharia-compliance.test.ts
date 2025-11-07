@@ -52,10 +52,17 @@ describe("sharia-compliance", () => {
     it("should filter to only halal tokens", () => {
       const tokens = [norToken, dirhamatToken, unknownToken];
       const halalTokens = filterHalalTokens(tokens);
+      
+      // Should return exactly 2 halal tokens
       expect(halalTokens).toHaveLength(2);
-      expect(halalTokens.map(t => t.address)).toContain(norToken.address);
-      expect(halalTokens.map(t => t.address)).toContain(dirhamatToken.address);
-      expect(halalTokens.map(t => t.address)).not.toContain(unknownToken.address);
+      
+      // Verify halal tokens are included
+      const halalAddresses = halalTokens.map(t => t.address.toLowerCase());
+      expect(halalAddresses).toContain(norToken.address.toLowerCase());
+      expect(halalAddresses).toContain(dirhamatToken.address.toLowerCase());
+      
+      // Verify unknown token is not included
+      expect(halalAddresses).not.toContain(unknownToken.address.toLowerCase());
     });
 
     it("should return empty array if no halal tokens", () => {

@@ -19,7 +19,11 @@
     "test:security": "npm run test:security:owasp && npm run test:security:audit",
     "test:security:owasp": "npm audit --audit-level=moderate",
     "test:security:audit": "node tests/security/security-audit.js",
-    "test:all": "npm run test:ci && npm run test:e2e && npm run test:performance"
+    "test:all": "npm run test:ci && npm run test:e2e && npm run test:performance",
+    "db:setup": "node scripts/setup-database.js",
+    "db:migrate": "node scripts/migrate-database.js",
+    "db:seed": "node scripts/seed-database.js",
+    "check": "node scripts/check-setup.js"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.0",
