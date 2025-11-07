@@ -1,0 +1,32 @@
+{
+  "network": "btcbr",
+  "deployedAt": "2025-11-07T13:57:54.573Z",
+  "integrator": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "pairs": {
+    "DRHT/NOR": "0x905A3Cf63adb0F231411cc201A0837FF1fe5f06b",
+    "DRHT/WNOR": "0x12b8714C57534f266f91Fb46572feB53EfA3c551",
+    "DRHT/USDT": "0xC694253E864ae71265ABAdA18D28C717e572002a",
+    "DRHT/WBNB": "0x28864d11C0508c2d81f60E0554371558de8d5137",
+    "DRHT/WETH": "0x31ebF282c07b00747Fb6Bbd165A803CfBf367CDc",
+    "DRHT/BTCBR": "0xF5b8649eCD3820254811f3622755f6f8fDAE2672"
+  },
+  "liquidityAdded": [
+    {
+      "pair": "DRHT/BTCBR",
+      "drhtAmount": "8000000000000000000000",
+      "otherAmount": "100000000000000000",
+      "txHash": "0x9203b617dc34d2a27cd1532d63763b542f731f8c51bbccb57b6b993a950eecd8"
+    }
+  ],
+  "lockDuration": "3 years",
+  "totalLiquidityValue": "$50,000+ equivalent",
+  "features": [
+    "Gold-backed stablecoin trading",
+    "Cross-chain token support",
+    "3-year liquidity locks",
+    "Governance integration",
+    "Ultra-low transaction fees",
+    "Shariah compliance"
+  ],
+  "uniqueValue": "First gold-backed DeFi ecosystem with institutional governance"
+}
