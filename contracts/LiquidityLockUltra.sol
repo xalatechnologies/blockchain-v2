@@ -128,7 +128,7 @@ contract LiquidityLockUltra is Ownable, ReentrancyGuard {
         uint256 amount,
         uint256 lockDuration,
         string calldata description
-    ) external nonReentrant returns (uint256 lockId) {
+    ) public nonReentrant returns (uint256 lockId) {
         require(token != address(0), "Invalid token address");
         require(amount > 0, "Amount must be greater than zero");
         require(lockDuration >= MIN_LOCK_PERIOD, "Lock period too short");

@@ -12,9 +12,9 @@
  *   npx hardhat run scripts/deploy-nor-ultra.js --network bsc
  */
 
-import { ethers } from "hardhat";
-import { config as dotenvConfig } from "dotenv";
-dotenvConfig();
+const hre = require("hardhat");
+const { ethers } = hre;
+require("dotenv").config();
 
 async function main() {
   console.log("\n🚀 DEPLOYING NorTokenUltra - Maximum Security Token");

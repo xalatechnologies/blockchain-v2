@@ -182,8 +182,8 @@ contract NorTokenV2 is ERC20, Ownable, ReentrancyGuard {
     /**
      * @dev Mark address as exchange (exempt from max wallet)
      */
-    function setExchange(address account, bool isExchange) external onlyOwner {
-        _isExchange[account] = isExchange;
+    function setExchange(address account, bool status) external onlyOwner {
+        _isExchange[account] = status;
     }
 
     /**
