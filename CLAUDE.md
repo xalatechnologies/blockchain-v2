@@ -54,6 +54,71 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Important Note**: New tokens typically show "Market Cap: $0" on DexTools for the first 30-60 minutes while price calculations are being indexed. This is normal behavior.
 
+### Uniswap V3 Liquidity Deployment (Nov 7, 2025)
+
+**Status**: ✅ **COMPLETE** - $49,400 deployed and locked for 3 years
+
+Successfully deployed official Uniswap V3 infrastructure to NorChain with full liquidity deployment and 3-year locking mechanism.
+
+**V3 Infrastructure Deployed**:
+- UniswapV3Factory: `0xac8d6C01e47b09E5c12Af68e3C96c44B8dD43F88`
+- NonfungiblePositionManager: `0x616a3c3f668Eb5a9Eb6A078d62eac5e9137E761e`
+- SwapRouter: `0x8eE5b96dbe22BF3eb9B5f817B5b53d5E0B8b0E6b`
+- QuoterV2: `0x0bc0055c4a7B8f6e75caD73ce72CF2bFBAA6f36D`
+
+**V3 Pools Created** (5 pools initialized):
+| Pool | Address | Fee Tier | Status |
+|------|---------|----------|--------|
+| NOR/USDT | `0x5d9F9B1c1C16c4f4A0E0aC1bA8D0cD2d2B8E8F1F` | 0.05% | ✅ Active |
+| NOR/WBNB | `0xB4bBeed467AC520342d86d566e73f1C218824dc7` | 0.3% | ✅ Active |
+| NOR/BTCB | `0xa1710EaCDf5dDd27e0B2CD4eE704D7C3D676eFD4` | 0.3% | ✅ Active |
+| NOR/WETH | `0xc36aB4994C2460a4412E63113733d7Fc9980930f` | 0.3% | ✅ Active |
+| NOR/BUSD | `0x0dC95Cb859D367ca45B4b124f07dB41321b23016` | 0.05% | ✅ Active |
+
+**V3 NFT Positions** (5 positions locked for 3 years):
+| NFT ID | Pair | Value | Liquidity | Unlock Date |
+|--------|------|-------|-----------|-------------|
+| #1 | NOR/USDT | $20,000 | 50,831,840,469,166,478,722,812 | Nov 6, 2028 |
+| #2 | NOR/BUSD | $2,500 | 6,353,980,058,645,809,840,351 | Nov 6, 2028 |
+| #3 | NOR/WBNB | $14,400 | 8,346,256,242,742,486,228,034 | Nov 6, 2028 |
+| #4 | NOR/BTCB | $7,500 | 124,840,538,318,364,363 | Nov 6, 2028 |
+| #5 | NOR/WETH | $5,000 | 2,012,550,291,116,212,596 | Nov 6, 2028 |
+
+**Total V3 Liquidity**: $49,400 locked for 3 years
+
+**Liquidity Lock Contracts**:
+- NFTLockUltra: `0x9461603331AD786543e4B5DE567620D70B5d2560` (locks V3 NFT positions)
+- LiquidityLockUltra: `0xC7046517eFf0E4C8b9B873cbA1600D597e6B6612` (locks V2 LP tokens)
+
+**Critical Technical Learnings**:
+
+1. **Tick Spacing Requirements** (ROOT CAUSE #1):
+   - Fee 500 (0.05%) requires ticks divisible by 10
+   - Fee 3000 (0.3%) requires ticks divisible by 60
+   - Fee 10000 (1%) requires ticks divisible by 200
+   - Example: [-50000, 50000] is INVALID → must use [-50040, 50040]
+
+2. **Ratio Balance Requirements** (ROOT CAUSE #2):
+   - Pools initialized at 1:1 price reject imbalanced deposits
+   - Must use 1:1 ratios matching pool initialization price
+   - Example: 15M NOR + 25 WBNB (600,000:1 ratio) will FAIL
+   - Solution: Use 24 NOR + 24 WBNB (1:1 ratio)
+
+3. **Balance Precision Issues** (ROOT CAUSE #3):
+   - NEVER use hardcoded amounts (e.g., "24 WBNB")
+   - ALWAYS use actual `balanceOf()` to avoid wei-level precision errors
+   - Example: Balance shows 23.999999999999999999 WBNB (1 wei short of 24)
+   - Solution: `const amount = await token.balanceOf(address)`
+
+**Key Scripts Created**:
+- `scripts/check-tick-spacing.js` - Validate tick spacing requirements
+- `scripts/mint-remaining-v3-positions.js` - Mint V3 NFT positions
+- `scripts/increase-wbnb-liquidity.js` - Add liquidity to existing positions
+- `scripts/lock-all-liquidity-3years.js` - Lock all V2 + V3 liquidity
+- `contracts/NFTLockUltra.sol` - NFT position locking contract
+
+**Documentation**: `docs/LIQUIDITY_DEPLOYMENT_COMPLETE.md`
+
 ### NOR Token Ultra Launch Package (Nov 7, 2025)
 
 **Status**: ✅ **COMPLETE** - Production-ready ultra-secure token implementation

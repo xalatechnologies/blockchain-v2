@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-11-07T12:05:50.200Z",
+  "network": "NorChain",
+  "chainId": 65001,
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "uniswapV3": {
+    "factory": "0xfdbe449b2A261a1c7Ad8e0aaE47A6a86a0418b6e",
+    "nftPositionManager": "0x7D335DE326d22f40b427A82282d9145266CC56A2",
+    "swapRouter": "0x4b3BB07009558f299626b83129b8Eb72c078b198",
+    "norUsdtPool": "0x9Feaa7C29825C7EeB857ac3A9fdd2Ef8d2516710",
+    "norWbnbPool": "0x6180cFD1c2F4940595aE21C67a0fe2c2BAAfAF91"
+  },
+  "pancakeV3": {
+    "factory": "0x8B3128683B698352F2C18f40AfEF02979Cd8D279",
+    "norUsdtPool": "0xc3345879559A981a334466fE8B9d33c85A0c0776",
+    "norWbnbPool": "0x20c19c3142028270e1391A9b3d5Cb2D02C40246d"
+  },
+  "tronBridge": {
+    "bridge": "0xf4299c2cbE63572d8D2d74E0992bDA424634A8d0"
+  }
+}

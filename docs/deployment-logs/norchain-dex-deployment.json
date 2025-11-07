@@ -1,22 +1,22 @@
 {
   "network": "NorChain",
   "chainId": 65001,
-  "deployedAt": "2025-11-07T07:53:35.327Z",
+  "deployedAt": "2025-11-07T11:11:30.226Z",
   "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
   "contracts": {
     "WNOR": {
-      "address": "0x793c849f6207E9a7B1C8Bdf99D0743400f6bB658",
+      "address": "0x121910c86B08765d6d3884Efe8661b2Fd6328dB9",
       "name": "Wrapped NOR",
       "symbol": "WNOR"
     },
     "Factory": {
-      "address": "0x1FD987bE228Af52e58c8c0b64d97E4D30755ffa9",
+      "address": "0x2d033371ACE556c4b2d204E2c8D76550B746c130",
       "feeToSetter": "0xdD779a290C937144F80Eb75b75d814c834536B1b"
     },
     "Router": {
-      "address": "0x22344B3995cB5f9882fcf1775C2e072A96CA8588",
-      "factory": "0x1FD987bE228Af52e58c8c0b64d97E4D30755ffa9",
-      "wnor": "0x793c849f6207E9a7B1C8Bdf99D0743400f6bB658"
+      "address": "0xC808e1962bD8fE5d0fBc41D76B7909B80C442D84",
+      "factory": "0x2d033371ACE556c4b2d204E2c8D76550B746c130",
+      "wnor": "0x121910c86B08765d6d3884Efe8661b2Fd6328dB9"
     }
   }
 }

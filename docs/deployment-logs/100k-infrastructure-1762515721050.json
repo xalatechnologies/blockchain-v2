@@ -1,0 +1,45 @@
+{
+  "timestamp": "2025-11-07T11:39:07.330Z",
+  "network": "NorChain",
+  "chainId": 65001,
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "wrappedTokens": {
+    "WUSDT": "0xBA68e109E78f03C07711D1d1DA921DcE703dE517",
+    "WBNB": "0xE8c3be5316f9A8154F558F2d4E05E53c0De08B09",
+    "WBTCB": "0xCA4147e11E9797a4E6730CAdB17FC4560B9cC91b",
+    "WETH": "0xcE08e5dbC8E1e6b4D4D2274E873f7BE965C75b5B",
+    "WBUSD": "0x5769A13488d6Cf3581775A38Ed70b4EE52e5202c"
+  },
+  "pairs": {
+    "NOR/USDT": {
+      "address": "0x29e6AB09537F148765DDB3A036D6c9491aFD4d00",
+      "tokenA": "0x69a418D2FDc1e3361072e41Fb85fB259b3cdBbFC",
+      "tokenB": "0xBA68e109E78f03C07711D1d1DA921DcE703dE517",
+      "allocation": "$40k (40%)"
+    },
+    "NOR/WBNB": {
+      "address": "0x97cA312ccd9e991762d6F1b0bf19d166b0368f3d",
+      "tokenA": "0x69a418D2FDc1e3361072e41Fb85fB259b3cdBbFC",
+      "tokenB": "0xE8c3be5316f9A8154F558F2d4E05E53c0De08B09",
+      "allocation": "$30k (30%)"
+    },
+    "NOR/BTCB": {
+      "address": "0xEcc10989008Ee37AB1886a4E52fD7aD090aBdbf3",
+      "tokenA": "0x69a418D2FDc1e3361072e41Fb85fB259b3cdBbFC",
+      "tokenB": "0xCA4147e11E9797a4E6730CAdB17FC4560B9cC91b",
+      "allocation": "$15k (15%)"
+    },
+    "NOR/WETH": {
+      "address": "0x946053249C0237bFE76cE8c0AEEbF27b3153382d",
+      "tokenA": "0x69a418D2FDc1e3361072e41Fb85fB259b3cdBbFC",
+      "tokenB": "0xcE08e5dbC8E1e6b4D4D2274E873f7BE965C75b5B",
+      "allocation": "$10k (10%)"
+    },
+    "NOR/BUSD": {
+      "address": "0x84A615409a45ad90E7e21BC2D8ca2f69dCe03cee",
+      "tokenA": "0x69a418D2FDc1e3361072e41Fb85fB259b3cdBbFC",
+      "tokenB": "0x5769A13488d6Cf3581775A38Ed70b4EE52e5202c",
+      "allocation": "$5k (5%)"
+    }
+  }
+}

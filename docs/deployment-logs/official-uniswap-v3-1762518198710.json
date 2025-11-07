@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-11-07T12:22:43.543Z",
+  "network": "NorChain",
+  "chainId": 65001,
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "norToken": "0x69a418D2FDc1e3361072e41Fb85fB259b3cdBbFC",
+  "wnor": "0x121910c86B08765d6d3884Efe8661b2Fd6328dB9",
+  "factory": "0x150BD1B91AFCdeBA70313Cd6dB5BbC3EF06C8926",
+  "swapRouter": "0x66677e0Cf830a022bbcBdbE125F80B1FEdAFbC36",
+  "nftPositionManager": "0x616a3c3f668Eb5a9Eb6A078d62eac5e9137E761e",
+  "quoter": "0xeeE0Bf805c80456C539Ec73855b3a9bf81E54862",
+  "pools": [
+    {
+      "pair": "NOR/USDT",
+      "address": "0x11F3C25c88d5a45a3443dde57ef6F04C03A68092",
+      "fee": "0.05%"
+    },
+    {
+      "pair": "NOR/WBNB",
+      "address": "0xB4bBeed467AC520342d86d566e73f1C218824dc7",
+      "fee": "0.3%"
+    }
+  ]
+}

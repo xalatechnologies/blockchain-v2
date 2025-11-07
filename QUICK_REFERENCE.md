@@ -54,6 +54,37 @@ ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@3.91.50.187 \
 | **NOR Token** | `0xbe0d0ec34A93a2Ec08492715a51C613B7E530D80` | ✅ **Deployed** |
 | **NOR Bridge (NorChain)** | `0xe447647577cc340B0D853F9A8F052E9BF5D673c1` | ✅ **Deployed** |
 
+### Uniswap V3 Contracts (Nov 7, 2025)
+
+| Contract | Address | Status |
+|----------|---------|--------|
+| **UniswapV3Factory** | `0xac8d6C01e47b09E5c12Af68e3C96c44B8dD43F88` | ✅ **Deployed** |
+| **NonfungiblePositionManager** | `0x616a3c3f668Eb5a9Eb6A078d62eac5e9137E761e` | ✅ **Deployed** |
+| **SwapRouter** | `0x8eE5b96dbe22BF3eb9B5f817B5b53d5E0B8b0E6b` | ✅ **Deployed** |
+| **QuoterV2** | `0x0bc0055c4a7B8f6e75caD73ce72CF2bFBAA6f36D` | ✅ **Deployed** |
+| **NFTLockUltra** | `0x9461603331AD786543e4B5DE567620D70B5d2560` | ✅ **Deployed** |
+| **LiquidityLockUltra** | `0xC7046517eFf0E4C8b9B873cbA1600D597e6B6612` | ✅ **Deployed** |
+
+**V3 Liquidity Status**: ✅ **$49,400 deployed and locked for 3 years until Nov 6, 2028**
+
+**V3 Pools**:
+| Pool | Address | Fee | Status |
+|------|---------|-----|--------|
+| NOR/USDT | `0x5d9F9B1c1C16c4f4A0E0aC1bA8D0cD2d2B8E8F1F` | 0.05% | ✅ Active |
+| NOR/WBNB | `0xB4bBeed467AC520342d86d566e73f1C218824dc7` | 0.3% | ✅ Active |
+| NOR/BTCB | `0xa1710EaCDf5dDd27e0B2CD4eE704D7C3D676eFD4` | 0.3% | ✅ Active |
+| NOR/WETH | `0xc36aB4994C2460a4412E63113733d7Fc9980930f` | 0.3% | ✅ Active |
+| NOR/BUSD | `0x0dC95Cb859D367ca45B4b124f07dB41321b23016` | 0.05% | ✅ Active |
+
+**V3 NFT Positions** (Locked until Nov 6, 2028):
+| NFT ID | Pair | Value | Lock Status |
+|--------|------|-------|-------------|
+| #1 | NOR/USDT | $20,000 | 🔒 Locked (Lock #0) |
+| #2 | NOR/BUSD | $2,500 | 🔒 Locked (Lock #1) |
+| #3 | NOR/WBNB | $14,400 | 🔒 Locked (Lock #2) |
+| #4 | NOR/BTCB | $7,500 | 🔒 Locked (Lock #3) |
+| #5 | NOR/WETH | $5,000 | 🔒 Locked (Lock #4) |
+
 ### BSC Mainnet Contracts
 
 | Contract | Address | Status |
