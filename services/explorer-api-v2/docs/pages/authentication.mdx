@@ -1,0 +1,170 @@
+# Authentication
+
+The API supports two authentication methods: **JWT Tokens** and **API Keys**.
+
+## JWT Authentication
+
+### Register
+
+Create a new user account:
+
+```bash
+POST /api/v1/auth/register
+```
+
+**Request:**
+
+```json
+{
+  "email": "user@example.com",
+  "password": "password123",
+  "name": "John Doe"
+}
+```
+
+**Response:**
+
+```json
+{
+  "id": "uuid",
+  "email": "user@example.com",
+  "name": "John Doe",
+  "roles": ["user"],
+  "isActive": true,
+  "createdAt": "2024-01-01T00:00:00.000Z"
+}
+```
+
+### Login
+
+Get a JWT token:
+
+```bash
+POST /api/v1/auth/login
+```
+
+**Request:**
+
+```json
+{
+  "email": "user@example.com",
+  "password": "password123"
+}
+```
+
+**Response:**
+
+```json
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+```
+
+### Using JWT Token
+
+Include the token in the `Authorization` header:
+
+```bash
+Authorization: Bearer <token>
+```
+
+**Example:**
+
+```bash
+curl http://localhost:3000/api/v1/account/summary?address=0x... \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+```
+
+## API Key Authentication
+
+### Create API Key
+
+Create an API key (requires JWT authentication):
+
+```bash
+POST /api/v1/auth/api-keys
+Authorization: Bearer <jwt-token>
+```
+
+**Request:**
+
+```json
+{
+  "name": "My API Key",
+  "description": "API key for production",
+  "scopes": ["read", "write"],
+  "expiresAt": "2025-12-31T23:59:59.000Z"
+}
+```
+
+**Response:**
+
+```json
+{
+  "id": "uuid",
+  "key": "nk_abc123...",
+  "name": "My API Key",
+  "scopes": ["read", "write"],
+  "isActive": true,
+  "createdAt": "2024-01-01T00:00:00.000Z"
+}
+```
+
+### Using API Key
+
+Include the API key in the `X-API-Key` header:
+
+```bash
+X-API-Key: nk_abc123...
+```
+
+**Example:**
+
+```bash
+curl http://localhost:3000/api/v1/account/balance?address=0x... \
+  -H "X-API-Key: nk_abc123..."
+```
+
+## Public Endpoints
+
+Some endpoints don't require authentication:
+
+- `GET /health` - Health check
+- `GET /api/v1/account/balance` - Get balance
+- `GET /api/v1/account/txlist` - Get transactions
+
+## Rate Limits
+
+- **Unauthenticated**: 100 requests/minute
+- **JWT Authenticated**: 1000 requests/minute
+- **API Key**: Based on key tier
+
+## Token Expiration
+
+- **JWT Tokens**: 24 hours (configurable)
+- **API Keys**: Custom expiration (optional)
+
+## Revoking Access
+
+### Revoke API Key
+
+```bash
+DELETE /api/v1/auth/api-keys/:id
+Authorization: Bearer <jwt-token>
+```
+
+### List API Keys
+
+```bash
+GET /api/v1/auth/api-keys
+Authorization: Bearer <jwt-token>
+```
+
+## Security Best Practices
+
+1. **Never commit tokens** - Use environment variables
+2. **Use HTTPS** - Always use HTTPS in production
+3. **Rotate keys** - Regularly rotate API keys
+4. **Limit scopes** - Use minimal required scopes
+5. **Monitor usage** - Check API usage regularly
+

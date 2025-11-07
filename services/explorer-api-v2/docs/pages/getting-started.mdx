@@ -1,0 +1,127 @@
+# Getting Started
+
+This guide will help you get started with the Nor Chain Explorer API.
+
+## Prerequisites
+
+- Node.js >= 18.0.0
+- npm >= 8.0.0
+- PostgreSQL >= 14
+- Redis >= 7
+
+## Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/nor-chain/blockchain-v2.git
+cd services/explorer-api-v2
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Environment Setup
+
+Copy the example environment file:
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` with your configuration:
+
+```env
+# Database
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=norchain_explorer
+DB_USER=postgres
+DB_PASSWORD=postgres
+
+# Redis
+REDIS_HOST=localhost
+REDIS_PORT=6379
+
+# JWT
+JWT_SECRET=your-secret-key-change-this
+
+# RPC
+RPC_URL=https://rpc.xaheen.org
+CHAIN_ID=65001
+```
+
+### 4. Database Setup
+
+```bash
+# Run migrations
+npm run migration:run
+```
+
+### 5. Start the Server
+
+```bash
+# Development
+npm run start:dev
+
+# Production
+npm run build
+npm run start:prod
+```
+
+## First Request
+
+Test the API with a simple health check:
+
+```bash
+curl http://localhost:3000/api/v1/health
+```
+
+## Authentication
+
+### Register a User
+
+```bash
+curl -X POST http://localhost:3000/api/v1/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "user@example.com",
+    "password": "password123"
+  }'
+```
+
+### Login
+
+```bash
+curl -X POST http://localhost:3000/api/v1/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "user@example.com",
+    "password": "password123"
+  }'
+```
+
+Response:
+
+```json
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+```
+
+### Use Token
+
+```bash
+curl http://localhost:3000/api/v1/account/balance?address=0x... \
+  -H "Authorization: Bearer <token>"
+```
+
+## Next Steps
+
+- Read the [Authentication](/authentication) guide
+- Explore the [API Reference](/api-reference)
+- Check out [Examples](/examples)
+

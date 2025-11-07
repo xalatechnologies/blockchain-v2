@@ -1,0 +1,95 @@
+# Architecture
+
+## Overview
+
+The Nor Chain Explorer API is built using **NestJS**, a progressive Node.js framework for building efficient and scalable server-side applications.
+
+## Technology Stack
+
+- **Framework**: NestJS (TypeScript)
+- **Database**: PostgreSQL with TypeORM
+- **Cache**: Redis
+- **Authentication**: JWT + API Keys
+- **Validation**: class-validator
+- **Documentation**: Swagger/OpenAPI + Nextra
+
+## Architecture Layers
+
+```
+┌─────────────────────────────────────┐
+│         Controllers                  │  ← HTTP layer
+│    (Request/Response handling)      │
+└──────────────┬──────────────────────┘
+               │
+┌──────────────▼──────────────────────┐
+│          Services                    │  ← Business logic
+│    (Domain logic, orchestration)    │
+└──────────────┬──────────────────────┘
+               │
+┌──────────────▼──────────────────────┐
+│        Repositories                  │  ← Data access
+│    (Database operations, queries)   │
+└──────────────┬──────────────────────┘
+               │
+┌──────────────▼──────────────────────┐
+│         Entities                     │  ← Domain models
+│    (Database schema, TypeORM)       │
+└──────────────────────────────────────┘
+```
+
+## SOLID Principles
+
+### Single Responsibility
+Each class has one reason to change:
+- Controllers handle HTTP
+- Services handle business logic
+- Repositories handle data access
+
+### Open/Closed
+Open for extension, closed for modification:
+- Use interfaces and abstractions
+- Extend base classes
+
+### Liskov Substitution
+Derived classes must be substitutable:
+- BaseRepository can be extended
+- Proper inheritance hierarchy
+
+### Interface Segregation
+Focused interfaces:
+- DTOs for specific use cases
+- Small, focused services
+
+### Dependency Inversion
+Depend on abstractions:
+- Dependency injection via NestJS
+- Services depend on interfaces
+
+## Data Flow
+
+```
+Request → Controller → Service → Repository → Database
+                ↓
+            Cache (Redis)
+                ↓
+            Response
+```
+
+## Security
+
+- JWT authentication
+- API key authentication
+- Rate limiting
+- Input validation
+- SQL injection protection
+- XSS protection
+- CORS configuration
+
+## Performance
+
+- Redis caching
+- Database indexing
+- Connection pooling
+- Query optimization
+- Response compression
+

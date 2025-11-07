@@ -1,0 +1,100 @@
+# Account API
+
+Account-related endpoints for querying address information.
+
+## Get Balance
+
+Get the balance of an Ethereum address.
+
+```bash
+GET /api/v1/account/balance?address={address}
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| address | string | Yes | Ethereum address |
+
+**Example:**
+
+```bash
+curl "http://localhost:3000/api/v1/account/balance?address=0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0"
+```
+
+**Response:**
+
+```json
+{
+  "status": "1",
+  "message": "OK",
+  "result": "1000000000000000000"
+}
+```
+
+## Get Transaction List
+
+Get transaction list for an address.
+
+```bash
+GET /api/v1/account/txlist
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| address | string | Yes | Ethereum address |
+| startblock | number | No | Start block number |
+| endblock | number | No | End block number |
+| page | number | No | Page number (default: 1) |
+| limit | number | No | Items per page (default: 10) |
+
+**Example:**
+
+```bash
+curl "http://localhost:3000/api/v1/account/txlist?address=0x...&page=1&limit=10"
+```
+
+**Response:**
+
+```json
+{
+  "status": "1",
+  "message": "OK",
+  "result": {
+    "data": [...],
+    "meta": {
+      "page": 1,
+      "limit": 10,
+      "total": 100,
+      "totalPages": 10
+    }
+  }
+}
+```
+
+## Get Account Summary
+
+Get comprehensive account summary (requires authentication).
+
+```bash
+GET /api/v1/account/summary?address={address}
+Authorization: Bearer {token}
+```
+
+**Response:**
+
+```json
+{
+  "status": "1",
+  "message": "OK",
+  "result": {
+    "address": "0x...",
+    "balance": "1000000000000000000",
+    "transactionCount": 150,
+    "tokenCount": 5
+  }
+}
+```
+

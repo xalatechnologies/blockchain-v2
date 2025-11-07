@@ -1,0 +1,26 @@
+{
+  "network": "btcbr",
+  "chainId": 65001,
+  "deployedAt": "2025-11-07T13:50:13.567Z",
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "contracts": {
+    "DirhamatPriceOracle": {
+      "address": "0xc6E6599f7AbCB382377B2E0C2DF235771BF99d8A"
+    },
+    "Dirhamat": {
+      "address": "0x66cb1f680b1c9eFBebEe97EB83d7981401B5fDd2",
+      "name": "Dirhamat",
+      "symbol": "DRHM",
+      "totalSupply": "0",
+      "goldPriceAED": "250000000000000000000",
+      "aedPriceUSD": "272000000000000000"
+    }
+  },
+  "features": [
+    "Gold-backed stability",
+    "Shariah compliance",
+    "Multi-source oracle",
+    "Role-based access",
+    "Emergency controls"
+  ]
+}

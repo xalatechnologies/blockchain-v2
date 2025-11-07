@@ -1,0 +1,30 @@
+{
+  "network": "btcbr",
+  "chainId": 65001,
+  "deployedAt": "2025-11-07T13:46:27.832Z",
+  "deployer": "0xdD779a290C937144F80Eb75b75d814c834536B1b",
+  "contracts": {
+    "SimpleNorGovernance": {
+      "address": "0x60dEA00CAd2E866aa33aC4126cBA35fe18ADF4EA",
+      "norToken": "0x69a418D2FDc1e3361072e41Fb85fB259b3cdBbFC",
+      "minProposalStake": "10000000000000000000000000000",
+      "votingPeriod": 604800,
+      "timelockPeriod": 172800,
+      "quorumPercentage": 15
+    }
+  },
+  "governance": {
+    "councilMembers": [
+      "0xdD779a290C937144F80Eb75b75d814c834536B1b"
+    ],
+    "councilSize": 1,
+    "maxCouncilSize": 5
+  },
+  "features": [
+    "Token-based voting",
+    "Multi-layer governance",
+    "Proposal creation",
+    "Timelock execution",
+    "Emergency functions"
+  ]
+}

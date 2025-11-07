@@ -1,0 +1,24 @@
+{
+  "index": "Introduction",
+  "getting-started": "Getting Started",
+  "authentication": "Authentication",
+  "api-reference": {
+    "title": "API Reference",
+    "type": "page",
+    "children": {
+      "account": "Account",
+      "transaction": "Transaction",
+      "block": "Block",
+      "token": "Token",
+      "contract": "Contract",
+      "stats": "Statistics",
+      "ledger": "Ledger",
+      "health": "Health"
+    }
+  },
+  "realtime": "Real-Time Features",
+  "architecture": "Architecture",
+  "examples": "Examples",
+  "changelog": "Changelog"
+}
+

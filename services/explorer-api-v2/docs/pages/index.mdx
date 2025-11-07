@@ -1,0 +1,75 @@
+# Nor Chain Explorer API
+
+Welcome to the **Nor Chain Explorer API** documentation. This is a production-ready REST API built with NestJS, TypeScript, and enterprise patterns.
+
+## Features
+
+- ✅ **Type-Safe** - Full TypeScript with strict mode
+- ✅ **SOLID Principles** - Clean architecture
+- ✅ **JWT Authentication** - Secure token-based auth
+- ✅ **API Key Support** - Alternative authentication
+- ✅ **Redis Caching** - High-performance caching
+- ✅ **Rate Limiting** - Built-in throttling
+- ✅ **Swagger Docs** - Auto-generated API docs
+- ✅ **Health Checks** - Kubernetes-ready probes
+
+## Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Setup environment
+cp .env.example .env
+
+# Start development server
+npm run start:dev
+
+# Access Swagger docs
+open http://localhost:3000/api-docs
+```
+
+## Base URL
+
+```
+Production: https://api.norchain.org/api/v1
+Development: http://localhost:3000/api/v1
+```
+
+## Authentication
+
+The API supports two authentication methods:
+
+1. **JWT Tokens** - For user authentication
+2. **API Keys** - For programmatic access
+
+See the [Authentication](/authentication) section for details.
+
+## Response Format
+
+All responses follow the Etherscan-compatible format:
+
+```json
+{
+  "status": "1",
+  "message": "OK",
+  "result": { ... }
+}
+```
+
+## Rate Limits
+
+- **Default**: 100 requests per minute
+- **Authenticated**: 1000 requests per minute
+- **Premium**: Custom limits
+
+## Support
+
+- 📚 [Documentation](https://docs.norchain.org/api)
+- 💬 [Discord](https://discord.gg/norchain)
+- 📧 [Email](mailto:support@norchain.org)
+
+---
+
+**Ready to build?** Check out the [Getting Started](/getting-started) guide!
+

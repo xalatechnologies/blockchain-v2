@@ -1,0 +1,133 @@
+# Examples
+
+## JavaScript/TypeScript
+
+### Using Fetch API
+
+```typescript
+// Get balance
+const response = await fetch(
+  'http://localhost:3000/api/v1/account/balance?address=0x...'
+);
+const data = await response.json();
+console.log(data.result); // Balance in wei
+```
+
+### Using Axios
+
+```typescript
+import axios from 'axios';
+
+// Get balance
+const { data } = await axios.get(
+  'http://localhost:3000/api/v1/account/balance',
+  {
+    params: { address: '0x...' }
+  }
+);
+console.log(data.result);
+```
+
+### With Authentication
+
+```typescript
+// Login
+const { data: loginData } = await axios.post(
+  'http://localhost:3000/api/v1/auth/login',
+  {
+    email: 'user@example.com',
+    password: 'password123'
+  }
+);
+
+const token = loginData.access_token;
+
+// Use token
+const { data } = await axios.get(
+  'http://localhost:3000/api/v1/account/summary',
+  {
+    params: { address: '0x...' },
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }
+);
+```
+
+## Python
+
+### Using requests
+
+```python
+import requests
+
+# Get balance
+response = requests.get(
+    'http://localhost:3000/api/v1/account/balance',
+    params={'address': '0x...'}
+)
+data = response.json()
+print(data['result'])
+```
+
+### With Authentication
+
+```python
+# Login
+login_response = requests.post(
+    'http://localhost:3000/api/v1/auth/login',
+    json={
+        'email': 'user@example.com',
+        'password': 'password123'
+    }
+)
+token = login_response.json()['access_token']
+
+# Use token
+headers = {'Authorization': f'Bearer {token}'}
+response = requests.get(
+    'http://localhost:3000/api/v1/account/summary',
+    params={'address': '0x...'},
+    headers=headers
+)
+```
+
+## cURL
+
+### Get Balance
+
+```bash
+curl "http://localhost:3000/api/v1/account/balance?address=0x..."
+```
+
+### With Authentication
+
+```bash
+# Login
+TOKEN=$(curl -X POST http://localhost:3000/api/v1/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"user@example.com","password":"password123"}' \
+  | jq -r '.access_token')
+
+# Use token
+curl "http://localhost:3000/api/v1/account/summary?address=0x..." \
+  -H "Authorization: Bearer $TOKEN"
+```
+
+## Error Handling
+
+```typescript
+try {
+  const response = await fetch('http://localhost:3000/api/v1/account/balance?address=0x...');
+  const data = await response.json();
+  
+  if (data.status === '0') {
+    console.error('Error:', data.message);
+  } else {
+    console.log('Balance:', data.result);
+  }
+} catch (error) {
+  console.error('Request failed:', error);
+}
+```
+

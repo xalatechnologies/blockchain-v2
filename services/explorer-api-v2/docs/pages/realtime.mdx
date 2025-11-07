@@ -1,0 +1,197 @@
+# Real-Time Features
+
+The API supports real-time notifications via WebSockets and Supabase.
+
+## WebSocket Connection
+
+Connect to the WebSocket server:
+
+```typescript
+import { io } from 'socket.io-client';
+
+const socket = io('http://localhost:3000/ws', {
+  auth: {
+    token: 'your-jwt-token' // Optional
+  }
+});
+
+socket.on('connected', (data) => {
+  console.log('Connected:', data);
+});
+```
+
+## Subscriptions
+
+### Subscribe to Blocks
+
+Get notified of new blocks:
+
+```typescript
+socket.emit('subscribe', { type: 'blocks' });
+
+socket.on('block', (blockData) => {
+  console.log('New block:', blockData);
+});
+```
+
+### Subscribe to Transactions
+
+Get notified of transactions for a specific address:
+
+```typescript
+socket.emit('subscribe', {
+  type: 'transactions',
+  address: '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0'
+});
+
+socket.on('transaction', (txData) => {
+  console.log('New transaction:', txData);
+});
+```
+
+### Subscribe to Token Transfers
+
+Get notified of token transfers for an address:
+
+```typescript
+socket.emit('subscribe', {
+  type: 'token-transfers',
+  address: '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0'
+});
+
+socket.on('token-transfer', (transferData) => {
+  console.log('Token transfer:', transferData);
+});
+```
+
+### Subscribe to Token Updates
+
+Get notified of updates for a specific token:
+
+```typescript
+socket.emit('subscribe', {
+  type: 'token',
+  tokenAddress: '0x26c0eaF731885b14c031cc50dB79b36458E0b355'
+});
+
+socket.on('token-update', (tokenData) => {
+  console.log('Token update:', tokenData);
+});
+```
+
+## Unsubscribe
+
+```typescript
+socket.emit('unsubscribe', {
+  type: 'blocks'
+});
+```
+
+## Notifications
+
+### Get Notifications
+
+```typescript
+// REST API
+const notifications = await fetch('/api/v1/notifications', {
+  headers: {
+    'Authorization': `Bearer ${token}`
+  }
+});
+```
+
+### Real-Time Notifications
+
+Notifications are automatically pushed via WebSocket:
+
+```typescript
+socket.on('notification', (notification) => {
+  console.log('New notification:', notification);
+});
+```
+
+## Supabase Integration
+
+Supabase provides real-time database subscriptions out of the box.
+
+### Benefits
+
+- ✅ **Automatic real-time** - Database changes trigger WebSocket events
+- ✅ **Built-in subscriptions** - No need to manually poll
+- ✅ **Scalable** - Handles thousands of concurrent connections
+- ✅ **PostgreSQL compatible** - Works with existing TypeORM setup
+
+### Configuration
+
+```env
+USE_SUPABASE=true
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_DB_URL=postgresql://user:pass@host:5432/db
+```
+
+### How It Works
+
+1. **Indexer** writes new blocks/transactions to Supabase
+2. **Supabase** triggers real-time events
+3. **SupabaseService** receives events
+4. **WebSocketGateway** broadcasts to connected clients
+
+## Example: Real-Time Balance Updates
+
+```typescript
+// Subscribe to transactions for an address
+socket.emit('subscribe', {
+  type: 'transactions',
+  address: '0x...'
+});
+
+socket.on('transaction', async (tx) => {
+  // Fetch updated balance
+  const balance = await fetch(`/api/v1/account/balance?address=0x...`);
+  console.log('Updated balance:', balance);
+});
+```
+
+## Connection Management
+
+### Authentication
+
+```typescript
+const socket = io('http://localhost:3000/ws', {
+  auth: {
+    token: 'your-jwt-token'
+  }
+});
+```
+
+### Reconnection
+
+Socket.io automatically handles reconnection:
+
+```typescript
+socket.on('connect', () => {
+  console.log('Connected');
+  // Re-subscribe to channels
+  socket.emit('subscribe', { type: 'blocks' });
+});
+
+socket.on('disconnect', () => {
+  console.log('Disconnected');
+});
+```
+
+## Rate Limits
+
+WebSocket connections are subject to rate limiting:
+- **100 messages per minute** per connection
+- **10 subscriptions** per connection
+
+## Best Practices
+
+1. **Re-subscribe on reconnect** - Subscriptions are lost on disconnect
+2. **Use authentication** - For user-specific subscriptions
+3. **Handle errors** - Listen for error events
+4. **Clean up** - Unsubscribe when done
+5. **Use rooms** - For efficient message delivery
+
