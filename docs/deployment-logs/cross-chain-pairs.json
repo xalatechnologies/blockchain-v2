@@ -1,0 +1,33 @@
+{
+  "network": "NorChain",
+  "chainId": 65001,
+  "createdAt": "2025-11-07T08:04:51.604Z",
+  "factory": "0x1FD987bE228Af52e58c8c0b64d97E4D30755ffa9",
+  "router": "0x22344B3995cB5f9882fcf1775C2e072A96CA8588",
+  "pairs": [
+    {
+      "name": "NOR/WUSDT",
+      "address": "0x635f3A136183BfEb3e8e008BBF88Ab4d875DedC5",
+      "token0": "0xbe0d0ec34A93a2Ec08492715a51C613B7E530D80",
+      "token1": "0x7Ad030f7549F02B7258F1c54E6B909b1d5F49d82"
+    },
+    {
+      "name": "NOR/WBNB",
+      "address": "0xD7A1bc51AffA463c3928e2c922F4D530C0dF76da",
+      "token0": "0xbe0d0ec34A93a2Ec08492715a51C613B7E530D80",
+      "token1": "0x1a49C061d9131c90e9141D8D9754Bf4c8Bd2c82A"
+    },
+    {
+      "name": "NOR/WETH",
+      "address": "0x80FDF080e578f6E29706DDb2956b701a886e187A",
+      "token0": "0xbe0d0ec34A93a2Ec08492715a51C613B7E530D80",
+      "token1": "0xEd511294b4Fa418458B2abD577F26104cdB3D4af"
+    },
+    {
+      "name": "BTCBR/WUSDT",
+      "address": "0xB524729F699e6Af878d3540E93968ea9A01C7aC2",
+      "token0": "0x0cF8e180350253271f4b917CcFb0aCCc4862F262",
+      "token1": "0x7Ad030f7549F02B7258F1c54E6B909b1d5F49d82"
+    }
+  ]
+}

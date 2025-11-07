@@ -1,8 +1,8 @@
 # Nor Chain Quick Reference Guide
 
-**Last Updated**: 2025-11-03 11:55 UTC
-**Chain Status**: ✅ Active (Block 28+) with BTCBR Contract
-**Genesis**: genesis-nor-ultimate.json (hash: 589252..3d11c9)
+**Last Updated**: 2025-11-07
+**Chain Status**: ✅ Active with Cross-Chain Bridge System
+**Genesis**: genesis-final-btcbr-90m.json (epoch: 90M blocks)
 
 ---
 
@@ -34,12 +34,12 @@ ssh -i ~/.ssh/bsc-validator-key.pem ec2-user@3.91.50.187 \
 |-----------|-------|
 | **Chain ID** | 65001 |
 | **Network ID** | 65001 |
-| **Native Token** | NOR (NOT NOR) |
+| **Native Token** | NOR |
 | **RPC URL** | https://rpc.xaheen.org (migrate to norchain.org) |
 | **RPC Port** | 8545 |
 | **WebSocket Port** | 8546 |
 | **Block Time** | ~3 seconds |
-| **Epoch** | 10,000 blocks (~8.3 hours) |
+| **Epoch** | 90,000,000 blocks (~15 years) |
 | **Consensus** | Parlia PoSA |
 
 ---
@@ -151,6 +151,84 @@ https://pancakeswap.finance/info/v2/tokens/0x7c9b26ad3b26caab39f9945b40b2c30309e
 - High slippage for trades
 - Price volatility with small trades
 - May need $100-500 liquidity for smooth trading
+
+---
+
+## 🌉 Cross-Chain Bridge System (BSC ↔ NorChain)
+
+**Status**: ✅ **Infrastructure Deployed** - Ready for token bridging
+
+### Wrapped Token Contracts (NorChain)
+
+| Token | Address | Purpose |
+|-------|---------|---------|
+| **WUSDT** | `0x7Ad030f7549F02B7258F1c54E6B909b1d5F49d82` | Bridged USDT from BSC |
+| **WBNB** | `0x1a49C061d9131c90e9141D8D9754Bf4c8Bd2c82A` | Bridged BNB from BSC |
+| **WETH** | `0xEd511294b4Fa418458B2abD577F26104cdB3D4af` | Bridged ETH from BSC |
+
+### Bridge Contracts (NorChain)
+
+| Bridge | Address | Validators |
+|--------|---------|------------|
+| **USDT Bridge** | `0xb9B2139a1682c07411E2e13333132C68671664Ff` | 2-of-3 multisig |
+| **BNB Bridge** | `0x70252c548B5D7220e9cdc867b188594208FD0bE7` | 2-of-3 multisig |
+| **ETH Bridge** | `0x64d3fd069d0b151B847284c2bDA4B3f3cDB4664e` | 2-of-3 multisig |
+
+### DEX Contracts (NorChain)
+
+| Contract | Address |
+|----------|---------|
+| **WNOR** | `0x793c849f6207E9a7B1C8Bdf99D0743400f6bB658` |
+| **Factory** | `0x1FD987bE228Af52e58c8c0b64d97E4D30755ffa9` |
+| **Router** | `0x22344B3995cB5f9882fcf1775C2e072A96CA8588` |
+
+### Cross-Chain Trading Pairs
+
+**All pairs created and ready for liquidity:**
+
+| Pair | Address | Status |
+|------|---------|--------|
+| **NOR/WUSDT** | `0x635f3A136183BfEb3e8e008BBF88Ab4d875DedC5` | ⏳ Awaiting liquidity |
+| **NOR/WBNB** | `0xD7A1bc51AffA463c3928e2c922F4D530C0dF76da` | ⏳ Awaiting liquidity |
+| **NOR/WETH** | `0x80FDF080e578f6E29706DDb2956b701a886e187A` | ⏳ Awaiting liquidity |
+| **BTCBR/WUSDT** | `0xB524729F699e6Af878d3540E93968ea9A01C7aC2` | ⏳ Awaiting liquidity |
+
+### Bridge Validators
+
+Three validators provide 2-of-3 multisig security:
+
+1. `0x2844Ae34e062BAA32c46702EaAEe70E3B3E4Ae50`
+2. `0x109E44D07f2dA6eDbB989fc735d790F3D5668f33`
+3. `0x89DCadbA1C8128b653C63EA3519Cc158ADc67b4f`
+
+### Bridging Workflow
+
+**To bridge tokens from BSC to NorChain:**
+
+1. **Deploy BSC-side bridges** (TODO: Required before bridging)
+2. **Lock tokens on BSC** (USDT/BNB/ETH)
+3. **Get 2 validator signatures**
+4. **Mint wrapped tokens on NorChain**
+5. **Add liquidity to DEX pairs**
+
+### Quick Commands
+
+```bash
+# Create cross-chain pairs (DONE)
+node scripts/create-cross-chain-dex-pairs.js
+
+# Add liquidity (requires bridged tokens)
+node scripts/add-cross-chain-liquidity.js
+
+# Full bridge guide
+cat docs/CROSS_CHAIN_BRIDGE_GUIDE.md
+```
+
+### Documentation
+
+- **Bridge Guide**: `docs/CROSS_CHAIN_BRIDGE_GUIDE.md`
+- **Pair Deployment**: `docs/deployment-logs/cross-chain-pairs.json`
+- **Bridge System**: `scripts/deploy-complete-bridge-system.js`
 
 ---
 

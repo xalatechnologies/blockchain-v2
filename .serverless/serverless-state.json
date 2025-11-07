@@ -214,9 +214,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/nor-price-monitor/prod/1762458775213-2025-11-06T19:52:55.213Z/nor-price-monitor.zip"
+                "S3Key": "serverless/nor-price-monitor/prod/1762460547681-2025-11-06T20:22:27.681Z/nor-price-monitor.zip"
               },
-              "Handler": "scripts/lambda-handler-cjs.handler",
+              "Handler": "scripts/lambda-handler.handler",
               "Runtime": "nodejs20.x",
               "FunctionName": "nor-price-monitor-prod-priceMonitor",
               "MemorySize": 256,
@@ -256,9 +256,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/nor-price-monitor/prod/1762458775213-2025-11-06T19:52:55.213Z/nor-price-monitor.zip"
+                "S3Key": "serverless/nor-price-monitor/prod/1762460547681-2025-11-06T20:22:27.681Z/nor-price-monitor.zip"
               },
-              "Handler": "scripts/lambda-handler-cjs.handler",
+              "Handler": "scripts/lambda-handler.handler",
               "Runtime": "nodejs20.x",
               "FunctionName": "nor-price-monitor-prod-manualCheck",
               "MemorySize": 256,
@@ -291,25 +291,25 @@
               "ManualCheckLogGroup"
             ]
           },
-          "PriceMonitorLambdaVersionXb4hAYUCV5VGVLnaXotfBotWcvTpg0wSuKrJUqiI": {
+          "PriceMonitorLambdaVersionwq3ni5LDGFR3O0HDeLUwbrY8S2EzvQajolCXXC7GU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PriceMonitorLambdaFunction"
               },
-              "CodeSha256": "RIAO1HWxGNZyM3WFXAW18xsmWvPLmLhT1rhnHBgmJso=",
+              "CodeSha256": "Pemkoi7CO2Jp7WqDDW1ksuL694WsoLzJjWyDr86duUY=",
               "Description": "Monitors NOR token prices on BSC and NorChain"
             }
           },
-          "ManualCheckLambdaVersionjVMk1M5B8gC9X7BhSiO9E3i1KBY1eWRa8CdUbxf4k": {
+          "ManualCheckLambdaVersionX7moPf6y5d5ZonjmAX41vErR8zcsFuEDzUMJMShCA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ManualCheckLambdaFunction"
               },
-              "CodeSha256": "RIAO1HWxGNZyM3WFXAW18xsmWvPLmLhT1rhnHBgmJso=",
+              "CodeSha256": "Pemkoi7CO2Jp7WqDDW1ksuL694WsoLzJjWyDr86duUY=",
               "Description": "Manual price check trigger"
             }
           },
@@ -424,7 +424,7 @@
               "ManualCheckLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1762458769486": {
+          "ApiGatewayDeployment1762460542000": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -486,7 +486,7 @@
           "PriceMonitorLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PriceMonitorLambdaVersionXb4hAYUCV5VGVLnaXotfBotWcvTpg0wSuKrJUqiI"
+              "Ref": "PriceMonitorLambdaVersionwq3ni5LDGFR3O0HDeLUwbrY8S2EzvQajolCXXC7GU"
             },
             "Export": {
               "Name": "sls-nor-price-monitor-prod-PriceMonitorLambdaFunctionQualifiedArn"
@@ -495,7 +495,7 @@
           "ManualCheckLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ManualCheckLambdaVersionjVMk1M5B8gC9X7BhSiO9E3i1KBY1eWRa8CdUbxf4k"
+              "Ref": "ManualCheckLambdaVersionX7moPf6y5d5ZonjmAX41vErR8zcsFuEDzUMJMShCA"
             },
             "Export": {
               "Name": "sls-nor-price-monitor-prod-ManualCheckLambdaFunctionQualifiedArn"
@@ -625,7 +625,7 @@
     "pluginsData": {},
     "functions": {
       "priceMonitor": {
-        "handler": "scripts/lambda-handler-cjs.handler",
+        "handler": "scripts/lambda-handler.handler",
         "description": "Monitors NOR token prices on BSC and NorChain",
         "events": [
           {
@@ -644,10 +644,10 @@
         "timeout": 60,
         "runtime": "nodejs20.x",
         "vpc": {},
-        "versionLogicalId": "PriceMonitorLambdaVersionXb4hAYUCV5VGVLnaXotfBotWcvTpg0wSuKrJUqiI"
+        "versionLogicalId": "PriceMonitorLambdaVersionwq3ni5LDGFR3O0HDeLUwbrY8S2EzvQajolCXXC7GU"
       },
       "manualCheck": {
-        "handler": "scripts/lambda-handler-cjs.handler",
+        "handler": "scripts/lambda-handler.handler",
         "description": "Manual price check trigger",
         "events": [
           {
@@ -664,7 +664,7 @@
         "timeout": 60,
         "runtime": "nodejs20.x",
         "vpc": {},
-        "versionLogicalId": "ManualCheckLambdaVersionjVMk1M5B8gC9X7BhSiO9E3i1KBY1eWRa8CdUbxf4k"
+        "versionLogicalId": "ManualCheckLambdaVersionX7moPf6y5d5ZonjmAX41vErR8zcsFuEDzUMJMShCA"
       }
     },
     "configValidationMode": "warn",
@@ -685,23 +685,19 @@
       },
       "package": {
         "individually": false,
+        "excludeDevDependencies": true,
         "patterns": [
-          "!.git/**",
-          "!.github/**",
-          "!test/**",
-          "!docs/**",
-          "!contracts/**",
-          "!artifacts/**",
-          "!cache/**",
-          "!hardhat.config.js",
+          "!**",
+          "scripts/lambda-handler.cjs",
           "package.json",
-          "package-lock.json",
           "node_modules/**",
-          "scripts/lambda-handler-cjs.js"
+          "!node_modules/**/test/**",
+          "!node_modules/**/tests/**",
+          "!node_modules/**/.bin/**"
         ],
         "artifactsS3KeyDirname": "serverless/nor-price-monitor/prod/code-artifacts",
         "artifact": "/Volumes/Development/sahalat/blockchain-v2/.serverless/nor-price-monitor.zip",
-        "artifactDirectoryName": "serverless/nor-price-monitor/prod/1762458775213-2025-11-06T19:52:55.213Z"
+        "artifactDirectoryName": "serverless/nor-price-monitor/prod/1762460547681-2025-11-06T20:22:27.681Z"
       }
     },
     "layers": {},
@@ -710,7 +706,7 @@
   },
   "package": {
     "individually": false,
-    "artifactDirectoryName": "serverless/nor-price-monitor/prod/1762458775213-2025-11-06T19:52:55.213Z",
+    "artifactDirectoryName": "serverless/nor-price-monitor/prod/1762460547681-2025-11-06T20:22:27.681Z",
     "artifact": "nor-price-monitor.zip"
   }
 }

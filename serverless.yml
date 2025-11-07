@@ -23,7 +23,7 @@ provider:
 
 functions:
   priceMonitor:
-    handler: scripts/lambda-handler-cjs.handler
+    handler: scripts/lambda-handler.handler
     description: Monitors NOR token prices on BSC and NorChain
     events:
       # Run every hour
@@ -34,7 +34,7 @@ functions:
 
   # On-demand price check
   manualCheck:
-    handler: scripts/lambda-handler-cjs.handler
+    handler: scripts/lambda-handler.handler
     description: Manual price check trigger
     events:
       - http:
@@ -52,16 +52,12 @@ custom:
 # Package configuration
 package:
   individually: false
+  excludeDevDependencies: true
   patterns:
-    - '!.git/**'
-    - '!.github/**'
-    - '!test/**'
-    - '!docs/**'
-    - '!contracts/**'
-    - '!artifacts/**'
-    - '!cache/**'
-    - '!hardhat.config.js'
+    - '!**'
+    - 'scripts/lambda-handler.cjs'
     - 'package.json'
-    - 'package-lock.json'
     - 'node_modules/**'
-    - 'scripts/lambda-handler-cjs.js'
+    - '!node_modules/**/test/**'
+    - '!node_modules/**/tests/**'
+    - '!node_modules/**/.bin/**'

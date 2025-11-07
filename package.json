@@ -45,6 +45,7 @@
   "dependencies": {
     "@openzeppelin/contracts": "^4.9.6",
     "dotenv": "^17.2.3",
+    "ethers": "^6.15.0",
     "solc": "^0.8.20",
     "web3": "^4.16.0"
   },
@@ -58,7 +59,6 @@
     "@typechain/hardhat": "^9.1.0",
     "@types/mocha": "^10.0.10",
     "chai": "^6.2.0",
-    "ethers": "^6.15.0",
     "hardhat": "^2.26.4",
     "hardhat-gas-reporter": "^1.0.10",
     "serverless-dotenv-plugin": "^6.0.0",
@@ -69,6 +69,5 @@
     "ts-node": "^10.9.2",
     "typechain": "^8.3.2",
     "typescript": "^5.9.3"
-  },
-  "type": "module"
+  }
 }
